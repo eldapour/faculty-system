@@ -13,7 +13,6 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "mcamara/laravel-localization": "^1.8",
-        "spatie/laravel-permission": "^5.10",
         "yajra/laravel-datatables": "9.0",
         "yoeunes/toastr": "^2.3"
     },
