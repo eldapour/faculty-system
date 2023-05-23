@@ -14,12 +14,18 @@ return [
     */
 
     'welcome to ' => 'welcome to ',
-    'Login Page' => 'Login Page',
+    'Login Page' => 'Login',
     'Please sign-in to your account and start the adventure' => 'Please sign-in to your account and start the adventure',
     'email' => 'email',
+    'user_type' => 'Login Type',
     'password' => 'password',
-    'Forgot Password?' => 'Forgot Password ؟',
+    'Forgot Password?' => 'Forgot Password ?',
     'sign in' => 'sign in',
     'This field is required' => 'This field is required',
 
+    'student' => 'student',
+    'doctor' => 'doctor',
+    'manger' => 'Faculty Dean',
+    'employee' => 'employee',
+    'factor' => 'factor',
 ];

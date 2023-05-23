@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\Admin\DeadlineController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,8 +21,6 @@ use App\Http\Controllers\Admin\AuthController;
 // admin routes
 require __DIR__ . '/admin.php';
 
-//Auth::routes();
-
 // start web routes
 Route::get('/', function (){
     return view('welcome');
@@ -32,9 +31,18 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
-
-
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/admin/', function () {
+        return view('admin.layouts.master');
+    });
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
 
     //Auth controller
 //    Route::group([
@@ -44,6 +52,7 @@ Route::group([
     Route::get('users/{type}',[AuthController::class,'index'])->name('users.all');
     Route::post('users.delete',[AuthController::class,'delete'])->name('users.delete');
 //    });
+
 
 });
 

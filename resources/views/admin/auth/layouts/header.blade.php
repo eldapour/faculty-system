@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="loading" lang="ar" data-textdirection="rtl">
+<html class="loading" lang="en" data-textdirection="rtl">
 <!-- BEGIN: Head-->
 
 <head>
@@ -19,7 +19,7 @@
 
 
 
-    @if (lang() == 'ar')
+    @if (lang() == 'en' || lang() == 'fr')
         <!-- BEGIN: Theme CSS-->
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css/pages/page-auth.css">
