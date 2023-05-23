@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
+use App\Http\Controllers\Admin\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +20,12 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // admin routes
 require __DIR__ . '/admin.php';
 
+<<<<<<< HEAD
+//Auth::routes();
+
+=======
 // start web routes
+>>>>>>> 52c386748b67364861db3aa60fe329b8e7aee2aa
 Route::get('/', function (){
     return view('welcome');
 });
@@ -33,5 +38,16 @@ Route::group([
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
+    //Auth controller
+//    Route::group([
+//        'middleware' => ['check:student','auth']
+//    ], function () {
+    Route::resource('users',AuthController::class)->except(['show']);
+    Route::post('users.delete',[AuthController::class,'delete'])->name('users.delete');
+//    });
+
+
 });
 
+//$Grade->getTranslation('Name', 'en')

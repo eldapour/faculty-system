@@ -14,8 +14,11 @@
             <h3>Dashboard</h3>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('home') }}">
+            <a class="side-menu__item" href="{{ route('users.index') }}">
                 <i class="icon icon-home side-menu__icon"></i>
+<<<<<<< HEAD:resources/views/dashboard/layouts/main-sidebar.blade.php
+                <span class="side-menu__label">users</span>
+=======
                 <span class="side-menu__label">Home</span>
             </a>
         </li>
@@ -23,8 +26,15 @@
             <a class="side-menu__item" href="{{ route('categories.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">Admin</span>
+>>>>>>> 52c386748b67364861db3aa60fe329b8e7aee2aa:resources/views/admin/layouts/main-sidebar.blade.php
             </a>
         </li>
+{{--        <li class="slide">--}}
+{{--            <a class="side-menu__item" href="{{ route('index') }}">--}}
+{{--                <i class="icon icon-user side-menu__icon"></i>--}}
+{{--                <span class="side-menu__label">Admin</span>--}}
+{{--            </a>--}}
+{{--        </li>--}}
         {{--  @can('roles_and_permission')  --}}
             {{--  <li class="slide">
                 <a class="side-menu__item" href="{{ route('roles.index') }}">
