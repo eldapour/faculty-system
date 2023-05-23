@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DeadlineController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +29,19 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
-
-
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/admin/', function () {
+        return view('dashboard.layouts.master');
+    });
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
+
 
 });
 

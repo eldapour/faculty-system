@@ -20,18 +20,22 @@
             </a>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('index') }}">
+            <a class="side-menu__item" href="">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">Admin</span>
             </a>
         </li>
-        {{--  @can('roles_and_permission')  --}}
-            {{--  <li class="slide">
-                <a class="side-menu__item" href="{{ route('roles.index') }}">
-                    <i class="fe fe-git-commit side-menu__icon"></i>
-                    <span class="side-menu__label">الادوار والصلاحيات</span>
-                </a>
-            </li>  --}}
-        {{--  @endcan  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('deadlines.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.deadlines')}}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('settings.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.settings') }}</span>
+            </a>
+        </li>
     </ul>
 </aside>

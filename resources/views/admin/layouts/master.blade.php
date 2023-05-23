@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    @include('dashboard.layouts.head')
+    @include('admin.layouts.head')
 
     <style>
 
@@ -13,22 +13,22 @@
 <body class="app sidebar-mini">
 
 <!-- Start Switcher -->
-@include('dashboard.layouts.switcher')
+@include('admin.layouts.switcher')
 <!-- End Switcher -->
 
 <!-- GLOBAL-LOADER -->
-@include('dashboard.layouts.loader')
+@include('admin.layouts.loader')
 <!-- /GLOBAL-LOADER -->
 
 <!-- PAGE -->
 <div class="page">
     <div class="page-main">
         <!--APP-SIDEBAR-->
-        @include('dashboard.layouts.main-sidebar')
+        @include('admin.layouts.main-sidebar')
         <!--/APP-SIDEBAR-->
 
         <!-- Header -->
-        @include('dashboard.layouts.main-header')
+        @include('admin.layouts.main-header')
         <!-- Header -->
         <!--Content-area open-->
         <div class="app-content">
@@ -54,13 +54,13 @@
     <!-- SIDE-BAR -->
 
     <!-- FOOTER -->
-    @include('dashboard.layouts.footer')
+    @include('admin.layouts.footer')
     <!-- FOOTER END -->
 </div>
 <!-- BACK-TO-TOP -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up mt-4"></i></a>
 
-@include('dashboard.layouts.scripts')
+@include('admin.layouts.scripts')
 @yield('ajaxCalls')
 
 </body>
