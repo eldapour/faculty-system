@@ -1,14 +1,13 @@
 <?php
 
-
-use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -17,21 +16,15 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-// admin routes
-require __DIR__ . '/admin.php';
-
-// start web routes
-Route::get('/', function (){
-    return view('welcome');
-});
-
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
+    Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+        Route::get('/', function(){
+            return view('dashboard.auth.login');
+        });
+    });
 });
-
