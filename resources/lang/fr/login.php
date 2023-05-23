@@ -14,11 +14,19 @@ return [
     */
 
     'welcome to ' => 'Bienvenue à',
-    'Login Page' => 'Page de connexion',
+    'Login Page' => ' de connexion',
     'Please sign-in to your account and start the adventure' => 'Veuillez vous connecter à votre compte et commencer l\'aventure',
     'email' => 'e-mail',
     'password' => 'mot de passe',
     'Forgot Password?' => 'Mot de passe oublié?',
+    'user_type' => 'Type de connexion',
     'sign in' => 's\'identifier',
     'This field is required' => 'Ce champ est obligatoire',
+
+
+    'student' => 'étudiant',
+    'doctor' => 'médecin',
+    'manger' => 'Doyen du Collège',
+    'employee' => 'employé',
+    'factor' => 'facteur',
 ];

@@ -43,6 +43,7 @@ class User extends Authenticatable
         'job_id',
         'email',
         'password',
+        'user_type'
     ];
 
     /**
