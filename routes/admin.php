@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -23,4 +27,10 @@ Route::group([
     Route::get('/login',[LoginController::class,'index'])->name('admin.login');
     Route::post('/do-login',[LoginController::class,'login'])->name('login');
 
+        ###################### Category #############################
+        Route::resource('categories',CategoryController::class);
+        Route::get('/', function(){
+            return view('admin.auth.login');
+        });
+        Route::get('logout', [AuthController::class,'logout'])->name('logout');
 });
