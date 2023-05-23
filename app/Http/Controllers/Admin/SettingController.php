@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-<<<<<<< HEAD:app/Http/Controllers/SettingController.php
 use App\Models\Setting;
 use App\Http\Requests\StoreSetting;
-use Yajra\DataTables\DataTables;
-=======
 use App\Http\Controllers\Controller;
->>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518:app/Http/Controllers/Admin/SettingController.php
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
