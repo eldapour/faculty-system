@@ -33,14 +33,7 @@ class AuthController extends Controller
 
                     return $user->created_at->diffForHumans();
 
-                })
-
-                ->editColumn('city', function ($user) {
-
-                    return $user->getTranslation('city','ar');
-
-                })
-                ->editColumn('image', function ($user) {
+                })->editColumn('image', function ($user) {
 
                     if($user->image != null){
                         return '
@@ -80,7 +73,7 @@ class AuthController extends Controller
 
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
 
-            }
+            }//
 
         }else{
 
