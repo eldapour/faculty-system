@@ -59,6 +59,8 @@
 <!-- Switcher JS -->
 <script src="{{asset('assets/admin')}}/switcher/js/switcher.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
+
 {{--<script>--}}
 {{--    $(document).ready(function () {--}}
 {{--        $('.dropify').dropify();--}}

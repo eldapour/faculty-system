@@ -43,7 +43,8 @@
 <!-- COLOR SKIN CSS -->
 <link id="theme" rel="stylesheet" type="text/css" media="all"
     href="{{ asset('assets/admin/colors/color1.css') }}" />
-
+{{--start toastr--}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
 
 
 <!-- TOASTR CSS -->
@@ -57,4 +58,5 @@
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/solid.js"></script>
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/fontawesome.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet" />
+{{--satrt toastr--}}
 @yield('css')
