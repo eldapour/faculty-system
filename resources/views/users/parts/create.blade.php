@@ -40,26 +40,25 @@
         </div>
 
 
-        <div class="form-group">
-            <label for="email" class="form-control-label">الرقم الوظيفي</label>
-            <input type="number" class="form-control" name="job_id" id="job_id">
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <label for="email" class="form-control-label">الرقم الوظيفي</label>--}}
+{{--            <input type="number" class="form-control" name="job_id" id="job_id">--}}
+{{--        </div>--}}
 
 
 
 
 
-        <div class="form-group">
-            <label class="form-label">نوع المستخدم</label>
-            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
-                @foreach($types as $type)
-                    <option value="{{$type}}">{{$type}}</option>
-                @endforeach
-            </select>
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <label class="form-label">نوع المستخدم</label>--}}
+{{--            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">--}}
+{{--                @foreach($types as $type)--}}
+{{--                    <option value="{{$type}}">{{$type}}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
 
 
-        <div class="student-complete-form">
 
 
         <div class="form-group">
@@ -340,7 +339,6 @@
             <input type="number" class="form-control" name="year" id="year">
         </div>
 
-        </div>
 
 
         {{--end create model--}}
@@ -362,16 +360,16 @@
 <script src="{{asset('assets/admin')}}/js/select2.js"></script>
 <script src="{{asset('assets/admin')}}/plugins/select2/select2.full.min.js"></script>
 
-<script>
-    $(function() {
-        $('.student-complete-form').show();
-        $('#type').change(function(){
-            if($('#type').val() == 'student') {
-                $('.student-complete-form').show();
-            } else {
-                $('.student-complete-form').hide();
-            }
-        });
-    });
-</script>
+{{--<script>--}}
+{{--    $(function() {--}}
+{{--        $('.student-complete-form').show();--}}
+{{--        $('#type').change(function(){--}}
+{{--            if($('#type').val() == 'student') {--}}
+{{--                $('.student-complete-form').show();--}}
+{{--            } else {--}}
+{{--                $('.student-complete-form').hide();--}}
+{{--            }--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 

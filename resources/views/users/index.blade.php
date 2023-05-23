@@ -121,7 +121,7 @@
 
 
 
-        showData('{{route('users.all',$type)}}', columns);
+        showData('{{route('users.index')}}', columns);
         deleteScript('{{route('users.delete')}}');
 
         // Get Edit View

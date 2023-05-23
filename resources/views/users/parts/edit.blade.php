@@ -44,28 +44,18 @@
         </div>
 
 
-        @if($user->user_type !== 'student')
-
-        <div class="form-group">
-            <label for="email" class="form-control-label">الرقم الوظيفي</label>
-            <input type="number" class="form-control" name="job_id" id="job_id" value="{{$user->job_id}}">
-        </div>
-
-        @endif
 
 
+{{--        <div class="form-group">--}}
+{{--            <label class="form-label">نوع المستخدم</label>--}}
+{{--            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">--}}
+{{--                @foreach($types as $type)--}}
+{{--                    <option value="{{$type}}" {{$user->user_type == $type ? 'selected' : ''}}>{{$type}}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
 
-        <div class="form-group">
-            <label class="form-label">نوع المستخدم</label>
-            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
-                @foreach($types as $type)
-                    <option value="{{$type}}" {{$user->user_type == $type ? 'selected' : ''}}>{{$type}}</option>
-                @endforeach
-            </select>
-        </div>
 
-
-        @if($user->user_type == 'student')
             <div class="student-complete-form">
 
                 <div class="form-group">
@@ -348,7 +338,6 @@
 
             </div>
 
-        @endif
 
 
         {{--end create model--}}

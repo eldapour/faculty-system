@@ -48,8 +48,7 @@ Route::group([
 //    Route::group([
 //        'middleware' => ['check:student','auth']
 //    ], function () {
-    Route::resource('users',AuthController::class)->except(['index','show']);
-    Route::get('users/{type}',[AuthController::class,'index'])->name('users.all');
+    Route::resource('users',AuthController::class)->except(['show']);
     Route::post('users.delete',[AuthController::class,'delete'])->name('users.delete');
 //    });
 
