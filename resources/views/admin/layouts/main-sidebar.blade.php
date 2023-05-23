@@ -20,7 +20,7 @@
             </a>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('index') }}">
+            <a class="side-menu__item" href="{{ route('categories.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">Admin</span>
             </a>

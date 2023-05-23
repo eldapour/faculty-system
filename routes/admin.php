@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +24,12 @@ Route::group([
 ], function () {
 
     Route::group(['prefix' => 'admin'], function () {
-
+        ###################### Category #############################
+        Route::resource('categories',CategoryController::class);
         Route::get('/', function(){
             return view('admin.auth.login');
         });
+        Route::get('logout', [AuthController::class,'logout'])->name('logout');
+
     });
 });
