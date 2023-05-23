@@ -28,6 +28,7 @@ class User extends Authenticatable
         'last_name',
         'image',
         'points',
+        'personal_email',
         'university_email',
         'identifier_id',
         'national_id',

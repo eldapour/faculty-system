@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
 
     /*
+
     جدول الطلاب وموظفي الشئون وعميد الكليه والموظفين
      */
     public function up()

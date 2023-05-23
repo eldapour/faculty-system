@@ -30,7 +30,6 @@ class UserSeeder extends Seeder
             'address' => "القاهره",
             'user_type' => "student",
             'university_register_year' => "2022",
-            'job_id' => "6298752435",
             'email' => "islam123@gmail.com",
             'password' => Hash::make("123456"),
 

@@ -27,6 +27,7 @@ Route::get('/', function (){
     return view('welcome');
 });
 
+
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
@@ -35,15 +36,14 @@ Route::group([
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
     //Auth controller
 //    Route::group([
 //        'middleware' => ['check:student','auth']
 //    ], function () {
-    Route::resource('users',AuthController::class)->except(['show']);
+    Route::resource('users',AuthController::class)->except(['index','show']);
+    Route::get('users/{type}',[AuthController::class,'index'])->name('users.all');
     Route::post('users.delete',[AuthController::class,'delete'])->name('users.delete');
 //    });
-
 
 });
 
