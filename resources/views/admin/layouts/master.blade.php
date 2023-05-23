@@ -39,7 +39,7 @@
                     <div>
                         <h1 class="page-title">Welcome Back <i class="fas fa-heart text-danger"></i></h1>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#">admin</a></li>
                             <li class="breadcrumb-item active" aria-current="page">@yield('page_name')</li>
                         </ol>
                     </div>

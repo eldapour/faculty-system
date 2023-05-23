@@ -13,7 +13,6 @@ class CreateUsersTable extends Migration
      */
 
     /*
-
     جدول الطلاب وموظفي الشئون وعميد الكليه والموظفين
      */
     public function up()
@@ -27,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->double('points',12,2)->default(0.00);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('personal_email')->nullable()->unique();
             $table->string('university_email')->nullable()->unique();
             $table->bigInteger('identifier_id')->nullable()->comment('رقم الكارنيه الجامعي')->unique();
             $table->bigInteger('national_id')->nullable()->comment('رقم القومي للبطاقه')->unique();

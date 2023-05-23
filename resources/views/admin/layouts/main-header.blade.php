@@ -150,9 +150,9 @@
                         <a class="dropdown-item" href="http://motaweron.com/contact-us.html/">
                             <i class="dropdown-icon mdi mdi-compass-outline"></i>Need help ?
                         </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}">
-                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out
-                        </a>
+{{--                        <a class="dropdown-item" href="{{ route('logout') }}">--}}
+{{--                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out--}}
+{{--                        </a>--}}
                     </div>
                 </div>
                 <!-- SIDE-MENU -->
