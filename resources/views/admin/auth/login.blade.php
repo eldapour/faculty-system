@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
-<!-- BEGIN: Head-->
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description"
-        content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Login Page - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="{{ asset('app-assets') }}/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets') }}/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
-        rel="stylesheet">
-
-    @if (lang() == 'ar')
-        <!-- BEGIN: Vendor CSS-->
-        <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-        <!-- END: Vendor CSS-->
-        <!-- BEGIN: Theme CSS-->
-        <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/page-auth.css">
-        <!-- END: Page CSS-->
-
-        <!-- BEGIN: Vendor CSS-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/vendors/css/vendors-rtl.min.css">
-        <!-- END: Vendor CSS-->
-    @else
-        <!-- BEGIN: Theme CSS-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/bootstrap-extended.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/colors.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/components.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/themes/dark-layout.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/themes/bordered-layout.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/themes/semi-dark-layout.css">
-
-        <!-- BEGIN: Page CSS-->
-        <link rel="stylesheet" type="text/css"
-            href="{{ asset('app-assets') }}/css-rtl/core/menu/menu-types/vertical-menu.css">
-        <link rel="stylesheet" type="text/css"
-            href="{{ asset('app-assets') }}/css-rtl/plugins/forms/form-validation.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/pages/page-auth.css">
-        <!-- END: Page CSS-->
-
-        <!-- BEGIN: Custom CSS-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/custom-rtl.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css') }}/style-rtl.css">
-        <!-- END: Custom CSS-->
-    @endif
-
-</head>
-<!-- END: Head-->
+@include('admin.auth.layouts.header')
 
 <!-- BEGIN: Body-->
 
@@ -85,8 +29,7 @@
                                         <stop stop-color="#FFFFFF" offset="100%"></stop>
                                     </lineargradient>
                                 </defs>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                    fill-rule="evenodd">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <g id="Artboard" transform="translate(-400.000000, -178.000000)">
                                         <g id="Group" transform="translate(400.000000, 178.000000)">
                                             <path class="text-primary" id="Path"
@@ -101,72 +44,54 @@
                                             <polygon id="Path-21" fill="#000000" opacity="0.099999994"
                                                 points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338">
                                             </polygon>
-                                            <polygon id="Path-3" fill="url(#linearGradient-2)"
-                                                opacity="0.099999994"
+                                            <polygon id="Path-3" fill="url(#linearGradient-2)" opacity="0.099999994"
                                                 points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288">
                                             </polygon>
                                         </g>
                                     </g>
                                 </g>
                             </svg>
-                            <h2 class="brand-text text-primary ml-1">Vuexy</h2>
+                            <h2 class="brand-text text-primary ml-1">@lang('login.Login Page')</h2>
+                            <button data-url="{{ LaravelLocalization::getLocalizedURL('en') }}" class="brand-text ml-1 btn btn-sm btn-primary langBtn">English</button>
+                            <button data-url="{{ LaravelLocalization::getLocalizedURL('ar') }}" class="brand-text ml-1 btn btn-sm btn-primary langBtn">اللغة العربية</button>
+                            <button data-url="{{ LaravelLocalization::getLocalizedURL('fr') }}" class="brand-text ml-1 btn btn-sm btn-primary langBtn">Française</button>
                         </a>
                         <!-- /Brand logo-->
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
                             <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img
-                                    class="img-fluid" src="../../../app-assets/images/pages/login-v2.svg"
+                                    class="img-fluid" src="{{ asset('app-assets')}}/images/pages/login-v2.svg"
                                     alt="Login V2" /></div>
                         </div>
                         <!-- /Left Text-->
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title font-weight-bold mb-1">Welcome to Vuexy! 👋</h2>
-                                <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
-                                <form class="auth-login-form mt-2" action="index.html" method="POST">
+                                <h2 class="card-title font-weight-bold mb-1">@lang('login.welcome to ')</h2>
+                                <p class="card-text mb-2">@lang('login.Please sign-in to your account and start the adventure')</p>
+                                <form class="auth-login-form mt-2" action="" method="POST">
                                     <div class="form-group">
-                                        <label class="form-label" for="login-email">Email</label>
-                                        <input class="form-control" id="login-email" type="text"
-                                            name="login-email" placeholder="john@example.com"
-                                            aria-describedby="login-email" autofocus="" tabindex="1" />
+                                        <label class="form-label" for="email">@lang('login.email')</label>
+                                        <input class="form-control" id="email" type="text" name="email"
+                                            placeholder="john@example.com" aria-describedby="email" autofocus=""
+                                            tabindex="1" />
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-between">
-                                            <label for="login-password">Password</label><a
-                                                href="page-auth-forgot-password-v2.html"><small>Forgot
-                                                    Password?</small></a>
+                                            <label for="login-password">@lang('login.password')</label><a
+                                                href="page-auth-forgot-password-v2.html"><small>@lang('login.Forgot Password?')</small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="login-password"
-                                                type="password" name="login-password" placeholder="············"
-                                                aria-describedby="login-password" tabindex="2" />
+                                            <input class="form-control form-control-merge" id="password"
+                                                type="password" name="password" placeholder="············"
+                                                aria-describedby="password" tabindex="2" />
                                             <div class="input-group-append"><span
                                                     class="input-group-text cursor-pointer"><i
                                                         data-feather="eye"></i></span></div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" id="remember-me" type="checkbox"
-                                                tabindex="3" />
-                                            <label class="custom-control-label" for="remember-me"> Remember Me</label>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary btn-block" tabindex="4">Sign in</button>
+                                    <button class="btn btn-primary btn-block" tabindex="4">@lang('login.sign in')</button>
                                 </form>
-                                <p class="text-center mt-2"><span>New on our platform?</span><a
-                                        href="page-auth-register-v2.html"><span>&nbsp;Create an account</span></a></p>
-                                <div class="divider my-2">
-                                    <div class="divider-text">or</div>
-                                </div>
-                                <div class="auth-footer-btn d-flex justify-content-center"><a class="btn btn-facebook"
-                                        href="javascript:void(0)"><i data-feather="facebook"></i></a><a
-                                        class="btn btn-twitter white" href="javascript:void(0)"><i
-                                            data-feather="twitter"></i></a><a class="btn btn-google"
-                                        href="javascript:void(0)"><i data-feather="mail"></i></a><a
-                                        class="btn btn-github" href="javascript:void(0)"><i
-                                            data-feather="github"></i></a></div>
                             </div>
                         </div>
                         <!-- /Login-->
@@ -177,35 +102,4 @@
     </div>
     <!-- END: Content-->
 
-
-    <!-- BEGIN: Vendor JS-->
-    <script src="{{ asset('app-assets') }}/vendors/js/vendors.min.js"></script>
-    <!-- BEGIN Vendor JS-->
-
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('app-assets') }}/vendors/js/forms/validation/jquery.validate.min.js"></script>
-    <!-- END: Page Vendor JS-->
-
-    <!-- BEGIN: Theme JS-->
-    <script src="{{ asset('app-assets') }}/js/core/app-menu.js"></script>
-    <script src="{{ asset('app-assets') }}/js/core/app.js"></script>
-    <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="{{ asset('app-assets') }}/js/scripts/pages/page-auth-login.js"></script>
-    <!-- END: Page JS-->
-
-    <script>
-        $(window).on('load', function() {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
-    </script>
-</body>
-<!-- END: Body-->
-
-</html>
+    @include('admin.auth.layouts.footer')
