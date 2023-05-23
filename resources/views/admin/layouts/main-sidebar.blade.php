@@ -20,11 +20,29 @@
             </a>
         </li>
         <li class="slide">
+<<<<<<< HEAD
+            <a class="side-menu__item" href="">
+=======
             <a class="side-menu__item" href="{{ route('categories.index') }}">
+>>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">Category</span>
             </a>
         </li>
+<<<<<<< HEAD
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('deadlines.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.deadlines')}}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('settings.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.settings') }}</span>
+            </a>
+        </li>
+=======
 {{--        <li class="slide">--}}
 {{--            <a class="side-menu__item" href="{{ route('index') }}">--}}
 {{--                <i class="icon icon-user side-menu__icon"></i>--}}
@@ -39,5 +57,6 @@
                 </a>
             </li>  --}}
         {{--  @endcan  --}}
+>>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518
     </ul>
 </aside>

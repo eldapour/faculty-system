@@ -1,7 +1,13 @@
 <?php
 
+<<<<<<< HEAD
+use App\Http\Controllers\DeadlineController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\HomeController;
+=======
 
 use App\Http\Controllers\Admin\HomeController;
+>>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -30,10 +36,20 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
-
-
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+<<<<<<< HEAD
+    Route::get('/admin/', function () {
+        return view('dashboard.layouts.master');
+    });
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
+=======
 
     //Auth controller
 //    Route::group([
@@ -42,6 +58,7 @@ Route::group([
     Route::resource('users',AuthController::class)->except(['show']);
     Route::post('users.delete',[AuthController::class,'delete'])->name('users.delete');
 //    });
+>>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518
 
 
 });
