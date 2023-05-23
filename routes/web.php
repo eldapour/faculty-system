@@ -20,12 +20,9 @@ use App\Http\Controllers\Admin\AuthController;
 // admin routes
 require __DIR__ . '/admin.php';
 
-<<<<<<< HEAD
 //Auth::routes();
 
-=======
 // start web routes
->>>>>>> 52c386748b67364861db3aa60fe329b8e7aee2aa
 Route::get('/', function (){
     return view('welcome');
 });
