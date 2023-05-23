@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('store') }}">
+    <form id="addForm" class="addForm" method="POST" action="{{ route('deadlines.store') }}">
         @csrf
         <div class="form-group">
             <div class="row">

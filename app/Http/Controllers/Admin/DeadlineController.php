@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-<<<<<<< HEAD:app/Http/Controllers/DeadlineController.php
 use App\Models\Deadline;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\StoreDeadline;
-=======
 use App\Http\Controllers\Controller;
->>>>>>> 1eeb8c95a62106b5af2db2a7b2ac84d7374ef518:app/Http/Controllers/Admin/DeadlineController.php
 use Illuminate\Http\Request;
 
 class DeadlineController extends Controller
@@ -66,11 +63,9 @@ class DeadlineController extends Controller
 
     // Update Start
 
-    public function update(Request $request, City $city)
+    public function update(Request $request, Deadline $deadlines)
     {
-
-        if ($city->update($request->all())) {
-            $this->adminLog('تم تحديث الدولة');
+        if ($deadlines->update($request->all())) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

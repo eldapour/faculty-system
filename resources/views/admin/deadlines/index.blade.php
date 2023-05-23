@@ -95,14 +95,14 @@
             {data: 'deadline_date_end', name: 'deadline_date_end'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('index')}}', columns);
+        showData('{{route('deadlines.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('destroy',':id')}}');
+        destroyScript('{{route('deadlines.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('create')}}');
+        showAddModal('{{route('deadlines.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('edit',':id')}}');
+        showEditModal('{{route('deadlines.edit',':id')}}');
         editScript();
     </script>
 @endsection
