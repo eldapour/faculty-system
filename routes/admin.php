@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
+use App\Http\Controllers\Admin\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -17,14 +16,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
+    'prefix' => LaravelLocalization::setLocale() .'/admin',
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
-    Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login',[LoginController::class,'index'])->name('admin.login');
+    Route::post('/do-login',[LoginController::class,'login'])->name('login');
 
-        Route::get('/', function(){
-            return view('admin.auth.login');
-        });
-    });
 });

@@ -14,12 +14,20 @@ return [
     */
 
     'welcome to ' => 'اهلا بك',
-    'Login Page' => 'صفحة تسجيل الدخول',
+    'Login Page' => ' تسجيل الدخول',
     'Please sign-in to your account and start the adventure' => 'الرجاء تسجيل الدخول إلى حسابك ',
     'email' => 'البريد الالكتروني',
     'password' => 'كلمة المرور',
+    'user_type' => 'نوع تسجيل الدخول',
     'Forgot Password?' => 'هل نسيت كلمة السر؟',
     'sign in' => 'تسجيل الدخول ',
     'This field is required' => 'هذه الخانة مطلوبه',
+
+
+    'student' => 'طالب',
+    'doctor' => 'دكتور',
+    'manger' => 'العميد',
+    'employee' => 'موظف',
+    'factor' => 'عامل',
 
 ];

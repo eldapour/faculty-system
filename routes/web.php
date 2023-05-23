@@ -20,6 +20,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // admin routes
 require __DIR__ . '/admin.php';
 
+
 // start web routes
 Route::get('/', function (){
     return view('welcome');

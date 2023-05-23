@@ -69,17 +69,28 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h2 class="card-title font-weight-bold mb-1">@lang('login.welcome to ')</h2>
                                 <p class="card-text mb-2">@lang('login.Please sign-in to your account and start the adventure')</p>
-                                <form class="auth-login-form mt-2" action="" method="POST">
+                                <form class="auth-login-form mt-2" method="POST">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">@lang('login.user_type')</label>
+                                        <select class="form-control" name="user_type">
+                                            <option class="form-control" value="student">@lang('login.student')</option>
+                                            <option class="form-control" value="doctor">@lang('login.doctor')</option>
+                                            <option class="form-control" value="manger">@lang('login.manger')</option>
+                                            <option class="form-control" value="employee">@lang('login.employee')</option>
+                                            <option class="form-control" value="factor">@lang('login.factor')</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label class="form-label" for="email">@lang('login.email')</label>
                                         <input class="form-control" id="email" type="text" name="email"
                                             placeholder="john@example.com" aria-describedby="email" autofocus=""
                                             tabindex="1" />
                                     </div>
+                                    <small class="text-danger d-none email-error">* @lang('login.This field is required')</small>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-between">
                                             <label for="login-password">@lang('login.password')</label><a
-                                                href="page-auth-forgot-password-v2.html"><small>@lang('login.Forgot Password?')</small></a>
+                                                href=""><small>@lang('login.Forgot Password?')</small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="password"
@@ -89,8 +100,9 @@
                                                     class="input-group-text cursor-pointer"><i
                                                         data-feather="eye"></i></span></div>
                                         </div>
+                                        <small class="text-danger d-none password-error">* @lang('login.This field is required')</small>
                                     </div>
-                                    <button class="btn btn-primary btn-block" tabindex="4">@lang('login.sign in')</button>
+                                    <button type="button" class="btn btn-primary btn-block btnLogin" tabindex="4">@lang('login.sign in')</button>
                                 </form>
                             </div>
                         </div>
@@ -101,5 +113,4 @@
         </div>
     </div>
     <!-- END: Content-->
-
     @include('admin.auth.layouts.footer')
