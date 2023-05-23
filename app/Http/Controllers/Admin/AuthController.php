@@ -14,14 +14,11 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
 
-
-
-    public function index(request $request,$type)
+    public function index(request $request)
     {
 
         if ($request->ajax()) {
             $users = User::query()
-                ->where('user_type','=',$type)
                 ->latest()
                 ->get();
 
@@ -69,7 +66,7 @@ class AuthController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('users/index',compact('type'));
+            return view('users/index');
         }
     }
 
@@ -106,9 +103,8 @@ class AuthController extends Controller
 
     public function create()
     {
-        $types = ['student','doctor','employee','manger','factor'];
 
-        return view('users.parts.create', compact('types'));
+        return view('users.parts.create');
     }
 
     public function store(Request $request): JsonResponse
@@ -124,9 +120,7 @@ class AuthController extends Controller
             'national_id'  => 'nullable|unique:users,national_id',
             'national_number' => 'nullable|unique:users,national_number',
             'birthday_date' => 'nullable|date_format:Y-m-d',
-            'user_type' => 'required|in:student,doctor,manger,employee,factor',
             'university_register_year' => 'nullable|min:'. (date('Y')),
-            'job_id' => 'nullable|unique:users,job_id',
         ]);
 
 
@@ -152,9 +146,7 @@ class AuthController extends Controller
             'city' => ["ar" => $request->city_ar, "en" => $request->city_en, "fr" => $request->city_fr],
             'birthday_place' => ["ar" => $request->birthday_place_ar, "en" => $request->birthday_place_en, "fr" => $request->birthday_place_fr],
             'address' => $request->address,
-            'user_type' => $request->user_type,
             'university_register_year' => $request->university_register_year,
-            'job_id' => $request->job_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
 
@@ -173,9 +165,8 @@ class AuthController extends Controller
 
     public function edit(User $user)
     {
-        $types = ['student','doctor','employee','manger','factor'];
 
-        return view('users/parts.edit', compact('user','types'));
+        return view('users/parts.edit', compact('user'));
     }
 
 
@@ -198,9 +189,7 @@ class AuthController extends Controller
             'national_id'  => 'nullable|unique:users,national_id,' . $request->id,
             'national_number' => 'nullable|unique:users,national_number,' . $request->id,
             'birthday_date' => 'nullable|date_format:Y-m-d',
-            'user_type' => 'required|in:student,doctor,manger,employee,factor',
             'university_register_year' => 'nullable|min:'. (date('Y')),
-            'job_id' => 'nullable|unique:users,job_id,' . $request->id,
         ]);
 
         if ($image = $request->file('image')) {
@@ -225,9 +214,7 @@ class AuthController extends Controller
             'city' => ["ar" => $request->city_ar, "en" => $request->city_en, "fr" => $request->city_fr],
             'birthday_place' => ["ar" => $request->birthday_place_ar, "en" => $request->birthday_place_en, "fr" => $request->birthday_place_fr],
             'address' => $request->address,
-            'user_type' => $request->user_type,
             'university_register_year' => $request->university_register_year,
-            'job_id' => $request->job_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

@@ -28,11 +28,11 @@
                 <span class="side-menu__label">المستخدمين</span><i class="angle fa fa-angle-right"></i>
             </a>
             <ul class="slide-menu">
-                <li><a href="{{route('users.all','student')}}" class="slide-item">جميع الطلبه</a></li>
-                <li><a href="{{route('users.all','doctor')}}" class="slide-item">جميع الدكاتره</a></li>
-                <li><a href="{{route('users.all','employee')}}" class="slide-item">جميع موظفي الشئؤن</a></li>
-                <li><a href="{{route('users.all','factor')}}" class="slide-item">جميع العاملين</a></li>
-                <li><a href="{{route('users.all','manger')}}" class="slide-item">جميع الادمن</a></li>
+                <li><a href="{{route('users.index')}}" class="slide-item">جميع الطلبه</a></li>
+{{--                <li><a href="{{route('users.all','doctor')}}" class="slide-item">جميع الدكاتره</a></li>--}}
+{{--                <li><a href="{{route('users.all','employee')}}" class="slide-item">جميع موظفي الشئؤن</a></li>--}}
+{{--                <li><a href="{{route('users.all','factor')}}" class="slide-item">جميع العاملين</a></li>--}}
+{{--                <li><a href="{{route('users.all','manger')}}" class="slide-item">جميع الادمن</a></li>--}}
 
             </ul>
         </li>

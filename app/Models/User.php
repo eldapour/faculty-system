@@ -28,7 +28,6 @@ class User extends Authenticatable
         'last_name',
         'image',
         'points',
-        'personal_email',
         'university_email',
         'identifier_id',
         'national_id',
@@ -41,10 +40,8 @@ class User extends Authenticatable
         'user_status',
         'user_type',
         'university_register_year',
-        'job_id',
         'email',
         'password',
-        'user_type'
     ];
 
     /**
