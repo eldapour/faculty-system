@@ -1,9 +1,9 @@
-@extends('dashboard/layouts/master')
+@extends('admin/layouts/master')
 
 @section('title')  Admins @endsection
 @section('page_name') Admins @endsection
 @section('css')
-    @include('dashboard.layouts.loader.formLoader.loaderCss')
+    @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
 @section('content')
 
@@ -85,7 +85,7 @@
         </div>
         <!-- Edit MODAL CLOSED -->
     </div>
-    @include('dashboard/layouts/myAjaxHelper')
+    @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
