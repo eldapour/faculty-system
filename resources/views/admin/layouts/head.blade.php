@@ -48,7 +48,7 @@
 
 
 <!-- TOASTR CSS -->
-@toastr_css
+{{--@toastr_css--}}
 
 <!-- Switcher CSS -->
 <link href="{{ asset('assets/admin') }}/switcher/css/switcher.css" rel="stylesheet">

@@ -51,5 +51,21 @@
         <!-- END: Custom CSS-->
     @endif
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
+
+
+    <style>
+        #toast-container > .toast-error {
+            background-color: #7367F0;
+            color: white;
+        }
+
+        #toast-container > .toast-success {
+            background-color: #7367F0;
+            color: white;
+        }
+    </style>
+
 </head>
 <!-- END:-->

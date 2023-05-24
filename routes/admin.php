@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DeadlineController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -20,17 +23,33 @@ use App\Http\Controllers\Admin\LoginController;
 */
 
 Route::group([
-    'prefix' => LaravelLocalization::setLocale() .'/admin',
+    'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
+    Route::post('/do-login', [LoginController::class, 'login'])->name('login');
+});
 
-    Route::get('/login',[LoginController::class,'index'])->name('admin.login');
-    Route::post('/do-login',[LoginController::class,'login'])->name('login');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale() . '/admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+], function () {
 
-        ###################### Category #############################
-        Route::resource('categories',CategoryController::class);
-        Route::get('/', function(){
-            return view('admin.auth.login');
-        });
-        Route::get('logout', [AuthController::class,'logout'])->name('logout');
+    ###################### Category #############################
+    Route::resource('categories', CategoryController::class);
+
+    Route::get('/', function () {
+        return view('admin.layouts.master');
+    })->name('admin.home');
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
+    Route::get('logout', [UserController::class, 'logout'])->name('logout');
+
+    Route::resource('users', UserController::class)->except(['show']);
+    Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
 });

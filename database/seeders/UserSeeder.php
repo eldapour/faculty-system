@@ -35,5 +35,26 @@ class UserSeeder extends Seeder
             'password' => Hash::make("123456"),
 
         ]);
+
+        User::create([
+
+            'first_name' => 'abdallah',
+            'last_name' => 'mahmoud',
+            'image' => null,
+            'university_email' => null,
+            'identifier_id' => null,
+            'national_id' => null,
+            'national_number' => null,
+            'nationality' => null,
+            'birthday_date' => null,
+            'address' => null,
+            'user_type' => "manger",
+            'university_register_year' => null,
+            'job_id' => null,
+            'email' => "admin@admin.com",
+            'password' => Hash::make("123456"),
+
+        ]);
+
     }
 }
