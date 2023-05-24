@@ -12,6 +12,8 @@ return [
     "close" => "fermer",
     "name" => "nom",
     "value" => "value",
+    "title" => "Titre",
+    "status" => "statut",
 
     // Side Bar
     "home" => 'maison',
@@ -32,6 +34,9 @@ return [
     "services" =>"Services",
 
     // Internal Ad
+    "ad" => "publicité",
     "internal_ads" => "annonces internes",
+    "date_ads" => "annonces de rendez-vous",
+    "url_ads" => "Lien des annonces",
 ]
 ?>

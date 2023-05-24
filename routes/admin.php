@@ -64,7 +64,8 @@ Route::group([
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
+    Route::post('active_status', [InternalAdController::class, 'makeActive'])->name('makeActive');
 
 
-  
+
 });

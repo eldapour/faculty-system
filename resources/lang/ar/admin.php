@@ -12,6 +12,8 @@ return [
     "close" => "اغلاق",
     "name" => "الاسم",
     "value" => "القيمة",
+    "title" => "عنوان",
+    "status" => "الحالة",
 
     // Side Bar
     "home" => "الرئيسية",
@@ -32,6 +34,9 @@ return [
     "services" =>"خدمات",
 
     // Internal Ad
+    "ad" => "اعلان",
     "internal_ads" => "اعلانات داخلية",
+    "date_ads" => "إعلانات التاريخ",
+    "url_ads" => "رابط الاعلانات"
 ]
 ?>

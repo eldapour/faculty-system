@@ -5,9 +5,9 @@
     @include('admin.layouts.head')
 
     <style>
+    
+</style>
 
-
-    </style>
 </head>
 
 <body class="app sidebar-mini">

@@ -12,6 +12,8 @@ return [
     "close" => "Close",
     "name" => "Name",
     "value" => "Value",
+    "title" => "Title",
+    "status" => "Status",
 
     // Side Bar
     "home" => 'Home',
@@ -30,8 +32,11 @@ return [
     // Service
     "service" => "Service",
     "services" =>"Services",
-    
+
     // Internal Ad
+    "ad" => "Ad",
     "internal_ads" => "Internal Ads",
+    "date_ads" => "Date Ads",
+    "url_ads" => "Url Ads",
 ]
 ?>

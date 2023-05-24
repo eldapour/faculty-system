@@ -19,6 +19,7 @@
         "sass": "^1.56.1"
     },
     "dependencies": {
+        "bootstrap4-toggle": "^3.6.1",
         "flag-icon-css": "^4.1.7"
     }
 }
