@@ -4,20 +4,24 @@ return [
     'language' => 'Language',
 
     // General
+    "home" => 'Home',
     "actions" => "Actions",
     "search" => "Search",
-    "add" => "Add",
-    "delete" => "Delete",
     "sure_delete" => "Are you sure to delete",
-    "close" => "Close",
     "name" => "Name",
     "value" => "Value",
 
-    // Side Bar
-    "home" => 'Home',
-    "deadlines" => "Deadlines",
+
+    // crud
+    "add" => "addition ",
+    "edit" => "amendment ",
+    "delete" => "delete ",
+    "update" => "update ",
+    "close" => "Close ",
+    "delete_confirm" => "Are you sure to delete ",
 
     // Deadlines
+    "deadlines" => "Deadlines",
     "desc" => "Description",
     "deadline_date_start" => "Deadline Date Start",
     "deadline_date_end" => "Deadline Date End",
@@ -30,8 +34,7 @@ return [
     // Service
     "service" => "Service",
     "services" =>"Services",
-    
+
     // Internal Ad
     "internal_ads" => "Internal Ads",
-]
-?>
+];

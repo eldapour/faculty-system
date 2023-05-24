@@ -45,13 +45,13 @@ Route::group([
     })->name('admin.home');
 
 
-    Route::get('logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+
+
+    #### Users ####
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
-
-
-
 
     #### Deadline ####
     Route::resource('deadlines', DeadlineController::class);
@@ -65,6 +65,4 @@ Route::group([
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
 
-
-  
 });
