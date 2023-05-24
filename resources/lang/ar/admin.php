@@ -1,23 +1,27 @@
 <?php
 return [
     'welcome_back' => 'مرحبا بعودتك',
-    'language' => 'لغة',
+    'language' => 'اللغة',
 
     // General
+    "home" => "الرئيسية",
     "actions" => "العمليات",
     "search" => "بحث",
-    "add" => "اضافة",
-    "delete" => "حذف",
     "sure_delete" => "هل انت متأكد من حذف",
-    "close" => "اغلاق",
     "name" => "الاسم",
     "value" => "القيمة",
 
-    // Side Bar
-    "home" => "الرئيسية",
-    "deadlines" => "المواعيد النهائية",
+    // crud
+    "add" => "اضافة ",
+    "edit" => "تعديل ",
+    "delete" => "حذف ",
+    "update" => "تحديث ",
+    "close" => "اغلاق ",
+    "delete_confirm" => "هل انت متاكد من حذف ",
+
 
     // Deadlines
+    "deadlines" => "المواعيد النهائية",
     "desc" => "الوصف",
     "deadline_date_start" => "موعد بدء الموعد النهائي",
     "deadline_date_end" => "موعد انتهاء الموعد النهائي",
@@ -33,5 +37,10 @@ return [
 
     // Internal Ad
     "internal_ads" => "اعلانات داخلية",
-]
-?>
+
+    // Department
+    "departments" => "المسالك",
+    "department" => "المسلك",
+
+];
+
