@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DepartmentBranchController;
+use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeadlineController;
@@ -61,6 +63,12 @@ Route::group([
 
     #### Service ####
     Route::resource('services', ServiceController::class);
+
+    #### departments ####
+    Route::resource('departments', DepartmentController::class);
+
+    #### branches ####
+    Route::resource('branches', DepartmentBranchController::class);
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);

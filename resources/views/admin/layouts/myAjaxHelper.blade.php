@@ -18,16 +18,16 @@
                 [0, "DESC"]
             ],
             "language": {
-                "sProcessing": "جاري التحميل ..",
+                "sProcessing": "@lang('admin.Loading') ..",
                 "sLengthMenu": "اظهار _MENU_ سجل",
-                "sZeroRecords": "لا يوجد نتائج",
-                "sInfo": "اظهار _START_ الى  _END_ من _TOTAL_ سجل",
-                "sInfoEmpty": "لا نتائج",
-                "sInfoFiltered": "للبحث",
-                "sSearch": "بحث :    ",
+                "sZeroRecords": "@lang('admin.No results')",
+                "sInfo": "@lang('admin.register') _START_ @lang('admin.from')  _END_ @lang('admin.to') _TOTAL_ @lang('admin.show')",
+                "sInfoEmpty": "@lang('admin.No results')",
+                "sInfoFiltered": "@lang('admin.Search')",
+                "sSearch": "@lang('admin.research') :    ",
                 "oPaginate": {
-                    "sPrevious": "السابق",
-                    "sNext": "التالي",
+                    "sPrevious": "<",
+                    "sNext": ">",
                 },
                 buttons: {
                     copyTitle: 'تم النسخ للحافظة <i class="fa fa-check-circle text-success"></i>',
@@ -41,17 +41,17 @@
             dom: 'Bfrtip',
             buttons: [{
                     extend: 'copy',
-                    text: 'نسخ',
+                    text: '@lang('admin.copy')',
                     className: 'btn-primary'
                 },
                 {
                     extend: 'print',
-                    text: 'طباعة',
+                    text: '@lang('admin.Print')',
                     className: 'btn-primary'
                 },
                 {
                     extend: 'excel',
-                    text: 'اكسيل',
+                    text: '@lang('admin.Excel')',
                     className: 'btn-primary'
                 },
                 // {
@@ -61,7 +61,7 @@
                 // },
                 {
                     extend: 'colvis',
-                    text: 'عرض',
+                    text: '@lang('admin.show')',
                     className: 'btn-primary'
                 },
             ]

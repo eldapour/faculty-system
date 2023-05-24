@@ -10,6 +10,20 @@ return [
     "sure_delete" => "Êtes-vous sûr de vouloir supprimer",
     "name" => "nom",
     "value" => "value",
+    "register" => "enregistrer",
+    "from" => "depuis",
+    "to" => "pour",
+    "show" => "montrer",
+    "Loading" => "Chargement",
+    "No results" => "Aucun résultat",
+    "Search" => "Recherche",
+    "research" => "recherche",
+    "zero_records" => "Aucun résultat",
+    "copy" => "copie",
+    "Print" => "Imprimer",
+    "Excel" => "Exceller",
+    "select" => "sélect",
+
 
 
     // crud
@@ -37,4 +51,12 @@ return [
 
     // Internal Ad
     "internal_ads" => "annonces internes",
+
+    // Department
+    "departments" => "des pistes",
+    "department" => "piste",
+
+    // Department branch
+    "branches" => "branches",
+    "branch" => "branche",
 ];
