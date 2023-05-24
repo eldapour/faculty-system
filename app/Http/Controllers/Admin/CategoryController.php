@@ -31,9 +31,6 @@ class CategoryController extends Controller
                 ->editColumn('name_ar', function ($category) {
                     return $category->category_name['ar'];
                 })
-                ->editColumn('name_en', function ($category) {
-                    return $category->category_name['en'];
-                })
 
                 ->escapeColumns([])
                 ->make(true);

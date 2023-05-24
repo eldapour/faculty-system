@@ -1,10 +1,10 @@
 <script>
-    var loader = `
-			<div class="dimmer active">
-			<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-			</div>
+    var loader = ` <div class="linear-background">
+                            <div class="inter-crop"></div>
+                            <div class="inter-right--top"></div>
+                            <div class="inter-right--bottom"></div>
+                        </div>
         `;
-
 
 
     // Show Data Using YAJRA

@@ -41,6 +41,11 @@
 <!-- SIDEBAR CSS -->
 <link href="{{ asset('assets/admin/plugins/sidebar/sidebar.css') }}" rel="stylesheet">
 
+
+<link href="{{ asset('assets/admin/css/switches.css') }}" rel="stylesheet">
+
+
+
 <!-- COLOR SKIN CSS -->
 <link id="theme" rel="stylesheet" type="text/css" media="all"
     href="{{ asset('assets/admin/colors/color1.css') }}" />
@@ -59,5 +64,8 @@
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/solid.js"></script>
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/fontawesome.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet" />
+
+<link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
 {{--satrt toastr--}}
 @yield('css')

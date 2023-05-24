@@ -1,21 +1,23 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{($setting->title) ?? ''}}  @lang('admin.branches')
+    {{($setting->title) ?? ''}}  @lang('admin.Users_Branches')
 @endsection
-@section('page_name')  @lang('admin.branches') @endsection
+@section('page_name')
+    @lang('admin.Users_Branches')
+@endsection
 @section('content')
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> @lang('admin.branches') {{($setting->title) ?? ''}}</h3>
+                    <h3 class="card-title"> @lang('admin.Users_Branches') {{($setting->title) ?? ''}}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> @lang('admin.add') @lang('admin.branch')
+									</span> @lang('admin.add') @lang('admin.User_Branch')
                         </button>
                     </div>
                 </div>
@@ -26,8 +28,10 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px"> {{__('admin.name')}}</th>
-                                <th class="min-w-50px"> {{__('admin.department')}}</th>
+                                <th class="min-w-50px"> {{__('admin.register_year')}}</th>
+                                <th class="min-w-50px"> {{__('admin.branch_restart_register')}}</th>
+                                <th class="min-w-50px"> {{__('admin.student_branch')}}</th>
+                                <th class="min-w-50px"> {{__('admin.branch')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
                             </thead>
@@ -43,14 +47,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">@lang('admin.delete') trans('admin.branch')</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('admin.delete') @lang('admin.User_Branch')</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                         <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.branch') }}<span id="title" class="text-danger"></span>؟</p>
+                        <input id="delete_id" name="id" type="hidden">
+                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.User_Branch') }}<span id="title"
+                                                                                                  class="text-danger"></span>؟
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -68,7 +74,8 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.branch')}}</h5>
+                        <h5 class="modal-title"
+                            id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.User_Branch')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -87,18 +94,20 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'branch_name', name: 'branch_name'},
-            {data: 'department_id', name: 'department_id'},
+            {data: 'register_year', name: 'register_year'},
+            {data: 'branch_restart_register', name: 'branch_restart_register'},
+            {data: 'user_id', name: 'user_id'},
+            {data: 'department_branch_id', name: 'department_branch_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('branches.index')}}', columns);
+        showData('{{route('userBranches.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('branches.destroy',':id')}}');
+        destroyScript('{{route('userBranches.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('branches.create')}}');
+        showAddModal('{{route('userBranches.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('branches.edit',':id')}}');
+        showEditModal('{{route('userBranches.edit',':id')}}');
         editScript();
     </script>
 @endsection
