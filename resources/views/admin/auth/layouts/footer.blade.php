@@ -2,6 +2,10 @@
 <script src="{{ asset('app-assets') }}/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
+
+
+
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{ asset('app-assets') }}/vendors/js/forms/validation/jquery.validate.min.js"></script>
 <!-- END: Page Vendor JS-->
@@ -65,22 +69,28 @@
                     '_token': '{{ csrf_token() }}',
                     'email': email,
                     'password': password,
-                    'user_type' : type,
+                    'user_type': type,
                 }, success: function (data) {
                     if (data === 200) {
-                        alert('You are logged in');
+                        toastr.success('تم تسجيل الدخول بنجاح');
+                        setTimeout(function () {
+                            location.href = '{{ route('admin.home') }}';
+                        },2000)
+                    } else if (data === 405) {
+                        toastr.error('البريد الإلكتروني أو كلمة المرور غير صحيحة');
                     }
-                    else if (data === 405) {
-                        alert('email or password incorrect')
-                    }
-                }, error: function(data){
-                    $.each(data, function(){
-                        alert(data.responseJSON.message);
-                    })
+                }, error: function (data) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error(value, 'خطأ');
+                            });
+                        }
+                    });
                 }
             })
         }
-
     })
 
 

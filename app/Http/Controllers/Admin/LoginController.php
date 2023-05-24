@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller {
 
     public function index(){
+        if (Auth::guard('web')->check()){
+            return redirect('admin');
+        }
         return view('admin.auth.login');
     }
 

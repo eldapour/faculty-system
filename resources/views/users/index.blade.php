@@ -25,23 +25,28 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
-                            <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">رمز المستخدم</th>
-                                <th class="min-w-50px">صوره الطالب</th>
-                                <th class="min-w-50px">الاسم الاول</th>
-                                <th class="min-w-125px">الاسم الاخير</th>
-                                <th class="min-w-125px">الايميل الشخصي</th>
-                                <th class="min-w-125px">الايميل الجامعي</th>
-                                <th class="min-w-125px">رقم الكارنيه الجامعي</th>
-                                <th class="min-w-125px">الرقم الوطني \ المسار</th>
-                                <th class="min-w-125px">رقم البطاقه الشخصيه</th>
-                                <th class="min-w-125px">عدد النقاط</th>
-                                <th class="min-w-125px">عنوان الطالب</th>
-                                <th class="min-w-125px">الاقليم</th>
-                                <th class="min-w-125px">مكان الميلاد</th>
-                                <th class="min-w-125px">تاريخ الميلاد</th>
-                                <th class="min-w-50px rounded-end">اجراء</th>
-                            </tr>
+
+
+                                <tr class="fw-bolder text-muted bg-light">
+                                    <th class="min-w-25px">رمز المستخدم</th>
+                                    <th class="min-w-50px">صوره الطالب</th>
+                                    <th class="min-w-50px">الاسم الاول</th>
+                                    <th class="min-w-125px">الاسم الاخير</th>
+                                    <th class="min-w-125px">البريد الالكتروني</th>
+                                    <th class="min-w-125px">الايميل الجامعي</th>
+                                    <th class="min-w-125px">رقم الكارنيه الجامعي</th>
+                                    <th class="min-w-125px">الرقم الوطني \ المسار</th>
+                                    <th class="min-w-125px">رقم البطاقه الشخصيه</th>
+                                    <th class="min-w-125px">عدد النقاط</th>
+                                    <th class="min-w-125px">عنوان الطالب</th>
+                                    <th class="min-w-125px">الاقليم</th>
+                                    <th class="min-w-125px">مكان الميلاد</th>
+                                    <th class="min-w-125px">تاريخ الميلاد</th>
+                                    <th class="min-w-50px rounded-end">اجراء</th>
+                                </tr>
+
+
+
                             </thead>
                         </table>
                     </div>
@@ -62,7 +67,7 @@
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>Are You Sure Of Deleting This Row <span id="title" class="text-danger"></span>?</p>
+                        <p>هل تريد حذف المستخدم <span id="title" class="text-danger"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -113,6 +118,9 @@
             {data: 'created_at', name: 'created_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
+
+
+
         showData('{{route('users.index')}}', columns);
         deleteScript('{{route('users.delete')}}');
 
@@ -244,7 +252,11 @@
             });
         });
 
+
     </script>
+
+
+
 @endsection
 
 
