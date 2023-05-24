@@ -10,6 +10,10 @@ return [
     "sure_delete" => "Êtes-vous sûr de vouloir supprimer",
     "name" => "nom",
     "value" => "value",
+
+    "title" => "Titre",
+    "status" => "statut",
+
     "register" => "enregistrer",
     "from" => "depuis",
     "to" => "pour",
@@ -50,7 +54,14 @@ return [
     "services" =>"Services",
 
     // Internal Ad
+    "ad" => "publicité",
     "internal_ads" => "annonces internes",
+
+    "date_ads" => "annonces de rendez-vous",
+    "url_ads" => "Lien des annonces",
+]
+?>
+
 
     // Department
     "departments" => "des pistes",
@@ -60,3 +71,5 @@ return [
     "branches" => "branches",
     "branch" => "branche",
 ];
+
+

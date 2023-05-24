@@ -28,8 +28,8 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.deadline_date_start') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.value') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>

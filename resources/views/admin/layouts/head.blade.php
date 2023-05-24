@@ -54,10 +54,12 @@
 <!-- Switcher CSS -->
 <link href="{{ asset('assets/admin') }}/switcher/css/switcher.css" rel="stylesheet">
 <link href="{{ asset('assets/admin') }}/switcher/demo.css" rel="stylesheet">
+<link href="{{ asset('assets/admin/css/bootstrap4-toggle.min.css') }}" rel="stylesheet">
 
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/brands.js"></script>
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/solid.js"></script>
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/fontawesome.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet" />
+@include('admin.layouts.switch')
 {{--satrt toastr--}}
 @yield('css')

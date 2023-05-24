@@ -10,6 +10,10 @@ return [
     "sure_delete" => "هل انت متأكد من حذف",
     "name" => "الاسم",
     "value" => "القيمة",
+
+    "title" => "عنوان",
+    "status" => "الحالة",
+
     "register" => "سجل",
     "copy" => "نسخ",
     "Print" => "طباعة",
@@ -34,6 +38,7 @@ return [
     "delete_confirm" => "هل انت متاكد من حذف ",
 
 
+
     // Deadlines
     "deadlines" => "المواعيد النهائية",
     "desc" => "الوصف",
@@ -50,7 +55,14 @@ return [
     "services" =>"خدمات",
 
     // Internal Ad
+    "ad" => "اعلان",
     "internal_ads" => "اعلانات داخلية",
+
+    "date_ads" => "إعلانات التاريخ",
+    "url_ads" => "رابط الاعلانات"
+]
+?>
+
 
     // Department
     "departments" => "المسالك",
@@ -61,4 +73,5 @@ return [
     "branch" => "المسار",
 
 ];
+
 

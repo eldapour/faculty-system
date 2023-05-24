@@ -10,6 +10,10 @@ return [
     "sure_delete" => "Are you sure to delete",
     "name" => "Name",
     "value" => "Value",
+
+    "title" => "Title",
+    "status" => "Status",
+
     "register" => "register",
     "from" => "from",
     "to" => "to",
@@ -23,6 +27,7 @@ return [
     "Print" => "Print",
     "Excel" => "Excel",
     "select" => "Select",
+
 
 
 
@@ -51,7 +56,14 @@ return [
     "services" =>"Services",
 
     // Internal Ad
+    "ad" => "Ad",
     "internal_ads" => "Internal Ads",
+
+    "date_ads" => "Date Ads",
+    "url_ads" => "Url Ads",
+]
+?>
+
 
 
     // Department
@@ -62,3 +74,4 @@ return [
     "branches" => "Branches",
     "branch" => "Branch",
 ];
+
