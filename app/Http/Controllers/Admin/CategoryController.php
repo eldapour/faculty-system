@@ -28,11 +28,8 @@ class CategoryController extends Controller
                        ';
                 })
 
-                ->editColumn('name_ar', function ($category) {
-                    return $category->category_name['ar'];
-                })
-                ->editColumn('name_en', function ($category) {
-                    return $category->category_name['en'];
+                ->editColumn('category_name', function ($category) {
+                    return $category->getTranslation('category_name', app()->getLocale());
                 })
 
                 ->escapeColumns([])
