@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
 
     public function index(request $request)
