@@ -26,5 +26,12 @@ return [
     // Setting
     "setting" => "paramètre",
     "settings" => "paramètres",
+
+    // Service
+    "service" => "Service",
+    "services" =>"Services",
+
+    // Internal Ad
+    "internal_ads" => "annonces internes",
 ]
 ?>

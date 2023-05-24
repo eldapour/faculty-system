@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDeadLine extends FormRequest
+class StoreInternalAd extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,13 @@ class UpdateDeadLine extends FormRequest
     public function rules()
     {
         return [
-            ""
+            "title",
+            "description",
+            "date_ads",
+            "url_ads",
+            "status",
+            "service_id",
+            
         ];
     }
 }

@@ -1,10 +1,10 @@
-@extends('dashboard.layouts.master')
+@extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.deadlines') }}
+    {{ trans('admin.services') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.deadlines') }}
+    {{ trans('admin.services') }}
 @endsection
 @section('content')
 
@@ -28,9 +28,7 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.deadline_date_start') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.deadline_date_end') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.name') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -71,7 +69,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">مدينة</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.service') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -84,25 +82,23 @@
         </div>
         <!-- Create Or Edit Modal -->
     </div>
-    @include('dashboard.layouts.myAjaxHelper')
+    @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'description', name: 'description'},
-            {data: 'deadline_date_start', name: 'deadline_date_start'},
-            {data: 'deadline_date_end', name: 'deadline_date_end'},
+            {data: 'service_name', name: 'service_name'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('index')}}', columns);
+        showData('{{route('services.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('destroy',':id')}}');
+        destroyScript('{{route('services.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('create')}}');
+        showAddModal('{{route('services.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('edit',':id')}}');
+        showEditModal('{{route('services.edit',':id')}}');
         editScript();
     </script>
 @endsection

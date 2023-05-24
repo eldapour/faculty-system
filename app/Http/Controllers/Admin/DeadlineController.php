@@ -55,17 +55,17 @@ class DeadlineController extends Controller
     // Store End
 
     // Edit Start
-    public function edit(Deadline $deadlines)
+    public function edit(Deadline $deadline)
     {
-        return view('admin.deadlines.parts.edit', compact('deadlines'));
+        return view('admin.deadlines.parts.edit', compact('deadline'));
     }
     // Edit End
 
     // Update Start
 
-    public function update(Request $request, Deadline $deadlines)
+    public function update(Request $request, Deadline $deadline)
     {
-        if ($deadlines->update($request->all())) {
+        if ($deadline->update($request->all())) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

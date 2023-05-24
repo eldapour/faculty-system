@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\DeadlineController;
-use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +19,6 @@ Route::group([
 ], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
-
-
-
 
 
 

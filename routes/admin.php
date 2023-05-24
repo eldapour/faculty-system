@@ -3,13 +3,15 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeadlineController;
+use App\Http\Controllers\Admin\InternalAdController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\HomeController;
-
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,15 +44,27 @@ Route::group([
         return view('admin.layouts.master');
     })->name('admin.home');
 
-    #### Deadline ####
-    Route::resource('deadlines', DeadlineController::class);
-
-    #### Setting ####
-    Route::resource('settings', SettingController::class);
 
     Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
 
+
+
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
+    #### Service ####
+    Route::resource('services', ServiceController::class);
+
+    #### Internal Ads ####
+    Route::resource('internal_ads', InternalAdController::class);
+
+
+  
 });

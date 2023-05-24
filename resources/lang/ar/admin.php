@@ -26,5 +26,12 @@ return [
     // Setting
     "setting" => "اعداد",
     "settings" => "اعدادات",
+
+    // Service
+    "service" => "خدمة",
+    "services" =>"خدمات",
+
+    // Internal Ad
+    "internal_ads" => "اعلانات داخلية",
 ]
 ?>
