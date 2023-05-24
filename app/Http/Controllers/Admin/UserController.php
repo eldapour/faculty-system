@@ -18,13 +18,17 @@ class UserController extends Controller
     {
 
         if ($request->ajax()) {
-            $users = User::latest()->get();
+            $users = User::query()
+                ->latest()
+                ->get();
+
+
             return Datatables::of($users)
                 ->addColumn('action', function ($user) {
                     return '
                             <button type="button" data-id="' . $user->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $user->id . '" data-title="' . $user->name . '">
+                                    data-id="' . $user->id . '" data-title="' . $user->first_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -33,7 +37,19 @@ class UserController extends Controller
 
                     return $user->created_at->diffForHumans();
 
-                })->editColumn('image', function ($user) {
+                })
+                ->editColumn('city', function ($user) {
+
+                    return $user->getTranslation('city', app()->getLocale());
+
+                })
+                ->editColumn('birthday_place', function ($user) {
+
+                    return $user->getTranslation('birthday_place', app()->getLocale());
+
+                })
+
+                ->editColumn('image', function ($user) {
 
                     if($user->image != null){
                         return '
@@ -87,9 +103,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $types = ['student','doctor','employee','manger','factor'];
 
-        return view('users.parts.create', compact('types'));
+        return view('users.parts.create');
     }
 
     public function store(Request $request): JsonResponse
@@ -105,9 +120,7 @@ class UserController extends Controller
             'national_id'  => 'nullable|unique:users,national_id',
             'national_number' => 'nullable|unique:users,national_number',
             'birthday_date' => 'nullable|date_format:Y-m-d',
-            'user_type' => 'required|in:student,doctor,manger,employee,factor',
             'university_register_year' => 'nullable|min:'. (date('Y')),
-            'job_id' => 'nullable|unique:users,job_id',
         ]);
 
 
@@ -122,7 +135,7 @@ class UserController extends Controller
 
         $user = User::create([
             'first_name' => $request->first_name,
-            'last_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'image' => $profileImage ?? null,
             'university_email' => $request->university_email,
             'identifier_id' => $request->identifier_id,
@@ -133,9 +146,7 @@ class UserController extends Controller
             'city' => ["ar" => $request->city_ar, "en" => $request->city_en, "fr" => $request->city_fr],
             'birthday_place' => ["ar" => $request->birthday_place_ar, "en" => $request->birthday_place_en, "fr" => $request->birthday_place_fr],
             'address' => $request->address,
-            'user_type' => $request->user_type,
             'university_register_year' => $request->university_register_year,
-            'job_id' => $request->job_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
 
@@ -163,23 +174,22 @@ class UserController extends Controller
     public function update(Request $request): JsonResponse
     {
 
+
         $user = User::query()
             ->findOrFail($request->id);
 
         $request->validate([
-            'email' => 'required|unique:users,email,' . $user->email,
+            'email' => 'required|unique:users,email,' . $request->id,
             'first_name' => 'required',
             'last_name' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'nullable|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'university_email'  => 'nullable|unique:users,university_email,' . $user->university_email,
-            'identifier_id' => 'nullable|unique:users,identifier_id,' . $user->identifier_id,
-            'national_id'  => 'nullable|unique:users,national_id,' . $user->national_id,
-            'national_number' => 'nullable|unique:users,national_number,' . $user->national_number,
+            'university_email'  => 'nullable|unique:users,university_email,' . $request->id,
+            'identifier_id' => 'nullable|unique:users,identifier_id,' . $request->id,
+            'national_id'  => 'nullable|unique:users,national_id,' . $request->id,
+            'national_number' => 'nullable|unique:users,national_number,' . $request->id,
             'birthday_date' => 'nullable|date_format:Y-m-d',
-            'user_type' => 'required|in:student,doctor,manger,employee,factor',
             'university_register_year' => 'nullable|min:'. (date('Y')),
-            'job_id' => 'nullable|unique:users,job_id',
         ]);
 
         if ($image = $request->file('image')) {
@@ -193,7 +203,7 @@ class UserController extends Controller
 
         $user->update([
             'first_name' => $request->first_name,
-            'last_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'image' => $request->image != null ? $profileImage : $user->image,
             'university_email' => $request->university_email,
             'identifier_id' => $request->identifier_id,
@@ -204,9 +214,7 @@ class UserController extends Controller
             'city' => ["ar" => $request->city_ar, "en" => $request->city_en, "fr" => $request->city_fr],
             'birthday_place' => ["ar" => $request->birthday_place_ar, "en" => $request->birthday_place_en, "fr" => $request->birthday_place_fr],
             'address' => $request->address,
-            'user_type' => $request->user_type,
             'university_register_year' => $request->university_register_year,
-            'job_id' => $request->job_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

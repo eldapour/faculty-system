@@ -40,10 +40,8 @@ class User extends Authenticatable
         'user_status',
         'user_type',
         'university_register_year',
-        'job_id',
         'email',
         'password',
-        'user_type'
     ];
 
     /**

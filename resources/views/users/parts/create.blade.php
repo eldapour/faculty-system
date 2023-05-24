@@ -11,7 +11,7 @@
 
 
         <div class="form-group">
-            <label for="name" class="form-control-label">صوره الطالب</label>
+            <label for="name" class="form-control-label">صوره المستخدم</label>
             <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
             <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
         </div>
@@ -30,30 +30,40 @@
 
 
         <div class="form-group">
-            <label for="email" class="form-control-label">البريد الالكتروني الشخصي</label>
+            <label for="email" class="form-control-label">البريد الالكتروني </label>
             <input type="text" class="form-control" name="email" id="email">
         </div>
 
         <div class="form-group">
-            <label for="email" class="form-control-label">البريد الالكتروني الجامعي</label>
-            <input type="text" class="form-control" name="university_email" id="university_email">
-        </div>
-
-
-
-        <div class="form-group">
-            <label for="password" class="form-control-label">كلمه مرور الطالب</label>
+            <label for="password" class="form-control-label">كلمه المرور</label>
             <input type="password" class="form-control" name="password" id="password">
         </div>
 
 
+{{--        <div class="form-group">--}}
+{{--            <label for="email" class="form-control-label">الرقم الوظيفي</label>--}}
+{{--            <input type="number" class="form-control" name="job_id" id="job_id">--}}
+{{--        </div>--}}
+
+
+
+
+
+{{--        <div class="form-group">--}}
+{{--            <label class="form-label">نوع المستخدم</label>--}}
+{{--            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">--}}
+{{--                @foreach($types as $type)--}}
+{{--                    <option value="{{$type}}">{{$type}}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
+
+
+
+
         <div class="form-group">
-            <label class="form-label">نوع المستخدم</label>
-            <select name="user_type" class="form-control select2" data-placeholder="Choose user type">
-                @foreach($types as $type)
-                    <option value="{{$type}}">{{$type}}</option>
-                @endforeach
-            </select>
+            <label for="email" class="form-control-label">البريد الالكتروني الجامعي</label>
+            <input type="text" class="form-control" name="university_email" id="university_email">
         </div>
 
 
@@ -329,10 +339,6 @@
             <input type="number" class="form-control" name="year" id="year">
         </div>
 
-        <div class="form-group">
-            <label for="email" class="form-control-label">الرقم الوظيفي</label>
-            <input type="number" class="form-control" name="job_id" id="job_id">
-        </div>
 
 
         {{--end create model--}}
@@ -346,9 +352,24 @@
     </form>
 </div>
 
+
+
 <script>
     $('.dropify').dropify()
 </script>
 <script src="{{asset('assets/admin')}}/js/select2.js"></script>
 <script src="{{asset('assets/admin')}}/plugins/select2/select2.full.min.js"></script>
+
+{{--<script>--}}
+{{--    $(function() {--}}
+{{--        $('.student-complete-form').show();--}}
+{{--        $('#type').change(function(){--}}
+{{--            if($('#type').val() == 'student') {--}}
+{{--                $('.student-complete-form').show();--}}
+{{--            } else {--}}
+{{--                $('.student-complete-form').hide();--}}
+{{--            }--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 

@@ -13,12 +13,13 @@ class CreateUsersTable extends Migration
      */
 
     /*
+
     جدول الطلاب وموظفي الشئون وعميد الكليه والموظفين
      */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
@@ -36,9 +37,7 @@ class CreateUsersTable extends Migration
             $table->json('city')->nullable();
             $table->string('address')->nullable();
             $table->enum('user_status',['active','un_active'])->default('active');
-            $table->enum('user_type',['student','doctor','manger','employee','factor'])->default('student');
             $table->string('university_register_year')->nullable();
-            $table->bigInteger('job_id')->unique()->nullable()->comment('الرقم الوظيفي خاصه لغير الطالب');
             $table->rememberToken();
             $table->timestamps();
         });
