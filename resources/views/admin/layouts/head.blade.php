@@ -13,20 +13,21 @@
 
 <!-- STYLE CSS -->
 
+@if(lang() == 'ar')
 {{-- start style css-- rtl --}}
 <link href="{{ asset('assets/admin/css-rtl/style.css') }}" rel="stylesheet" />
 <link href="{{ asset('assets/admin/css-rtl/skin-modes.css') }}" rel="stylesheet" />
 <link href="{{ asset('assets/admin/css-rtl/dark-style.css') }}" rel="stylesheet" />
-
-{{-- end style css-- ltr --}}
-
-{{-- <link href="{{asset('assets/admin/css/style.css')}}" rel="stylesheet"/> --}}
-{{-- <link href="{{asset('assets/admin/css/skin-modes.css')}}" rel="stylesheet"/> --}}
-{{-- <link href="{{asset('assets/admin/css/dark-style.css')}}" rel="stylesheet"/> --}}
-
-
-<!-- SIDE-MENU CSS -->
 <link href="{{ asset('assets/admin/css-rtl/sidemenu.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/admin/css-rtl/icons.css') }}" rel="stylesheet">
+@else
+{{-- start style css-- ltr --}}
+<link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet" />
+<link href="{{ asset('assets/admin/css/skin-modes.css') }}" rel="stylesheet" />
+<link href="{{ asset('assets/admin/css/dark-style.css') }}" rel="stylesheet" />
+<link href="{{ asset('assets/admin/css/sidemenu.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/admin/css/icons.css') }}" rel="stylesheet">
+@endif
 
 <!--PERFECT SCROLL CSS-->
 <link href="{{ asset('assets/admin/plugins/p-scroll/perfect-scrollbar.css') }}" rel="stylesheet" />

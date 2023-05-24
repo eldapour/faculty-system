@@ -160,7 +160,7 @@ return [
 
     'attributes' => [
         'category_name' =>'اسم يالغة العربية',
-//        'name' =>'الاسم'
+        'name' =>'الاسم'
     ],
 
 ];

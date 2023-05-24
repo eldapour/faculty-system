@@ -4,22 +4,44 @@ return [
     'language' => 'Language',
 
     // General
+    "home" => 'Home',
     "actions" => "Actions",
     "search" => "Search",
-    "add" => "Add",
-    "delete" => "Delete",
     "sure_delete" => "Are you sure to delete",
-    "close" => "Close",
     "name" => "Name",
     "value" => "Value",
+
     "title" => "Title",
     "status" => "Status",
 
-    // Side Bar
-    "home" => 'Home',
-    "deadlines" => "Deadlines",
+    "register" => "register",
+    "from" => "from",
+    "to" => "to",
+    "show" => "show",
+    "Loading" => "Loading",
+    "No results" => "No results",
+    "Search" => "Search",
+    "research" => "research",
+    "zero_records" => "No results",
+    "copy" => "copy",
+    "Print" => "Print",
+    "Excel" => "Excel",
+    "select" => "Select",
+
+
+
+
+
+    // crud
+    "add" => "addition ",
+    "edit" => "amendment ",
+    "delete" => "delete ",
+    "update" => "update ",
+    "close" => "Close ",
+    "delete_confirm" => "Are you sure to delete ",
 
     // Deadlines
+    "deadlines" => "Deadlines",
     "desc" => "Description",
     "deadline_date_start" => "Deadline Date Start",
     "deadline_date_end" => "Deadline Date End",
@@ -36,7 +58,20 @@ return [
     // Internal Ad
     "ad" => "Ad",
     "internal_ads" => "Internal Ads",
+
     "date_ads" => "Date Ads",
     "url_ads" => "Url Ads",
 ]
 ?>
+
+
+
+    // Department
+    "departments" => "tracts",
+    "department" => "tract",
+
+    // Department branch
+    "branches" => "Branches",
+    "branch" => "Branch",
+];
+
