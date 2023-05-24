@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\DeadlineController;
-use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,25 +21,15 @@ require __DIR__ . '/admin.php';
 
 
 // start web routes
-Route::get('/', function (){
-    return view('welcome');
-});
+// Route::get('/', function (){
+//     return view('welcome');
+// });
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-    Route::get('/admin/', function () {
-        return view('admin.layouts.master');
-    });
-
-    #### Deadline ####
-    Route::resource('deadlines', DeadlineController::class);
-
-    #### Setting ####
-    Route::resource('settings', SettingController::class);
 
 
     //Auth controller

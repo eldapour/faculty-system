@@ -1,21 +1,25 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('city.store') }}">
+    <form id="addForm" class="addForm" method="POST" action="{{ route('services.store') }}">
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
-                    <label for="name_ar" class="form-control-label">الاسم بالعربي</label>
-                    <input type="text" class="form-control" name="name_ar" required>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Ar</label>
+                    <input type="text" class="form-control" name="service_name[ar]" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="name_en" class="form-control-label">الاسم بالانجليزي</label>
-                    <input type="text" class="form-control" name="name_en" required>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_En</label>
+                    <input type="text" class="form-control" name="service_name[en]" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Fr</label>
+                    <input type="text" class="form-control" name="service_name[fr]" required>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-            <button type="submit" class="btn btn-primary" id="addButton">اضافة</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
+            <button type="submit" class="btn btn-primary" id="addButton">{{ trans('admin.add')}}</button>
         </div>
     </form>
 </div>

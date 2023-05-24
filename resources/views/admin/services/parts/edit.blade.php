@@ -1,17 +1,21 @@
 <div class="modal-body">
-    <form id="updateForm" class="updateForm" method="POST" action="{{ route('city.update', $city->id) }}">
+    <form id="updateForm" class="updateForm" method="POST" action="{{ route('services.update', $service->id) }}">
         @csrf
         @method('PUT')
-        <input type="hidden" value="{{ $city->id }}" name="id">
+        <input type="hidden" value="{{ $service->id }}" name="id">
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
-                    <label for="name_ar" class="form-control-label">الاسم بالعربي</label>
-                    <input type="text" class="form-control" value="{{ $city->name_ar }}" name="name_ar" required>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Ar</label>
+                    <input type="text" class="form-control" name="service_name[ar]" value="{{ $service->service_name['ar'] }}" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="name_en" class="form-control-label">الاسم بالانجليزي</label>
-                    <input type="text" class="form-control" value="{{ $city->name_en }}" name="name_en" required>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_En</label>
+                    <input type="text" class="form-control" value="{{ $service->service_name['en'] }}" name="service_name[en]" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Fr</label>
+                    <input type="text" class="form-control" value="{{ $service->service_name['fr'] }}" name="service_name[fr]" required>
                 </div>
             </div>
         </div>

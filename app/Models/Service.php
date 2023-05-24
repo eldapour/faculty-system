@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "service_name"
+    ];
+
+    protected $casts = [
+        "service_name" => "json",
+    ];
 }

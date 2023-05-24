@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\HomeController;
-
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\DeadlineController;
+use App\Http\Controllers\Admin\InternalAdController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -26,6 +28,22 @@ Route::group([
 
     Route::get('/login',[LoginController::class,'index'])->name('admin.login');
     Route::post('/do-login',[LoginController::class,'login'])->name('login');
+
+    Route::get('/admin/', function () {
+        return view('admin.layouts.master');
+    });
+
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
+
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
+
+    #### Service ####
+    Route::resource('services', ServiceController::class);
+
+    #### Internal Ads ####
+    Route::resource('internal_ads', InternalAdController::class);
 
         ###################### Category #############################
         Route::resource('categories',CategoryController::class);

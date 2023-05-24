@@ -1,31 +1,31 @@
 <div class="modal-body">
-    <form id="updateForm" class="updateForm" method="POST" action="{{ route('update', $deadlines->id) }}">
+    <form id="updateForm" class="updateForm" method="POST" action="{{ route('deadlines.update', $deadline->id) }}">
         @csrf
         @method('PUT')
-        <input type="hidden" value="{{ $deadlines->id }}" name="id">
+        <input type="hidden" value="{{ $deadline->id }}" name="id">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
                     <label for="name_en" class="form-control-label">{{ trans('admin.deadline_date_start') }}</label>
-                    <input type="date" class="form-control" name="deadline_date_start" required>
+                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_start }}" name="deadline_date_start" required>
                 </div>
                 <div class="col-md-6">
                     <label for="name_en" class="form-control-label">{{ trans('admin.deadline_date_end') }}</label>
-                    <input type="date" class="form-control" name="deadline_date_end" required>
+                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_end }}" name="deadline_date_end" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_Ar</label>
-                    <textarea name="description[ar]" class="form-control" rows="8"></textarea>
+                    <textarea name="description[ar]" class="form-control" rows="8">{{ $deadline->description['ar'] }}</textarea>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_En</label>
-                    <textarea name="description[en]" class="form-control" rows="8"></textarea>
+                    <textarea name="description[en]" class="form-control" rows="8">{{ $deadline->description['en'] }}</textarea>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_Fr</label>
-                    <textarea name="description[fr]" class="form-control" rows="8"></textarea>
+                    <textarea name="description[fr]" class="form-control" rows="8">{{ $deadline->description['fr'] }}</textarea>
                 </div>
             </div>
         </div>
