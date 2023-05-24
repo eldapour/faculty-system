@@ -10,6 +10,20 @@ return [
     "sure_delete" => "هل انت متأكد من حذف",
     "name" => "الاسم",
     "value" => "القيمة",
+    "register" => "سجل",
+    "copy" => "نسخ",
+    "Print" => "طباعة",
+    "Excel" => "اكسيل",
+    "from" => "من",
+    "to" => "الى",
+    "show" => "اظهار",
+    "Loading" => "جاري التحميل",
+    "No results" => "لا نتائج",
+    "Search" => "للبحث",
+    "research" => "بحث",
+    "select" => "اختار",
+    "zero_records" => "لا يوجد نتائج",
+
 
     // crud
     "add" => "اضافة ",
@@ -41,6 +55,10 @@ return [
     // Department
     "departments" => "المسالك",
     "department" => "المسلك",
+
+    // Department branch
+    "branches" => "المسارات",
+    "branch" => "المسار",
 
 ];
 

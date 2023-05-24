@@ -5,12 +5,12 @@
             <a class="header-brand d-md-none" href="#">
                 <img src="{{ asset('assets/uploads') }}/logo.png" class="header-brand-img mobile-icon" alt="logo">
                 <img src="{{ asset('assets/uploads') }}/logo.png" class="header-brand-img desktop-logo mobile-logo"
-                    alt="logo">
+                     alt="logo">
             </a>
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#">
                 <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z" />
+                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                    <path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z"/>
                 </svg>
             </a><!-- sidebar-toggle-->
             <div class="header-search d-none d-md-flex">
@@ -27,13 +27,13 @@
             </div>
             <div class="d-flex mr-auto header-right-icons header-search-icon">
                 <button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                        data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
-                        class="navbar-toggler-icon">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
+                         class="navbar-toggler-icon">
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
                         <path
-                            d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                     </svg>
                 </button>
                 <div class="dropdown d-none d-lg-flex">
@@ -42,26 +42,30 @@
                     </a>
                 </div>
                 <!-- FULL-SCREEN -->
-  <li class="nav-item dropdown">
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-        <li>
-            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                {{ $properties['native'] }}
-            </a>
-        </li>
-    @endforeach
-        </div>
-</li>
-                {{--  <ul class="navbar-nav ml-auto flex-nowrap">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-danger font-weight-bold" href="#"
-                            id="navbarDropdown" role="button" data-toggle="dropdown">Language</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown d-md-flex mr-2">
+                    <a class="nav-link icon text-center" data-toggle="dropdown">
+                        @lang('admin.language')
+                    </a>
+                    <div style="top: 0px !important;" class="dropdown-menu">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item text-center" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                        @endforeach
+                    </div>
+                </div>
 
-                        </div>
-                    </li>
-                </ul>  --}}
+
+
+                {{--                --}}{{--  <ul class="navbar-nav ml-auto flex-nowrap">--}}
+                {{--                    <li class="nav-item dropdown">--}}
+                {{--                        <a class="nav-link dropdown-toggle text-danger font-weight-bold" href="#"--}}
+                {{--                            id="navbarDropdown" role="button" data-toggle="dropdown">Language</a>--}}
+                {{--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+
+                {{--                        </div>--}}
+                {{--                    </li>--}}
+                {{--                </ul>  --}}
                 {{--                <div class="dropdown d-md-flex notifications"> --}}
                 {{--                    <a class="nav-link icon" data-toggle="dropdown"> --}}
                 {{--                        <i class="fe fe-bell"></i> --}}
@@ -104,7 +108,6 @@
                     <a class="nav-link icon text-center" data-toggle="dropdown">
                         <i class="fe fe-mail"></i>
                         <span id="nav-span">
-
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -131,7 +134,7 @@
                     <a href="#" data-toggle="dropdown" class="nav-link pl-2 pr-2  leading-none d-flex">
                         <span>
                             <img src="" alt="profile-user"
-                                class="avatar  mr-xl-3 profile-user brround cover-image">
+                                 class="avatar  mr-xl-3 profile-user brround cover-image">
                         </span>
                         <div class="text-center mt-1 d-none d-xl-block">
                             <h6 class="text-dark mb-0 fs-13 font-weight-semibold text-capitalize">jjj</h6>
@@ -150,9 +153,9 @@
                         <a class="dropdown-item" href="http://motaweron.com/contact-us.html/">
                             <i class="dropdown-icon mdi mdi-compass-outline"></i>Need help ?
                         </a>
-{{--                        <a class="dropdown-item" href="{{ route('logout') }}">--}}
-{{--                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out--}}
-{{--                        </a>--}}
+                        {{--                        <a class="dropdown-item" href="{{ route('logout') }}">--}}
+                        {{--                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out--}}
+                        {{--                        </a>--}}
                     </div>
                 </div>
                 <!-- SIDE-MENU -->
@@ -170,9 +173,9 @@
             <div class="dropdown d-sm-flex">
                 <a href="#" class="nav-link icon" data-toggle="dropdown">
                     <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
                         <path
-                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                     </svg>
                 </a>
                 <div class="dropdown-menu header-search dropdown-menu-left">
@@ -191,21 +194,21 @@
             <div class="dropdown d-md-flex">
                 <a class="nav-link icon full-screen-link nav-link-bg">
                     <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
-                        class="fullscreen-button">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <circle cx="12" cy="12" opacity=".3" r="3" />
+                         class="fullscreen-button">
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <circle cx="12" cy="12" opacity=".3" r="3"/>
                         <path
-                            d="M7 12c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm8 0c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3 3 1.35 3 3zM3 19c0 1.1.9 2 2 2h4v-2H5v-4H3v4zM3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm18 0c0-1.1-.9-2-2-2h-4v2h4v4h2V5zm-2 14h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z" />
+                            d="M7 12c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm8 0c0 1.65-1.35 3-3 3s-3-1.35-3-3 1.35-3 3-3 3 1.35 3 3zM3 19c0 1.1.9 2 2 2h4v-2H5v-4H3v4zM3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm18 0c0-1.1-.9-2-2-2h-4v2h4v4h2V5zm-2 14h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
                     </svg>
                 </a>
             </div><!-- FULL-SCREEN -->
             <div class="dropdown d-md-flex notifications">
                 <a class="nav-link icon" data-toggle="dropdown">
                     <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M12 6.5c-2.49 0-4 2.02-4 4.5v6h8v-6c0-2.48-1.51-4.5-4-4.5z" opacity=".3" />
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path d="M12 6.5c-2.49 0-4 2.02-4 4.5v6h8v-6c0-2.48-1.51-4.5-4-4.5z" opacity=".3"/>
                         <path
-                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
+                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
                     </svg>
                     <span class="pulse1 bg-success"></span>
                 </a>
@@ -285,10 +288,10 @@
             <div class="dropdown d-md-flex message">
                 <a class="nav-link icon text-center" data-toggle="dropdown">
                     <svg xmlns="http:/www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M20 8l-8 5-8-5v10h16zm0-2H4l8 4.99z" opacity=".3" />
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path d="M20 8l-8 5-8-5v10h16zm0-2H4l8 4.99z" opacity=".3"/>
                         <path
-                            d="M4 20h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2zM20 6l-8 4.99L4 6h16zM4 8l8 5 8-5v10H4V8z" />
+                            d="M4 20h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2zM20 6l-8 4.99L4 6h16zM4 8l8 5 8-5v10H4V8z"/>
                     </svg>
                     <span class="nav-unread badge badge-danger badge-pill pulse">3</span>
                 </a>
@@ -296,7 +299,7 @@
                     <div class="message-menu">
                         <a class="dropdown-item d-flex pb-3" href="#">
                             <span class="avatar avatar-md brround mr-3 align-self-center cover-image"
-                                data-image-src="{{ asset('assets/admin') }}/images/users/1.jpg"></span>
+                                  data-image-src="{{ asset('assets/admin') }}/images/users/1.jpg"></span>
                             <div>
                                 <strong>Madeleine</strong> Hey! there I' am available....
                                 <div class="small text-muted">
@@ -306,7 +309,7 @@
                         </a>
                         <a class="dropdown-item d-flex pb-3" href="#">
                             <span class="avatar avatar-md brround mr-3 align-self-center cover-image"
-                                data-image-src="{{ asset('assets/admin') }}/images/users/12.jpg"></span>
+                                  data-image-src="{{ asset('assets/admin') }}/images/users/12.jpg"></span>
                             <div>
                                 <strong>Anthony</strong> New product Launching...
                                 <div class="small text-muted">
@@ -316,7 +319,7 @@
                         </a>
                         <a class="dropdown-item d-flex pb-3" href="#">
                             <span class="avatar avatar-md brround mr-3 align-self-center cover-image"
-                                data-image-src="{{ asset('assets/admin') }}/images/users/4.jpg"></span>
+                                  data-image-src="{{ asset('assets/admin') }}/images/users/4.jpg"></span>
                             <div>
                                 <strong>Olivia</strong> New Schedule Realease......
                                 <div class="small text-muted">
@@ -326,7 +329,7 @@
                         </a>
                         <a class="dropdown-item d-flex pb-3" href="#">
                             <span class="avatar avatar-md brround mr-3 align-self-center cover-image"
-                                data-image-src="{{ asset('assets/admin') }}/images/users/15.jpg"></span>
+                                  data-image-src="{{ asset('assets/admin') }}/images/users/15.jpg"></span>
                             <div>
                                 <strong>Sanderson</strong> New Schedule Realease......
                                 <div class="small text-muted">
@@ -341,9 +344,9 @@
             </div><!-- MESSAGE-BOX -->
             <div class="dropdown d-md-flex country-selector">
                 <a href="#" class="d-flex nav-link icon leading-none" data-toggle="dropdown"
-                    aria-expanded="true">
+                   aria-expanded="true">
                     <img src="{{ asset('assets/admin') }}/images/flags/us_flag.jpg" alt="img"
-                        class="mr-2 align-self-center">
+                         class="mr-2 align-self-center">
                     <div>
                         <strong class="text-dark fs-13">English</strong>
                     </div>
@@ -351,35 +354,35 @@
                 <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow">
                     <a href="#" class="dropdown-item d-flex pb-3">
                         <img src="{{ asset('assets/admin') }}/images/flags/french_flag.jpg" alt="flag-img"
-                            class="avatar  mr-3 align-self-center">
+                             class="avatar  mr-3 align-self-center">
                         <div>
                             <strong>French</strong>
                         </div>
                     </a>
                     <a href="#" class="dropdown-item d-flex pb-3">
                         <img src="{{ asset('assets/admin') }}/images/flags/germany_flag.jpg" alt="flag-img"
-                            class="avatar  mr-3 align-self-center">
+                             class="avatar  mr-3 align-self-center">
                         <div>
                             <strong>Germany</strong>
                         </div>
                     </a>
                     <a href="#" class="dropdown-item d-flex pb-3">
                         <img src="{{ asset('assets/admin') }}/images/flags/italy_flag.jpg" alt="flag-img"
-                            class="avatar  mr-3 align-self-center">
+                             class="avatar  mr-3 align-self-center">
                         <div>
                             <strong>Italy</strong>
                         </div>
                     </a>
                     <a href="#" class="dropdown-item d-flex pb-3">
                         <img src="{{ asset('assets/admin') }}/images/flags/russia_flag.jpg" alt="flag-img"
-                            class="avatar  mr-3 align-self-center">
+                             class="avatar  mr-3 align-self-center">
                         <div>
                             <strong>Russia</strong>
                         </div>
                     </a>
                     <a href="#" class="dropdown-item d-flex pb-3">
                         <img src="{{ asset('assets/admin') }}/images/flags/spain_flag.jpg" alt="flag-img"
-                            class="avatar  mr-3 align-self-center">
+                             class="avatar  mr-3 align-self-center">
                         <div>
                             <strong>Spain</strong>
                         </div>

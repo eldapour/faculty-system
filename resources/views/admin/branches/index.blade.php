@@ -1,21 +1,21 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{($setting->title) ?? ''}}  @lang('admin.departments')
+    {{($setting->title) ?? ''}}  @lang('admin.branches')
 @endsection
-@section('page_name')  @lang('admin.departments') @endsection
+@section('page_name')  @lang('admin.branches') @endsection
 @section('content')
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> @lang('admin.departments') {{($setting->title) ?? ''}}</h3>
+                    <h3 class="card-title"> @lang('admin.branches') {{($setting->title) ?? ''}}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> @lang('admin.add') @lang('admin.department')
+									</span> @lang('admin.add') @lang('admin.branch')
                         </button>
                     </div>
                 </div>
@@ -27,6 +27,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px"> {{__('admin.name')}}</th>
+                                <th class="min-w-50px"> {{__('admin.department')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
                             </thead>
@@ -42,14 +43,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">@lang('admin.delete') @lang('admin.department')</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('admin.delete') trans('admin.branch')</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
                          <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.department') }}<span id="title" class="text-danger"></span>؟</p>
+                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.branch') }}<span id="title" class="text-danger"></span>؟</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -67,7 +68,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.department')}}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.branch')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -86,17 +87,18 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'department_name', name: 'department_name'},
+            {data: 'branch_name', name: 'branch_name'},
+            {data: 'department_id', name: 'department_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('departments.index')}}', columns);
+        showData('{{route('branches.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('departments.destroy',':id')}}');
+        destroyScript('{{route('branches.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('departments.create')}}');
+        showAddModal('{{route('branches.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('departments.edit',':id')}}');
+        showEditModal('{{route('branches.edit',':id')}}');
         editScript();
     </script>
 @endsection
