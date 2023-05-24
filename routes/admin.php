@@ -52,4 +52,5 @@ Route::group([
 
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
+
 });
