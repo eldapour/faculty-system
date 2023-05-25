@@ -28,6 +28,11 @@ return [
     "select" => "اختار",
     "zero_records" => "لا يوجد نتائج",
 
+    "arabic" => "بالعربية",
+    "english" => "بالانجليزية",
+    "france" => "بالفرنسية",
+    "latin" => "بالاتينية",
+
 
     // crud
     "add" => "اضافة ",
@@ -80,6 +85,16 @@ return [
     // Category
     "category" => "فئة",
     "categories" => "فئات",
+
+    // sliders
+    "sliders" => "صور متحركة",
+    "image" => "الصورة",
+    "description" => "التفاصيل",
+
+    // word
+    "wordManager" => "كلمة العميد",
+    "word_role" => "الصفة"
+
 ];
 
 

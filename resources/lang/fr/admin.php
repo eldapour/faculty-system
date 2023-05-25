@@ -27,6 +27,11 @@ return [
     "Print" => "Imprimer",
     "Excel" => "Exceller",
     "select" => "sélect",
+    "arabic" => "en arabe",
+    "english" => "En anglais",
+    "france" => "en français",
+    "latin" => "en latin",
+
 
 
 
@@ -77,6 +82,15 @@ return [
     // Category
     "category" => "catégorie",
     "categories" => "catégories",
+
+    // sliders
+    "sliders" => "sliders",
+    "image" => "image",
+    "description" => "description",
+
+    // word
+    "wordManager" => "Discours du doyen",
+    "word_role" => "titre d'emploi"
 ];
 
 

@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Word extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'role',
+        'image',
+        'category_id',
+    ];
+
+    protected $casts = [
+        'name'=>'json',
+        'description'=>'json',
+        'role'=>'json',
+    ];
 }

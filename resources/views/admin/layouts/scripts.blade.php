@@ -78,7 +78,7 @@
 {{--    $('.header-brand-img').attr("src","{{asset($setting->logo)}}")--}}
 {{--</script>--}}
 
-
+<script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 
 
 @yield('js')

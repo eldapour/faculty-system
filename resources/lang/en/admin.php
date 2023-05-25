@@ -27,6 +27,11 @@ return [
     "Print" => "Print",
     "Excel" => "Excel",
     "select" => "Select",
+    "arabic" => "in Arabic",
+    "english" => "in English",
+    "france" => "in French",
+    "latin" => "in Latin",
+
 
 
 
@@ -80,5 +85,15 @@ return [
     // Category
     "category" => "Category",
     "categories" => "Categories",
+
+    // sliders
+    "sliders" => "sliders",
+    "image" => "image",
+    "description" => "description",
+
+    //word
+    "wordManager" => "Dean's speech",
+    "word_role" => "job title"
+
 ];
 
