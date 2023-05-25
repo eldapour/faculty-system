@@ -8,11 +8,11 @@
                 <input type="text" class="form-control" name="category_name[ar]" required>
             </div>
             <div class="col-md-4">
-                <label for="category_name" class="form-control-label">{{ trans('admin.name') }}_En</label>
+                <label for="category_name" class="form-control-label">{{ trans('admin.name') }}  {{ trans('admin.english') }}</label>
                 <input type="text" class="form-control" name="category_name[en]" required>
             </div>
             <div class="col-md-4">
-                <label for="category_name" class="form-control-label">{{ trans('admin.name') }}_Fr</label>
+                <label for="category_name" class="form-control-label">{{ trans('admin.name') }}  {{ trans('admin.france') }}</label>
                 <input type="text" class="form-control" name="category_name[fr]" required>
             </div>
         </div>

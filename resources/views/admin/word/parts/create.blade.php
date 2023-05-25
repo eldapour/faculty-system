@@ -16,11 +16,11 @@
                     <input type="text" class="form-control" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}_En</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.english') }}</label>
                     <input type="text" class="form-control" name="title[en]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}_Fr</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.france') }}</label>
                     <input type="text" class="form-control" name="title[fr]" required>
                 </div>
             </div>
@@ -32,11 +32,11 @@
                     <input type="text" class="form-control" name="description[ar]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_En</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
                     <input type="text" class="form-control" name="description[en]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_Fr</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
                     <input type="text" class="form-control" name="description[fr]" required>
                 </div>
             </div>

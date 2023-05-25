@@ -20,11 +20,11 @@
                     <input type="text" class="form-control" value="{{ $slider->title['ar'] }}" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}_En</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.english') }}</label>
                     <input type="text" class="form-control" value="{{ $slider->title['en'] }}" name="title[en]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}_Fr</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.france') }}</label>
                     <input type="text" class="form-control" value="{{ $slider->title['fr'] }}" name="title[fr]" required>
                 </div>
             </div>
@@ -36,11 +36,11 @@
                     <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $slider->description['ar'] }}</textarea>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_En</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
                     <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $slider->description['en'] }}</textarea>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_Fr</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
                     <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $slider->description['fr'] }}</textarea>
                 </div>
             </div>

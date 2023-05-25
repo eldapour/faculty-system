@@ -10,11 +10,11 @@
                     <input type="text" class="form-control" name="service_name[ar]" value="{{ $service->service_name['ar'] }}" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_En</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.english') }}</label>
                     <input type="text" class="form-control" value="{{ $service->service_name['en'] }}" name="service_name[en]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Fr</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.france') }}</label>
                     <input type="text" class="form-control" value="{{ $service->service_name['fr'] }}" name="service_name[fr]" required>
                 </div>
             </div>
