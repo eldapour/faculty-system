@@ -100,21 +100,11 @@
                 <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
             </a>
         </li>
-
-{{--        <li class="slide">--}}
-{{--            <a class="side-menu__item" href="{{ route('index') }}">--}}
-{{--                <i class="icon icon-user side-menu__icon"></i>--}}
-{{--                <span class="side-menu__label">Admin</span>--}}
-{{--            </a>--}}
-{{--        </li>--}}
-        {{--  @can('roles_and_permission')  --}}
-            {{--  <li class="slide">
-                <a class="side-menu__item" href="{{ route('roles.index') }}">
-                    <i class="fe fe-git-commit side-menu__icon"></i>
-                    <span class="side-menu__label">الادوار والصلاحيات</span>
-                </a>
-            </li>  --}}
-        {{--  @endcan  --}}
-
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('video.index') }}">
+                <i class="fa fa-video side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.videos') }}</span>
+            </a>
+        </li>
     </ul>
 </aside>

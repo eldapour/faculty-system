@@ -1,29 +1,27 @@
 <?php
 return [
     'welcome_back' => 'Content de te revoir',
-    'language' => 'langue',
+    'language' => 'Langue',
 
     // General
-    "home" => 'maison',
+    "home" => 'Maison',
     "actions" => "Actions",
-    "search" => "recherche",
+    "search" => "Recherche",
     "sure_delete" => "Êtes-vous sûr de vouloir supprimer",
-    "name" => "nom",
-    "value" => "value",
-
+    "name" => "Nom",
+    "value" => "Value",
     "title" => "Titre",
-    "status" => "statut",
-
-    "register" => "enregistrer",
-    "from" => "depuis",
-    "to" => "pour",
-    "show" => "montrer",
+    "status" => "Statut",
+    "register" => "Enregistrer",
+    "from" => "Depuis",
+    "to" => "Pour",
+    "show" => "Montrer",
     "Loading" => "Chargement",
     "No results" => "Aucun résultat",
     "Search" => "Recherche",
-    "research" => "recherche",
+    "research" => "Recherche",
     "zero_records" => "Aucun résultat",
-    "copy" => "copie",
+    "copy" => "Copie",
     "Print" => "Imprimer",
     "Excel" => "Exceller",
     "select" => "sélect",
@@ -34,43 +32,51 @@ return [
 
 
 
+    "select" => "Sélect",
+    "wait" => "attendez",
+    "added_successfully" => "Ajouté avec succès",
+    "updated_successfully" => "Mis à jour avec succés",
+    "deleted_successfully" => "Supprimé avec succès",
+    "something_went_wrong" => "Quelque chose s'est mal passé",
+    "wrong" => "Faux",
+
 
     // crud
-    "add" => "ajout ",
-    "edit" => "amendement ",
-    "delete" => "supprimer ",
-    "update" => "mettre à jour ",
+    "add" => "Ajout ",
+    "edit" => "Amendement ",
+    "delete" => "Supprimer ",
+    "update" => "Nettre à jour ",
     "close" => "Fermer ",
-    "delete_confirm" => "Êtes-vous sûr de vouloir supprimer ",
+    "delete_confirm" => "Êtes-vous sûr De Vouloir Supprimer ",
 
     // Deadlines
     "deadlines" => "Les échéances",
-    "desc" => "description",
-    "deadline_date_start" => "date limite début",
-    "deadline_date_end" => "date limite fin",
-    "an_appointment" => "un rendez-vous",
+    "desc" => "Description",
+    "deadline_date_start" => "Date Limite Début",
+    "deadline_date_end" => "Date Limite Fin",
+    "an_appointment" => "Un Rendez-Vous",
 
     // Setting
-    "setting" => "paramètre",
-    "settings" => "paramètres",
+    "setting" => "Paramètre",
+    "settings" => "Paramètres",
 
     // Service
     "service" => "Service",
     "services" =>"Services",
 
     // Internal Ad
-    "ad" => "publicité",
-    "internal_ads" => "annonces internes",
+    "ad" => "Publicité",
+    "internal_ads" => "Annonces Internes",
 
-    "date_ads" => "annonces de rendez-vous",
-    "url_ads" => "Lien des annonces",
+    "date_ads" => "Annonces De Rendez-vous",
+    "url_ads" => "Lien Des Annonces",
     // Department
-    "departments" => "des pistes",
-    "department" => "piste",
+    "departments" => "Des Pistes",
+    "department" => "Piste",
 
     // Department branch
-    "branches" => "branches",
-    "branch" => "branche",
+    "branches" => "Branches",
+    "branch" => "Branche",
 
     // Department branch users
     "Users_Branches" => "Branches étudiantes",
@@ -91,6 +97,15 @@ return [
     // word
     "wordManager" => "Discours du doyen",
     "word_role" => "titre d'emploi"
+
+    "category" => "Catégorie",
+    "categories" => "Catégories",
+
+    // Video
+    'video' => 'Vidéo',
+    'videos' => 'Vidéos',
+    "background_image" => 'image de Fond',
+    "video_url" => "URL de la vidéo",
 ];
 
 

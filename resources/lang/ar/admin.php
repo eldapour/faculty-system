@@ -10,10 +10,8 @@ return [
     "sure_delete" => "هل انت متأكد من حذف",
     "name" => "الاسم",
     "value" => "القيمة",
-
     "title" => "عنوان",
     "status" => "الحالة",
-
     "register" => "سجل",
     "copy" => "نسخ",
     "Print" => "طباعة",
@@ -27,6 +25,12 @@ return [
     "research" => "بحث",
     "select" => "اختار",
     "zero_records" => "لا يوجد نتائج",
+    "wait" => "انتظر",
+    "added_successfully" => "تم الاضافة بنجاح",
+    "updated_successfully" => "تم التعديل بنجاح",
+    "deleted_successfully" => "تم الحذف بنجاح",
+    "something_went_wrong" => "هناك خطأ ما",
+    "wrong" => "خطأ",
 
     "arabic" => "بالعربية",
     "english" => "بالانجليزية",
@@ -86,6 +90,7 @@ return [
     "category" => "فئة",
     "categories" => "فئات",
 
+
     // sliders
     "sliders" => "صور متحركة",
     "image" => "الصورة",
@@ -94,6 +99,10 @@ return [
     // word
     "wordManager" => "كلمة العميد",
     "word_role" => "الصفة"
+
+
+    "background_image" => 'خلفية الصورة',
+    "video_url" => "رابط الفيديو",
 
 ];
 
