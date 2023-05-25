@@ -1,21 +1,23 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{($setting->title) ?? ''}} | التصنيفات
+    {{ trans('admin.categories') }}
 @endsection
-@section('page_name') التصنيفات @endsection
+@section('page_name')
+{{ trans('admin.categories') }}
+@endsection
 @section('content')
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> التصنيفات {{($setting->title) ?? ''}}</h3>
+                    <h3 class="card-title">{{ trans('admin.categories') }}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> اضافة جديد
+									</span> {{ trans('admin.add') }}
                         </button>
                     </div>
                 </div>
@@ -26,8 +28,8 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px"> {{__('admin.name_ar')}}</th>
-                                <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
+                                <th class="min-w-50px"> {{ trans('admin.name') }}</th>
+                                <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
                         </table>
@@ -49,7 +51,7 @@
                     </div>
                     <div class="modal-body">
                          <input id="delete_id" name="id" type="hidden">
-                        <p>هل انت متأكد من حذف البيانات التالية <span id="title" class="text-danger"></span>؟</p>
+                        <p>{{ trans('admin.sure_delete') }} ? ["<span id="title" class="text-danger"></span>"]</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -67,7 +69,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{__('admin.category_details')}}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.category') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

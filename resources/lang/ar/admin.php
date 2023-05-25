@@ -59,10 +59,7 @@ return [
     "internal_ads" => "اعلانات داخلية",
 
     "date_ads" => "إعلانات التاريخ",
-    "url_ads" => "رابط الاعلانات"
-]
-?>
-
+    "url_ads" => "رابط الاعلانات",
 
     // Department
     "departments" => "المسالك",
@@ -72,6 +69,9 @@ return [
     "branches" => "المسارات",
     "branch" => "المسار",
 
+    // Category
+    "category" => "فئة",
+    "categories" => "فئات",
 ];
 
 

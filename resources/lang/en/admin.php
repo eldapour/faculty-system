@@ -61,10 +61,6 @@ return [
 
     "date_ads" => "Date Ads",
     "url_ads" => "Url Ads",
-]
-?>
-
-
 
     // Department
     "departments" => "tracts",
@@ -73,5 +69,9 @@ return [
     // Department branch
     "branches" => "Branches",
     "branch" => "Branch",
+
+    // Category
+    "category" => "Category",
+    "categories" => "Categories",
 ];
 
