@@ -99,6 +99,9 @@ Route::group([
     #### Presentation ####
     Route::resource("presentations", PresentationController::class);
 
+    #### Slider ####
+    Route::resource('slider', SliderController::class);
+
 
 
 });

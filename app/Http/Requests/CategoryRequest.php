@@ -24,7 +24,9 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_name'   => 'required',
+            'category_name.ar'   => 'required',
+            'category_name.en'   => 'required',
+            'category_name.fr'   => 'required',
         ];
     }
 }
