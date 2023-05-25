@@ -8,11 +8,11 @@
                         <input type="text" class="form-control" name="title[ar]" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="title" class="form-control-label">{{ trans('admin.title') }}_En</label>
+                        <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.english') }}</label>
                         <input type="text" class="form-control" name="title[en]" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="title" class="form-control-label">{{ trans('admin.title') }}_Fr</label>
+                        <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.france') }}</label>
                         <input type="text" class="form-control" name="title[fr]" required>
                     </div>
                 </div>
@@ -42,11 +42,11 @@
                         <textarea name="description[ar]" class="form-control" rows="8"></textarea>
                     </div>
                     <div class="col-md-4">
-                        <label for="desc" class="form-control-label">{{ trans('admin.desc') }}_En</label>
+                        <label for="desc" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.english') }}</label>
                         <textarea name="description[en]" class="form-control" rows="8"></textarea>
                     </div>
                     <div class="col-md-4">
-                        <label for="desc" class="form-control-label">{{ trans('admin.desc') }}_Fr</label>
+                        <label for="desc" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.france') }}</label>
                         <textarea name="description[fr]" class="form-control" rows="8"></textarea>
                     </div>
                 </div>

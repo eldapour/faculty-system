@@ -39,9 +39,9 @@
                                        </select>
                                             <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }} {{ trans('admin.arabic') }}</label>
                                             <input type="text" class="form-control" value="{{ $word->role['ar'] }}" name="role[ar]" required>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}_En</label>
+                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.english') }}</label>
                                             <input type="text" class="form-control" value="{{ $word->role['en'] }}" name="role[en]" required>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}_Fr</label>
+                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.france') }}</label>
                                             <input type="text" class="form-control" value="{{ $word->role['fr'] }}" name="role[fr]" required>
                                     </div>
                                 </div>
@@ -70,11 +70,11 @@
                                         <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $word->description['ar'] }}</textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_En</label>
+                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $word->description['en'] }}</textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_Fr</label>
+                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $word->description['fr'] }}</textarea>
                                     </div>
                                 </div>
