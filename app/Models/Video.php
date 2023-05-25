@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'background_image',
+        'video_url',
+    ];
+
+    protected $casts = [
+        'title' => 'json',
+        'description' => 'json',
+    ];
 }

@@ -102,6 +102,7 @@ class InternalAdController extends Controller
 
     // Destroy End
 
+    //TODO: Function to make ad show or hide by checkbox
     public function makeActive(Request $request)
     {
         $like = $request->status;
@@ -114,4 +115,6 @@ class InternalAdController extends Controller
             return response()->json(['status' => 405]);
         }
     }
+
+    // Function End
 }
