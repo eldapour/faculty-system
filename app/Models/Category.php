@@ -2,18 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-//use Spatie\Translatable\HasTranslations;
-
+use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
     use HasFactory;
 
-    //use HasTranslations;
+    use HasTranslations;
 
     public $translatable = ['category_name'];
 
-    protected $guarded = [];
+    protected $fillable = [
+        'category_name'
+    ];
+
+    protected $casts = [
+        'category_name' => 'json',
+    ];
 }

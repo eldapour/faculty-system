@@ -59,10 +59,6 @@ return [
 
     "date_ads" => "annonces de rendez-vous",
     "url_ads" => "Lien des annonces",
-]
-?>
-
-
     // Department
     "departments" => "des pistes",
     "department" => "piste",
@@ -70,6 +66,10 @@ return [
     // Department branch
     "branches" => "branches",
     "branch" => "branche",
+
+    // Category
+    "category" => "catégorie",
+    "categories" => "catégories",
 ];
 
 

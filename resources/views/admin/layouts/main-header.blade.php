@@ -52,6 +52,7 @@
                                     {{ $properties['native'] }}
                                 </a>
                         @endforeach
+                        
                     </div>
                 </div>
 
