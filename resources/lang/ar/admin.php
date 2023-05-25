@@ -32,6 +32,11 @@ return [
     "something_went_wrong" => "هناك خطأ ما",
     "wrong" => "خطأ",
 
+    "arabic" => "بالعربية",
+    "english" => "بالانجليزية",
+    "france" => "بالفرنسية",
+    "latin" => "بالاتينية",
+
 
     // crud
     "add" => "اضافة ",
@@ -84,8 +89,21 @@ return [
     // Category
     "category" => "فئة",
     "categories" => "فئات",
+
+
+    // sliders
+    "sliders" => "صور متحركة",
+    "image" => "الصورة",
+    "description" => "التفاصيل",
+
+    // word
+    "wordManager" => "كلمة العميد",
+    "word_role" => "الصفة"
+
+
     "background_image" => 'خلفية الصورة',
     "video_url" => "رابط الفيديو",
+
 ];
 
 

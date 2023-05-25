@@ -25,6 +25,11 @@ return [
     "Print" => "Print",
     "Excel" => "Excel",
     "select" => "Select",
+    "arabic" => "in Arabic",
+    "english" => "in English",
+    "france" => "in French",
+    "latin" => "in Latin",
+
     "wait" => "Wait",
     "added_successfully" => "Added Successfully",
     "updated_successfully" => "Updated Successfully",
@@ -84,6 +89,15 @@ return [
     // Category
     "category" => "Category",
     "categories" => "Categories",
+
+    // sliders
+    "sliders" => "sliders",
+    "image" => "image",
+    "description" => "description",
+
+    //word
+    "wordManager" => "Dean's speech",
+    "word_role" => "job title"
 
     // Video
     'video' => 'Video',
