@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('advertisements.store') }}"
+    <form id="addForm" class="addForm" method="POST" action="{{ route('presentations.store') }}"
         enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -18,32 +18,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="image" class="form-control-label">{{ trans('admin.image') }}</label>
-                    <input type="file" name="image" class="dropify" data-default-file="">
-                </div>
-                <div class="col-md-6">
-                    <label for="background_image"
-                        class="form-control-label">{{ trans('admin.background_image') }}</label>
-                    <input type="file" name="background_image" class="dropify" data-default-file="">
+                    <input type="file" name="files[]" multiple="multiple" class="dropify" data-default-file="">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
                     <select name="category_id" class="form-control" required>
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
                                 {{ $category->category_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
-                    <select name="service_id" class="form-control" required>
-                        @foreach ($data['services'] as $service)
-                            <option value="{{ $service->id }}" style="text-align: center">
-                                {{ $service->service_name[lang()] }}</option>
                         @endforeach
                     </select>
                 </div>

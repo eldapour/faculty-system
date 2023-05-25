@@ -93,6 +93,7 @@ return [
     // sliders
     "sliders" => "sliders",
     "image" => "image",
+    "images" => "Images",
     "description" => "description",
 
     // word
@@ -107,6 +108,12 @@ return [
     'videos' => 'Vidéos',
     "background_image" => 'image de Fond',
     "video_url" => "URL de la vidéo",
+
+    // Presentation
+    'presentation' => 'présentation',
+    'presentations' => 'présentations',
+    'experience_year' => 'Année d expérience',
+    'type' => 'Taper',
 ];
 
 

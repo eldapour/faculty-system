@@ -94,6 +94,7 @@ return [
     // sliders
     "sliders" => "sliders",
     "image" => "image",
+    "images" => "Images",
     "description" => "description",
 
     //word
@@ -105,5 +106,11 @@ return [
     'videos' => 'Videos',
     "background_image" => 'Background Image',
     "video_url" => "Video Url",
+
+    // Presentation
+    'presentation' => 'Presentation',
+    'presentations' => 'Presentations',
+    'experience_year' => 'Experience Year',
+    'type' => 'Type',
 ];
 
