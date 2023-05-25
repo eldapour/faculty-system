@@ -3,11 +3,13 @@
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeadlineController;
 use App\Http\Controllers\Admin\InternalAdController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\WordController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\AdvertisementController;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +71,12 @@ Route::group([
 
     #### departments ####
     Route::resource('departments', DepartmentController::class);
+
+    #### sliders ####
+    Route::resource('sliders', SliderController::class);
+
+    #### word ####
+    Route::resource('word', WordController::class);
 
     #### branches ####
     Route::resource('branches', DepartmentBranchController::class);

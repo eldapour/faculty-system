@@ -83,6 +83,18 @@
             </a>
         </li>
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('sliders.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.sliders') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('word.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.wordManager') }}</span>
+            </a>
+        </li>
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('internal_ads.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>

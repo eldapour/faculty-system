@@ -24,6 +24,14 @@ return [
     "copy" => "Copie",
     "Print" => "Imprimer",
     "Excel" => "Exceller",
+    "select" => "sélect",
+    "arabic" => "en arabe",
+    "english" => "En anglais",
+    "france" => "en français",
+    "latin" => "en latin",
+
+
+
     "select" => "Sélect",
     "wait" => "attendez",
     "added_successfully" => "Ajouté avec succès",
@@ -79,6 +87,18 @@ return [
     "student_branch" => "étudiant",
 
     // Category
+    "category" => "catégorie",
+    "categories" => "catégories",
+
+    // sliders
+    "sliders" => "sliders",
+    "image" => "image",
+    "description" => "description",
+
+    // word
+    "wordManager" => "Discours du doyen",
+    "word_role" => "titre d'emploi",
+
     "category" => "Catégorie",
     "categories" => "Catégories",
 
