@@ -10,6 +10,10 @@ return [
     "sure_delete" => "Êtes-vous sûr de vouloir supprimer",
     "name" => "nom",
     "value" => "value",
+
+    "title" => "Titre",
+    "status" => "statut",
+
     "register" => "enregistrer",
     "from" => "depuis",
     "to" => "pour",
@@ -50,8 +54,11 @@ return [
     "services" =>"Services",
 
     // Internal Ad
+    "ad" => "publicité",
     "internal_ads" => "annonces internes",
 
+    "date_ads" => "annonces de rendez-vous",
+    "url_ads" => "Lien des annonces",
     // Department
     "departments" => "des pistes",
     "department" => "piste",
@@ -66,4 +73,10 @@ return [
     "register_year" => "année d'inscription",
     "branch_restart_register" => "registre de redémarrage de succursale",
     "student_branch" => "étudiant",
+
+    // Category
+    "category" => "catégorie",
+    "categories" => "catégories",
 ];
+
+

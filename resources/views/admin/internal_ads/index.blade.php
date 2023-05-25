@@ -1,10 +1,10 @@
-@extends('dashboard.layouts.master')
+@extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.deadlines') }}
+    {{ trans('admin.internal_ads') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.deadlines') }}
+    {{ trans('admin.internal_ads') }}
 @endsection
 @section('content')
 
@@ -28,9 +28,12 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
+                                <th class="min-w-50px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.desc') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.deadline_date_start') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.deadline_date_end') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.date_ads') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.url_ads') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.status') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.service') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -53,7 +56,7 @@
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.sure_delete') }}<span id="title" class="text-danger"></span></p>
+                        <p>{{ trans('admin.sure_delete') }} ? ["<span id="title" class="text-danger"></span>"]</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -67,11 +70,11 @@
         <!-- MODAL CLOSED -->
 
         <!-- Create Or Edit Modal -->
-        <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">مدينة</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.ad') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -84,26 +87,57 @@
         </div>
         <!-- Create Or Edit Modal -->
     </div>
-    @include('dashboard.layouts.myAjaxHelper')
+    @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
         var columns = [
             {data: 'id', name: 'id'},
+            {data: 'title', name: 'title'},
             {data: 'description', name: 'description'},
-            {data: 'deadline_date_start', name: 'deadline_date_start'},
-            {data: 'deadline_date_end', name: 'deadline_date_end'},
+            {data: 'date_ads', name: 'date_ads'},
+            {data: 'url_ads', name: 'url_ads'},
+            {data: 'status', name: 'status'},
+            {data: 'service_id', name: 'service_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('index')}}', columns);
+        showData('{{route('internal_ads.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('destroy',':id')}}');
+        destroyScript('{{route('internal_ads.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('create')}}');
+        showAddModal('{{route('internal_ads.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('edit',':id')}}');
+        showEditModal('{{route('internal_ads.edit',':id')}}');
         editScript();
+
+
+        $(document).on('click', '.like_active', function() {
+            var id = $(this).data('id');
+            var status = this.checked ? 'show' : 'hide';
+
+            $.ajax({
+                url: '{{ route('makeActive') }}',
+                method: 'POST',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'id': id,
+                    'status': status
+                },
+                success: function(data) {
+
+                    // Check if val is not equal to 0 before executing toastr.success()
+                    if (status == "show") {
+                        toastr.success('Success', 'تم الاظهار بنجاح ');
+                    }
+                    else
+                    {
+                        toastr.warning('Success', 'تم الغاء التفعيل');
+                    }
+                },
+            });
+        });
+
     </script>
 @endsection
 

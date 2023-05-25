@@ -6,9 +6,9 @@
 
     <style>
         @include('admin.layouts.loader.formLoader.loaderCss')
-
-
     </style>
+
+
 </head>
 
 <body class="app sidebar-mini">

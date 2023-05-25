@@ -5,6 +5,7 @@
 
 <!-- JQUERY JS -->
 <script src="{{asset('assets/admin')}}/js/jquery-3.4.1.min.js"></script>
+<script src="{{asset('assets/admin/js/bootstrap4-toggle.min.js')}}"></script>
 
 <!-- DATATABLE JS -->
 <script src="{{asset('assets/admin')}}/plugins/datatable/jquery.dataTables.min.js"></script>

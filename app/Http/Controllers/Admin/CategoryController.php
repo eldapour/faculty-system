@@ -28,8 +28,8 @@ class CategoryController extends Controller
                        ';
                 })
 
-                ->editColumn('name_ar', function ($category) {
-                    return $category->category_name['ar'];
+                ->editColumn('category_name', function ($category) {
+                    return $category->getTranslation('category_name', app()->getLocale());
                 })
 
                 ->escapeColumns([])
@@ -48,16 +48,12 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {
-
-//            ,[
-//            'category_name.required' => 'يرجي ادخال  الاسم يالغه الانجليزية',
-//            'name_en.required' => 'يرجي ادخال الاسم يالغة العربية'
-//        ]
-//        );
-        $data = $request->except('_token');
-
-        Category::create($data);
-        return response()->json(['status' => 200]);
+        $inputs = $request->all();
+        if (Category::create($inputs)) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
     }
 
 

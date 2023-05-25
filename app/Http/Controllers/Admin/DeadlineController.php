@@ -25,6 +25,9 @@ class DeadlineController extends Controller
                             </button>
                        ';
                 })
+                ->editColumn('description', function ($deadlines) {
+                    return '<td>'. $deadlines->description[lang()] .'</td>';
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {

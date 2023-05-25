@@ -59,6 +59,7 @@
 <!-- Switcher CSS -->
 <link href="{{ asset('assets/admin') }}/switcher/css/switcher.css" rel="stylesheet">
 <link href="{{ asset('assets/admin') }}/switcher/demo.css" rel="stylesheet">
+<link href="{{ asset('assets/admin/css/bootstrap4-toggle.min.css') }}" rel="stylesheet">
 
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/brands.js"></script>
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/solid.js"></script>
@@ -67,5 +68,8 @@
 
 <link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
 <script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
+
+@include('admin.layouts.switch')
+
 {{--satrt toastr--}}
 @yield('css')
