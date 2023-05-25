@@ -65,6 +65,7 @@ return [
 
     // Internal Ad
     "ad" => "اعلان",
+    "ads" => "اعلانات",
     "internal_ads" => "اعلانات داخلية",
 
     "date_ads" => "إعلانات التاريخ",
@@ -104,6 +105,9 @@ return [
     "background_image" => 'خلفية الصورة',
     "video_url" => "رابط الفيديو",
 
+
+    // Advertisement
+    'advertisements' => "Advertisements",
 ];
 
 

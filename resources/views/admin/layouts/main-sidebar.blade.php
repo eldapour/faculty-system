@@ -106,5 +106,11 @@
                 <span class="side-menu__label">{{ trans('admin.videos') }}</span>
             </a>
         </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('advertisements.index') }}">
+                <i class="fa fa-video side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.ads') }}</span>
+            </a>
+        </li>
     </ul>
 </aside>

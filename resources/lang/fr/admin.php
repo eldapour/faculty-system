@@ -66,6 +66,7 @@ return [
 
     // Internal Ad
     "ad" => "Publicité",
+    "ads" => "annonces",
     "internal_ads" => "Annonces Internes",
 
     "date_ads" => "Annonces De Rendez-vous",
