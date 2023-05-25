@@ -29,13 +29,14 @@ return [
     "english" => "in English",
     "france" => "in French",
     "latin" => "in Latin",
-
     "wait" => "Wait",
     "added_successfully" => "Added Successfully",
     "updated_successfully" => "Updated Successfully",
     "deleted_successfully" => "Deleted Successfully",
     "something_went_wrong" => "Something Went Wrong",
     "wrong" => "Wrong",
+    "video" => 'Video',
+    "videos" => 'Videos',
 
 
 
@@ -100,10 +101,6 @@ return [
     //word
     "wordManager" => "Dean's speech",
     "word_role" => "job title",
-
-    // Video
-    'video' => 'Video',
-    'videos' => 'Videos',
     "background_image" => 'Background Image',
     "video_url" => "Video Url",
 

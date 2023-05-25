@@ -31,6 +31,8 @@ return [
     "deleted_successfully" => "تم الحذف بنجاح",
     "something_went_wrong" => "هناك خطأ ما",
     "wrong" => "خطأ",
+    "video" => 'فيديو',
+    "videos" => 'فيديوهات',
 
     "arabic" => "بالعربية",
     "english" => "بالانجليزية",
@@ -111,6 +113,7 @@ return [
     'presentations' => 'عروض تقديمية',
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
+
 
 ];
 

@@ -24,9 +24,9 @@ class StoreVideo extends FormRequest
     public function rules()
     {
         return [
+            'background_image' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'background_image' => 'required',
             'video_url' => 'required',
         ];
     }

@@ -141,7 +141,7 @@
                         toastr.error(data.mymessage);
                     } else
                         toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
-                    $('#addButton').html(`اضافة`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
                 error: function(data) {
@@ -158,7 +158,7 @@
                         });
                     } else
                         toastr.error('{{ trans('admin.something_went_wrong') }} ..');
-                    $('#addButton').html(`اضافة`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                 }, //end error method
 
                 cache: false,
@@ -350,7 +350,7 @@
                         'disabled', true);
                 },
                 success: function(data) {
-                    $('#updateButton').html(`تعديل`).attr('disabled', false);
+                    $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('{{ trans('admin.updated_successfully') }}');
