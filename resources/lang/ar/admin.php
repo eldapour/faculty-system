@@ -95,6 +95,7 @@ return [
     // sliders
     "sliders" => "صور متحركة",
     "image" => "الصورة",
+    "images" => "الصور",
     "description" => "التفاصيل",
 
     // word
@@ -105,9 +106,12 @@ return [
     "background_image" => 'خلفية الصورة',
     "video_url" => "رابط الفيديو",
 
+    // Presentation
+    'presentation' => 'عرض تقديمي',
+    'presentations' => 'عروض تقديمية',
+    'experience_year' => 'سنين الخبرة',
+    'type' => 'نوع',
 
-    // Advertisement
-    'advertisements' => "Advertisements",
 ];
 
 

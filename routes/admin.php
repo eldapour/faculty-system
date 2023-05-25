@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdvertisementController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -94,6 +95,9 @@ Route::group([
 
     #### Advertisement ####
     Route::resource('advertisements', AdvertisementController::class);
+
+    #### Presentation ####
+    Route::resource("presentations", PresentationController::class);
 
 
 
