@@ -4,7 +4,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-md-4">
-                <label for="category_name" class="form-control-label">{{ trans('admin.name') }}_Ar</label>
+                <label for="category_name" class="form-control-label">{{ trans('admin.name') }} {{ trans('admin.arabic') }}</label>
                 <input type="text" class="form-control" name="category_name[ar]" required>
             </div>
             <div class="col-md-4">

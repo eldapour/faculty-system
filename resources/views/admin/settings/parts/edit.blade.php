@@ -6,7 +6,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="setting_name" class="form-control-label">{{ trans('admin.name') }}_Ar</label>
+                        <label for="setting_name" class="form-control-label">{{ trans('admin.name') }} {{ trans('admin.arabic') }}</label>
                         <input type="text" class="form-control" value="{{ $setting->setting_name['ar'] }}"
                             name="setting_name[ar]" required>
                     </div>

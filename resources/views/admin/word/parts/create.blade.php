@@ -12,7 +12,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}_Ar</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.title') }} {{ trans('admin.arabic') }}</label>
                     <input type="text" class="form-control" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
@@ -28,7 +28,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_Ar</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
                     <input type="text" class="form-control" name="description[ar]" required>
                 </div>
                 <div class="col-md-4">

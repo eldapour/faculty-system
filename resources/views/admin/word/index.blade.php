@@ -37,7 +37,7 @@
                                                     value="{{ $category->id }}">{{ $category->category_name }}</option>
                                             @endforeach
                                        </select>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}_Ar</label>
+                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }} {{ trans('admin.arabic') }}</label>
                                             <input type="text" class="form-control" value="{{ $word->role['ar'] }}" name="role[ar]" required>
                                             <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}_En</label>
                                             <input type="text" class="form-control" value="{{ $word->role['en'] }}" name="role[en]" required>
@@ -66,7 +66,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}_Ar</label>
+                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $word->description['ar'] }}</textarea>
                                     </div>
                                     <div class="col-md-12">

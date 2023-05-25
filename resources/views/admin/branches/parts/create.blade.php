@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}_Ar</label>
+                    <label for="name_ar" class="form-control-label">{{  trans('admin.name') }} {{ trans('admin.arabic') }}</label>
                     <input type="text" class="form-control" name="branch_name[ar]" required>
                 </div>
                 <div class="col-md-4">

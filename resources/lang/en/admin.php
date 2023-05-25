@@ -97,7 +97,7 @@ return [
 
     //word
     "wordManager" => "Dean's speech",
-    "word_role" => "job title"
+    "word_role" => "job title",
 
     // Video
     'video' => 'Video',
