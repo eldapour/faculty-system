@@ -130,34 +130,34 @@
                 data: formData,
                 beforeSend: function() {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr(
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>').attr(
                         'disabled', true);
                 },
                 success: function(data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('تم الاضافة بنجاح');
+                        toastr.success(' {{ trans('admin.added_successfully') }} ');
                     } else if (data.status == 405) {
                         toastr.error(data.mymessage);
                     } else
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     $('#addButton').html(`اضافة`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
                 error: function(data) {
                     if (data.status === 500) {
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     } else if (data.status === 422) {
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function(key, value) {
-                                    toastr.error(value, 'خطأ');
+                                    toastr.error(value, '{{ trans('admin.wrong') }}');
                                 });
                             }
                         });
                     } else
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error('{{ trans('admin.something_went_wrong') }} ..');
                     $('#addButton').html(`اضافة`).attr('disabled', false);
                 }, //end error method
 
@@ -346,33 +346,33 @@
                 data: formData,
                 beforeSend: function() {
                     $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr(
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>').attr(
                         'disabled', true);
                 },
                 success: function(data) {
                     $('#updateButton').html(`تعديل`).attr('disabled', false);
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('تم التعديل بنجاح');
+                        toastr.success('{{ trans('admin.updated_successfully') }}');
                     } else
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
 
                     $('#editOrCreate').modal('hide')
                 },
                 error: function(data) {
                     if (data.status === 500) {
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     } else if (data.status === 422) {
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function(key, value) {
-                                    toastr.error(value, 'خطأ');
+                                    toastr.error(value, '{{ trans('admin.wrong') }}');
                                 });
                             }
                         });
                     } else
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     $('#updateButton').html(`تعديل`).attr('disabled', false);
                 }, //end error method
 
@@ -408,10 +408,10 @@
                     if (data.status === 200) {
                         $("#dismiss_delete_modal")[0].click();
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('تم الحذف بنجاح')
+                        toastr.success('{{ trans('admin.deleted_successfully') }}')
                     } else {
                         $("#dismiss_delete_modal")[0].click();
-                        toastr.error('Something went wrong ..');
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     }
                 }
             });

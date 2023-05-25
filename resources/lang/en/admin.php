@@ -10,10 +10,8 @@ return [
     "sure_delete" => "Are you sure to delete",
     "name" => "Name",
     "value" => "Value",
-
     "title" => "Title",
     "status" => "Status",
-
     "register" => "register",
     "from" => "from",
     "to" => "to",
@@ -27,6 +25,12 @@ return [
     "Print" => "Print",
     "Excel" => "Excel",
     "select" => "Select",
+    "wait" => "Wait",
+    "added_successfully" => "Added Successfully",
+    "updated_successfully" => "Updated Successfully",
+    "deleted_successfully" => "Deleted Successfully",
+    "something_went_wrong" => "Something Went Wrong",
+    "wrong" => "Wrong",
 
 
 
@@ -73,5 +77,11 @@ return [
     // Category
     "category" => "Category",
     "categories" => "Categories",
+
+    // Video
+    'video' => 'Video',
+    'videos' => 'Videos',
+    "background_image" => 'Background Image',
+    "video_url" => "Video Url",
 ];
 

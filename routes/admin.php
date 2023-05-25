@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeadlineController;
 use App\Http\Controllers\Admin\InternalAdController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
@@ -73,6 +74,9 @@ Route::group([
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
     Route::post('active_status', [InternalAdController::class, 'makeActive'])->name('makeActive');
+
+    #### Video ####
+    Route::resource('video', VideoController::class);
 
 
 

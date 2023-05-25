@@ -163,7 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Buglinjo\LaravelWebp\WebpServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -191,7 +191,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Webp' => Buglinjo\LaravelWebp\Facades\Webp::class,
     ])->toArray(),
 
 ];
