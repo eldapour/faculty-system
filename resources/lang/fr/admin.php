@@ -96,7 +96,7 @@ return [
 
     // word
     "wordManager" => "Discours du doyen",
-    "word_role" => "titre d'emploi"
+    "word_role" => "titre d'emploi",
 
     "category" => "Catégorie",
     "categories" => "Catégories",

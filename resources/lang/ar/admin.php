@@ -98,7 +98,7 @@ return [
 
     // word
     "wordManager" => "كلمة العميد",
-    "word_role" => "الصفة"
+    "word_role" => "الصفة",
 
 
     "background_image" => 'خلفية الصورة',

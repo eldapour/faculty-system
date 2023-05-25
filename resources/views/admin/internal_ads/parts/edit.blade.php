@@ -6,7 +6,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}_Ar</label>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') }} {{ trans('admin.arabic') }}</label>
                     <input type="text" class="form-control" value="{{ $internalAd->title[lang()] }}" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <label for="desc" class="form-control-label">{{ trans('admin.desc') }}_Ar</label>
+                    <label for="desc" class="form-control-label">{{ trans('admin.desc') }} {{ trans('admin.arabic') }}</label>
                     <textarea name="description[ar]" class="form-control" rows="8">{{ $internalAd->title[lang()] }}</textarea>
                 </div>
                 <div class="col-md-4">
