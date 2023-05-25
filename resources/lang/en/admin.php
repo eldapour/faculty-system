@@ -70,6 +70,13 @@ return [
     "branches" => "Branches",
     "branch" => "Branch",
 
+    // Department branch users
+    "Users_Branches" => "Students's Branches ",
+    "User_Branch" => "Student's Branch ",
+    "register_year" => "register_year",
+    "branch_restart_register" => "branch_restart_register",
+    "student_branch" => "student",
+
     // Category
     "category" => "Category",
     "categories" => "Categories",

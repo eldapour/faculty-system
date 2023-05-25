@@ -52,7 +52,7 @@ return [
 
     // Service
     "service" => "خدمة",
-    "services" =>"خدمات",
+    "services" => "خدمات",
 
     // Internal Ad
     "ad" => "اعلان",
@@ -68,6 +68,14 @@ return [
     // Department branch
     "branches" => "المسارات",
     "branch" => "المسار",
+
+    // Department branch users
+    "Users_Branches" => "المسارات الطلاب",
+    "User_Branch" => "مسار الطالب",
+    "register_year" => "سنة التسجيل",
+    "branch_restart_register" => "إعادة تسجيل المسار",
+    "student_branch" => "الطالب",
+
 
     // Category
     "category" => "فئة",

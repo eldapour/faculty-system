@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DepartmentBranchController;
+use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -69,6 +70,10 @@ Route::group([
 
     #### branches ####
     Route::resource('branches', DepartmentBranchController::class);
+
+    #### user branches ####
+    Route::resource('userBranches', DepartmentBranchStudentController::class);
+    Route::get('getBranches', [DepartmentBranchStudentController::class,'getBranches'])->name('getBranches');
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);

@@ -22,6 +22,11 @@
 <script src="{{asset('assets/admin')}}/plugins/datatable/fileexport/buttons.colVis.min.js"></script>
 
 
+<link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
+
+
+
 <!-- BOOTSTRAP JS -->
 <script src="{{asset('assets/admin')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('assets/admin')}}/plugins/bootstrap/js/popper.min.js"></script>
@@ -72,4 +77,8 @@
 {{--    @endif--}}
 {{--    $('.header-brand-img').attr("src","{{asset($setting->logo)}}")--}}
 {{--</script>--}}
+
+
+
+
 @yield('js')

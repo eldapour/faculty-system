@@ -67,6 +67,13 @@ return [
     "branches" => "branches",
     "branch" => "branche",
 
+    // Department branch users
+    "Users_Branches" => "Branches étudiantes",
+    "User_Branch" => "Branche des étudiants",
+    "register_year" => "année d'inscription",
+    "branch_restart_register" => "registre de redémarrage de succursale",
+    "student_branch" => "étudiant",
+
     // Category
     "category" => "catégorie",
     "categories" => "catégories",

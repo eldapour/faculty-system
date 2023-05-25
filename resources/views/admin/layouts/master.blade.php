@@ -5,8 +5,9 @@
     @include('admin.layouts.head')
 
     <style>
-    
-</style>
+        @include('admin.layouts.loader.formLoader.loaderCss')
+    </style>
+
 
 </head>
 
