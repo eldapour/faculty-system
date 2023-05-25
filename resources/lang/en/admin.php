@@ -61,6 +61,7 @@ return [
 
     // Internal Ad
     "ad" => "Ad",
+    "ads" => "Ads",
     "internal_ads" => "Internal Ads",
 
     "date_ads" => "Date Ads",

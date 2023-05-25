@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DeadlineController;
 use App\Http\Controllers\Admin\InternalAdController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\AdvertisementController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
@@ -82,6 +83,9 @@ Route::group([
 
     #### Video ####
     Route::resource('video', VideoController::class);
+
+    #### Advertisement ####
+    Route::resource('advertisements', AdvertisementController::class);
 
 
 
