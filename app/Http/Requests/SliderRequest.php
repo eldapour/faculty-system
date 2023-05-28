@@ -30,7 +30,7 @@ class SliderRequest extends FormRequest
             'description.ar' => 'required',
             'description.en' => 'required',
             'description.fr' => 'required',
-            'image' => 'image',
+            'image' => 'image|required',
         ];
     }
 }

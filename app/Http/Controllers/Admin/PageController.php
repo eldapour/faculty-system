@@ -7,6 +7,9 @@ use App\Http\Requests\PageRequest;
 use App\Models\Category;
 use App\Models\Page;
 use App\Traits\PhotoTrait;
+use Buglinjo\LaravelWebp\Exceptions\CwebpShellExecutionFailed;
+use Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException;
+use Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -29,15 +32,19 @@ class PageController extends Controller
                        ';
                 })
                 ->editColumn('image', function ($pages) {
-                    return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($pages->image[0]) . '">
+                    if (count($pages->images) > 0) {
+                        return '
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($pages->images[0]) . '">
                     ';
+                    } else {
+                        return trans('admin.No results');
+                    }
                 })
                 ->editColumn('title', function ($pages) {
-                    return $pages->title;
+                    return $pages->title[lang()];
                 })
-                ->editColumn('description', function ($pages) {
-                    return \Str::limit($pages->description, 100);
+                ->editColumn('category_id', function ($pages) {
+                    return $pages->category->category_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -61,9 +68,24 @@ class PageController extends Controller
     {
         $inputs = $request->all();
 
-        foreach ($inputs['images'] as $image) {
-            $inputs['images'] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
+        $images = [];
+        $files = [];
+        if ($request->file('images')) {
+
+            foreach ($request->file('images') as $image) {
+                $images[] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
+            }
         }
+
+        if ($request->file('files')) {
+
+            foreach ($request->file('files') as $file) {
+                $files[] = $this->saveImage($file, 'uploads/pagesFiles', 'photo');
+            }
+        }
+
+        $inputs['images'] = $images;
+        $inputs['files'] = $files;
 
         if (Page::create($inputs)) {
             return response()->json(['status' => 200]);
@@ -75,26 +97,53 @@ class PageController extends Controller
     // Store End
 
     // Edit Start
-    public function edit(Slider $slider)
+    public function edit(Page $page)
     {
-        return view('admin.sliders.parts.edit', compact('slider'));
+        $categories = Category::get();
+        return view('admin.pages.parts.edit', compact('page', 'categories'));
     }
     // Edit End
 
     // Update Start
 
-    public function update(SliderRequest $request, Slider $slider)
+    /**
+     * @throws CwebpShellExecutionFailed
+     * @throws ImageMimeNotSupportedException
+     * @throws DriverIsNotSupportedException
+     */
+    public function update(PageRequest $request, Page $page)
     {
         $inputs = $request->all();
 
-        if ($request->has('image')) {
-            if (file_exists($slider->image)) {
-                unlink($slider->image);
+        $images = [];
+        $files = [];
+
+        if ($request->has('images')) {
+            foreach ($page->images as $image) {
+                if (file_exists($image)) {
+                    unlink($image);
+                }
             }
-            $inputs['image'] = $this->saveImage($request->image, 'uploads/sliders', 'photo');
+            foreach ($request->file('images') as $image) {
+                $images[] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
+            }
         }
 
-        if ($slider->update($inputs)) {
+        if ($request->has('files')) {
+            foreach ($page->files as $file) {
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+            foreach ($request->file('files') as $file) {
+                $files[] = $this->saveImage($file, 'uploads/pagesFiles', 'photo');
+            }
+        }
+
+        $inputs['images'] = $images;
+        $inputs['files'] = $files;
+
+        if ($page->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -107,9 +156,9 @@ class PageController extends Controller
 
     public function destroy(Request $request)
     {
-        $pages = Slider::where('id', $request->id)->firstOrFail();
+        $pages = Page::where('id', $request->id)->firstOrFail();
         $pages->delete();
-        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+        return response(['message' => trans('admin.deleted_successfully'), 'status' => 200], 200);
     }
 
     // Destroy End
