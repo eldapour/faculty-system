@@ -119,6 +119,18 @@ return [
     'presentations' => 'présentations',
     'experience_year' => 'Année d expérience',
     'type' => 'Taper',
+
+    // Group
+    'group' => 'Groupe',
+    'groups' => 'Groupes',
+
+    // Subject
+    'subject' => 'Sujette',
+    'subjects' => 'Sujettes',
+
+    // Unit
+    'unit' => 'Unité',
+    'units' => 'Unités',
 ];
 
 
