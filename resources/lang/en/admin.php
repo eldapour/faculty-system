@@ -117,5 +117,9 @@ return [
     // Subject
     'subject' => 'Subject',
     'subjects' => 'Subjects',
+
+    // Unit
+    'unit' => 'Unit',
+    'units' => 'Units',
 ];
 

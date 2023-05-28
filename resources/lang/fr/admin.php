@@ -122,6 +122,10 @@ return [
     // Subject
     'subject' => 'Sujette',
     'subjects' => 'Sujettes',
+
+    // Unit
+    'unit' => 'Unité',
+    'units' => 'Unités',
 ];
 
 

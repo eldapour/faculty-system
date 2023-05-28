@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
@@ -109,4 +110,7 @@ Route::group([
 
     ### Subject ####
     Route::resource('subject', SubjectController::class);
+
+    #### Unit ####
+    Route::resource('unit', UnitController::class);
 });

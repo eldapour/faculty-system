@@ -122,6 +122,10 @@ return [
     'subject' => 'مادة',
     'subjects' => 'مواد',
 
+    // Unit
+    'unit' => 'وحدة',
+    'units' => 'وحدات',
+
 
 ];
 

@@ -165,6 +165,9 @@ return [
         'subject_name.ar' =>'nom arabe',
         'subject_name.en' =>'nom anglais',
         'subject_name.fr' =>'Nom français',
+        'unit_name.ar' =>'nom arabe',
+        'unit_name.en' =>'nom anglais',
+        'unit_name.fr' =>'Nom français',
     ],
 
 ];
