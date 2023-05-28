@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
             $table->unsignedBigInteger('unit_id')->comment('الفصل او الوحد من الماده المختاره');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي الدكتور هيسجل فيها الماده');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('section');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('subject_exam_id');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();

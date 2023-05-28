@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
@@ -40,7 +38,6 @@ class AdminController extends Controller
                     <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/".$admin->image)  .'">
                     ';
                     }else{
-
                         return '
                     <img alt="image" class="avatar avatar-md rounded-circle" src="' .  asset("uploads/users/default/avatar2.jfif") .'">
                     ';
@@ -70,7 +67,6 @@ class AdminController extends Controller
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
 
             }else{
-
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
 
             }//
