@@ -29,6 +29,8 @@ return [
     "english" => "En anglais",
     "france" => "en français",
     "latin" => "en latin",
+    "created_at"=> "créé à",
+
 
 
 

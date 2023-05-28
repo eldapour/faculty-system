@@ -64,6 +64,11 @@ class PageController extends Controller
 
     // Store Start
 
+    /**
+     * @throws CwebpShellExecutionFailed
+     * @throws ImageMimeNotSupportedException
+     * @throws DriverIsNotSupportedException
+     */
     public function store(PageRequest $request)
     {
         $inputs = $request->all();

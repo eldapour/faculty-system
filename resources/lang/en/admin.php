@@ -37,6 +37,7 @@ return [
     "wrong" => "Wrong",
     "video" => 'Video',
     "videos" => 'Videos',
+    "created_at" => "created at",
 
 
 
@@ -167,7 +168,7 @@ return [
 
 
     //sidebar users and admins
-    'users' => 'Users'
+    'users' => 'Users',
 
     // Group
     'group' => 'Group',
