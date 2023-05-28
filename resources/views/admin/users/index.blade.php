@@ -1,7 +1,11 @@
-@extends('admin/layouts/master')
+@extends('admin.layouts.master')
 
-@section('title')  {{trans('admin.all_users')}} @endsection
-@section('page_name') {{trans('admin.all_users')}} @endsection
+@section('title')
+    {{trans('admin.all_users')}}
+@endsection
+@section('page_name')
+    {{trans('admin.all_users')}}
+@endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
@@ -27,25 +31,24 @@
                             <thead>
 
 
-
-                                <tr class="fw-bolder text-muted bg-light">
-                                    <th class="min-w-25px">{{trans('admin.id')}}</th>
-                                    <th class="min-w-50px">{{trans('admin.image_user')}}</th>
-                                    <th class="min-w-50px">{{trans('admin.first_name')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.last_name')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.email')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.university_email')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.national_id')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.national_number')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.points')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.address')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.city')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.birthday_place')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.birthday_date')}}</th>
-                                    <th class="min-w-50px rounded-end">{{trans('admin.action')}}</th>
-                                </tr>
-
+                            <tr class="fw-bolder text-muted bg-light">
+                                <th class="min-w-25px">{{trans('admin.id')}}</th>
+                                <th class="min-w-50px">{{trans('admin.image_user')}}</th>
+                                <th class="min-w-50px">{{trans('admin.first_name')}}</th>
+                                <th class="min-w-125px">{{trans('admin.last_name')}}</th>
+                                <th class="min-w-125px">{{trans('admin.email')}}</th>
+                                <th class="min-w-125px">{{trans('admin.university_email')}}</th>
+                                <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
+                                <th class="min-w-125px">{{trans('admin.national_id')}}</th>
+                                <th class="min-w-125px">{{trans('admin.national_number')}}</th>
+                                <th class="min-w-125px">{{trans('admin.points')}}</th>
+                                <th class="min-w-125px">{{trans('admin.address')}}</th>
+                                <th class="min-w-125px">{{trans('admin.city')}}</th>
+                                <th class="min-w-125px">{{trans('admin.birthday_place')}}</th>
+                                <th class="min-w-125px">{{trans('admin.birthday_date')}}</th>
+                                <th class="min-w-125px">{{trans('admin.created_at')}}</th>
+                                <th class="min-w-50px rounded-end">{{trans('admin.action')}}</th>
+                            </tr>
 
 
                             </thead>
@@ -83,7 +86,7 @@
 
         <!-- Edit MODAL -->
         <div class="modal fade" id="editOrCreate" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" id="modalContent">
 
                 </div>
@@ -91,7 +94,7 @@
         </div>
         <!-- Edit MODAL CLOSED -->
     </div>
-    @include('admin/layouts/myAjaxHelper')
+    @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
@@ -116,10 +119,10 @@
             {data: 'address', name: 'address'},
             {data: 'city', name: 'city'},
             {data: 'birthday_place', name: 'birthday_place'},
+            {data: 'birthday_date', name: 'birthday_date'},
             {data: 'created_at', name: 'created_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-
 
 
         showData('{{route('users.index')}}', columns);
@@ -150,7 +153,7 @@
         });
 
         // Add By Ajax
-        $(document).on('submit','Form#addForm',function(e) {
+        $(document).on('submit', 'Form#addForm', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#addForm').attr('action');
@@ -168,8 +171,7 @@
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('User added successfully');
-                    }
-                    else
+                    } else
                         toastr.error('There is an error');
                     $('#addButton').html(`Create`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
@@ -183,7 +185,7 @@
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function (key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -199,9 +201,8 @@
         });
 
 
-
         // Update By Ajax
-        $(document).on('submit','Form#updateForm',function(e) {
+        $(document).on('submit', 'Form#updateForm', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#updateForm').attr('action');
@@ -218,11 +219,10 @@
                 success: function (data) {
 
                     $('#updateButton').html(`Update`).attr('disabled', false);
-                    if (data.status == 200){
+                    if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('User updated successfully');
-                    }
-                    else
+                    } else
                         toastr.error('There is an error');
 
                     $('#editOrCreate').modal('hide')
@@ -237,7 +237,7 @@
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function (key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -255,8 +255,6 @@
 
 
     </script>
-
-
 
 @endsection
 
