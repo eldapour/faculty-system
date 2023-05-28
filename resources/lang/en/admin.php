@@ -113,5 +113,9 @@ return [
     // Group
     'group' => 'Group',
     'groups' => 'Groups',
+
+    // Subject
+    'subject' => 'Subject',
+    'subjects' => 'Subjects',
 ];
 

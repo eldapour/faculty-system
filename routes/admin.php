@@ -18,6 +18,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
@@ -106,4 +107,6 @@ Route::group([
     #### Group ####
     Route::resource('group', GroupController::class);
 
+    ### Subject ####
+    Route::resource('subject', SubjectController::class);
 });

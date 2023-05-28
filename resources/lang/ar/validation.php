@@ -172,6 +172,12 @@ return [
         'description.ar' => 'الوصف بالعربي ',
         'description.en' => 'الوصف بالانجليزي ',
         'description.fr' => 'الوصف بالفرنسي ',
+        'group_name.ar' =>'اسم باللغة العربية',
+        'group_name.en' =>'اسم باللغة الانجليزية',
+        'group_name.fr' =>'اسم باللغة الفرنسية',
+        'subject_name.ar' =>'اسم باللغة العربية',
+        'subject_name.en' =>'اسم باللغة الانجليزية',
+        'subject_name.fr' =>'اسم باللغة الفرنسية',
     ],
 
 ];

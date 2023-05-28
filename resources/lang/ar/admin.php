@@ -118,6 +118,10 @@ return [
     'group' => 'مجموعة',
     'groups' => 'المجموعات',
 
+    // Subject
+    'subject' => 'مادة',
+    'subjects' => 'مواد',
+
 
 ];
 

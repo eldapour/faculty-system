@@ -118,6 +118,10 @@ return [
     // Group
     'group' => 'Groupe',
     'groups' => 'Groupes',
+
+    // Subject
+    'subject' => 'Sujette',
+    'subjects' => 'Sujettes',
 ];
 
 
