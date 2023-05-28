@@ -121,5 +121,17 @@ return [
     'presentations' => 'Presentations',
     'experience_year' => 'Experience Year',
     'type' => 'Type',
+
+    // Group
+    'group' => 'Group',
+    'groups' => 'Groups',
+
+    // Subject
+    'subject' => 'Subject',
+    'subjects' => 'Subjects',
+
+    // Unit
+    'unit' => 'Unit',
+    'units' => 'Units',
 ];
 

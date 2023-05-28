@@ -158,6 +158,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'group_name.ar' =>'nom arabe',
+        'group_name.en' =>'nom anglais',
+        'group_name.fr' =>'Nom français',
+        'subject_name.ar' =>'nom arabe',
+        'subject_name.en' =>'nom anglais',
+        'subject_name.fr' =>'Nom français',
+        'unit_name.ar' =>'nom arabe',
+        'unit_name.en' =>'nom anglais',
+        'unit_name.fr' =>'Nom français',
+    ],
 
 ];
