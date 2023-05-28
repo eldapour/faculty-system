@@ -114,6 +114,10 @@ return [
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
 
+    // Group
+    'group' => 'مجموعة',
+    'groups' => 'المجموعات',
+
 
 ];
 

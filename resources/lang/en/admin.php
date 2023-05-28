@@ -109,5 +109,9 @@ return [
     'presentations' => 'Presentations',
     'experience_year' => 'Experience Year',
     'type' => 'Type',
+
+    // Group
+    'group' => 'Group',
+    'groups' => 'Groups',
 ];
 

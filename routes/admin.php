@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WordController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\AdvertisementController;
+use App\Http\Controllers\Admin\GroupController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
@@ -102,6 +103,7 @@ Route::group([
     #### Slider ####
     Route::resource('slider', SliderController::class);
 
-
+    #### Group ####
+    Route::resource('group', GroupController::class);
 
 });
