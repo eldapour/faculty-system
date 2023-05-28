@@ -16,33 +16,49 @@
                 </div>
                 <div class="card-body">
                     <div class="modal-body">
-                        <form id="updateForm" class="updateForm" method="POST" action="{{ route('word.update', $word->id) }}">
+                        <form id="updateForm" class="updateForm" method="POST"
+                              action="{{ route('word.update', $word->id) }}">
                             @csrf
                             @method('PUT')
                             <input type="hidden" value="{{ $word->id }}" name="id">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.image') }}</label>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.image') }}</label>
                                         <input type="file" class="form-control dropify"
                                                data-default-file="{{ asset($word->image) }}"
                                                name="image" value="{{ asset($word->image) }}">
                                     </div>
                                     <div class="col-md-8">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.category') }}</label>
-                                       <select class="form-control" name="category_id">
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.category') }}</label>
+                                        <select class="form-control" name="category_id">
                                             @foreach($categories as $category)
                                                 <option
                                                     {{ $word->category_id == $category->id ? ' selected' : '' }}
                                                     value="{{ $category->id }}">{{ $category->category_name }}</option>
                                             @endforeach
-                                       </select>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }} {{ trans('admin.arabic') }}</label>
-                                            <input type="text" class="form-control" value="{{ $word->role['ar'] }}" name="role[ar]" required>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.english') }}</label>
-                                            <input type="text" class="form-control" value="{{ $word->role['en'] }}" name="role[en]" required>
-                                            <label for="name_ar" class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.france') }}</label>
-                                            <input type="text" class="form-control" value="{{ $word->role['fr'] }}" name="role[fr]" required>
+                                        </select>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.word_role') }} {{ trans('admin.arabic') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->role['ar'] }}"
+                                               name="role[ar]" required>
+
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.english') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->role['en'] }}"
+                                               name="role[en]" required>
+
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.france') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->role['fr'] }}"
+                                               name="role[fr]" required>
+
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.latin') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->role['la'] ?? '' }}"
+                                               name="role[la]" required>
                                     </div>
                                 </div>
                                 <hr>
@@ -50,38 +66,55 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.arabic') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['ar'] }}" name="name[ar]" required>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.arabic') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->name['ar'] }}"
+                                               name="name[ar]" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.english') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['en'] }}" name="name[en]" required>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.english') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->name['en'] }}"
+                                               name="name[en]" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.name')  . ' ' . trans('admin.france') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['fr'] }}" name="name[fr]" required>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.name')  . ' ' . trans('admin.france') }}</label>
+                                        <input type="text" class="form-control" value="{{ $word->name['fr'] }}"
+                                               name="name[fr]" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $word->description['ar'] }}</textarea>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor"
+                                                  name="description[ar]"
+                                                  required>{{ $word->description['ar'] }}</textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $word->description['en'] }}</textarea>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor"
+                                                  name="description[en]"
+                                                  required>{{ $word->description['en'] }}</textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $word->description['fr'] }}</textarea>
+                                        <label for="name_ar"
+                                               class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor"
+                                                  name="description[fr]"
+                                                  required>{{ $word->description['fr'] }}</textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('admin.close')</button>
-                                <button type="submit" class="btn btn-success" id="updateButton">@lang('admin.update')</button>
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">@lang('admin.close')</button>
+                                <button type="submit" class="btn btn-success"
+                                        id="updateButton">@lang('admin.update')</button>
                             </div>
                         </form>
                     </div>
@@ -105,7 +138,7 @@
 
         $('.dropify').dropify();
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('select').select2();
         });
         editScript();

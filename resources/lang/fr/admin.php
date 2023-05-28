@@ -100,8 +100,13 @@ return [
     "wordManager" => "Discours du doyen",
     "word_role" => "titre d'emploi",
 
-    "category" => "Catégorie",
-    "categories" => "Catégories",
+
+    // pages
+    "pages" => "Pages",
+    "page" => "Page",
+    "files" => "des dossiers",
+    "images" => "images",
+
 
     // Video
     'video' => 'Vidéo',

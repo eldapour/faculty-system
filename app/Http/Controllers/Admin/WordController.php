@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WordRequest;
 use App\Models\Category;
 use App\Models\Word;
 use App\Traits\PhotoTrait;
@@ -21,18 +22,18 @@ class WordController extends Controller
     // Index End
 
     // Update Start
-    public function update(SliderRequest $request, Slider $slider)
+    public function update(WordRequest $request, Word $word)
     {
         $inputs = $request->all();
 
         if ($request->has('image')) {
-            if (file_exists($slider->image)) {
-                unlink($slider->image);
+            if (file_exists($word->image)) {
+                unlink($word->image);
             }
-            $inputs['image'] = $this->saveImage($request->image, 'uploads/sliders','photo');
+            $inputs['image'] = $this->saveImage($request->image, 'uploads/word','photo');
         }
 
-        if ($slider->update($inputs)) {
+        if ($word->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -40,15 +41,4 @@ class WordController extends Controller
     }
 
     // Edit End
-
-    // Destroy Start
-
-    public function destroy(Request $request)
-    {
-        $word = Slider::where('id', $request->id)->firstOrFail();
-        $word->delete();
-        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    }
-
-    // Destroy End
 }
