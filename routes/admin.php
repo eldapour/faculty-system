@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -18,7 +19,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\HomeController;
+//use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -61,6 +62,11 @@ Route::group([
     #### Users ####
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
+
+
+    #### Admins ####
+    Route::resource('admins', AdminController::class)->except(['show']);
+    Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete');
 
     #### Deadline ####
     Route::resource('deadlines', DeadlineController::class);

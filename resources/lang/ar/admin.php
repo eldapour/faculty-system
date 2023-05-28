@@ -121,6 +121,56 @@ return [
     'type' => 'نوع',
 
 
+
+    //start translate model user and admin
+    'id' => 'رمز المستخدم',
+    'first_name' => 'الاسم الاول',
+    'last_name' => 'الاسم الاخير',
+    'image_user' => 'صوره الطالب',
+    'image_admin' => 'صوره الادمن',
+    'points' => 'نقاط الطالب',
+    'university_email' => 'البريد الجامعي',
+    'identifier_id' => 'رقم الكارنيه الجامعي',
+    'national_id' => 'رقم القومي للبطاقه',
+    'national_number' => 'الرقم القومي',
+    'nationality' => 'الجنسيه',
+    'birthday_date' => 'تاريخ الميلاد',
+    'birthday_place' => 'مكان الميلاد',
+    'city' => 'الاقليم',
+    'job_id' => "الرقم الوظيفي",
+    'address' => 'العنوان',
+    'user_status' => 'حاله المستخدم',
+    'user_type' => 'نوع المستخدم',
+    'university_register_year' => 'سنه الالتحاق بالجامعه',
+    'email' => 'البريد الالكتروني للدخول',
+    'password' =>  "كلمه السر",
+    'add_user' => "اضافه طالب",
+    'add_admin' => "اضافه ادمن",
+    'action' => 'اجراء',
+
+
+
+    //create model user and admin
+    'city_ar' => "الاقليم باللغه العربيه",
+    'city_en' => "الاقليم باللغه الانجليزيه",
+    'city_fr' => "الاقليم باللغه الفرنسيه",
+    'birthday_place_ar' => "مكان الميلاد باللغه العربيه",
+    'birthday_place_en' => "مكان الميلاد باللغه الانجليزيه",
+    'birthday_place_fr' => "مكان الميلاد باللغه الفرنسيه",
+
+
+    //button edit or add or close model
+
+    "add_data" => "اضافه",
+    "edit_model" => "تعديل",
+    "close_model" => "اغلاق",
+    "all_users" => "جميع الطلبه",
+    "all_admins" => "جميع الادمن",
+
+
+    //sidebar users and admins
+    'users' => 'المستخدمين'
+
 ];
 
 

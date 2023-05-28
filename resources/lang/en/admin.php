@@ -121,5 +121,52 @@ return [
     'presentations' => 'Presentations',
     'experience_year' => 'Experience Year',
     'type' => 'Type',
+
+
+    'id' => 'User ID',
+    'first_name' => 'first name',
+    'last_name' => 'last name',
+    'image_user' => 'Student image',
+    'image_admin' => 'admin photo',
+     'points' => 'Student points',
+     'university_email' => 'university email',
+     'identifier_id' => 'University ID',
+     'national_id' => 'National ID',
+     'national_number' => 'National number',
+     'nationality' => 'nationality',
+     'birthday_date' => 'birthday',
+     'birthday_place' => 'birthplace',
+     'city' => 'province',
+    'job_id' => "Job Id",
+    'address' => 'address',
+     'user_status' => 'User status',
+     'user_type' => 'User type',
+     'university_register_year' => 'University enrollment year',
+     'email' => 'login email',
+    'password' =>  "password",
+    'add_user' => "Add Student",
+    'add_admin' => "Add Admin",
+    'action' => 'action',
+
+
+    //create model user and admin
+    'city_ar' => "the region in Arabic",
+    'city_en' => "province in English",
+    'city_fr' => "Region in French",
+    'birthday_place_ar' => "birthplace in Arabic",
+    'birthday_place_en' => "place of birth in English",
+    'birthday_place_fr' => "place of birth in French",
+
+
+    //button edit or add or close model
+    "add_data" => "Add",
+    "edit_model" => "Edit",
+    "close_model" => "Close",
+    "all_users" => "All Students",
+    "all_admins" => "All Admins",
+
+
+    //sidebar users and admins
+    'users' => 'Users'
 ];
 
