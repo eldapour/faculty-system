@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePresentation extends FormRequest
+class PresentationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,7 @@ class StorePresentation extends FormRequest
             'description.fr' => 'required',
             'images' => 'required',
             'experience_year' => 'required',
-            'category_id' => 'required',
+            'category_id ' => 'required',
         ];
     }
 }
