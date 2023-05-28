@@ -49,5 +49,6 @@
 </div>
 
 <script>
-    $('.dropify').dropify()
+    $('.dropify').dropify();
+
 </script>
