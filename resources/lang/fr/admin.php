@@ -120,6 +120,54 @@ return [
     'experience_year' => 'Année d expérience',
     'type' => 'Taper',
 
+
+
+    'id' => "ID de l'utilisateur",
+    'first_name' =>  "prénom",
+    'last_name' =>  "nom de famille",
+    'image_user' => "Image étudiante",
+    'image_admin' =>  "photo d'administration",
+    'points' =>  "Points étudiants",
+    'university_email' =>  "courriel de l'université",
+    'identifier_id' => "carte d'identité universitaire",
+    'national_id' =>   "Carte d'identité",
+    'national_number' =>  "Numéro national",
+    'nationality' =>  "nationalité",
+    'birthday_date' =>  "anniversaire",
+    'birthday_place' => "Lieu de naissance",
+    'city' => "province",
+    'job_id' => "Employee ID",
+    'address' =>   "adresse",
+    'user_status' =>  "Statut de l'utilisateur",
+    'user_type' => "Type d'utilisateur",
+    'university_register_year' =>  "Année d'inscription à l'université",
+    'email' =>  "Pseudo email",
+    'password' =>  "Mot de passe",
+    'add_user' => "Ajouter un étudiant",
+    'add_admin' => "ajouter un administrateur",
+    'action' => "Procédure",
+
+
+
+    //create model user and admin
+    'city_ar' => "la région en arabe",
+    'city_en' => "province en anglais",
+    'city_fr' => "Région en français",
+    'birthday_place_ar' => "lieu de naissance en arabe",
+    'birthday_place_en' => "lieu de naissance en anglais",
+    'birthday_place_fr' => "lieu de naissance en français",
+
+
+
+    //button edit or add or close model
+    "add_data" => "ajouter",
+    "edit_model" => "modifier",
+    "close_model" => "fermer",
+    "all_users" => "tous les utilisateurs",
+    "all_admins" => "tous les administrateurs",
+
+    //sidebar users and admins
+    'users' => 'utilisateurs',
     // Group
     'group' => 'Groupe',
     'groups' => 'Groupes',
@@ -131,6 +179,7 @@ return [
     // Unit
     'unit' => 'Unité',
     'units' => 'Unités',
+
 ];
 
 

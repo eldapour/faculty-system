@@ -1,7 +1,7 @@
 
 <link href="{{asset('assets/admin')}}/plugins/select2/select2.min.css" rel="stylesheet"/>
 <div class="modal-header">
-    <h5 class="modal-title" id="example-Modal3">Edit Admin</h5>
+    <h5 class="modal-title" id="example-Modal3">{{trans('admin.edit_model')}}</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -15,76 +15,65 @@
         <input type="hidden" name="id" id="id" value="{{$user->id}}">
 
         <div class="form-group">
-            <label for="name" class="form-control-label">صوره المستخدم</label>
+            <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
             <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
             <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
         </div>
 
 
         <div class="form-group">
-            <label for="name" class="form-control-label">الاسم الاول</label>
+            <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
             <input type="text" class="form-control" name="first_name" id="first_name" value="{{$user->first_name}}">
         </div>
 
 
         <div class="form-group">
-            <label for="name" class="form-control-label">الاسم الاخير</label>
+            <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
             <input type="text" class="form-control" name="last_name" id="last_name" value="{{$user->last_name}}">
         </div>
 
 
         <div class="form-group">
-            <label for="email" class="form-control-label">البريد الالكتروني </label>
+            <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
             <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
         </div>
 
         <div class="form-group">
-            <label for="password" class="form-control-label">كلمه المرور</label>
+            <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
             <input type="password" class="form-control" name="password" id="password">
         </div>
 
 
 
-
-{{--        <div class="form-group">--}}
-{{--            <label class="form-label">نوع المستخدم</label>--}}
-{{--            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">--}}
-{{--                @foreach($types as $type)--}}
-{{--                    <option value="{{$type}}" {{$user->user_type == $type ? 'selected' : ''}}>{{$type}}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-{{--        </div>--}}
-
-
             <div class="student-complete-form">
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">البريد الالكتروني الجامعي</label>
+                    <label for="email" class="form-control-label">{{trans('admin.university_email')}}</label>
                     <input type="text" class="form-control" name="university_email" id="university_email" value="{{$user->university_email}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">الرقم القومي</label>
+                    <label for="email" class="form-control-label">{{trans('admin.national_number')}}</label>
                     <input type="number" class="form-control" name="national_number" id="national_number" value="{{$user->national_number}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">رقم البطاقه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.national_id')}}</label>
                     <input type="number" class="form-control" name="national_id" id="national_id" value="{{$user->national_id}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">رقم الكارنيه الجامعي</label>
+                    <label for="email" class="form-control-label">{{trans('admin.identifier_id')}}</label>
                     <input type="number" class="form-control" name="identifier_id" id="identifier_id" value="{{$user->identifier_id}}">
                 </div>
 
 
 
                 <div class="form-group">
-                    <label class="form-label">الجنسيه</label>
+                    <label class="form-label">{{trans('admin.nationality')}}</label>
                     <select name="nationality" class="form-control select2" data-placeholder="Choose nationality">
                         <option value="">-- select one --</option>
                         <option value="afghan">Afghan</option>
@@ -285,66 +274,65 @@
 
                 {{--start city and birthday date with multipe language--}}
                 <div class="form-group">
-                    <label for="email" class="form-control-label">الاقليم باللغه العربيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.city_ar')}}</label>
                     <input type="text" class="form-control" name="city_ar" id="city_ar" value="{{$user->getTranslation('city', 'ar')}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">الاقليم باللغه الانجليزيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.city_en')}}</label>
                     <input type="text" class="form-control" name="city_en" id="city_en" value="{{$user->getTranslation('city', 'en')}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">الاقليم باللغه الفرنسيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.city_fr')}}</label>
                     <input type="text" class="form-control" name="city_fr" id="city_fr" value="{{$user->getTranslation('city', 'fr')}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">مكان الميلاد باللغه العربيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_ar')}}</label>
                     <input type="text" class="form-control" name="birthday_place_ar" id="birthday_place_ar" value="{{$user->getTranslation('birthday_place', 'ar')}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">مكان الميلاد باللغه الانجليزيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_en')}}</label>
                     <input type="text" class="form-control" name="birthday_place_en" id="birthday_place_en" value="{{$user->getTranslation('birthday_place', 'en')}}">
                 </div>
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">مكان الميلاد باللغه الفرنسيه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_fr')}}</label>
                     <input type="text" class="form-control" name="birthday_place_fr" id="birthday_place_fr" value="{{$user->getTranslation('birthday_place', 'fr')}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">تاريخ الميلاد</label>
+                    <label for="email" class="form-control-label">{{trans('admin.birthday_date')}}د</label>
                     <input type="text" class="form-control" name="birthday_date" id="birthday_date" value="{{$user->birthday_date}}">
                 </div>
                 {{--start city and birthday date with multipe language--}}
 
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">العنوان</label>
+                    <label for="email" class="form-control-label">{{trans('admin.address')}}</label>
                     <input type="text" class="form-control" name="address" id="address" value="{{$user->address}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">سنه الالتحاق بالجامعه</label>
+                    <label for="email" class="form-control-label">{{trans('admin.university_register_year')}}</label>
                     <input type="number" class="form-control" name="year" id="year" value="{{$user->year}}">
                 </div>
 
             </div>
 
 
-
         {{--end create model--}}
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-            <button type="submit" class="btn btn-primary" id="addButton">اضافه</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('admin.close_model')}}</button>
+            <button type="submit" class="btn btn-primary" id="addButton">{{trans('admin.edit_model')}}</button>
         </div>
 
 

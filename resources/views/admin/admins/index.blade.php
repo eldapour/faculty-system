@@ -1,7 +1,7 @@
 @extends('admin/layouts/master')
 
-@section('title')  {{trans('admin.all_users')}} @endsection
-@section('page_name') {{trans('admin.all_users')}} @endsection
+@section('title')  {{trans('admin.all_admins')}} @endsection
+@section('page_name') {{trans('admin.all_admins')}} @endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
@@ -11,12 +11,12 @@
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.all_users')}}</h3>
+                    <h3 class="card-title">{{trans('admin.all_admins')}}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> {{trans('admin.add_user')}}
+									</span>{{trans('admin.add_admin')}}
                         </button>
                     </div>
                 </div>
@@ -27,26 +27,18 @@
                             <thead>
 
 
-
-                                <tr class="fw-bolder text-muted bg-light">
-                                    <th class="min-w-25px">{{trans('admin.id')}}</th>
-                                    <th class="min-w-50px">{{trans('admin.image_user')}}</th>
-                                    <th class="min-w-50px">{{trans('admin.first_name')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.last_name')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.email')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.university_email')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.national_id')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.national_number')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.points')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.address')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.city')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.birthday_place')}}</th>
-                                    <th class="min-w-125px">{{trans('admin.birthday_date')}}</th>
-                                    <th class="min-w-50px rounded-end">{{trans('admin.action')}}</th>
-                                </tr>
+                            <tr class="fw-bolder text-muted bg-light">
 
 
+                                <th class="min-w-25px">{{trans('admin.id')}}</th>
+                                <th class="min-w-50px">{{trans('admin.image_admin')}}</th>
+                                <th class="min-w-50px">{{trans('admin.first_name')}}</th>
+                                <th class="min-w-125px">{{trans('admin.last_name')}}</th>
+                                <th class="min-w-125px">{{trans('admin.email')}}</th>
+                                <th class="min-w-125px">{{trans('admin.user_type')}}</th>
+                                <th class="min-w-125px">{{trans('admin.job_id')}}</th>
+                                <th class="min-w-125px">{{trans('admin.action')}}</th>
+                            </tr>
 
                             </thead>
                         </table>
@@ -108,27 +100,20 @@
             {data: 'first_name', name: 'first_name'},
             {data: 'last_name', name: 'last_name'},
             {data: 'email', name: 'email'},
-            {data: 'university_email', name: 'university_email'},
-            {data: 'identifier_id', name: 'identifier_id'},
-            {data: 'national_number', name: 'national_number'},
-            {data: 'national_id', name: 'national_id'},
-            {data: 'points', name: 'points'},
-            {data: 'address', name: 'address'},
-            {data: 'city', name: 'city'},
-            {data: 'birthday_place', name: 'birthday_place'},
-            {data: 'created_at', name: 'created_at'},
+            {data: 'user_type', name: 'user_type'},
+            {data: 'job_id', name: 'job_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 
 
 
-        showData('{{route('users.index')}}', columns);
-        deleteScript('{{route('users.delete')}}');
+        showData('{{route('admins.index')}}', columns);
+        deleteScript('{{route('admins.delete')}}');
 
         // Get Edit View
         $(document).on('click', '.editBtn', function () {
             var id = $(this).data('id')
-            var url = "{{route('users.edit',':id')}}";
+            var url = "{{route('admins.edit',':id')}}";
             url = url.replace(':id', id)
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
@@ -145,7 +130,7 @@
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
             setTimeout(function () {
-                $('#modalContent').load('{{route('users.create')}}')
+                $('#modalContent').load('{{route('admins.create')}}')
             }, 250)
         });
 
@@ -167,7 +152,7 @@
                 success: function (data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('User added successfully');
+                        toastr.success('Admin added successfully');
                     }
                     else
                         toastr.error('There is an error');
@@ -220,7 +205,7 @@
                     $('#updateButton').html(`Update`).attr('disabled', false);
                     if (data.status == 200){
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('User updated successfully');
+                        toastr.success('Admin updated successfully');
                     }
                     else
                         toastr.error('There is an error');

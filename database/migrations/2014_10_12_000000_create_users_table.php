@@ -37,6 +37,8 @@ class CreateUsersTable extends Migration
             $table->json('city')->nullable();
             $table->string('address')->nullable();
             $table->enum('user_status',['active','un_active'])->default('active');
+            $table->enum('user_type',['student','doctor','manger','employee','factor'])->default('student');
+            $table->bigInteger('job_id')->unique()->nullable()->comment('الرقم الوظيفي خاصه لغير الطالب');
             $table->string('university_register_year')->nullable();
             $table->rememberToken();
             $table->timestamps();

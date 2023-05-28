@@ -19,6 +19,7 @@ class UserController extends Controller
 
         if ($request->ajax()) {
             $users = User::query()
+                ->where('user_type','=','student')
                 ->latest()
                 ->get();
 
@@ -104,7 +105,9 @@ class UserController extends Controller
     public function create()
     {
 
-        return view('users.parts.create');
+        $types = ['student','doctor','employee','manger','factor'];
+
+        return view('users.parts.create', compact('types'));
     }
 
     public function store(Request $request): JsonResponse
@@ -217,6 +220,7 @@ class UserController extends Controller
             'university_register_year' => $request->university_register_year,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+
         ]);
 
         if($user->save()){

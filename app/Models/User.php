@@ -39,6 +39,7 @@ class User extends Authenticatable
         'address',
         'user_status',
         'user_type',
+        'job_id',
         'university_register_year',
         'email',
         'password',
