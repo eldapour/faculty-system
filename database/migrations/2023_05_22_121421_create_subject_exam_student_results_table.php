@@ -22,6 +22,7 @@ return new class extends Migration
             $table->double('student_degree',12,2);
             $table->double('exam_degree',12,2);
             $table->date('date_enter_degree');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
             $table->string('year');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('subject_exam_id');

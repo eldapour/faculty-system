@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->comment('الطالب');
             $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
