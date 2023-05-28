@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePresentation;
 use App\Models\Presentation;
 use App\Models\Category;
+use App\Traits\PhotoTrait;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class PresentationController extends Controller
 {
+    use PhotoTrait;
     // Index Start
     public function index(request $request)
     {
@@ -21,21 +23,21 @@ class PresentationController extends Controller
                     return '
                             <button type="button" data-id="' . $presentations->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $presentations->id . '" data-title="' . $presentations->title . '">
+                                    data-id="' . $presentations->id . '" data-title="' . $presentations->title[lang()] . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('title', function ($advertisements) {
-                    return'<td>'. $advertisements->title .'</td>';
+                    return'<td>'. $advertisements->title[lang()] .'</td>';
                 })
                 ->editColumn('images', function ($advertisements) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($advertisements->image[0]) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($advertisements->images[0]) . '">
                     ';
                 })
                 ->editColumn('description', function ($advertisements) {
-                    return'<td>'. $advertisements->description .'</td>';
+                    return'<td>'. $advertisements->description[lang()] .'</td>';
                 })
                 ->editColumn('category_id', function ($advertisements) {
                     return'<td>'. $advertisements->category->category_name .'</td>';
@@ -61,11 +63,10 @@ class PresentationController extends Controller
     public function store(StorePresentation $request)
     {
         $inputs = $request->all();
-
-        if($request->has('files')){
-            foreach($request->file('files') as $file)
+        if($request->has('images')){
+            foreach($request->file('images') as $key => $file)
             {
-                $inputs['images'][] = $this->saveImage($file,'uploads/presentation','photo');
+                $inputs['images'][$key] = $this->saveImage($file,'uploads/presentation','photo');
             }
         }
         if (Presentation::create($inputs)) {
@@ -81,7 +82,7 @@ class PresentationController extends Controller
     public function edit(Presentation $presentation)
     {
         $data['categories'] = Category::all();
-        return view('admin.advertisements.parts.edit', compact('advertisement', 'data'));
+        return view('admin.presentations.parts.edit', compact('presentation', 'data'));
     }
     // Edit End
 

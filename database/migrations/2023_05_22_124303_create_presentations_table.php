@@ -19,7 +19,6 @@ return new class extends Migration
             $table->json('description');
             $table->json('images');
             $table->string('experience_year');
-            $table->enum('type',['advertisement','news'])->default('advertisement');
             $table->unsignedBigInteger('category_id')->comment('تبع انهي قسم');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnUpdate()->cascadeOnDelete();

@@ -159,6 +159,9 @@ return [
     */
 
     'attributes' => [
+        'title.ar' => 'nom arabe',
+        'title.en' => 'nom anglais',
+        'title.fr' => 'Nom français',
         'group_name.ar' =>'nom arabe',
         'group_name.en' =>'nom anglais',
         'group_name.fr' =>'Nom français',
@@ -168,6 +171,9 @@ return [
         'unit_name.ar' =>'nom arabe',
         'unit_name.en' =>'nom anglais',
         'unit_name.fr' =>'Nom français',
+        'description.ar' => 'Descriptif en arabe',
+        'description.en' => 'Descriptif en anglais',
+        'description.fr' => 'Descriptif en français',
     ],
 
 ];

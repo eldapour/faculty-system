@@ -131,6 +131,7 @@ return [
     // Unit
     'unit' => 'Unité',
     'units' => 'Unités',
+
 ];
 
 
