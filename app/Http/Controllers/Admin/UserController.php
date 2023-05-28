@@ -67,7 +67,7 @@ class UserController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('users/index');
+            return view('admin/users/index');
         }
     }
 
@@ -107,7 +107,7 @@ class UserController extends Controller
 
         $types = ['student','doctor','employee','manger','factor'];
 
-        return view('users.parts.create', compact('types'));
+        return view('admin/users.parts.create', compact('types'));
     }
 
     public function store(Request $request): JsonResponse
@@ -169,7 +169,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
 
-        return view('users/parts.edit', compact('user'));
+        return view('admin/users/parts.edit', compact('user'));
     }
 
 

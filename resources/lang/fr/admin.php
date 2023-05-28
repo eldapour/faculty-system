@@ -29,6 +29,8 @@ return [
     "english" => "En anglais",
     "france" => "en français",
     "latin" => "en latin",
+    "created_at"=> "créé à",
+
 
 
 
@@ -121,6 +123,7 @@ return [
     'type' => 'Taper',
 
 
+
     'id' => "ID de l'utilisateur",
     'first_name' =>  "prénom",
     'last_name' =>  "nom de famille",
@@ -166,7 +169,19 @@ return [
     "all_admins" => "tous les administrateurs",
 
     //sidebar users and admins
-    'users' => 'utilisateurs'
+    'users' => 'utilisateurs',
+    // Group
+    'group' => 'Groupe',
+    'groups' => 'Groupes',
+
+    // Subject
+    'subject' => 'Sujette',
+    'subjects' => 'Sujettes',
+
+    // Unit
+    'unit' => 'Unité',
+    'units' => 'Unités',
+
 ];
 
 

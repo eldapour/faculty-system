@@ -9,35 +9,40 @@
     <form id="addForm" class="addForm" method="POST" enctype="multipart/form-data" action="{{route('users.store')}}" >
         @csrf
 
-
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
-            <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
-            <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
+                    <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
+                    <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+                </div>
+            </div>
+            <div class="col-4 mt-5">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
+                    <input type="text" class="form-control" name="email" id="email">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+            </div>
         </div>
 
 
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
-            <input type="text" class="form-control" name="first_name" id="first_name">
-        </div>
 
 
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
-            <input type="text" class="form-control" name="last_name" id="last_name">
-        </div>
 
-
-        <div class="form-group">
-            <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
-            <input type="text" class="form-control" name="email" id="email">
-        </div>
-
-        <div class="form-group">
-            <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
-            <input type="password" class="form-control" name="password" id="password">
-        </div>
 
 
 

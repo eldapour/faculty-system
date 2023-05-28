@@ -32,7 +32,6 @@
                                 <th class="min-w-25px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.category') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.experience_year') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.type') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.desc') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
@@ -95,9 +94,8 @@
             {data: 'id', name: 'id'},
             {data: 'images', name: 'images'},
             {data: 'title', name: 'title'},
-            {data: 'title', name: 'category'},
+            {data: 'category_id', name: 'category_id'},
             {data: 'experience_year', name: 'experience_year'},
-            {data: 'type', name: 'type'},
             {data: 'description', name: 'description'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]

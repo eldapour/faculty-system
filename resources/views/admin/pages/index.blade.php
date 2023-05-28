@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-body">
                          <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.sliders') }}<span id="title" class="text-danger"></span>؟</p>
+                        <p>{{ trans('admin.delete_confirm') . ' ' . trans('admin.pages') }}<span id="title" class="text-danger"></span>؟</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -69,7 +69,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.sliders')}}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.pages')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -6,32 +6,36 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title')  ." ". trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" required>
+                    <input type="text" class="form-control" name="title[ar]">
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" required>
+                    <input type="text" class="form-control" name="title[en]">
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" required>
+                    <input type="text" class="form-control" name="title[fr]">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="image" class="form-control-label">{{ trans('admin.image') }}</label>
-                    <input type="file" name="files[]" multiple="multiple" class="dropify" data-default-file="">
+                    <input type="file" name="images[]" multiple="multiple" class="dropify" data-default-file="">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
-                    <select name="category_id" class="form-control" required>
+                    <select name="category_id" class="form-control">
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
                                 {{ $category->category_name }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="experience_year" class="form-control-label">{{ trans('admin.experience_year') }}</label>
+                    <input type="text" class="form-control" name="experience_year">
                 </div>
             </div>
             <div class="row">

@@ -33,6 +33,7 @@ return [
     "wrong" => "خطأ",
     "video" => 'فيديو',
     "videos" => 'فيديوهات',
+    "created_at"=> "تاريخ الاضافة",
 
     "arabic" => "بالعربية",
     "english" => "بالانجليزية",
@@ -119,6 +120,18 @@ return [
     'presentations' => 'عروض تقديمية',
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
+
+    // Group
+    'group' => 'مجموعة',
+    'groups' => 'المجموعات',
+
+    // Subject
+    'subject' => 'مادة',
+    'subjects' => 'مواد',
+
+    // Unit
+    'unit' => 'وحدة',
+    'units' => 'وحدات',
 
 
 
