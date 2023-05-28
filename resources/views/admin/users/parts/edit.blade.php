@@ -14,60 +14,59 @@
 
         <input type="hidden" name="id" id="id" value="{{$user->id}}">
 
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
-            <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
-            <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
+                    <input type="file" class="dropify" name="image" data-default-file="{{ asset($user->image) ?? asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
+                    <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+                </div>
+            </div>
+            <div class="col-4 mt-7">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
+                    <input type="text" class="form-control"  value="{{ $user->first_name }}" name="first_name" id="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
+                    <input type="text" class="form-control"  value="{{ $user->email }}" name="email" id="email">
+                </div>
+            </div>
+            <div class="col-4 mt-7">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
+                    <input type="text" class="form-control"  value="{{ $user->last_name }}" name="last_name" id="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+            </div>
         </div>
 
+        <hr>
 
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
-            <input type="text" class="form-control" name="first_name" id="first_name" value="{{$user->first_name}}">
-        </div>
-
-
-        <div class="form-group">
-            <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
-            <input type="text" class="form-control" name="last_name" id="last_name" value="{{$user->last_name}}">
-        </div>
-
-
-        <div class="form-group">
-            <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
-            <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
-        </div>
-
-        <div class="form-group">
-            <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
-            <input type="password" class="form-control" name="password" id="password">
-        </div>
-
-
-
-            <div class="student-complete-form">
-
+        <div class="row">
+            <div class="col-6">
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.university_email')}}</label>
-                    <input type="text" class="form-control" name="university_email" id="university_email" value="{{$user->university_email}}">
+                    <input type="text" class="form-control"  value="{{ $user->university_email }}" name="university_email" id="university_email">
                 </div>
-
-
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.national_number')}}</label>
-                    <input type="number" class="form-control" name="national_number" id="national_number" value="{{$user->national_number}}">
+                    <input type="number" class="form-control"  value="{{ $user->national_number }}" name="national_number" id="national_number">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.national_id')}}</label>
-                    <input type="number" class="form-control" name="national_id" id="national_id" value="{{$user->national_id}}">
+                    <input type="number" class="form-control" name="national_id" value="{{ $user->national_id }}" id="national_id">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.identifier_id')}}</label>
-                    <input type="number" class="form-control" name="identifier_id" id="identifier_id" value="{{$user->identifier_id}}">
+                    <input type="number" class="form-control" name="identifier_id" value="{{ $user->identifier_id }}" id="identifier_id">
                 </div>
 
 
@@ -270,62 +269,63 @@
                         <option value="zimbabwean">Zimbabwean</option>
                     </select>
                 </div>
-
-
                 {{--start city and birthday date with multipe language--}}
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.city_ar')}}</label>
-                    <input type="text" class="form-control" name="city_ar" id="city_ar" value="{{$user->getTranslation('city', 'ar')}}">
+                    <input type="text" class="form-control" name="city_ar" value="{{ $user->city_ar }}" id="city_ar">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.city_en')}}</label>
-                    <input type="text" class="form-control" name="city_en" id="city_en" value="{{$user->getTranslation('city', 'en')}}">
+                    <input type="text" class="form-control" name="city_en" value="{{ $user->city_en }}" id="city_en">
                 </div>
+            </div>
+            <div class="col-6">
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.city_fr')}}</label>
-                    <input type="text" class="form-control" name="city_fr" id="city_fr" value="{{$user->getTranslation('city', 'fr')}}">
+                    <input type="text" class="form-control" name="city_fr" value="{{ $user->city_fr }}" id="city_fr">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.birthday_place_ar')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_ar" id="birthday_place_ar" value="{{$user->getTranslation('birthday_place', 'ar')}}">
+                    <input type="text" class="form-control" name="birthday_place_ar" value="{{ $user->birthday_place_ar }}" id="birthday_place_ar">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.birthday_place_en')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_en" id="birthday_place_en" value="{{$user->getTranslation('birthday_place', 'en')}}">
+                    <input type="text" class="form-control" name="birthday_place_en" value="{{ $user->birthday_place_en }}" id="birthday_place_en">
                 </div>
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.birthday_place_fr')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_fr" id="birthday_place_fr" value="{{$user->getTranslation('birthday_place', 'fr')}}">
+                    <input type="text" class="form-control" name="birthday_place_fr" value="{{ $user->birthday_place_fr }}" id="birthday_place_fr">
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.birthday_date')}}د</label>
-                    <input type="text" class="form-control" name="birthday_date" id="birthday_date" value="{{$user->birthday_date}}">
+                    <input type="text" class="form-control" name="birthday_date" value="{{ $user->birthday_date }}" id="birthday_date">
                 </div>
                 {{--start city and birthday date with multipe language--}}
 
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.address')}}</label>
-                    <input type="text" class="form-control" name="address" id="address" value="{{$user->address}}">
+                    <input type="text" class="form-control" name="address" value="{{ $user->address }}" id="address">
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.university_register_year')}}</label>
-                    <input type="number" class="form-control" name="year" id="year" value="{{$user->year}}">
+                    <input type="number" class="form-control" name="year" value="{{ $user->year }}" id="year">
                 </div>
 
             </div>
+        </div>
 
 
         {{--end create model--}}
