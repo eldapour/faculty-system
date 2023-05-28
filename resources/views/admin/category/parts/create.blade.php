@@ -18,8 +18,8 @@
         </div>
     </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-            <button type="submit" class="btn btn-primary" id="addButton">اضافة</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('admin.close')</button>
+            <button type="submit" class="btn btn-primary" id="addButton">@lang('admin.add')</button>
         </div>
     </form>
 </div>

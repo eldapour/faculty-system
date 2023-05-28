@@ -99,6 +99,12 @@ return [
     "wordManager" => "Dean's speech",
     "word_role" => "job title",
 
+    // pages
+    "pages" => "Pages",
+    "page" => "Page",
+    "files" => "Files",
+    "images" => "Images",
+
     // Video
     'video' => 'Video',
     'videos' => 'Videos',

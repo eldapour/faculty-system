@@ -95,6 +95,12 @@
             </a>
         </li>
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('pages.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.pages') }}</span>
+            </a>
+        </li>
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('internal_ads.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>

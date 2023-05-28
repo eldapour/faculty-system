@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -73,6 +74,9 @@ Route::group([
 
     #### sliders ####
     Route::resource('sliders', SliderController::class);
+
+    #### pages ####
+    Route::resource('pages', PageController::class);
 
     #### word ####
     Route::resource('word', WordController::class);

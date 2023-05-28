@@ -17,7 +17,7 @@
             <input type="text" class="form-control" name="name_en" id="name_en" value="{{$find->name_en}}">
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('admin.close')</button>
             <button type="submit" class="btn btn-success" id="updateButton">{{__('admin.update')}}</button>
         </div>
     </form>

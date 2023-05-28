@@ -100,6 +100,12 @@ return [
     "wordManager" => "كلمة العميد",
     "word_role" => "الصفة",
 
+    // pages
+    "pages" => "الصفحات",
+    "page" => "الصفحة",
+    "files" => "الملفات",
+    "images" => "الصور",
+
 
     "background_image" => 'خلفية الصورة',
     "video_url" => "رابط الفيديو",

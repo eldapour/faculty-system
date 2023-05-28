@@ -1,21 +1,21 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{($setting->title) ?? ''}}  @lang('admin.sliders')
+    {{($setting->title) ?? ''}}  @lang('admin.pages')
 @endsection
-@section('page_name')  @lang('admin.sliders') @endsection
+@section('page_name')  @lang('admin.pages') @endsection
 @section('content')
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> @lang('admin.sliders') {{($setting->title) ?? ''}}</h3>
+                    <h3 class="card-title"> @lang('admin.pages') {{($setting->title) ?? ''}}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> @lang('admin.add') @lang('admin.sliders')
+									</span> @lang('admin.add') @lang('admin.page')
                         </button>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px"> {{__('admin.image')}}</th>
                                 <th class="min-w-50px"> {{__('admin.title')}}</th>
-                                <th class="min-w-50px"> {{__('admin.description')}}</th>
+                                <th class="min-w-50px"> {{__('admin.category')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
                             </thead>
@@ -90,17 +90,17 @@
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
             {data: 'title', name: 'title'},
-            {data: 'description', name: 'description'},
+            {data: 'category_id', name: 'category_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('sliders.index')}}', columns);
+        showData('{{route('pages.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('sliders.destroy',':id')}}');
+        destroyScript('{{route('pages.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('sliders.create')}}');
+        showAddModal('{{route('pages.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('sliders.edit',':id')}}');
+        showEditModal('{{route('pages.edit',':id')}}');
         editScript();
     </script>
 @endsection
