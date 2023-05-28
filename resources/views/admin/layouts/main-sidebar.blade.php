@@ -42,7 +42,7 @@
             <a class="side-menu__item" href="{{ route('categories.index') }}">
 
                 <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">Category</span>
+                <span class="side-menu__label">{{ trans('admin.categories') }}</span>
             </a>
         </li>
 
@@ -110,6 +110,18 @@
             <a class="side-menu__item" href="{{ route('video.index') }}">
                 <i class="fa fa-video side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.videos') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('advertisements.index') }}">
+                <i class="fa fa-video side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.ads') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('presentations.index') }}">
+                <i class="fa fa-video side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.presentations') }}</span>
             </a>
         </li>
     </ul>

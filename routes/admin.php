@@ -12,9 +12,11 @@ use App\Http\Controllers\Admin\InternalAdController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WordController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\AdvertisementController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -94,6 +96,15 @@ Route::group([
 
     #### Video ####
     Route::resource('video', VideoController::class);
+
+    #### Advertisement ####
+    Route::resource('advertisements', AdvertisementController::class);
+
+    #### Presentation ####
+    Route::resource("presentations", PresentationController::class);
+
+    #### Slider ####
+    Route::resource('slider', SliderController::class);
 
 
 

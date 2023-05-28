@@ -29,13 +29,14 @@ return [
     "english" => "in English",
     "france" => "in French",
     "latin" => "in Latin",
-
     "wait" => "Wait",
     "added_successfully" => "Added Successfully",
     "updated_successfully" => "Updated Successfully",
     "deleted_successfully" => "Deleted Successfully",
     "something_went_wrong" => "Something Went Wrong",
     "wrong" => "Wrong",
+    "video" => 'Video',
+    "videos" => 'Videos',
 
 
 
@@ -66,6 +67,7 @@ return [
 
     // Internal Ad
     "ad" => "Ad",
+    "ads" => "Ads",
     "internal_ads" => "Internal Ads",
 
     "date_ads" => "Date Ads",
@@ -93,11 +95,13 @@ return [
     // sliders
     "sliders" => "sliders",
     "image" => "image",
+    "images" => "Images",
     "description" => "description",
 
     //word
     "wordManager" => "Dean's speech",
     "word_role" => "job title",
+
 
     // pages
     "pages" => "Pages",
@@ -108,7 +112,14 @@ return [
     // Video
     'video' => 'Video',
     'videos' => 'Videos',
+
     "background_image" => 'Background Image',
     "video_url" => "Video Url",
+
+    // Presentation
+    'presentation' => 'Presentation',
+    'presentations' => 'Presentations',
+    'experience_year' => 'Experience Year',
+    'type' => 'Type',
 ];
 

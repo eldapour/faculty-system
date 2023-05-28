@@ -5,15 +5,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" required>
+                    <input type="text" class="form-control" name="title[ar]" >
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" required>
+                    <input type="text" class="form-control" name="title[en]" >
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" required>
+                    <input type="text" class="form-control" name="title[fr]" >
                 </div>
             </div>
             <div class="row">

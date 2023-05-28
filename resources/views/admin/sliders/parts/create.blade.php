@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.image') }}</label>
-                    <input type="file" class="form-control dropify" name="image" required>
+                    <input type="file" class="form-control dropify" name="image">
                 </div>
             </div>
         </div>
@@ -13,15 +13,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" required>
+                    <input type="text" class="form-control" name="title[ar]">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" required>
+                    <input type="text" class="form-control" name="title[en]">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" required>
+                    <input type="text" class="form-control" name="title[fr]">
                 </div>
             </div>
         </div>
@@ -29,15 +29,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="description[ar]" required>
+                    <input type="text" class="form-control" name="description[ar]">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="description[en]" required>
+                    <input type="text" class="form-control" name="description[en]">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="description[fr]" required>
+                    <input type="text" class="form-control" name="description[fr]">
                 </div>
             </div>
         </div>

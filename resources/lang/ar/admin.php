@@ -31,6 +31,8 @@ return [
     "deleted_successfully" => "تم الحذف بنجاح",
     "something_went_wrong" => "هناك خطأ ما",
     "wrong" => "خطأ",
+    "video" => 'فيديو',
+    "videos" => 'فيديوهات',
 
     "arabic" => "بالعربية",
     "english" => "بالانجليزية",
@@ -65,6 +67,7 @@ return [
 
     // Internal Ad
     "ad" => "اعلان",
+    "ads" => "اعلانات",
     "internal_ads" => "اعلانات داخلية",
 
     "date_ads" => "إعلانات التاريخ",
@@ -94,6 +97,7 @@ return [
     // sliders
     "sliders" => "صور متحركة",
     "image" => "الصورة",
+    "images" => "الصور",
     "description" => "التفاصيل",
 
     // word
@@ -109,6 +113,13 @@ return [
 
     "background_image" => 'خلفية الصورة',
     "video_url" => "رابط الفيديو",
+
+    // Presentation
+    'presentation' => 'عرض تقديمي',
+    'presentations' => 'عروض تقديمية',
+    'experience_year' => 'سنين الخبرة',
+    'type' => 'نوع',
+
 
 ];
 
