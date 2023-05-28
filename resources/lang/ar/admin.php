@@ -120,6 +120,18 @@ return [
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
 
+    // Group
+    'group' => 'مجموعة',
+    'groups' => 'المجموعات',
+
+    // Subject
+    'subject' => 'مادة',
+    'subjects' => 'مواد',
+
+    // Unit
+    'unit' => 'وحدة',
+    'units' => 'وحدات',
+
 
 
     //start translate model user and admin

@@ -8,9 +8,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
-    use HasFactory , HasTranslations;
-
-    public array $translatable = ['title','description'];
+    use HasFactory ;
 
     protected $fillable = [
             'title',
@@ -26,4 +24,9 @@ class Page extends Model
         'images' => 'json',
         'files' => 'json',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id', 'id');
+    }
 }

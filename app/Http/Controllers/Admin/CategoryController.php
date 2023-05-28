@@ -27,11 +27,9 @@ class CategoryController extends Controller
                             </button>
                        ';
                 })
-
                 ->editColumn('category_name', function ($category) {
                     return $category->getTranslation('category_name', app()->getLocale());
                 })
-
                 ->escapeColumns([])
                 ->make(true);
         }else{
