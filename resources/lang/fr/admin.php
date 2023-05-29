@@ -36,6 +36,7 @@ return [
     "étudiants" => "طلاب",
     "autumnal" => "Automnal",
     "fall" => "Automne",
+    "facebook_link" => 'lien_facebook',
 
 
 
@@ -196,6 +197,10 @@ return [
     // Subject Unit Doctor
     'subject_unit_doctor' => 'médecin de l unité de discipline',
     'subject_unit_doctors' => 'médecins de l unité sujette',
+
+    // University Setting
+    'university_setting' => 'Cadre universitaire',
+    'university_settings' => 'Paramètres universitaires',
 
 ];
 

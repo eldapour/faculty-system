@@ -44,6 +44,7 @@ return [
     "students" => "طلاب",
     "autumnal" => "ربيعيه",
     "fall" => "خريفيه",
+    "facebook_link" => 'رابط الفسيبوك',
 
 
     // crud
@@ -156,7 +157,7 @@ return [
     'birthday_place' => 'مكان الميلاد',
     'city' => 'الاقليم',
     'job_id' => "الرقم الوظيفي",
-    'address' => 'العنوان',
+    'address' => 'مكان',
     'user_status' => 'حاله المستخدم',
     'user_type' => 'نوع المستخدم',
     'university_register_year' => 'سنه الالتحاق بالجامعه',
@@ -198,6 +199,10 @@ return [
     // Subject Unit Doctor
     'subject_unit_doctor' => 'دكتور وحدة الموضوع',
     'subject_unit_doctors' => 'دكاترة وحدة الموضوع',
+
+    // University Setting
+    'university_setting' => 'اعداد الجامعة',
+    'university_settings' => 'اعدادات الجامعة',
 
 ];
 

@@ -175,6 +175,10 @@ return [
         'description.en' => 'Descriptif en anglais',
         'description.fr' => 'Descriptif en français',
         'year' => 'L année',
+        'address.ar' => 'Adresse arabe',
+        'address.en' => 'Adresse anglais',
+        'address.fr' => 'Adresse française',
+        'facebook_link' => "Lien Facebook",
     ],
 
 ];

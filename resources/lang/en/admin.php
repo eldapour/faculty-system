@@ -44,6 +44,7 @@ return [
     "students" => "Students",
     "autumnal" => "Autumnal",
     "fall" => "Fall",
+    "facebook_link" => 'Facebook Link',
 
 
 
@@ -197,6 +198,10 @@ return [
     // Subject Unit Doctor
     'subject_unit_doctor' => 'Subject Unit Doctor',
     'subject_unit_doctors' => 'Subject Unit Doctors',
+
+    // University Setting
+    'university_setting' => 'University Setting',
+    'university_settings' => 'University Settings',
 
 ];
 

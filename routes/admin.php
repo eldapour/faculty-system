@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\SubjectStudentController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\SubjectUnitDoctorController;
+use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Auth;
@@ -134,4 +135,7 @@ Route::group([
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class);
+
+    #### University Setting
+    Route::resource('university_settings', UniversitySettingController::class);
 });
