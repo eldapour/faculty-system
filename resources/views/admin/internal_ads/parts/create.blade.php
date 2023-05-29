@@ -37,15 +37,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <label for="desc" class="form-control-label">{{ trans('admin.desc') }} {{ trans('admin.arabic') }}</label>
                         <textarea name="description[ar]" class="form-control" rows="8"></textarea>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <label for="desc" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.english') }}</label>
                         <textarea name="description[en]" class="form-control" rows="8"></textarea>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <label for="desc" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.france') }}</label>
                         <textarea name="description[fr]" class="form-control" rows="8"></textarea>
                     </div>
@@ -59,5 +63,11 @@
 </div>
 
 <script>
-    $('.dropify').dropify()
+    CKEDITOR.replaceAll();
+
+    $('.dropify').dropify();
+
+    $(document).ready(function() {
+        $('select').select2();
+    });
 </script>
