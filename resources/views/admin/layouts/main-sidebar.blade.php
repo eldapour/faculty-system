@@ -155,5 +155,11 @@
                 <span class="side-menu__label">{{ trans('admin.subject_unit_doctors') }}</span>
             </a>
         </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('university_settings.index') }}">
+                <i class="fa fa-video side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.university_settings') }}</span>
+            </a>
+        </li>
     </ul>
 </aside>
