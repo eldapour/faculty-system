@@ -23,7 +23,9 @@ use App\Http\Controllers\Admin\ServiceController;
 //use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\SubjectStudentController;
 use App\Http\Controllers\Admin\UnitController;
+use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Auth;
@@ -126,4 +128,10 @@ Route::group([
 
     #### Unit ####
     Route::resource('unit', UnitController::class);
+
+    #### Subject Student ####
+    Route::resource('subject_student', SubjectStudentController::class);
+
+    #### Subject Unit Doctor ####
+    Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class);
 });

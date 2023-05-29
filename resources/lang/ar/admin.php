@@ -34,11 +34,16 @@ return [
     "video" => 'فيديو',
     "videos" => 'فيديوهات',
     "created_at"=> "تاريخ الاضافة",
-
     "arabic" => "بالعربية",
     "english" => "بالانجليزية",
     "france" => "بالفرنسية",
     "latin" => "بالاتينية",
+    "user" => "مستخدم",
+    "users" => "مستخدمين",
+    "student" => "طالب",
+    "students" => "طلاب",
+    "autumnal" => "ربيعيه",
+    "fall" => "خريفيه",
 
 
     // crud
@@ -182,7 +187,17 @@ return [
 
 
     //sidebar users and admins
-    'users' => 'المستخدمين'
+    'users' => 'المستخدمين',
+
+    // Subject Student
+    'subject_student' => 'طالب المادة',
+    'subject_students' => 'طلاب المادة',
+    'year' => 'سنة',
+    'period' => 'فترة',
+
+    // Subject Unit Doctor
+    'subject_unit_doctor' => 'دكتور وحدة الموضوع',
+    'subject_unit_doctors' => 'دكاترة وحدة الموضوع',
 
 ];
 

@@ -30,7 +30,12 @@ return [
     "france" => "en français",
     "latin" => "en latin",
     "created_at"=> "créé à",
-
+    "user" => "utilisateur",
+    "users" => "utilisateurs",
+    "étudiant" => "طالب",
+    "étudiants" => "طلاب",
+    "autumnal" => "Automnal",
+    "fall" => "Automne",
 
 
 
@@ -181,6 +186,16 @@ return [
     // Unit
     'unit' => 'Unité',
     'units' => 'Unités',
+
+    // Subject Student
+    'subject_student' => 'Sujet Étudiant',
+    'subject_students' => 'Sujet Étudiants',
+    'year' => 'Année',
+    'period' => 'période',
+
+    // Subject Unit Doctor
+    'subject_unit_doctor' => 'médecin de l unité de discipline',
+    'subject_unit_doctors' => 'médecins de l unité sujette',
 
 ];
 
