@@ -204,6 +204,22 @@ return [
     'university_setting' => 'اعداد الجامعة',
     'university_settings' => 'اعدادات الجامعة',
 
+    // Subject Exam
+    'subject_exam' => 'امتحان المادة',
+    'subject_exams' => 'امتحانات المادة',
+    'exam_date' => 'تاريخ الامتحان',
+    'exam_day' => 'يوم الامتحان',
+    'session' => "الدورة",
+    'time_start' => 'وقت البدء',
+    'time_end' => 'وقت النهاية',
+    'normal' => 'عادي',
+
+    // Subject Exam Student
+    'subject_exam_student' => 'امتحان طالب المادة',
+    'subject_exam_students' => 'امتحان طلاب المادة',
+    'exam_code' => 'رمز الامتحان',
+    'section' => 'قسم',
+
 ];
 
 

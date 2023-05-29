@@ -23,12 +23,13 @@ use App\Http\Controllers\Admin\ServiceController;
 //use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\SubjectExamController;
 use App\Http\Controllers\Admin\SubjectStudentController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\Admin\SubjectExamStudentController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -138,4 +139,10 @@ Route::group([
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class);
+
+    #### Subject Exam ####
+    Route::resource('subject_exams', SubjectExamController::class);
+
+    #### Subject Exam Student ####
+    Route::resource('subject_exam_students', SubjectExamStudentController::class);
 });

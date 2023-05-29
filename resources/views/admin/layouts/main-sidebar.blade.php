@@ -96,6 +96,18 @@
             </a>
         </li>
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('subject_exams.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('subject_exam_students.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span>
+            </a>
+        </li>
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('pages.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.pages') }}</span>

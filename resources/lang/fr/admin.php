@@ -202,6 +202,22 @@ return [
     'university_setting' => 'Cadre universitaire',
     'university_settings' => 'Paramètres universitaires',
 
+    // Subject Exam
+    'subject_exam' => 'Subject Exam',
+    'subject_exams' => 'Subject Exams',
+    'exam_date' => 'Exam Date',
+    'exam_day' => 'Exam Day',
+    'session' => "Session",
+    'time_start' => 'Time Start',
+    'time_end' => 'Time End',
+    'normal' => 'Normal',
+
+    // Subject Exam Student
+    'subject_exam_student' => 'Subject Exam Student',
+    'subject_exam_students' => 'Subject Exam Students',
+    'exam_code' => 'Exam Code',
+    'section' => 'Section',
+
 ];
 
 
