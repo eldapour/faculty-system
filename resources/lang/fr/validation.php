@@ -179,6 +179,10 @@ return [
         'address.en' => 'Adresse anglais',
         'address.fr' => 'Adresse française',
         'facebook_link' => "Lien Facebook",
+        "exam_date" => 'Exam Date',
+        "exam_day" => "Exam Day",
+        "time_start" => "Time Start",
+        "time_end" => "Time End",
     ],
 
 ];
