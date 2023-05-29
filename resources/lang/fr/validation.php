@@ -174,6 +174,7 @@ return [
         'description.ar' => 'Descriptif en arabe',
         'description.en' => 'Descriptif en anglais',
         'description.fr' => 'Descriptif en français',
+        'year' => 'L année',
     ],
 
 ];

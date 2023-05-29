@@ -38,6 +38,12 @@ return [
     "video" => 'Video',
     "videos" => 'Videos',
     "created_at" => "created at",
+    "user" => "User",
+    "users" => "Users",
+    "student" => "Student",
+    "students" => "Students",
+    "autumnal" => "Autumnal",
+    "fall" => "Fall",
 
 
 
@@ -181,6 +187,16 @@ return [
     // Unit
     'unit' => 'Unit',
     'units' => 'Units',
+
+    // Subject Student
+    'subject_student' => 'Subject Student',
+    'subject_students' => 'Subject Students',
+    'year' => 'Year',
+    'period' => 'Period',
+
+    // Subject Unit Doctor
+    'subject_unit_doctor' => 'Subject Unit Doctor',
+    'subject_unit_doctors' => 'Subject Unit Doctors',
 
 ];
 
