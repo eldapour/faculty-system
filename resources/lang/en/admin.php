@@ -38,6 +38,13 @@ return [
     "video" => 'Video',
     "videos" => 'Videos',
     "created_at" => "created at",
+    "user" => "User",
+    "users" => "Users",
+    "student" => "Student",
+    "students" => "Students",
+    "autumnal" => "Autumnal",
+    "fall" => "Fall",
+    "facebook_link" => 'Facebook Link',
 
 
 
@@ -181,6 +188,36 @@ return [
     // Unit
     'unit' => 'Unit',
     'units' => 'Units',
+
+    // Subject Student
+    'subject_student' => 'Subject Student',
+    'subject_students' => 'Subject Students',
+    'year' => 'Year',
+    'period' => 'Period',
+
+    // Subject Unit Doctor
+    'subject_unit_doctor' => 'Subject Unit Doctor',
+    'subject_unit_doctors' => 'Subject Unit Doctors',
+
+    // University Setting
+    'university_setting' => 'University Setting',
+    'university_settings' => 'University Settings',
+
+    // Subject Exam
+    'subject_exam' => 'Subject Exam',
+    'subject_exams' => 'Subject Exams',
+    'exam_date' => 'Exam Date',
+    'exam_day' => 'Exam Day',
+    'session' => "Session",
+    'time_start' => 'Time Start',
+    'time_end' => 'Time End',
+    'normal' => 'Normal',
+
+    // Subject Exam Student
+    'subject_exam_student' => 'Subject Exam Student',
+    'subject_exam_students' => 'Subject Exam Students',
+    'exam_code' => 'Exam Code',
+    'section' => 'Section',
 
 ];
 

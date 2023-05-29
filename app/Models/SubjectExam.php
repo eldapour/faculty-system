@@ -20,5 +20,13 @@ class SubjectExam extends Model
         'subject_id',
     ];
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
 
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
+    }
 }

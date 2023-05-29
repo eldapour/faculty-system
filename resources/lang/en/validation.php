@@ -174,6 +174,18 @@ return [
         'description.ar' => 'Description in Arabic',
         'description.en' => 'Description in English',
         'description.fr' => 'Description in France',
+        'year' => 'Year',
+        'address.ar' => 'Address in Arabic',
+        'address.en' => 'Address in English',
+        'address.fr' => 'Address in France',
+        'facebook_link' => "Facebook Link",
+        "exam_date" => 'Exam Date',
+        "exam_day" => "Exam Day",
+        "time_start" => "Time Start",
+        "time_end" => "Time End",
+        "exam_code" => "Exam Code",
+        "section" => "Section",
+        "subject_Exam_id" => "Subject Exam Id",
     ],
 
 ];

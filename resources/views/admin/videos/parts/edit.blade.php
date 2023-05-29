@@ -6,23 +6,30 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[ar]" required>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') }}
+                        {{ trans('admin.arabic') }}</label>
+                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[ar]"
+                        required>
                 </div>
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[en]" required>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') }}
+                        {{ trans('admin.english') }}</label>
+                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[en]"
+                        required>
                 </div>
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[fr]" required>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') }}
+                        {{ trans('admin.france') }}</label>
+                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[fr]"
+                        required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="background_image" class="form-control-label">{{ trans('admin.background_image') }}</label>
+                    <label for="background_image"
+                        class="form-control-label">{{ trans('admin.background_image') }}</label>
                     <input type="file" name="background_image" class="dropify"
-                    data-default-file="{{ asset($video->background_image) }}">
+                        data-default-file="{{ asset($video->background_image) }}">
                 </div>
             </div>
             <div class="row">
@@ -32,16 +39,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }} {{ trans('admin.arabic') }}</label>
+                <div class="col-md-12">
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
+                        {{ trans('admin.arabic') }}</label>
                     <textarea name="description[ar]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
                 </div>
-                <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.english') }}</label>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
+                        {{ trans('admin.english') }}</label>
                     <textarea name="description[en]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
                 </div>
-                <div class="col-md-4">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.france') }}</label>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
+                        {{ trans('admin.france') }}</label>
                     <textarea name="description[fr]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
                 </div>
             </div>
@@ -54,4 +68,12 @@
 </div>
 <script>
     $('.dropify').dropify()
+
+    CKEDITOR.replaceAll();
+
+    $('.dropify').dropify();
+
+    $(document).ready(function() {
+        $('select').select2();
+    });
 </script>

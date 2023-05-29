@@ -31,15 +31,19 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
                     <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $slider->description['ar'] }}</textarea>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
                     <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $slider->description['en'] }}</textarea>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
                     <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $slider->description['fr'] }}</textarea>
                 </div>
@@ -56,5 +60,15 @@
 </script>
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
 <script>
-    // CKEDITOR.replaceAll();
+    $('.dropify').dropify();
+
+    $('.dropify').dropify()
+
+    CKEDITOR.replaceAll();
+
+    $('.dropify').dropify();
+
+    $(document).ready(function() {
+        $('select').select2();
+    });
 </script>

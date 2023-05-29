@@ -27,17 +27,21 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="description[ar]">
+                    <textarea name="description[ar]" class="form-control" rows="4"></textarea>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="description[en]">
+                    <textarea name="description[en]" class="form-control" rows="4"></textarea>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="description[fr]">
+                    <textarea name="description[fr]" class="form-control" rows="4"></textarea>
                 </div>
             </div>
         </div>
@@ -51,4 +55,13 @@
 <script>
     $('.dropify').dropify();
 
+    $('.dropify').dropify()
+
+    CKEDITOR.replaceAll();
+
+    $('.dropify').dropify();
+
+    $(document).ready(function() {
+        $('select').select2();
+    });
 </script>
