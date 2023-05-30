@@ -36,6 +36,51 @@
         </li>
 
 
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">طلبات الوثائق</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+                <li><a href="{{route('document_types.index')}}" class="slide-item">انوع الوثائق</a></li>
+                <li><a href="{{route('documents.index')}}" class="slide-item">طلبات الوثائق</a></li>
+
+
+            </ul>
+        </li>
+
+
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">وثائق الطالب</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+
+                <li><a href="{{route('documents.student')}}" class="slide-item">وثائق الطالب</a></li>
+
+
+            </ul>
+        </li>
+
+
+        {{--start website departments--}}
+
+{{--        <li class="slide">--}}
+{{--            <a class="side-menu__item" data-toggle="slide" href="#">--}}
+{{--                <i class="fe fe-file-text side-menu__icon"></i>--}}
+{{--                <span class="side-menu__label">اج</span><i class="angle fa fa-angle-right"></i>--}}
+{{--            </a>--}}
+{{--            <ul class="slide-menu">--}}
+{{--                <li><a href="#" class="slide-item"></a></li>--}}
+{{--                <li><a href="#" class="slide-item"></a></li>--}}
+
+
+{{--            </ul>--}}
+{{--        </li>--}}
+
+        {{--end website departments--}}
+
 
 
         <li class="slide">

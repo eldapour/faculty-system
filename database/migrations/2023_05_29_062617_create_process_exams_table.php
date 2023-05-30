@@ -26,6 +26,7 @@ return new class extends Migration
             $table->date('request_date')->nullable()->comment('تاريخ الطلب');
             $table->enum('request_status',['new','accept','refused','under_processing'])->comment('حاله الطلب')->default('new');
             $table->date('processing_request_date')->nullable()->comment('تاريخ معالجه الطلب');
+            $table->text('reason')->comment('سبب طلب الاعاده');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
 

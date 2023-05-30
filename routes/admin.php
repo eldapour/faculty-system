@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -145,6 +147,24 @@ Route::group([
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
 
+<<<<<<< HEAD
+
+    #### document types ####
+    Route::resource('document_types', DocumentTypeController::class);
+    Route::post('document_types.delete', [DocumentTypeController::class, 'delete'])->name('document_types.delete');
+
+
+
+    #### documents ####
+    Route::resource('documents', DocumentController::class)->except(['edit','update','show']);
+    Route::post('documents.delete', [DocumentController::class, 'delete'])->name('documents.delete');
+    Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing');
+    Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
+
+
+
+
+=======
     #### Element ####
     Route::resource('elements', ElementController::class);
 
@@ -153,4 +173,5 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 });

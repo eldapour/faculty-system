@@ -219,6 +219,46 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+<<<<<<< HEAD
+
+    'document_type_id' => 'Document Type',
+    'document_type_add' => "Add Document",
+    'document_name_ar' => "Document Name in Arabic",
+    'document_name_en' => "Document name in English",
+    'document_name_fr' => "Document name in French",
+    'document_types' => 'Document Types',
+
+
+    //Document
+     'document_id' => "Document Request Id",
+     'student_name' => "student's name",
+     'identifier_id_student' => "University ID",
+     'document_type' => 'Document Type',
+     'withdraw_by_proxy' => "withdraw by proxy",
+     'person_name' => "person_name",
+     'national_id_of_person' => "National ID of the person assigned to him",
+     'card_image' => "A copy of the national card of the person entrusted to him",
+     'request_date' => "request date",
+     'pull_type' => "pull type",
+     'pull_date' => "pull date",
+     'pull_return' => "Return Date",
+     'request_status' => 'Request status',
+     'processing_request_date' => 'the date the request was processed',
+
+     'add_document' => "Document Withdrawal Request",
+     'all_documents' => 'All Document Requests',
+
+
+     'accept' => "accept the request",
+     'refused' => "Refused",
+     'under_processing' => 'under_processing',
+
+    "temporary" => "temporary withdrawal",
+    "final" => "final draw",
+
+     'withdraw_by_proxy_yes' => 'withdraw by proxy',
+     'withdraw_by_proxy_no' => "withdraw by proxy",
+=======
     //Element
     'element' => 'element',
     'elements' => 'elements',
@@ -247,6 +287,7 @@ return [
     "date_enter_degree" => "Date Enter Degree",
     "number_of_students" => "Number of Students",
     "number_of_doctors" => "Number of Doctors",
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 
 ];
 
