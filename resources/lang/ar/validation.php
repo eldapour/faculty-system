@@ -195,6 +195,12 @@ return [
         "exam_code" => "رمز الامتحان",
         "section" => "القسم",
         "subject_Exam_id" => "امتحان المادة",
+        "name.ar" => 'الاسم بالعربي',
+        "name.en" => 'الاسم بالانجليزي',
+        "name.fr" => 'الاسم بالفرنسي',
+        "processing_date" => "تاريخ المعالجة",
+        "student_degree_before_request" => "درجة الطالب قبل الطلب",
+        "student_degree_after_request" => "درجة الطالب بعد الطلب",
     ],
 
 ];

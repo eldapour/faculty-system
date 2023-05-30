@@ -20,16 +20,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
-//use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\SubjectExamController;
 use App\Http\Controllers\Admin\SubjectStudentController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
+use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\ProcessDegreeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -60,9 +60,7 @@ Route::group([
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
 
-    Route::get('/', function () {
-        return view('admin.layouts.master');
-    })->name('admin.home');
+    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
 
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
@@ -145,4 +143,10 @@ Route::group([
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
+
+    #### Element ####
+    Route::resource('elements', ElementController::class);
+
+    #### Process Degrees ####
+    Route::resource('process_degrees', ProcessDegreeController::class);
 });

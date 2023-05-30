@@ -218,6 +218,28 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+    //Element
+    'element' => 'élément',
+    'elements' => 'éléments',
+
+    // Process Degrees
+    "process_degree" => "Process Degree",
+    "process_degrees" => "Process Degrees",
+    "student_degree_before_request" => "Diplôme d'étudiant avant la demande",
+    "student_degree_after_request" => "Diplôme d'étudiant après demande",
+    "request_type" => "type de demande",
+    "request_status" => "État de la demande",
+    "processing_date" => "Date de traitement",
+    "doctor" => "Médecin",
+    "doctor" => "Doctor",
+    "new" => "Nouveau",
+    "accept" => "Accepter",
+    "refused" => "Refusé",
+    "under_processing" => "En cours de traitement",
+    "absent" => "Absent",
+    "paper_review" => "Examen papier",
+    "reparation_request" => "Demande de réparation",
+
 ];
 
 
