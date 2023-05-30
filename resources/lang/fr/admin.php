@@ -244,6 +244,8 @@ return [
     "degree" => "Degré",
     "exam" => "Examen",
     "date_enter_degree" => "Date Entrez le diplôme",
+    "number_of_students" => "nombre d'étudiants",
+    "number_of_doctors" => "nombre de médecins",
 
 ];
 

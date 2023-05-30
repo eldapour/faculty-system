@@ -246,6 +246,8 @@ return [
     "degree" => "درجة",
     "exam" => "امتحان",
     "date_enter_degree" => "تاريخ ادخال النتيجة",
+    "number_of_students" => "عدد الطلاب",
+    "number_of_doctors" => "عدد الدكاترة",
 
 ];
 
