@@ -219,5 +219,26 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+    //Element
+    'element' => 'element',
+    'elements' => 'elements',
+
+    // Process Degrees
+    "process_degree" => "Process Degree",
+    "process_degrees" => "Process Degrees",
+    "student_degree_before_request" => "Student Degree Before Request",
+    "student_degree_after_request" => "Student Degree After Request",
+    "request_type" => "Request Type",
+    "request_status" => "Request Status",
+    "processing_date" => "Processing Date",
+    "doctor" => "Doctor",
+    "new" => "New",
+    "accept" => "Accept",
+    "refused" => "Refused",
+    "under_processing" => "Under Processing",
+    "absent" => "Absent",
+    "paper_review" => "Paper Review",
+    "reparation_request" => "Reparation Request",
+
 ];
 

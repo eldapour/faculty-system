@@ -220,6 +220,27 @@ return [
     'exam_code' => 'رمز الامتحان',
     'section' => 'قسم',
 
+    //Element
+    'element' => 'عنصر البيدغولوجيه',
+    'elements' => 'عنصر البيدغولوجيه',
+
+    // Process Degrees
+    "process_degree" => "درجة العملية",
+    "process_degrees" => "درجات العملية",
+    "student_degree_before_request" => "درجة الطالب قبل الطلب",
+    "student_degree_after_request" => "درجة الطالب بعد الطلب",
+    "request_type" => "نوع الطلب",
+    "request_status" => "حالة الطلب",
+    "processing_date" => "تاريخ المعالجة",
+    "doctor" => "دكتور",
+    "new" => "جديد",
+    "accept" => "مقبول",
+    "refused" => "مرفوض",
+    "under_processing" => "تحت المعالجة",
+    "absent" => "غائب",
+    "paper_review" => "مراجعة الورقة",
+    "reparation_request" => "طلب جبر",
+
 ];
 
 

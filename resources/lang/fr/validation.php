@@ -183,6 +183,12 @@ return [
         "exam_day" => "Exam Day",
         "time_start" => "Time Start",
         "time_end" => "Time End",
+        "name.ar" => 'nom arabe',
+        "name.en" => 'nom anglais',
+        "name.fr" => 'nom français',
+        "processing_date" => "Processing Date",
+        "student_degree_before_request" => "Diplôme d'étudiant avant la demande",
+        "student_degree_after_request" => "Diplôme d'étudiant après demande",
     ],
 
 ];
