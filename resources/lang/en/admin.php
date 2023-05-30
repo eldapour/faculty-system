@@ -219,6 +219,7 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+<<<<<<< HEAD
 
     'document_type_id' => 'Document Type',
     'document_type_add' => "Add Document",
@@ -257,6 +258,36 @@ return [
 
      'withdraw_by_proxy_yes' => 'withdraw by proxy',
      'withdraw_by_proxy_no' => "withdraw by proxy",
+=======
+    //Element
+    'element' => 'element',
+    'elements' => 'elements',
+
+    // Process Degrees
+    "process_degree" => "Process Degree",
+    "process_degrees" => "Process Degrees",
+    "student_degree_before_request" => "Student Degree Before Request",
+    "student_degree_after_request" => "Student Degree After Request",
+    "request_type" => "Request Type",
+    "request_status" => "Request Status",
+    "processing_date" => "Processing Date",
+    "doctor" => "Doctor",
+    "new" => "New",
+    "accept" => "Accept",
+    "refused" => "Refused",
+    "under_processing" => "Under Processing",
+    "absent" => "Absent",
+    "paper_review" => "Paper Review",
+    "reparation_request" => "Reparation Request",
+
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "Subject Exam Student Results",
+    "degree" => "Degree",
+    "exam" => "Exam",
+    "date_enter_degree" => "Date Enter Degree",
+    "number_of_students" => "Number of Students",
+    "number_of_doctors" => "Number of Doctors",
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 
 ];
 

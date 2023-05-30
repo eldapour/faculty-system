@@ -153,6 +153,24 @@
             </a>
         </li>
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('elements.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.elements') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('subject_exam_student_result.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
+            </a>
+        </li>
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('pages.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.pages') }}</span>

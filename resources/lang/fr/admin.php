@@ -218,6 +218,7 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+<<<<<<< HEAD
     'document_type_id' => 'Type de document',
     'document_type_add' => "Ajouter un document",
     'document_name_ar' => "Nom du document en arabe",
@@ -256,6 +257,36 @@ return [
 
     'withdraw_by_proxy_yes' => 'retirer par procuration',
     'withdraw_by_proxy_no' => "retirer par procuration",
+=======
+    //Element
+    'element' => 'élément',
+    'elements' => 'éléments',
+
+    // Process Degrees
+    "process_degree" => "Process Degree",
+    "process_degrees" => "Process Degrees",
+    "student_degree_before_request" => "Diplôme d'étudiant avant la demande",
+    "student_degree_after_request" => "Diplôme d'étudiant après demande",
+    "request_type" => "type de demande",
+    "request_status" => "État de la demande",
+    "processing_date" => "Date de traitement",
+    "doctor" => "Médecin",
+    "doctor" => "Doctor",
+    "new" => "Nouveau",
+    "accept" => "Accepter",
+    "refused" => "Refusé",
+    "under_processing" => "En cours de traitement",
+    "absent" => "Absent",
+    "paper_review" => "Examen papier",
+    "reparation_request" => "Demande de réparation",
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "Sujet Examen Résultats des étudiants",
+    "degree" => "Degré",
+    "exam" => "Examen",
+    "date_enter_degree" => "Date Entrez le diplôme",
+    "number_of_students" => "nombre d'étudiants",
+    "number_of_doctors" => "nombre de médecins",
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 
 ];
 

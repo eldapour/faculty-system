@@ -22,16 +22,17 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PresentationController;
 use App\Http\Controllers\Admin\ServiceController;
-//use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\SubjectExamController;
 use App\Http\Controllers\Admin\SubjectStudentController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
+use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\ProcessDegreeController;
+use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -62,9 +63,7 @@ Route::group([
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
 
-    Route::get('/', function () {
-        return view('admin.layouts.master');
-    })->name('admin.home');
+    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
 
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
@@ -148,6 +147,7 @@ Route::group([
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
 
+<<<<<<< HEAD
 
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
@@ -164,4 +164,14 @@ Route::group([
 
 
 
+=======
+    #### Element ####
+    Route::resource('elements', ElementController::class);
+
+    #### Process Degrees ####
+    Route::resource('process_degrees', ProcessDegreeController::class);
+
+    #### Subject Exam Student Result ####
+    Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 });

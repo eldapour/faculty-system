@@ -186,6 +186,15 @@ return [
         "exam_code" => "Exam Code",
         "section" => "Section",
         "subject_Exam_id" => "Subject Exam Id",
+        "name.ar" => 'Arabic name',
+        "name.en" => 'English name',
+        "name.fr" => 'France name',
+        "processing_date" => "Processing Date",
+        "student_degree_before_request" => "Student Degree Before Request",
+        "student_degree_after_request" => "Student Degree After Request",
+        "date_enter_degree" => "Date Enter Degree",
+        "exam_degree" => "Exam Degree",
+        "student_degree" => "Student Degree",
     ],
 
 ];

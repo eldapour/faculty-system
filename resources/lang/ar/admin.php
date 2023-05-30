@@ -220,6 +220,7 @@ return [
     'exam_code' => 'رمز الامتحان',
     'section' => 'قسم',
 
+<<<<<<< HEAD
 
 
     //document types
@@ -263,6 +264,36 @@ return [
     'withdraw_by_proxy_yes' => "مسحوب بالوكاله",
     'withdraw_by_proxy_no' => "غير مسحوب بالوكاله",
 
+=======
+    //Element
+    'element' => 'عنصر البيدغولوجيه',
+    'elements' => 'عنصر البيدغولوجيه',
+
+    // Process Degrees
+    "process_degree" => "درجة العملية",
+    "process_degrees" => "درجات العملية",
+    "student_degree_before_request" => "درجة الطالب قبل الطلب",
+    "student_degree_after_request" => "درجة الطالب بعد الطلب",
+    "request_type" => "نوع الطلب",
+    "request_status" => "حالة الطلب",
+    "processing_date" => "تاريخ المعالجة",
+    "doctor" => "دكتور",
+    "new" => "جديد",
+    "accept" => "مقبول",
+    "refused" => "مرفوض",
+    "under_processing" => "تحت المعالجة",
+    "absent" => "غائب",
+    "paper_review" => "مراجعة الورقة",
+    "reparation_request" => "طلب جبر",
+
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "نتائج امتحان المادة",
+    "degree" => "درجة",
+    "exam" => "امتحان",
+    "date_enter_degree" => "تاريخ ادخال النتيجة",
+    "number_of_students" => "عدد الطلاب",
+    "number_of_doctors" => "عدد الدكاترة",
+>>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 
 ];
 

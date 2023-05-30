@@ -1,0 +1,8 @@
+@media (max-width: 500px) {
+    .small-title{
+        font-size: 10px;
+    }
+    .heading{
+        font-size: 40px;
+    }
+}
