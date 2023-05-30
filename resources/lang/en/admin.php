@@ -240,5 +240,11 @@ return [
     "paper_review" => "Paper Review",
     "reparation_request" => "Reparation Request",
 
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "Subject Exam Student Results",
+    "degree" => "Degree",
+    "exam" => "Exam",
+    "date_enter_degree" => "Date Enter Degree",
+
 ];
 

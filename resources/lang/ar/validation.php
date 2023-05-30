@@ -201,6 +201,9 @@ return [
         "processing_date" => "تاريخ المعالجة",
         "student_degree_before_request" => "درجة الطالب قبل الطلب",
         "student_degree_after_request" => "درجة الطالب بعد الطلب",
+        "date_enter_degree" => "ناريخ ادخال الدرجة",
+        "exam_degree" => "درجة الامتحان",
+        "student_degree" => "درجة الطالب",
     ],
 
 ];

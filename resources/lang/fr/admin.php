@@ -239,6 +239,11 @@ return [
     "absent" => "Absent",
     "paper_review" => "Examen papier",
     "reparation_request" => "Demande de réparation",
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "Sujet Examen Résultats des étudiants",
+    "degree" => "Degré",
+    "exam" => "Examen",
+    "date_enter_degree" => "Date Entrez le diplôme",
 
 ];
 
