@@ -241,6 +241,12 @@ return [
     "paper_review" => "مراجعة الورقة",
     "reparation_request" => "طلب جبر",
 
+    // Subject Exam Student Result
+    "subject_exam_student_results" => "نتائج امتحان المادة",
+    "degree" => "درجة",
+    "exam" => "امتحان",
+    "date_enter_degree" => "تاريخ ادخال النتيجة",
+
 ];
 
 

@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
 use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
+use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -149,4 +150,7 @@ Route::group([
 
     #### Process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class);
+
+    #### Subject Exam Student Result ####
+    Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 });
