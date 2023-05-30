@@ -220,6 +220,50 @@ return [
     'exam_code' => 'رمز الامتحان',
     'section' => 'قسم',
 
+
+
+    //document types
+    'document_type_id' => "رمز الوثيقه",
+    'document_type_add' => "اضافه وثيقه",
+    'document_name_ar' => "اسم الوثيقه باللغه العربيه",
+    'document_name_en' => "اسم الوثيقه باللغه الانجليزيه",
+    'document_name_fr' => "اسم الوثيقه باللغه الفرنسيه",
+    'document_types' => "انواع الوثائق",
+
+
+
+    //Documents
+    'document_id' => "رمز طلب الوثيقه",
+    'student_name' => "اسم الطالب",
+    'identifier_id_student' => "رقم الكارنيه الجامعي",
+    'document_type' => "نوع الوثيقه",
+    'withdraw_by_proxy' => "سحب بالوكاله",
+    'person_name' => "اسم الموكل اليه",
+    'national_id_of_person' => "رقم البطاقه الوطنيه للموكل اليه",
+    'card_image' => "صوره البطاقه الوطنيه للموكل اليه",
+    'request_date' => "تاريخ الطلب",
+    'pull_type' => "نوع السحب",
+    'pull_date' => "تاريخ السحب",
+    'pull_return' => "تاريخ الارجاع",
+    'request_status' => "حاله الطلب",
+    'processing_request_date' => "تاريخ معالجه الطلب",
+
+    'add_document' => "طلب سحب وثيقه",
+    'all_documents' => "جميع طلبات الوثائق",
+
+
+    'accept' => "قبول الطلب",
+    'refused' => "رفض الطلب",
+    'under_processing' => "معالجه الطلب",
+
+    "temporary" => "سحب مؤقت",
+    "final" => "سحب نهائي",
+
+
+    'withdraw_by_proxy_yes' => "مسحوب بالوكاله",
+    'withdraw_by_proxy_no' => "غير مسحوب بالوكاله",
+
+
 ];
 
 

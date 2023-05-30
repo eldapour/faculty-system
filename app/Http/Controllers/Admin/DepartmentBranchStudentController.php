@@ -55,7 +55,12 @@ class DepartmentBranchStudentController extends Controller
     public function create()
     {
         $departments = Department::get();
-        $students = User::where('user_type','student')->where('user_status','active')->get();
+        $students = User::query()
+            ->select('id','identifier_id')
+            ->where('user_type','student')
+            ->where('user_status','active')
+            ->get();
+
         return view('admin.branch_students.parts.create', compact('departments','students'));
     }
     // Create End

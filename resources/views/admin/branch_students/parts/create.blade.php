@@ -26,7 +26,7 @@
                     <select class="form-control" name="user_id"  required>
                         <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach($students as $student)
-                            <option value="{{ $student->id}}">{{ $student->first_name. ' ' . $student->last_name }}</option>
+                            <option value="{{ $student->id}}">{{ $student->identifier_id }}</option>
                         @endforeach
                     </select>
                 </div>

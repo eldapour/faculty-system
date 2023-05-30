@@ -218,6 +218,45 @@ return [
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
+    'document_type_id' => 'Type de document',
+    'document_type_add' => "Ajouter un document",
+    'document_name_ar' => "Nom du document en arabe",
+    'document_name_en' => "Nom du document en anglais",
+    'document_name_fr' => "Nom du document en français",
+    'document_types' => 'Types de documents',
+
+
+    //Documents
+    'document_id' => "Identifiant de demande de document",
+    'student_name' => "nom de l'étudiant",
+    'identifier_id_student' => "Identifiant de l'université",
+    'document_type' => 'Type de document',
+    'withdraw_by_proxy' => "retirer par procuration",
+    'person_name' => "nom_personne",
+    'national_id_of_person' => "Identifiant national de la personne qui lui est attribuée",
+    'card_image' => "Une copie de la carte nationale de la personne qui lui est confiée",
+    'request_date' => "date de la demande",
+    'pull_type' => "type d'extraction",
+    'pull_date' => "date d'extraction",
+    'pull_return' => "Date de retour",
+    'request_status' => 'Statut de la demande',
+    'processing_request_date' => 'la date à laquelle la demande a été traitée',
+
+    'add_document' => "Demande de retrait de document",
+    'all_documents' => 'Toutes les demandes de documents',
+
+
+    'accept' => "accepter la demande",
+    'refused' => "Refusé",
+    'under_processing' => 'under_processing',
+
+    "temporary" => "retrait temporaire",
+    "final" => "tirage final",
+
+
+    'withdraw_by_proxy_yes' => 'retirer par procuration',
+    'withdraw_by_proxy_no' => "retirer par procuration",
+
 ];
 
 
