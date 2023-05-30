@@ -85,6 +85,18 @@ if (!function_exists('get_user_file')) {
         }
     }
 }
+if (!function_exists('userCount')) {
+    function userCount() {
+        $count = DB::table('users')->where('user_type', 'student')->count();
+        return $count;
+    }
+}
+if (!function_exists('doctorCount')) {
+    function doctorCount() {
+        $count = DB::table('users')->where('user_type', 'doctor')->count();
+        return $count;
+    }
+}
 
 
 if (!function_exists('get_file')) {
