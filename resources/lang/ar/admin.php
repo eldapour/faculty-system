@@ -45,6 +45,7 @@ return [
     "autumnal" => "ربيعيه",
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
+    "dashboard" => "اللوحة الرئيسية",
 
 
     // crud
@@ -69,8 +70,8 @@ return [
     "settings" => "اعدادات",
 
     // Service
-    "service" => "خدمة",
-    "services" => "خدمات",
+    "service" => "مصلحة",
+    "services" => "مصالح",
 
     // Internal Ad
     "ad" => "اعلان",
@@ -89,16 +90,16 @@ return [
     "branch" => "المسار",
 
     // Department branch users
-    "Users_Branches" => "المسارات الطلاب",
-    "User_Branch" => "مسار الطالب",
+    "Users_Branches" => "مسالك الطلاب",
+    "User_Branch" => "مسلك الطالب",
     "register_year" => "سنة التسجيل",
     "branch_restart_register" => "إعادة تسجيل المسار",
     "student_branch" => "الطالب",
 
 
     // Category
-    "category" => "فئة",
-    "categories" => "فئات",
+    "category" => "قسم الموقع",
+    "categories" => "اقسام الموقع",
 
 
     // sliders
@@ -291,6 +292,7 @@ return [
     "number_of_doctors" => "عدد الدكاترة",
 
 
+
     //Certificates
     "diploma_id" => "رمز الشهاده",
     "diploma_name" => "اسم الشهاده",
@@ -304,6 +306,17 @@ return [
     "diploma_year" => "سنه الاضافه",
     "diploma_add" => "اضافه شهاده لطالب",
     "diploma_all" => "جميع شهادات الدبلومات",
+
+    // Process Exam
+    "process_exams" => "طلبات الاستدراك",
+    "attachment_file" => "ملف مرفق",
+    "reason" => "السبب",
+    "pdf" => "ملف ورقي",
+    "request_status_is_new" => "حالة الطلب جديدة",
+    "request_status_is_accepted" => "حالة الطلب مقبولة",
+    "request_status_is_refused" => "تم رفض حالة الطلب",
+    "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
+
 
 ];
 

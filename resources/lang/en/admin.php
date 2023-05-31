@@ -45,6 +45,17 @@ return [
     "autumnal" => "Autumnal",
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
+    "dashboard" => "Dashboard",
+
+    // Process Exam
+    "process_exam" => "Process Exam",
+    "attachment_file" => "Attachment File",
+    "reason" => "Reason",
+    "pdf" => "PDF",
+    "request_status_is_new" => "Request status is new",
+    "request_status_is_accepted" => "Request status is accepted",
+    "request_status_is_refused" => "Request status is refused",
+    "request_status_is_under_processing" => "Request status is Under Processing",
 
 
 

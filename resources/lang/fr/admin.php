@@ -37,9 +37,6 @@ return [
     "autumnal" => "Automnal",
     "fall" => "Automne",
     "facebook_link" => 'lien_facebook',
-
-
-
     "select" => "Sélect",
     "wait" => "attendez",
     "added_successfully" => "Ajouté avec succès",
@@ -47,6 +44,7 @@ return [
     "deleted_successfully" => "Supprimé avec succès",
     "something_went_wrong" => "Quelque chose s'est mal passé",
     "wrong" => "Faux",
+    "dashboard" => "Tableau de bord",
 
 
     // crud
@@ -301,6 +299,15 @@ return [
     "diploma add" => "Ajouter un certificat pour un étudiant",
     "diploma all" => "Tous les diplômes",
 
+    // Process Exam
+    "process_exam" => "Examen de processus",
+    "attachment_file" => "Fichier joint",
+    "reason" => "Raison",
+    "pdf" => "PDF",
+    "request_status_is_new" => "L'état de la demande est nouveau",
+    "request_status_is_accepted" => "Le statut de la demande est accepté",
+    "request_status_is_refused" => "Le statut de la demande est refusé",
+    "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
 
 ];
 
