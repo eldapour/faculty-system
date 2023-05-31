@@ -45,6 +45,17 @@ return [
     "autumnal" => "Autumnal",
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
+    "dashboard" => "Dashboard",
+
+    // Process Exam
+    "process_exam" => "Process Exam",
+    "attachment_file" => "Attachment File",
+    "reason" => "Reason",
+    "pdf" => "PDF",
+    "request_status_is_new" => "Request status is new",
+    "request_status_is_accepted" => "Request status is accepted",
+    "request_status_is_refused" => "Request status is refused",
+    "request_status_is_under_processing" => "Request status is Under Processing",
 
 
 
@@ -254,7 +265,10 @@ return [
 
      'withdraw_by_proxy_yes' => 'withdraw by proxy',
      'withdraw_by_proxy_no' => "withdraw by proxy",
+<<<<<<< HEAD
 
+=======
+>>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
     //Element
     'element' => 'element',
     'elements' => 'elements',
@@ -283,6 +297,7 @@ return [
     "date_enter_degree" => "Date Enter Degree",
     "number_of_students" => "Number of Students",
     "number_of_doctors" => "Number of Doctors",
+<<<<<<< HEAD
 
 
 
@@ -299,6 +314,8 @@ return [
     "diploma_year" => "year of addition",
     "diploma add" => "Add a Certificate for a Student",
     "diploma all" => "All Diplomas",
+=======
+>>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
 
 ];
 
