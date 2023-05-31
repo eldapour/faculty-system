@@ -265,7 +265,14 @@ return [
 
      'withdraw_by_proxy_yes' => 'withdraw by proxy',
      'withdraw_by_proxy_no' => "withdraw by proxy",
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
+=======
+
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
     //Element
     'element' => 'element',
     'elements' => 'elements',
@@ -294,6 +301,10 @@ return [
     "date_enter_degree" => "Date Enter Degree",
     "number_of_students" => "Number of Students",
     "number_of_doctors" => "Number of Doctors",
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
 
 
@@ -310,6 +321,11 @@ return [
     "diploma_year" => "year of addition",
     "diploma add" => "Add a Certificate for a Student",
     "diploma all" => "All Diplomas",
+<<<<<<< HEAD
+=======
+>>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
 ];
 
