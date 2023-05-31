@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
 use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
+use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
 
@@ -147,7 +148,15 @@ Route::group([
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
 
-<<<<<<< HEAD
+    #### Element ####
+    Route::resource('elements', ElementController::class);
+
+    #### process Degrees ####
+    Route::resource('process_degrees', ProcessDegreeController::class);
+
+    #### Subjrct Exam Student Result ####
+    Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+
 
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
@@ -161,17 +170,11 @@ Route::group([
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
 
+    #### Process Exam ####
+    Route::resource('process_exams', ProcessExamController::class);
 
+    #### Process Exam ####
+    Route::resource('process_exams', ProcessExamController::class);
+    Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
-
-=======
-    #### Element ####
-    Route::resource('elements', ElementController::class);
-
-    #### Process Degrees ####
-    Route::resource('process_degrees', ProcessDegreeController::class);
-
-    #### Subject Exam Student Result ####
-    Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
->>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
 });

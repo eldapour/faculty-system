@@ -1,9 +1,9 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{($setting->title) ?? ''}}  @lang('admin.sliders')
+    {{ trans('admin.dashboard')}}
 @endsection
-@section('page_name')  @lang('admin.sliders') @endsection
+@section('page_name') {{ trans('admin.dashboard')}} @endsection
 @section('content')
 
     <div class="row">

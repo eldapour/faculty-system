@@ -204,6 +204,10 @@ return [
         "date_enter_degree" => "ناريخ ادخال الدرجة",
         "exam_degree" => "درجة الامتحان",
         "student_degree" => "درجة الطالب",
+        "reason" => "السبب",
+        "processing_request_date" => "تاريخ معالجة الطلب",
+        "request_date" => "تاريخ الطلب",
+        "attachment_file" => "ملف مرفق",
     ],
 
 ];

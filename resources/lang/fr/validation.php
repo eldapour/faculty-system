@@ -192,6 +192,10 @@ return [
         "date_enter_degree" => "Date Entrez le diplôme",
         "exam_degree" => "Diplôme d'examen",
         "student_degree" => "Diplôme d'étudiant",
+        "reason" => "Raison",
+        "processing_request_date" => "Date de demande de traitement",
+        "request_date" => "Date de la demande",
+        "attachment_file" => "Fichier joint",
     ],
 
 ];
