@@ -11,7 +11,7 @@
     </div>
     <ul class="side-menu">
         <li>
-            <h3>Dashboard</h3>
+            <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
         </li>
 
 {{--        <li class="slide">--}}
@@ -162,6 +162,12 @@
             <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('process_exams.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
             </a>
         </li>
         <li class="slide">

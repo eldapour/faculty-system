@@ -195,6 +195,10 @@ return [
         "date_enter_degree" => "Date Enter Degree",
         "exam_degree" => "Exam Degree",
         "student_degree" => "Student Degree",
+        "reason" => "Reason",
+        "processing_request_date" => "Processing Request Date",
+        "request_date" => "Request Date",
+        "attachment_file" => "Attachment File",
     ],
 
 ];
