@@ -130,15 +130,12 @@ return [
 
     // Group
     'group' => 'مجموعة',
-    'groups' => 'المجموعات',
+    'groups' => 'الافواج',
 
-    // Subject
-    'subject' => 'مادة',
-    'subjects' => 'مواد',
-
-    // Unit
-    'unit' => 'وحدة',
-    'units' => 'وحدات',
+    'subject' => 'وحده',
+    'subjects' => 'وحدات',
+    'unit' => 'فصل',
+    'units' => 'فصول',
 
 
 
@@ -199,7 +196,7 @@ return [
 
     // Subject Unit Doctor
     'subject_unit_doctor' => 'دكتور وحدة الموضوع',
-    'subject_unit_doctors' => 'دكاترة وحدة الموضوع',
+    'subject_unit_doctors' => 'وحدات الاستاذ',
 
     // University Setting
     'university_setting' => 'اعداد الجامعة',
@@ -285,6 +282,7 @@ return [
     "paper_review" => "مراجعة الورقة",
     "reparation_request" => "طلب جبر",
 
+
     // Subject Exam Student Result
     "subject_exam_student_results" => "نتائج امتحان المادة",
     "degree" => "درجة",
@@ -292,6 +290,22 @@ return [
     "date_enter_degree" => "تاريخ ادخال النتيجة",
     "number_of_students" => "عدد الطلاب",
     "number_of_doctors" => "عدد الدكاترة",
+
+
+
+    //Certificates
+    "diploma_id" => "رمز الشهاده",
+    "diploma_name" => "اسم الشهاده",
+    "diploma_name_ar" => "اسم الشهاده باللغه العربيه",
+    "diploma_name_en" => "اسم الشهاده باللغه الانجليزيه",
+    "diploma_name_fr" => "اسم الشهاده باللغه الفرنسيه",
+    "validation_year" => "سنه الاستيفاء",
+    "diploma_identifier_id" => "رقم الكارنيه الجامعي للطالب",
+    "diploma_user" => "اسم الطالب",
+    "diploma_created_at" => "وقت الاضافه",
+    "diploma_year" => "سنه الاضافه",
+    "diploma_add" => "اضافه شهاده لطالب",
+    "diploma_all" => "جميع شهادات الدبلومات",
 
     // Process Exam
     "process_exams" => "طلبات الاستدراك",
@@ -302,6 +316,7 @@ return [
     "request_status_is_accepted" => "حالة الطلب مقبولة",
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
+
 
 ];
 

@@ -28,7 +28,7 @@ class AdminController extends Controller
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $admin->id . '" data-title="' . $admin->first_name . '">
                                     <i class="fas fa-trash"></i>
-                                    حذف الطلب
+                                    حذف الادمن
                             </button>
                        ';
                 })

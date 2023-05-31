@@ -176,15 +176,14 @@ return [
     'users' => 'utilisateurs',
     // Group
     'group' => 'Groupe',
-    'groups' => 'Groupes',
+    'groups' => 'cohortes',
 
-    // Subject
-    'subject' => 'Sujette',
-    'subjects' => 'Sujettes',
 
-    // Unit
-    'unit' => 'Unité',
-    'units' => 'Unités',
+    'subject' => 'unité',
+     'subjects' => 'unités',
+
+     'unit' => 'séparé',
+     'unites' => 'chapitres',
 
     // Subject Student
     'subject_student' => 'Sujet Étudiant',
@@ -194,7 +193,7 @@ return [
 
     // Subject Unit Doctor
     'subject_unit_doctor' => 'médecin de l unité de discipline',
-    'subject_unit_doctors' => 'médecins de l unité sujette',
+    'subject_unit_doctors' => 'unité sujette',
 
     // University Setting
     'university_setting' => 'Cadre universitaire',
@@ -215,6 +214,7 @@ return [
     'subject_exam_students' => 'Subject Exam Students',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
+
     'document_type_id' => 'Type de document',
     'document_type_add' => "Ajouter un document",
     'document_name_ar' => "Nom du document en arabe",
@@ -254,6 +254,7 @@ return [
     'withdraw_by_proxy_yes' => 'retirer par procuration',
     'withdraw_by_proxy_no' => "retirer par procuration",
 
+
     //Element
     'element' => 'élément',
     'elements' => 'éléments',
@@ -282,6 +283,21 @@ return [
     "date_enter_degree" => "Date Entrez le diplôme",
     "number_of_students" => "nombre d'étudiants",
     "number_of_doctors" => "nombre de médecins",
+
+
+    //Certificates
+    "diploma_id" => "diplôme_id",
+    "diploma_name" => "nom du diplôme",
+    "diploma_name_ar" => "Nom du diplôme en arabe",
+    "diploma_name_en" => "nom du diplôme en anglais",
+    "diploma_name_fr" => "nom du diplôme en français",
+    "validation_year" => "année de validation",
+    "diploma_identifier_id" => "Identifiant universitaire de l'étudiant",
+    "diploma_user" => "nom de l'étudiant",
+    "diploma_created_at" => "diploma_created_at",
+    "diploma_year" => "année d'ajout",
+    "diploma add" => "Ajouter un certificat pour un étudiant",
+    "diploma all" => "Tous les diplômes",
 
     // Process Exam
     "process_exam" => "Examen de processus",

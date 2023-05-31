@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -176,5 +177,21 @@ Route::group([
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
+
+
+    #### Element ####
+    Route::resource('elements', ElementController::class);
+
+    #### Process Degrees ####
+    Route::resource('process_degrees', ProcessDegreeController::class);
+
+    #### Subject Exam Student Result ####
+    Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+
+
+    #### certificates ####
+    Route::resource('certificates', CertificateController::class);
+    Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
+
 
 });

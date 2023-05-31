@@ -1,10 +1,10 @@
 @extends('admin/layouts/master')
 
-
-@section('title')  {{trans('admin.document_types')}} @endsection
-@section('page_name') {{trans('admin.document_types')}} @endsection
-@section('css')
-    @include('admin.layouts.loader.formLoader.loaderCss')
+@section('title')
+    {{ trans('admin.diploma_all') }}
+@endsection
+@section('page_name')
+    {{ trans('admin.diploma_all') }}
 @endsection
 @section('content')
 
@@ -12,12 +12,15 @@
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.document_types')}}</h3>
+                    <h3 class="card-title">{{ trans('admin.diploma_all') }}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span>{{trans('admin.document_type_add')}}
+									</span> {{ trans('admin.diploma_add') }}
+
+
+
                         </button>
                     </div>
                 </div>
@@ -26,16 +29,17 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
-
-
                             <tr class="fw-bolder text-muted bg-light">
+                                <th class="min-w-25px">{{trans('admin.diploma_id')}}</th>
+                                <th class="min-w-50px"> {{ trans('admin.diploma_name') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.validation_year') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.diploma_identifier_id') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.diploma_user') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.diploma_created_at') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.diploma_year') }}</th>
+                                <th class="min-w-50px rounded-end">{{ trans('admin.action') }}</th>
 
-
-                                <th class="min-w-25px">{{trans('admin.document_type_id')}}</th>
-                                <th class="min-w-50px">{{trans('admin.document_type')}}</th>
-                                <th class="min-w-125px">{{trans('admin.action')}}</th>
                             </tr>
-
                             </thead>
                         </table>
                     </div>
@@ -49,20 +53,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">حذف بيانات</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>هل تريد حذف الوثيقه <span id="title" class="text-danger"></span>?</p>
+                        <p>هل تريد حذف الشهاده <span id="title" class="text-danger"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
-                            Back
+                            اغلاق
                         </button>
-                        <button type="button" class="btn btn-danger" id="delete_btn">Delete !</button>
+                        <button type="button" class="btn btn-danger" id="delete_btn">حذف !</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +86,8 @@
     @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
+
+
     <script>
         var loader = ` <div class="linear-background">
                             <div class="inter-crop"></div>
@@ -92,19 +98,23 @@
 
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'document_name', name: 'document_name'},
+            {data: 'diploma_name', name: 'diploma_name'},
+            {data: 'validation_year', name: 'validation_year'},
+            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'user_id', name: 'user_id'},
+            {data: 'created_at', name: 'created_at'},
+            {data: 'year', name: 'year'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 
 
-
-        showData('{{route('document_types.index')}}', columns);
-        deleteScript('{{route('document_types.delete')}}');
+        showData('{{route('certificates.index')}}', columns);
+        deleteScript('{{route('certificates.delete')}}');
 
         // Get Edit View
         $(document).on('click', '.editBtn', function () {
             var id = $(this).data('id')
-            var url = "{{route('document_types.edit',':id')}}";
+            var url = "{{route('certificates.edit',':id')}}";
             url = url.replace(':id', id)
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
@@ -116,13 +126,15 @@
             }, 500)
         })
 
+
+
         // Get Add View
         $(document).on('click', '.addBtn', function () {
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
-            setTimeout(function () {
-                $('#modalContent').load('{{route('document_types.create')}}')
-            }, 250)
+            //setTimeout(function () {
+                $('#modalContent').load('{{route('certificates.create')}}')
+           // }, 250)
         });
 
         // Add By Ajax
@@ -143,7 +155,7 @@
                 success: function (data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('Document type added successfully');
+                        toastr.success('Certificate added successfully');
                     }
                     else
                         toastr.error('There is an error');
@@ -196,7 +208,7 @@
                     $('#updateButton').html(`Update`).attr('disabled', false);
                     if (data.status == 200){
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('Document type updated successfully');
+                        toastr.success('Certificate updated successfully');
                     }
                     else
                         toastr.error('There is an error');
@@ -232,8 +244,7 @@
 
     </script>
 
-
-
 @endsection
+
 
 

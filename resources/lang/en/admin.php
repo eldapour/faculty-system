@@ -190,15 +190,12 @@ return [
 
     // Group
     'group' => 'Group',
-    'groups' => 'Groups',
+    'groups' => 'cohorts',
 
-    // Subject
-    'subject' => 'Subject',
-    'subjects' => 'Subjects',
-
-    // Unit
-    'unit' => 'Unit',
-    'units' => 'Units',
+    'subject' => 'unit',
+     'subjects' => 'units',
+     'unit' => 'separate',
+     'units' => 'chapters',
 
     // Subject Student
     'subject_student' => 'Subject Student',
@@ -208,7 +205,7 @@ return [
 
     // Subject Unit Doctor
     'subject_unit_doctor' => 'Subject Unit Doctor',
-    'subject_unit_doctors' => 'Subject Unit Doctors',
+    'subject_unit_doctors' => 'Unit Doctors',
 
     // University Setting
     'university_setting' => 'University Setting',
@@ -268,6 +265,7 @@ return [
 
      'withdraw_by_proxy_yes' => 'withdraw by proxy',
      'withdraw_by_proxy_no' => "withdraw by proxy",
+
     //Element
     'element' => 'element',
     'elements' => 'elements',
@@ -296,6 +294,22 @@ return [
     "date_enter_degree" => "Date Enter Degree",
     "number_of_students" => "Number of Students",
     "number_of_doctors" => "Number of Doctors",
+
+
+
+    //Certificates
+    "diploma_id" => "diploma_id",
+    "diploma_name" => "diploma name",
+    "diploma_name_ar" => "Diploma name in Arabic",
+    "diploma_name_en" => "diploma name in English",
+    "diploma_name_fr" => "diploma name in French",
+    "validation_year" => "validation year",
+    "diploma_identifier_id" => "Student's university ID",
+    "diploma_user" => "student's name",
+    "diploma_created_at" => "diploma_created_at",
+    "diploma_year" => "year of addition",
+    "diploma add" => "Add a Certificate for a Student",
+    "diploma all" => "All Diplomas",
 
 ];
 

@@ -28,6 +28,7 @@ class ServiceController extends Controller
                 ->editColumn('service_name', function ($services) {
                     return '<td>'. $services->service_name[lang()] .'</td>';
                 })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
