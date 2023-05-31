@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -147,7 +148,6 @@ Route::group([
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
 
-<<<<<<< HEAD
 
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
@@ -164,7 +164,6 @@ Route::group([
 
 
 
-=======
     #### Element ####
     Route::resource('elements', ElementController::class);
 
@@ -173,5 +172,11 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
->>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
+
+
+    #### certificates ####
+    Route::resource('certificates', CertificateController::class);
+    Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
+
+
 });

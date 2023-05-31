@@ -112,8 +112,6 @@
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 
-
-
         showData('{{route('documents.index')}}', columns);
         deleteScript('{{route('documents.delete')}}');
 

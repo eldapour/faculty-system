@@ -25,7 +25,16 @@
                     </div>
                 </form>
             </div>
-            <div class="d-flex mr-auto header-right-icons header-search-icon">
+
+            @if(lang() == 'ar')
+                <div class="d-flex mr-auto header-right-icons header-search-icon">
+
+                @else
+                        <div class="d-flex ml-auto header-right-icons header-search-icon">
+
+                        @endif
+
+
                 <button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -36,11 +45,11 @@
                             d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                     </svg>
                 </button>
-                <div class="dropdown d-none d-lg-flex">
-                    <a class="nav-link icon full-screen-link nav-link-bg">
-                        <i class="fullscreen-button fe fe-maximize-2" id="fullscreen-button3"></i>
-                    </a>
-                </div>
+{{--                <div class="dropdown d-none d-lg-flex">--}}
+{{--                    <a class="nav-link icon full-screen-link nav-link-bg">--}}
+{{--                        <i class="fullscreen-button fe fe-maximize-2" id="fullscreen-button3"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <!-- FULL-SCREEN -->
                 <div class="dropdown d-md-flex mr-2">
                     <a class="nav-link icon text-center" data-toggle="dropdown">
@@ -134,25 +143,36 @@
                     {{--                    @endphp --}}
                     <a href="#" data-toggle="dropdown" class="nav-link pl-2 pr-2  leading-none d-flex">
                         <span>
-                            <img src="" alt="profile-user"
-                                 class="avatar  mr-xl-3 profile-user brround cover-image">
+
+                            @if(auth()->user()->image != null)
+
+                                <img src="{{asset("uploads/users/".auth()->user()->image )}}" alt="profile-user"
+                                     class="avatar  mr-xl-3 profile-user brround cover-image">
+
+                            @else
+                                <img src="{{asset("uploads/users/default/avatar2.jfif")}}" alt="profile-user"
+                                     class="avatar  mr-xl-3 profile-user brround cover-image">
+
+                            @endif
                         </span>
                         <div class="text-center mt-1 d-none d-xl-block">
-                            <h6 class="text-dark mb-0 fs-13 font-weight-semibold text-capitalize">jjj</h6>
+                            <h6 class="text-dark mb-0 fs-13 font-weight-semibold text-capitalize">{{auth()->user()->first_name}}</h6>
                         </div>
                     </a>
+
                     <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow"> {{-- style --}}
-                        <a class="dropdown-item" href="">
-                            <i class="dropdown-icon mdi mdi-account-outline"></i> My Profile
-                        </a>
+{{--                        <a class="dropdown-item" href="">--}}
+{{--                            <i class="dropdown-icon mdi mdi-account-outline"></i> My Profile--}}
+{{--                        </a>--}}
+
                         {{--                        <a class="dropdown-item" href="#"> --}}
                         {{--                            <i class="dropdown-icon zmdi zmdi-edit"></i> Edit Profile --}}
                         {{--                        </a> --}}
                         {{--                        <a class="dropdown-item" href="#"> --}}
                         {{--                            <i class="dropdown-icon  mdi mdi-settings"></i> Account Settings --}}
                         {{--                        </a> --}}
-                        <a class="dropdown-item" href="http://motaweron.com/contact-us.html/">
-                            <i class="dropdown-icon mdi mdi-compass-outline"></i>Need help ?
+                        <a  class="dropdown-item" href="{{route('logout')}}">
+                            <i class="dropdown-icon mdi mdi-compass-outline"></i>تسجيل الخروج
                         </a>
                         {{--                        <a class="dropdown-item" href="{{ route('logout') }}">--}}
                         {{--                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out--}}

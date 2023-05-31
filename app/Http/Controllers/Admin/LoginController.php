@@ -33,8 +33,8 @@ class LoginController extends Controller {
     }
 
     public function logout(){
-        Auth::guard('web')->logout();
-        return response()->json(200);
+        Auth::logout();
+        return redirect()->route('admin.login');
     }
 
 }//end class

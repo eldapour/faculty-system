@@ -129,15 +129,12 @@ return [
 
     // Group
     'group' => 'مجموعة',
-    'groups' => 'المجموعات',
+    'groups' => 'الافواج',
 
-    // Subject
-    'subject' => 'مادة',
-    'subjects' => 'مواد',
-
-    // Unit
-    'unit' => 'وحدة',
-    'units' => 'وحدات',
+    'subject' => 'وحده',
+    'subjects' => 'وحدات',
+    'unit' => 'فصل',
+    'units' => 'فصول',
 
 
 
@@ -198,7 +195,7 @@ return [
 
     // Subject Unit Doctor
     'subject_unit_doctor' => 'دكتور وحدة الموضوع',
-    'subject_unit_doctors' => 'دكاترة وحدة الموضوع',
+    'subject_unit_doctors' => 'وحدات الاستاذ',
 
     // University Setting
     'university_setting' => 'اعداد الجامعة',
@@ -220,7 +217,6 @@ return [
     'exam_code' => 'رمز الامتحان',
     'section' => 'قسم',
 
-<<<<<<< HEAD
 
 
     //document types
@@ -264,7 +260,6 @@ return [
     'withdraw_by_proxy_yes' => "مسحوب بالوكاله",
     'withdraw_by_proxy_no' => "غير مسحوب بالوكاله",
 
-=======
     //Element
     'element' => 'عنصر البيدغولوجيه',
     'elements' => 'عنصر البيدغولوجيه',
@@ -286,6 +281,7 @@ return [
     "paper_review" => "مراجعة الورقة",
     "reparation_request" => "طلب جبر",
 
+
     // Subject Exam Student Result
     "subject_exam_student_results" => "نتائج امتحان المادة",
     "degree" => "درجة",
@@ -293,7 +289,21 @@ return [
     "date_enter_degree" => "تاريخ ادخال النتيجة",
     "number_of_students" => "عدد الطلاب",
     "number_of_doctors" => "عدد الدكاترة",
->>>>>>> 9d21daff488fe1d591f1193d6107382c49cabbff
+
+
+    //Certificates
+    "diploma_id" => "رمز الشهاده",
+    "diploma_name" => "اسم الشهاده",
+    "diploma_name_ar" => "اسم الشهاده باللغه العربيه",
+    "diploma_name_en" => "اسم الشهاده باللغه الانجليزيه",
+    "diploma_name_fr" => "اسم الشهاده باللغه الفرنسيه",
+    "validation_year" => "سنه الاستيفاء",
+    "diploma_identifier_id" => "رقم الكارنيه الجامعي للطالب",
+    "diploma_user" => "اسم الطالب",
+    "diploma_created_at" => "وقت الاضافه",
+    "diploma_year" => "سنه الاضافه",
+    "diploma_add" => "اضافه شهاده لطالب",
+    "diploma_all" => "جميع شهادات الدبلومات",
 
 ];
 
