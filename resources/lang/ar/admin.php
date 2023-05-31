@@ -292,6 +292,10 @@ return [
     "number_of_doctors" => "عدد الدكاترة",
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
     //Certificates
     "diploma_id" => "رمز الشهاده",
@@ -306,7 +310,11 @@ return [
     "diploma_year" => "سنه الاضافه",
     "diploma_add" => "اضافه شهاده لطالب",
     "diploma_all" => "جميع شهادات الدبلومات",
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
     // Process Exam
     "process_exams" => "طلبات الاستدراك",
     "attachment_file" => "ملف مرفق",
@@ -316,7 +324,11 @@ return [
     "request_status_is_accepted" => "حالة الطلب مقبولة",
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
+<<<<<<< HEAD
 >>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
+=======
+
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
 ];
 

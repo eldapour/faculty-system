@@ -30,6 +30,8 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //down migrate
     public function down()
     {
         Schema::table('subjects', function (Blueprint $table) {

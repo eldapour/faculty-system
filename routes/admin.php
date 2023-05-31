@@ -150,7 +150,10 @@ Route::group([
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
     #### Element ####
     Route::resource('elements', ElementController::class);
 
@@ -160,7 +163,10 @@ Route::group([
     #### Subjrct Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
+<<<<<<< HEAD
 >>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
@@ -182,6 +188,9 @@ Route::group([
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 
     #### Element ####
     Route::resource('elements', ElementController::class);
@@ -198,6 +207,9 @@ Route::group([
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
+=======
+>>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
 });
