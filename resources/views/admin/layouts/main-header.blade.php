@@ -61,7 +61,7 @@
                                     {{ $properties['native'] }}
                                 </a>
                         @endforeach
-                        
+
                     </div>
                 </div>
 
@@ -150,7 +150,7 @@
                                      class="avatar  mr-xl-3 profile-user brround cover-image">
 
                             @else
-                                <img src="{{asset("uploads/users/default/avatar2.jfif")}}" alt="profile-user"
+                                <img src="{{asset('assets/uploads/avatar.gif') }}" alt="profile-user"
                                      class="avatar  mr-xl-3 profile-user brround cover-image">
 
                             @endif
@@ -161,18 +161,11 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow"> {{-- style --}}
-{{--                        <a class="dropdown-item" href="">--}}
-{{--                            <i class="dropdown-icon mdi mdi-account-outline"></i> My Profile--}}
-{{--                        </a>--}}
-
-                        {{--                        <a class="dropdown-item" href="#"> --}}
-                        {{--                            <i class="dropdown-icon zmdi zmdi-edit"></i> Edit Profile --}}
-                        {{--                        </a> --}}
-                        {{--                        <a class="dropdown-item" href="#"> --}}
-                        {{--                            <i class="dropdown-icon  mdi mdi-settings"></i> Account Settings --}}
-                        {{--                        </a> --}}
+                        <a class="dropdown-item" href="{{ route('profile') }}">
+                            <i class="dropdown-icon mdi mdi-account-outline"></i>{{ trans('admin.profile') }}
+                        </a>
                         <a  class="dropdown-item" href="{{route('logout')}}">
-                            <i class="dropdown-icon mdi mdi-compass-outline"></i>تسجيل الخروج
+                            <i class="dropdown-icon mdi mdi-compass-outline"></i>{{ trans('admin.logout') }}
                         </a>
                         {{--                        <a class="dropdown-item" href="{{ route('logout') }}">--}}
                         {{--                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Log out--}}
