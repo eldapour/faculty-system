@@ -333,6 +333,10 @@ return [
     // data modification
     "data_modify" => "طلب تعديل البيانات",
 
+    // Event
+    'event' => 'حدث',
+    'events' => 'احداث',
+
 
 ];
 

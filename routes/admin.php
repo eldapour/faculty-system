@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
 use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
@@ -203,5 +204,11 @@ Route::group([
 
 Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
 
-  
+
+#### Event ####
+
+Route::resource('events', EventController::class);
+
+
+
 });

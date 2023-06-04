@@ -322,9 +322,11 @@ return [
 
 
     // data modification
-    "data_modify" => "Modification des données"
+    "data_modify" => "Modification des données",
 
-    //
+    // Event
+    'event' => 'Evénement',
+    'events' => 'Événements',
 
 
 ];

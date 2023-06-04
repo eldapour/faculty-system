@@ -328,6 +328,10 @@ return [
     // data modification
     "data_modify" => "Data Modification",
 
+    // Event
+    'event' => 'Event',
+    'events' => 'Events',
+
 
 ];
 
