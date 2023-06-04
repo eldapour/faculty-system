@@ -28,7 +28,7 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('image') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.image') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.background_image') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.category') }}</th>
