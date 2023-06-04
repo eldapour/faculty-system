@@ -25,10 +25,10 @@ return new class extends Migration
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
             $table->string('year');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('subject_exam_id');
+            $table->unsignedBigInteger('subject_id')->comment('اسم الوحده');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('subject_exam_id')->references('id')->on('subject_exams')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }

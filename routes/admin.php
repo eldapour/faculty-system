@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\DataModificationController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -80,6 +81,7 @@ Route::group([
     #### Admins ####
     Route::resource('admins', AdminController::class)->except(['show']);
     Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete');
+    Route::get('profile', [AdminController::class, 'profile'])->name('profile');
 
     #### Deadline ####
     Route::resource('deadlines', DeadlineController::class);
@@ -125,6 +127,9 @@ Route::group([
     #### Slider ####
     Route::resource('slider', SliderController::class);
 
+    #### Slider ####
+    Route::resource('data_modify', DataModificationController::class);
+
     #### Group ####
     Route::resource('group', GroupController::class);
 
@@ -148,6 +153,7 @@ Route::group([
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
+
 
     #### Element ####
     Route::resource('elements', ElementController::class);
@@ -180,6 +186,7 @@ Route::group([
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
 
+
     #### Element ####
     Route::resource('elements', ElementController::class);
 
@@ -193,5 +200,8 @@ Route::group([
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
+
 Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
+
+  
 });

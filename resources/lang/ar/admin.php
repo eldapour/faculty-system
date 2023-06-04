@@ -46,8 +46,15 @@ return [
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
     "dashboard" => "اللوحة الرئيسية",
+
     "admin" => "مشرف",
     "admins" => "مشرفين",
+
+    "logout" => "تسجيل الخروج",
+    "profile" => "الملف الشخصي",
+    "information" => "المعلومات",
+    "more information" => "معلومات اضافية",
+
 
 
     // crud
@@ -126,7 +133,7 @@ return [
 
     // Presentation
     'presentation' => 'عرض تقديمي',
-    'presentations' => 'عروض تقديمية',
+    'presentations' => 'صفحه التقديم',
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
 
@@ -192,7 +199,7 @@ return [
 
     // Subject Student
     'subject_student' => 'طالب المادة',
-    'subject_students' => 'طلاب المادة',
+    'subject_students' => 'وحدات الطالب',
     'year' => 'سنة',
     'period' => 'فترة',
 
@@ -241,6 +248,10 @@ return [
     'person_name' => "اسم الموكل اليه",
     'national_id_of_person' => "رقم البطاقه الوطنيه للموكل اليه",
     'card_image' => "صوره البطاقه الوطنيه للموكل اليه",
+    'card_image_user' => "صوره البطاقه الوطنيه ",
+    'note' => "ملاحظات",
+    'optional' => "اختياري",
+    "order_success" => "تم اضافة الطلب بنجاح",
     'request_date' => "تاريخ الطلب",
     'pull_type' => "نوع السحب",
     'pull_date' => "تاريخ السحب",
@@ -294,7 +305,6 @@ return [
     "number_of_doctors" => "عدد الدكاترة",
 
 
-
     //Certificates
     "diploma_id" => "رمز الشهاده",
     "diploma_name" => "اسم الشهاده",
@@ -318,6 +328,11 @@ return [
     "request_status_is_accepted" => "حالة الطلب مقبولة",
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
+
+
+    // data modification
+    "data_modify" => "طلب تعديل البيانات",
+
 
 ];
 
