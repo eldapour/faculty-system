@@ -12,7 +12,7 @@ use Yajra\DataTables\DataTables;
 
 class DocumentController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
