@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\DataModificationController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
@@ -80,6 +81,7 @@ Route::group([
     #### Admins ####
     Route::resource('admins', AdminController::class)->except(['show']);
     Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete');
+    Route::get('profile', [AdminController::class, 'profile'])->name('profile');
 
     #### Deadline ####
     Route::resource('deadlines', DeadlineController::class);
@@ -124,6 +126,9 @@ Route::group([
 
     #### Slider ####
     Route::resource('slider', SliderController::class);
+
+    #### Slider ####
+    Route::resource('data_modify', DataModificationController::class);
 
     #### Group ####
     Route::resource('group', GroupController::class);

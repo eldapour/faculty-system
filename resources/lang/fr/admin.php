@@ -29,7 +29,7 @@ return [
     "english" => "En anglais",
     "france" => "en français",
     "latin" => "en latin",
-    "created_at"=> "créé à",
+    "created_at" => "créé à",
     "user" => "utilisateur",
     "users" => "utilisateurs",
     "étudiant" => "طالب",
@@ -45,6 +45,10 @@ return [
     "something_went_wrong" => "Quelque chose s'est mal passé",
     "wrong" => "Faux",
     "dashboard" => "Tableau de bord",
+    "logout" => "Se déconnecter",
+    "profile" => "Profil",
+    "information" => "Information",
+    "more information" => "Plus d'information",
 
 
     // crud
@@ -68,7 +72,7 @@ return [
 
     // Service
     "service" => "Service",
-    "services" =>"Services",
+    "services" => "Services",
 
     // Internal Ad
     "ad" => "Publicité",
@@ -127,32 +131,30 @@ return [
     'type' => 'Taper',
 
 
-
     'id' => "ID de l'utilisateur",
-    'first_name' =>  "prénom",
-    'last_name' =>  "nom de famille",
+    'first_name' => "prénom",
+    'last_name' => "nom de famille",
     'image_user' => "Image étudiante",
-    'image_admin' =>  "photo d'administration",
-    'points' =>  "Points étudiants",
-    'university_email' =>  "courriel de l'université",
+    'image_admin' => "photo d'administration",
+    'points' => "Points étudiants",
+    'university_email' => "courriel de l'université",
     'identifier_id' => "carte d'identité universitaire",
-    'national_id' =>   "Carte d'identité",
-    'national_number' =>  "Numéro national",
-    'nationality' =>  "nationalité",
-    'birthday_date' =>  "anniversaire",
+    'national_id' => "Carte d'identité",
+    'national_number' => "Numéro national",
+    'nationality' => "nationalité",
+    'birthday_date' => "anniversaire",
     'birthday_place' => "Lieu de naissance",
     'city' => "province",
     'job_id' => "Employee ID",
-    'address' =>   "adresse",
-    'user_status' =>  "Statut de l'utilisateur",
+    'address' => "adresse",
+    'user_status' => "Statut de l'utilisateur",
     'user_type' => "Type d'utilisateur",
-    'university_register_year' =>  "Année d'inscription à l'université",
-    'email' =>  "Pseudo email",
-    'password' =>  "Mot de passe",
+    'university_register_year' => "Année d'inscription à l'université",
+    'email' => "Pseudo email",
+    'password' => "Mot de passe",
     'add_user' => "Ajouter un étudiant",
     'add_admin' => "ajouter un administrateur",
     'action' => "Procédure",
-
 
 
     //create model user and admin
@@ -162,7 +164,6 @@ return [
     'birthday_place_ar' => "lieu de naissance en arabe",
     'birthday_place_en' => "lieu de naissance en anglais",
     'birthday_place_fr' => "lieu de naissance en français",
-
 
 
     //button edit or add or close model
@@ -180,10 +181,10 @@ return [
 
 
     'subject' => 'unité',
-     'subjects' => 'unités',
+    'subjects' => 'unités',
 
-     'unit' => 'séparé',
-     'unites' => 'chapitres',
+    'unit' => 'séparé',
+    'unites' => 'chapitres',
 
     // Subject Student
     'subject_student' => 'Sujet Étudiant',
@@ -232,6 +233,10 @@ return [
     'person_name' => "nom_personne",
     'national_id_of_person' => "Identifiant national de la personne qui lui est attribuée",
     'card_image' => "Une copie de la carte nationale de la personne qui lui est confiée",
+    'card_image_user' => "Une copie de la carte nationale",
+    'note' => "Note",
+    'optional' => "optional",
+    'order_success' => "La demande a été ajoutée avec succès",
     'request_date' => "date de la demande",
     'pull_type' => "type d'extraction",
     'pull_date' => "date d'extraction",
@@ -311,6 +316,11 @@ return [
     "request_status_is_refused" => "Le statut de la demande est refusé",
     "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
 
+
+    // data modification
+    "data_modify" => "Modification des données"
+
+    //
 
 ];
 

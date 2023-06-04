@@ -189,7 +189,11 @@ class AdminController extends Controller
 
             return response()->json(['status' => 405]);
         }
+    } // end update
 
-
+    public function profile(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        return view('admin.admins.profile',compact('user'));
     }
 }//end class
