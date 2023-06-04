@@ -2,6 +2,10 @@ $(function(){
 
     'use strict';
 
+    $('.dropdown-toggle').click(function(){
+        $(this).toggleClass('active');
+    });
+
     // landing
     $('.carousel').hover(function () {
         $('.prev-icon').css("display","block");
@@ -13,12 +17,12 @@ $(function(){
     // blogs 
 
     $(".blogs .owl-carousel").owlCarousel({
-        autoplay: true,
+        autoplay: false,
         autoplayhoverpause: true,
         autoplaytimeout: 100,
         items: 1,
         nav: true,
-        loop: true,
+        loop: false,
         dots: false,
         navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>",],
         responsive: {
@@ -168,7 +172,7 @@ $(function(){
       // scroll to top
 
 $(window).scroll(function () {
-    if ($(window).scrollTop() >= 700) {
+    if ($(window).scrollTop() >= 300) {
         $('.scroll-top').fadeIn(400);
     }else{
         $('.scroll-top').fadeOut(400);

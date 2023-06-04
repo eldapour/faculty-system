@@ -44,7 +44,7 @@ class PageController extends Controller
                     return $pages->title[lang()];
                 })
                 ->editColumn('category_id', function ($pages) {
-                    return $pages->category->category_name;
+                    return $pages->category->category_name[lang()];
                 })
                 ->escapeColumns([])
                 ->make(true);

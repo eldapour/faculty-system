@@ -28,6 +28,12 @@ class DeadlineController extends Controller
                 ->editColumn('description', function ($deadlines) {
                     return '<td>'. $deadlines->description[lang()] .'</td>';
                 })
+                ->addColumn('the_rest', function ($deadlines) {
+                    $deadline_date_start = \Carbon\Carbon::parse($deadlines->deadline_date_start);
+                    $deadline_date_end = \Carbon\Carbon::parse($deadlines->deadline_date_end);
+                    $the_rest = $deadline_date_end->diff($deadline_date_start);
+                    return '<td><a class="btn btn-danger text-white">'.  $the_rest->format('%a Days') .'</a></td>';
+                })                
                 ->escapeColumns([])
                 ->make(true);
         } else {
