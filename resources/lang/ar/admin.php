@@ -46,6 +46,10 @@ return [
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
     "dashboard" => "اللوحة الرئيسية",
+    "logout" => "تسجيل الخروج",
+    "profile" => "الملف الشخصي",
+    "information" => "المعلومات",
+    "more information" => "معلومات اضافية",
 
 
     // crud
@@ -239,6 +243,10 @@ return [
     'person_name' => "اسم الموكل اليه",
     'national_id_of_person' => "رقم البطاقه الوطنيه للموكل اليه",
     'card_image' => "صوره البطاقه الوطنيه للموكل اليه",
+    'card_image_user' => "صوره البطاقه الوطنيه ",
+    'note' => "ملاحظات",
+    'optional' => "اختياري",
+    "order_success" => "تم اضافة الطلب بنجاح",
     'request_date' => "تاريخ الطلب",
     'pull_type' => "نوع السحب",
     'pull_date' => "تاريخ السحب",
@@ -329,6 +337,9 @@ return [
 =======
 
 >>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
+
+    // data modification
+    "data_modify" => "طلب تعديل البيانات",
 
 ];
 

@@ -46,6 +46,10 @@ return [
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
     "dashboard" => "Dashboard",
+    "logout" => "Logout",
+    "profile" => "Profile",
+    "information" => "Information",
+    "more information" => "More Information",
 
     // Process Exam
     "process_exam" => "Process Exam",
@@ -245,6 +249,10 @@ return [
      'person_name' => "person_name",
      'national_id_of_person' => "National ID of the person assigned to him",
      'card_image' => "A copy of the national card of the person entrusted to him",
+    'card_image_user' => "A copy of the national card ",
+    'note' => "Note",
+    'optional' => "optional",
+    'order_success' => "The request has been added successfully",
      'request_date' => "request date",
      'pull_type' => "pull type",
      'pull_date' => "pull date",
@@ -326,6 +334,9 @@ return [
 >>>>>>> c35473cded3d384e6ddfd216bc0af4eddbf43bf2
 =======
 >>>>>>> a5361b1e7ed60f88b1a63453679161253c4bcf0d
+
+    // data modification
+    "data_modify" => "Data Modification",
 
 ];
 
