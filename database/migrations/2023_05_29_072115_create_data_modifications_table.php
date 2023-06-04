@@ -20,20 +20,7 @@ return new class extends Migration
         Schema::create('data_modifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
-            $table->boolean('first_name_ar')->default(false);
-            $table->boolean('first_name_en')->default(false);
-            $table->boolean('first_name_fr')->default(false);
-            $table->boolean('last_name_ar')->default(false);
-            $table->boolean('last_name_en')->default(false);
-            $table->boolean('last_name_fr')->default(false);
-            $table->boolean('birthday_date')->default(false);
-            $table->boolean('birthday_place_ar')->default(false);
-            $table->boolean('birthday_place_en')->default(false);
-            $table->boolean('birthday_place_fr')->default(false);
-            $table->boolean('city_ar')->default(false);
-            $table->boolean('city_en')->default(false);
-            $table->boolean('city_fr')->default(false);
-            $table->boolean('address')->default(false);
+            $table->text('data_modification_type')->comment('البيانات المراد تغيرها');
             $table->longText('card_image')->comment('مرفق البطاقه الوطنيه');
             $table->date('request_date')->comment('تاريخ الطلب');
             $table->enum('request_status',['new','accept','refused','under_processing'])->comment('حاله الطلب')->default('new');
@@ -56,3 +43,18 @@ return new class extends Migration
         Schema::dropIfExists('data_modifications');
     }
 };
+
+//            $table->boolean('first_name_ar')->default(false);
+//            $table->boolean('first_name_en')->default(false);
+//            $table->boolean('first_name_fr')->default(false);
+//            $table->boolean('last_name_ar')->default(false);
+//            $table->boolean('last_name_en')->default(false);
+//            $table->boolean('last_name_fr')->default(false);
+//            $table->boolean('birthday_date')->default(false);
+//            $table->boolean('birthday_place_ar')->default(false);
+//            $table->boolean('birthday_place_en')->default(false);
+//            $table->boolean('birthday_place_fr')->default(false);
+//            $table->boolean('city_ar')->default(false);
+//            $table->boolean('city_en')->default(false);
+//            $table->boolean('city_fr')->default(false);
+//            $table->boolean('address')->default(false);

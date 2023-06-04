@@ -258,6 +258,8 @@ return [
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "The request has been added successfully",
+    "orders" => "Orders",
+    "order" => "Order",
      'request_date' => "request date",
      'pull_type' => "pull type",
      'pull_date' => "pull date",
@@ -327,6 +329,17 @@ return [
 
     // data modification
     "data_modify" => "Data Modification",
+    'first_name_ar' => 'first name in Arabic',
+    'first_name_en' => 'first name in English',
+    'first_name_fr' => 'first name in France',
+    'last_name_ar' => 'last name in Arabic',
+    'last_name_en' => 'last name in English',
+    'last_name_fr' => 'last name in France',
+    'new' => 'new',
+    'accept' => 'accept',
+    'refused' => 'refused',
+    'under_processing' => 'under_processing',
+
 
     // Event
     'event' => 'Event',
