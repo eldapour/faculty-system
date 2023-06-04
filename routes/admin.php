@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
 use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
@@ -166,6 +167,7 @@ Route::group([
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
 
+
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
     Route::post('document_types.delete', [DocumentTypeController::class, 'delete'])->name('document_types.delete');
@@ -200,6 +202,13 @@ Route::group([
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
+
+Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
+
+
+#### Event ####
+
+Route::resource('events', EventController::class);
 
 
     #### schedules ####

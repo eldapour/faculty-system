@@ -97,6 +97,24 @@ if (!function_exists('doctorCount')) {
         return $count;
     }
 }
+if (!function_exists('adminCount')) {
+    function adminCount() {
+        $count = DB::table('users')->where('user_type', 'manger')->count();
+        return $count;
+    }
+}
+if (!function_exists('departmentCount')) {
+    function departmentCount() {
+        $count = DB::table('departments')->count();
+        return $count;
+    }
+}
+if (!function_exists('branchCount')) {
+    function branchCount() {
+        $count = DB::table('department_branches')->count();
+        return $count;
+    }
+}
 
 
 if (!function_exists('get_file')) {

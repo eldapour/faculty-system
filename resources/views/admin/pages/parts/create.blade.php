@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('pages.store') }}">
+    <form id="addForm" class="addForm" method="POST" action="{{ route('pages.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <div class="row">
@@ -46,13 +46,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.files') }}</label>
-                    <input type="file" class="form-control" name="files">
+                    <input type="file" class="form-control" name="files[]" multiple>
                 </div>
                 <div class="col-md-6">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.category') }}</label>
                     <select class="form-control" name="category_id">
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->category_name[lang()] }}</option>
                         @endforeach
                     </select>
                 </div>

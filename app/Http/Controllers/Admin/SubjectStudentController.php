@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DateTime;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectStudentRequest;
 use Illuminate\Http\Request;
@@ -37,6 +38,10 @@ class SubjectStudentController extends Controller
                  ->editColumn('group_id', function ($subject_students) {
                      return'<td>'. $subject_students->group->group_name .'</td>';
                  })
+                 ->editColumn('year', function ($subject_students) {
+                    $date = new DateTime($subject_students->year);
+                    return '<td>' . $date->format('Y') . '</td>';
+                })
                  ->escapeColumns([])
                  ->make(true);
          } else {

@@ -81,6 +81,17 @@ p{
 .dropdown-toggle::after{
     display: none;
 }
+.active .icon-nav{
+    transform: rotate(180deg);
+    transition: 0.5 ease;
+}
+.icon-nav{
+    display: none;
+}
+.dropdown-toggle{
+    display: flex;
+    justify-content: space-between;
+}
 .navbar li a{
     color: var(--dark-color) !important;
     font-weight: bold;
@@ -97,9 +108,6 @@ p{
 .navbar .dropdown-menu .dropdown-item:hover{
     color: var(--second-color) !important;
     background-color: white;
-}
-.navbar-nav li:hover .dropdown-menu{
-    display: block;
 }
 .navbar .nav-item .nav-link:hover{
     color: var(--second-color) !important;
@@ -278,11 +286,20 @@ p{
 
 /* start section video */
 
-.video-slider{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+.card-video{
     background-position: center;
     background-size: cover;
     padding: 130px 0;
+    margin: 0px 10px;
+}
+.video1{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+}
+.video2{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+}
+.video3{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
 }
 .heading-video{
     letter-spacing: 1px;
@@ -322,7 +339,7 @@ p{
   }
 .video-slider .owl-carousel .owl-nav button.owl-prev,
 .video-slider .owl-carousel .owl-nav button.owl-next{
-    top: -120px;
+    top: -80px;
 }
 
 /* end section video */
@@ -461,9 +478,9 @@ p{
 .btn-platform{
     padding: 10px 20px;
     background-color: white;
-    color: var(--dark-color);
+    color: var(--second-color);
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* end section platform */
@@ -646,8 +663,13 @@ p{
     margin-left: 15px;
     transition: all 0.5s ease;
 }
-.btn-share:hover{
-    background-color: var(--dark-color);
+.whatsapp:hover{
+    background-color: #25d366;
+    color: white;
+}
+
+.facebook:hover{
+    background-color: #1877f2;
     color: white;
 }
 
@@ -665,9 +687,7 @@ p{
 
 /* table */
 
-table,
-table td,
-table th{
+table{
     border: 1px solid #DEE2E6;
 }
 table .head-table{
@@ -714,6 +734,7 @@ table .head-table{
     bottom: 10px;
     right: 10px;
     display: none;
+    z-index: 9999;
 }
 .top{
     width: 40px;
