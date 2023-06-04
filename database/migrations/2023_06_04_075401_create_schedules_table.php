@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
             $table->unsignedBigInteger('department_id')->comment('القسم');
             $table->unsignedBigInteger('department_branch_id')->comment('التخصص');
+            $table->string('year');
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('فتره جدول استعمالات الزمن');
             $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
             $table->timestamps();

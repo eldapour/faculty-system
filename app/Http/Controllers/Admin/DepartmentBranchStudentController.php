@@ -116,7 +116,13 @@ class DepartmentBranchStudentController extends Controller
     public function getBranches(Request $request)
     {
         $id = $request->id;
-        $branches = DepartmentBranch::where('department_id', $id)->get()->pluck('branch_name', 'id')->toArray();
+        $branches = DepartmentBranch::query()
+        ->where('department_id', $id)
+            ->get()
+            ->pluck('branch_name', 'id')
+            ->toArray();
+
+
         if (count($branches) > 0) {
             return $branches;
         } else {

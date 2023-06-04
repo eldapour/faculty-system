@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -208,6 +209,11 @@ Route::post('certificates/processing', [CertificateController::class, 'processin
 #### Event ####
 
 Route::resource('events', EventController::class);
+
+
+    #### schedules ####
+    Route::resource('schedules', ScheduleController::class);
+    Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
 
 
 

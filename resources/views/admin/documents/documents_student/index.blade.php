@@ -181,12 +181,7 @@
         });
 
 
-
-
-
     </script>
-
-
 
 @endsection
 

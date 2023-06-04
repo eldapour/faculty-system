@@ -32,6 +32,7 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
@@ -39,6 +40,7 @@
                             <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
+
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control">
@@ -46,6 +48,8 @@
                             <option value="استدراكيه" style="text-align: center">استدراكي</option>
                     </select>
                 </div>
+
+
             </div>
             <div class="row">
                 <div class="col-md-6">
