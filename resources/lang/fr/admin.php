@@ -325,6 +325,12 @@ return [
 
     // data modification
     "data_modify" => "Modification des données",
+
+
+    // Event
+    'event' => 'Evénement',
+    'events' => 'Événements',
+
     'first_name_ar' => 'prénom en arabe',
     'first_name_en' => 'prénom en anglais',
     'first_name_fr' => 'prénom en france',
@@ -336,6 +342,7 @@ return [
     'accept' => 'accepter',
     'refused' => 'refusé',
     'under_processing' => 'en cours de traitement',
+
 
 
 ];

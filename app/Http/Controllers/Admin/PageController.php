@@ -134,12 +134,8 @@ class PageController extends Controller
             }
         }
 
-        if ($request->has('files')) {
-            foreach ($page->files as $file) {
-                if (file_exists($file)) {
-                    unlink($file);
-                }
-            }
+        if ($request->file('files')) {
+
             foreach ($request->file('files') as $file) {
                 $files[] = $this->saveImage($file, 'uploads/pagesFiles', 'photo');
             }

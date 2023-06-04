@@ -341,6 +341,10 @@ return [
     'under_processing' => 'under_processing',
 
 
+    // Event
+    'event' => 'Event',
+    'events' => 'Events',
+
 
 ];
 

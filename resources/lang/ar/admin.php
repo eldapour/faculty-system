@@ -347,6 +347,10 @@ return [
     'under_processing' => 'قيد المراجعة',
 
 
+    // Event
+    'event' => 'حدث',
+    'events' => 'احداث',
+
 
 ];
 
