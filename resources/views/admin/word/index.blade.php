@@ -37,7 +37,7 @@
                                             @foreach($categories as $category)
                                                 <option
                                                     {{ $word->category_id == $category->id ? ' selected' : '' }}
-                                                    value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                                    value="{{ $category->id }}">{{ $category->category_name[lang()] }}</option>
                                             @endforeach
                                         </select>
                                         <label for="name_ar"

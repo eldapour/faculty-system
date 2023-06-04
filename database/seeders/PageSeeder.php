@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -36,7 +37,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -58,7 +60,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -80,7 +83,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -102,7 +106,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -124,7 +129,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -146,7 +152,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -168,7 +175,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -190,7 +198,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -212,7 +221,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -234,7 +244,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -256,7 +267,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -278,7 +290,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -300,7 +313,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -322,7 +336,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -344,7 +359,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -366,7 +382,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -388,7 +405,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -410,7 +428,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
             [
                 'title' => json_encode([
@@ -432,7 +451,8 @@ class PageSeeder extends Seeder
                 'files' => json_encode([
                     "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
                     "assets/front/assets/pdf/file1.pdf",
-                ])
+                ]),
+                'created_at' => Carbon::now(),
             ],
         ];
         DB::table('pages')->insert($data);
