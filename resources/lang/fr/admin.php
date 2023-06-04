@@ -45,10 +45,15 @@ return [
     "something_went_wrong" => "Quelque chose s'est mal passé",
     "wrong" => "Faux",
     "dashboard" => "Tableau de bord",
+
+    "admin" => "Administrador",
+    "admins" => "Administradores",
+
     "logout" => "Se déconnecter",
     "profile" => "Profil",
     "information" => "Information",
     "more information" => "Plus d'information",
+
 
 
     // crud
@@ -290,7 +295,6 @@ return [
     "number_of_doctors" => "nombre de médecins",
 
 
-
     //Certificates
     "diploma_id" => "diplôme_id",
     "diploma_name" => "nom du diplôme",
@@ -321,6 +325,7 @@ return [
     "data_modify" => "Modification des données"
 
     //
+
 
 ];
 

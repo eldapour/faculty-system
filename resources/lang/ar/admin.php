@@ -46,10 +46,15 @@ return [
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
     "dashboard" => "اللوحة الرئيسية",
+
+    "admin" => "مشرف",
+    "admins" => "مشرفين",
+
     "logout" => "تسجيل الخروج",
     "profile" => "الملف الشخصي",
     "information" => "المعلومات",
     "more information" => "معلومات اضافية",
+
 
 
     // crud
@@ -133,7 +138,7 @@ return [
     'type' => 'نوع',
 
     // Group
-    'group' => 'مجموعة',
+    'group' => 'فوج',
     'groups' => 'الافواج',
 
     'subject' => 'وحده',
@@ -324,8 +329,10 @@ return [
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
 
+
     // data modification
     "data_modify" => "طلب تعديل البيانات",
+
 
 ];
 

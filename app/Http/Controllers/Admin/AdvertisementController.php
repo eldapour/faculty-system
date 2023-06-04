@@ -48,7 +48,7 @@ class AdvertisementController extends Controller
                     return'<td>'. $advertisements->description[lang()] .'</td>';
                 })
                 ->editColumn('category_id', function ($advertisements) {
-                    return'<td>'. $advertisements->category->category_name .'</td>';
+                    return'<td>'. $advertisements->category->category_name[lang()] .'</td>';
                 })
                 ->editColumn('service_id', function ($advertisements) {
                     return'<td>'. $advertisements->service->service_name[lang()] .'</td>';

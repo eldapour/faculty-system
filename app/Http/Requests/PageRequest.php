@@ -25,6 +25,8 @@ class PageRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'images' => 'required',
+            'files' => 'required',
             'description' => 'required',
             'category_id' => 'required',
         ];

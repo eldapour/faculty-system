@@ -50,7 +50,7 @@ id="navbar-spy"
   <a class="navbar-brand" href="index.html"
     ><img
       class="logo logo-dark"
-      src="{{ asset('assets/front/') }}/assets/images/logo/logo-dark.png"
+      src="{{ asset('assets/front/assets/')}}photo/logo.png"
       alt="Energia Logo" /><img
       class="logo logo-mobile"
       src="assets/images/logo/logo-mobile.png"
@@ -258,7 +258,7 @@ id="navbar-spy"
       </li>
     </ul>
     <div class="module-holder">
-       
+
       <div class="module-call">
         <i class="icons-energiaphone-call"> </i>
         <div>

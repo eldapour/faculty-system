@@ -165,6 +165,7 @@ Route::group([
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
 
+
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
     Route::post('document_types.delete', [DocumentTypeController::class, 'delete'])->name('document_types.delete');
@@ -200,6 +201,7 @@ Route::group([
     Route::resource('certificates', CertificateController::class);
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
 
+Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
 
-
+  
 });

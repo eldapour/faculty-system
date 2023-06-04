@@ -46,10 +46,15 @@ return [
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
     "dashboard" => "Dashboard",
+
+    "admin" => "Admin",
+    "admins" => "Admins",
+
     "logout" => "Logout",
     "profile" => "Profile",
     "information" => "Information",
     "more information" => "More Information",
+
 
     // Process Exam
     "process_exam" => "Process Exam",
@@ -319,8 +324,10 @@ return [
     "diploma all" => "All Diplomas",
 
 
+
     // data modification
     "data_modify" => "Data Modification",
+
 
 ];
 
