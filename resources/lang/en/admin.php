@@ -322,5 +322,12 @@ return [
     // data modification
     "data_modify" => "Data Modification",
 
+    "schedule_pdf_upload" => "time usage file",
+    "group_name" => "group name",
+    "department_name" => "department name",
+    "department_branch_name" => "department name",
+    "add_schedule" => "Add Schedule Usage",
+    "all_schedules" => "schedules",
+
 ];
 

@@ -58,6 +58,21 @@
 
 
 
+        {{-- start schedule data in dashboard --}}
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">استعمالات الزمن</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+                <li><a href="{{ route('schedules.index') }}" class="slide-item">{{ trans('admin.all_schedules') }}</a></li>
+
+            </ul>
+        </li>
+        {{-- end schedule data in dashboard --}}
+
+
+
         {{-- start internal ads data --}}
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#">
