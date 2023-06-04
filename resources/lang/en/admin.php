@@ -141,7 +141,7 @@ return [
 
     // Presentation
     'presentation' => 'Presentation',
-    'presentations' => 'Presentations',
+    'presentations' => 'Presentations page',
     'experience_year' => 'Experience Year',
     'type' => 'Type',
 

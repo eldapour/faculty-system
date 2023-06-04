@@ -128,7 +128,7 @@ return [
 
     // Presentation
     'presentation' => 'عرض تقديمي',
-    'presentations' => 'عروض تقديمية',
+    'presentations' => 'صفحه التقديم',
     'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
 
@@ -194,7 +194,7 @@ return [
 
     // Subject Student
     'subject_student' => 'طالب المادة',
-    'subject_students' => 'طلاب المادة',
+    'subject_students' => 'وحدات الطالب',
     'year' => 'سنة',
     'period' => 'فترة',
 

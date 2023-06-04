@@ -36,6 +36,47 @@
         </li>
 
 
+        {{-- start website data --}}
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">اجزاء الموقع</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+                <li><a href="{{ route('categories.index') }}" class="slide-item">{{ trans('admin.categories') }}</a></li>
+                <li><a href="{{ route('sliders.index') }}" class="slide-item">{{ trans('admin.sliders') }}</a></li>
+                <li><a href="{{ route('word.index') }}" class="slide-item">{{ trans('admin.wordManager') }}</a></li>
+                <li><a href="{{ route('pages.index') }}" class="slide-item">{{ trans('admin.pages') }}</a></li>
+                <li><a href="{{ route('advertisements.index') }}" class="slide-item">{{ trans('admin.ads') }}</a></li>
+                <li><a href="{{ route('presentations.index') }}" class="slide-item">{{ trans('admin.presentations') }}</a></li>
+                <li><a href="{{ route('video.index') }}" class="slide-item">{{ trans('admin.videos') }}</a></li>
+
+
+            </ul>
+        </li>
+        {{-- end website data --}}
+
+
+
+        {{-- start internal ads data --}}
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="#">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">قسم الاعلانات</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+                <li><a href="{{ route('services.index') }}" class="slide-item">{{ trans('admin.services') }}</a></li>
+                <li><a href="{{ route('internal_ads.index') }}" class="slide-item">{{ trans('admin.internal_ads') }}</a></li>
+
+
+
+            </ul>
+        </li>
+        {{-- end internal ads data --}}
+
+
+
+
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="#">
                 <i class="fe fe-file-text side-menu__icon"></i>
@@ -75,9 +116,31 @@
             </ul>
         </li>
 
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('group.index') }}">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.groups') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('subject.index') }}">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('unit.index') }}">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.units') }}</span>
+            </a>
+        </li>
+
         <li class="slide">
             <a class="side-menu__item" href="{{ route('departments.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
+                <i class="fe fe-file-text side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.departments') }}</span>
             </a>
         </li>
@@ -103,20 +166,17 @@
             </a>
         </li>
 
-
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('group.index') }}">
+            <a class="side-menu__item" href="{{ route('subject_student.index') }}">
                 <i class="fe fe-file-text side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.groups') }}</span>
+                <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
             </a>
         </li>
 
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('subject.index') }}">
-                <i class="fe fe-file-text side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
-            </a>
-        </li>
+
+
+
+
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('data_modify.index') }}">
@@ -125,21 +185,9 @@
             </a>
         </li>
 
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('unit.index') }}">
-                <i class="fe fe-file-text side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.units') }}</span>
-            </a>
-        </li>
 
 
 
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('subject_student.index') }}">
-                <i class="fa fa-video side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
-            </a>
-        </li>
 
 
 
@@ -170,14 +218,7 @@
 
 
 
-        <li class="slide">
 
-            <a class="side-menu__item" href="{{ route('categories.index') }}">
-
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.categories') }}</span>
-            </a>
-        </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('deadlines.index') }}">
@@ -191,26 +232,11 @@
                 <span class="side-menu__label">{{ trans('admin.settings') }}</span>
             </a>
         </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('services.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.services') }}</span>
-            </a>
-        </li>
 
 
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('sliders.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.sliders') }}</span>
-            </a>
-        </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('word.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.wordManager') }}</span>
-            </a>
-        </li>
+
+
+
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('subject_exams.index') }}">
@@ -245,36 +271,13 @@
                 <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
             </a>
         </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('pages.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.pages') }}</span>
-            </a>
-        </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('internal_ads.index') }}">
-                <i class="icon icon-user side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
-            </a>
-        </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('video.index') }}">
-                <i class="fa fa-video side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.videos') }}</span>
-            </a>
-        </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('advertisements.index') }}">
-                <i class="fa fa-video side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.ads') }}</span>
-            </a>
-        </li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{ route('presentations.index') }}">
-                <i class="fa fa-video side-menu__icon"></i>
-                <span class="side-menu__label">{{ trans('admin.presentations') }}</span>
-            </a>
-        </li>
+
+
+
+
+
+
+
 
 
         <li class="slide">

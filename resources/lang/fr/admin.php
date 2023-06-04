@@ -126,7 +126,7 @@ return [
 
     // Presentation
     'presentation' => 'présentation',
-    'presentations' => 'présentations',
+    'presentations' => 'Page des présentations',
     'experience_year' => 'Année d expérience',
     'type' => 'Taper',
 
