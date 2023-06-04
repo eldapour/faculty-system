@@ -237,6 +237,8 @@ return [
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "La demande a été ajoutée avec succès",
+    "orders" => "ordres",
+    "order" => "ordre",
     'request_date' => "date de la demande",
     'pull_type' => "type d'extraction",
     'pull_date' => "date d'extraction",
@@ -315,9 +317,18 @@ return [
     "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
 
     // data modification
-    "data_modify" => "Modification des données"
+    "data_modify" => "Modification des données",
+    'first_name_ar' => 'prénom en arabe',
+    'first_name_en' => 'prénom en anglais',
+    'first_name_fr' => 'prénom en france',
+    'last_name_ar' => 'nom de famille en arabe',
+    'last_name_en' => 'nom de famille en anglais',
+    'last_name_fr' => 'nom de famille en France',
 
-    //
+    'new' => 'nouveau',
+    'accept' => 'accepter',
+    'refused' => 'refusé',
+    'under_processing' => 'en cours de traitement',
 
 ];
 
