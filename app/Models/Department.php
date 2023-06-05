@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Department extends Model
 {
-    use HasFactory ;
+    use HasFactory, HasTranslations;
+
+
+    public array $translatable = ['department_name'];
 
     protected $fillable = [
         'department_name'

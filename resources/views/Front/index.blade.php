@@ -67,22 +67,24 @@
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
                             <div class="card card-blog">
                                 <a class="text-decoration-none" href="single-blog.html">
-                                    <img src="{{ $advertisement->image }}" class="card-img-top"
-                                        alt="no-image">
+                                    <img src="{{ $advertisement->image }}" class="card-img-top" alt="no-image">
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="card-date">
                                         <h4>{{ $advertisement->created_at->format('d') }}</h4>
-                                        <p>{{ $advertisement->created_at->format('F') }},{{ $advertisement->created_at->format('Y') }}</p>
+                                        <p>{{ $advertisement->created_at->format('F') }},{{ $advertisement->created_at->format('Y') }}
+                                        </p>
                                     </div>
                                     <h3 class="card-title">
-                                        <a class="text-decoration-none color-dark" href="single-blog.html">{{ $advertisement->title[lang()] }}</a>
+                                        <a class="text-decoration-none color-dark"
+                                            href="single-blog.html">{{ $advertisement->title[lang()] }}</a>
                                     </h3>
                                     <p class="card-text color-gray">{!! $advertisement->description[lang()] !!}.</p>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
                                         <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
-                                        <strong class="color-second">{{ $advertisement->service->service_name[lang()] }}</strong>
+                                        <strong
+                                            class="color-second">{{ $advertisement->service->service_name[lang()] }}</strong>
                                     </div>
                                 </div>
                             </div>
@@ -165,120 +167,27 @@
             </div>
             <div>
                 <div class="owl-carousel owl-theme">
-                    <div class="m-3">
-                        <div class="card card-newest">
-                            <div class="image-card">
-                                <img src="{{ asset('assets/front/assets') }}/photo/inner_b1.jpg" class="card-img-top"
-                                    alt="no-image">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-date1">
-                                    <p>
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        16 march,2023
-                                    </p>
+                    @foreach ($events as $event)
+                        <div class="m-3">
+                            <div class="card card-newest">
+                                <div class="image-card">
+                                    <img src="{{ asset($event->image) }}" class="card-img-top" alt="no-image">
                                 </div>
-                                <a class="text-decoration-none" href="single-newest.html">
-                                    <h4 class="card-title color-dark mt-2 mb-3">Seas accumsan nulla nec lacus ultricies
-                                        placerat.</h4>
-                                </a>
-                                <p class="card-text text-black-50">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Lorem ipsum dolor sit amet consectetur,</p>
+                                <div class="card-body">
+                                    <div class="card-date1">
+                                        <p>
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            {{ $event->created_at->format('d') }} {{ $event->created_at->format('M') }} ,{{ $event->created_at->format('Y') }}
+                                        </p>
+                                    </div>
+                                    <a class="text-decoration-none" href="single-newest.html">
+                                        <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}</h4>
+                                    </a>
+                                    <p class="card-text text-black-50">{!! $event->description[lang()] !!}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="m-3">
-                        <div class="card card-newest ms-3">
-                            <div class="image-card">
-                                <img src="{{ asset('assets/front/assets') }}/photo/inner_b1.jpg" class="card-img-top"
-                                    alt="no-image">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-date1">
-                                    <p>
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        16 march,2023
-                                    </p>
-                                </div>
-                                <a class="text-decoration-none" href="single-newest.html">
-                                    <h4 class="card-title color-dark mt-2 mb-3">Seas accumsan nulla nec lacus ultricies
-                                        placerat.</h4>
-                                </a>
-                                <p class="card-text text-black-50">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Lorem ipsum dolor sit amet consectetur,</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="m-3">
-                        <div class="card card-newest ms-3">
-                            <div class="image-card">
-                                <img src="{{ asset('assets/front/assets') }}/photo/inner_b1.jpg" class="card-img-top"
-                                    alt="no-image">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-date1">
-                                    <p>
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        16 march,2023
-                                    </p>
-                                </div>
-                                <a class="text-decoration-none" href="single-newest.html">
-                                    <h4 class="card-title color-dark mt-2 mb-3">Seas accumsan nulla nec lacus ultricies
-                                        placerat.</h4>
-                                </a>
-                                <p class="card-text text-black-50">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Lorem ipsum dolor sit amet consectetur,</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="m-3">
-                        <div class="card card-newest ms-3">
-                            <div class="image-card">
-                                <img src="{{ asset('assets/front/assets') }}/photo/inner_b1.jpg" class="card-img-top"
-                                    alt="no-image">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-date1">
-                                    <p>
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        16 march,2023
-                                    </p>
-                                </div>
-                                <a class="text-decoration-none" href="single-newest.html">
-                                    <h4 class="card-title color-dark mt-2 mb-3">Seas accumsan nulla nec lacus ultricies
-                                        placerat.</h4>
-                                </a>
-                                <p class="card-text text-black-50">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Lorem ipsum dolor sit amet consectetur,</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="m-3">
-                        <div class="card card-newest ms-3">
-                            <div class="image-card">
-                                <img src="{{ asset('assets/front/assets') }}/photo/inner_b1.jpg" class="card-img-top"
-                                    alt="no-image">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-date1">
-                                    <p>
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        16 march,2023
-                                    </p>
-                                </div>
-                                <a class="text-decoration-none" href="single-newest.html">
-                                    <h4 class="card-title color-dark mt-2 mb-3">Seas accumsan nulla nec lacus ultricies
-                                        placerat.</h4>
-                                </a>
-                                <p class="card-text text-black-50">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                    elit. Lorem ipsum dolor sit amet consectetur,</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -297,8 +206,9 @@
                         <div class="d-flex justify-content-center image-number">
                             <img src="{{ asset('assets/front/assets') }}/photo/مجموع الطلبة-01.png" alt="no-image">
                         </div>
+                        <?php $count_user = userCount() ?>
                         <h4 class="text-center">Total students</h4>
-                        <h6 class="text-center">2000</h6>
+                        <h6 class="text-center">{{ $count_user }}</h6>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12 mb-5">
@@ -306,8 +216,9 @@
                         <div class="d-flex justify-content-center image-number">
                             <img src="{{ asset('assets/front/assets') }}/photo/الاطقم الادارية-01.png" alt="no-image">
                         </div>
+                        <?php $count_admin = adminCount() ?>
                         <h4 class="text-center">Administrative crews</h4>
-                        <h6 class="text-center">30</h6>
+                        <h6 class="text-center">{{ $count_admin }}</h6>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12 mb-5">
@@ -361,13 +272,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
-                    <h1 class="mt-3">ahmed hesham </h1>
-                    <h5 class="color-second mb-3">College Dean </h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore aspernatur, officia modi
-                        sint aliquid beatae dolorem? Deserunt unde cumque aut, fuga tempora nesciunt. Tempora magni
-                        consectetur porro laborum molestias.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore aspernatur, officia modi
-                        sint aliquid beatae dolorem?</p>
+                    @foreach ($dean_speech as $dean)
+
+                    @endforeach
+                    <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
+                    <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
+                    <p>{{ $dean->description[lang()] }}</p>
                     <div class="mt-5">
                         <a class="text-decoration-none main-btn" href="Dean-speech.html">
                             details

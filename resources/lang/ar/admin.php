@@ -349,6 +349,18 @@ return [
     'under_processing' => 'قيد المراجعة',
 
 
+    // Event
+    'event' => 'حدث',
+    'events' => 'احداث',
+
+
+
+    "schedule_pdf_upload" => "ملف استعمال الزمن",
+    "group_name" => "اسم الفوج",
+    "department_name" => "اسم القسم",
+    "department_branch_name" => "اسم التخصص",
+    "add_schedule" => "اضافه جدول استعمال زمن",
+    "all_schedules" => "جداول الاستعمالات الزمنيه",
 
 ];
 

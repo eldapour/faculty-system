@@ -327,6 +327,22 @@ return [
 
     // data modification
     "data_modify" => "Modification des données",
+
+
+
+    "schedule_pdf_upload" => "fichier d'utilisation du temps",
+    "group_name" => "nom du groupe",
+    "department_name" => "nom du département",
+    "department_branch_name" => "nom du département",
+    "add_schedule" => "Ajouter une utilisation d'horaire",
+    "all_schedules" => "horaires",
+
+
+
+    // Event
+    'event' => 'Evénement',
+    'events' => 'Événements',
+
     'first_name_ar' => 'prénom en arabe',
     'first_name_en' => 'prénom en anglais',
     'first_name_fr' => 'prénom en france',
@@ -338,6 +354,7 @@ return [
     'accept' => 'accepter',
     'refused' => 'refusé',
     'under_processing' => 'en cours de traitement',
+
 
 
 ];

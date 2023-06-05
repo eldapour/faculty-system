@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\Admin\SubjectUnitDoctorController;
 use App\Http\Controllers\Admin\UniversitySettingController;
 use App\Http\Controllers\Admin\SubjectExamStudentController;
 use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
@@ -200,6 +202,16 @@ Route::group([
 
     Route::get('exportCertificate', [CertificateController::class, 'exportCertificate'])->name('exportCertificate');
     Route::post('importCertificate', [CertificateController::class, 'importCertificate'])->name('importCertificate');
+
+
+#### Event ####
+
+Route::resource('events', EventController::class);
+
+
+    #### schedules ####
+    Route::resource('schedules', ScheduleController::class);
+    Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
 
 
 });

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->json('title');
             $table->json('description');
-            $table->longText('image')->comment('صوره الاعلان');
-            $table->longText('background_image')->comment('صوره خلفيه الاعلان');
+            $table->longText('image')->comment('صوره الحدث');
+            $table->longText('background_image')->comment('صوره خلفيه الحدث');
             $table->unsignedBigInteger('category_id')->comment('تبع انهي قسم');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnUpdate()->cascadeOnDelete();
