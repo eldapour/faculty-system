@@ -66,8 +66,8 @@
                     @foreach ($advertisements as $advertisement)
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
                             <div class="card card-blog">
-                                <a class="text-decoration-none" href="single-blog.html">
-                                    <img src="{{ $advertisement->image }}" class="card-img-top" alt="no-image">
+                                <a class="text-decoration-none" href="#">
+                                    <img src="{{ $advertisement->background_image }}" class="card-img-top" alt="no-image">
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="card-date">
@@ -77,7 +77,7 @@
                                     </div>
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark"
-                                            href="single-blog.html">{{ $advertisement->title[lang()] }}</a>
+                                            href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
                                     </h3>
                                     <p class="card-text color-gray">{!! $advertisement->description[lang()] !!}.</p>
                                     <div class="time color-gray">
@@ -182,7 +182,7 @@
                                             ,{{ $event->created_at->format('Y') }}
                                         </p>
                                     </div>
-                                    <a class="text-decoration-none" href="single-newest.html">
+                                    <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
                                         <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}</h4>
                                     </a>
                                     <p class="card-text text-black-50">{!! $event->description[lang()] !!}</p>
@@ -280,7 +280,7 @@
                     <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
                     <p>{{ $dean->description[lang()] }}</p>
                     <div class="mt-5">
-                        <a class="text-decoration-none main-btn" href="{{ route('word.index') }}">
+                        <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
                             details
                             <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                         </a>
