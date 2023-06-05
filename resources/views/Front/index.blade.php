@@ -99,7 +99,24 @@
     <section class="video-slider mb-5 mt-5">
         <div class="container">
             <div class="owl-carousel owl-theme">
-                <div class="row card-video">
+                @foreach ($videos as $video)
+                    <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
+                        <div class="col-lg-6 col-12">
+                            <h1 class="heading-video text-white">
+                                {{ $video->title[lang()] }}
+                            </h1>
+                            <p>{!! $video->description[lang()] !!}</p>
+                        </div>
+                        <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
+                            <div class="icon-video">
+                                <a class="text-decoration-none" href="{{ $video->video_url }}" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <img src="{{ asset('assets/front/assets') }}/photo/play-button.png" alt="no-video">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{--  <div class="row card-video video2">
                     <div class="col-lg-6 col-12">
                         <h1 class="heading-video text-white">
                             education is the best success in lif
@@ -115,26 +132,9 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="row card-video">
-                    <div class="col-lg-6 col-12">
-                        <h1 class="heading-video text-white">
-                            education is the best success in lif
-                        </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius explicabo atque est iure
-                            voluptatibus incidunt </p>
-                    </div>
-                    <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
-                        <div class="icon-video">
-                            <a class="text-decoration-none" href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="{{ asset('assets/front/assets') }}/photo/play-button.png" alt="no-video">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </div>  --}}
 
-                <div class="row card-video">
+                    {{--  <div class="row card-video video3">
                     <div class="col-lg-6 col-12">
                         <h1 class="heading-video text-white">
                             education is the best success in lif
@@ -150,7 +150,8 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>  --}}
+                @endforeach
             </div>
         </div>
     </section>
@@ -177,7 +178,8 @@
                                     <div class="card-date1">
                                         <p>
                                             <i class="fa-solid fa-calendar-days"></i>
-                                            {{ $event->created_at->format('d') }} {{ $event->created_at->format('M') }} ,{{ $event->created_at->format('Y') }}
+                                            {{ $event->created_at->format('d') }} {{ $event->created_at->format('M') }}
+                                            ,{{ $event->created_at->format('Y') }}
                                         </p>
                                     </div>
                                     <a class="text-decoration-none" href="single-newest.html">
@@ -206,7 +208,7 @@
                         <div class="d-flex justify-content-center image-number">
                             <img src="{{ asset('assets/front/assets') }}/photo/مجموع الطلبة-01.png" alt="no-image">
                         </div>
-                        <?php $count_user = userCount() ?>
+                        <?php $count_user = userCount(); ?>
                         <h4 class="text-center">Total students</h4>
                         <h6 class="text-center">{{ $count_user }}</h6>
                     </div>
@@ -216,7 +218,7 @@
                         <div class="d-flex justify-content-center image-number">
                             <img src="{{ asset('assets/front/assets') }}/photo/الاطقم الادارية-01.png" alt="no-image">
                         </div>
-                        <?php $count_admin = adminCount() ?>
+                        <?php $count_admin = adminCount(); ?>
                         <h4 class="text-center">Administrative crews</h4>
                         <h6 class="text-center">{{ $count_admin }}</h6>
                     </div>
@@ -273,13 +275,12 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     @foreach ($dean_speech as $dean)
-
                     @endforeach
                     <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
                     <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
                     <p>{{ $dean->description[lang()] }}</p>
                     <div class="mt-5">
-                        <a class="text-decoration-none main-btn" href="Dean-speech.html">
+                        <a class="text-decoration-none main-btn" href="{{ route('word.index') }}">
                             details
                             <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                         </a>

@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin/layouts/master')
 
 @section('title')
     {{ trans('admin.presentations') }}
@@ -7,107 +7,136 @@
     {{ trans('admin.presentations') }}
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"></h3>
-                    <div class="">
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.add') }}
-                        </button>
-                    </div>
+                    <h3 class="card-title"> @lang('admin.presentations') {{ $setting->title ?? '' }}</h3>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <!--begin::Table-->
-                        <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
-                            <thead>
-                            <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('image') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.title') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.category') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.experience_year') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
-                                <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Delete MODAL -->
-        <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{ trans('admin.delete') }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
                     <div class="modal-body">
-                        <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.sure_delete') }} ? ["<span id="title" class="text-danger"></span>"]</p>
+                        <form id="updateForm" class="updateForm" method="POST"
+                            action="{{ route('presentations.update', $presentations->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" value="{{ $presentations->id }}" name="id">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.images') }}</label>
+                                        <input type="file" class="form-control dropify" multiple
+                                            data-default-file="{{ asset($presentations->images[0]) }}" name="images[]"
+                                            value="{{ asset($presentations->images[0]) }}">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="name_ar"
+                                            class="form-control-label">{{ trans('admin.category') }}</label>
+                                        <select class="form-control" name="category_id">
+                                            @foreach ($categories as $category)
+                                                <option
+                                                    {{ $presentations->category_id == $category->id ? ' selected' : '' }}
+                                                    value="{{ $category->id }}">{{ $category->category_name[lang()] }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+
+                                        <label for="name_ar"
+                                            class="form-control-label">{{ trans('admin.experience_year') }}</label>
+                                        <input type="number" class="form-control"
+                                            value="{{ $presentations->experience_year }}" name="experience_year">
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="name_ar"
+                                            class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.arabic') }}</label>
+                                        <input type="text" class="form-control"
+                                            value="{{ $presentations->title['ar'] }}" name="title[ar]" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar"
+                                            class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.english') }}</label>
+                                        <input type="text" class="form-control"
+                                            value="{{ $presentations->title['en'] }}" name="title[en]" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar"
+                                            class="form-control-label">{{ trans('admin.tile') . ' ' . trans('admin.france') }}</label>
+                                        <input type="text" class="form-control"
+                                            value="{{ $presentations->title['fr'] }}" name="title[fr]" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
+                                            {{ trans('admin.arabic') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $presentations->description['ar'] }}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
+                                            {{ trans('admin.english') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $presentations->description['en'] }}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
+                                            {{ trans('admin.france') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $presentations->description['fr'] }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
+                                            {{ trans('admin.arabic') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[ar]" required>{{ $presentations->sub_desc['ar'] }}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
+                                            {{ trans('admin.english') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[en]" required>{{ $presentations->sub_desc['en'] }}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
+                                            {{ trans('admin.france') }}</label>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[fr]" required>{{ $presentations->sub_desc['fr'] }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success"
+                                    id="updateButton">@lang('admin.update')</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
-                            {{ trans('admin.close') }}
-                        </button>
-                        <button type="button" class="btn btn-danger" id="delete_btn">{{ trans('admin.delete') }}</button>
-                    </div>
+                    <script>
+                        $('.dropify').dropify()
+                    </script>
+                    <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
+                    <script>
+                        // CKEDITOR.replaceAll();
+                    </script>
+
                 </div>
             </div>
         </div>
-        <!-- MODAL CLOSED -->
-
-        <!-- Create Or Edit Modal -->
-        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.presentation') }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Create Or Edit Modal -->
     </div>
-    @include('admin.layouts.myAjaxHelper')
+    @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
-        var columns = [
-            {data: 'id', name: 'id'},
-            {data: 'images', name: 'images'},
-            {data: 'title', name: 'title'},
-            {data: 'category_id', name: 'category_id'},
-            {data: 'experience_year', name: 'experience_year'},
-            {data: 'description', name: 'description'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-        showData('{{route('presentations.index')}}', columns);
-        // Delete Using Ajax
-        destroyScript('{{route('presentations.destroy',':id')}}');
-        // Add Using Ajax
-        showAddModal('{{route('presentations.create')}}');
-        addScript();
-        // Add Using Ajax
-        showEditModal('{{route('presentations.edit',':id')}}');
+        CKEDITOR.replaceAll();
+
+        $('.dropify').dropify();
+
+        $(document).ready(function() {
+            $('select').select2();
+        });
         editScript();
     </script>
 @endsection
-

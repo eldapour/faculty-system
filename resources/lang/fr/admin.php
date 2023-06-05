@@ -47,14 +47,14 @@ return [
     "something_went_wrong" => "Quelque chose s'est mal passé",
     "wrong" => "Faux",
     "dashboard" => "Tableau de bord",
-
     "admin" => "Administrador",
     "admins" => "Administradores",
-
     "logout" => "Se déconnecter",
     "profile" => "Profil",
     "information" => "Information",
     "more information" => "Plus d'information",
+    "experience_year" => "Année d'expérience",
+    "sub_desc" => "Sous-Description",
 
 
 

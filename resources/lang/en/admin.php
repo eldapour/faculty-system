@@ -48,14 +48,14 @@ return [
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
     "dashboard" => "Dashboard",
-
     "admin" => "Admin",
     "admins" => "Admins",
-
     "logout" => "Logout",
     "profile" => "Profile",
     "information" => "Information",
     "more information" => "More Information",
+    "experience_year" => "Experience Year",
+    "sub_desc" => "Sub Desc",
 
 
     // Process Exam
