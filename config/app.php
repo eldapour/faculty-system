@@ -164,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Buglinjo\LaravelWebp\WebpServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -192,6 +194,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Webp' => Buglinjo\LaravelWebp\Facades\Webp::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];

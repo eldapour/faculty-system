@@ -25,6 +25,8 @@ return [
     "Print" => "Imprimer",
     "Excel" => "Exceller",
     "select" => "sélect",
+    "import" => "importer",
+    "export" => "exporter",
     "arabic" => "en arabe",
     "english" => "En anglais",
     "france" => "en français",

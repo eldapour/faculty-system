@@ -74,7 +74,6 @@ Route::group([
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
     #### Users ####
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
@@ -111,7 +110,7 @@ Route::group([
 
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
-    Route::get('getBranches', [DepartmentBranchStudentController::class,'getBranches'])->name('getBranches');
+    Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
@@ -167,15 +166,13 @@ Route::group([
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
 
-
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
     Route::post('document_types.delete', [DocumentTypeController::class, 'delete'])->name('document_types.delete');
 
 
-
     #### documents ####
-    Route::resource('documents', DocumentController::class)->except(['edit','update','show']);
+    Route::resource('documents', DocumentController::class)->except(['edit', 'update', 'show']);
     Route::post('documents.delete', [DocumentController::class, 'delete'])->name('documents.delete');
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
@@ -186,7 +183,6 @@ Route::group([
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
-
 
 
     #### Element ####
@@ -202,8 +198,10 @@ Route::group([
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
+    Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
 
-Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
+    Route::get('exportCertificate', [CertificateController::class, 'exportCertificate'])->name('exportCertificate');
+    Route::post('importCertificate', [CertificateController::class, 'importCertificate'])->name('importCertificate');
 
 
 #### Event ####
@@ -214,7 +212,6 @@ Route::resource('events', EventController::class);
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
     Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
-
 
 
 });

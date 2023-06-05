@@ -31,6 +31,8 @@ return [
     "deleted_successfully" => "تم الحذف بنجاح",
     "something_went_wrong" => "هناك خطأ ما",
     "wrong" => "خطأ",
+    "import" => "استيراد",
+    "export" => "تصدير",
     "video" => 'فيديو',
     "videos" => 'فيديوهات',
     "created_at"=> "تاريخ الاضافة",
