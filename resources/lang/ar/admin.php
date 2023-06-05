@@ -46,14 +46,14 @@ return [
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
     "dashboard" => "اللوحة الرئيسية",
-
     "admin" => "مشرف",
     "admins" => "مشرفين",
-
     "logout" => "تسجيل الخروج",
     "profile" => "الملف الشخصي",
     "information" => "المعلومات",
     "more information" => "معلومات اضافية",
+    "experience_year" => "سنين الخبرة",
+    "sub_desc" => "وصف فرعي",
 
 
 

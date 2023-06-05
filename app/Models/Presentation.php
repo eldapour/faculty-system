@@ -15,6 +15,7 @@ class Presentation extends Model
     protected $fillable = [
         'title',
         'description',
+        'sub_desc',
         'images',
         'experience_year',
         'category_id'
@@ -23,6 +24,7 @@ class Presentation extends Model
     protected $casts = [
         'title' => 'json',
         'description' => 'json',
+        'sub_desc' => 'json',
         'images' => 'json'
     ];
 

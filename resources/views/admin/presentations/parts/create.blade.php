@@ -29,7 +29,7 @@
                     <select name="category_id" class="form-control">
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
-                                {{ $category->category_name }}</option>
+                                {{ $category->category_name[lang()] }}</option>
                         @endforeach
                     </select>
                 </div>
