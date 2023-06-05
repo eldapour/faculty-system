@@ -33,7 +33,7 @@
                                             {{ $event->created_at->format('d') }} {{ $event->created_at->format('M') }},{{ $event->created_at->format('Y') }}
                                         </p>
                                     </div>
-                                    <a class="text-decoration-none" href="single-newest.html">
+                                    <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
                                         <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}.</h4>
                                     </a>
                                     <p class="card-text text-black-50">{!! $event->description[lang()] !!}</p>

@@ -32,7 +32,7 @@
                                         <p>{{ $advertisement->created_at->format('M') }},{{ $advertisement->created_at->format('Y') }}</p>
                                     </div>
                                     <h3 class="card-title">
-                                        <a class="text-decoration-none color-dark" href="single-blog.html">{{ $advertisement->title[lang()] }}</a>
+                                        <a class="text-decoration-none color-dark" href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
                                     </h3>
                                     <p class="card-text color-gray">{!! $advertisement->description[lang()] !!}</p>
                                     <div class="time color-gray">

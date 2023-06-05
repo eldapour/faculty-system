@@ -13,4 +13,10 @@ class EventController extends Controller
         $data['events'] = Event::all();
         return view('front.blogs.event', $data);
     }
+
+    public function eventItem($id)
+    {
+        $data['event_items'] = Event::where('id', $id)->get();
+        return view('front.blogs.single_event', $data);
+    }
 }

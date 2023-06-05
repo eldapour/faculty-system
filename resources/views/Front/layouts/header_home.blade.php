@@ -36,11 +36,11 @@ id="navbar-spy"
     </div>
 
     <div class="social-links">
-      <a class="share-facebook" href="javascript:void(0)"
+      <a class="share-facebook" href="{{ $university_settings->facebook_link }}"
         ><i class="energia-facebook"></i></a
-      ><a class="share-instagram" href="javascript:void(0)"
+      ><a class="share-instagram" href="{{ $university_settings->youtube_link }}"
         ><i class="energia-twitter"></i></a
-      ><a class="share-twitter" href="javascript:void(0)"
+      ><a class="share-twitter" href="mailto: {{ $university_settings->email }}"
         ><i class="energia-youtube"></i
       ></a>
     </div>

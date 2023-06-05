@@ -43,13 +43,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <label for="facebook_link" class="form-control-label">{{ trans('admin.facebook_link') }}</label>
                                         <input type="text" class="form-control" value="{{ $university_settings->facebook_link }}" name="facebook_link" placeholder="https://www.facebook.com/">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
+                                        <label for="whatsapp_link" class="form-control-label">{{ trans('admin.whatsapp_link') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->whatsapp_link }}" name="whatsapp_link" placeholder="https://www.whatsapp.com/">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="youtube_link" class="form-control-label">{{ trans('admin.youtube_link') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->youtube_link }}" name="youtube_link" placeholder="https://www.youtube.com/">
+                                    </div>
+                                    <div class="col-md-3">
                                         <label for="email" class="form-control-label">{{ trans('admin.email') }}</label>
                                         <input type="email" class="form-control" value="{{ $university_settings->email }}" name="email">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="phone" class="form-control-label">{{ trans('admin.phone') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->phone }}" name="phone">
                                     </div>
                                 </div>
                                 <hr>
