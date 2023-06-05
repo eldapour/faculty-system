@@ -55,21 +55,11 @@
         <div class="container">
             <h1 class="text-white text-center mb-5">digital platform</h1>
             <div class="owl-carousel owl-theme">
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">College digital locker</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital College Journal</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
+                @foreach ($pages as $page)
+                    <div class="m-3 d-flex justify-content-center">
+                        <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

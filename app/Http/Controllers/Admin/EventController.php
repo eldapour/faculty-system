@@ -30,7 +30,7 @@ class EventController extends Controller
                        ';
                 })
                 ->editColumn('title', function ($events) {
-                    return'<td>'. $events->title[lang()] .'</td>';
+                    return '<td>' . $events->title[lang()] . '</td>';
                 })
                 ->editColumn('image', function ($events) {
                     return '
@@ -43,10 +43,10 @@ class EventController extends Controller
                     ';
                 })
                 ->editColumn('description', function ($events) {
-                    return'<td>'. $events->description[lang()] .'</td>';
+                    return '<td>' . $events->description[lang()] . '</td>';
                 })
                 ->editColumn('category_id', function ($events) {
-                    return'<td>'. @$events->category->category_name[lang()] .'</td>';
+                    return '<td>' . @$events->category->category_name[lang()] . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -88,7 +88,7 @@ class EventController extends Controller
     // Edit Start
     public function edit(Event $event)
     {
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::query()->select('id', 'category_name')->get();
         return view('admin.events.parts.edit', compact('event', 'data'));
     }
     // Edit End
@@ -97,7 +97,24 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        if ($event->update($request->all())) {
+
+        $inputs = $request->all();
+
+        if ($request->has('image')) {
+            if (file_exists($event->image)) {
+                unlink($event->image);
+            }
+            $inputs['image'] = $this->saveImage($request->image, 'uploads/events/images', 'photo');
+        }
+
+        if ($request->has('background_image')) {
+            if (file_exists($event->background_image)) {
+                unlink($event->background_image);
+            }
+            $inputs['background_image'] = $this->saveImage($request->background_image, 'uploads/events/background_images', 'photo');
+        }
+
+        if ($event->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

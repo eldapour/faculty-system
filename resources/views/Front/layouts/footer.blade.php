@@ -190,11 +190,10 @@
                     @foreach ($advertisements as $advertisement)
                         <li class="mb-3">
                             <div class="d-flex blog">
-                                <div class="me-3"><img src="{{ asset($advertisement->image) }}"
-                                        style="width: 50%; height: 30%"></div>
+                                <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">{!! $advertisement->description[lang()] !!}</a>
+                                        <a class="text-decoration-none" href="#">{!! $advertisement->title[lang()] !!}</a>
                                     </div>
                                     <p class="color-second">{{ $advertisement->created_at->format('d') }}
                                         {{ $advertisement->created_at->format('M') }},
