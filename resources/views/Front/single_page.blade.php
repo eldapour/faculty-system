@@ -57,54 +57,20 @@
                         <h2 class="title" style="font-size: 30px;">latest post</h2>
                     </div>
                     <ul class="ms-3">
-                        <li class="mb-3">
-                            <div class="d-flex blog">
-                                <div class="me-3"><img src="{{ asset('assets/front/assets') }}/photo/s-blogimg-01.png"></div>
-                                <div>
-                                    <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">Nothing impossble to need hard
-                                            work</a>
+                        @foreach ($advertisements as $advertisement)
+                            <li class="mb-3">
+                                <div class="d-flex blog">
+                                    <div class="me-3"><img
+                                            src="{{ asset($advertisement->image) }}"></div>
+                                    <div>
+                                        <div style="max-width: 190px;">
+                                            <a class="text-decoration-none" href="#">{{ $advertisement->title[lang()] }}</a>
+                                        </div>
+                                        <span class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
                                     </div>
-                                    <span class="color-second">7 march, 2023</span>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="mb-3">
-                            <div class="d-flex blog">
-                                <div class="me-3"><img src="photo/s-blogimg-01.png"></div>
-                                <div>
-                                    <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">Nothing impossble to need hard
-                                            work</a>
-                                    </div>
-                                    <span class="color-second">7 march, 2023</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="mb-3">
-                            <div class="d-flex blog">
-                                <div class="me-3"><img src="photo/s-blogimg-01.png"></div>
-                                <div>
-                                    <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">Nothing impossble to need hard
-                                            work</a>
-                                    </div>
-                                    <span class="color-second">7 march, 2023</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="mb-3">
-                            <div class="d-flex blog">
-                                <div class="me-3"><img src="photo/s-blogimg-02.png"></div>
-                                <div>
-                                    <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">Nothing impossble to need hard
-                                            work</a>
-                                    </div>
-                                    <span class="color-second">7 march, 2023</span>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -117,21 +83,11 @@
         <div class="container">
             <h1 class="text-white text-center mb-5">digital platform</h1>
             <div class="owl-carousel owl-theme">
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">College digital locker</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital College Journal</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
-                <div class="m-3 d-flex justify-content-center">
-                    <a class="text-decoration-none btn-platform">Digital student platform</a>
-                </div>
+                @foreach ($pages as $page)
+                    <div class="m-3 d-flex justify-content-center">
+                        <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

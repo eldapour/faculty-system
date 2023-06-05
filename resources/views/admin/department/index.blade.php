@@ -26,8 +26,8 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px"> {{__('admin.name')}}</th>
-                                <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
+                                <th class="min-w-50px"> {{ trans('admin.name') }}</th>
+                                <th class="min-w-50px rounded-end">{{ trans(trans('admin.actions')) }}</th>
                             </tr>
                             </thead>
                         </table>

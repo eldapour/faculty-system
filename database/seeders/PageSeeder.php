@@ -203,29 +203,6 @@ class PageSeeder extends Seeder
             ],
             [
                 'title' => json_encode([
-                    'ar' => 'بحث',
-                    'en' => 'Research',
-                    'fr' => 'Recherche',
-                ]),
-                'description' => json_encode([
-                    'ar' => 'بحث',
-                    'en' => 'Research',
-                    'fr' => 'Recherche',
-                ]),
-                'category_id' => '3',
-                'images' => json_encode([
-                    "assets/front/assets/photo/evn-img-2.jpg",
-                    "assets/front/assets/photo/evn-img-1.jpg",
-                    "assets/front/assets/photo/evn-img-3.jpg",
-                ]),
-                'files' => json_encode([
-                    "assets/front/assets/pdf/CamScanner 05-21-2023 11.40.pdf",
-                    "assets/front/assets/pdf/file1.pdf",
-                ]),
-                'created_at' => Carbon::now(),
-            ],
-            [
-                'title' => json_encode([
                     'ar' => 'شراكة',
                     'en' => 'Partnership',
                     'fr' => 'Partenariat',
