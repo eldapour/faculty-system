@@ -56,6 +56,9 @@ return [
     "more information" => "معلومات اضافية",
     "experience_year" => "سنين الخبرة",
     "sub_desc" => "وصف فرعي",
+    "whatsapp_link" => "رابط الواتساب",
+    "youtube_link" => "رابط اليوتيوب",
+    "phone" => "رقم الهاتف",
 
 
 

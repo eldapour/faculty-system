@@ -56,6 +56,9 @@ return [
     "more information" => "More Information",
     "experience_year" => "Experience Year",
     "sub_desc" => "Sub Desc",
+    "whatsapp_link" => "Whatsapp Link",
+    "youtube_link" => "Youtube Link",
+    "phone" => "Phone",
 
 
     // Process Exam

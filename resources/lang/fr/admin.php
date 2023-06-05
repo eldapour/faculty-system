@@ -55,6 +55,9 @@ return [
     "more information" => "Plus d'information",
     "experience_year" => "Année d'expérience",
     "sub_desc" => "Sous-Description",
+    "whatsapp_link" => "Lien WhatsApp",
+    "youtube_link" => "Lien Youtube",
+    "phone" => "Téléphone",
 
 
 

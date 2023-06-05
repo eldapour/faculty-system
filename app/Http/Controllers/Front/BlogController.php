@@ -13,4 +13,10 @@ class BlogController extends Controller
         $data['advertisements'] = Advertisement::all();
         return view('front.blogs.new_blog', $data);
     }
+
+    public function blogItem($id)
+    {
+        $data['blog_items'] = Advertisement::where('id', $id)->get();
+        return view('front.blogs.single-blog', $data);
+    }
 }

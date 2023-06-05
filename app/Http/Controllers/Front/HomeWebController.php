@@ -16,7 +16,6 @@ class HomeWebController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::all();
-        $data['advertisements'] = Advertisement::latest()->limit(6)->get();
         $data['events'] = Event::latest()->limit(6)->get();
         $data['dean_speech'] = Word::all();
         $data['videos'] = Video::all();

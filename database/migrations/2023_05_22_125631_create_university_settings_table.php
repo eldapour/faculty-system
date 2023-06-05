@@ -20,7 +20,10 @@ return new class extends Migration
             $table->json('title');
             $table->json('description');
             $table->json('address');
+            $table->string('phone');
             $table->longText('facebook_link');
+            $table->longText('whatsapp_link');
+            $table->longText('youtube_link');
             $table->timestamps();
         });
     }

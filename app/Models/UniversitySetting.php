@@ -16,6 +16,9 @@ class UniversitySetting extends Model
         'description',
         'address',
         'facebook_link',
+        'whatsapp_link',
+        'youtube_link',
+        'phone',
     ];
 
     protected $casts = [

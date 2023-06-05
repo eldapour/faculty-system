@@ -36,6 +36,9 @@ class UniversitySettingSeeder extends Seeder
                     'fr' => 'Qeducato',
                 ]),
                 'facebook_link' => 'https://www.facebook.com/Qeducato',
+                'whatsapp_link' => 'https://www.whatsapp.com/Qeducato',
+                'youtube_link' => 'https://www.whatsapp.com/Qeducato',
+                'phone' => '+212 123-4567-901',
                 'created_at' => Carbon::now(),
             ]
         ];

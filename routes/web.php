@@ -46,7 +46,9 @@ Route::group(
         #### Blog ####
         Route::group(['prefix' => 'blog'], function () {
             Route::get('new_blog', [BlogController::class, 'index'])->name('index.new_blog');
+            Route::get('new_blog/{id}', [BlogController::class, 'blogItem'])->name('blog');
             Route::get('event', [EventController::class, 'index'])->name('index.event');
+            Route::get('event/{id}', [EventController::class, 'eventItem'])->name('event');
         });
 
         #### Study Progress ####
