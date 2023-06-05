@@ -28,6 +28,8 @@ return [
     "arabic" => "in Arabic",
     "english" => "in English",
     "france" => "in French",
+    "import" => "Import",
+    "export" => "Export",
     "latin" => "in Latin",
     "wait" => "Wait",
     "added_successfully" => "Added Successfully",

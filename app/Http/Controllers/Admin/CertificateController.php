@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\CertificateExport;
 use App\Http\Controllers\Controller;
+use App\Imports\CertificateImport;
 use App\Models\Certificate;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class CertificateController extends Controller
@@ -20,7 +23,7 @@ class CertificateController extends Controller
                 ->addColumn('action', function ($certificates) {
                     return '
                             <button type="button" data-id="' . $certificates->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                         
+
                        ';
                 })
                 ->editColumn('diploma_name', function ($certificates) {
@@ -124,6 +127,21 @@ class CertificateController extends Controller
 
         $certificate->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    }
+    } // Delete
+
+    public function exportCertificate()
+    {
+        return Excel::download(new CertificateExport, 'Certificate.xlsx');
+    } // end export
+
+    public function importCertificate(Request $request)
+    {
+        $import = Excel::import(new CertificateImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    } // end question import
 
 }
