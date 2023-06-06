@@ -29,7 +29,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.student') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.doctor') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.group') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.unit') }}</th>

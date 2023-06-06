@@ -27,13 +27,13 @@ class SubjectUnitDoctorController extends Controller
                     return '
                             <button type="button" data-id="' . $subject_unit_doctors->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_unit_doctors->id . '" data-title="' . $subject_unit_doctors->user->first_name . '">
+                                    data-id="' . $subject_unit_doctors->id . '" data-title="' . $subject_unit_doctors->doctor->first_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('user_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->user->first_name .'</td>';
+                    return'<td>'. $subject_unit_doctors->doctor->first_name .'</td>';
                 })
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
@@ -59,7 +59,7 @@ class SubjectUnitDoctorController extends Controller
     // Create Start
     public function create()
     {
-        $data['users'] = User::all();
+        $data['users'] = User::where('user_type', 'doctor')->get();
         $data['subjects'] = Subject::all();
         $data['groups'] = Group::all();
         $data['units'] = Unit::all();
@@ -116,4 +116,21 @@ class SubjectUnitDoctorController extends Controller
     }
 
     // Destroy End
+
+    public function getUnit(Request $request)
+    {
+        $id = $request->id;
+        $subject = Unit::query()
+        ->where('subject_id', $id)
+            ->get()
+            ->pluck('unit_name', 'id')
+            ->toArray();
+
+
+        if (count($subject) > 0) {
+            return $subject;
+        } else {
+            return response()->json(404);
+        }
+    }
 }

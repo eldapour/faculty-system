@@ -35,6 +35,7 @@
                                 <th class="min-w-50px">{{ trans('admin.year') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.section') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -96,11 +97,15 @@
             {data: 'id', name: 'id'},
             {data: 'user_id', name: 'user_id'},
             {data: 'doctor', name: 'doctor'},
-            {data: 'subject_id', name: 'subject_id'},
+            {data: 'subject', name: 'subject'},
             {data: 'period', name: 'period'},
             {data: 'year', name: 'year'},
             {data: 'section', name: 'section'},
             {data: 'exam_code', name: 'exam_code'},
+            {
+                data: 'request_status',
+                name: 'request_status'
+            },
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('process_degrees.index')}}', columns);

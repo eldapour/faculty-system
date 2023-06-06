@@ -230,7 +230,7 @@ return [
     'subject_exam_student' => 'امتحان طالب المادة',
     'subject_exam_students' => 'استدعاء الامتحان',
     'exam_code' => 'رمز الامتحان',
-    'section' => 'قسم',
+    'section' => 'قاعة',
 
 
 
@@ -288,6 +288,7 @@ return [
     // Process Degrees
     "process_degree" => "درجة العملية",
     "process_degrees" => "طلب معالجه نقطه",
+    "process_degrees_admin" => "ادارة طلب معالجة النقطة" ,
     "student_degree_before_request" => "درجة الطالب قبل الطلب",
     "student_degree_after_request" => "درجة الطالب بعد الطلب",
     "request_type" => "نوع الطلب",

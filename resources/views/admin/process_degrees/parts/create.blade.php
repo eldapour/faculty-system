@@ -4,28 +4,22 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="user_id" class="form-control-label">{{ trans('admin.student') }}</label>
-                    <select name="user_id" class="form-control">
-                        @foreach ($data['students'] as $student)
-                            <option value="{{ $student->id }}">{{ $student->first_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="doctor_id" class="form-control-label">{{ trans('admin.doctor') }}</label>
-                    <select name="doctor_id" class="form-control">
-                        @foreach ($data['doctors'] as $doctor)
-                            <option value="{{ $doctor->id }}">{{ $doctor->first_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-4">
                     <label for="subject_id" class="form-control-label">{{ trans('admin.subject') }}</label>
                     <select name="subject_id" class="form-control">
                         @foreach ($data['subjects'] as $subject)
                             <option value="{{ $subject->id }}">{{ $subject->subject_name }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="department_branch_id" class="form-control-label">@lang('admin.doctor')</label>
+                    <select class="form-control" name="doctor_id" required>
+                        <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="user_id" class="form-control-label">{{ trans('admin.student') }}</label>
+                    <input type="text" class="form-control" readonly name="user_id" value="{{ auth()->user()->first_name }}">
                 </div>
             </div>
             <div class="row">
@@ -55,6 +49,12 @@
                     <input type="number" class="form-control" name="student_degree_before_request">
                 </div>
                 <div class="col-md-4">
+                    <label for="student_degree_after_request" class="form-control-label">{{ trans('admin.student_degree_after_request') }}</label>
+                    <input type="number" class="form-control" name="student_degree_after_request">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <label for="request_type" class="form-control-label">{{ trans('admin.request_type') }}</label>
                     <select name="request_type" class="form-control">
                         <option value="غائب" style="text-align: center">{{ trans('admin.absent') }}</option>
@@ -62,22 +62,7 @@
                         <option value="طلب جبر" style="text-align: center">{{ trans('admin.reparation_request') }}</option>
                     </select>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label for="request_status" class="form-control-label">{{ trans('admin.request_status') }}</label>
-                    <select name="request_status" class="form-control">
-                        <option value="new" style="text-align: center">{{ trans('admin.new') }}</option>
-                        <option value="accept" style="text-align: center">{{ trans('admin.accept') }}</option>
-                        <option value="refused" style="text-align: center">{{ trans('admin.refused') }}</option>
-                        <option value="under_processing" style="text-align: center">{{ trans('admin.under_processing') }}</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="student_degree_after_request" class="form-control-label">{{ trans('admin.student_degree_after_request') }}</label>
-                    <input type="number" class="form-control" name="student_degree_after_request">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="processing_date" class="form-control-label">{{ trans('admin.processing_date') }}</label>
                     <input type="date" class="form-control" name="processing_date">
                 </div>
@@ -96,4 +81,32 @@
     $(document).ready(function() {
         $('select').select2();
     });
+
+    $('select[name="subject_id"]').on('change', function() {
+        localStorage.setItem('subject_id', $(this).val());
+        $.ajax({
+            method: 'GET',
+            url: '{{ route('getDoctor') }}',
+            data: {
+                'id': $(this).val(),
+            },
+            success: function(data) {
+                if (data !== 404) {
+                    $('select[name="doctor_id"]').empty();
+                    $.each(data, function(key, value) {
+                        $('select[name="doctor_id"]').append(
+                            '<option style="text-align: center" value="' + key + '">' +
+                            value + '</option>');
+                    });
+                } else if (data === 404) {
+                    $('select[name="doctor_id"]').empty();
+                    $('select[name="doctor_id"]').append(
+                        '<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>'
+                        );
+
+                }
+            }
+        });
+    })
+
 </script>

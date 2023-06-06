@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use App\Models\ProcessDegree;
 use App\Models\User;
 use App\Models\Subject;
+use App\Models\SubjectUnitDoctor;
 
 class ProcessDegreeController extends Controller
 {
@@ -22,20 +23,37 @@ class ProcessDegreeController extends Controller
                     return '
                             <button type="button" data-id="' . $process_degrees->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user->first_name . '">
+                                    data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
-                 ->editColumn('user_id', function ($process_degrees) {
-                     return '<td>'. @$process_degrees->user->first_name .'</td>';
-                 })
-                 ->editColumn('subject_id ', function ($process_degrees) {
-                     return '<td>'. @$process_degrees->subject->subject_name .'</td>';
-                 })
-                 ->addColumn('doctor', function ($process_degrees) {
-                     return '<td>'. @$process_degrees->doctor->first_name .'</td>';
-                 })
+                ->editColumn('user_id', function () {
+                    return '<td>' . auth()->user()->first_name . '</td>';
+                })
+                ->editColumn('request_status', function ($process_degrees) {
+                    if($process_degrees->request_status == 'new'){
+                        return '<td>' . trans('admin.new') . '</td>';
+                    }
+                    if($process_degrees->request_status == 'accept')
+                    {
+                        return '<td>' . trans('admin.accept') . '</td>';
+                    }
+                    if($process_degrees->request_status == 'refused')
+                    {
+                        return '<td>' . trans('admin.refused') . '</td>';
+                    }
+                    if($process_degrees->request_status == 'under_processing')
+                    {
+                        return '<td>' . trans('admin.under_processing') . '</td>';
+                    }
+                })
+                ->addColumn('subject', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->subject->subject_name . '</td>';
+                })
+                ->addColumn('doctor', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->doctor->first_name . '</td>';
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -47,9 +65,7 @@ class ProcessDegreeController extends Controller
     // Create Start
     public function create()
     {
-        $data['students'] = User::where('user_type', 'student')->get();
         $data['subjects'] = Subject::all();
-        $data['doctors'] = User::where('user_type', 'doctor')->get();
         return view('admin.process_degrees.parts.create', compact('data'));
     }
     // Create End
@@ -59,6 +75,7 @@ class ProcessDegreeController extends Controller
     public function store(ProcessDegreeRequest $request)
     {
         $inputs = $request->all();
+        $inputs['user_id'] = auth()->user()->id;
         if (ProcessDegree::create($inputs)) {
             return response()->json(['status' => 200]);
         } else {
@@ -73,7 +90,7 @@ class ProcessDegreeController extends Controller
     {
         $data['students'] = User::where('user_type', 'student')->get();
         $data['subjects'] = Subject::all();
-        $data['doctors'] = User::where('user_type', 'doctor')->get();
+        $data['doctors'] = User::find($processDegree->doctor_id);
         return view('admin.process_degrees.parts.edit', compact('processDegree', 'data'));
     }
     // Edit End
@@ -82,7 +99,9 @@ class ProcessDegreeController extends Controller
 
     public function update(Request $request, ProcessDegree $processDegree)
     {
-        if ($processDegree->update($request->all())) {
+        $inputs = $request->all();
+        $inputs['user_id'] = auth()->user()->id;
+        if ($processDegree->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -101,4 +120,19 @@ class ProcessDegreeController extends Controller
     }
 
     // Destroy End
+
+    // Get Doctor
+    public function getDoctor(Request $request)
+    {
+        $id = $request->id;
+        $doctor = SubjectUnitDoctor::query()->join('users', 'subject_unit_doctors.user_id', '=', 'users.id')
+            ->where('subject_id', $id)
+            ->pluck('users.first_name', 'subject_unit_doctors.user_id')
+            ->toArray();
+        if (count($doctor) > 0) {
+            return $doctor;
+        } else {
+            return response()->json(404);
+        }
+    }
 }
