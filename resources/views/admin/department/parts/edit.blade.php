@@ -7,15 +7,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="department_name[ar]" value="{{ $department->department_name['ar'] }}" required>
+                    <input type="text" class="form-control" name="department_name_ar" value="{{ $department->getTranslation('department_name', 'ar') }}" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $department->department_name['en'] }}" name="department_name[en]" required>
+                    <input type="text" class="form-control" value="{{ $department->getTranslation('department_name', 'en') }}" name="department_name_en" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $department->department_name['fr'] }}" name="department_name[fr]" required>
+                    <input type="text" class="form-control" value="{{ $department->getTranslation('department_name', 'fr') }}" name="department_name_fr" required>
                 </div>
             </div>
         </div>

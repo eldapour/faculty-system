@@ -10,7 +10,7 @@
                     <select class="form-control" name="department_id" required @selected(old('department_id',$branch->department_id))>
                         <option value="" disabled>@lang('admin.select')</option>
                         @foreach($departments as $department)
-                            <option value="{{ $department->id}}">{{ $department->department_name[lang()] }}</option>
+                            <option value="{{ $department->id}}">{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -18,15 +18,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" value="{{ $branch->branch_name['ar'] }}" name="branch_name[ar]" required>
+                    <input type="text" class="form-control" value="{{ $branch->getTranslation('branch_name', 'ar') }}" name="branch_name_ar" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $branch->branch_name['en'] }}" name="branch_name[en]" required>
+                    <input type="text" class="form-control" value="{{ $branch->getTranslation('branch_name', 'en') }}" name="branch_name_en" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $branch->branch_name['fr'] }}" name="branch_name[fr]" required>
+                    <input type="text" class="form-control" value="{{ $branch->getTranslation('branch_name', 'fr') }}" name="branch_name_fr" required>
                 </div>
             </div>
         </div>

@@ -162,7 +162,7 @@ Route::group([
     #### process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class);
 
-    #### Subjrct Exam Student Result ####
+    #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
 
@@ -204,9 +204,8 @@ Route::group([
     Route::post('importCertificate', [CertificateController::class, 'importCertificate'])->name('importCertificate');
 
 
-#### Event ####
-
-Route::resource('events', EventController::class);
+    #### Event ####
+    Route::resource('events', EventController::class);
 
 
     #### schedules ####
