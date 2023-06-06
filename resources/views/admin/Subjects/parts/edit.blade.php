@@ -8,17 +8,17 @@
                 <div class="col-md-4">
                     <label for="subject_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
-                    <input type="text" class="form-control" value="{{ $subject->subject_name }}" name="subject_name[ar]">
+                    <input type="text" class="form-control" value="{{ $subject->getTranslation('subject_name', 'ar') }}" name="subject_name[ar]">
                 </div>
                 <div class="col-md-4">
                     <label for="subject_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" class="form-control" value="{{ $subject->subject_name }}" name="subject_name[en]">
+                    <input type="text" class="form-control" value="{{ $subject->getTranslation('subject_name', 'en') }}" name="subject_name[en]">
                 </div>
                 <div class="col-md-4">
                     <label for="subject_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
-                    <input type="text" class="form-control" value="{{ $subject->subject_name }}" name="subject_name[fr]">
+                    <input type="text" class="form-control" value="{{ $subject->getTranslation('subject_name', 'fr') }}" name="subject_name[fr]">
                 </div>
             </div>
             <div class="row">
@@ -31,6 +31,23 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
+                    <select name="department_id" style="text-align: center" id=""
+                        class="form-control department_id">
+                        @foreach ($data['departments'] as $department)
+                            <option value="{{ $department->id }}" {{ $subject->department_id == $department->id ? 'selected' : '' }}>{{ $department->department_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
+                    <select class="form-control" name="department_branch_id" required>
+                        <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
@@ -40,4 +57,31 @@
 </div>
 <script>
     $('.dropify').dropify()
+
+    $('select[name="department_id"]').on('change', function() {
+        localStorage.setItem('department_id', $(this).val());
+        $.ajax({
+            method: 'GET',
+            url: '{{ route('getBranches') }}',
+            data: {
+                'id': $(this).val(),
+            },
+            success: function(data) {
+                if (data !== 404) {
+                    $('select[name="department_branch_id"]').empty();
+                    $.each(data, function(key, value) {
+                        $('select[name="department_branch_id"]').append(
+                            '<option style="text-align: center" value="' + key + '">' +
+                            value + '</option>');
+                    });
+                } else if (data === 404) {
+                    $('select[name="department_branch_id"]').empty();
+                    $('select[name="department_branch_id"]').append(
+                        '<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>'
+                        );
+
+                }
+            }
+        });
+    })
 </script>
