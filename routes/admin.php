@@ -145,6 +145,7 @@ Route::group([
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class);
+    Route::get('get_unit', [SubjectUnitDoctorController::class, 'getUnit'])->name('getUnit');
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class);
@@ -161,6 +162,7 @@ Route::group([
 
     #### process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class);
+    Route::get('get_doctor', [ProcessDegreeController::class, 'getDoctor'])->name('getDoctor');
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);

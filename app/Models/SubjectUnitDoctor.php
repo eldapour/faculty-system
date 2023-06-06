@@ -18,9 +18,10 @@ class SubjectUnitDoctor extends Model
         'period',
     ];
 
-    public function user()
+    public function doctor()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id')
+            ->where('user_type', 'doctor');
     }
 
     public function group()

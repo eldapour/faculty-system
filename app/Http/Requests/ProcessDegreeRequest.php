@@ -33,7 +33,6 @@ class ProcessDegreeRequest extends FormRequest
             'exam_code' => 'required',
             'student_degree_before_request' => 'required',
             'request_type' => 'required',
-            'request_status' => 'required',
             'student_degree_after_request' => 'required',
             'processing_date' => 'required',
         ];

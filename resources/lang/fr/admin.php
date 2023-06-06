@@ -279,6 +279,7 @@ return [
     // Process Degrees
     "process_degree" => "Process Degree",
     "process_degrees" => "Process Degrees",
+    "process_degrees_admin" => "Gestion des diplômes",
     "student_degree_before_request" => "Diplôme d'étudiant avant la demande",
     "student_degree_after_request" => "Diplôme d'étudiant après demande",
     "request_type" => "type de demande",

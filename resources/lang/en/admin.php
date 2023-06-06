@@ -293,6 +293,7 @@ return [
     // Process Degrees
     "process_degree" => "Process Degree",
     "process_degrees" => "Process Degrees",
+    "process_degrees_admin" => "Process Degrees Admin",
     "student_degree_before_request" => "Student Degree Before Request",
     "student_degree_after_request" => "Student Degree After Request",
     "request_type" => "Request Type",

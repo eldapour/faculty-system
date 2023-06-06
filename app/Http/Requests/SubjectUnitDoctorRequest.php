@@ -25,11 +25,11 @@ class SubjectUnitDoctorRequest extends FormRequest
     {
         return [
             'year' => 'required',
-            'user_id',
-            'group_id',
-            'subject_id',
-            'unit_id',
-            'period'
+            'user_id' => 'required',
+            'group_id' => 'required',
+            'subject_id' => 'required',
+            'unit_id' => 'required',
+            'period' => 'required'
         ];
     }
 }
