@@ -13,24 +13,24 @@ return new class extends Migration
      */
 
     /*
-     * امتحانات المواد
+     * توزيع الطلبه علي مدرجات الامتحان
      */
     public function up()
     {
-        Schema::create('subject_exams', function (Blueprint $table) {
+        Schema::create('subject_exam_students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
+            $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
-            $table->date('exam_date');
-            $table->time('time_start');
-            $table->time('time_end');
-            $table->string('exam_day');
-            $table->string('year');
+            $table->string('exam_code');
+            $table->string('section');
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
             $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
-            $table->timestamps();
+            $table->string('year');
             $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_exams');
+        Schema::dropIfExists('subject_exam_students');
     }
 };
