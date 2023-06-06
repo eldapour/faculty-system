@@ -28,6 +28,8 @@ return [
     "arabic" => "in Arabic",
     "english" => "in English",
     "france" => "in French",
+    "import" => "Import",
+    "export" => "Export",
     "latin" => "in Latin",
     "wait" => "Wait",
     "added_successfully" => "Added Successfully",
@@ -46,10 +48,18 @@ return [
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
     "dashboard" => "Dashboard",
+    "admin" => "Admin",
+    "admins" => "Admins",
     "logout" => "Logout",
     "profile" => "Profile",
     "information" => "Information",
     "more information" => "More Information",
+    "experience_year" => "Experience Year",
+    "sub_desc" => "Sub Desc",
+    "whatsapp_link" => "Whatsapp Link",
+    "youtube_link" => "Youtube Link",
+    "phone" => "Phone",
+
 
     // Process Exam
     "process_exam" => "Process Exam",
@@ -253,6 +263,8 @@ return [
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "The request has been added successfully",
+    "orders" => "Orders",
+    "order" => "Order",
      'request_date' => "request date",
      'pull_type' => "pull type",
      'pull_date' => "pull date",
@@ -319,8 +331,25 @@ return [
     "diploma all" => "All Diplomas",
 
 
+
     // data modification
     "data_modify" => "Data Modification",
+    'first_name_ar' => 'first name in Arabic',
+    'first_name_en' => 'first name in English',
+    'first_name_fr' => 'first name in France',
+    'last_name_ar' => 'last name in Arabic',
+    'last_name_en' => 'last name in English',
+    'last_name_fr' => 'last name in France',
+    'new' => 'new',
+    'accept' => 'accept',
+    'refused' => 'refused',
+    'under_processing' => 'under_processing',
+
+
+    // Event
+    'event' => 'Event',
+    'events' => 'Events',
+
 
     "schedule_pdf_upload" => "time usage file",
     "group_name" => "group name",

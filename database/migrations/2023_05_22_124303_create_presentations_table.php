@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->json('title');
             $table->json('description');
+            $table->json('sub_desc');
             $table->json('images');
             $table->string('experience_year');
             $table->unsignedBigInteger('category_id')->comment('تبع انهي قسم');

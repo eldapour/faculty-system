@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use App\Models\AboutUs;
-use App\Models\Question;
+use App\Models\User;
+use App\Models\Event;
+use App\Models\Slider;
+use App\Models\Word;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Setting;
+use App\Models\Advertisement;
+use App\Http\Controllers\Controller;
+use App\Models\Video;
 
 class HomeWebController extends Controller
 {
     public function index()
     {
-//        $products = Product::paginate(8);
-//        $settings = Setting::first();
-//        $about = AboutUs::first();
-//        $questions = Question::latest()->take(3)->get();
-//        dd($questions);
-        return view('Front.index');
+        $data['sliders'] = Slider::all();
+        $data['events'] = Event::latest()->limit(6)->get();
+        $data['dean_speech'] = Word::all();
+        $data['videos'] = Video::all();
+        return view('front.index', $data);
     }
 }

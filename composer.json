@@ -13,6 +13,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
+        "maatwebsite/excel": "3.1.48",
         "mcamara/laravel-localization": "^1.8",
         "spatie/laravel-translatable": "^6.5",
         "yajra/laravel-datatables": "9.0",

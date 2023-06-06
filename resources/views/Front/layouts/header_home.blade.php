@@ -36,11 +36,11 @@ id="navbar-spy"
     </div>
 
     <div class="social-links">
-      <a class="share-facebook" href="javascript:void(0)"
+      <a class="share-facebook" href="{{ $university_settings->facebook_link }}"
         ><i class="energia-facebook"></i></a
-      ><a class="share-instagram" href="javascript:void(0)"
+      ><a class="share-instagram" href="{{ $university_settings->youtube_link }}"
         ><i class="energia-twitter"></i></a
-      ><a class="share-twitter" href="javascript:void(0)"
+      ><a class="share-twitter" href="mailto: {{ $university_settings->email }}"
         ><i class="energia-youtube"></i
       ></a>
     </div>
@@ -50,7 +50,7 @@ id="navbar-spy"
   <a class="navbar-brand" href="index.html"
     ><img
       class="logo logo-dark"
-      src="{{ asset('assets/front/') }}/assets/images/logo/logo-dark.png"
+      src="{{ asset('assets/front/assets/')}}photo/logo.png"
       alt="Energia Logo" /><img
       class="logo logo-mobile"
       src="assets/images/logo/logo-mobile.png"
@@ -258,7 +258,7 @@ id="navbar-spy"
       </li>
     </ul>
     <div class="module-holder">
-       
+
       <div class="module-call">
         <i class="icons-energiaphone-call"> </i>
         <div>

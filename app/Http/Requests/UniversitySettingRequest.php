@@ -25,7 +25,7 @@ class UniversitySettingRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'logo' => 'required|image',
+            'logo' => 'required',
             'title.ar' => 'required',
             'title.en' => 'required',
             'title.fr' => 'required',
@@ -35,7 +35,10 @@ class UniversitySettingRequest extends FormRequest
             'address.ar' => 'required',
             'address.en' => 'required',
             'address.fr' => 'required',
-            'facebook_link' => 'required'
+            'facebook_link' => 'required',
+            'whatsapp_link' => 'required',
+            'youtube_link' => 'required',
+            'phone' => 'required',
         ];
     }
 }

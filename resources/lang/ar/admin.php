@@ -31,6 +31,8 @@ return [
     "deleted_successfully" => "تم الحذف بنجاح",
     "something_went_wrong" => "هناك خطأ ما",
     "wrong" => "خطأ",
+    "import" => "استيراد",
+    "export" => "تصدير",
     "video" => 'فيديو',
     "videos" => 'فيديوهات',
     "created_at"=> "تاريخ الاضافة",
@@ -46,10 +48,18 @@ return [
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',
     "dashboard" => "اللوحة الرئيسية",
+    "admin" => "مشرف",
+    "admins" => "مشرفين",
     "logout" => "تسجيل الخروج",
     "profile" => "الملف الشخصي",
     "information" => "المعلومات",
     "more information" => "معلومات اضافية",
+    "experience_year" => "سنين الخبرة",
+    "sub_desc" => "وصف فرعي",
+    "whatsapp_link" => "رابط الواتساب",
+    "youtube_link" => "رابط اليوتيوب",
+    "phone" => "رقم الهاتف",
+
 
 
     // crud
@@ -133,7 +143,7 @@ return [
     'type' => 'نوع',
 
     // Group
-    'group' => 'مجموعة',
+    'group' => 'فوج',
     'groups' => 'الافواج',
 
     'subject' => 'وحده',
@@ -247,6 +257,8 @@ return [
     'note' => "ملاحظات",
     'optional' => "اختياري",
     "order_success" => "تم اضافة الطلب بنجاح",
+    "orders" => "الطلبات",
+    "order" => "الطلب",
     'request_date' => "تاريخ الطلب",
     'pull_type' => "نوع السحب",
     'pull_date' => "تاريخ السحب",
@@ -324,8 +336,26 @@ return [
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
 
+
     // data modification
     "data_modify" => "طلب تعديل البيانات",
+    'first_name_ar' => 'الاسم الأول بالعربية',
+    'first_name_en' => 'الاسم الأول باللغة الإنجليزية',
+    'first_name_fr' => 'الاسم الأول باللغة الفرنسية',
+    'last_name_ar' => 'الاسم الاخير بالعربية',
+    'last_name_en' => 'اسم العائلة باللغة الإنجليزية ',
+    'last_name_fr' => 'الاسم الأخير باللغة الفرنسية',
+
+    'new' => 'جديد',
+    'accept' => 'مقبول',
+    'refused' => 'مرفوض',
+    'under_processing' => 'قيد المراجعة',
+
+
+    // Event
+    'event' => 'حدث',
+    'events' => 'احداث',
+
 
 
     "schedule_pdf_upload" => "ملف استعمال الزمن",

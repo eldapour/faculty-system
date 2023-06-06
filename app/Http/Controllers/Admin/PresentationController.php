@@ -13,100 +13,43 @@ use Illuminate\Http\Request;
 class PresentationController extends Controller
 {
     use PhotoTrait;
-    // Index Start
     public function index(request $request)
     {
-        if ($request->ajax()) {
-            $presentations = Presentation::get();
-            return Datatables::of($presentations)
-                ->addColumn('action', function ($presentations) {
-                    return '
-                            <button type="button" data-id="' . $presentations->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $presentations->id . '" data-title="' . $presentations->title[lang()] . '">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                       ';
-                })
-                ->editColumn('title', function ($advertisements) {
-                    return'<td>'. $advertisements->title[lang()] .'</td>';
-                })
-                ->editColumn('images', function ($advertisements) {
-                    return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($advertisements->images[0]) . '">
-                    ';
-                })
-                ->editColumn('description', function ($advertisements) {
-                    return'<td>'. $advertisements->description[lang()] .'</td>';
-                })
-                ->editColumn('category_id', function ($advertisements) {
-                    return'<td>'. $advertisements->category->category_name .'</td>';
-                })
-                ->escapeColumns([])
-                ->make(true);
-        } else {
-            return view('admin.presentations.index');
-        }
-    }
-    // Index End
-
-    // Create Start
-    public function create()
-    {
-        $data['categories'] = Category::all();
-        return view('admin.presentations.parts.create', compact('data'));
-    }
-    // Create End
-
-    // Store Start
-
-    public function store(StorePresentation $request)
-    {
-        $inputs = $request->all();
-        if($request->has('images')){
-            foreach($request->file('images') as $key => $file)
-            {
-                $inputs['images'][$key] = $this->saveImage($file,'uploads/presentation','photo');
-            }
-        }
-        if (Presentation::create($inputs)) {
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
-        }
+        $data['presentations'] = Presentation::first();
+        $data['categories'] = Category::get();
+        return view('admin.presentations.index',$data);
     }
 
-    // Store End
-
-    // Edit Start
-    public function edit(Presentation $presentation)
-    {
-        $data['categories'] = Category::all();
-        return view('admin.presentations.parts.edit', compact('presentation', 'data'));
-    }
-    // Edit End
 
     // Update Start
 
     public function update(Request $request, Presentation $presentation)
     {
-        if ($presentation->update($request->all())) {
+
+        $inputs = $request->all();
+
+        $images = [];
+
+        if ($request->has('images')) {
+            foreach ($presentation->images as $image) {
+                if (file_exists($image)) {
+                    unlink($image);
+                }
+            }
+            foreach ($request->file('images') as $image) {
+                $images[] = $this->saveImage($image, 'uploads/presentationImage', 'photo');
+            }
+        }
+
+        $inputs['images'] = $images;
+
+        if ($presentation->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
+    // Update End
 
-    // Destroy Start
-
-    public function destroy(Request $request)
-    {
-        $presentation = Presentation::where('id', $request->id)->firstOrFail();
-        $presentation->delete();
-        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    }
-
-    // Destroy End
 }

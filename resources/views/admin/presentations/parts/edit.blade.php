@@ -30,7 +30,7 @@
                     <select name="category_id" class="form-control" required>
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center" {{ $presentation->category_id == $category->id ? 'selected' : '' }}>
-                                {{ $category->category_name }}</option>
+                                {{ $category->category_name[lang()] }}</option>
                         @endforeach
                     </select>
                 </div>

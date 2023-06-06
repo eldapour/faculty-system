@@ -25,6 +25,8 @@ return [
     "Print" => "Imprimer",
     "Excel" => "Exceller",
     "select" => "sélect",
+    "import" => "importer",
+    "export" => "exporter",
     "arabic" => "en arabe",
     "english" => "En anglais",
     "france" => "en français",
@@ -45,10 +47,18 @@ return [
     "something_went_wrong" => "Quelque chose s'est mal passé",
     "wrong" => "Faux",
     "dashboard" => "Tableau de bord",
+    "admin" => "Administrador",
+    "admins" => "Administradores",
     "logout" => "Se déconnecter",
     "profile" => "Profil",
     "information" => "Information",
     "more information" => "Plus d'information",
+    "experience_year" => "Année d'expérience",
+    "sub_desc" => "Sous-Description",
+    "whatsapp_link" => "Lien WhatsApp",
+    "youtube_link" => "Lien Youtube",
+    "phone" => "Téléphone",
+
 
 
     // crud
@@ -237,6 +247,8 @@ return [
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "La demande a été ajoutée avec succès",
+    "orders" => "ordres",
+    "order" => "ordre",
     'request_date' => "date de la demande",
     'pull_type' => "type d'extraction",
     'pull_date' => "date d'extraction",
@@ -290,7 +302,6 @@ return [
     "number_of_doctors" => "nombre de médecins",
 
 
-
     //Certificates
     "diploma_id" => "diplôme_id",
     "diploma_name" => "nom du diplôme",
@@ -321,12 +332,33 @@ return [
     "data_modify" => "Modification des données",
 
 
+
     "schedule_pdf_upload" => "fichier d'utilisation du temps",
     "group_name" => "nom du groupe",
     "department_name" => "nom du département",
     "department_branch_name" => "nom du département",
     "add_schedule" => "Ajouter une utilisation d'horaire",
     "all_schedules" => "horaires",
+
+
+
+    // Event
+    'event' => 'Evénement',
+    'events' => 'Événements',
+
+    'first_name_ar' => 'prénom en arabe',
+    'first_name_en' => 'prénom en anglais',
+    'first_name_fr' => 'prénom en france',
+    'last_name_ar' => 'nom de famille en arabe',
+    'last_name_en' => 'nom de famille en anglais',
+    'last_name_fr' => 'nom de famille en France',
+
+    'new' => 'nouveau',
+    'accept' => 'accepter',
+    'refused' => 'refusé',
+    'under_processing' => 'en cours de traitement',
+
+
 
 ];
 

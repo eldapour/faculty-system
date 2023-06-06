@@ -269,6 +269,12 @@
             </a>
         </li>
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('events.index') }}">
+                <i class="icon icon-user side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.events') }}</span>
+            </a>
+        </li>
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
                 <i class="icon icon-user side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>

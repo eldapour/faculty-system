@@ -14,13 +14,21 @@
                 <div class="card-header">
                     <h3 class="card-title">{{ trans('admin.diploma_all') }}</h3>
                     <div class="">
+                        <button class="btn btn-primary btn-icon text-white"
+                                data-toggle="modal" data-target="#importExel">
+									<span>
+										<i class="fe fe-download"></i>
+									</span> {{ trans('admin.import') }}
+                        </button>
+                        <button class="btn btn-success btn-icon exportBtn text-white">
+									<span>
+										<i class="fe fe-upload"></i>
+									</span> {{ trans('admin.export') }}
+                        </button>
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
 									</span> {{ trans('admin.diploma_add') }}
-
-
-
                         </button>
                     </div>
                 </div>
@@ -83,10 +91,39 @@
         </div>
         <!-- Edit MODAL CLOSED -->
     </div>
+    <!-- Import Modal -->
+    <div class="modal fade" id="importExel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">@lang('admin.import')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <form method="post" id="importExelForm" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <label class="form-label" for="exelFile"></label>
+                                <input class="form-control form-control-file dropify" type="file" name="exelFile">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
+                                <button type="submit" class="btn btn-primary importBtn">@lang('admin.import')</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Import Modal -->
+    </div>
     @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
-
 
     <script>
         var loader = ` <div class="linear-background">
@@ -127,18 +164,17 @@
         })
 
 
-
         // Get Add View
         $(document).on('click', '.addBtn', function () {
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
             //setTimeout(function () {
-                $('#modalContent').load('{{route('certificates.create')}}')
-           // }, 250)
+            $('#modalContent').load('{{route('certificates.create')}}')
+            // }, 250)
         });
 
         // Add By Ajax
-        $(document).on('submit','Form#addForm',function(e) {
+        $(document).on('submit', 'Form#addForm', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#addForm').attr('action');
@@ -156,8 +192,7 @@
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('Certificate added successfully');
-                    }
-                    else
+                    } else
                         toastr.error('There is an error');
                     $('#addButton').html(`Create`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
@@ -171,7 +206,7 @@
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function (key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -187,9 +222,8 @@
         });
 
 
-
         // Update By Ajax
-        $(document).on('submit','Form#updateForm',function(e) {
+        $(document).on('submit', 'Form#updateForm', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#updateForm').attr('action');
@@ -206,11 +240,10 @@
                 success: function (data) {
 
                     $('#updateButton').html(`Update`).attr('disabled', false);
-                    if (data.status == 200){
+                    if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('Certificate updated successfully');
-                    }
-                    else
+                    } else
                         toastr.error('There is an error');
 
                     $('#editOrCreate').modal('hide')
@@ -225,7 +258,7 @@
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function (key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -241,6 +274,45 @@
             });
         });
 
+        $(document).on('click','.exportBtn',function(){
+           location.href = '{{ route('exportCertificate') }}';
+        });
+
+        $(document).on("submit", "#importExelForm", function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: '{{ route('importCertificate') }}',
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    if (data.status === 200) {
+                        toastr.success('{{ trans('admin.added_successfully') }}')
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000)
+
+                    } else if (data.status === 500) {
+                        toastr.error('erro')
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000)
+                    }
+                },
+                error: function (data) {
+                    toastr.error('error')
+                    setTimeout(function () {
+                        // window.location.reload();
+                    }, 2000)
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
 
     </script>
 

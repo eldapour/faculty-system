@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DateTime;
 use App\Models\Unit;
 use App\Models\User;
 use App\Models\Group;
@@ -42,6 +43,10 @@ class SubjectUnitDoctorController extends Controller
                 })
                 ->editColumn('unit_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->unit->unit_name .'</td>';
+                })
+                ->editColumn('year', function ($subject_unit_doctors) {
+                    $date = new DateTime($subject_unit_doctors->year);
+                    return '<td>' . $date->format('Y') . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);

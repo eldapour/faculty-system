@@ -48,7 +48,7 @@ class AdvertisementController extends Controller
                     return'<td>'. $advertisements->description[lang()] .'</td>';
                 })
                 ->editColumn('category_id', function ($advertisements) {
-                    return'<td>'. $advertisements->category->category_name .'</td>';
+                    return'<td>'. $advertisements->category->category_name[lang()] .'</td>';
                 })
                 ->editColumn('service_id', function ($advertisements) {
                     return'<td>'. $advertisements->service->service_name[lang()] .'</td>';
@@ -104,7 +104,24 @@ class AdvertisementController extends Controller
 
     public function update(Request $request, Advertisement $advertisement)
     {
-        if ($advertisement->update($request->all())) {
+
+        $inputs = $request->all();
+
+        if ($request->has('image')) {
+            if (file_exists($advertisement->image)) {
+                unlink($advertisement->image);
+            }
+            $inputs['image'] = $this->saveImage($request->image, 'uploads/advertisements/images','photo');
+        }
+
+        if ($request->has('background_image')) {
+            if (file_exists($advertisement->background_image)) {
+                unlink($advertisement->background_image);
+            }
+            $inputs['background_image'] = $this->saveImage($request->background_image, 'uploads/advertisements/background_image','photo');
+        }
+
+        if ($advertisement->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
