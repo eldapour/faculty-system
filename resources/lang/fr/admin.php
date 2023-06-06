@@ -212,7 +212,7 @@ return [
 
     // Subject Exam
     'subject_exam' => 'Subject Exam',
-    'subject_exams' => 'Subject Exams',
+    'subject_exams' => 'Exams',
     'exam_date' => 'Exam Date',
     'exam_day' => 'Exam Day',
     'session' => "Session",
@@ -221,7 +221,7 @@ return [
     'normal' => 'Normal',
 
     // Subject Exam Student
-    'subject_exam_student' => 'Subject Exam Student',
+    'subject_exam_student' => "Appel d'examen",
     'subject_exam_students' => 'Subject Exam Students',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
@@ -294,7 +294,7 @@ return [
     "paper_review" => "Examen papier",
     "reparation_request" => "Demande de réparation",
     // Subject Exam Student Result
-    "subject_exam_student_results" => "Sujet Examen Résultats des étudiants",
+    "subject_exam_student_results" => "Examen Résultats",
     "degree" => "Degré",
     "exam" => "Examen",
     "date_enter_degree" => "Date Entrez le diplôme",

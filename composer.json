@@ -17,7 +17,8 @@
         "mcamara/laravel-localization": "^1.8",
         "spatie/laravel-translatable": "^6.5",
         "yajra/laravel-datatables": "9.0",
-        "yoeunes/toastr": "^2.3"
+        "yoeunes/toastr": "^2.3",
+      "ext-json": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

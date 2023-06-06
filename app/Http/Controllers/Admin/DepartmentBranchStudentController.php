@@ -17,7 +17,9 @@ class DepartmentBranchStudentController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $branchStudent = DepartmentBranchStudent::get();
+            $branchStudent = DepartmentBranchStudent::query()
+            ->get();
+
             return Datatables::of($branchStudent)
                 ->addColumn('action', function ($branchStudent) {
                     return '
@@ -29,7 +31,7 @@ class DepartmentBranchStudentController extends Controller
                        ';
                 })
                 ->editColumn('department_branch_id', function ($branchStudent) {
-                    return $branchStudent->branch->branch_name[lang()];
+                    return $branchStudent->branch->getTranslation('branch_name', app()->getLocale());
                 })
                 ->editColumn('user_id', function ($branchStudent) {
                     return $branchStudent->student->first_name . ' ' . $branchStudent->student->last_name;

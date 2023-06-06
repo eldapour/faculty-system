@@ -218,7 +218,7 @@ return [
 
     // Subject Exam
     'subject_exam' => 'امتحان المادة',
-    'subject_exams' => 'امتحانات المادة',
+    'subject_exams' => 'الامتحانات',
     'exam_date' => 'تاريخ الامتحان',
     'exam_day' => 'يوم الامتحان',
     'session' => "الدورة",
@@ -228,7 +228,7 @@ return [
 
     // Subject Exam Student
     'subject_exam_student' => 'امتحان طالب المادة',
-    'subject_exam_students' => 'امتحان طلاب المادة',
+    'subject_exam_students' => 'استدعاء الامتحان',
     'exam_code' => 'رمز الامتحان',
     'section' => 'قسم',
 
@@ -287,7 +287,7 @@ return [
 
     // Process Degrees
     "process_degree" => "درجة العملية",
-    "process_degrees" => "درجات العملية",
+    "process_degrees" => "طلب معالجه نقطه",
     "student_degree_before_request" => "درجة الطالب قبل الطلب",
     "student_degree_after_request" => "درجة الطالب بعد الطلب",
     "request_type" => "نوع الطلب",
@@ -304,7 +304,7 @@ return [
 
 
     // Subject Exam Student Result
-    "subject_exam_student_results" => "نتائج امتحان المادة",
+    "subject_exam_student_results" => "نتائج الامتحانات",
     "degree" => "درجة",
     "exam" => "امتحان",
     "date_enter_degree" => "تاريخ ادخال النتيجة",

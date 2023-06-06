@@ -66,6 +66,7 @@ class UserController extends Controller
                 })
                 ->escapeColumns([])
                 ->make(true);
+
         } else {
             return view('admin/users/index');
         }

@@ -275,7 +275,6 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     @foreach ($dean_speech as $dean)
-                    @endforeach
                     <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
                     <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
                     <p>{{ $dean->description[lang()] }}</p>
@@ -285,6 +284,9 @@
                             <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                         </a>
                     </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>

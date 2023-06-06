@@ -14,7 +14,7 @@
 <body class="app sidebar-mini">
 
     <!-- Start Switcher -->
-    @include('admin.layouts.switcher')
+{{--    @include('admin.layouts.switcher')--}}
     <!-- End Switcher -->
 
     <!-- GLOBAL-LOADER -->

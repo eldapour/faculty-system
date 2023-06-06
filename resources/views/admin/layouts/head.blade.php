@@ -69,7 +69,7 @@
 <link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
 <script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
 
-@include('admin.layouts.switch')
+{{--@include('admin.layouts.switch')--}}
 
 {{--satrt toastr--}}
 @yield('css')
