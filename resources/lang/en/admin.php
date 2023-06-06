@@ -227,7 +227,7 @@ return [
 
     // Subject Exam
     'subject_exam' => 'Subject Exam',
-    'subject_exams' => 'Subject Exams',
+    'subject_exams' => 'Exams',
     'exam_date' => 'Exam Date',
     'exam_day' => 'Exam Day',
     'session' => "Session",
@@ -237,7 +237,7 @@ return [
 
     // Subject Exam Student
     'subject_exam_student' => 'Subject Exam Student',
-    'subject_exam_students' => 'Subject Exam Students',
+    'subject_exam_students' => 'Exam Calls',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
 
@@ -308,7 +308,7 @@ return [
     "reparation_request" => "Reparation Request",
 
     // Subject Exam Student Result
-    "subject_exam_student_results" => "Subject Exam Student Results",
+    "subject_exam_student_results" => "Exam Results",
     "degree" => "Degree",
     "exam" => "Exam",
     "date_enter_degree" => "Date Enter Degree",

@@ -20,16 +20,16 @@ class DepartmentBranchController extends Controller
                     return '
                             <button type="button" data-id="' . $branches->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $branches->id . '" data-title="' . $branches->branch_name[lang()] . '">
+                                    data-id="' . $branches->id . '" data-title="' . $branches->getTranslation('branch_name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('branch_name',function($branches){
-                    return $branches->branch_name[lang()];
+                    return $branches->getTranslation('branch_name', app()->getLocale());
                 })
                 ->editColumn('department_id',function($branches){
-                    return $branches->department->department_name[lang()];
+                    return $branches->department->getTranslation('department_name', app()->getLocale());
                 })
                 ->escapeColumns([])
                 ->make(true);

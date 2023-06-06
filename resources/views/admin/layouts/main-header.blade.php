@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="d-flex">
             <a class="header-brand d-md-none" href="#">
-                <img src="{{ asset('assets/uploads') }}/logo.png" class="header-brand-img mobile-icon" alt="logo">
-                <img src="{{ asset('assets/uploads') }}/logo.png" class="header-brand-img desktop-logo mobile-logo"
+                <img src="{{ asset('assets/logo/university.png') }}" class="header-brand-img mobile-icon" alt="logo">
+                <img src="{{ asset('assets/logo/download.jfif') }}" class="header-brand-img desktop-logo mobile-logo"
                      alt="logo">
             </a>
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#">

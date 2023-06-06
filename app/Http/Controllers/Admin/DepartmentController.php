@@ -19,13 +19,13 @@ class DepartmentController extends Controller
                     return '
                             <button type="button" data-id="' . $departments->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $departments->id . '" data-title="' . $departments->department_name[lang()] . '">
+                                    data-id="' . $departments->id . '" data-title="' . $departments->getTranslation('department_name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('department_name',function($departments){
-                    return $departments->department_name[lang()];
+                    return $departments->getTranslation('department_name', app()->getLocale());
                 })
                 ->escapeColumns([])
                 ->make(true);
