@@ -14,7 +14,9 @@ class Subject extends Model
 
     protected $fillable = [
         'subject_name',
-        'group_id'
+        'group_id',
+        'department_id',
+        'department_branch_id'
     ];
 
     protected $casts = [
@@ -24,5 +26,13 @@ class Subject extends Model
     public function group()
     {
         return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+    public function department_branch()
+    {
+        return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
     }
 }

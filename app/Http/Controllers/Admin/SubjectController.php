@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectRequest;
+use App\Models\Department;
+use App\Models\DepartmentBranch;
 use App\Models\Group;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -32,6 +34,12 @@ class SubjectController extends Controller
                 ->editColumn('group_id', function ($subjects) {
                     return '<td>'. $subjects->group->group_name .'</td>';
                 })
+                ->editColumn('department_id', function ($subjects) {
+                    return '<td>'. $subjects->department->department_name .'</td>';
+                })
+                ->editColumn('department_branch_id', function ($subjects) {
+                    return '<td>'. $subjects->department_branch->branch_name .'</td>';
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -44,6 +52,7 @@ class SubjectController extends Controller
     public function create()
     {
         $data['groups'] = Group::all();
+        $data['departments'] = Department::all();
         return view('admin.subjects.parts.create', compact('data'));
     }
     // Create End
@@ -66,15 +75,16 @@ class SubjectController extends Controller
     public function edit(Subject $subject)
     {
         $data['groups'] = Group::all();
+        $data['departments'] = Department::all();
         return view('admin.subjects.parts.edit', compact('subject', 'data'));
     }
     // Edit End
 
     // Update Start
 
-    public function update(Request $request, Subject $subjects)
+    public function update(Request $request, Subject $subject)
     {
-        if ($subjects->update($request->all())) {
+        if ($subject->update($request->all())) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

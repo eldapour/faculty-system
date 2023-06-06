@@ -30,6 +30,8 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.department') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.branch') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -70,7 +72,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.group') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -91,6 +93,8 @@
             {data: 'id', name: 'id'},
             {data: 'subject_name', name: 'subject_name'},
             {data: 'group_id', name: 'group_id'},
+            {data: 'department_id', name: 'department_id'},
+            {data: 'department_branch_id', name: 'department_branch_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('subject.index')}}', columns);
