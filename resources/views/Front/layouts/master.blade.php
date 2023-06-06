@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  @include('Front.layouts.head')
+  @include('front.layouts.head')
   <body>
 
-    @include('Front.layouts.header')
-    @include('Front.layouts.nav')
+    @include('front.layouts.header')
+    @include('front.layouts.nav')
 
       @yield('content')
 
-    @include('Front.layouts.footer')
+    @include('front.layouts.footer')
 
 
 
