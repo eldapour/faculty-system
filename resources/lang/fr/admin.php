@@ -218,8 +218,13 @@ return [
     'session' => "Session",
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
+
+    'normal' => 'Normal',
+    'catch up' => 'rattraper',
+
     'normal' => 'Normality',
     'remedial' => 'remedial',
+
 
     // Subject Exam Student
     'subject_exam_student' => "Appel d'examen",

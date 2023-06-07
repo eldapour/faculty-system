@@ -10,14 +10,17 @@ class SubjectExam extends Model
     use HasFactory;
 
     protected $fillable = [
+        'group_id',
+        'department_id',
+        'department_branch_id',
+        'subject_id',
         'exam_date',
-        'exam_day',
-        'period',
-        'session',
         'time_start',
         'time_end',
-        'group_id',
-        'subject_id',
+        'exam_day',
+        'year',
+        'period',
+        'session',
     ];
 
     public function group()
@@ -28,5 +31,13 @@ class SubjectExam extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
+    }
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+    public function branch()
+    {
+        return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
     }
 }

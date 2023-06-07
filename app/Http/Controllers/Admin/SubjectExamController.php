@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SubjectExamRequest;
+use DateTime;
+use App\Models\Group;
+use App\Models\Subject;
+use App\Models\Department;
+use App\Models\SubjectExam;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use App\Models\SubjectExam;
-use App\Models\Subject;
-use App\Models\Group;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SubjectExamRequest;
+use App\Models\DepartmentBranch;
 
 class SubjectExamController extends Controller
 {
@@ -27,11 +30,15 @@ class SubjectExamController extends Controller
                             </button>
                        ';
                 })
-                ->editColumn('subject_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
+                ->editColumn('subject_id', function ($subject_exams) {
+                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
                 })
-                ->editColumn('group_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->group->group_name .'</td>';
+                ->editColumn('group_id', function ($subject_exams) {
+                    return '<td>' . $subject_exams->group->group_name . '</td>';
+                })
+                ->editColumn('exam_day', function ($subject_exams) {
+                    $date = new DateTime($subject_exams->exam_day);
+                    return '<td>' . $date->format('l') . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -44,9 +51,13 @@ class SubjectExamController extends Controller
     // Create Start
     public function create()
     {
-        $data['subjects'] = Subject::all();
-        $data['groups'] = Group::all();
-        return view('admin.subject_exams.parts.create', compact('data'));
+        $groups = Group::query()
+            ->select('id', 'group_name')
+            ->get();
+            $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+        return view('admin.subject_exams.parts.create', compact('departments', 'groups'));
     }
     // Create End
 
@@ -68,9 +79,15 @@ class SubjectExamController extends Controller
     // Edit Start
     public function edit(SubjectExam $subjectExam)
     {
-       $data['subjects'] = Subject::all();
-       $data['groups'] = Group::all();
-        return view('admin.subject_exams.parts.edit', compact('subjectExam', 'data'));
+        $groups = Group::query()
+            ->select('id', 'group_name')
+            ->get();
+            $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+            $branches = DepartmentBranch::find($subjectExam->department_branch_id);
+            $subjects = Subject::find($subjectExam->subject_id);
+        return view('admin.subject_exams.parts.edit', compact('subjectExam', 'groups', 'departments', 'subjects', 'branches'));
     }
     // Edit End
 
@@ -97,4 +114,27 @@ class SubjectExamController extends Controller
     }
 
     // Destroy End
+
+    // Get Subject
+    public function getSubject(Request $request)
+{
+    $department_id = $request->department_id;
+    $group_id = $request->group_id;
+
+    $subjects = Subject::query()
+        ->where('department_id', $department_id)
+        ->when($group_id, function ($query) use ($group_id) {
+            return $query->where('group_id', $group_id);
+        })
+        ->get()
+        ->pluck('subject_name', 'id')
+        ->toArray();
+
+    if (count($subjects) > 0) {
+        return $subjects;
+    } else {
+        return response()->json(404);
+    }
+}
+
 }

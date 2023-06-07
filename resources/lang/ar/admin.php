@@ -224,8 +224,13 @@ return [
     'session' => "الدورة",
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
+
+    'normal' => 'عادي',
+    'catch_up' => 'استدراكي',
+
     'normal' => 'عاديه',
     'remedial' => 'استدراكيه',
+
 
     // Subject Exam Student
     'subject_exam_student' => 'امتحان طالب المادة',
