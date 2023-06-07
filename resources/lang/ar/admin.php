@@ -225,6 +225,7 @@ return [
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
     'normal' => 'عادي',
+    'catch_up' => 'استدراكي',
 
     // Subject Exam Student
     'subject_exam_student' => 'امتحان طالب المادة',

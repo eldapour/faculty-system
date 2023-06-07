@@ -24,8 +24,11 @@ class SubjectExamRequest extends FormRequest
     public function rules()
     {
         return [
+            'department_id' => 'required',
+            'department_branch_id' => 'required',
             'exam_date' => 'required|date',
             'exam_day' => 'required',
+            'year' => 'required',
             'period' => 'required',
             'session' => 'required',
             'time_start' => 'required',

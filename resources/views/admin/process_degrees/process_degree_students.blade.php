@@ -1,18 +1,21 @@
 @extends('admin/layouts/master')
 
 
-@section('title')  {{trans('admin.process_degrees_admin')}} @endsection
-@section('page_name') {{trans('admin.process_degrees_admin')}} @endsection
+@section('title')
+    {{ trans('admin.process_degrees_admin') }}
+@endsection
+@section('page_name')
+    {{ trans('admin.process_degrees_admin') }}
+@endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.process_degrees_admin')}}</h3>
+                    <h3 class="card-title">{{ trans('admin.process_degrees_admin') }}</h3>
 
                 </div>
                 <div class="card-body">
@@ -20,19 +23,19 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
-                            <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.student') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.subject') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.section') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
-                                <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
+                                <tr class="fw-bolder text-muted bg-light">
+                                    <th class="min-w-25px">#</th>
+                                    <th class="min-w-50px">{{ trans('admin.student') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.period') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
+                                    <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
 
-                            </tr>
+                                </tr>
                             </thead>
                         </table>
                     </div>
@@ -42,7 +45,7 @@
 
         <!--Delete MODAL -->
         <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,6 +78,29 @@
             </div>
         </div>
         <!-- Edit MODAL CLOSED -->
+
+        <!-- Modal Subject Exam Student Result -->
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal Body Text Goes Here</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Subject Exam Student Result -->
     </div>
     @include('admin/layouts/myAjaxHelper')
 @endsection
@@ -87,26 +113,54 @@
                         </div>
         `;
 
-        var columns = [
-            {data: 'id', name: 'id'},
-            {data: 'user_id', name: 'user_id'},
-            {data: 'doctor', name: 'doctor'},
-            {data: 'subject', name: 'subject'},
-            {data: 'period', name: 'period'},
-            {data: 'year', name: 'year'},
-            {data: 'section', name: 'section'},
-            {data: 'exam_code', name: 'exam_code'},
+        var columns = [{
+                data: 'id',
+                name: 'id'
+            },
+            {
+                data: 'user_id',
+                name: 'user_id'
+            },
+            {
+                data: 'doctor',
+                name: 'doctor'
+            },
+            {
+                data: 'subject',
+                name: 'subject'
+            },
+            {
+                data: 'period',
+                name: 'period'
+            },
+            {
+                data: 'year',
+                name: 'year'
+            },
+            {
+                data: 'section',
+                name: 'section'
+            },
+            {
+                data: 'exam_code',
+                name: 'exam_code'
+            },
             {
                 data: 'request_status',
                 name: 'request_status'
             },
-            {data: 'action', name: 'action', orderable: false, searchable: false},
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false
+            },
         ]
 
 
 
-        showData('{{route('processDegreeStudent')}}', columns);
-        destroyScript('{{route('process_degrees.destroy',':id')}}');
+        showData('{{ route('processDegreeStudent') }}', columns);
+        destroyScript('{{ route('process_degrees.destroy', ':id') }}');
 
 
 
@@ -123,38 +177,27 @@
                     status: selectedValue,
                     "_token": "{{ csrf_token() }}",
                 },
-                success: function (data) {
-                    if(data.code == 200)
-                    {
-                        if(data.status == 'new')
-                        {
+                success: function(data) {
+                    if (data.code == 200) {
+                        if (data.status == 'new') {
                             toastr.success('{{ trans('admin.request_status_is_new') }}');
-                        }
-                        else if(data.status == 'accept')
-                        {
+                        } else if (data.status == 'accept') {
+                            // Show the modal when the status is 'accept'
+                            $('#myModal').modal('show');
                             toastr.success('{{ trans('admin.request_status_is_accepted') }}');
-                        }
-                        else if(data.status == 'refused')
-                        {
+                        } else if (data.status == 'refused') {
                             toastr.success('{{ trans('admin.request_status_is_refused') }}');
-                        }
-                        else if(data.status == 'under_processing')
-                        {
+                        } else if (data.status == 'under_processing') {
                             toastr.success('{{ trans('admin.request_status_is_under_processing') }}');
                         }
                     }
                 },
 
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, textStatus, errorThrown) {
                     // Handle the error
                     console.log(textStatus, errorThrown);
                 }
             });
         }
-
-
     </script>
-
 @endsection
-
-

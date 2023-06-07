@@ -219,6 +219,7 @@ return [
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
     'normal' => 'Normal',
+    'catch up' => 'rattraper',
 
     // Subject Exam Student
     'subject_exam_student' => "Appel d'examen",

@@ -234,6 +234,7 @@ return [
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
     'normal' => 'Normal',
+    'catch_up' => 'Catch Up',
 
     // Subject Exam Student
     'subject_exam_student' => 'Subject Exam Student',
