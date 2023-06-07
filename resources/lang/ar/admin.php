@@ -23,7 +23,7 @@ return [
     "No results" => "لا نتائج",
     "Search" => "للبحث",
     "research" => "بحث",
-    "select" => "اختار",
+    "select" => "اختر",
     "zero_records" => "لا يوجد نتائج",
     "wait" => "انتظر",
     "added_successfully" => "تم الاضافة بنجاح",
@@ -224,7 +224,7 @@ return [
     'session' => "الدورة",
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
-    'normal' => 'عادي',
+    'normal' => 'عادية',
 
     // Subject Exam Student
     'subject_exam_student' => 'امتحان طالب المادة',
@@ -329,6 +329,7 @@ return [
 
     // Process Exam
     "process_exams" => "طلبات الاستدراك",
+    "remedial" => "استدراكية",
     "attachment_file" => "ملف مرفق",
     "reason" => "السبب",
     "pdf" => "ملف ورقي",
@@ -361,8 +362,8 @@ return [
 
     "schedule_pdf_upload" => "ملف استعمال الزمن",
     "group_name" => "اسم الفوج",
-    "department_name" => "اسم القسم",
-    "department_branch_name" => "اسم التخصص",
+    "department_name" => "اسم المسلك",
+    "department_branch_name" => "اسم المسار",
     "add_schedule" => "اضافه جدول استعمال زمن",
     "all_schedules" => "جداول الاستعمالات الزمنيه",
 

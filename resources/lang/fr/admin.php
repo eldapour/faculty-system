@@ -358,6 +358,7 @@ return [
     'accept' => 'accepter',
     'refused' => 'refusé',
     'under_processing' => 'en cours de traitement',
+    "remedial" => "correctif",
 
 
 

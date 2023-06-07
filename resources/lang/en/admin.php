@@ -358,6 +358,7 @@ return [
     "department_branch_name" => "department name",
     "add_schedule" => "Add Schedule Usage",
     "all_schedules" => "schedules",
+    "remedial" => "Remedial",
 
 ];
 
