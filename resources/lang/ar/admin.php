@@ -224,7 +224,8 @@ return [
     'session' => "الدورة",
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
-    'normal' => 'عادي',
+    'normal' => 'عاديه',
+    'remedial' => 'استدراكيه',
 
     // Subject Exam Student
     'subject_exam_student' => 'امتحان طالب المادة',
@@ -364,6 +365,20 @@ return [
     "department_branch_name" => "اسم التخصص",
     "add_schedule" => "اضافه جدول استعمال زمن",
     "all_schedules" => "جداول الاستعمالات الزمنيه",
+
+
+
+    //periods
+    'period_start_date' => "تاريخ بدايه الفتره",
+    'period_end_date' => "تاريخ نهايه الفتره",
+    'period_name' => "الفتره",
+    'session_name' => "الدوره",
+    'year_start' => "سنه البدايه",
+    'year_end' => "سنه النهايه",
+    'status_period' => "حاله الفتره",
+    'period_add' => "اضافه فتره جديده",
+    'period_all' => "جميع الفترات",
+    'period_finished' => "انهاء الفتره",
 
 ];
 
