@@ -191,7 +191,9 @@ Route::group([
     Route::resource('elements', ElementController::class);
 
     #### Process Degrees ####
-    Route::resource('process_degrees', ProcessDegreeController::class);
+    Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
+    Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
+    Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
