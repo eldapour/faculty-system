@@ -364,6 +364,7 @@ return [
     "department_branch_name" => "department name",
     "add_schedule" => "Add Schedule Usage",
     "all_schedules" => "schedules",
+    "remedial" => "Remedial",
 
      'period_start_date' => 'period start date',
      'period_end_date' => 'period end date',

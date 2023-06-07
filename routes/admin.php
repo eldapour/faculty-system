@@ -157,6 +157,8 @@ use Illuminate\Support\Facades\Auth;
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
+    Route::get('getStudent',[SubjectExamStudentController::class,'getStudent'])->name('getStudent');
+    Route::get('getSubject',[SubjectExamStudentController::class,'getSubject'])->name('getSubject');
 
 
     #### Element ####

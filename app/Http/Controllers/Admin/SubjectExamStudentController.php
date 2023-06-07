@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Department;
+use App\Models\Group;
+use App\Models\Subject;
+use App\Models\SubjectStudent;
 use App\Models\User;
 use App\Models\SubjectExam;
 use Illuminate\Http\Request;
@@ -22,13 +26,13 @@ class SubjectExamStudentController extends Controller
                     return '
                             <button type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exam_students->id . '" data-title="' . $subject_exam_students->id . '">
+                                    data-id="' . $subject_exam_students->id . '" data-title="">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
-                ->editColumn('subject_exam_id', function ($subject_exam_students) {
-                    return '<td>' . $subject_exam_students->subjectExam->subject->subject_name . '</td>';
+                ->editColumn('subject_id', function ($subject_exam_students) {
+                    return '<td>' . $subject_exam_students->subject->subject_name . '</td>';
                 })
                 ->editColumn('user_id', function ($subject_exam_students) {
                     return '<td>' . $subject_exam_students->user->first_name . '</td>';
@@ -44,9 +48,12 @@ class SubjectExamStudentController extends Controller
     // Create Start
     public function create()
     {
-        $data['users'] = User::all();
-        $data['subject_exams'] = SubjectExam::all();
-        return view('admin.subject_exam_students.parts.create', compact('data'));
+        $data['users'] = User::get();
+        $data['groups'] = Group::get();
+        $data['departments'] = Department::get();
+        $group_ids = Group::pluck('id')->toArray();
+        $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
+        return view('admin.subject_exam_students.parts.create')->with($data);
     }
     // Create End
 
@@ -68,9 +75,12 @@ class SubjectExamStudentController extends Controller
     // Edit Start
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
-        $data['users'] = User::all();
-        $data['subject_exams'] = SubjectExam::all();
-        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent', 'data'));
+        $data['users'] = User::get();
+        $data['groups'] = Group::get();
+        $data['departments'] = Department::get();
+        $group_ids = Group::pluck('id')->toArray();
+        $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
+        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent'))->with($data);
     }
     // Edit End
 
@@ -97,4 +107,30 @@ class SubjectExamStudentController extends Controller
     }
 
     // Destroy End
+
+    public function getStudent(Request $request)
+    {
+        $user_ids = SubjectStudent::where('group_id', '=', $request->group_id)
+            ->where('subject_id', '=', $request->subject_id)->pluck('user_id')->toArray();
+        $users = User::whereIn('id', $user_ids)->pluck('identifier_id', 'id')->toArray();
+
+        if (count($users) > 0) {
+            return $users;
+        } else {
+            return response()->json(404);
+        }
+    }
+
+    public function getSubject(Request $request)
+    {
+        $subjects = Subject::where('group_id', '=', $request->id)
+            ->pluck('subject_name', 'id')
+            ->toArray();
+
+        if (count($subjects) > 0) {
+            return $subjects;
+        } else {
+            return response()->json(404);
+        }
+    }
 }

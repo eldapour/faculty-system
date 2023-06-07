@@ -55,7 +55,7 @@
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>{{ trans('admin.sure_delete') }} ? ["<span id="title" class="text-danger"></span>"]</p>
+                        <p>{{ trans('admin.sure_delete') }} ? <span id="title" class="text-danger"></span></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -95,7 +95,7 @@
             {data: 'exam_code', name: 'exam_code'},
             {data: 'section', name: 'section'},
             {data: 'user_id', name: 'user_id'},
-            {data: 'subject_exam_id', name: 'subject_exam_id'},
+            {data: 'subject_id', name: 'subject_id'},
             {data: 'period', name: 'period'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
