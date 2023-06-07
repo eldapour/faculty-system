@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PageSeeder::class);
         $this->call(WordSeeder::class);
         $this->call(UniversitySettingSeeder::class);
+        $this->call(SliderSeeder::class);
+        $this->call(PresentationSeeder::class);
     }
 }

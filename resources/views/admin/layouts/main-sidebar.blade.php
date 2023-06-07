@@ -214,7 +214,7 @@
             </a>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
+            <a class="side-menu__item" href="{{ route('processDegreeStudent') }}">
                 <i class="fe fe-file-text side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
             </a>
