@@ -12,8 +12,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class DepartmentBranchStudentController extends Controller
-{
+class DepartmentBranchStudentController extends Controller{
+
     public function index(request $request)
     {
         if ($request->ajax()) {

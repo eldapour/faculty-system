@@ -52,25 +52,23 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-], function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
-    Route::post('/do-login', [LoginController::class, 'login'])->name('login');
-});
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
+        Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
+        Route::post('/do-login', [LoginController::class, 'login'])->name('login');
+    });
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale() . '/admin',
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-], function () {
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale() . '/admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ], function () {
 
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
 
     Route::get('/', [HomeController::class, 'index'])->name('admin.home');
-
-
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
@@ -108,9 +106,11 @@ Route::group([
     #### branches ####
     Route::resource('branches', DepartmentBranchController::class);
 
+
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
+
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
@@ -208,7 +208,6 @@ Route::group([
 
     #### Event ####
     Route::resource('events', EventController::class);
-
 
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
