@@ -237,6 +237,14 @@
         </li>
 
 
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('periods.index') }}">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.period_all') }}</span>
+            </a>
+        </li>
+
+
         {{--start website departments--}}
 
 {{--        <li class="slide">--}}
