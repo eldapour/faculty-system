@@ -5,19 +5,20 @@
         <input type="hidden" value="{{$userBranch->id }}" name="id">
         <div class="form-group">
             <div class="row">
+
                 <div class="col-md-6">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach($departments as $department)
-                            <option value="{{ $department->id}}">{{ $department->department_name[lang()] }}</option>
+                            <option value="{{ $department->id}}">{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="department_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" required>
-                        <option value="{{ $userBranch->department_branch_id  }}" selected>{{ $userBranch->branch->branch_name[lang()] }}</option>
+                        <option value="{{ $userBranch->department_branch_id }}" >{{ $userBranch->branch->getTranslation('branch_name', app()->getLocale()) }}</option>
                     </select>
                 </div>
             </div>
@@ -74,7 +75,7 @@
                 if(data !== 404){
                     $('select[name="department_branch_id"]').empty();
                     $.each(data, function (key, value) {
-                        $('select[name="department_branch_id"]').append('<option value="' + key + '">' + value['{{ lang() }}'] + '</option>');
+                        $('select[name="department_branch_id"]').append('<option value="' + key + '">' + value + '</option>');
                     });
                 } else if(data === 404){
                     $('select[name="department_branch_id"]').empty();

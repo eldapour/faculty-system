@@ -29,6 +29,7 @@ return new class extends Migration
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
             $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
             $table->string('year');
+
             $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();

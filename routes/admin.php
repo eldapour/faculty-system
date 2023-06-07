@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -52,25 +53,23 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-], function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
-    Route::post('/do-login', [LoginController::class, 'login'])->name('login');
-});
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
+        Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
+        Route::post('/do-login', [LoginController::class, 'login'])->name('login');
+    });
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale() . '/admin',
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-], function () {
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale() . '/admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ], function () {
 
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
 
     Route::get('/', [HomeController::class, 'index'])->name('admin.home');
-
-
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
@@ -108,9 +107,11 @@ Route::group([
     #### branches ####
     Route::resource('branches', DepartmentBranchController::class);
 
+
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
+
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
@@ -152,6 +153,7 @@ Route::group([
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
+    Route::get('getSubject', [SubjectExamController::class, 'getSubject'])->name('getSubject');
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
@@ -193,7 +195,9 @@ Route::group([
     Route::resource('elements', ElementController::class);
 
     #### Process Degrees ####
-    Route::resource('process_degrees', ProcessDegreeController::class);
+    Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
+    Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
+    Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
@@ -211,10 +215,14 @@ Route::group([
     #### Event ####
     Route::resource('events', EventController::class);
 
-
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
     Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
+
+
+    #### periods ####
+    Route::resource('periods', PeriodController::class)->only(['index','create','store']);
+    Route::post('period/status', [PeriodController::class,'status'])->name('period.status');
 
 
 });

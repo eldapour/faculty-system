@@ -214,7 +214,7 @@
             </a>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
+            <a class="side-menu__item" href="{{ route('processDegreeStudent') }}">
                 <i class="fe fe-file-text side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
             </a>
@@ -233,6 +233,14 @@
             <a class="side-menu__item" href="{{ route('data_modify.index') }}">
                 <i class="fe fe-file-text side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.data_modify') }}</span>
+            </a>
+        </li>
+
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('periods.index') }}">
+                <i class="fe fe-file-text side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.period_all') }}</span>
             </a>
         </li>
 

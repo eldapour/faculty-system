@@ -233,7 +233,13 @@ return [
     'session' => "Session",
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
+
     'normal' => 'Normal',
+    'catch_up' => 'Catch Up',
+
+    'normal' => 'Normality',
+    'remedial' => 'remedial',
+
 
     // Subject Exam Student
     'subject_exam_student' => 'Subject Exam Student',
@@ -360,5 +366,15 @@ return [
     "all_schedules" => "schedules",
     "remedial" => "Remedial",
 
+     'period_start_date' => 'period start date',
+     'period_end_date' => 'period end date',
+     'period_name' => 'period',
+     'session_name' => "Session",
+     'year_start' => "year of start",
+     'year_end' => "year-end",
+     'status_period' => 'period status',
+     'period_add' => "Add a new period",
+     'period_all' => 'all periods',
+    'period finished' => "period finished",
 ];
 
