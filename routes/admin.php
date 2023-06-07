@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -214,6 +215,11 @@ use Illuminate\Support\Facades\Auth;
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
     Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
+
+
+    #### periods ####
+    Route::resource('periods', PeriodController::class)->only(['index','create','store']);
+    Route::post('period/status', [PeriodController::class,'status'])->name('period.status');
 
 
 });

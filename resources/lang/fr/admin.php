@@ -218,7 +218,8 @@ return [
     'session' => "Session",
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
-    'normal' => 'Normal',
+    'normal' => 'Normality',
+    'remedial' => 'remedial',
 
     // Subject Exam Student
     'subject_exam_student' => "Appel d'examen",
@@ -358,6 +359,18 @@ return [
     'accept' => 'accepter',
     'refused' => 'refusé',
     'under_processing' => 'en cours de traitement',
+
+
+     'period_start_date' => 'date de début de période',
+     'period_end_date' => 'date de fin de période',
+     'period_name' => 'période',
+     'session_name' => "Session",
+     'year_start' => "année de début",
+     'year_end' => "fin d'année",
+     'status_period' => 'statut de la période',
+     'period_add' => "Ajouter une nouvelle période",
+     'period_all' => 'toutes les périodes',
+    'period_finished' => "période terminée",
 
 
 
