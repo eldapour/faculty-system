@@ -47,7 +47,7 @@ class CertificateExport implements FromCollection, WithHeadings, WithColumnWidth
         $certificate = Certificate::select('id', 'diploma_name', 'year', 'user_id')->get();
         $data = [];
         foreach ($certificate as $certificate) {
-            $data = [
+            $certificate_data = [
                 'id' => $certificate->id,
                 'diploma_name_ar' => $certificate->getTranslation('diploma_name', 'ar'),
                 'diploma_name_en' => $certificate->getTranslation('diploma_name', 'en'),
@@ -55,6 +55,7 @@ class CertificateExport implements FromCollection, WithHeadings, WithColumnWidth
                 'year' => $certificate->year,
                 'user' => $certificate->user->identifier_id,
             ];
+            $data[] = $certificate_data;
         }
 
         return collect([$data]);

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afe6f2b2c156478fc38bff96ed5239ae",
+    "content-hash": "1c8274441b9e2c37712db967e5c74c7a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3254,16 +3254,16 @@
         },
         {
             "name": "php-flasher/flasher",
-            "version": "v1.15.0",
+            "version": "v1.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher.git",
-                "reference": "8274db2f85cf1793dc4196a1c339d0cf9842c311"
+                "reference": "b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher/zipball/8274db2f85cf1793dc4196a1c339d0cf9842c311",
-                "reference": "8274db2f85cf1793dc4196a1c339d0cf9842c311",
+                "url": "https://api.github.com/repos/php-flasher/flasher/zipball/b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2",
+                "reference": "b39afa3fc267fd5d0e208fdfd610e82e0c20e4e2",
                 "shasum": ""
             },
             "require": {
@@ -3316,7 +3316,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher/tree/v1.15.0"
+                "source": "https://github.com/php-flasher/flasher/tree/v1.15.2"
             },
             "funding": [
                 {
@@ -3340,26 +3340,26 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-06-06T00:36:57+00:00"
+            "time": "2023-06-06T22:25:47+00:00"
         },
         {
             "name": "php-flasher/flasher-laravel",
-            "version": "v1.15.0",
+            "version": "v1.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-laravel.git",
-                "reference": "3c30111075488c6333c5775a2233dc3695d4335d"
+                "reference": "482800011447f4098ffb236b2a08a6c25ba651a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/3c30111075488c6333c5775a2233dc3695d4335d",
-                "reference": "3c30111075488c6333c5775a2233dc3695d4335d",
+                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/482800011447f4098ffb236b2a08a6c25ba651a8",
+                "reference": "482800011447f4098ffb236b2a08a6c25ba651a8",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
                 "php": ">=5.3",
-                "php-flasher/flasher": "^1.15"
+                "php-flasher/flasher": "^1.15.1"
             },
             "type": "library",
             "extra": {
@@ -3415,7 +3415,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.0"
+                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.2"
             },
             "funding": [
                 {
@@ -3439,7 +3439,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-06-06T00:36:57+00:00"
+            "time": "2023-06-06T10:26:33+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -7304,16 +7304,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v10.4.2",
+            "version": "v10.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "48b4ea85f4d55619c7bdc5a7f8f5bffa686c3fb1"
+                "reference": "1c42c78ce72cfefaf8c16b297c88ddb4d76bb49f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/48b4ea85f4d55619c7bdc5a7f8f5bffa686c3fb1",
-                "reference": "48b4ea85f4d55619c7bdc5a7f8f5bffa686c3fb1",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/1c42c78ce72cfefaf8c16b297c88ddb4d76bb49f",
+                "reference": "1c42c78ce72cfefaf8c16b297c88ddb4d76bb49f",
                 "shasum": ""
             },
             "require": {
@@ -7376,7 +7376,7 @@
             ],
             "support": {
                 "issues": "https://github.com/yajra/laravel-datatables/issues",
-                "source": "https://github.com/yajra/laravel-datatables/tree/v10.4.2"
+                "source": "https://github.com/yajra/laravel-datatables/tree/v10.4.3"
             },
             "funding": [
                 {
@@ -7384,7 +7384,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-31T11:01:11+00:00"
+            "time": "2023-06-07T02:28:36+00:00"
         },
         {
             "name": "yoeunes/toastr",
@@ -9672,16 +9672,16 @@
         },
         {
             "name": "spatie/ignition",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "ad13a6792992411e05d3d3b293e26bdf9f9a7321"
+                "reference": "d8eb8ea1ed27f48a694405cff363746ffd37f13e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/ad13a6792992411e05d3d3b293e26bdf9f9a7321",
-                "reference": "ad13a6792992411e05d3d3b293e26bdf9f9a7321",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/d8eb8ea1ed27f48a694405cff363746ffd37f13e",
+                "reference": "d8eb8ea1ed27f48a694405cff363746ffd37f13e",
                 "shasum": ""
             },
             "require": {
@@ -9751,7 +9751,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-25T10:19:32+00:00"
+            "time": "2023-06-06T14:14:58+00:00"
         },
         {
             "name": "spatie/laravel-ignition",
@@ -9974,7 +9974,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
