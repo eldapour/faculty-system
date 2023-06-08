@@ -85,15 +85,31 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+                        <h4 class="modal-title" id="myModalLabel">{{ trans('admin.edit_degree_student') }}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal Body Text Goes Here</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <form id="addForm" class="addForm" method="POST" action="{{ route('process_degrees.store') }}">
+                            @csrf
+                            <div class="form-group">
+                                {{--  @dd($exam_degrees)  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="department_branch_id" class="form-control-label">@lang('admin.exam_degree_actuel')</label>
+                                        <input type="number" step="any" name="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="department_branch_id" class="form-control-label">@lang('admin.The_students_grade_after_adjustment')</label>
+                                        <input type="number" step="any" name="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
+                                <button type="submit" class="btn btn-primary" id="addButton">{{ trans('admin.update') }}</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

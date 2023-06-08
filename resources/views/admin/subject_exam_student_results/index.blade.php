@@ -95,7 +95,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'user', name: 'user'},
-            {data: 'subject_exam', name: 'subject_exam'},
+            {data: 'subject_id', name: 'subject_id'},
             {data: 'student_degree', name: 'student_degree'},
             {data: 'exam_degree', name: 'exam_degree'},
             {data: 'date_enter_degree', name: 'date_enter_degree'},

@@ -300,6 +300,9 @@ return [
     "absent" => "Absent",
     "paper_review" => "Examen papier",
     "reparation_request" => "Demande de réparation",
+    "edit_degree_student" => "Modifier l'étudiant diplômé",
+    "exam_degree_actuel" => "Examen Diplôme Actuel",
+    "The_students_grade_after_adjustment" => "La note de l'élève après ajustement",
     // Subject Exam Student Result
     "subject_exam_student_results" => "Examen Résultats",
     "degree" => "Degré",

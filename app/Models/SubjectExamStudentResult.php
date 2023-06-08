@@ -17,12 +17,12 @@ class SubjectExamStudentResult extends Model
         'period',
         'year',
         'user_id',
-        'subject_exam_id'
+        'subject_id'
     ];
 
     public function exam()
     {
-        return $this->belongsTo(SubjectExam::class, 'subject_exam_id', 'id');
+        return $this->belongsTo(SubjectExam::class, 'subject_id', 'id');
     }
     public function user()
     {

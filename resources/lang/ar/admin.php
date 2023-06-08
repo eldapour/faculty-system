@@ -130,7 +130,6 @@ return [
     "pages" => "الصفحات",
     "page" => "الصفحة",
     "files" => "الملفات",
-    "images" => "الصور",
 
 
     "background_image" => 'خلفية الصورة',
@@ -139,7 +138,6 @@ return [
     // Presentation
     'presentation' => 'عرض تقديمي',
     'presentations' => 'صفحه التقديم',
-    'experience_year' => 'سنين الخبرة',
     'type' => 'نوع',
 
     // Group
@@ -199,9 +197,6 @@ return [
     "all_admins" => "جميع الادمن",
 
 
-    //sidebar users and admins
-    'users' => 'المستخدمين',
-
     // Subject Student
     'subject_student' => 'طالب المادة',
     'subject_students' => 'وحدات الطالب',
@@ -224,12 +219,10 @@ return [
     'session' => "الدورة",
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
-
-    'normal' => 'عادي',
     'catch_up' => 'استدراكي',
-
     'normal' => 'عاديه',
-    'remedial' => 'استدراكيه',
+
+
 
 
     // Subject Exam Student
@@ -269,7 +262,6 @@ return [
     'pull_type' => "نوع السحب",
     'pull_date' => "تاريخ السحب",
     'pull_return' => "تاريخ الارجاع",
-    'request_status' => "حاله الطلب",
     'processing_request_date' => "تاريخ معالجه الطلب",
 
     'add_document' => "طلب سحب وثيقه",
@@ -277,9 +269,6 @@ return [
 
 
     'accept' => "قبول الطلب",
-    'refused' => "رفض الطلب",
-    'under_processing' => "معالجه الطلب",
-
     "temporary" => "سحب مؤقت",
     "final" => "سحب نهائي",
 
@@ -302,12 +291,13 @@ return [
     "processing_date" => "تاريخ المعالجة",
     "doctor" => "دكتور",
     "new" => "جديد",
-    "accept" => "مقبول",
     "refused" => "مرفوض",
-    "under_processing" => "تحت المعالجة",
     "absent" => "غائب",
     "paper_review" => "مراجعة الورقة",
     "reparation_request" => "طلب جبر",
+    "edit_degree_student" => "تعديل درجة الطالب",
+    "exam_degree_actuel" => "درجة الطالب الحالية",
+    "The_students_grade_after_adjustment" => "درجة الطالب بعد التعديل",
 
 
     // Subject Exam Student Result
@@ -353,10 +343,6 @@ return [
     'last_name_ar' => 'الاسم الاخير بالعربية',
     'last_name_en' => 'اسم العائلة باللغة الإنجليزية ',
     'last_name_fr' => 'الاسم الأخير باللغة الفرنسية',
-
-    'new' => 'جديد',
-    'accept' => 'مقبول',
-    'refused' => 'مرفوض',
     'under_processing' => 'قيد المراجعة',
 
 

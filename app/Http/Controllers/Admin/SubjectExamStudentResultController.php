@@ -30,7 +30,7 @@ class SubjectExamStudentResultController extends Controller
                  ->addColumn('user', function ($subject_exam_student_results) {
                      return '<td>'. @$subject_exam_student_results->user->first_name .'</td>';
                  })
-                 ->addColumn('subject_exam', function ($subject_exam_student_results) {
+                 ->addColumn('subject_id', function ($subject_exam_student_results) {
                      return '<td>'. @$subject_exam_student_results->exam->subject->subject_name .'</td>';
                  })
                 ->escapeColumns([])

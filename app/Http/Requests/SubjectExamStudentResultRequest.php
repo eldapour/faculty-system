@@ -30,7 +30,7 @@ class SubjectExamStudentResultRequest extends FormRequest
             'period' => 'required',
             'year' => 'required|date',
             'user_id' => 'required',
-            'subject_exam_id' => 'required'
+            'subject_id' => 'required'
         ];
     }
 }
