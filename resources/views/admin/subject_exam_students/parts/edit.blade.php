@@ -45,6 +45,7 @@
                     <label for="department_id" class="form-label">@lang('admin.select') @lang('admin.subject')</label>
                     <select class="form-control" name="subject_id">
                         <option value="">{{ trans('admin.select') . ' ' . trans('admin.subject') }}</option>
+                        <option value="{{ $subjects->id }}" {{ $subjectExamStudent->subject_id == $subjects->id ? 'selected' : '' }}>{{ $subjects->subject_name }}</option>
                     </select>
                 </div>
 
@@ -54,37 +55,38 @@
                     <label for="department_id" class="form-label">@lang('admin.select') @lang('admin.student')</label>
                     <select class="form-control" name="user_id" id="user_id">
                         <option value="">{{ trans('admin.select') . ' ' . trans('admin.subject') }}</option>
+                        <option value="{{ $user->id }}" {{ $subjectExamStudent->user_id == $user->id ? 'selected' : '' }}>{{ $user->identifier_id }}</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="exam_code" class="form-control-label">{{ trans('admin.exam_code') }}</label>
-                    <input type="text" class="form-control" name="exam_code" required>
+                    <input type="text" value="{{ $subjectExamStudent->exam_code }}" class="form-control" name="exam_code" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <label for="section" class="form-control-label">{{ trans('admin.section')  }}</label>
-                    <input type="text" class="form-control" name="section" required>
+                    <input type="text" value="{{ $subjectExamStudent->section }}" class="form-control" name="section" required>
                 </div>
                 <div class="col-md-4">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control" required>
-                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
+                        <option value="ربيعيه" style="text-align: center" {{ $subjectExamStudent->period == 'ربيعيه' ? 'selected' : '' }}>{{ trans('admin.autumnal') }}</option>
+                        <option value="خريفيه" style="text-align: center" {{ $subjectExamStudent->period == 'خريفيه' ? 'selected' : '' }}>{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control" required>
-                        <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
-                        <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
+                        <option value="عاديه" style="text-align: center" {{ $subjectExamStudent->period == 'عاديه' ? 'selected' : '' }}>{{ trans('admin.normal') }}</option>
+                        <option value="استدراكيه" style="text-align: center" {{ $subjectExamStudent->period == 'استدراكيه' ? 'selected' : '' }}>{{ trans('admin.remedial') }}</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
                     <select name="year" class="form-control" required>
                         @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
+                            <option value="{{ $year }}" {{ $subjectExamStudent->year }}>{{ $year }}</option>
                         @endfor
                     </select>
                 </div>
