@@ -28,4 +28,12 @@ return [
     'manger' => 'Faculty Dean',
     'employee' => 'employee',
     'factor' => 'factor',
+
+    'This mail is not registered' =>'This mail is not registered',
+    'Please enter your e-mail' =>'Please enter your e-mail',
+    'Please enter your password' => 'Please enter your password',
+
+    'Logged in successfully'=>'Logged in successfully',
+    'The email or password is incorrect'=>'The email or password is incorrect',
+    'Error'=>'Error',
 ];

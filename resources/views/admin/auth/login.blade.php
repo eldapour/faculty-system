@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="email">@lang('login.user_type')</label>
                                         <select class="form-control" name="user_type">
-                                            <option class="form-control" value="student">@lang('login.student')</option>
+{{--                                            <option class="form-control" value="student">@lang('login.student')</option>--}}
                                             <option class="form-control" value="doctor">@lang('login.doctor')</option>
                                             <option class="form-control" value="manger">@lang('login.manger')</option>
                                             <option class="form-control" value="employee">@lang('login.employee')</option>

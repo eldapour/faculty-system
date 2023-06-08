@@ -59,10 +59,21 @@ return [
     "whatsapp_link" => "Whatsapp Link",
     "youtube_link" => "Youtube Link",
     "phone" => "Phone",
+    "parts of the site" => "parts of the site",
+    "Usage schedules" => "Usage schedules",
+    "Ads section" => "Ads section",
+    'Document requests' => "Document requests",
+    'Document requests types' => "Document requests types",
+    'Those concerned with evidence and diploma' => "Those concerned with evidence and diploma",
+    'Diploma certificates' => "Diploma certificates",
+    'Student documents' => "Student documents",
+
+
+
 
 
     // Process Exam
-    "process_exam" => "Process Exam",
+    "process_exams" => "Process Exam",
     "attachment_file" => "Attachment File",
     "reason" => "Reason",
     "pdf" => "PDF",

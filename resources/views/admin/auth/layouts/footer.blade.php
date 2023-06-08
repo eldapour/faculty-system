@@ -72,19 +72,19 @@
                     'user_type': type,
                 }, success: function (data) {
                     if (data === 200) {
-                        toastr.success('تم تسجيل الدخول بنجاح');
+                        toastr.success('{{ trans('login.Logged in successfully') }}');
                         setTimeout(function () {
                             location.href = '{{ route('admin.home') }}';
                         },2000)
                     } else if (data === 405) {
-                        toastr.error('البريد الإلكتروني أو كلمة المرور غير صحيحة');
+                        toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     }
                 }, error: function (data) {
                     var errors = $.parseJSON(data.responseText);
                     $.each(errors, function (key, value) {
                         if ($.isPlainObject(value)) {
                             $.each(value, function (key, value) {
-                                toastr.error(value, 'خطأ');
+                                toastr.error(value, '{{ trans('login.Error') }}');
                             });
                         }
                     });
@@ -115,19 +115,19 @@
                     'user_type': type,
                 }, success: function (data) {
                     if (data === 200) {
-                        toastr.success('تم تسجيل الدخول بنجاح');
+                        toastr.success('{{ trans('login.Logged in successfully') }}');
                         setTimeout(function () {
                             location.href = '{{ route('admin.home') }}';
                         },2000)
                     } else if (data === 405) {
-                        toastr.error('البريد الإلكتروني أو كلمة المرور غير صحيحة');
+                        toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     }
                 }, error: function (data) {
                     var errors = $.parseJSON(data.responseText);
                     $.each(errors, function (key, value) {
                         if ($.isPlainObject(value)) {
                             $.each(value, function (key, value) {
-                                toastr.error(value, 'خطأ');
+                                toastr.error(value, '{{ trans('login.Error') }}');
                             });
                         }
                     });

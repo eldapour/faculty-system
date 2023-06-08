@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 
+if (!function_exists('checkUser')){
+    function checkUser($user): bool
+    {
+        return auth()->user()->user_type == $user;
+    }
+}
 
 if (!function_exists('saveFile')) {
     function saveFile($photo,$folder)

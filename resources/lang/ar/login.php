@@ -30,4 +30,12 @@ return [
     'employee' => 'موظف',
     'factor' => 'عامل',
 
+    'This mail is not registered' => 'هذا البريد غير مسجل',
+    'Please enter your e-mail' => 'يرجي ادخال البريد الالكتروني',
+    'Please enter your password' => 'يرجي ادخال كلمة المرور',
+
+    'Logged in successfully'=>'تم تسجيل الدخول بنجاح',
+    'The email or password is incorrect'=>'البريد الإلكتروني أو كلمة المرور غير صحيحة',
+    'Error'=>'خطأ',
+
 ];

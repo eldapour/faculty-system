@@ -29,4 +29,12 @@ return [
     'manger' => 'Doyen du Collège',
     'employee' => 'employé',
     'factor' => 'facteur',
+
+    'This mail is not registered' => 'Ce courrier n\'est pas enregistré',
+    'Please enter your e-mail' => 'Veuillez saisir votre e-mail',
+    'Please enter your password' => 's\'il vous plait entrez votre mot de passe',
+
+    'Logged in successfully'=> 'Connecté avec succès',
+    'The email or password is incorrect'=> 'L\'e-mail ou le mot de passe est incorrect',
+    'Error'=> 'erreur',
 ];

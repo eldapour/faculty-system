@@ -58,6 +58,16 @@ return [
     "whatsapp_link" => "Lien WhatsApp",
     "youtube_link" => "Lien Youtube",
     "phone" => "Téléphone",
+    "parts of the site" => "parties du site",
+    "Usage schedules" => "Horaires d'utilisation",
+    "Ads section" => "Rubrique Annonces",
+    'Document requests' => "Demandes de documents",
+    'Document requests types' => "Types de demandes de documents",
+    'Those concerned with evidence and diploma' => "Ceux concernés par la preuve et le diplôme",
+    'Diploma certificates' => "Certificats de diplôme",
+    'Student documents' => "Documents étudiants",
+
+
 
 
 
@@ -328,7 +338,7 @@ return [
 
 
     // Process Exam
-    "process_exam" => "Examen de processus",
+    "process_exams" => "Examen de processus",
     "attachment_file" => "Fichier joint",
     "reason" => "Raison",
     "pdf" => "PDF",
