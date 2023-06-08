@@ -26,7 +26,7 @@ class SubjectExamStudentController extends Controller
                     return '
                             <button type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exam_students->id . '" data-title="">
+                                    data-id="' . $subject_exam_students->id . '" data-title="'. $subject_exam_students->subject->subject_name .'">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -75,12 +75,12 @@ class SubjectExamStudentController extends Controller
     // Edit Start
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
-        $data['users'] = User::get();
         $data['groups'] = Group::get();
         $data['departments'] = Department::get();
         $group_ids = Group::pluck('id')->toArray();
-        $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
-        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent'))->with($data);
+        $subjects = Subject::find($subjectExamStudent->subject_id);
+        $user = User::find($subjectExamStudent->user_id);
+        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent', 'subjects', 'user'))->with($data);
     }
     // Edit End
 
