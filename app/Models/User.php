@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Translatable\HasTranslations;
 
 
+/**
+ * @property $user_type
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;

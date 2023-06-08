@@ -59,6 +59,12 @@ return [
     "whatsapp_link" => "رابط الواتساب",
     "youtube_link" => "رابط اليوتيوب",
     "phone" => "رقم الهاتف",
+    "parts of the site" => "اجزاء الموقع",
+    "Ads section" => "قسم الاعلانات",
+    'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
+    'Diploma certificates' => "شواهد الدبلومات",
+    'Student documents' => "وثائق الطالب",
+
 
 
 
@@ -266,6 +272,8 @@ return [
 
     'add_document' => "طلب سحب وثيقه",
     'all_documents' => "جميع طلبات الوثائق",
+    'Document requests' => " طلبات الوثائق",
+    'Document requests types' => "انواع طلبات الوثائق",
 
 
     'accept' => "قبول الطلب",
@@ -358,6 +366,7 @@ return [
     "department_branch_name" => "اسم المسار",
     "add_schedule" => "اضافه جدول استعمال زمن",
     "all_schedules" => "جداول الاستعمالات الزمنيه",
+    "Usage schedules" => "استعمالات الزمن",
 
 
 
@@ -372,6 +381,7 @@ return [
     'period_add' => "اضافه فتره جديده",
     'period_all' => "جميع الفترات",
     'period_finished' => "انهاء الفتره",
+
 
 ];
 

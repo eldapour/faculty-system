@@ -53,19 +53,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-    Route::group([
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-    ], function () {
-        Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
-        Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
-        Route::post('/do-login', [LoginController::class, 'login'])->name('login');
-    });
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
+    Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
+    Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
+    Route::post('/do-login', [LoginController::class, 'login'])->name('login');
+});
 
-    Route::group([
-        'prefix' => LaravelLocalization::setLocale() . '/admin',
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-    ], function () {
+Route::group([
+    'prefix' => LaravelLocalization::setLocale() . '/dashboard',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+], function () {
 
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
@@ -158,8 +158,8 @@ use Illuminate\Support\Facades\Auth;
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
-    Route::get('getStudent',[SubjectExamStudentController::class,'getStudent'])->name('getStudent');
-    Route::get('getSubject',[SubjectExamStudentController::class,'getSubject'])->name('getSubject');
+    Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
+    Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
 
 
     #### Element ####
@@ -218,12 +218,12 @@ use Illuminate\Support\Facades\Auth;
 
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
-    Route::post('schedules/delete', [ScheduleController::class,'delete'])->name('schedules.delete');
+    Route::post('schedules/delete', [ScheduleController::class, 'delete'])->name('schedules.delete');
 
 
     #### periods ####
-    Route::resource('periods', PeriodController::class)->only(['index','create','store']);
-    Route::post('period/status', [PeriodController::class,'status'])->name('period.status');
+    Route::resource('periods', PeriodController::class)->only(['index', 'create', 'store']);
+    Route::post('period/status', [PeriodController::class, 'status'])->name('period.status');
 
 
 });
