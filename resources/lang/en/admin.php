@@ -313,6 +313,9 @@ return [
     "absent" => "Absent",
     "paper_review" => "Paper Review",
     "reparation_request" => "Reparation Request",
+    "edit_degree_student" => "Edit Degree Student",
+    "exam_degree_actuel" => "Exam Degree Actuel",
+    "The_students_grade_after_adjustment" => "The student's grade after adjustment",
 
     // Subject Exam Student Result
     "subject_exam_student_results" => "Exam Results",

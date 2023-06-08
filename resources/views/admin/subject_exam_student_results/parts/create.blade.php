@@ -14,8 +14,8 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="subject_exam_id" class="form-control-label">{{ trans('admin.subject_exam') }}</label>
-                    <select name="subject_exam_id" class="form-control" required>
+                    <label for="subject_id" class="form-control-label">{{ trans('admin.subject_exam') }}</label>
+                    <select name="subject_id" class="form-control" required>
                         @foreach ($data['subject_exams'] as $subject_exam)
                             <option value="{{ $subject_exam->id }}" style="text-align: center">
                                 {{ $subject_exam->subject->subject_name }}</option>
