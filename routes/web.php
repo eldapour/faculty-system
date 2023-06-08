@@ -27,7 +27,7 @@ require __DIR__ . '/admin.php';
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale(), 'namespace' => 'Front',
+        'prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {

@@ -14,6 +14,13 @@ class LoginController extends Controller {
         return view('admin.auth.login');
     }
 
+    public function indexStudent(){
+        if (Auth::guard('web')->check()){
+            return redirect('admin');
+        }
+        return view('admin.auth.login-student');
+    }
+
     public function login(Request $request): \Illuminate\Http\JsonResponse
     {
         $data = $request->validate([

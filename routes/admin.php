@@ -57,7 +57,8 @@ use Illuminate\Support\Facades\Auth;
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
-        Route::get('/login', [LoginController::class, 'index'])->name('admin.login');
+        Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
+        Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
         Route::post('/do-login', [LoginController::class, 'login'])->name('login');
     });
 
