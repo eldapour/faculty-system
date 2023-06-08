@@ -25,7 +25,7 @@ class SubjectExamController extends Controller
                     return '
                             <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->id . '">
+                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
