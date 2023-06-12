@@ -10,7 +10,14 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'department_id',
+        'unit_id',
+        'description',
+        'pdf_upload'
+    ];
+
+   
 
 
 

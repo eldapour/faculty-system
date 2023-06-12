@@ -178,6 +178,7 @@
 
         showData('{{ route('processExamStudent') }}', columns);
         destroyScript('{{ route('process_exams.destroy', ':id') }}');
+        showEditModal('{{route('process_exams.edit',':id')}}');
 
 
 
