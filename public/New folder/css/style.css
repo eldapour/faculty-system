@@ -1,7 +1,7 @@
 body{
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Jost', sans-serif;
     scroll-behavior: smooth;
-    direction: rtl;
+    direction: ltr;
     padding: 0;
     margin: 0;
     text-transform: capitalize;
@@ -100,7 +100,7 @@ p{
 
 }
 .navbar .nav-item{
-    margin-left: 10px;
+    margin-right: 10px;
 }
 .dropdown-divider{
     background-color: gainsboro;
@@ -164,7 +164,7 @@ p{
     width: 55px;
     height: 2px;
     position: relative;
-    right: 15px;
+    left: 15px;
     top: -5px;
     background: var(--second-color);
     display: inline-block;
@@ -201,7 +201,6 @@ p{
     border: none;
     height: 530px;
     transition: all 0.5 ease;
-    border-radius: 10px;
 }
 .card-blog a{
     overflow: hidden;
@@ -215,7 +214,7 @@ p{
     color: white;
     font-size: 12px;
     height: 67px;
-    right: 30px;
+    left: 30px;
     position: absolute;
     text-align: center;
     top: -60px;
@@ -278,20 +277,29 @@ p{
 
 }
 .owl-carousel .owl-nav button.owl-prev{
-    left: 20px;
+    right: 100px;
 }
 .owl-carousel .owl-nav button.owl-next{
-    left: 100px;
+    right: 20px;
 }
 /* end section blogs */
 
 /* start section video */
 
-.video-slider{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+.card-video{
     background-position: center;
     background-size: cover;
     padding: 130px 0;
+    margin: 0px 10px;
+}
+.video1{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+}
+.video2{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+}
+.video3{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
 }
 .heading-video{
     letter-spacing: 1px;
@@ -331,7 +339,7 @@ p{
   }
 .video-slider .owl-carousel .owl-nav button.owl-prev,
 .video-slider .owl-carousel .owl-nav button.owl-next{
-    top: -120px;
+    top: -80px;
 }
 
 /* end section video */
@@ -355,7 +363,6 @@ p{
 .card-newest .card-img-top{
     transition: all 0.5s ease;
     border-radius: 10px;
-    height: 280px;
 }
 .card-newest:hover .card-img-top{
     transform: scale(1.1);
@@ -377,7 +384,7 @@ p{
     height: 35px;
     width: 130px;
     position: absolute;
-    right: 7px;
+    left: 7px;
     top: -40px;
     border-radius: 5px;
     display: flex;
@@ -471,18 +478,9 @@ p{
 .btn-platform{
     padding: 10px 20px;
     background-color: white;
-    color: var(--dark-color);
+    color: var(--second-color);
     border-radius: 5px;
     font-weight: 600;
-}
-
-.card-blog .card-img-top{
-    height: 280px;
-    border-radius: 10px;
-}
-
-.btn-platform:hover {
-    color: var(--second-color);
 }
 
 /* end section platform */
@@ -519,14 +517,14 @@ p{
     content: '';
     background: #ff7350;
     bottom: 22px;
-    right: 0;
+    left: 0;
     position: absolute;
     width: 70px;
     height: 1px;
 }
 .footer ul{
     list-style: none;
-    padding-right: 0;
+    padding-left: 0;
 }
 .footer .blog a{
     color: #b2c0d8;
@@ -543,8 +541,6 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
-    margin-right: 0 !important;
 }
 .footer .phone{
     color: #b2c0d8;
@@ -637,14 +633,14 @@ p{
     content: '';
     background: #ff7350;
     bottom: 22px;
-    right: 0;
+    left: 0;
     position: absolute;
     width: 70px;
     height: 1px;
 }
 .sidebar ul{
     list-style: none;
-    padding-right: 0;
+    padding-left: 0;
 }
 .sidebar .blog a{
     color: var(--dark-color);
@@ -667,8 +663,13 @@ p{
     margin-left: 15px;
     transition: all 0.5s ease;
 }
-.btn-share:hover{
-    background-color: var(--dark-color);
+.whatsapp:hover{
+    background-color: #25d366;
+    color: white;
+}
+
+.facebook:hover{
+    background-color: #1877f2;
     color: white;
 }
 
@@ -686,9 +687,7 @@ p{
 
 /* table */
 
-table,
-table td,
-table th{
+table{
     border: 1px solid #DEE2E6;
 }
 table .head-table{
@@ -733,8 +732,9 @@ table .head-table{
     border-radius: 5px;
     position: fixed;
     bottom: 10px;
-    left: 10px;
+    right: 10px;
     display: none;
+    z-index: 9999;
 }
 .top{
     width: 40px;
@@ -746,50 +746,4 @@ table .head-table{
 .scroll-top:hover{
     background-color: var(--dark-color);
     color: white;
-}
-
-/* rtl */
-
-.carousel,
-.owl-carousel,
-.main-slider,
-.small-slider{
-    direction: ltr ;
-}
-.carousel-caption,
-.card-blog,
-.card-video,
-.card-newest{
-    direction: rtl;
-}
-.blog div{
-    margin-right: 5px !important;
-}
-.dropdown-menu{
-    text-align: right;
-}
-
-
-
-
-@media (max-width: 500px) {
-    .small-title{
-        font-size: 10px;
-    }
-    .heading{
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 992px) {
-    .icon-nav{
-        display: inline-block;
-    }
-}
-
-@media only screen and (min-width: 992px){
-
-    .navbar-nav li:hover .dropdown-menu{
-    display: block;
-}
 }

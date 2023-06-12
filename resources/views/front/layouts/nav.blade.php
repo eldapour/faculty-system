@@ -9,7 +9,7 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse bg-white" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse bg-white pe-3 ps-3" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('/') }}">home</a>
@@ -18,7 +18,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $category->category_name[lang()] }}
+                            {{ $category->category_name[lang()] }} <span class="icon-nav"><i class="fa-solid fa-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @if ($category->id == 1)

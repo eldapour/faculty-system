@@ -96,10 +96,10 @@
 
     <!-- video -->
     <section class="video-slider mb-5 mt-5">
-        <div class="container">
+        <div class="container-fluid">
             <div class="owl-carousel owl-theme">
                 @foreach ($videos as $video)
-                    <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
+                    <div class="row card-video video1" style="background-image: url({{ asset($video->background_image) }})">
                         <div class="col-lg-6 col-12">
                             <h1 class="heading-video text-white">
                                 {{ $video->title[lang()] }}
@@ -115,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    {{--  <div class="row card-video video2">
+                      <div class="row card-video video2">
                     <div class="col-lg-6 col-12">
                         <h1 class="heading-video text-white">
                             education is the best success in lif
@@ -131,9 +131,9 @@
                             </a>
                         </div>
                     </div>
-                </div>  --}}
+                </div>
 
-                    {{--  <div class="row card-video video3">
+                      <div class="row card-video video3">
                     <div class="col-lg-6 col-12">
                         <h1 class="heading-video text-white">
                             education is the best success in lif
@@ -149,7 +149,7 @@
                             </a>
                         </div>
                     </div>
-                </div>  --}}
+                </div>
                 @endforeach
             </div>
         </div>

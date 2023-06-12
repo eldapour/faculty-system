@@ -201,6 +201,7 @@ p{
     border: none;
     height: 530px;
     transition: all 0.5 ease;
+    border-radius: 10px;
 }
 .card-blog a{
     overflow: hidden;
@@ -282,6 +283,12 @@ p{
 .owl-carousel .owl-nav button.owl-next{
     right: 20px;
 }
+
+.card-blog .card-img-top{
+    height: 280px;
+    border-radius: 10px;
+}
+
 /* end section blogs */
 
 /* start section video */
@@ -363,6 +370,7 @@ p{
 .card-newest .card-img-top{
     transition: all 0.5s ease;
     border-radius: 10px;
+    height: 280px;
 }
 .card-newest:hover .card-img-top{
     transform: scale(1.1);
@@ -478,9 +486,13 @@ p{
 .btn-platform{
     padding: 10px 20px;
     background-color: white;
-    color: var(--second-color);
+    color: var(--dark-color);
     border-radius: 5px;
     font-weight: 600;
+}
+
+.btn-platform:hover {
+    color: var(--second-color);
 }
 
 /* end section platform */
@@ -530,6 +542,12 @@ p{
     color: #b2c0d8;
     transition: all 0.5s ease;
 }
+
+.footer .blog img {
+    height: 70px;
+    width: 70px;
+}
+
 .footer .blog a:hover{
     color: white;
 }
