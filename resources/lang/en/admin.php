@@ -81,6 +81,8 @@ return [
     "request_status_is_accepted" => "Request status is accepted",
     "request_status_is_refused" => "Request status is refused",
     "request_status_is_under_processing" => "Request status is Under Processing",
+    "process_exam_students" => "Process Exam Students",
+    "the_remedial_request_has_been_registered_successfully" => "The remedial request has been registered successfully",
 
 
 
@@ -327,6 +329,7 @@ return [
     "edit_degree_student" => "Edit Degree Student",
     "exam_degree_actuel" => "Exam Degree Actuel",
     "The_students_grade_after_adjustment" => "The student's grade after adjustment",
+    "the_score_has_been_modified_successfully" => "The Score Has Been Modified Successfully",
 
     // Subject Exam Student Result
     "subject_exam_student_results" => "Exam Results",

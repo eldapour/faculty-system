@@ -36,7 +36,6 @@
                                     <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
                                         <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}.</h4>
                                     </a>
-                                    <p class="card-text text-black-50">{!! $event->description[lang()] !!}</p>
                                 </div>
                             </div>
                         </div>
