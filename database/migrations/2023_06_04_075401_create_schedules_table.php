@@ -19,17 +19,13 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('department_id')->comment('اسم المسلك');
+            $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
+            $table->longText('description')->nullable();
             $table->longText('pdf_upload');
-            $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
-            $table->unsignedBigInteger('department_id')->comment('القسم');
-            $table->unsignedBigInteger('department_branch_id')->comment('التخصص');
-            $table->string('year');
-            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('فتره جدول استعمالات الزمن');
-            $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
             $table->timestamps();
-            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('unit_id')->references('id')->on('units')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('department_branch_id')->references('id')->on('department_branches')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }

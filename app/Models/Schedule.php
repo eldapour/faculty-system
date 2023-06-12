@@ -13,10 +13,7 @@ class Schedule extends Model
     protected $guarded = [];
 
 
-    public function group(): BelongsTo{
 
-        return $this->belongsTo(Group::class,'group_id','id');
-    }
 
     public function department(): BelongsTo
     {
@@ -25,11 +22,14 @@ class Schedule extends Model
     }
 
 
-    public function department_branch(): BelongsTo
+    public function unit(): BelongsTo
     {
 
-        return $this->belongsTo(DepartmentBranch::class,'department_branch_id','id');
+        return $this->belongsTo(Unit::class,'unit_id','id');
     }
+
+
+
 
 
 }
