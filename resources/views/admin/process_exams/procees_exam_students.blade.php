@@ -24,6 +24,7 @@
                         </button>
                     </div>
                 </div>
+                {{--  <?php return($process_exam_students)?>  --}}
                 <div class="card-body">
                     <div class="table-responsive">
                         <!--begin::Table-->
@@ -31,7 +32,6 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">#</th>
-                                    <th class="min-w-50px">{{ trans('admin.student') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.attachment_file') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.period') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.year') }}</th>
@@ -137,10 +137,6 @@
         var columns = [{
                 data: 'id',
                 name: 'id'
-            },
-            {
-                data: 'user_id',
-                name: 'user_id'
             },
             {
                 data: 'attachment_file',
