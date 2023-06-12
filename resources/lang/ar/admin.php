@@ -388,6 +388,10 @@ return [
     'for' => " للطالب ",
 
 
+    'unit_name' => "الفصل لدراسي",
+    'description_text' => "ملاحظات",
+
+
 ];
 
 

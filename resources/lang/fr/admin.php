@@ -397,6 +397,10 @@ return [
     'for' => " pour l'élève ",
 
 
+    "unit_name" => 'classe',
+    'description_text' => 'notes',
+
+
 
 ];
 

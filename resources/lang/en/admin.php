@@ -394,5 +394,7 @@ return [
 
     'subject_choice' => "subject choice",
     'for' => ' for the student ',
+
+    'unit name' => 'class', 'description text' => 'notes',
 ];
 

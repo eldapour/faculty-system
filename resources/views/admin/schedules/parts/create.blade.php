@@ -7,18 +7,10 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-6">
-                    <label for="group_id" class="form-control-label">@lang('admin.group_name')</label>
-                    <select class="form-control" name="group_id" required>
-                        <option value="" selected disabled>@lang('admin.select')</option>
-                        @foreach($groups as $group)
-                            <option value="{{ $group->id}}">{{ $group->getTranslation('group_name', app()->getLocale()) }}</option>
-                        @endforeach
-                    </select>
-                </div>
 
 
-                <div class="col-md-6">
+
+                <div class="col-md-12">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -28,35 +20,27 @@
                     </select>
                 </div>
 
-                <div class="col-md-6">
-                    <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
-                    <select class="form-control" name="department_branch_id" required>
+
+
+                <div class="col-md-12">
+                    <label for="department_id" class="form-control-label">@lang('admin.unit_name')</label>
+                    <select class="form-control" name="unit_id" required>
                         <option value="" selected disabled>@lang('admin.select')</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
-                    <select name="period" class="form-control">
-                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
-                    <select name="session" class="form-control">
-                        <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
-                        <option value="استدراكيه" style="text-align: center">استدراكي</option>
+                        @foreach($units as $unit)
+                            <option value="{{ $unit->id}}">{{ $unit->getTranslation('unit_name', app()->getLocale())}}</option>
+                        @endforeach
                     </select>
                 </div>
 
 
 
-                <div class="col-md-6">
-                    <label for="pdf_upload" class="form-control-label">@lang('admin.year')</label>
-                    <input type="text" class="form-control" name="year" id="year">
+
+                <div class="col-md-12">
+                    <label for="pdf_upload" class="form-control-label">@lang('admin.description_text')</label>
+                    <input type="text" class="form-control" name="description" id="description">
                 </div>
+
+
 
                 <div class="col-md-12">
                     <label for="pdf_upload" class="form-control-label">@lang('admin.schedule_pdf_upload')</label>
@@ -68,7 +52,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
-            <button type="submit" class="btn btn-primary" id="addButton">{{ trans('admin.add') }}</button>
+            <button type="submit" class="btn btn-primary" id="addButton">{{ trans('admin.add_data') }}</button>
         </div>
     </form>
 </div>
