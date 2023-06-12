@@ -12,16 +12,14 @@ return new class extends Migration
      * @return void
      */
     /*
-     * فصول الماده
+    الفصول الدراسيه للجامعه
      */
     public function up()
     {
         Schema::create('units', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->json('unit_name')->comment('اسم الفصل');
-            $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
             $table->timestamps();
-            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }

@@ -391,6 +391,11 @@ return [
      'period_all' => 'toutes les périodes',
     'period_finished' => "période terminée",
 
+    'group_choice' => "choisir le groupe",
+
+    'subject_choice' => "choix du sujet",
+    'for' => " pour l'élève ",
+
 
 
 ];

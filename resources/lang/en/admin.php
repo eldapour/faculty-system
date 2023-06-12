@@ -390,5 +390,9 @@ return [
      'period_add' => "Add a new period",
      'period_all' => 'all periods',
     'period finished' => "period finished",
+    'group_choice' => "choose group",
+
+    'subject_choice' => "subject choice",
+    'for' => ' for the student ',
 ];
 

@@ -21,16 +21,7 @@
                     <input type="text" class="form-control" value="{{ $unit->unit_name }}" name="unit_name[fr]">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="subject_name" class="form-control-label">{{ trans('admin.group') }} </label>
-                    <select name="subject_id" style="text-align: center" id="" class="form-control">
-                        @foreach ($data['subjects'] as $subject)
-                            <option value="{{ $subject->id }}" {{ $unit->subject_id == $subject->id ? 'selected' : '' }}>{{ $subject->subject_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>

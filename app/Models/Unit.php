@@ -14,15 +14,11 @@ class Unit extends Model
 
     protected $fillable = [
         'unit_name',
-        'subject_id'
     ];
 
     protected $casts = [
         'unit_name' => 'json'
     ];
 
-    public function subject()
-    {
-        return $this->belongsTo(Subject::class, 'subject_id', 'id');
-    }
+
 }

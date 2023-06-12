@@ -12,6 +12,8 @@
                 <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
             </li>
         @endif
+
+
         @if(checkUser('manger'))
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
@@ -125,21 +127,136 @@
 
 
         @if(checkUser('student'))
-            <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-paper-plane side-menu__icon"></i>
-                    <span class="side-menu__label">@lang('admin.Student documents')</span><i
-                        class="angle fa fa-angle-right"></i>
-                </a>
-                <ul class="slide-menu">
 
-                    <li><a href="{{route('documents.student')}}" class="slide-item">@lang('admin.Student documents')</a>
-                    </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_students') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_student.index') }}" class="slide-item">{{ trans('admin.subject_students') }}</a>
+                        </li>
 
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-user-check side-menu__icon"></i>
+                        <span class="side-menu__label">استعمالات الزمن</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">استعمالات الزمن</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-user-check side-menu__icon"></i>
+                        <span class="side-menu__label">طلبات الاستدراك</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">طلبات الاستدراك</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-pen-alt side-menu__icon"></i>
+                        <span class="side-menu__label">طلب معالجه نقطه</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">معالجه النقط</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book-open side-menu__icon"></i>
+                        <span class="side-menu__label">الامتحانات</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">الامتحانات</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-search side-menu__icon"></i>
+                        <span class="side-menu__label">استدعاء الامتحانات</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">استدعاء الامتحانات</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-id-card side-menu__icon"></i>
+                        <span class="side-menu__label">نتائج الامتحانات</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="#" class="slide-item">نتائج الامتحانات</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-paper-plane side-menu__icon"></i>
+                        <span class="side-menu__label">@lang('admin.Student documents')</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{route('documents.student')}}" class="slide-item">@lang('admin.Student documents')</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
         @endif
+
+
 
 
         @if(checkUser('manger'))

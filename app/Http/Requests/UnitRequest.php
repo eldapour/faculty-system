@@ -27,7 +27,6 @@ class UnitRequest extends FormRequest
             'unit_name.ar' => 'required',
             'unit_name.en' => 'required',
             'unit_name.fr' => 'required',
-            'subject_id' => 'required',
         ];
     }
 }

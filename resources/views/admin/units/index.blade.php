@@ -29,7 +29,6 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -90,7 +89,6 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'unit_name', name: 'unit_name'},
-            {data: 'subject_id', name: 'subject_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('unit.index')}}', columns);
