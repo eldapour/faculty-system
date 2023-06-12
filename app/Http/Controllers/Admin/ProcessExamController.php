@@ -80,6 +80,7 @@ class ProcessExamController extends Controller
             return Datatables::of($process_exam_students)
                 ->addColumn('action', function ($process_exam_students) {
                     return '
+                    <button type="button" data-id="' . $process_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                         data-id="' . $process_exam_students->id . '" data-title="' . $process_exam_students->user->first_name . '">
                         <i class="fas fa-trash"></i>
