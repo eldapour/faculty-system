@@ -9,6 +9,7 @@ use App\Models\ProcessExam;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProcessExamRequest;
 
 class ProcessExamController extends Controller
@@ -60,6 +61,37 @@ class ProcessExamController extends Controller
         }
     }
     // Index End
+
+     // index Student
+     public function processExamStudent(Request $request)
+     {
+         if ($request->ajax()) {
+             $process_exam_students = ProcessExam::query()
+                 ->where('user_id', '=', Auth::id())
+                 ->get();
+
+             $data = collect();
+             foreach ($process_exam_students as $process_exam_students) {
+                 $data->push([
+                     'user_id' => auth()->user()->first_name,
+                     'request_status' => '<select class="form-control" data-id="' . $process_exam_students->id . '" onchange="updateRequestStatus(this, ' . $process_exam_students->id . ')">
+                                         <option ' . ($process_exam_students->request_status == 'new' ? "selected" : "") . ' value="new">' . trans('admin.new') . '</option>
+                                         <option ' . ($process_exam_students->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
+                                         <option ' . ($process_exam_students->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
+                                         <option ' . ($process_exam_students->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
+                                     </select>',
+                     'action' => '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                 data-id="' . $process_exam_students->id . '" data-title="' . $process_exam_students->user . '">
+                                 <i class="fas fa-trash"></i>' . trans("admin.delete") . '</button>'
+                 ]);
+             }
+             return Datatables::of($data)
+                 ->escapeColumns([])
+                 ->make(true);
+         } else {
+             return view('admin.process_exams.procees_exam_students');
+         }
+     }
 
     // Create Start
     public function create()

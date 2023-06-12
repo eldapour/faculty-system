@@ -2,10 +2,10 @@
 
 
 @section('title')
-    {{ trans('admin.process_degrees') }}
+    {{ trans('admin.process_exam_students') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.process_degrees') }}
+    {{ trans('admin.process_exam_students') }}
 @endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
@@ -15,8 +15,14 @@
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ trans('admin.process_degrees_admin') }}</h3>
-
+                    <h3 class="card-title">{{ trans('admin.process_exam_students') }}</h3>
+                    <div class="">
+                        <button class="btn btn-secondary btn-icon text-white addBtn">
+									<span>
+										<i class="fe fe-plus"></i>
+									</span> {{ trans('admin.add') }}
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -26,13 +32,13 @@
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">#</th>
                                     <th class="min-w-50px">{{ trans('admin.student') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.attachment_file') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.period') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.request_date') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.processing_request_date') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.reason') }}</th>
                                     <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
 
                                 </tr>
@@ -137,12 +143,8 @@
                 name: 'user_id'
             },
             {
-                data: 'doctor',
-                name: 'doctor'
-            },
-            {
-                data: 'subject',
-                name: 'subject'
+                data: 'attachment_file',
+                name: 'attachment_file'
             },
             {
                 data: 'period',
@@ -153,16 +155,20 @@
                 name: 'year'
             },
             {
-                data: 'section',
-                name: 'section'
-            },
-            {
-                data: 'exam_code',
-                name: 'exam_code'
+                data: 'request_date',
+                name: 'request_date'
             },
             {
                 data: 'request_status',
                 name: 'request_status'
+            },
+            {
+                data: 'processing_request_date',
+                name: 'processing_request_date'
+            },
+            {
+                data: 'reason',
+                name: 'reason'
             },
             {
                 data: 'action',
@@ -174,9 +180,103 @@
 
 
 
-        showData('{{ route('processDegreeStudent') }}', columns);
-        destroyScript('{{ route('process_degrees.destroy', ':id') }}');
+        showData('{{ route('processExamStudent') }}', columns);
+        destroyScript('{{ route('process_exams.destroy', ':id') }}');
 
 
+
+        // Get Add View
+        $(document).on('click', '.addBtn', function () {
+            $('#modalContent').html(loader)
+            $('#editOrCreate').modal('show')
+            setTimeout(function () {
+                $('#modalContent').load('{{route('process_exams.create')}}')
+            }, 250)
+        });
+
+        // Add By Ajax
+        $(document).on('submit','Form#addForm',function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $('#addForm').attr('action');
+            $.ajax({
+
+                url: url,
+                type: 'POST',
+                data: formData,
+                beforeSend: function () {
+                    $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                },
+
+                success: function (data) {
+                    if (data.status == 200) {
+                        $('#dataTable').DataTable().ajax.reload();
+                        toastr.success('{{ trans('admin.the_remedial_request_has_been_registered_successfully') }}');
+                    }
+                    else
+                        toastr.error('There is an error');
+                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#editOrCreate').modal('hide')
+                },
+
+                error: function (data) {
+                    if (data.status === 500) {
+                        toastr.error('There is an error');
+                    } else if (data.status === 422) {
+
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function (key, value) {
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function (key, value){
+                                    toastr.error(value, key);
+                                });
+                            }
+                        });
+                    } else
+                        toastr.error('there in an error');
+                    $('#addButton').html(`Create`).attr('disabled', false);
+                },//end error method
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
+
+        function updateRequestStatus(selectElement, id) {
+            var selectedValue = $(selectElement).val();
+
+            // Make an Ajax request to update the status
+            $.ajax({
+                url: '{{ route('RequestStatusDegree') }}',
+                type: 'post',
+                data: {
+                    id: id,
+                    status: selectedValue,
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: function(data) {
+                    if (data.code == 200) {
+                        if (data.status == 'new') {
+                            toastr.success('{{ trans('admin.request_status_is_new') }}');
+                        } else if (data.status == 'accept') {
+                            // Show the modal when the status is 'accept'
+                            $('#myModal').modal('show');
+                            toastr.success('{{ trans('admin.request_status_is_accepted') }}');
+                        } else if (data.status == 'refused') {
+                            toastr.success('{{ trans('admin.request_status_is_refused') }}');
+                        } else if (data.status == 'under_processing') {
+                            toastr.success('{{ trans('admin.request_status_is_under_processing') }}');
+                        }
+                    }
+                },
+
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // Handle the error
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
     </script>
 @endsection

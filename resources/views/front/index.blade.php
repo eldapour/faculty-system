@@ -79,7 +79,6 @@
                                         <a class="text-decoration-none color-dark"
                                             href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
                                     </h3>
-                                    <p class="card-text color-gray">{!! $advertisement->description[lang()] !!}.</p>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
                                         <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
@@ -185,7 +184,6 @@
                                     <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
                                         <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}</h4>
                                     </a>
-                                    <p class="card-text text-black-50">{!! $event->description[lang()] !!}</p>
                                 </div>
                             </div>
                         </div>

@@ -16,50 +16,55 @@ use App\Http\Requests\ProcessDegreeRequest;
 class ProcessDegreeController extends Controller
 {
     // Index Start
-    public function index(request $request)
+    public function index(Request $request)
     {
-        if ($request->ajax()) {
-            $process_degrees = ProcessDegree::get();
-            return Datatables::of($process_degrees)
-                ->addColumn('action', function ($process_degrees) {
-                    return '
-                            <button type="button" data-id="' . $process_degrees->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user . '">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                       ';
-                })
-                ->editColumn('user_id', function () {
-                    return '<td>' . auth()->user()->first_name . '</td>';
-                })
-                ->editColumn('request_status', function ($process_degrees) {
-                    if ($process_degrees->request_status == 'new') {
-                        return '<td>' . trans('admin.new') . '</td>';
-                    }
-                    if ($process_degrees->request_status == 'accept') {
-                        return '<td value="' . $process_degrees->id . '">' . trans('admin.accept') . '</td>';
-                    }
-                    if ($process_degrees->request_status == 'refused') {
-                        return '<td>' . trans('admin.refused') . '</td>';
-                    }
-                    if ($process_degrees->request_status == 'under_processing') {
-                        return '<td>' . trans('admin.under_processing') . '</td>';
-                    }
-                })
-                ->addColumn('subject', function ($process_degrees) {
-                    return '<td>' . @$process_degrees->subject->subject_name . '</td>';
-                })
-                ->addColumn('doctor', function ($process_degrees) {
-                    return '<td>' . @$process_degrees->doctor->first_name . '</td>';
-                })
-                ->escapeColumns([])
-                ->make(true);
-        } else {
-            return view('admin.process_degrees.index');
+        $degree_old = [];
+        $process_degrees = ProcessDegree::get();
+        foreach ($process_degrees as $degree) {
+            if ($degree->request_status == 'accept') {
+                $degree_old = SubjectExamStudentResult::select('id', 'student_degree', 'exam_degree')->where('user_id', $degree->user_id)
+                    ->where('year', $degree->year)
+                    ->where('period', $degree->period)
+                    ->where('subject_id', $degree->subject_id)
+                    ->first();
+            }
+            if ($request->ajax()) {
+                // dd($degree_old);
+
+                return Datatables::of($process_degrees)
+                    ->addColumn('action', function ($process_degrees) {
+                        return '
+                        <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user . '">
+                                <i class="fas fa-trash"></i>
+                        </button>
+                   ';
+                    })
+                    ->addColumn('user_id', function () {
+                        return '<td>' . auth()->user()->first_name . '</td>';
+                    })
+                    ->addColumn('request_status', function ($process_degrees) {
+                        return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
+                <option ' . ($process_degrees->request_status == 'new' ? "selected" : "") . ' value="new">' . trans('admin.new') . '</option>
+                <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
+                <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
+                <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
+            </select>';
+                    })
+                    ->addColumn('subject', function ($process_degrees) {
+                        return '<td>' . @$process_degrees->subject->subject_name . '</td>';
+                    })
+                    ->addColumn('doctor', function ($process_degrees) {
+                        return '<td>' . @$process_degrees->doctor->first_name . '</td>';
+                    })
+                    ->escapeColumns([])
+                    ->make(true);
+            } else {
+                return view('admin.process_degrees.index', compact('degree_old'));
+            }
         }
     }
-    // Index End
+
 
     // index Student
     public function processDegreeStudent(Request $request)
@@ -68,7 +73,6 @@ class ProcessDegreeController extends Controller
             $process_degree_students = ProcessDegree::query()
                 ->where('user_id', '=', Auth::id())
                 ->get();
-
             $data = collect();
             foreach ($process_degree_students as $process_degree_student) {
                 $data->push([
@@ -93,8 +97,6 @@ class ProcessDegreeController extends Controller
                 ->where('period', $data->first()['period'] ?? null)
                 ->first()
             ) {
-
-                dd($exam_degrees = $exam_degree->exam_degree);
                 $student_degrees = $exam_degree->student_degree;
             } else {
                 $exam_degrees = null;
@@ -191,5 +193,14 @@ class ProcessDegreeController extends Controller
         ]);
 
         return response()->json(['code' => 200, 'status' => $request->status]);
+    }
+
+    public function updateDegree(Request $request)
+    {
+        $inputs = SubjectExamStudentResult::find($request->id)->update([
+            'student_degree' => $request->student_degree,
+        ]);
+
+        return response()->json(['code' => 200]);
     }
 }

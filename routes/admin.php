@@ -184,11 +184,10 @@ Route::group([
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
 
-    #### Process Exam ####
-    Route::resource('process_exams', ProcessExamController::class);
 
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
+    Route::get('process_examss/students', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
 
@@ -199,6 +198,7 @@ Route::group([
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
+    Route::post('updateDegree', [ProcessDegreeController::class, 'updateDegree'])->name('updateDegree');
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
