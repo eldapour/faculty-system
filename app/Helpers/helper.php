@@ -186,9 +186,6 @@ if (!function_exists('documentCountUser')) {
 
             return $documentCount;
         }
-
-
-
     }
 }
 
@@ -200,20 +197,14 @@ if (!function_exists('processExamCountUser')) {
             ->where('status','=','start')
             ->first();
 
-        $processExamCount = 0;
 
-        if($period) {
 
             $processExamCount = ProcessExam::query()
-                ->where('user_id', '=', auth()->id())
-                ->where('year', '=', $period->year_start);
+                ->where('user_id', '=', auth()->id());
 
             return $processExamCount->count();
 
-        }else{
-
-            return $processExamCount;
-        }
+       
 
     }
 }

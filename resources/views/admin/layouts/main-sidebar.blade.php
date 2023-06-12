@@ -161,12 +161,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-user-check side-menu__icon"></i>
-                        <span class="side-menu__label">طلبات الاستدراك</span><i
+                        <span class="side-menu__label">{{ trans('admin.process_exams') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">طلبات الاستدراك</a>
+                        <li><a href="{{ route('processExamStudent') }}" class="slide-item">{{ trans('admin.process_exams') }}</a>
                         </li>
 
 
@@ -177,12 +177,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-pen-alt side-menu__icon"></i>
-                        <span class="side-menu__label">طلب معالجه نقطه</span><i
+                        <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">معالجه النقط</a>
+                        <li><a href="{{ route('processDegreeStudent') }}" class="slide-item">{{ trans('admin.process_degrees') }}</a>
                         </li>
 
 

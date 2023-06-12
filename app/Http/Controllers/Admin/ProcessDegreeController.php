@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Period;
 use App\Models\Subject;
+use App\Models\ProcessExam;
 use Illuminate\Http\Request;
 use App\Models\ProcessDegree;
 use Yajra\DataTables\DataTables;
@@ -69,45 +71,57 @@ class ProcessDegreeController extends Controller
     // index Student
     public function processDegreeStudent(Request $request)
     {
-        if ($request->ajax()) {
-            $process_degree_students = ProcessDegree::query()
+        $period = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+        $process_degree_students = ProcessDegree::query()
                 ->where('user_id', '=', Auth::id())
+                ->where('period', '=', $period->period)
+                ->where('year', '=', $period->year_start)
                 ->get();
-            $data = collect();
-            foreach ($process_degree_students as $process_degree_student) {
-                $data->push([
-                    'user_id' => auth()->user()->first_name,
-                    'subject' => @$process_degree_student->subject->subject_name,
-                    'doctor' => @$process_degree_student->doctor->first_name,
-                    'request_status' => '<select class="form-control" data-id="' . $process_degree_student->id . '" onchange="updateRequestStatus(this, ' . $process_degree_student->id . ')">
-                                        <option ' . ($process_degree_student->request_status == 'new' ? "selected" : "") . ' value="new">' . trans('admin.new') . '</option>
-                                        <option ' . ($process_degree_student->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
-                                        <option ' . ($process_degree_student->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
-                                        <option ' . ($process_degree_student->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
-                                    </select>',
-                    'action' => '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                data-id="' . $process_degree_student->id . '" data-title="' . $process_degree_student->user . '">
-                                <i class="fas fa-trash"></i>' . trans("admin.delete") . '</button>'
-                ]);
-            }
-
-            if ($exam_degree = SubjectExamStudentResult::where('user_id', Auth::id())
-                ->where('year', $data->first()['year'] ?? null)
-                ->where('subject_id', $data->first()['subject_id'] ?? null)
-                ->where('period', $data->first()['period'] ?? null)
-                ->first()
-            ) {
-                $student_degrees = $exam_degree->student_degree;
-            } else {
-                $exam_degrees = null;
-                $student_degrees = null;
-            }
-
-            return Datatables::of($data)
+        if ($request->ajax()) {
+            return Datatables::of($process_degree_students)
+            ->addColumn('action', function ($process_degree_students) {
+                return '
+                <button type="button" data-id="' . $process_degree_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                        data-id="' . $process_degree_students->id . '" data-title="' . $process_degree_students->user . '">
+                        <i class="fas fa-trash"></i>
+                </button>
+           ';
+            })
+            ->addColumn('subject', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->subject->subject_name . '</td>';
+            })
+            ->addColumn('doctor', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->doctor->first_name . '</td>';
+            })
+            ->editColumn('period', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->period . '</td>';
+            })
+            ->editColumn('year', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->year . '</td>';
+            })
+            ->editColumn('section', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->section . '</td>';
+            })
+            ->editColumn('exam_code', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->exam_code . '</td>';
+            })
+            ->editColumn('request_status', function ($process_degree_students) {
+                if ($process_degree_students->request_status == 'new')
+                    return '<td><a class="btn btn-primary text-white">' . trans('admin.new') . '<a/></td>';
+                if ($process_degree_students->request_status == 'accept')
+                    return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
+                if ($process_degree_students->request_status == 'refused')
+                    return '<td><a class="btn btn-danger text-white">' . trans('admin.refused') . '<a/></td>';
+                if ($process_degree_students->request_status == 'under_processing')
+                    return '<td><a class="btn btn-warning text-white">' . trans('admin.under_processing') . '<a/></td>';
+            })
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('admin.process_degrees.process_degree_students')->with('exam_degrees', 'student_degrees');
+            return view('admin.process_degrees.process_degree_students');
         }
     }
 

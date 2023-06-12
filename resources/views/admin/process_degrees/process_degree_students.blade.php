@@ -16,7 +16,13 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{ trans('admin.process_degrees_admin') }}</h3>
-
+                    <div class="">
+                        <button class="btn btn-secondary btn-icon text-white addBtn">
+									<span>
+										<i class="fe fe-plus"></i>
+									</span> {{ trans('admin.add') }}
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -25,7 +31,6 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">#</th>
-                                    <th class="min-w-50px">{{ trans('admin.student') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.period') }}</th>
@@ -133,10 +138,6 @@
                 name: 'id'
             },
             {
-                data: 'user_id',
-                name: 'user_id'
-            },
-            {
                 data: 'doctor',
                 name: 'doctor'
             },
@@ -172,10 +173,9 @@
             },
         ]
 
-
-
         showData('{{ route('processDegreeStudent') }}', columns);
         destroyScript('{{ route('process_degrees.destroy', ':id') }}');
+        showEditModal('{{route('process_degrees.edit',':id')}}');
 
 
     </script>
