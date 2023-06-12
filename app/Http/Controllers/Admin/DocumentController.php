@@ -229,7 +229,7 @@ class DocumentController extends Controller
     {
         $document = Document::query()
         ->where('id', $request->id)
-            ->firstOrFail();
+            ->first();
 
         $document->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);

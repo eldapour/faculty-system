@@ -1,4 +1,9 @@
 <?php
+
+use App\Models\Document;
+use App\Models\ProcessDegree;
+use App\Models\ProcessExam;
+use App\Models\SubjectStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -148,5 +153,122 @@ if (!function_exists('helperJson')) {
     function helperJson($data=null,$message='',$code=200,$status=200) {
         $json = response()->json(['data'=>$data,'message'=>$message,'code'=>$code],$status);
         return $json;
+    }
+}
+
+
+//dashboard student home
+
+/*
+ * documentCountUser()
+ * processExamCountUser()
+ * processDegreeCountUser()
+ * subjectStudentCountUser()
+ */
+if (!function_exists('documentCountUser')) {
+    function documentCountUser(): int
+    {
+
+        $period = \App\Models\Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $documentCount = 0;
+
+        if($period){
+
+            $documentCount = Document::query()
+                ->where('user_id','=',auth()->id())
+                ->whereYear('created_at','=', $period->year_start);
+
+            return $documentCount->count();
+        }else{
+
+            return $documentCount;
+        }
+
+
+
+    }
+}
+
+
+if (!function_exists('processExamCountUser')) {
+    function processExamCountUser(): int {
+
+        $period = \App\Models\Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $processExamCount = 0;
+
+        if($period) {
+
+            $processExamCount = ProcessExam::query()
+                ->where('user_id', '=', auth()->id())
+                ->where('year', '=', $period->year_start);
+
+            return $processExamCount->count();
+
+        }else{
+
+            return $processExamCount;
+        }
+
+    }
+}
+
+
+if (!function_exists('processDegreeCountUser')) {
+    function processDegreeCountUser():int {
+
+        $period = \App\Models\Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $processDegreeCount = 0;
+
+        if($period) {
+
+            $processDegreeCount = ProcessDegree::query()
+                ->where('user_id', '=', auth()->id())
+                ->where('year', '=', $period->year_start);
+
+            return $processDegreeCount->count();
+
+        }else{
+
+            return $processDegreeCount;
+        }
+
+
+    }
+}
+
+if (!function_exists('subjectStudentCountUser')) {
+    function subjectStudentCountUser(): int {
+
+
+        $period = \App\Models\Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $subjectStudentCount = 0;
+
+        if($period) {
+
+            $subjectStudentCount = SubjectStudent::query()
+                ->where('user_id', '=', auth()->id())
+                ->where('period','=',$period->period)
+                ->where('year', '=', $period->year);
+
+            return  $subjectStudentCount->count();
+
+        }else{
+
+            return  $subjectStudentCount;
+        }
+
+
     }
 }

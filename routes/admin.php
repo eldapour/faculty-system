@@ -62,10 +62,12 @@ Route::group([
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 });
 
+
 Route::group([
     'prefix' => LaravelLocalization::setLocale() . '/dashboard',
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
+
 
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
@@ -226,4 +228,14 @@ Route::group([
     Route::post('period/status', [PeriodController::class, 'status'])->name('period.status');
 
 
+
+});
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+], function () {
+
+//get all subject by group_id and department_branch_id
+Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
 });

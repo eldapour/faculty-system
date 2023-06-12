@@ -23,15 +23,15 @@ class Subject extends Model
         'subject_name' => 'json'
     ];
 
-    public function group()
+    public function group(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Group::class, 'group_id', 'id');
     }
-    public function department()
+    public function department(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Department::class, 'department_id', 'id');
     }
-    public function department_branch()
+    public function department_branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
     }

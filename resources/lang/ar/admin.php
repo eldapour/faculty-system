@@ -63,7 +63,7 @@ return [
     "Ads section" => "قسم الاعلانات",
     'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
     'Diploma certificates' => "شواهد الدبلومات",
-    'Student documents' => "وثائق الطالب",
+    'Student documents' => "طلبات الوثائق",
 
 
 
@@ -385,6 +385,11 @@ return [
     'period_add' => "اضافه فتره جديده",
     'period_all' => "جميع الفترات",
     'period_finished' => "انهاء الفتره",
+
+
+    'group_choice' => "اختر الفوج",
+    'subject_choice' => "اختر الوحده",
+    'for' => " للطالب ",
 
 
 ];

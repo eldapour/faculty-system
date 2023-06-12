@@ -5,15 +5,11 @@ use App\Models\DataModification;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Schema;
-use mysql_xdevapi\ColumnResult;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
-{
+class AdminController extends Controller{
 
 
     public function index(request $request)
