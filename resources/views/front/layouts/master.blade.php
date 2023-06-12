@@ -23,7 +23,6 @@
     <script src="{{ asset('assets/front/') }}/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('assets/front/') }}/assets/js/slick.min.js"></script>
 
-    <script src="{{ asset('assets/front/') }}/assets/js/plugin.js"></script>
 
     <script src="{{ asset('assets/front/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/front/') }}/assets/js/all.min.js"></script>

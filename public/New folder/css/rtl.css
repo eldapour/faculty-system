@@ -201,7 +201,6 @@ p{
     border: none;
     height: 530px;
     transition: all 0.5 ease;
-    border-radius: 10px;
 }
 .card-blog a{
     overflow: hidden;
@@ -355,7 +354,6 @@ p{
 .card-newest .card-img-top{
     transition: all 0.5s ease;
     border-radius: 10px;
-    height: 280px;
 }
 .card-newest:hover .card-img-top{
     transform: scale(1.1);
@@ -473,16 +471,7 @@ p{
     background-color: white;
     color: var(--dark-color);
     border-radius: 5px;
-    font-weight: 600;
-}
-
-.card-blog .card-img-top{
-    height: 280px;
-    border-radius: 10px;
-}
-
-.btn-platform:hover {
-    color: var(--second-color);
+    font-weight: 500;
 }
 
 /* end section platform */
