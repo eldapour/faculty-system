@@ -55,10 +55,10 @@
                                         <input type="text" class="form-control" value="{{ $word->role['fr'] }}"
                                                name="role[fr]" required>
 
-                                        <label for="name_ar"
+                                        {{--  <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.latin') }}</label>
                                         <input type="text" class="form-control" value="{{ $word->role['la'] ?? '' }}"
-                                               name="role[la]" required>
+                                               name="role[la]" required>  --}}
                                     </div>
                                 </div>
                                 <hr>

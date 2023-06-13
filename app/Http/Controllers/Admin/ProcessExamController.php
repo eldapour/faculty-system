@@ -74,14 +74,12 @@ class ProcessExamController extends Controller
                 ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year_start)
                 ->get();
-                // dd($process_exam_students);
-
         if ($request->ajax()) {
             return Datatables::of($process_exam_students)
                 ->addColumn('action', function ($process_exam_students) {
                     return '
-                    <button type="button" data-id="' . $process_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                    <button type="button" data-id="' . $process_exam_students->id . '" '. ($process_exam_students->request_status == 'accept' ? 'hidden' : '') .' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal" '. ($process_exam_students->request_status == 'accept' ? 'hidden' : '') .'
                         data-id="' . $process_exam_students->id . '" data-title="' . $process_exam_students->user->first_name . '">
                         <i class="fas fa-trash"></i>
                 </button>
@@ -153,7 +151,13 @@ class ProcessExamController extends Controller
 
     public function update(Request $request, ProcessExam $processExam)
     {
-        if ($processExam->update($request->all())) {
+        $inputs = $request->all();
+
+        if ($request->hasFile('attachment_file')) {
+            $inputs['attachment_file'] = $this->saveImage($request->attachment_file, 'uploads/process_exams', 'pdf');
+        }
+
+        if ($processExam->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

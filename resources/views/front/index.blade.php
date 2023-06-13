@@ -10,8 +10,8 @@
                         <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="no image">
 
                         <div class="carousel-caption d-md-block text-white">
-                            <p class="small-title text-start">welcome to university</p>
-                            <h1 class="heading text-white text-start tw-bolder">
+                            <p class="small-title">welcome to university</p>
+                            <h1 class="heading text-white tw-bolder">
                                 {{ $slider->title[lang()] }}
                             </h1>
                             <p class="text-start description">
@@ -99,7 +99,7 @@
         <div class="container-fluid">
             <div class="owl-carousel owl-theme">
                 @foreach ($videos as $video)
-                    <div class="row card-video video1" style="background-image: url({{ asset($video->background_image) }})">
+                    <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
                         <div class="col-lg-6 col-12">
                             <h1 class="heading-video text-white">
                                 {{ $video->title[lang()] }}
@@ -115,43 +115,10 @@
                             </div>
                         </div>
                     </div>
-                      <div class="row card-video video2">
-                    <div class="col-lg-6 col-12">
-                        <h1 class="heading-video text-white">
-                            education is the best success in lif
-                        </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius explicabo atque est iure
-                            voluptatibus incidunt </p>
-                    </div>
-                    <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
-                        <div class="icon-video">
-                            <a class="text-decoration-none" href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="{{ asset('assets/front/assets') }}/photo/play-button.png" alt="no-video">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                      <div class="row card-video video3">
-                    <div class="col-lg-6 col-12">
-                        <h1 class="heading-video text-white">
-                            education is the best success in lif
-                        </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius explicabo atque est iure
-                            voluptatibus incidunt </p>
-                    </div>
-                    <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
-                        <div class="icon-video">
-                            <a class="text-decoration-none" href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="{{ asset('assets/front/assets') }}/photo/play-button.png" alt="no-video">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
             </div>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -273,15 +240,15 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     @foreach ($dean_speech as $dean)
-                    <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
-                    <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
-                    <p>{{ $dean->description[lang()] }}</p>
-                    <div class="mt-5">
-                        <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
-                            details
-                            <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
-                        </a>
-                    </div>
+                        <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
+                        <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
+                        <p>{!! $dean->description[lang()] !!}</p>
+                        <div class="mt-5">
+                            <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
+                                details
+                                <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
+                            </a>
+                        </div>
                     @endforeach
 
 

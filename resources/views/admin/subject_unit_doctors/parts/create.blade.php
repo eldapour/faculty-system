@@ -23,16 +23,16 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label for="subject_id" class="form-control-label subject_id">{{ trans('admin.subject') }}</label>
-                    <select name="subject_id" class="form-control">
-                        @foreach ($data['subjects'] as $subject)
-                        <option value="{{ $subject->id }}" style="text-align: center">{{ $subject->subject_name }}</option>
+                    <label for="unit_id" class="form-control-label subject_id">{{ trans('admin.unit') }}</label>
+                    <select name="unit_id" class="form-control">
+                        @foreach ($data['units'] as $unit)
+                        <option value="{{ $unit->id }}" style="text-align: center">{{ $unit->unit_name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="unit_id" class="form-control-label">{{ trans('admin.unit') }}</label>
-                    <select class="form-control" name="unit_id" required>
+                    <label for="subject_id" class="form-control-label">{{ trans('admin.subject') }}</label>
+                    <select class="form-control" name="subject_id" required>
                         <option style="text-align: center" value="" selected disabled>@lang('admin.select')</option>
                     </select>
                 </div>
@@ -62,8 +62,8 @@
     $('.dropify').dropify()
 
 
-    $('select[name="subject_id"]').on('change', function() {
-        localStorage.setItem('subject_id', $(this).val());
+    $('select[name="unit_id"]').on('change', function() {
+        localStorage.setItem('unit_id', $(this).val());
         $.ajax({
             method: 'GET',
             url: '{{ route('getUnit') }}',
@@ -72,13 +72,13 @@
             },
             success: function(data) {
                 if(data !== 404){
-                    $('select[name="unit_id"]').empty();
+                    $('select[name="subject_id"]').empty();
                     $.each(data, function (key, value) {
-                        $('select[name="unit_id"]').append('<option style="text-align: center" value="' + key + '">' + value + '</option>');
+                        $('select[name="subject_id"]').append('<option style="text-align: center" value="' + key + '">' + value + '</option>');
                     });
                 } else if(data === 404){
-                    $('select[name="unit_id"]').empty();
-                    $('select[name="unit_id"]').append('<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>');
+                    $('select[name="subject_id"]').empty();
+                    $('select[name="subject_id"]').append('<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>');
 
                 }
             }

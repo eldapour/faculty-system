@@ -120,15 +120,15 @@ class SubjectUnitDoctorController extends Controller
     public function getUnit(Request $request)
     {
         $id = $request->id;
-        $subject = Unit::query()
-        ->where('subject_id', $id)
+        $unit = Subject::query()
+        ->where('unit_id', $id)
             ->get()
-            ->pluck('unit_name', 'id')
+            ->pluck('subject_name', 'id')
             ->toArray();
 
 
-        if (count($subject) > 0) {
-            return $subject;
+        if (count($unit) > 0) {
+            return $unit;
         } else {
             return response()->json(404);
         }
