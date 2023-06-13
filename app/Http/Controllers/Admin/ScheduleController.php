@@ -10,8 +10,9 @@ use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class ScheduleController extends Controller
-{
+class ScheduleController extends Controller{
+
+
     use PhotoTrait;
     public function index(Request $request)
     {
@@ -41,14 +42,10 @@ class ScheduleController extends Controller
 
                     return $schedules->unit->getTranslation('unit_name', app()->getLocale());
 
-                })
-
-                ->editColumn('pdf_upload', function ($schedules) {
+                })->editColumn('pdf_upload', function ($schedules) {
 
                         return '
                     <a href="'. asset("uploads/schedules/".$schedules->pdf_upload)  .'" class="btn btn-pill btn-primary-light processing">'.trans('admin.schedule_pdf_upload').'</a>';
-
-
                 })
 
                 ->escapeColumns([])
@@ -146,11 +143,7 @@ class ScheduleController extends Controller
             }
         }else{
 
-            $schedule->update([
-
-                'pdf_upload' => $schedule->pdf_upload,
-
-            ]);
+            $schedule->update(['pdf_upload' => $schedule->pdf_upload]);
         }
 
 

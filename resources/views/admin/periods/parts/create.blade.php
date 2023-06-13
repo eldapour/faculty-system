@@ -5,17 +5,17 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.period_start_date')}} </label>
                     <input type="date" class="form-control" name="period_start_date" id="period_start_date">
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.period_end_date')}} </label>
                     <input type="date" class="form-control" name="period_end_date" id="period_start_date">
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="period" class="form-control-label">{{ trans('admin.period_name') }}</label>
                     <select name="period" class="form-control">
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
@@ -23,7 +23,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="period" class="form-control-label">{{ trans('admin.session_name') }}</label>
                     <select name="session" class="form-control">
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
@@ -32,13 +32,13 @@
                 </div>
 
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.year_start')}} </label>
                     <input type="text" class="form-control" name="year_start" id="year_start">
                 </div>
 
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.year_end')}} </label>
                     <input type="text" class="form-control" name="year_end" id="year_end">
                 </div>

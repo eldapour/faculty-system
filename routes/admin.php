@@ -149,7 +149,7 @@ Route::group([
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class);
-    Route::get('get_unit', [SubjectUnitDoctorController::class, 'getUnit'])->name('getUnit');
+    Route::get('getAllSubjectsOfUnitId', [SubjectUnitDoctorController::class, 'getAllSubjectsOfUnitId'])->name('dashboard.getAllSubjectsOfUnitId');
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class);

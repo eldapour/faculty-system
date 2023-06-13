@@ -11,16 +11,6 @@ use App\Http\Controllers\Front\HomeWebController;
 use App\Http\Controllers\Front\PageController;
 use App\Http\Controllers\Front\TimeUsesController;
 
-//--------------------------------------------------------------------------
-// Web routes
-//--------------------------------------------------------------------------
-// start web routes
-
-
-
-//--------------------------------------------------------------------------
-// Admin routes
-//--------------------------------------------------------------------------
 
 require __DIR__ . '/admin.php';
 

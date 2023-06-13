@@ -210,7 +210,7 @@ return [
     'period' => 'فترة',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'دكتور وحدة الموضوع',
+    'subject_unit_doctor' => 'اضافه وحده للاستاذ',
     'subject_unit_doctors' => 'وحدات الاستاذ',
 
     // University Setting

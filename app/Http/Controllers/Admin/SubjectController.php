@@ -7,6 +7,7 @@ use App\Http\Requests\SubjectRequest;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
 use App\Models\Group;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\Subject;
@@ -34,6 +35,9 @@ class SubjectController extends Controller
                 ->editColumn('group_id', function ($subjects) {
                     return '<td>'. $subjects->group->group_name .'</td>';
                 })
+                ->editColumn('unit_id', function ($subjects) {
+                    return '<td>'. $subjects->unit->unit_name .'</td>';
+                })
                 ->editColumn('department_id', function ($subjects) {
                     return '<td>'. $subjects->department->department_name .'</td>';
                 })
@@ -46,18 +50,18 @@ class SubjectController extends Controller
             return view('admin.subjects.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         $data['groups'] = Group::all();
+        $data['units'] = Unit::query()
+            ->select('id','unit_name')
+            ->get();
+
         $data['departments'] = Department::all();
         return view('admin.subjects.parts.create', compact('data'));
     }
-    // Create End
-
-    // Store Start
 
     public function store(SubjectRequest $request)
     {
@@ -69,31 +73,36 @@ class SubjectController extends Controller
         }
     }
 
-    // Store End
-
-    // Edit Start
     public function edit(Subject $subject)
     {
         $data['groups'] = Group::all();
         $data['departments'] = Department::all();
+        $data['units'] = Unit::query()
+            ->select('id','unit_name')
+            ->get();
         return view('admin.subjects.parts.edit', compact('subject', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Subject $subject)
+    public function update(SubjectRequest $request, Subject $subject): \Illuminate\Http\JsonResponse
     {
-        if ($subject->update($request->all())) {
+
+
+        $data = [
+
+            'subject_name' => ['ar' => $request->subject_name_ar, 'en' => $request->subject_name_en,
+                'fr' => $request->subject_name_fr],
+        ];
+
+
+        if ($subject->update($data)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -102,5 +111,5 @@ class SubjectController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

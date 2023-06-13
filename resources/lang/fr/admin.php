@@ -213,7 +213,7 @@ return [
     'period' => 'période',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'médecin de l unité de discipline',
+    'subject_unit_doctor' => 'Ajouter une unité au professeur',
     'subject_unit_doctors' => 'unité sujette',
 
     // University Setting

@@ -11,7 +11,7 @@ class DepartmentBranchRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,12 @@ class DepartmentBranchRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'branch_name' => 'required',
+            'branch_name_ar' => 'required',
+            'branch_name_en' => 'required',
+            'branch_name_fr' => 'required',
             'department_id' => 'required',
         ];
     }

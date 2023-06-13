@@ -229,7 +229,7 @@ return [
     'period' => 'Period',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'Subject Unit Doctor',
+    'subject_unit_doctor' => 'Add a unit to the professor',
     'subject_unit_doctors' => 'Unit Doctors',
 
     // University Setting

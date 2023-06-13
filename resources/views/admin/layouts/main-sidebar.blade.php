@@ -257,13 +257,17 @@
         @endif
 
 
-
-
         @if(checkUser('manger'))
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('group.index') }}">
                     <i class="fa fa-bus side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.groups') }}</span>
+                </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('unit.index') }}">
+                    <i class="fa fa-address-book side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.units') }}</span>
                 </a>
             </li>
 
@@ -274,12 +278,7 @@
                 </a>
             </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('unit.index') }}">
-                    <i class="fa fa-address-book side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.units') }}</span>
-                </a>
-            </li>
+
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('departments.index') }}">
