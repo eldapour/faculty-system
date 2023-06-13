@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="year">{{ trans('admin.year') }}</label>
-                        <input type="date" class="form-control" name="year">
+                        <input type="text" class="form-control" name="year">
                 </div>
                 <div class="col-md-4">
                     <label for="section" class="form-control-label">{{ trans('admin.section') }}</label>
