@@ -345,6 +345,7 @@ return [
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
     "process_exam_students" => "تقديم طلب استدراك",
     "the_remedial_request_has_been_registered_successfully" => "تم تسجيل طلب الاستدراك بنجاح",
+    "You_are_only" => "لا يحق لك غير طلب واحد خلال مدة الدورة الاستدراكية",
 
 
     // data modification

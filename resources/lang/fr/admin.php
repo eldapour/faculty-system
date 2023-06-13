@@ -350,6 +350,7 @@ return [
     "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
     "process_exam_students" => "Processus d'examen des étudiants",
     "the_remedial_request_has_been_registered_successfully" => "La demande de réparation a été enregistrée avec succès",
+    "You_are_only" => "Vous n'avez droit qu'à une seule demande pendant la période de la session de rattrapage",
 
 
     // data modification

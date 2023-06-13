@@ -29,7 +29,6 @@ class ProcessExamRequest extends FormRequest
             'period' => 'required',
             'year' => 'required',
             'request_date' => 'required|date',
-            'request_status' => 'required',
             'processing_request_date' => 'required|date',
             'reason' => 'required',
         ];

@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Department;
 use DateTime;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SubjectStudentRequest;
-use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
-use App\Models\SubjectStudent;
 use App\Models\User;
-use App\Models\Subject;
 use App\Models\Group;
+use App\Models\Period;
+use App\Models\Subject;
+use App\Models\Department;
+use Illuminate\Http\Request;
+use App\Models\SubjectStudent;
+use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SubjectStudentRequest;
 
 class SubjectStudentController extends Controller
 {
@@ -19,19 +21,23 @@ class SubjectStudentController extends Controller
      public function index(request $request)
      {
          if ($request->ajax()) {
-             $subject_students = SubjectStudent::get();
+            $periods = Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+            $subject_students = SubjectStudent::query()
+            ->where('user_id', '=', Auth::id())
+            ->where('period', '=' ,$periods->period)
+            ->where('year', '=', $periods->year_start)
+            ->get();
              return Datatables::of($subject_students)
-                 ->addColumn('action', function ($subject_students) {
-                     return '
-                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                     data-id="' . $subject_students->id . '" data-title="' . $subject_students->subject->subject_name . trans('admin.for') . $subject_students->user->first_name . '">
-                                     <i class="fas fa-trash"></i>
-                             </button>
-                        ';
-                 })
-                 ->editColumn('user_id', function ($subject_students) {
-                     return'<td>'. $subject_students->user->first_name .'</td>';
-                 })
+                //  ->addColumn('action', function ($subject_students) {
+                //      return '
+                //              <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                //                      data-id="' . $subject_students->id . '" data-title="' . $subject_students->subject->subject_name . trans('admin.for') . $subject_students->user->first_name . '">
+                //                      <i class="fas fa-trash"></i>
+                //              </button>
+                //         ';
+                //  })
                  ->editColumn('subject_id', function ($subject_students) {
                      return'<td>'. $subject_students->subject->subject_name .'</td>';
                  })

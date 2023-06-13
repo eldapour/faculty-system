@@ -16,15 +16,25 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{ trans('admin.process_exam_students') }}</h3>
+                    <a class="btn btn-danger text-white">{{ trans('admin.You_are_only') }}</a>
                     <div class="">
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.add') }}
-                        </button>
+                        <?php $count = App\Models\ProcessExam::count(); ?>
+                        @if ($count > 0)
+                            <button class="btn btn-secondary btn-icon text-white addBtn" disabled>
+                                <span>
+                                    <i class="fe fe-plus"></i>
+                                </span> {{ trans('admin.add') }}
+                            </button>
+                        @else
+                            <button class="btn btn-secondary btn-icon text-white addBtn">
+                                <span>
+                                    <i class="fe fe-plus"></i>
+                                </span> {{ trans('admin.add') }}
+                            </button>
+                        @endif
                     </div>
                 </div>
-                {{--  <?php return($process_exam_students)?>  --}}
+                {{--  <?php return $process_exam_students; ?>  --}}
                 <div class="card-body">
                     <div class="table-responsive">
                         <!--begin::Table-->
@@ -35,10 +45,9 @@
                                     <th class="min-w-50px">{{ trans('admin.attachment_file') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.period') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.year') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.reason') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.request_date') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.processing_request_date') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.reason') }}</th>
                                     <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
 
                                 </tr>
@@ -109,18 +118,22 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="department_branch_id" class="form-control-label">@lang('admin.exam_degree_actuel')</label>
+                                        <label for="department_branch_id"
+                                            class="form-control-label">@lang('admin.exam_degree_actuel')</label>
                                         <input type="number" step="any" name="" class="form-control">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="department_branch_id" class="form-control-label">@lang('admin.The_students_grade_after_adjustment')</label>
+                                        <label for="department_branch_id"
+                                            class="form-control-label">@lang('admin.The_students_grade_after_adjustment')</label>
                                         <input type="number" step="any" name="" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
-                                <button type="submit" class="btn btn-primary" id="addButton">{{ trans('admin.update') }}</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">{{ trans('admin.close') }}</button>
+                                <button type="submit" class="btn btn-primary"
+                                    id="addButton">{{ trans('admin.update') }}</button>
                             </div>
                         </form>
                     </div>
@@ -159,20 +172,16 @@
                 name: 'year'
             },
             {
+                data: 'reason',
+                name: 'reason'
+            },
+            {
                 data: 'request_date',
                 name: 'request_date'
             },
             {
                 data: 'request_status',
                 name: 'request_status'
-            },
-            {
-                data: 'processing_request_date',
-                name: 'processing_request_date'
-            },
-            {
-                data: 'reason',
-                name: 'reason'
             },
             {
                 data: 'action',
@@ -185,23 +194,23 @@
 
 
         showData('{{ route('processExamStudent') }}', columns);
-        destroyScript('{{ route('process_exams.destroy', ':id') }}');
-        showEditModal('{{route('process_exams.edit',':id')}}');
+        deleteScriptExam('{{ route('process_exams.destroy', ':id') }}');
+        showEditModal('{{ route('process_exams.edit', ':id') }}');
         editScript();
 
 
 
         // Get Add View
-        $(document).on('click', '.addBtn', function () {
+        $(document).on('click', '.addBtn', function() {
             $('#modal-body').html(loader)
             $('#editOrCreate').modal('show')
-            setTimeout(function () {
-                $('#modal-body').load('{{route('process_exams.create')}}')
+            setTimeout(function() {
+                $('#modal-body').load('{{ route('process_exams.create') }}')
             }, 250)
         });
 
         // Add By Ajax
-        $(document).on('submit','Form#addForm',function(e) {
+        $(document).on('submit', 'Form#addForm', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#addForm').attr('action');
@@ -210,31 +219,36 @@
                 url: url,
                 type: 'POST',
                 data: formData,
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled',
+                        true);
                 },
 
-                success: function (data) {
+                success: function(data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('{{ trans('admin.the_remedial_request_has_been_registered_successfully') }}');
-                    }
-                    else
+                        toastr.success(
+                            '{{ trans('admin.the_remedial_request_has_been_registered_successfully') }}'
+                        );
+                    } else
                         toastr.error('There is an error');
                     $('#addButton').html(`Create`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
+                    setTimeout(function(){
+                        location.reload(true);
+                     }, 3000); // 5 seconds
                 },
 
-                error: function (data) {
+                error: function(data) {
                     if (data.status === 500) {
                         toastr.error('There is an error');
                     } else if (data.status === 422) {
 
                         var errors = $.parseJSON(data.responseText);
-                        $.each(errors, function (key, value) {
+                        $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function(key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -242,7 +256,7 @@
                     } else
                         toastr.error('there in an error');
                     $('#addButton').html(`Create`).attr('disabled', false);
-                },//end error method
+                }, //end error method
                 cache: false,
                 contentType: false,
                 processData: false
