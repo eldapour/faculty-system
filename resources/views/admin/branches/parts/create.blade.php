@@ -36,5 +36,12 @@
 </div>
 
 <script>
+    $('.dropify').dropify();
+    $(document).ready(function() {
+        $('select').select2();
+    });
+
+</script>
+<script>
     $('.dropify').dropify()
 </script>

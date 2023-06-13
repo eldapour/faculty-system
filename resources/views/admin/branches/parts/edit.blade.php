@@ -10,7 +10,7 @@
                     <select class="form-control" name="department_id" required @selected(old('department_id',$branch->department_id))>
                         <option value="" disabled>@lang('admin.select')</option>
                         @foreach($departments as $department)
-                            <option value="{{ $department->id}}">{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
+                            <option value="{{ $department->id}}" {{$branch->department_id ==  $department->id ? 'selected' : ''}}>{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -36,6 +36,14 @@
         </div>
     </form>
 </div>
+
+<script>
+    $('.dropify').dropify();
+    $(document).ready(function() {
+        $('select').select2();
+    });
+
+</script>
 <script>
     $('.dropify').dropify()
 </script>
