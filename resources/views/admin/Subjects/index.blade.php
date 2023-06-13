@@ -29,6 +29,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.department') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.branch') }}</th>
@@ -92,6 +93,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'subject_name', name: 'subject_name'},
+            {data: 'unit_id', name: 'unit_id'},
             {data: 'group_id', name: 'group_id'},
             {data: 'department_id', name: 'department_id'},
             {data: 'department_branch_id', name: 'department_branch_id'},

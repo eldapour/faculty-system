@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SubjectUnitDoctor extends Model
 {
@@ -12,30 +13,21 @@ class SubjectUnitDoctor extends Model
     protected $fillable = [
         'year',
         'user_id',
-        'group_id',
         'subject_id',
-        'unit_id',
         'period',
     ];
 
-    public function doctor()
+    public function doctor(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id')
             ->where('user_type', 'doctor');
     }
 
-    public function group()
-    {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
-    }
 
-    public function subject()
+    public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
 
-    public function unit()
-    {
-        return $this->belongsTo(Unit::class, 'unit_id', 'id');
-    }
+
 }

@@ -11,7 +11,7 @@ class SubjectUnitDoctorRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,15 +21,23 @@ class SubjectUnitDoctorRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
-        return [
-            'year' => 'required',
-            'user_id' => 'required',
-            'group_id' => 'required',
-            'subject_id' => 'required',
-            'unit_id' => 'required',
-            'period' => 'required'
-        ];
+
+
+        if (request()->isMethod('post')) {
+            $rules = [
+                'year' => 'required',
+                'user_id' => 'required',
+                'subject_id' => 'required',
+                'period' => 'required'
+            ];
+        } elseif (request()->isMethod('PUT')) {
+            $rules = [
+                'year' => 'required',
+            ];
+        }
+
+        return $rules;
     }
 }

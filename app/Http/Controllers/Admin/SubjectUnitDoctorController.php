@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Department;
 use DateTime;
 use App\Models\Unit;
 use App\Models\User;
 use App\Models\Group;
 use App\Models\Subject;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\SubjectStudent;
 use Yajra\DataTables\DataTables;
@@ -17,7 +19,8 @@ use App\Http\Requests\SubjectUnitDoctorRequest;
 
 class SubjectUnitDoctorController extends Controller
 {
-    // Index Start
+
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -38,11 +41,11 @@ class SubjectUnitDoctorController extends Controller
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
                 })
-                ->editColumn('group_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->group->group_name .'</td>';
+                ->addColumn('group_id', function ($subject_unit_doctors) {
+                    return'<td>'. $subject_unit_doctors->subject->group->group_name .'</td>';
                 })
-                ->editColumn('unit_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->unit->unit_name .'</td>';
+                ->addColumn('unit_id', function ($subject_unit_doctors) {
+                    return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
                 })
                 ->editColumn('year', function ($subject_unit_doctors) {
                     $date = new DateTime($subject_unit_doctors->year);
@@ -54,22 +57,33 @@ class SubjectUnitDoctorController extends Controller
             return view('admin.subject_unit_doctors.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
-        $data['users'] = User::where('user_type', 'doctor')->get();
-        $data['subjects'] = Subject::all();
+        $data['users'] = User::query()
+        ->where('user_type', 'doctor')
+            ->get();
+
+        $data['subjects'] = Subject::query()
+            ->select('id','subject_name')
+            ->get();
+
         $data['groups'] = Group::all();
-        $data['units'] = Unit::all();
+        $data['units'] = Unit::query()
+            ->select('id','unit_name')
+            ->get();
+
+        $data['departments'] = Department::query()
+            ->select('id','department_name')
+            ->get();
+
         return view('admin.subject_unit_doctors.parts.create', compact('data'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(SubjectUnitDoctorRequest $request)
+
+    public function store(SubjectUnitDoctorRequest $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -80,22 +94,33 @@ class SubjectUnitDoctorController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
+
     public function edit(SubjectUnitDoctor $subjectUnitDoctor)
     {
-       $data['users'] = User::all();
-       $data['subjects'] = Subject::all();
-       $data['groups'] = Group::all();
-       $data['units'] = Unit::all();
+        $data['users'] = User::query()
+            ->where('user_type', 'doctor')
+            ->get();
+
+        $data['subjects'] = Subject::query()
+            ->select('id','subject_name')
+            ->get();
+
+        $data['groups'] = Group::all();
+        $data['units'] = Unit::query()
+            ->select('id','unit_name')
+            ->get();
+
+        $data['departments'] = Department::query()
+            ->select('id','department_name')
+            ->get();
+
+
         return view('admin.subject_unit_doctors.parts.edit', compact('subjectUnitDoctor', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, SubjectUnitDoctor $subjectUnitDoctor)
+    public function update(SubjectUnitDoctorRequest $request, SubjectUnitDoctor $subjectUnitDoctor): JsonResponse
     {
         if ($subjectUnitDoctor->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -104,9 +129,7 @@ class SubjectUnitDoctorController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -115,22 +138,19 @@ class SubjectUnitDoctorController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    public function getUnit(Request $request)
+
+    public function getAllSubjectsOfUnitId(Request $request): \Illuminate\Support\Collection
     {
-        $id = $request->id;
-        $unit = Subject::query()
-        ->where('unit_id', $id)
-            ->get()
-            ->pluck('subject_name', 'id')
-            ->toArray();
 
 
-        if (count($unit) > 0) {
-            return $unit;
-        } else {
-            return response()->json(404);
-        }
+
+        return Subject::query()
+        ->where('group_id','=', $request->group_id)
+        ->where('unit_id','=', $request->unit_id)
+        ->where('department_branch_id','=',$request->department_branch_id)
+            ->pluck('subject_name', 'id');
+
+
     }
 }
