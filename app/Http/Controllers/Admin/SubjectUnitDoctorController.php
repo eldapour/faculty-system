@@ -143,11 +143,14 @@ class SubjectUnitDoctorController extends Controller
     public function getAllSubjectsOfUnitId(Request $request): \Illuminate\Support\Collection
     {
 
+
+
         return Subject::query()
         ->where('group_id','=', $request->group_id)
         ->where('unit_id','=', $request->unit_id)
         ->where('department_branch_id','=',$request->department_branch_id)
             ->pluck('subject_name', 'id');
+
 
     }
 }

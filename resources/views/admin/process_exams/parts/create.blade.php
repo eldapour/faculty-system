@@ -3,15 +3,8 @@
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
-                    <label for="user_id" class="form-control-label">{{ trans('admin.student') }}</label>
-                    <select name="user_id" class="form-control">
-                        @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center">{{ $user->first_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-6">
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <div class="col-md-12">
                     <label for="attachment_file" class="form-control-label">{{ trans('admin.attachment_file') }}</label>
                     <input type="file" name="attachment_file" class="form-control">
                 </div>
@@ -47,8 +40,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="processing_request_date" class="form-control-label">{{ trans('admin.processing_request_date') }}</label>
-                    <input type="date" name="processing_request_date" class="form-control"/>
+                    <label for="processing_request_date"
+                        class="form-control-label">{{ trans('admin.processing_request_date') }}</label>
+                    <input type="date" name="processing_request_date" class="form-control" />
                 </div>
             </div>
             <div class="row">

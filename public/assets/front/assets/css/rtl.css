@@ -132,6 +132,10 @@ p{
     height: 600px;
     object-fit: cover;
 }
+.carousel-caption .heading{
+    text-align: right;
+}
+
 .carousel-caption{
     display: flex !important;
     flex-direction: column;
@@ -201,7 +205,6 @@ p{
     border: none;
     height: 530px;
     transition: all 0.5 ease;
-    border-radius: 10px;
 }
 .card-blog a{
     overflow: hidden;
@@ -257,20 +260,20 @@ p{
 
 .owl-carousel .owl-nav button.owl-prev:hover,
 .owl-carousel .owl-nav button.owl-next:hover{
-    background-color: var(--dark-color);
+    background-color: var(--dark-color) !important;
 }
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel .owl-nav button.owl-next{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    color: white;
+    font-size: 30px !important;
+    color: white !important;
     position: absolute;
     width: 60px;
     height: 60px;
     top: -90px;
-    background-color: var(--second-color);
+    background-color: var(--second-color) !important;
 }
 .owl-carousel .owl-nav button.owl-prev span,
 .owl-carousel .owl-nav button.owl-next span{
@@ -287,11 +290,11 @@ p{
 
 /* start section video */
 
-.video-slider{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
+.card-video{
     background-position: center;
     background-size: cover;
     padding: 130px 0;
+    margin: 0px 10px !important;
 }
 .heading-video{
     letter-spacing: 1px;
@@ -355,7 +358,6 @@ p{
 .card-newest .card-img-top{
     transition: all 0.5s ease;
     border-radius: 10px;
-    height: 280px;
 }
 .card-newest:hover .card-img-top{
     transform: scale(1.1);
@@ -473,16 +475,7 @@ p{
     background-color: white;
     color: var(--dark-color);
     border-radius: 5px;
-    font-weight: 600;
-}
-
-.card-blog .card-img-top{
-    height: 280px;
-    border-radius: 10px;
-}
-
-.btn-platform:hover {
-    color: var(--second-color);
+    font-weight: 500;
 }
 
 /* end section platform */

@@ -76,10 +76,18 @@
         <!-- MODAL CLOSED -->
 
         <!-- Edit MODAL -->
-        <div class="modal fade" id="editOrCreate" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" id="modalContent">
+        <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body">
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,15 +187,16 @@
         showData('{{ route('processExamStudent') }}', columns);
         destroyScript('{{ route('process_exams.destroy', ':id') }}');
         showEditModal('{{route('process_exams.edit',':id')}}');
+        editScript();
 
 
 
         // Get Add View
         $(document).on('click', '.addBtn', function () {
-            $('#modalContent').html(loader)
+            $('#modal-body').html(loader)
             $('#editOrCreate').modal('show')
             setTimeout(function () {
-                $('#modalContent').load('{{route('process_exams.create')}}')
+                $('#modal-body').load('{{route('process_exams.create')}}')
             }, 250)
         });
 

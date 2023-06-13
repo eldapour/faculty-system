@@ -1,7 +1,7 @@
 body{
-    font-family: 'Jost', sans-serif;
+    font-family: 'Cairo', sans-serif;
     scroll-behavior: smooth;
-    direction: ltr;
+    direction: rtl;
     padding: 0;
     margin: 0;
     text-transform: capitalize;
@@ -100,7 +100,7 @@ p{
 
 }
 .navbar .nav-item{
-    margin-right: 10px;
+    margin-left: 10px;
 }
 .dropdown-divider{
     background-color: gainsboro;
@@ -164,7 +164,7 @@ p{
     width: 55px;
     height: 2px;
     position: relative;
-    left: 15px;
+    right: 15px;
     top: -5px;
     background: var(--second-color);
     display: inline-block;
@@ -215,7 +215,7 @@ p{
     color: white;
     font-size: 12px;
     height: 67px;
-    left: 30px;
+    right: 30px;
     position: absolute;
     text-align: center;
     top: -60px;
@@ -257,20 +257,20 @@ p{
 
 .owl-carousel .owl-nav button.owl-prev:hover,
 .owl-carousel .owl-nav button.owl-next:hover{
-    background-color: var(--dark-color) !important;
+    background-color: var(--dark-color);
 }
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel .owl-nav button.owl-next{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px !important;
-    color: white !important;
+    font-size: 30px;
+    color: white;
     position: absolute;
     width: 60px;
     height: 60px;
     top: -90px;
-    background-color: var(--second-color) !important;
+    background-color: var(--second-color);
 }
 .owl-carousel .owl-nav button.owl-prev span,
 .owl-carousel .owl-nav button.owl-next span{
@@ -278,35 +278,20 @@ p{
 
 }
 .owl-carousel .owl-nav button.owl-prev{
-    right: 100px;
+    left: 20px;
 }
 .owl-carousel .owl-nav button.owl-next{
-    right: 20px;
+    left: 100px;
 }
-
-.card-blog .card-img-top{
-    height: 280px;
-    border-radius: 10px;
-}
-
 /* end section blogs */
 
 /* start section video */
 
-.card-video{
+.video-slider{
+    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
     background-position: center;
     background-size: cover;
     padding: 130px 0;
-    margin: 0px 10px !important;
-}
-.video1{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
-}
-.video2{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
-}
-.video3{
-    background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
 }
 .heading-video{
     letter-spacing: 1px;
@@ -346,7 +331,7 @@ p{
   }
 .video-slider .owl-carousel .owl-nav button.owl-prev,
 .video-slider .owl-carousel .owl-nav button.owl-next{
-    top: -80px;
+    top: -120px;
 }
 
 /* end section video */
@@ -392,7 +377,7 @@ p{
     height: 35px;
     width: 130px;
     position: absolute;
-    left: 7px;
+    right: 7px;
     top: -40px;
     border-radius: 5px;
     display: flex;
@@ -491,6 +476,11 @@ p{
     font-weight: 600;
 }
 
+.card-blog .card-img-top{
+    height: 280px;
+    border-radius: 10px;
+}
+
 .btn-platform:hover {
     color: var(--second-color);
 }
@@ -529,25 +519,19 @@ p{
     content: '';
     background: #ff7350;
     bottom: 22px;
-    left: 0;
+    right: 0;
     position: absolute;
     width: 70px;
     height: 1px;
 }
 .footer ul{
     list-style: none;
-    padding-left: 0;
+    padding-right: 0;
 }
 .footer .blog a{
     color: #b2c0d8;
     transition: all 0.5s ease;
 }
-
-.footer .blog img {
-    height: 70px;
-    width: 70px;
-}
-
 .footer .blog a:hover{
     color: white;
 }
@@ -559,6 +543,8 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
+    margin-right: 0 !important;
 }
 .footer .phone{
     color: #b2c0d8;
@@ -651,14 +637,14 @@ p{
     content: '';
     background: #ff7350;
     bottom: 22px;
-    left: 0;
+    right: 0;
     position: absolute;
     width: 70px;
     height: 1px;
 }
 .sidebar ul{
     list-style: none;
-    padding-left: 0;
+    padding-right: 0;
 }
 .sidebar .blog a{
     color: var(--dark-color);
@@ -681,13 +667,8 @@ p{
     margin-left: 15px;
     transition: all 0.5s ease;
 }
-.whatsapp:hover{
-    background-color: #25d366;
-    color: white;
-}
-
-.facebook:hover{
-    background-color: #1877f2;
+.btn-share:hover{
+    background-color: var(--dark-color);
     color: white;
 }
 
@@ -705,7 +686,9 @@ p{
 
 /* table */
 
-table{
+table,
+table td,
+table th{
     border: 1px solid #DEE2E6;
 }
 table .head-table{
@@ -750,9 +733,8 @@ table .head-table{
     border-radius: 5px;
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
     display: none;
-    z-index: 9999;
 }
 .top{
     width: 40px;
@@ -764,4 +746,50 @@ table .head-table{
 .scroll-top:hover{
     background-color: var(--dark-color);
     color: white;
+}
+
+/* rtl */
+
+.carousel,
+.owl-carousel,
+.main-slider,
+.small-slider{
+    direction: ltr ;
+}
+.carousel-caption,
+.card-blog,
+.card-video,
+.card-newest{
+    direction: rtl;
+}
+.blog div{
+    margin-right: 5px !important;
+}
+.dropdown-menu{
+    text-align: right;
+}
+
+
+
+
+@media (max-width: 500px) {
+    .small-title{
+        font-size: 10px;
+    }
+    .heading{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .icon-nav{
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 992px){
+
+    .navbar-nav li:hover .dropdown-menu{
+    display: block;
+}
 }
