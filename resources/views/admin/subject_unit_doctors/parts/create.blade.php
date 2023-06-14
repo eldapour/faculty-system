@@ -1,6 +1,6 @@
 <div class="modal-body">
     <form id="addForm" class="addForm" method="POST" action="{{ route('subject_unit_doctor.store') }}"
-        enctype="multipart/form-data">
+          enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <div class="row">
@@ -11,7 +11,7 @@
                     <label for="group_id" class="form-control-label subject_id">{{ trans('admin.group') }}</label>
                     <select name="group_id" class="form-control" id="group_id">
                         @foreach ($data['groups'] as $group)
-                        <option value="{{ $group->id }}" style="text-align: center">{{ $group->group_name }}</option>
+                            <option value="{{ $group->id }}" style="text-align: center">{{ $group->group_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,12 +31,6 @@
 
                 {{--المسار--}}
                 <div class="col-md-6">
-
-                    <label for="unit_id" class="form-control-label subject_id">{{ trans('admin.unit') }}</label>
-                    <select name="unit_id" class="form-control">
-                        @foreach ($data['units'] as $unit)
-                        <option value="{{ $unit->id }}" style="text-align: center">{{ $unit->unit_name }}</option>
-
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
                         <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
@@ -51,7 +45,6 @@
                         @foreach ($data['units'] as $unit)
                             <option value="{{ $unit->id }}" style="text-align: center">{{ $unit->unit_name }}</option>
 
-
                         @endforeach
                     </select>
                 </div>
@@ -60,14 +53,8 @@
 
                 {{--اختار الوحده للاستاذ--}}
                 <div class="col-md-6">
-
-                    <label for="subject_id" class="form-control-label">{{ trans('admin.subject') }}</label>
-                    <select class="form-control" name="subject_id" required>
-                        <option style="text-align: center" value="" selected disabled>@lang('admin.select')</option>
-
                     <label for="subject_id" class="form-control-label subject_id">{{ trans('admin.subject') }}</label>
                     <select name="subject_id" class="form-control" id="subject_id">
-
 
                     </select>
                 </div>
@@ -76,8 +63,8 @@
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
-                            <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                            <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
+                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
+                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
 
@@ -155,17 +142,12 @@
 
 
 
-
-    $('select[name="unit_id"]').on('change', function() {
-        localStorage.setItem('unit_id', $(this).val());
-
 {{-- get all department branches of department--}}
 <script>
     $('.dropify').dropify()
 
     $('select[name="department_id"]').on('change', function() {
         localStorage.setItem('department_id', $(this).val());
-
         $.ajax({
             method: 'GET',
             url: '{{ route('getBranches') }}',
@@ -173,16 +155,6 @@
                 'id': $(this).val(),
             },
             success: function(data) {
-
-                if(data !== 404){
-                    $('select[name="subject_id"]').empty();
-                    $.each(data, function (key, value) {
-                        $('select[name="subject_id"]').append('<option style="text-align: center" value="' + key + '">' + value + '</option>');
-                    });
-                } else if(data === 404){
-                    $('select[name="subject_id"]').empty();
-                    $('select[name="subject_id"]').append('<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>');
-
                 if (data !== 404) {
                     $('select[name="department_branch_id"]').empty();
                     $.each(data, function(key, value) {
@@ -195,7 +167,6 @@
                     $('select[name="department_branch_id"]').append(
                         '<option style="text-align: center" value="">{{ trans('admin.No results') }}</option>'
                     );
-
 
                 }
             }
