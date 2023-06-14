@@ -186,12 +186,25 @@ if (!function_exists('documentCountUser')) {
 
             return $documentCount;
         }
-
-
-
     }
 }
 
+
+if (!function_exists('checkPeriod')) {
+    function checkPeriod() {
+        $namePeriod = null;
+
+        $period = \App\Models\Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+
+        if ($period) {
+            $namePeriod = $period->period;
+        }
+
+        return $namePeriod;
+    }
+}
 
 if (!function_exists('processExamCountUser')) {
     function processExamCountUser(): int {
@@ -200,21 +213,12 @@ if (!function_exists('processExamCountUser')) {
             ->where('status','=','start')
             ->first();
 
-        $processExamCount = 0;
 
-        if($period) {
 
             $processExamCount = ProcessExam::query()
-                ->where('user_id', '=', auth()->id())
-                ->where('year', '=', $period->year_start);
+                ->where('user_id', '=', auth()->id());
 
             return $processExamCount->count();
-
-        }else{
-
-            return $processExamCount;
-        }
-
     }
 }
 

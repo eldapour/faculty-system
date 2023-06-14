@@ -320,6 +320,8 @@ return [
     "date_enter_degree" => "Date Entrez le diplôme",
     "number_of_students" => "nombre d'étudiants",
     "number_of_doctors" => "nombre de médecins",
+    "exam_degree" => "Diplôme d'examen",
+    "the_score_has_been_modified_successfully" => "Le score a été modifié avec succès",
 
 
     //Certificates
@@ -346,6 +348,9 @@ return [
     "request_status_is_accepted" => "Le statut de la demande est accepté",
     "request_status_is_refused" => "Le statut de la demande est refusé",
     "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
+    "process_exam_students" => "Processus d'examen des étudiants",
+    "the_remedial_request_has_been_registered_successfully" => "La demande de réparation a été enregistrée avec succès",
+    "You_are_only" => "Vous n'avez droit qu'à une seule demande pendant la période de la session de rattrapage",
 
 
     // data modification

@@ -34,7 +34,6 @@
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark" href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
                                     </h3>
-                                    <p class="card-text color-gray">{!! $advertisement->description[lang()] !!}</p>
                                     <div class="time color-gray">
                                         {{ $advertisement->created_at->format('H:i A') }}
                                         <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
