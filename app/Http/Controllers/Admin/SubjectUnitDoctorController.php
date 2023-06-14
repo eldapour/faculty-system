@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Models\Department;
 use DateTime;
 use App\Models\Unit;
@@ -19,7 +18,6 @@ use App\Http\Requests\SubjectUnitDoctorRequest;
 
 class SubjectUnitDoctorController extends Controller
 {
-
 
     public function index(request $request)
     {
@@ -100,6 +98,11 @@ class SubjectUnitDoctorController extends Controller
     {
         $data['users'] = User::query()
             ->where('user_type', 'doctor')
+            ->select(
+                'id',
+                'first_name',
+                'last_name',
+            )
             ->get();
 
         $data['subjects'] = Subject::query()
