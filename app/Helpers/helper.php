@@ -206,6 +206,7 @@ if (!function_exists('checkPeriod')) {
     }
 }
 
+
 if (!function_exists('processExamCountUser')) {
     function processExamCountUser(): int {
 

@@ -3,7 +3,7 @@
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="subject_id" class="form-control-label">{{ trans('admin.subject') }}</label>
                     <select name="subject_id" class="form-control">
                         @foreach ($data['subjects'] as $subject)
@@ -11,49 +11,31 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="department_branch_id" class="form-control-label">@lang('admin.doctor')</label>
                     <select class="form-control" name="doctor_id" required>
                         <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
                     </select>
                 </div>
-                <div class="col-md-4">
-                    <label for="user_id" class="form-control-label">{{ trans('admin.student') }}</label>
-                    <input type="text" class="form-control" readonly name="user_id" value="{{ auth()->user()->first_name }}">
-                </div>
+                    <input type="hidden" class="form-control" readonly name="user_id" value="{{ auth()->user()->first_name }}">
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
-                    <select name="period" class="form-control">
-                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="year">{{ trans('admin.year') }}</label>
-                        <input type="text" class="form-control" name="year">
-                </div>
-                <div class="col-md-4">
+                <input type="hidden" class="form-control" name="period" value="{{ checkPeriod() }}">
+                <input type="hidden" class="form-control" name="year" value="{{ (new DateTime)->format("Y") }}">
+                <div class="col-md-6">
                     <label for="section" class="form-control-label">{{ trans('admin.section') }}</label>
                         <input type="text" class="form-control" name="section">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="exam_code" class="form-control-label">{{ trans('admin.exam_code') }}</label>
                     <input type="number" class="form-control" name="exam_code">
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <label for="student_degree_before_request" class="form-control-label">{{ trans('admin.student_degree_before_request') }}</label>
                     <input type="number" class="form-control" name="student_degree_before_request">
                 </div>
-                <div class="col-md-4">
-                    <label for="student_degree_after_request" class="form-control-label">{{ trans('admin.student_degree_after_request') }}</label>
-                    <input type="number" class="form-control" name="student_degree_after_request">
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <label for="request_type" class="form-control-label">{{ trans('admin.request_type') }}</label>
                     <select name="request_type" class="form-control">
@@ -61,10 +43,6 @@
                         <option value="مراجعه الورقه" style="text-align: center">{{ trans('admin.paper_review') }}</option>
                         <option value="طلب جبر" style="text-align: center">{{ trans('admin.reparation_request') }}</option>
                     </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="processing_date" class="form-control-label">{{ trans('admin.processing_date') }}</label>
-                    <input type="date" class="form-control" name="processing_date">
                 </div>
             </div>
         </div>
