@@ -31,13 +31,17 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">#</th>
-                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.period') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.unit') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.student_degree_before_request') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.request_type') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.student_degree_after_request') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.processing_date') }}</th>
                                     <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
 
                                 </tr>
@@ -146,32 +150,48 @@
                 name: 'id'
             },
             {
-                data: 'doctor',
-                name: 'doctor'
+                data: 'exam_code',
+                name: 'exam_code'
+            },
+            {
+                data: 'unit',
+                name: 'unit'
             },
             {
                 data: 'subject',
                 name: 'subject'
             },
             {
-                data: 'period',
-                name: 'period'
-            },
-            {
-                data: 'year',
-                name: 'year'
+                data: 'doctor',
+                name: 'doctor'
             },
             {
                 data: 'section',
                 name: 'section'
             },
             {
-                data: 'exam_code',
-                name: 'exam_code'
+                data: 'student_degree_before_request',
+                name: 'student_degree_before_request'
+            },
+            {
+                data: 'request_type',
+                name: 'request_type'
+            },
+             {
+                data: 'year',
+                name: 'year'
             },
             {
                 data: 'request_status',
                 name: 'request_status'
+            },
+            {
+                data: 'student_degree_after_request',
+                name: 'student_degree_after_request'
+            },
+            {
+                data: 'processing_date',
+                name: 'processing_date'
             },
             {
                 data: 'action',

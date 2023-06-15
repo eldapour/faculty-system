@@ -59,6 +59,7 @@ Route::group([
 ], function () {
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
+    Route::get('/login-d', [LoginController::class, 'indexStudent'])->name('student.login');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 });
 

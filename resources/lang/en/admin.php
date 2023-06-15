@@ -67,6 +67,8 @@ return [
     'Those concerned with evidence and diploma' => "Those concerned with evidence and diploma",
     'Diploma certificates' => "Diploma certificates",
     'Student documents' => "Student documents",
+    "exam" => "Exam",
+    "exams" => "Exams",
 
 
 
