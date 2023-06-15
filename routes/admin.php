@@ -41,7 +41,6 @@ use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
 
-
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -139,7 +138,7 @@ Route::group([
     Route::resource('group', GroupController::class);
 
     ### Subject ####
-    Route::resource('subject', SubjectController::class);
+    Route::resource('subjects', SubjectController::class);
 
     #### Unit ####
     Route::resource('unit', UnitController::class);
@@ -227,9 +226,14 @@ Route::group([
     Route::resource('periods', PeriodController::class)->only(['index', 'create', 'store']);
     Route::post('period/status', [PeriodController::class, 'status'])->name('period.status');
 
+    #### subject of doctor ####
+    Route::get('subject',[\App\Http\Controllers\Doctor\SubjectController::class, 'index'])->name('dashboard.subject');
+
 
 
 });
+
+
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),

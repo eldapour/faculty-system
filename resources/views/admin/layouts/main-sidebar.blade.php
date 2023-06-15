@@ -7,6 +7,27 @@
         <!-- LOGO -->
     </div>
     <ul class="side-menu">
+
+
+        {{-- start subject doctor  --}}
+        @if(checkUser('doctor'))
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-book-medical side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.subject_unit_doctors')}}</span><i
+                            class="angle fa fa-angle-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a href="{{ route('dashboard.subject') }}" class="slide-item">{{  trans('admin.subject_unit_doctors') }}</a></li>
+
+
+                </ul>
+            </li>
+        @endif
+        {{-- end subject doctor --}}
+
+
+
         @if(checkUser('manger'))
             <li>
                 <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
@@ -272,7 +293,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject.index') }}">
+                <a class="side-menu__item" href="{{ route('subjects.index') }}">
                     <i class="fa fa-book side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
                 </a>

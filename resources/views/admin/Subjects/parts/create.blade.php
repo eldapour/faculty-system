@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('subject.store') }}">
+    <form id="addForm" class="addForm" method="POST" action="{{ route('subjects.store') }}">
         @csrf
         <div class="form-group">
             <div class="row">
