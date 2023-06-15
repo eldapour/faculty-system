@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="updateForm" class="updateForm" method="POST" action="{{ route('subject.update', $subject->id) }}">
+    <form id="updateForm" class="updateForm" method="POST" action="{{ route('subjects.update', $subject->id) }}">
         @csrf
         @method('PUT')
         <input type="hidden" value="{{ $subject->id }}" name="id">

@@ -26,9 +26,9 @@ class SubjectRequest extends FormRequest
 
         if (request()->isMethod('post')) {
             $rules = [
-                'subject_name.ar' => 'required',
-                'subject_name.en' => 'required',
-                'subject_name.fr' => 'required',
+                'subject_name_ar' => 'required',
+                'subject_name_en' => 'required',
+                'subject_name_fr' => 'required',
                 'group_id' => 'required|exists:groups,id',
                 'department_id' => 'required|exists:departments,id',
                 'department_branch_id' => 'required|exists:department_branches,id',
@@ -36,9 +36,9 @@ class SubjectRequest extends FormRequest
             ];
         } elseif (request()->isMethod('PUT')) {
             $rules = [
-                'subject_name.ar' => 'required',
-                'subject_name.en' => 'required',
-                'subject_name.fr' => 'required',
+                'subject_name_ar' => 'required',
+                'subject_name_en' => 'required',
+                'subject_name_fr' => 'required',
             ];
         }
 

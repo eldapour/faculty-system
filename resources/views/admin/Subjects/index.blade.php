@@ -99,14 +99,14 @@
             {data: 'department_branch_id', name: 'department_branch_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('subject.index')}}', columns);
+        showData('{{route('subjects.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('subject.destroy',':id')}}');
+        destroyScript('{{route('subjects.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('subject.create')}}');
+        showAddModal('{{route('subjects.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('subject.edit',':id')}}');
+        showEditModal('{{route('subjects.edit',':id')}}');
         editScript();
     </script>
 @endsection

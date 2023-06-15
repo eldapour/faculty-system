@@ -52,7 +52,6 @@
                 </div>
 
 
-
                 {{--اختار الوحده للاستاذ--}}
                 <div class="col-md-6">
                     <label for="subject_id" class="form-control-label subject_id">{{ trans('admin.subject') }}</label>
