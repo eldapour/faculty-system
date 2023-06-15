@@ -44,6 +44,10 @@ class ProcessExamController extends Controller
                     $date = new DateTime($process_degrees->year);
                     return '<td>' . $date->format('Y') . '</td>';
                 })
+                ->editColumn('updated_at', function ($process_degrees) {
+                    $date = new DateTime($process_degrees->year);
+                    return '<td>' . $date->format('Y-m-d') . '</td>';
+                })
 
                 ->editColumn('request_status', function ($process_degrees) {
                     return '<td><select class="form-control" data-id="' .  $process_degrees->id . '" onchange="updateRequestStatus(this, ' .  $process_degrees->id . ')">
@@ -114,8 +118,9 @@ class ProcessExamController extends Controller
     // Create Start
     public function create()
     {
+        $updated_at = ProcessExam::query()->select('updated_at');
         $data['users'] = User::where('user_type', 'student')->get();
-        return view('admin.process_exams.parts.create', compact('data'));
+        return view('admin.process_exams.parts.create', compact('data', 'updated_at'));
     }
     // Create End
 

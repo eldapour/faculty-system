@@ -10,28 +10,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
-                    <select name="period" class="form-control">
-                            <option value="ربيعيه" style="text-align: center" {{ checkPeriod() == 'ربيعيه' ? '' : 'disabled' }}>{{ trans('admin.autumnal') }}</option>
-                            <option value="خريفيه" style="text-align: center" {{ checkPeriod() == 'خريفيه' ? '' : 'disabled' }}>{{ trans('admin.fall') }}</option>
-                    </select>
-                </div>
-                <input type="hidden" class="form-control" name="year" value="{{ (new DateTime)->format("Y"); }}">
+                <input type="hidden" class="form-control" name="year" value="{{ (new DateTime)->format("Y") }}">
+                <input type="hidden" class="form-control" name="period" value="{{ checkPeriod() }}">
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="year">{{ trans('admin.request_date') }}</label>
                     <input type="hidden" class="form-control" value="{{ (new DateTime)->format("Y-m-d") }}" name="request_date">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <label for="processing_request_date"
-                        class="form-control-label">{{ trans('admin.processing_request_date') }}</label>
-                    <input type="date" value="" name="processing_request_date" class="form-control" />
-                </div>
-            </div>
+
+                        @foreach($updated_at as $process_request)
+                        <input type="hidden" value="{{ $process_request }}" name="processing_request_date" class="form-control" />
+                        @endforeach
+                        </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="reason" class="form-control-label">{{ trans('admin.reason') }}</label>

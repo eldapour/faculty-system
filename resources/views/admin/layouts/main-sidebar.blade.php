@@ -166,12 +166,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-user-check side-menu__icon"></i>
-                        <span class="side-menu__label">استعمالات الزمن</span><i
+                        <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">استعمالات الزمن</a>
+                        <li><a href="{{ route('schedules.index') }}" class="slide-item">{{ trans('admin.all_schedules') }}</a>
                         </li>
 
 
@@ -215,12 +215,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-book-open side-menu__icon"></i>
-                        <span class="side-menu__label">الامتحانات</span><i
+                        <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">الامتحانات</a>
+                        <li><a href="{{ route('subject_exams.index') }}" class="slide-item">{{ trans('admin.exams') }}</a>
                         </li>
 
 
@@ -230,12 +230,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-search side-menu__icon"></i>
-                        <span class="side-menu__label">استدعاء الامتحانات</span><i
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">استدعاء الامتحانات</a>
+                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
                         </li>
 
 
@@ -247,12 +247,12 @@
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-id-card side-menu__icon"></i>
-                        <span class="side-menu__label">نتائج الامتحانات</span><i
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="#" class="slide-item">نتائج الامتحانات</a>
+                        <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">{{ trans('admin.subject_exam_student_results') }}</a>
                         </li>
 
 
@@ -337,12 +337,6 @@
             </li>
 
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_exams.index') }}">
-                    <i class="fa fa-brain side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span>
-                </a>
-            </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('subject_exam_students.index') }}">

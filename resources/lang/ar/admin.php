@@ -64,6 +64,9 @@ return [
     'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
     'Diploma certificates' => "شواهد الدبلومات",
     'Student documents' => "طلبات الوثائق",
+    "exam" => "امتحان",
+    "exams" => "امتحانات",
+
 
 
 

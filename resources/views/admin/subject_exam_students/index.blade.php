@@ -13,6 +13,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
+                    @if(auth()->user()->user_type == 'student')
+                    @else
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
@@ -20,6 +22,7 @@
 									</span> {{ trans('admin.add') }}
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -30,7 +33,6 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.section') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.user') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.period') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
@@ -94,7 +96,6 @@
             {data: 'id', name: 'id'},
             {data: 'exam_code', name: 'exam_code'},
             {data: 'section', name: 'section'},
-            {data: 'user_id', name: 'user_id'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'period', name: 'period'},
             {data: 'action', name: 'action', orderable: false, searchable: false},

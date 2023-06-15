@@ -115,8 +115,8 @@
                 name: 'request_status'
             },
             {
-                data: 'processing_request_date',
-                name: 'processing_request_date'
+                data: 'updated_at',
+                name: 'updated_at'
             },
             {
                 data: 'reason',
