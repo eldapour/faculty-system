@@ -155,7 +155,7 @@ Route::group([
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
-    Route::get('getSubject', [SubjectExamController::class, 'getSubject'])->name('getSubject');
+    Route::get('getAllSubjectOfDepartmentBranchById', [SubjectExamController::class, 'getSubject'])->name('getAllSubjectOfDepartmentBranchById');
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);

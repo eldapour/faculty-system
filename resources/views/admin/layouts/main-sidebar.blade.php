@@ -19,7 +19,7 @@
                 </a>
                 <ul class="slide-menu">
                     <li><a href="{{ route('dashboard.subject') }}" class="slide-item">{{  trans('admin.subject_unit_doctors') }}</a></li>
-
+                    <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">{{  trans('admin.result') }}</a></li>
 
                 </ul>
             </li>
@@ -351,12 +351,7 @@
                 </a>
             </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_exam_student_result.index') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
-                </a>
-            </li>
+
 
 
             <li class="slide">

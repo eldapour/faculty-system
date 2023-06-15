@@ -29,6 +29,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-25px">{{ trans('admin.student') }}</th>
+                                <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject_exam') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.degree') ." ". trans('admin.student') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.degree') ." ". trans('admin.exam') }}</th>
@@ -95,6 +96,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'user', name: 'user'},
+            {data: 'identifier_id', name: 'identifier_id'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'student_degree', name: 'student_degree'},
             {data: 'exam_degree', name: 'exam_degree'},

@@ -39,6 +39,7 @@ class Subject extends Model
     {
         return $this->belongsTo(Unit::class, 'unit_id', 'id');
     }
+
     public function department_branch(): BelongsTo
     {
         return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');

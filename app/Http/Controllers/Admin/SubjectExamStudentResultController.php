@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Period;
+use App\Models\SubjectUnitDoctor;
 use App\Models\User;
 use App\Models\SubjectExam;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -12,11 +16,20 @@ use App\Http\Requests\SubjectExamStudentResultRequest;
 
 class SubjectExamStudentResultController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $subject_exam_student_results = SubjectExamStudentResult::get();
+
+            $period = Period::query()
+                ->where('status','=','start')
+                ->first();
+
+            $subject_exam_student_results = SubjectExamStudentResult::query()
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+                ->get();
+
             return Datatables::of($subject_exam_student_results)
                 ->addColumn('action', function ($subject_exam_student_results) {
                     return '
@@ -31,28 +44,49 @@ class SubjectExamStudentResultController extends Controller
                      return '<td>'. @$subject_exam_student_results->user->first_name .'</td>';
                  })
                  ->addColumn('subject_id', function ($subject_exam_student_results) {
-                     return '<td>'. @$subject_exam_student_results->exam->subject->subject_name .'</td>';
+                     return '<td>'. $subject_exam_student_results->subject->subject_name .'</td>';
                  })
+                ->addColumn('identifier_id', function ($subject_exam_student_results) {
+                    return '<td>'. $subject_exam_student_results->user->identifier_id .'</td>';
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.subject_exam_student_results.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         $data['subject_exams'] = SubjectExam::all();
-        $data['users'] = User::where('user_type', 'student')->get();
-        return view('admin.subject_exam_student_results.parts.create', compact('data'));
+
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $subjectDoctor = SubjectUnitDoctor::query()
+            ->where('user_id','=',auth()->id())
+            ->where('period','=',$period->period)
+            ->where('year','=',$period->year_start)
+            ->first();
+
+        $idOfSubjectDoctor = $subjectDoctor->subject_id;
+
+        $data['users'] = User::query()
+        ->where('user_type', 'student')
+            ->whereHas('subjects', fn(Builder $builder)=>
+            $builder->where('subject_id','=',$subjectDoctor->subject_id)
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+            )
+            ->get();
+
+        return view('admin.subject_exam_student_results.parts.create', compact('data','idOfSubjectDoctor'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(SubjectExamStudentResultRequest $request)
+    public function store(SubjectExamStudentResultRequest $request): JsonResponse
     {
         $inputs = $request->all();
         if (SubjectExamStudentResult::create($inputs)) {
@@ -62,20 +96,14 @@ class SubjectExamStudentResultController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(SubjectExamStudentResult $subjectExamStudentResult)
     {
-        $data['subject_exams'] = SubjectExam::all();
-        $data['users'] = User::where('user_type', 'student')->get();
-        return view('admin.subject_exam_student_results.parts.edit', compact('subjectExamStudentResult', 'data'));
+        return view('admin.subject_exam_student_results.parts.edit', compact('subjectExamStudentResult'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, SubjectExamStudentResult $subjectExamStudentResult)
+    public function update(Request $request, SubjectExamStudentResult $subjectExamStudentResult): JsonResponse
     {
         if ($subjectExamStudentResult->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -84,9 +112,6 @@ class SubjectExamStudentResultController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -95,5 +120,5 @@ class SubjectExamStudentResultController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

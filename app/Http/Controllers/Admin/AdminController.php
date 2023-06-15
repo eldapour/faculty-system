@@ -70,7 +70,7 @@ class AdminController extends Controller{
             }else{
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
 
-            }//
+            }
 
         }else{
 
@@ -189,7 +189,7 @@ class AdminController extends Controller{
 
             return response()->json(['status' => 405]);
         }
-    } // end update
+    }
 
     public function profile(Request $request)
     {
@@ -198,4 +198,4 @@ class AdminController extends Controller{
 
         return view('admin.admins.profile',compact('user','user_data'));
     }
-}//end class
+}

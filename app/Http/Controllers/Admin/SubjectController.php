@@ -9,12 +9,13 @@ use App\Models\DepartmentBranch;
 use App\Models\Group;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Yajra\DataTables\DataTables;
 use App\Models\Subject;
 
 class SubjectController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -63,7 +64,7 @@ class SubjectController extends Controller
         return view('admin.subjects.parts.create', compact('data'));
     }
 
-    public function store(SubjectRequest $request)
+    public function store(SubjectRequest $request): JsonResponse
     {
         $inputs = $request->all();
         if (Subject::create($inputs)) {
@@ -84,9 +85,8 @@ class SubjectController extends Controller
     }
 
 
-    public function update(SubjectRequest $request, Subject $subject): \Illuminate\Http\JsonResponse
+    public function update(SubjectRequest $request, Subject $subject): JsonResponse
     {
-
 
         $data = [
 
