@@ -4,23 +4,33 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Department;
 use App\Models\Group;
+use App\Models\Period;
 use App\Models\Subject;
 use App\Models\SubjectStudent;
 use App\Models\User;
 use App\Models\SubjectExam;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\SubjectExamStudent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectExamStudentRequest;
 
-class SubjectExamStudentController extends Controller
-{
-    // Index Start
+class SubjectExamStudentController extends Controller{
+
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $subject_exam_students = SubjectExamStudent::get();
+
+            $period = Period::query()
+                ->where('status','=','start')
+                ->first();
+
+            $subject_exam_students = SubjectExamStudent::query()
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+                ->get();
+
             return Datatables::of($subject_exam_students)
                 ->addColumn('action', function ($subject_exam_students) {
                     return '
@@ -43,23 +53,21 @@ class SubjectExamStudentController extends Controller
             return view('admin.subject_exam_students.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         $data['users'] = User::get();
         $data['groups'] = Group::get();
         $data['departments'] = Department::get();
+
         $group_ids = Group::pluck('id')->toArray();
         $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
         return view('admin.subject_exam_students.parts.create')->with($data);
     }
-    // Create End
 
-    // Store Start
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -70,9 +78,7 @@ class SubjectExamStudentController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
         $data['groups'] = Group::get();
@@ -82,11 +88,9 @@ class SubjectExamStudentController extends Controller
         $user = User::find($subjectExamStudent->user_id);
         return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent', 'subjects', 'user'))->with($data);
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, SubjectExamStudent $subjectExamStudent)
+    public function update(Request $request, SubjectExamStudent $subjectExamStudent): JsonResponse
     {
         if ($subjectExamStudent->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -95,9 +99,7 @@ class SubjectExamStudentController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -120,6 +122,7 @@ class SubjectExamStudentController extends Controller
             return response()->json(404);
         }
     }
+
 
     public function getSubject(Request $request)
     {

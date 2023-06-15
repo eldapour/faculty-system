@@ -235,7 +235,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => 'امتحان طالب المادة',
+    'subject_exam_student' => 'استدعاء الامتحان',
     'subject_exam_students' => 'استدعاء الامتحان',
     'exam_code' => 'رمز الامتحان',
     'section' => 'قاعة',
@@ -398,6 +398,8 @@ return [
 
     'unit_name' => "الفصل لدراسي",
     'description_text' => "ملاحظات",
+
+    'result' => 'نتائج الوحده',
 
 
 ];

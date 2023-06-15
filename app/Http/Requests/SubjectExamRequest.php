@@ -11,7 +11,7 @@ class SubjectExamRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,11 +21,10 @@ class SubjectExamRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'department_id' => 'required',
-            'department_branch_id' => 'required',
+
             'exam_date' => 'required|date',
             'exam_day' => 'required',
             'year' => 'required',
@@ -33,7 +32,6 @@ class SubjectExamRequest extends FormRequest
             'session' => 'required',
             'time_start' => 'required',
             'time_end' => 'required',
-            'group_id' => 'required',
             'subject_id' => 'required'
         ];
     }

@@ -258,7 +258,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => 'Subject Exam Student',
+    'subject_exam_student' => 'Exam recall',
     'subject_exam_students' => 'Exam Calls',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
@@ -402,5 +402,7 @@ return [
     'for' => ' for the student ',
 
     'unit name' => 'class', 'description text' => 'notes',
+
+    'result' => 'Subject results',
 ];
 

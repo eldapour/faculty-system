@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\SubjectExam;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SubjectExamStudentResult extends Model
 {
@@ -20,13 +21,12 @@ class SubjectExamStudentResult extends Model
         'subject_id'
     ];
 
-    public function exam()
+    public function subject(): BelongsTo
     {
-        return $this->belongsTo(SubjectExam::class, 'subject_id', 'id');
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')
-        ->where('user_type', 'student');
+        return $this->belongsTo(User::class, 'user_id', 'id')->where('user_type', 'student');
     }
 }

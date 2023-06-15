@@ -239,7 +239,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => "Appel d'examen",
+    'subject_exam_student' => 'Rappel examen',
     'subject_exam_students' => 'Subject Exam Students',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
@@ -406,6 +406,8 @@ return [
 
     "unit_name" => 'classe',
     'description_text' => 'notes',
+
+    'result' => 'Résultats unitaires',
 
 
 
