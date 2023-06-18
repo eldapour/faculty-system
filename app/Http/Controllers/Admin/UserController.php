@@ -22,7 +22,6 @@ class UserController extends Controller
                 ->latest()
                 ->get();
 
-
             return Datatables::of($users)
                 ->addColumn('action', function ($user) {
                     return '

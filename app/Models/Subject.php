@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Translatable\HasTranslations;
 
 class Subject extends Model
@@ -43,5 +44,13 @@ class Subject extends Model
     public function department_branch(): BelongsTo
     {
         return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
+    }
+
+
+    public function students(): BelongsToMany{
+
+        return $this->belongsToMany(User::class,'subject_exam_students','subject_id','user_id','id','id')
+            ->withPivot(['exam_code','section','period','session','year'])
+            ->withTimestamps();
     }
 }

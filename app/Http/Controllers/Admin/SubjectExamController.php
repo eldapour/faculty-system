@@ -26,7 +26,6 @@ class SubjectExamController extends Controller
                 ->where('status','=','start')
                 ->first();
 
-
             $subject_exams = SubjectExam::query()
                 ->where('period','=',$period->period)
                 ->where('year','=',$period->year_start)
@@ -117,6 +116,7 @@ class SubjectExamController extends Controller
 
 
     public function getSubject(Request $request): \Illuminate\Support\Collection{
+
 
 
      return Subject::query()
