@@ -37,8 +37,8 @@ class SubjectExamStudentController extends Controller{
             return Datatables::of($subject_exam_students)
                 ->addColumn('action', function ($subject_exam_students) {
                     return '
-                            <button type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $subject_exam_students->id . '" data-title="'. $subject_exam_students->subject->subject_name .'">
                                     <i class="fas fa-trash"></i>
                             </button>

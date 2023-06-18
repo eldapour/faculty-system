@@ -14,6 +14,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
+                    @if(auth()->user()->user_type == 'student')
+                    @else
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
@@ -21,6 +23,7 @@
 									</span> {{ trans('admin.add_schedule') }}
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

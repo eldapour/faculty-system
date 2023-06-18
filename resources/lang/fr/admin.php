@@ -66,6 +66,8 @@ return [
     'Those concerned with evidence and diploma' => "Ceux concernés par la preuve et le diplôme",
     'Diploma certificates' => "Certificats de diplôme",
     'Student documents' => "Documents étudiants",
+    "exam" => "Examen",
+    "exams" => "Examens",
 
 
 

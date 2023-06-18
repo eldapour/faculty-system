@@ -92,6 +92,9 @@ class ProcessDegreeController extends Controller
             ->addColumn('subject', function ($process_degree_students) {
                 return '<td>' . @$process_degree_students->subject->subject_name . '</td>';
             })
+            ->addColumn('unit', function ($process_degree_students) {
+                return '<td>' . @$process_degree_students->subject->unit->unit_name . '</td>';
+            })
             ->addColumn('doctor', function ($process_degree_students) {
                 return '<td>' . @$process_degree_students->doctor->first_name . '</td>';
             })

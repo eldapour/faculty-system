@@ -33,8 +33,8 @@ class ProcessDegreeRequest extends FormRequest
             'exam_code' => 'required',
             'student_degree_before_request' => 'required',
             'request_type' => 'required',
-            'student_degree_after_request' => 'required',
-            'processing_date' => 'required',
+            'student_degree_after_request' => 'nullable',
+            'processing_date' => 'nullable',
         ];
     }
 }
