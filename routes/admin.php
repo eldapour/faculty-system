@@ -242,4 +242,11 @@ Route::group([
 
 //get all subject by group_id and department_branch_id
 Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
+
+
+//filter data in subject exam student model from create.blade.php
+Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
+Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
+
+//syncWithPivotValues
 });

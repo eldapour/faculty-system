@@ -30,14 +30,6 @@ class SubjectStudentController extends Controller
             ->where('year', '=', $periods->year_start)
             ->get();
              return Datatables::of($subject_students)
-                //  ->addColumn('action', function ($subject_students) {
-                //      return '
-                //              <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                //                      data-id="' . $subject_students->id . '" data-title="' . $subject_students->subject->subject_name . trans('admin.for') . $subject_students->user->first_name . '">
-                //                      <i class="fas fa-trash"></i>
-                //              </button>
-                //         ';
-                //  })
                  ->editColumn('subject_id', function ($subject_students) {
                      return'<td>'. $subject_students->subject->subject_name .'</td>';
                  })
@@ -54,51 +46,6 @@ class SubjectStudentController extends Controller
              return view('admin.subject_students.index');
          }
      }
-
-
-//    public function subjectStudent(request $request)
-//    {
-//        if ($request->ajax()) {
-//
-//            $period = \App\Models\Period::query()
-//                ->where('status','=','start')
-//                ->first();
-//
-//            $subject_students = SubjectStudent::query()
-//                ->where('user_id','=',auth()->id())
-//                ->where('year','=',$period->year)
-//                ->get();
-//
-//
-//            return Datatables::of($subject_students)
-//                ->addColumn('action', function ($subject_students) {
-//                    return '
-//                             <button type="button" data-id="' . $subject_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-//                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-//                                     data-id="' . $subject_students->id . '" data-title="' . $subject_students->user->first_name . '">
-//                                     <i class="fas fa-trash"></i>
-//                             </button>
-//                        ';
-//                })
-//                ->editColumn('user_id', function ($subject_students) {
-//                    return'<td>'. $subject_students->user->first_name .'</td>';
-//                })
-//                ->editColumn('subject_id', function ($subject_students) {
-//                    return'<td>'. $subject_students->subject->subject_name .'</td>';
-//                })
-//                ->editColumn('group_id', function ($subject_students) {
-//                    return'<td>'. $subject_students->group->group_name .'</td>';
-//                })
-//                ->editColumn('year', function ($subject_students) {
-//                    $date = new DateTime($subject_students->year);
-//                    return '<td>' . $date->format('Y') . '</td>';
-//                })
-//                ->escapeColumns([])
-//                ->make(true);
-//        } else {
-//            return view('admin.subject_students.student.index');
-//        }
-//    }
 
 
      public function create()

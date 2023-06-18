@@ -7,8 +7,10 @@ use App\Models\Group;
 use App\Models\Period;
 use App\Models\Subject;
 use App\Models\SubjectStudent;
+use App\Models\Unit;
 use App\Models\User;
 use App\Models\SubjectExam;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -17,6 +19,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectExamStudentRequest;
 
 class SubjectExamStudentController extends Controller{
+
 
     public function index(request $request)
     {
@@ -55,23 +58,32 @@ class SubjectExamStudentController extends Controller{
     }
 
 
-    public function create()
-    {
-        $data['users'] = User::get();
-        $data['groups'] = Group::get();
-        $data['departments'] = Department::get();
+    public function create(){
 
-        $group_ids = Group::pluck('id')->toArray();
-        $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
-        return view('admin.subject_exam_students.parts.create')->with($data);
+        $groups = Group::query()
+            ->select('id','group_name')
+            ->get();
+
+        $units = Unit::query()
+            ->select('id','unit_name')
+            ->get();
+
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
+        return view('admin.subject_exam_students.parts.create',compact('groups','units','departments'));
     }
 
 
     public function store(Request $request): JsonResponse
     {
-        $inputs = $request->all();
 
-        if (SubjectExamStudent::create($inputs)) {
+        $subject = Subject::query()
+            ->where('id','=',$request->subject_id)
+            ->first();
+
+        if ($subject->students()->syncWithPivotValues($request->user_id,['exam_code' => $request->exam_code,'section' => $request->section,'period' => $request->period,'session' => $request->session_id,'year' =>  $request->year])) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -81,12 +93,8 @@ class SubjectExamStudentController extends Controller{
 
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
-        $data['groups'] = Group::get();
-        $data['departments'] = Department::get();
-        $group_ids = Group::pluck('id')->toArray();
-        $subjects = Subject::find($subjectExamStudent->subject_id);
-        $user = User::find($subjectExamStudent->user_id);
-        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent', 'subjects', 'user'))->with($data);
+
+        return view('admin.subject_exam_students.parts.edit');
     }
 
 
@@ -108,32 +116,43 @@ class SubjectExamStudentController extends Controller{
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    public function getStudent(Request $request)
+
+    //get all subject with filter data (group,department,department_branch,unit)
+    public function allSubjects(Request $request): \Illuminate\Support\Collection
     {
-        $user_ids = SubjectStudent::where('group_id', '=', $request->group_id)
-            ->where('subject_id', '=', $request->subject_id)->pluck('user_id')->toArray();
-        $users = User::whereIn('id', $user_ids)->pluck('identifier_id', 'id')->toArray();
 
-        if (count($users) > 0) {
-            return $users;
-        } else {
-            return response()->json(404);
-        }
+
+        return Subject::query()
+            ->where('group_id','=',$request->group_id)
+            ->where('department_branch_id','=',$request->department_branch_id)
+            ->where('unit_id','=',$request->unit_id)
+            ->pluck('subject_name', 'id');
     }
 
 
-    public function getSubject(Request $request)
-    {
-        $subjects = Subject::where('group_id', '=', $request->id)
-            ->pluck('subject_name', 'id')
-            ->toArray();
+    //get all students with subject_id
 
-        if (count($subjects) > 0) {
-            return $subjects;
-        } else {
-            return response()->json(404);
-        }
+    public function allStudents(Request $request): \Illuminate\Support\Collection
+    {
+
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
+
+        return User::query()
+            ->where('user_type','=','student')
+            ->whereHas('subjects', fn(Builder $builder) =>
+            $builder->where('subject_id',$request->subject_id)
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+
+            )
+            ->pluck('first_name', 'id');
+
     }
+
+
+
 }

@@ -75,6 +75,9 @@ class User extends Authenticatable
             ->withPivot(['group_id', 'year','period'])
             ->withTimestamps();
     }
+
+
+
 }
 
 
