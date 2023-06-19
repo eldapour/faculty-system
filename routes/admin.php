@@ -115,6 +115,8 @@ Route::group([
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
+    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent');
+    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent');
 
 
     #### Internal Ads ####
@@ -163,7 +165,8 @@ Route::group([
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
     Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
-
+    Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
+    Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
 
     #### Element ####
     Route::resource('elements', ElementController::class);

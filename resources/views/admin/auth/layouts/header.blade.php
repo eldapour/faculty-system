@@ -57,12 +57,12 @@
 
     <style>
         #toast-container > .toast-error {
-            background-color: #7367F0;
+            background-color: #fb5454;
             color: white;
         }
 
         #toast-container > .toast-success {
-            background-color: #7367F0;
+            background-color: #56d094;
             color: white;
         }
     </style>
