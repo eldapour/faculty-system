@@ -1,7 +1,7 @@
 
 <link href="{{asset('assets/admin')}}/plugins/select2/select2.min.css" rel="stylesheet"/>
 <div class="modal-header">
-    <h5 class="modal-title" id="example-Modal3">{{trans('admin.add_document')}}</h5>
+    <h5 class="modal-title" id="example-Modal3">{{ trans('admin.Diploma certificates') }}</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -22,28 +22,24 @@
                     </select>
                 </div>
 
-                <div class="col-md-12">
-                    <label for="category_name" class="form-control-label">{{ trans('admin.diploma_name_ar') }}</label>
-                    <input type="text" class="form-control" name="diploma_name_ar" id="diploma_name_ar">
-                </div>
 
                 <div class="col-md-12">
-                    <label for="category_name" class="form-control-label">{{ trans('admin.diploma_name_en') }}</label>
-                    <input type="text" class="form-control" name="diploma_name_en" id="diploma_name_en">
+                    <label for="user_id" class="form-control-label">{{trans('admin.diploma_name')}}</label>
+                    <select class="form-control" name="certificate_type_id">
+                        <option value="" selected disabled>@lang('admin.select')</option>
+                        @foreach($certificate_types as $certificate_type)
+                            <option value="{{ $certificate_type->id}}">{{ $certificate_type->{'certificate_type_'.lang()} }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
-                <div class="col-md-12">
-                    <label for="category_name" class="form-control-label">{{ trans('admin.diploma_name_fr') }}</label>
-                    <input type="text" class="form-control" name="diploma_name_fr" id="diploma_name_fr">
-                </div>
-
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                     <label for="category_name" class="form-control-label">{{trans('admin.validation_year')}}</label>
                     <input type="text" class="form-control" name="validation_year" id="validation_year">
                 </div>
 
 
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                     <label for="category_name" class="form-control-label">{{trans('admin.diploma_year')}}</label>
                     <input type="text" class="form-control" name="year" id="year">
                 </div>

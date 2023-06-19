@@ -437,6 +437,32 @@ return [
     "unit_code_ar" => "Unit Code in Arabic",
     "unit_code_en" => "Unit code English",
     "unit_code_fr" => "Unit code french",
+
+
+    "situation_with_management" => "situation with management",
+    "situation_with_treasury" => "situation with treasury",
+
+
+    "description_situation_with_management" => "A note on the situation with management",
+    "description_situation_with_management_ar" => "A note on the situation with management in Arabic",
+    "description_situation_with_management_en" => "A Note on Situation with Management in English",
+    "description_situation_with_management_fr" => "A note on situation with management in French",
+
+
+    "description_situation_with_treasury" => "A note on the situation with the safe",
+    "description_situation_with_treasury_ar" => "A note on the situation with the treasury in Arabic",
+    "description_situation_with_treasury_en" => "A note on the situation with the treasury in English",
+    "description_situation_with_treasury_fr" => "A note on the situation with the treasury in French",
+
+
+    "pay" => "payable",
+    "not_pay" => "not payable",
+
+
+    "problem" => "there is a problem",
+    "no_problem" => "no problem",
+
+    "no_notes" => "there are no notes",
 ];
 
 

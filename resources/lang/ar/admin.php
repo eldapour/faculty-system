@@ -432,6 +432,31 @@ return [
 
 
 
+    "situation_with_management" => "الوضعيه مع الاداره",
+    "situation_with_treasury" => "الوضعيه مع الخزانه",
+
+
+    "description_situation_with_management" => "ملاحظه علي الوضعيه مع الاداره",
+    "description_situation_with_management_ar" => "ملاحظه علي الوضعيه مع الاداره باللغه العربيه",
+    "description_situation_with_management_en" => "ملاحظه علي الوضعيه مع الاداره باللغه الانجليزيه",
+    "description_situation_with_management_fr" => "ملاحظه علي الوضعيه مع الاداره باللغه الفرنسيه",
+
+
+    "description_situation_with_treasury" => "ملاحظه علي الوضعيه مع الخزانه",
+    "description_situation_with_treasury_ar" => "ملاحظه علي الوضعيه مع الخزانه باللغه العربيه",
+    "description_situation_with_treasury_en" => "ملاحظه علي الوضعيه مع الخزانه باللغه الانجليزيه",
+    "description_situation_with_treasury_fr" => "ملاحظه علي الوضعيه مع الخزانه باللغه الفرنسيه",
+
+
+    "pay" => "قابل للدفع",
+    "not_pay" => "غير قابع للدفع",
+
+
+    "problem" => "يوجد مشكله",
+    "no_problem" => "لا يوجد مشكله",
+    "no_notes" => "لا يوجد ملاحظات",
+
+
 
 ];
 

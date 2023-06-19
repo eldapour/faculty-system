@@ -107,6 +107,7 @@ return array(
     'App\\Models\\Advertisement' => $baseDir . '/app/Models/Advertisement.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Certificate' => $baseDir . '/app/Models/Certificate.php',
+    'App\\Models\\CertificateType' => $baseDir . '/app/Models/CertificateType.php',
     'App\\Models\\DataModification' => $baseDir . '/app/Models/DataModification.php',
     'App\\Models\\Deadline' => $baseDir . '/app/Models/Deadline.php',
     'App\\Models\\Department' => $baseDir . '/app/Models/Department.php',
