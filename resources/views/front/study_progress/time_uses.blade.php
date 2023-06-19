@@ -35,7 +35,7 @@
                                         <td>{{ $time->description }}</td>
                                         <td>
                                             <div class="p-1">
-                                                <a class="text-decoration-none main-btn btn-table" href="{{ $time->pdf_upload }}" target="_blank">
+                                                <a class="text-decoration-none main-btn btn-table" href="{{ asset('uploads/schedules/'. $time->pdf_upload) }}" target="_blank">
                                                     <i class="fa-solid fa-download me-2 text-white"></i>
                                                     pdf
                                                 </a>

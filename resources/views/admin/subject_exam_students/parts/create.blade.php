@@ -97,7 +97,7 @@
 
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
-                    <select name="session" class="form-control">
+                    <select name="session_id" class="form-control" id="session_id">
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
                         <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
                     </select>
@@ -206,7 +206,6 @@
         $('select[name="subject_id"]').on('change', function () {
 
             let subject_id = $("#subject_id").val();
-            let divArea = $('.checkbox-append');
 
 
             if (subject_id) {
@@ -219,7 +218,7 @@
                     dataType: "json",
                     success: function (data) {
                         $.each(data, function (key, value) {
-                            divArea.html('<div class="form-check col-md-12 mt-3 mb-3"><input type="checkbox" name="user_id" value="'+ key +'" class="form-check-input" id="user_id"><label class="form-check-label mr-5" for="user_id">'+ value +'</label></div>')
+                            $('.checkbox-append').append('<div class="form-check col-md-12 mt-3 mb-3"><input type="checkbox" name="user_id[]" value="'+ key +'" class="form-check-input" id="user_id[]"><label class="form-check-label mr-5" for="user_id">'+ value +'</label></div>')
                         })
                     },
                 });
@@ -231,8 +230,8 @@
 
     /*
      let array = [];
-                        $("input:checkbox[name=user_id]:checked").each(function(){
-                            array.push($(this).val());
-                        });
+    $("input:checkbox[name=user_id]:checked").each(function(){
+        array.push($(this).val());
+    });
      */
 </script>

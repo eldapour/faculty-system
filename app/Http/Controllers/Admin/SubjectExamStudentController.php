@@ -150,7 +150,6 @@ class SubjectExamStudentController extends Controller{
 
             )
             ->pluck('first_name', 'id');
-
     }
 
 
