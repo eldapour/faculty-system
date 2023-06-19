@@ -151,7 +151,7 @@
                                     </svg>
                                     <h4 class="brand-text text-primary ml-1">@lang('login.Login Page')</h4>
                                 </div>
-                                <div class="dropdown">
+                                <div class="dropdown" style="cursor: pointer;">
                                     <a class=" icon text-center" data-toggle="dropdown">
                                         @lang('admin.language')
                                     </a>
