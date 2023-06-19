@@ -124,6 +124,7 @@ return array(
     'App\\Models\\Presentation' => $baseDir . '/app/Models/Presentation.php',
     'App\\Models\\ProcessDegree' => $baseDir . '/app/Models/ProcessDegree.php',
     'App\\Models\\ProcessExam' => $baseDir . '/app/Models/ProcessExam.php',
+    'App\\Models\\ReasonsRedress' => $baseDir . '/app/Models/ReasonsRedress.php',
     'App\\Models\\Schedule' => $baseDir . '/app/Models/Schedule.php',
     'App\\Models\\Service' => $baseDir . '/app/Models/Service.php',
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WordSeeder::class);
         $this->call(UniversitySettingSeeder::class);
         $this->call(SliderSeeder::class);
+        $this->call(ReasonRedresseSeeder::class);
         $this->call(PresentationSeeder::class);
     }
 }

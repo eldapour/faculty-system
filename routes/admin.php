@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
+use App\Http\Controllers\Admin\ReasonRedresseController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
 
@@ -229,6 +230,9 @@ Route::group([
 
     #### subject of doctor ####
     Route::get('subject',[\App\Http\Controllers\Doctor\SubjectController::class, 'index'])->name('dashboard.subject');
+
+    #### Reasons for redress ####
+    Route::resource('reasons_redress', ReasonRedresseController::class);
 
 
 

@@ -776,6 +776,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Models\\Presentation' => __DIR__ . '/../..' . '/app/Models/Presentation.php',
         'App\\Models\\ProcessDegree' => __DIR__ . '/../..' . '/app/Models/ProcessDegree.php',
         'App\\Models\\ProcessExam' => __DIR__ . '/../..' . '/app/Models/ProcessExam.php',
+        'App\\Models\\ReasonsRedress' => __DIR__ . '/../..' . '/app/Models/ReasonsRedress.php',
         'App\\Models\\Schedule' => __DIR__ . '/../..' . '/app/Models/Schedule.php',
         'App\\Models\\Service' => __DIR__ . '/../..' . '/app/Models/Service.php',
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',

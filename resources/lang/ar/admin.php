@@ -68,6 +68,7 @@ return [
     "exams" => "امتحانات",
     "full_name" =>  "الاسم الكامل",
     "annual_programming" => "البرمجة السنوية",
+    "Reasons_for_redress" => "أسباب الاستدراك",
 
 
 

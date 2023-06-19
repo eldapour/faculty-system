@@ -70,6 +70,7 @@ return [
     "exams" => "Examens",
     "full_name" =>  "Nom et prénom",
     "annual_programming" => "Programmation annuelle",
+    "Reasons_for_redress" => "Motifs de réparation",
 
 
 
