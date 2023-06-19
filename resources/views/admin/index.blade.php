@@ -73,6 +73,36 @@
                 </div>
             </div>
 
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-primary img-card box-primary-shadow">
+                    <div class="card-body">
+                        <div class="d-flex">
+
+                            <div class="text-white">
+                                <a href="{{ route('index.time_uses') }}"><p class="text-white mb-0">{{ trans('admin.Usage schedules') }}</p></a></div>
+                            <div class="mr-auto">
+                                <i class="fa fa-clock text-white fs-30 ml-2 mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-info img-card box-info-shadow">
+                    <div class="card-body">
+                        <div class="d-flex">
+
+                            <div class="text-white">
+                                <a href="{{ route('page', 15) }}"><p class="text-white mb-0">{{ trans('admin.annual_programming') }}</p></a></div>
+                            <div class="mr-auto">
+                                <i class="fa fa-code text-white fs-30 ml-2 mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         @endif
 
         {{--end count data for user--}}

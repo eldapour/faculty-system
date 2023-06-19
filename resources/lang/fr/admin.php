@@ -68,6 +68,8 @@ return [
     'Student documents' => "Documents étudiants",
     "exam" => "Examen",
     "exams" => "Examens",
+    "full_name" =>  "Nom et prénom",
+    "annual_programming" => "Programmation annuelle",
 
 
 

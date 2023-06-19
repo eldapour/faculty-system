@@ -24,10 +24,14 @@ class PageRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title.ar' => 'required',
+            'title.en' => 'required',
+            'title.fr' => 'required',
             'images' => 'required',
             'files' => 'required',
-            'description' => 'required',
+            'description.ar' => 'required',
+            'description.en' => 'required',
+            'description.fr' => 'required',
             'category_id' => 'required',
         ];
     }

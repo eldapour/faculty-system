@@ -149,6 +149,9 @@
 
         @if(checkUser('student'))
 
+        <li>
+            <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
+        </li>
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fa fa-book side-menu__icon"></i>

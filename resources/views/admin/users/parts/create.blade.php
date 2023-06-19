@@ -30,7 +30,7 @@
             <div class="col-4 mt-7">
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name">
+                    <input type="text" class="form-control" name="last_name">
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
@@ -304,7 +304,7 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.birthday_date')}}د</label>
-                    <input type="text" class="form-control" name="birthday_date" id="birthday_date">
+                    <input type="date" class="form-control" name="birthday_date" id="birthday_date">
                 </div>
                 {{--start city and birthday date with multipe language--}}
 
