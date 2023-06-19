@@ -69,6 +69,8 @@ return [
     'Student documents' => "Student documents",
     "exam" => "Exam",
     "exams" => "Exams",
+    "full_name" =>  "Full Name",
+    "annual_programming" => "Annual Programming",
 
 
 

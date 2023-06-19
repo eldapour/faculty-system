@@ -66,6 +66,8 @@ return [
     'Student documents' => "طلبات الوثائق",
     "exam" => "امتحان",
     "exams" => "امتحانات",
+    "full_name" =>  "الاسم الكامل",
+    "annual_programming" => "البرمجة السنوية",
 
 
 
