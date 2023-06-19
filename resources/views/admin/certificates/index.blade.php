@@ -296,6 +296,10 @@
                 url: '{{ route('importCertificate') }}',
                 type: 'POST',
                 data: formData,
+                beforeSend: function () {
+                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                },
                 success: function (data) {
                     if (data.status === 200) {
                         toastr.success('{{ trans('admin.added_successfully') }}')
