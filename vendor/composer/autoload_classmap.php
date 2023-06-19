@@ -53,6 +53,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\VideoController' => $baseDir . '/app/Http/Controllers/Admin/VideoController.php',
     'App\\Http\\Controllers\\Admin\\WordController' => $baseDir . '/app/Http/Controllers/Admin/WordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Doctor\\SubjectController' => $baseDir . '/app/Http/Controllers/Doctor/SubjectController.php',
     'App\\Http\\Controllers\\EventController' => $baseDir . '/app/Http/Controllers/EventController.php',
     'App\\Http\\Controllers\\Front\\BlogController' => $baseDir . '/app/Http/Controllers/Front/BlogController.php',
     'App\\Http\\Controllers\\Front\\DeanSpeechController' => $baseDir . '/app/Http/Controllers/Front/DeanSpeechController.php',

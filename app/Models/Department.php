@@ -11,13 +11,15 @@ class Department extends Model
     use HasFactory, HasTranslations;
 
 
-    public array $translatable = ['department_name'];
+    public array $translatable = ['department_name','department_code'];
 
     protected $fillable = [
-        'department_name'
+        'department_name',
+        'department_code'
     ];
 
     protected $casts = [
-      'department_name' => 'json'
+      'department_name' => 'json',
+      'department_code' => 'json'
     ];
 }

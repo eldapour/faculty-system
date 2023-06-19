@@ -404,5 +404,34 @@ return [
     'unit name' => 'class', 'description text' => 'notes',
 
     'result' => 'Subject results',
+
+
+
+    "group_code" => "group_code",
+    "department_code" => "department_code",
+    "department_branch_code" => "department_branch_code",
+    "unit_code" => "unit_code",
+
+
+    "group_code_ar" => "group code in Arabic",
+    "group_code_en" => "group code in English",
+    "group_code_fr" => "group code in French",
+
+
+    "department_code_ar" => "Department Code in Arabic",
+    "department_code_en" => "department code in English",
+    "department_code_fr" => "department code in French",
+
+
+    "department_branch_code_ar" => "Department branch code Arabic",
+    "department_branch_code_en" => "department branch code English",
+    "department_branch_code_fr" => "department branch code french",
+
+
+    "unit_code_ar" => "Unit Code in Arabic",
+    "unit_code_en" => "Unit code English",
+    "unit_code_fr" => "Unit code french",
 ];
+
+
 

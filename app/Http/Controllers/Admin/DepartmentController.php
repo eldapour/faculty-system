@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DepartmentRequest;
 use App\Models\Department;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -27,56 +28,63 @@ class DepartmentController extends Controller
                 ->editColumn('department_name',function($departments){
                     return $departments->getTranslation('department_name', app()->getLocale());
                 })
+
+                ->editColumn('department_code',function($departments){
+                    return $departments->getTranslation('department_code', app()->getLocale());
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.department.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         return view('admin.department.parts.create');
     }
-    // Create End
 
-    // Store Start
 
-    public function store(DepartmentRequest $request)
+    public function store(DepartmentRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (Department::create($inputs)) {
+
+        $department =  Department::create([
+            'department_name' => ['ar' => $request->department_name_ar,'en' => $request->department_name_en,'fr' => $request->department_name_fr],
+            'department_code' => ['ar' => $request->department_code_ar,'en' => $request->department_code_en,'fr' => $request->department_code_fr],
+
+
+        ]);
+        if ($department->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Department $department)
     {
         return view('admin.department.parts.edit', compact('department'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(DepartmentRequest $request, Department $department)
+    public function update(DepartmentRequest $request, Department $department): JsonResponse
     {
-        if ($department->update($request->all())) {
+
+        $department->update([
+
+            'department_name' => ['ar' => $request->department_name_ar,'en' => $request->department_name_en,'fr' => $request->department_name_fr],
+            'department_code' => ['ar' => $request->department_code_ar,'en' => $request->department_code_en,'fr' => $request->department_code_fr],
+
+        ]);
+        if ($department->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -85,5 +93,4 @@ class DepartmentController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

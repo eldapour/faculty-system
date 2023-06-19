@@ -29,6 +29,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.group_code') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -89,6 +90,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'group_name', name: 'group_name'},
+            {data: 'group_code', name: 'group_code'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('group.index')}}', columns);
@@ -100,6 +102,7 @@
         // Add Using Ajax
         showEditModal('{{route('group.edit',':id')}}');
         editScript();
+
     </script>
 @endsection
 
