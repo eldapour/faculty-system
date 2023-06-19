@@ -48,7 +48,8 @@ li.has-sub.open:not(.menu-item-closing) > a:after {
 .dropdown .dropdown-menu, .dropup .dropdown-menu, .btn-group .dropdown-menu {
   right : auto !important;
   top : 0 !important;
-  left : auto !important;
+    /*aya*/
+  /*left : auto !important;*/
 }
 
 .dropdown .dropdown-menu.dropdown-menu-right, .dropup .dropdown-menu.dropdown-menu-right, .btn-group .dropdown-menu.dropdown-menu-right {
