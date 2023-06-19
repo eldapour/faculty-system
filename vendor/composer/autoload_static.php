@@ -759,6 +759,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Models\\Advertisement' => __DIR__ . '/../..' . '/app/Models/Advertisement.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Certificate' => __DIR__ . '/../..' . '/app/Models/Certificate.php',
+        'App\\Models\\CertificateType' => __DIR__ . '/../..' . '/app/Models/CertificateType.php',
         'App\\Models\\DataModification' => __DIR__ . '/../..' . '/app/Models/DataModification.php',
         'App\\Models\\Deadline' => __DIR__ . '/../..' . '/app/Models/Deadline.php',
         'App\\Models\\Department' => __DIR__ . '/../..' . '/app/Models/Department.php',

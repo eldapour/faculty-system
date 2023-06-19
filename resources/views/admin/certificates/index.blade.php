@@ -40,6 +40,10 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('admin.diploma_id')}}</th>
                                 <th class="min-w-50px"> {{ trans('admin.diploma_name') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.situation_with_management') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.situation_with_treasury') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.description_situation_with_management') }}</th>
+                                <th class="min-w-50px"> {{ trans('admin.description_situation_with_treasury') }}</th>
                                 <th class="min-w-50px"> {{ trans('admin.validation_year') }}</th>
                                 <th class="min-w-50px"> {{ trans('admin.diploma_identifier_id') }}</th>
                                 <th class="min-w-50px"> {{ trans('admin.diploma_user') }}</th>
@@ -135,7 +139,11 @@
 
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'diploma_name', name: 'diploma_name'},
+            {data: 'certificate_type_id', name: 'certificate_type_id'},
+            {data: 'situation_with_management', name: 'situation_with_management'},
+            {data: 'situation_with_treasury', name: 'situation_with_treasury'},
+            {data: 'description_situation_with_management', name: 'description_situation_with_management'},
+            {data: 'description_situation_with_treasury', name: 'description_situation_with_treasury'},
             {data: 'validation_year', name: 'validation_year'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'user_id', name: 'user_id'},

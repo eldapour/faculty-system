@@ -20,11 +20,16 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
-            $table->json('diploma_name');
+            $table->unsignedBigInteger('certificate_type_id')->comment('اسم الطالب');
             $table->string('validation_year')->comment('سنه استيفاء الدبلوم');
+            $table->boolean('situation_with_management')->default(false)->comment('الوضعيه مع الاداره');
+            $table->boolean('situation_with_treasury')->default(false)->comment('الوضعيه مع الخزانه');
+            $table->json('description_situation_with_management')->nullable()->comment('ملاحظات علي الوضعيه مع الاداره');
+            $table->json('description_situation_with_treasury')->nullable()->comment('ملاحظه علي الوضعيه مع الخزانه');
             $table->string('year');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('certificate_type_id')->references('id')->on('certificate_types')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }
