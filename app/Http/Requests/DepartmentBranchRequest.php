@@ -27,6 +27,9 @@ class DepartmentBranchRequest extends FormRequest
             'branch_name_ar' => 'required',
             'branch_name_en' => 'required',
             'branch_name_fr' => 'required',
+            'department_branch_code_ar' => 'required',
+            'department_branch_code_en' => 'required',
+            'department_branch_code_fr' => 'required',
             'department_id' => 'required',
         ];
     }

@@ -12,15 +12,17 @@ class DepartmentBranch extends Model
     use HasFactory, HasTranslations;
 
 
-    public array $translatable = ['branch_name'];
+    public array $translatable = ['branch_name','department_branch_code'];
 
     protected $fillable = [
         'branch_name',
-        'department_id'
+        'department_id',
+        'department_branch_code'
     ];
 
     protected $casts = [
-      'branch_name' => 'json'
+      'branch_name' => 'json',
+      'department_branch_code'
     ];
 
     public function department(): BelongsTo

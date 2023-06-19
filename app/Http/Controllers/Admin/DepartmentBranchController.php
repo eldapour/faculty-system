@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DepartmentBranchRequest;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -31,6 +32,9 @@ class DepartmentBranchController extends Controller
                 ->editColumn('department_id',function($branches){
                     return $branches->department->getTranslation('department_name', app()->getLocale());
                 })
+                ->editColumn('department_branch_code',function($branches){
+                    return $branches->getTranslation('department_branch_code', app()->getLocale());
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -40,19 +44,27 @@ class DepartmentBranchController extends Controller
 
     public function create()
     {
-        $departments = Department::get();
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
         return view('admin.branches.parts.create',compact('departments'));
     }
 
 
-    public function store(DepartmentBranchRequest $request): \Illuminate\Http\JsonResponse
+    public function store(DepartmentBranchRequest $request): JsonResponse
     {
         $data = [
 
            'branch_name' => ['ar' => $request->branch_name_ar,
                'en' => $request->branch_name_en,
                'fr' => $request->branch_name_fr],
-            'department_id' => $request->department_id
+
+            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
+                'en' => $request->department_branch_code_en,
+                'fr' => $request->department_branch_code_fr],
+            'department_id' => $request->department_id,
+
         ];
 
         if (DepartmentBranch::create($data)) {
@@ -70,7 +82,7 @@ class DepartmentBranchController extends Controller
     }
 
 
-    public function update(DepartmentBranchRequest $request, DepartmentBranch $branch)
+    public function update(DepartmentBranchRequest $request, DepartmentBranch $branch): JsonResponse
     {
 
         $data = [
@@ -78,7 +90,10 @@ class DepartmentBranchController extends Controller
             'branch_name' => ['ar' => $request->branch_name_ar,
                 'en' => $request->branch_name_en,
                 'fr' => $request->branch_name_fr],
-            'department_id' => $request->department_id
+            'department_id' => $request->department_id,
+            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
+                'en' => $request->department_branch_code_en,
+                'fr' => $request->department_branch_code_fr],
         ];
         if ($branch->update($data)) {
             return response()->json(['status' => 200]);

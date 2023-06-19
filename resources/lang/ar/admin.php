@@ -404,6 +404,37 @@ return [
     'result' => 'نتائج الوحده',
 
 
+    //الرموز
+    "group_code" => "رمز الفوج",
+    "department_code" => "رمز المسلك",
+    "department_branch_code" => "رمز المسار",
+    "unit_code" => "رمز الفصل",
+
+
+
+    "group_code_ar" => "رمز الفوج باللغه العربيه",
+    "group_code_en" => "رمز الفوج باللغه الانجليزيه",
+    "group_code_fr" => "رمز الفوج باللغه الفرنسيه",
+
+
+    "department_code_ar" => "رمز المسلك باللغه العربيه",
+    "department_code_en" => "رمز المسلك باللغه الانجليزيه",
+    "department_code_fr" => "رمز المسلك باللغه الفرنسيه",
+
+
+    "department_branch_code_ar" => "رمز المسار باللغه العربيه",
+    "department_branch_code_en" => "رمز المسار باللغه الانجليزيه",
+    "department_branch_code_fr" => "رمز المسار باللغه الفرنسيه",
+
+
+    "unit_code_ar" => "رمز الفصل باللغه العربيه",
+    "unit_code_en" => "رمز الفصل باللغه الانجليزيه",
+    "unit_code_fr" => "رمز الفصل باللغه الفرنسيه",
+
+
+
+
+
 ];
 
 

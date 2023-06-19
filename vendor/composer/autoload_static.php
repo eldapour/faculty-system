@@ -705,6 +705,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Http\\Controllers\\Admin\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/VideoController.php',
         'App\\Http\\Controllers\\Admin\\WordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Doctor\\SubjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/Doctor/SubjectController.php',
         'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
         'App\\Http\\Controllers\\Front\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/BlogController.php',
         'App\\Http\\Controllers\\Front\\DeanSpeechController' => __DIR__ . '/../..' . '/app/Http/Controllers/Front/DeanSpeechController.php',
