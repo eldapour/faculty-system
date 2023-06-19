@@ -329,12 +329,12 @@
                 </a>
             </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_student.index') }}">
-                    <i class="fa fa-user-check side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
-                </a>
-            </li>
+{{--            <li class="slide">--}}
+{{--                <a class="side-menu__item" href="{{ route('subject_student.index') }}">--}}
+{{--                    <i class="fa fa-user-check side-menu__icon"></i>--}}
+{{--                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
 
 
