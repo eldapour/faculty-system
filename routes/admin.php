@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\ReasonRedresseController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
+use App\Http\Controllers\Admin\CertificateTypeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -204,6 +205,7 @@ Route::group([
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
+    Route::get('/updateDegree_edit/{id}', [ProcessDegreeController::class, 'editUpdateDegree'])->name('editUpdateDegree');
     Route::post('updateDegree', [ProcessDegreeController::class, 'updateDegree'])->name('updateDegree');
 
     #### Subject Exam Student Result ####
@@ -236,6 +238,9 @@ Route::group([
 
     #### Reasons for redress ####
     Route::resource('reasons_redress', ReasonRedresseController::class);
+
+    #### Certificate Name ####
+    Route::resource('certificate_name', CertificateTypeController::class);
 
 
 

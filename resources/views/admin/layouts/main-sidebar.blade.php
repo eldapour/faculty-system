@@ -189,11 +189,8 @@
                                 class="angle fa fa-angle-right"></i>
                     </a>
                     <ul class="slide-menu">
-
                         <li><a href="{{ route('processExamStudent') }}" class="slide-item">{{ trans('admin.process_exams') }}</a>
                         </li>
-
-
                     </ul>
                 </li>
 
@@ -307,6 +304,12 @@
                     <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
                 </a>
             </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('certificate_name.index') }}">
+                    <i class="fa fa-book side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.certificate_name') }}</span>
+                </a>
+            </li>
 
 
 
@@ -363,24 +366,12 @@
                     <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
                 </a>
             </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('processDegreeStudent') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
-                </a>
-            </li>
 
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('process_exams.index') }}">
                     <i class="fe fe-file-text side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('processExamStudent') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_exam_students') }}</span>
                 </a>
             </li>
         @endif

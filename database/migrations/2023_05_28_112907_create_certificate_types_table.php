@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('certificate_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('certificate_type_ar');
-            $table->string('certificate_type_en');
-            $table->string('certificate_type_fr');
+            $table->json('name');
             $table->timestamps();
         });
     }

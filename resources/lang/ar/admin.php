@@ -69,6 +69,11 @@ return [
     "full_name" =>  "الاسم الكامل",
     "annual_programming" => "البرمجة السنوية",
     "Reasons_for_redress" => "أسباب الاستدراك",
+    "certificate_name" => "اسم الشهادة",
+    "update_degree" => "تعديل العلامة",
+    "updated_degree_successfully" => "تم تعديل العلامة بنجاح",
+    "the_entered_mark" => "العلامة المدخلة اكبر من علامة الامتحان",
+
 
 
 
