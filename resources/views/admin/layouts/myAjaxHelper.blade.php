@@ -335,20 +335,6 @@
         })
     }
 
-    function showEditModal(routeOfEdit) {
-        $(document).on('click', '.editBtn', function() {
-            var id = $(this).data('id')
-            var url = routeOfEdit;
-            url = url.replace(':id', id)
-            $('#modal-body').html(loader)
-            $('#editOrCreate').modal('show')
-
-            setTimeout(function() {
-                $('#modal-body').load(url)
-            }, 500)
-        })
-    }
-
     function editScript() {
         $(document).on('submit', 'Form#updateForm', function(e) {
             e.preventDefault();
