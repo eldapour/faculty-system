@@ -28,18 +28,21 @@
                                 @endif
                                 <h6 class="text-muted mb-4">
                                     {{$user->email}}</h6>
+
                             </div>
                         </div>
-                        <button type="button" class="btn btn-sm btn-info-light"
-                                data-toggle="modal" data-target="#data_modal">
-                            <i class="fa fa-edit"></i>
-                            {{ trans('admin.data_modify') }}
-                        </button>
-                        <button type="button" class="btn btn-sm btn-success-light"
-                                data-toggle="modal" data-target="#data_modal_modify">
-                            <i class="fa fa-marker"></i>
-                            {{ trans('admin.orders') }}
-                        </button>
+                        @if(auth()->user()->user_type == 'student')
+                            <button type="button" class="btn btn-sm btn-info-light"
+                                    data-toggle="modal" data-target="#data_modal">
+                                <i class="fa fa-edit"></i>
+                                {{ trans('admin.data_modify') }}
+                            </button>
+                            <button type="button" class="btn btn-sm btn-success-light"
+                                    data-toggle="modal" data-target="#data_modal_modify">
+                                <i class="fa fa-marker"></i>
+                                {{ trans('admin.orders') }}
+                            </button>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -66,32 +69,46 @@
                                     <h5><strong>{{ trans('admin.more information') }}</strong></h5>
                                 </div>
                             </div>
-                            <div class="row">
-                                <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
-                                <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->last_name }}</h5>
-                                <span>-------------------------------------------------------------------------------------------</span>
-                                <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
-                                <h5 class="col-12">{{ trans('admin.university_email') }}
-                                    : {{ $user->university_email }}</h5>
-                                <span>-------------------------------------------------------------------------------------------</span>
-                                <h5 class="col-12">{{ trans('admin.identifier_id') }} : {{ $user->identifier_id }}</h5>
-                                <h5 class="col-12">{{ trans('admin.national_id') }} : {{ $user->national_id  }}</h5>
-                                <h5 class="col-12">{{ trans('admin.national_number') }}
-                                    : {{ $user->national_number }}</h5>
-                                <span>-------------------------------------------------------------------------------------------</span>
-                                <h5 class="col-12">{{ trans('admin.nationality') }} : {{ $user->nationality }}</h5>
-                                <h5 class="col-12">{{ trans('admin.birthday_date') }} : {{ $user->birthday_date }}</h5>
-                                <h5 class="col-12">{{ trans('admin.birthday_place') }}
-                                    : {{ $user->birthday_place }}</h5>
-                                <h5 class="col-12">{{ trans('admin.birthday_place') }}
-                                    : {{ $user->birthday_place }}</h5>
-                                <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
-                                <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
-                                <span>-------------------------------------------------------------------------------------------</span>
-                                <h5 class="col-12">{{ trans('admin.university_register_year') }}
-                                    : {{ $user->university_register_year }}</h5>
-                                <h5 class="col-12">{{ trans('admin.points') }} : {{ $user->points }}</h5>
-                            </div>
+                            @if(auth()->user()->user_type == 'student')
+                                <div class="row">
+                                    <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
+                                    <h5 class="col-6">{{ trans('admin.last_name') }} : {{ $user->last_name }}</h5>
+                                    <span>-------------------------------------------------------------------------------------------</span>
+                                    <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.university_email') }}
+                                        : {{ $user->university_email }}</h5>
+                                    <span>-------------------------------------------------------------------------------------------</span>
+                                    <h5 class="col-12">{{ trans('admin.identifier_id') }}
+                                        : {{ $user->identifier_id }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.national_id') }} : {{ $user->national_id  }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.national_number') }}
+                                        : {{ $user->national_number }}</h5>
+                                    <span>-------------------------------------------------------------------------------------------</span>
+                                    <h5 class="col-12">{{ trans('admin.nationality') }} : {{ $user->nationality }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.birthday_date') }}
+                                        : {{ $user->birthday_date }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.birthday_place') }}
+                                        : {{ $user->birthday_place }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.birthday_place') }}
+                                        : {{ $user->birthday_place }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
+                                    <span>-------------------------------------------------------------------------------------------</span>
+                                    <h5 class="col-12">{{ trans('admin.university_register_year') }}
+                                        : {{ $user->university_register_year }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.points') }} : {{ $user->points }}</h5>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
+                                    <h5 class="col-6">{{ trans('admin.last_name') }} : {{ $user->last_name }}</h5>
+                                    <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
+                                </div>
+                            @endif
+                            <button type="button" style="color: white;" class="btn btn-sm badge badge-info-gradient"
+                                    data-toggle="modal" data-target="#data_password">
+                                {{ trans('admin.edit') . ' ' .trans('admin.password') }}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -205,7 +222,8 @@
                                                 <td>{{ $row_data->id }}</td>
                                                 <td>
                                                     @foreach($row_data->data_modification_type as $data)
-                                                        <span class="badge badge-success d-flex mb-1">{{ trans('admin.' .$data) }}</span>
+                                                        <span
+                                                            class="badge badge-success d-flex mb-1">{{ trans('admin.' .$data) }}</span>
                                                     @endforeach
                                                 </td>
                                                 @if($row_data->request_status == 'refused')
@@ -239,6 +257,51 @@
     </div>
     <!-- Edit MODAL CLOSED -->
 
+    <!-- Password MODAL -->
+    <div class="modal fade" id="data_password" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="example-Modal3">{{trans('admin.orders')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updatePassForm" method="POST" enctype="multipart/form-data" action="{{route('updatePass')}}">
+                        @csrf
+                        <input type="hidden" name="id" id="id" value="{{$user->id}}">
+
+                        <div class="form-group">
+                            <label for="name" class="form-control-label">{{trans('admin.oldPassword')}}
+                                <span class="text text-danger">*</span>
+                            </label>
+                            <input name="old_password" type="password" class="form-control"
+                                   required="required"/>
+
+                            <label for="name" class="form-control-label">{{trans('admin.password')}}
+                                <span class="text text-danger">*</span>
+                            </label>
+                            <input name="password" type="password" class="form-control"
+                                   required="required"/>
+                            <label for="name" class="form-control-label">{{trans('admin.repeatPassword')}}
+                                <span class="text text-danger">*</span>
+                            </label>
+                            <input name="password_confirm" type="password" class="form-control"
+                                   required="required"/>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('admin.close_model')}}</button>
+                            <button type="submit" class="btn btn-primary" id="updateButton">{{trans('admin.edit_model')}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Password CLOSED -->
+
     @include('admin.layouts.myAjaxHelper')
 
     @section('ajaxCalls')
@@ -248,6 +311,63 @@
             $(document).ready(function () {
                 $('select').select2();
             });
+
+            // Update By Ajax
+            $(document).on('submit','Form#updatePassForm',function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                var url = $('#updatePassForm').attr('action');
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    beforeSend: function () {
+                        $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                            ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                    },
+
+
+                    success: function (data) {
+
+                        $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
+                        if (data.status == 200){
+                            $('#dataTable').DataTable().ajax.reload();
+                            toastr.success('{{ trans('admin.updated_successfully') }}');
+                            $('#data_password').modal('hide')
+                        }
+                        else if(data.status == 201){
+                            toastr.error('{{ trans('admin.password_not_correct') }}');
+                        }
+                        else if(data.status == 203){
+                            toastr.error('{{ trans('admin.password_new_not_correct') }}');
+                        }
+                    },
+                    error: function (data) {
+
+                        if (data.status === 500) {
+                            toastr.error('{{ trans('admin.something_went_wrong') }}');
+
+                        } else if (data.status === 422) {
+
+                            var errors = $.parseJSON(data.responseText);
+                            $.each(errors, function (key, value) {
+                                if ($.isPlainObject(value)) {
+                                    $.each(value, function (key, value){
+                                        toastr.error(value, key);
+                                    });
+                                }
+                            });
+                        } else
+                            toastr.error('{{ trans('admin.something_went_wrong') }}');
+                        $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
+                    },//end error method
+
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+
         </script>
     @endsection
 

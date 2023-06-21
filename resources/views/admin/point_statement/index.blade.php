@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.subject_exam_student_results') }}
+    {{ trans('admin.point statement') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.subject_exam_student_results') }}
+    {{ trans('admin.point statement') }}
 @endsection
 @section('content')
 
@@ -27,11 +27,11 @@
 										<i class="fe fe-upload"></i>
 									</span> {{ trans('admin.export') }}
                         </button>
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.add') }}
-                        </button>
+{{--                        <button class="btn btn-secondary btn-icon text-white addBtn">--}}
+{{--									<span>--}}
+{{--										<i class="fe fe-plus"></i>--}}
+{{--									</span> {{ trans('admin.add') }}--}}
+{{--                        </button>--}}
                     </div>
                     @endif
                 </div>
@@ -42,14 +42,11 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-
                                 <th class="min-w-25px">{{ trans('admin.student') }}</th>
                                 <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
-
-                                <th class="min-w-25px">{{ trans('admin.subject_exam') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.element') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.degree') ." ". trans('admin.student') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.degree') ." ". trans('admin.exam') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.date_enter_degree') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.degree') ." ". trans('admin.element') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.period') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.year') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
@@ -92,7 +89,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_exam_student') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.point statement') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -146,29 +143,27 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'user', name: 'user'},
+            {data: 'user_id', name: 'user_id'},
             {data: 'identifier_id', name: 'identifier_id'},
-
-            {data: 'subject_id', name: 'subject_id'},
-            {data: 'student_degree', name: 'student_degree'},
-            {data: 'exam_degree', name: 'exam_degree'},
-            {data: 'date_enter_degree', name: 'date_enter_degree'},
+            {data: 'element_code', name: 'element_code'},
+            {data: 'degree_student', name: 'degree_student'},
+            {data: 'degree_element', name: 'degree_element'},
             {data: 'period', name: 'period'},
             {data: 'year', name: 'year'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('subject_exam_student_result.index')}}', columns);
+        showData('{{route('points.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('subject_exam_student_result.destroy',':id')}}');
+        destroyScript('{{route('points.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('subject_exam_student_result.create')}}');
+        showAddModal('{{route('points.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('subject_exam_student_result.edit',':id')}}');
+        showEditModal('{{route('points.edit',':id')}}');
         editScript();
 
         $(document).on('click', '.exportBtn', function () {
-            location.href = '{{ route('exportSubjectExamStudentResult') }}';
+            location.href = '{{ route('exportPointStatement') }}';
         });
 
         $(document).on("submit", "#importExelForm", function (event) {
@@ -182,7 +177,7 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: '{{ route('importSubjectExamStudentResult') }}',
+                url: '{{ route('importPointStatement') }}',
                 type: 'POST',
                 data: formData,
                 xhr: function() {

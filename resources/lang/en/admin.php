@@ -72,6 +72,8 @@ return [
     "full_name" =>  "Full Name",
     "annual_programming" => "Annual Programming",
     "Reasons_for_redress" => "Reasons for Redress",
+    "oldPassword" => "old Password",
+    "repeatPassword" => "repeat Password",
 
 
 
@@ -196,6 +198,10 @@ return [
      'university_register_year' => 'University enrollment year',
      'email' => 'login email',
     'password' =>  "password",
+    'password_not_correct' =>  "password not correct",
+    'password_new_not_correct' =>  "new password not match",
+    'The_platform_is_in_maintenance' =>  "The platform is currently under maintenance, try again later !",
+    'maintenance' =>  "maintenance mode",
     'add_user' => "Add Student",
     'add_admin' => "Add Admin",
     'action' => 'action',
@@ -460,6 +466,9 @@ return [
     "problem" => "there is a problem",
     "no_problem" => "no problem",
     "no_notes" => "there are no notes",
+
+    // point statements
+    "point statement" => "point statement",
 ];
 
 

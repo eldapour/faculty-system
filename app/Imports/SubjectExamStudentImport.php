@@ -17,7 +17,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class SubjectExamStudentImport implements ToCollection, WithHeadingRow
 {
-    public function collection(Collection $rows)
+    public function collection(Collection $rows): void
     {
         $data = [];
         $rows[0]['subject_name_in_english'];

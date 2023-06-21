@@ -15,6 +15,7 @@ class UniversitySetting extends Model
         'title',
         'description',
         'address',
+        'maintenance',
         'facebook_link',
         'whatsapp_link',
         'youtube_link',

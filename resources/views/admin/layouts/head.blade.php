@@ -66,8 +66,11 @@
 <script defer src="{{ asset('assets/admin') }}/iconfonts/font-awesome/js/fontawesome.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet" />
 
-<link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
-<script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
+<link href="{{ asset('assets/admin/css/select2.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
+<link href="{{ asset('assets/admin/css/dropify.css') }}" rel="stylesheet" />
+<script src="{{ asset('assets/admin/js/dropify.js') }}"></script>
+
 
 {{--@include('admin.layouts.switch')--}}
 

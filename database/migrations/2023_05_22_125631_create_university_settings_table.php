@@ -21,6 +21,7 @@ return new class extends Migration
             $table->json('description');
             $table->json('address');
             $table->string('phone');
+            $table->boolean('maintenance')->default(false);
             $table->longText('facebook_link');
             $table->longText('whatsapp_link');
             $table->longText('youtube_link');

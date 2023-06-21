@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Models\DataModification;
@@ -9,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller{
+class AdminController extends Controller
+{
 
 
     public function index(request $request)
@@ -17,7 +19,7 @@ class AdminController extends Controller{
 
         if ($request->ajax()) {
             $admins = User::query()
-                ->where('user_type','!=','student')
+                ->where('user_type', '!=', 'student')
                 ->latest()
                 ->get();
 
@@ -34,13 +36,13 @@ class AdminController extends Controller{
                 })
                 ->editColumn('image', function ($admin) {
 
-                    if($admin->image != null){
+                    if ($admin->image != null) {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/".$admin->image)  .'">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $admin->image) . '">
                     ';
-                    }else{
+                    } else {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' .  asset("uploads/users/default/avatar2.jfif") .'">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/default/avatar2.jfif") . '">
                     ';
                     }
 
@@ -59,20 +61,20 @@ class AdminController extends Controller{
             ->where('id', $request->id)
             ->first();
 
-        if($admin->image != null){
+        if ($admin->image != null) {
 
-            if (file_exists(public_path("users/". $admin->image))) {
-                unlink(public_path("users/". $admin->image));
+            if (file_exists(public_path("users/" . $admin->image))) {
+                unlink(public_path("users/" . $admin->image));
 
                 $admin->delete();
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
 
-            }else{
+            } else {
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
 
             }
 
-        }else{
+        } else {
 
             $admin->delete();
             return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
@@ -85,7 +87,7 @@ class AdminController extends Controller{
     public function create()
     {
 
-        $types = ['doctor','employee','manger','factor'];
+        $types = ['doctor', 'employee', 'manger', 'factor'];
 
         return view('admin.admins.parts.create', compact('types'));
     }
@@ -123,11 +125,11 @@ class AdminController extends Controller{
 
         ]);
 
-        if($admin->save()){
+        if ($admin->save()) {
 
             return response()->json(['status' => 200]);
 
-        }else{
+        } else {
 
             return response()->json(['status' => 405]);
         }
@@ -137,11 +139,10 @@ class AdminController extends Controller{
     public function edit(User $admin)
     {
 
-        $types = ['doctor','employee','manger','factor'];
+        $types = ['doctor', 'employee', 'manger', 'factor'];
 
-        return view('admin.admins.parts.edit', compact('admin','types'));
+        return view('admin.admins.parts.edit', compact('admin', 'types'));
     }
-
 
 
     public function update(Request $request): JsonResponse
@@ -152,13 +153,13 @@ class AdminController extends Controller{
             ->findOrFail($request->id);
 
         $request->validate([
-            'email' => 'required|unique:users,email,'. $request->id,
+            'email' => 'required|unique:users,email,' . $request->id,
             'first_name' => 'required',
             'last_name' => 'required',
             'password' => 'nullable|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
             'user_type' => 'required|in:doctor,manger,employee,factor',
-            'job_id' => 'nullable|unique:users,job_id,'. $request->id,
+            'job_id' => 'nullable|unique:users,job_id,' . $request->id,
         ]);
 
         if ($image = $request->file('image')) {
@@ -181,11 +182,11 @@ class AdminController extends Controller{
 
         ]);
 
-        if($admin->save()){
+        if ($admin->save()) {
 
             return response()->json(['status' => 200]);
 
-        }else{
+        } else {
 
             return response()->json(['status' => 405]);
         }
@@ -196,6 +197,33 @@ class AdminController extends Controller{
         $user = User::find(auth()->user()->id);
         $user_data = DataModification::where('user_id', $user->id)->get();
 
-        return view('admin.admins.profile',compact('user','user_data'));
+        return view('admin.admins.profile', compact('user', 'user_data'));
+    }
+
+    public function updatePass(Request $request): JsonResponse
+    {
+        $user = User::query()
+            ->findOrFail($request->id);
+
+        if (!Hash::check($request->old_password,$user->password)) {
+            return response()->json(['status' => 201]);
+        } else {
+            if ($request->password != $request->password_confirm) {
+                return response()->json(['status' => 203]);
+            } else {
+                $user->update([
+                    'password' => Hash::make($request->password),
+                ]);
+
+                if ($user->save()) {
+
+                    return response()->json(['status' => 200]);
+
+                } else {
+
+                    return response()->json(['status' => 405]);
+                }
+            }
+        }
     }
 }

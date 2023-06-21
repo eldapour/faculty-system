@@ -69,6 +69,8 @@ return [
     "full_name" =>  "الاسم الكامل",
     "annual_programming" => "البرمجة السنوية",
     "Reasons_for_redress" => "أسباب الاستدراك",
+    "oldPassword" => "كلمة السر القديمة",
+    "repeatPassword" => "تاكيد كلمة السر",
 
 
 
@@ -185,6 +187,10 @@ return [
     'university_register_year' => 'سنه الالتحاق بالجامعه',
     'email' => 'البريد الالكتروني للدخول',
     'password' =>  "كلمه السر",
+    'password_not_correct' =>  "كلمة المرور غير صحيحة",
+    'The_platform_is_in_maintenance' =>  "المنصة في طور الصيانة الان حاول في وقت لاحق !",
+    'maintenance' =>  "وضع الصيانة",
+    'password_new_not_correct' =>  "كلمة المرور الجديدة غير متطابقة",
     'add_user' => "اضافه طالب",
     'add_admin' => "اضافه ادمن",
     'action' => 'اجراء',
@@ -459,6 +465,8 @@ return [
     "no_problem" => "لا يوجد مشكله",
     "no_notes" => "لا يوجد ملاحظات",
 
+    // point statements
+    "point statement" => "بيان النقط",
 
 
 ];

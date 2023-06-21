@@ -71,6 +71,8 @@ return [
     "full_name" =>  "Nom et prénom",
     "annual_programming" => "Programmation annuelle",
     "Reasons_for_redress" => "Motifs de réparation",
+    "oldPassword" => "ancien mot de passe",
+    "repeatPassword" => "Répéter le mot de passe",
 
 
 
@@ -177,6 +179,10 @@ return [
     'university_register_year' => "Année d'inscription à l'université",
     'email' => "Pseudo email",
     'password' => "Mot de passe",
+    'password_not_correct' =>  "mot de passe incorrect",
+    'password_new_not_correct' =>  "le nouveau mot de passe ne correspond pas",
+    'The_platform_is_in_maintenance' =>  "La plateforme est actuellement en maintenance, réessayez plus tard !",
+    'maintenance' =>  "Mode de Maintenance",
     'add_user' => "Ajouter un étudiant",
     'add_admin' => "ajouter un administrateur",
     'action' => "Procédure",
@@ -466,6 +472,9 @@ return [
     "no_problem" => "no problem",
 
     "no_notes" => "there are no notes",
+
+    // point statements
+    "point statement" => "déclaration ponctuelle",
 ];
 
 
