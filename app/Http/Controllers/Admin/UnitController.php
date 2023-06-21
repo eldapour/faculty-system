@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UnitRequest;
 use App\Models\Subject;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\Unit;
 
-class UnitController extends Controller
-{
-    // Index Start
+class UnitController extends Controller{
+
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -29,8 +30,8 @@ class UnitController extends Controller
                 ->editColumn('unit_name', function ($units) {
                     return $units->getTranslation('unit_name', app()->getLocale());
                 })
-                ->editColumn('subject_id', function ($units) {
-                    return '<td>'. $units->subject->subject_name .'</td>';
+                ->editColumn('unit_code', function ($units) {
+                    return $units->getTranslation('unit_code', app()->getLocale());
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -38,59 +39,58 @@ class UnitController extends Controller
             return view('admin.units.index');
         }
     }
-    // Index End
 
-    // Create Start
-    public function create()
-    {
-        $data['subjects'] = Subject::all();
-        return view('admin.units.parts.create', compact('data'));
+    public function create(){
+
+        return view('admin.units.parts.create');
     }
-    // Create End
 
-    // Store Start
 
-    public function store(UnitRequest $request)
+    public function store(UnitRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (Unit::create($inputs)) {
+
+        $unit = Unit::create([
+            'unit_name' => ['ar' => $request->unit_name_ar,'en' => $request->unit_name_en,'fr' => $request->unit_name_fr],
+            'unit_code' => ['ar' => $request->unit_code_ar,'en' => $request->unit_code_en,'fr' => $request->unit_code_fr],
+
+        ]);
+        if ($unit->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Store End
 
-    // Edit Start
-    public function edit(Unit $unit)
-    {
-        $data['subjects'] = Subject::all();
-        return view('admin.units.parts.edit', compact('unit', 'data'));
+    public function edit(Unit $unit){
+
+        return view('admin.units.parts.edit', compact('unit'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Unit $unit)
+    public function update(Request $request, Unit $unit): JsonResponse
     {
-        if ($unit->update($request->all())) {
+
+        $unit->update([
+            'unit_name' => ['ar' => $request->unit_name_ar,'en' => $request->unit_name_en,'fr' => $request->unit_name_fr],
+            'unit_code' => ['ar' => $request->unit_code_ar,'en' => $request->unit_code_en,'fr' => $request->unit_code_fr],
+
+        ]);
+        if ($unit->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
+
         $unit = Unit::where('id', $request->id)->firstOrFail();
         $unit->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

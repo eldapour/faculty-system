@@ -2,10 +2,10 @@
 
 
 @section('title')
-    {{ trans('admin.process_degrees_admin') }}
+    {{ trans('admin.process_degrees') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.process_degrees_admin') }}
+    {{ trans('admin.process_degrees') }}
 @endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
@@ -16,7 +16,13 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{ trans('admin.process_degrees_admin') }}</h3>
-
+                    <div class="">
+                        <button class="btn btn-secondary btn-icon text-white addBtn">
+									<span>
+										<i class="fe fe-plus"></i>
+									</span> {{ trans('admin.add') }}
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -25,14 +31,17 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">#</th>
-                                    <th class="min-w-50px">{{ trans('admin.student') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.period') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.unit') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.student_degree_before_request') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.request_type') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
                                     <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.student_degree_after_request') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.processing_date') }}</th>
                                     <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
 
                                 </tr>
@@ -70,10 +79,18 @@
         <!-- MODAL CLOSED -->
 
         <!-- Edit MODAL -->
-        <div class="modal fade" id="editOrCreate" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" id="modalContent">
+        <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body">
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +110,6 @@
                         <form id="addForm" class="addForm" method="POST" action="{{ route('process_degrees.store') }}">
                             @csrf
                             <div class="form-group">
-                                {{--  @dd($exam_degrees)  --}}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="department_branch_id" class="form-control-label">@lang('admin.exam_degree_actuel')</label>
@@ -134,36 +150,48 @@
                 name: 'id'
             },
             {
-                data: 'user_id',
-                name: 'user_id'
+                data: 'exam_code',
+                name: 'exam_code'
             },
             {
-                data: 'doctor',
-                name: 'doctor'
+                data: 'unit',
+                name: 'unit'
             },
             {
                 data: 'subject',
                 name: 'subject'
             },
             {
-                data: 'period',
-                name: 'period'
-            },
-            {
-                data: 'year',
-                name: 'year'
+                data: 'doctor',
+                name: 'doctor'
             },
             {
                 data: 'section',
                 name: 'section'
             },
             {
-                data: 'exam_code',
-                name: 'exam_code'
+                data: 'student_degree_before_request',
+                name: 'student_degree_before_request'
+            },
+            {
+                data: 'request_type',
+                name: 'request_type'
+            },
+             {
+                data: 'year',
+                name: 'year'
             },
             {
                 data: 'request_status',
                 name: 'request_status'
+            },
+            {
+                data: 'student_degree_after_request',
+                name: 'student_degree_after_request'
+            },
+            {
+                data: 'processing_date',
+                name: 'processing_date'
             },
             {
                 data: 'action',
@@ -173,47 +201,69 @@
             },
         ]
 
-
-
         showData('{{ route('processDegreeStudent') }}', columns);
         destroyScript('{{ route('process_degrees.destroy', ':id') }}');
+        showEditModal('{{route('process_degrees.edit',':id')}}');
+        editScript();
 
+         // Get Add View
+         $(document).on('click', '.addBtn', function () {
+            $('#modal-body').html(loader)
+            $('#editOrCreate').modal('show')
+            setTimeout(function () {
+                $('#modal-body').load('{{route('process_degrees.create')}}')
+            }, 250)
+        });
 
-
-
-        function updateRequestStatus(selectElement, id) {
-            var selectedValue = $(selectElement).val();
-
-            // Make an Ajax request to update the status
+        // Add By Ajax
+        $(document).on('submit','Form#addForm',function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            var url = $('#addForm').attr('action');
             $.ajax({
-                url: '{{ route('RequestStatusDegree') }}',
-                type: 'post',
-                data: {
-                    id: id,
-                    status: selectedValue,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: function(data) {
-                    if (data.code == 200) {
-                        if (data.status == 'new') {
-                            toastr.success('{{ trans('admin.request_status_is_new') }}');
-                        } else if (data.status == 'accept') {
-                            // Show the modal when the status is 'accept'
-                            $('#myModal').modal('show');
-                            toastr.success('{{ trans('admin.request_status_is_accepted') }}');
-                        } else if (data.status == 'refused') {
-                            toastr.success('{{ trans('admin.request_status_is_refused') }}');
-                        } else if (data.status == 'under_processing') {
-                            toastr.success('{{ trans('admin.request_status_is_under_processing') }}');
-                        }
-                    }
+
+                url: url,
+                type: 'POST',
+                data: formData,
+                beforeSend: function () {
+                    $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
                 },
 
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Handle the error
-                    console.log(textStatus, errorThrown);
-                }
+                success: function (data) {
+                    if (data.status == 200) {
+                        $('#dataTable').DataTable().ajax.reload();
+                        toastr.success('{{ trans('admin.the_remedial_request_has_been_registered_successfully') }}');
+                    }
+                    else
+                        toastr.error('There is an error');
+                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#editOrCreate').modal('hide')
+                },
+
+                error: function (data) {
+                    if (data.status === 500) {
+                        toastr.error('There is an error');
+                    } else if (data.status === 422) {
+
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function (key, value) {
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function (key, value){
+                                    toastr.error(value, key);
+                                });
+                            }
+                        });
+                    } else
+                        toastr.error('there in an error');
+                    $('#addButton').html(`Create`).attr('disabled', false);
+                },//end error method
+                cache: false,
+                contentType: false,
+                processData: false
             });
-        }
+        });
+
+
     </script>
 @endsection

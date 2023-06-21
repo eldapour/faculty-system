@@ -2,30 +2,43 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\SubjectExamStudentExport;
+use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
+use App\Models\Period;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Subject;
-use App\Models\SubjectStudent;
+use App\Models\Unit;
 use App\Models\User;
-use App\Models\SubjectExam;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\SubjectExamStudent;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SubjectExamStudentRequest;
 
-class SubjectExamStudentController extends Controller
-{
-    // Index Start
+class SubjectExamStudentController extends Controller{
+
+
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $subject_exam_students = SubjectExamStudent::get();
+
+            $period = Period::query()
+                ->where('status','=','start')
+                ->first();
+
+            $subject_exam_students = SubjectExamStudent::query()
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+                ->get();
+
             return Datatables::of($subject_exam_students)
                 ->addColumn('action', function ($subject_exam_students) {
                     return '
-                            <button type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $subject_exam_students->id . '" data-title="'. $subject_exam_students->subject->subject_name .'">
                                     <i class="fas fa-trash"></i>
                             </button>
@@ -43,50 +56,49 @@ class SubjectExamStudentController extends Controller
             return view('admin.subject_exam_students.index');
         }
     }
-    // Index End
 
-    // Create Start
-    public function create()
-    {
-        $data['users'] = User::get();
-        $data['groups'] = Group::get();
-        $data['departments'] = Department::get();
-        $group_ids = Group::pluck('id')->toArray();
-        $data['subject_exams'] = SubjectExam::whereIn('group_id', $group_ids)->get();
-        return view('admin.subject_exam_students.parts.create')->with($data);
+
+    public function create(){
+
+        $groups = Group::query()
+            ->select('id','group_name')
+            ->get();
+
+        $units = Unit::query()
+            ->select('id','unit_name')
+            ->get();
+
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
+        return view('admin.subject_exam_students.parts.create',compact('groups','units','departments'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        $inputs = $request->all();
 
-        if (SubjectExamStudent::create($inputs)) {
+        $subject = Subject::query()
+            ->where('id','=',$request->subject_id)
+            ->first();
+
+        if ($subject->students()->syncWithPivotValues($request->user_id,['exam_code' => $request->exam_code,'section' => $request->section,'period' => $request->period,'session' => $request->session_id,'year' =>  $request->year])) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
-        $data['groups'] = Group::get();
-        $data['departments'] = Department::get();
-        $group_ids = Group::pluck('id')->toArray();
-        $subjects = Subject::find($subjectExamStudent->subject_id);
-        $user = User::find($subjectExamStudent->user_id);
-        return view('admin.subject_exam_students.parts.edit', compact('subjectExamStudent', 'subjects', 'user'))->with($data);
+
+        return view('admin.subject_exam_students.parts.edit');
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, SubjectExamStudent $subjectExamStudent)
+    public function update(Request $request, SubjectExamStudent $subjectExamStudent): JsonResponse
     {
         if ($subjectExamStudent->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -95,9 +107,7 @@ class SubjectExamStudentController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -106,31 +116,58 @@ class SubjectExamStudentController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    public function getStudent(Request $request)
+
+    //get all subject with filter data (group,department,department_branch,unit)
+    public function allSubjects(Request $request): \Illuminate\Support\Collection
     {
-        $user_ids = SubjectStudent::where('group_id', '=', $request->group_id)
-            ->where('subject_id', '=', $request->subject_id)->pluck('user_id')->toArray();
-        $users = User::whereIn('id', $user_ids)->pluck('identifier_id', 'id')->toArray();
 
-        if (count($users) > 0) {
-            return $users;
-        } else {
-            return response()->json(404);
-        }
+
+        return Subject::query()
+            ->where('group_id','=',$request->group_id)
+            ->where('department_branch_id','=',$request->department_branch_id)
+            ->where('unit_id','=',$request->unit_id)
+            ->pluck('subject_name', 'id');
     }
 
-    public function getSubject(Request $request)
-    {
-        $subjects = Subject::where('group_id', '=', $request->id)
-            ->pluck('subject_name', 'id')
-            ->toArray();
 
-        if (count($subjects) > 0) {
-            return $subjects;
+    //get all students with subject_id
+
+    public function allStudents(Request $request): \Illuminate\Support\Collection
+    {
+
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
+
+        return User::query()
+            ->where('user_type','=','student')
+            ->whereHas('subjects', fn(Builder $builder) =>
+            $builder->where('subject_id',$request->subject_id)
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+
+            )
+            ->pluck('first_name', 'id');
+    } // end of all
+
+
+    public function exportSubjectExamStudent()
+    {
+        return Excel::download(new SubjectExamStudentExport(), 'SubjectExamStudent.xlsx');
+    } // end export
+
+    public function importSubjectExamStudent(Request $request)
+    {
+        $import = Excel::import(new SubjectExamStudentImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
         } else {
-            return response()->json(404);
+            return response()->json(['status' => 500]);
         }
-    }
+    } // end import
+
+
+
 }

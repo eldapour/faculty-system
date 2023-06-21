@@ -5,12 +5,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Group;
 use App\Models\Schedule;
+use App\Models\Unit;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class ScheduleController extends Controller
-{
+class ScheduleController extends Controller{
+
+
     use PhotoTrait;
     public function index(Request $request)
     {
@@ -22,35 +24,28 @@ class ScheduleController extends Controller
             return Datatables::of($schedules)
                 ->addColumn('action', function ($schedules) {
                     return '
-                            <button type="button" data-id="' . $schedules->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' type="button" data-id="' . $schedules->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $schedules->id . '" data-title="' . $schedules->id . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
-                ->editColumn('group_id', function ($schedules) {
 
-                    return $schedules->group->getTranslation('group_name', app()->getLocale());
-
-                })
                 ->editColumn('department_id', function ($schedules) {
 
                     return $schedules->department->getTranslation('department_name', app()->getLocale());
 
                 })
 
-                ->editColumn('department_branch_id', function ($schedules) {
+                ->editColumn('unit_id', function ($schedules) {
 
-                    return $schedules->department_branch->getTranslation('branch_name', app()->getLocale());
+                    return $schedules->unit->getTranslation('unit_name', app()->getLocale());
 
-                })
-                ->editColumn('pdf_upload', function ($schedules) {
+                })->editColumn('pdf_upload', function ($schedules) {
 
                         return '
                     <a href="'. asset("uploads/schedules/".$schedules->pdf_upload)  .'" class="btn btn-pill btn-primary-light processing">'.trans('admin.schedule_pdf_upload').'</a>';
-
-
                 })
 
                 ->escapeColumns([])
@@ -64,15 +59,15 @@ class ScheduleController extends Controller
     public function create()
     {
 
-        $groups = Group::query()
-            ->select('id','group_name')
+        $units = Unit::query()
+            ->select('id','unit_name')
             ->get();
 
         $departments = Department::query()
             ->select('id','department_name')
             ->get();
 
-        return view('admin.schedules.parts.create',compact('departments','groups'));
+        return view('admin.schedules.parts.create',compact('departments','units'));
     }
 
 
@@ -81,11 +76,11 @@ class ScheduleController extends Controller
 
         $request->validate([
 
-            'pdf_upload' => 'required|mimes:pdf',
-            'group_id' => 'required|exists:groups,id',
             'department_id' => 'required|exists:departments,id',
-            'department_branch_id' => 'required|exists:department_branches,id',
-            'year' => 'required|date_format:Y',
+            'unit_id' => 'required|exists:units,id',
+            'description' => 'nullable|max:255',
+            'pdf_upload' => 'required|mimes:pdf',
+
         ]);
 
 
@@ -99,11 +94,10 @@ class ScheduleController extends Controller
 
         $schedule = Schedule::create([
 
-            'pdf_upload' => $pdf_name,
-            'group_id' => $request->group_id,
             'department_id' => $request->department_id,
-            'department_branch_id' => $request->department_branch_id,
-            'year' => $request->year
+            'unit_id' => $request->unit_id,
+            'pdf_upload' => $pdf_name,
+            'description' => $request->description,
 
         ]);
 
@@ -149,11 +143,7 @@ class ScheduleController extends Controller
             }
         }else{
 
-            $schedule->update([
-
-                'pdf_upload' => $schedule->pdf_upload,
-
-            ]);
+            $schedule->update(['pdf_upload' => $schedule->pdf_upload]);
         }
 
 

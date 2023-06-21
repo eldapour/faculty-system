@@ -16,20 +16,25 @@
         <div class="dropdown" style="z-index: 100000;">
             <button class="btn-language dropdown-toggle" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ asset('assets/front/assets') }}/photo/english.png">
-                english
+                <img src="{{ asset('assets/front/assets') }}/photo/{{ lang() }}.png">
+                {{ __(lang()) }}
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item btn-language btn-color" href="#">
-                        <img src="{{ asset('assets/front/assets') }}/photo/france.png">
-                        france
-                    </a></li>
-                <li><a class="dropdown-item btn-language btn-color" href="#">
-                        <img src="{{ asset('assets/front/assets') }}/photo/arabic.png">
-                        arabic
-                    </a></li>
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>
+                        <a rel="alternate" hreflang="{{ $localeCode }}" class="dropdown-item btn-language btn-color"
+                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            <img src="{{ asset('assets/front/assets') }}/photo/{{ $localeCode }}.png">
+                            <span dir="{{ $localeCode === 'ar' ? 'rtl' : 'ltr' }}">
+                                {{ $properties['native'] }}
+                            </span>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
+
+
     </div>
 </div>
 

@@ -19,6 +19,7 @@
         <div class="container pt-5 pb-5">
             <div class="row">
                 <div class="col-lg-6 col-12" style="position: relative;">
+                    {{--  @dd($presentations)  --}}
                     <div class="row">
                         @foreach ($presentations->images as $image)
                             <div class="col-6 d-flex align-items-center">

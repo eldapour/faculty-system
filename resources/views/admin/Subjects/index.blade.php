@@ -29,6 +29,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.department') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.branch') }}</th>
@@ -92,19 +93,20 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'subject_name', name: 'subject_name'},
+            {data: 'unit_id', name: 'unit_id'},
             {data: 'group_id', name: 'group_id'},
             {data: 'department_id', name: 'department_id'},
             {data: 'department_branch_id', name: 'department_branch_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('subject.index')}}', columns);
+        showData('{{route('subjects.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('subject.destroy',':id')}}');
+        destroyScript('{{route('subjects.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('subject.create')}}');
+        showAddModal('{{route('subjects.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('subject.edit',':id')}}');
+        showEditModal('{{route('subjects.edit',':id')}}');
         editScript();
     </script>
 @endsection

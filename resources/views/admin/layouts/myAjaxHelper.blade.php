@@ -431,4 +431,41 @@
             });
         });
     }
+    function deleteScriptExam(routeOfDelete) {
+        $(document).ready(function() {
+            //Show data in the delete form
+            $('#delete_modal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget)
+                var id = button.data('id')
+                var title = button.data('title')
+                var modal = $(this)
+                modal.find('.modal-body #delete_id').val(id);
+                modal.find('.modal-body #title').text(title);
+            });
+        });
+        $(document).on('click', '#delete_btn', function(event) {
+            var id = $("#delete_id").val();
+            $.ajax({
+                type: 'DELETE',
+                url: routeOfDelete,
+                data: {
+                    '_token': "{{ csrf_token() }}",
+                    'id': id,
+                },
+                success: function(data) {
+                    if (data.status === 200) {
+                        $("#dismiss_delete_modal")[0].click();
+                        $('#dataTable').DataTable().ajax.reload();
+                        toastr.success('{{ trans('admin.deleted_successfully') }}')
+                        setTimeout(function(){
+                            location.reload(true);
+                         }, 3000); // 5 seconds
+                    } else {
+                        $("#dismiss_delete_modal")[0].click();
+                        toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
+                    }
+                }
+            });
+        });
+    }
 </script>

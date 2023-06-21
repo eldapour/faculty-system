@@ -14,6 +14,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
+                    @if(auth()->user()->user_type == 'student')
+                    @else
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
@@ -21,6 +23,7 @@
 									</span> {{ trans('admin.add_schedule') }}
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -29,11 +32,10 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.group_name') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.department_name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.department_branch_name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.description_text') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.schedule_pdf_upload') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.year') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -102,11 +104,10 @@
 
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'group_id', name: 'group_id'},
             {data: 'department_id', name: 'department_id'},
-            {data: 'department_branch_id', name: 'department_branch_id'},
+            {data: 'unit_id', name: 'unit_id'},
+            {data: 'description', name: 'description'},
             {data: 'pdf_upload', name: 'pdf_upload'},
-            {data: 'year', name: 'year'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 

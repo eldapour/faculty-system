@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="register_year" class="form-control-label">@lang('admin.register_year')</label>
-                    <input type="date" class="form-control" name="register_year" required>
+                    <input type="text" class="form-control" name="register_year" required>
                 </div>
             </div>
         </div>

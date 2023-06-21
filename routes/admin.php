@@ -38,9 +38,9 @@ use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
+use App\Http\Controllers\Admin\ReasonRedresseController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use Illuminate\Support\Facades\Auth;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -59,13 +59,16 @@ Route::group([
 ], function () {
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
+    Route::get('/login-d', [LoginController::class, 'indexStudent'])->name('student.login');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 });
+
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale() . '/dashboard',
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
+
 
     ###################### Category #############################
     Route::resource('categories', CategoryController::class);
@@ -112,6 +115,8 @@ Route::group([
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
+    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent');
+    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent');
 
 
     #### Internal Ads ####
@@ -137,7 +142,7 @@ Route::group([
     Route::resource('group', GroupController::class);
 
     ### Subject ####
-    Route::resource('subject', SubjectController::class);
+    Route::resource('subjects', SubjectController::class);
 
     #### Unit ####
     Route::resource('unit', UnitController::class);
@@ -147,20 +152,21 @@ Route::group([
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class);
-    Route::get('get_unit', [SubjectUnitDoctorController::class, 'getUnit'])->name('getUnit');
+    Route::get('getAllSubjectsOfUnitId', [SubjectUnitDoctorController::class, 'getAllSubjectsOfUnitId'])->name('dashboard.getAllSubjectsOfUnitId');
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class);
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
-    Route::get('getSubject', [SubjectExamController::class, 'getSubject'])->name('getSubject');
+    Route::get('getAllSubjectOfDepartmentBranchById', [SubjectExamController::class, 'getSubject'])->name('getAllSubjectOfDepartmentBranchById');
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
     Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
-
+    Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
+    Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
 
     #### Element ####
     Route::resource('elements', ElementController::class);
@@ -184,11 +190,10 @@ Route::group([
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
 
-    #### Process Exam ####
-    Route::resource('process_exams', ProcessExamController::class);
 
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
+    Route::get('process_examss/students', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
 
@@ -199,6 +204,7 @@ Route::group([
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
+    Route::post('updateDegree', [ProcessDegreeController::class, 'updateDegree'])->name('updateDegree');
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
@@ -225,5 +231,30 @@ Route::group([
     Route::resource('periods', PeriodController::class)->only(['index', 'create', 'store']);
     Route::post('period/status', [PeriodController::class, 'status'])->name('period.status');
 
+    #### subject of doctor ####
+    Route::get('subject',[\App\Http\Controllers\Doctor\SubjectController::class, 'index'])->name('dashboard.subject');
 
+    #### Reasons for redress ####
+    Route::resource('reasons_redress', ReasonRedresseController::class);
+
+
+
+});
+
+
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+], function () {
+
+//get all subject by group_id and department_branch_id
+Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
+
+
+//filter data in subject exam student model from create.blade.php
+Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
+Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
+
+//syncWithPivotValues
 });

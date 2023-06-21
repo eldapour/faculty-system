@@ -7,11 +7,34 @@
         <!-- LOGO -->
     </div>
     <ul class="side-menu">
+
+
+        {{-- start subject doctor  --}}
+        @if(checkUser('doctor'))
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-book-medical side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.subject_unit_doctors')}}</span><i
+                            class="angle fa fa-angle-right"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a href="{{ route('dashboard.subject') }}" class="slide-item">{{  trans('admin.subject_unit_doctors') }}</a></li>
+                    <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">{{  trans('admin.result') }}</a></li>
+
+                </ul>
+            </li>
+        @endif
+        {{-- end subject doctor --}}
+
+
+
         @if(checkUser('manger'))
             <li>
                 <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
             </li>
         @endif
+
+
         @if(checkUser('manger'))
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
@@ -125,20 +148,136 @@
 
 
         @if(checkUser('student'))
-            <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-paper-plane side-menu__icon"></i>
-                    <span class="side-menu__label">@lang('admin.Student documents')</span><i
-                        class="angle fa fa-angle-right"></i>
-                </a>
-                <ul class="slide-menu">
 
-                    <li><a href="{{route('documents.student')}}" class="slide-item">@lang('admin.Student documents')</a>
-                    </li>
+        <li>
+            <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
+        </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_students') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_student.index') }}" class="slide-item">{{ trans('admin.subject_students') }}</a>
+                        </li>
 
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-user-check side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('schedules.index') }}" class="slide-item">{{ trans('admin.all_schedules') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-user-check side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.process_exams') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('processExamStudent') }}" class="slide-item">{{ trans('admin.process_exams') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-pen-alt side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('processDegreeStudent') }}" class="slide-item">{{ trans('admin.process_degrees') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book-open side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_exams.index') }}" class="slide-item">{{ trans('admin.exams') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-search side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-id-card side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">{{ trans('admin.subject_exam_student_results') }}</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-paper-plane side-menu__icon"></i>
+                        <span class="side-menu__label">@lang('admin.Student documents')</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{route('documents.student')}}" class="slide-item">@lang('admin.Student documents')</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
         @endif
 
 
@@ -149,20 +288,27 @@
                     <span class="side-menu__label">{{ trans('admin.groups') }}</span>
                 </a>
             </li>
-
             <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject.index') }}">
-                    <i class="fa fa-book side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
+                <a class="side-menu__item" href="{{ route('reasons_redress.index') }}">
+                    <i class="fa fa-bus side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.Reasons_for_redress') }}</span>
                 </a>
             </li>
-
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('unit.index') }}">
                     <i class="fa fa-address-book side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.units') }}</span>
                 </a>
             </li>
+
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('subjects.index') }}">
+                    <i class="fa fa-book side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
+                </a>
+            </li>
+
+
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('departments.index') }}">
@@ -192,20 +338,14 @@
                 </a>
             </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_student.index') }}">
-                    <i class="fa fa-user-check side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
-                </a>
-            </li>
+{{--            <li class="slide">--}}
+{{--                <a class="side-menu__item" href="{{ route('subject_student.index') }}">--}}
+{{--                    <i class="fa fa-user-check side-menu__icon"></i>--}}
+{{--                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_exams.index') }}">
-                    <i class="fa fa-brain side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span>
-                </a>
-            </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('subject_exam_students.index') }}">
@@ -214,24 +354,19 @@
                 </a>
             </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_exam_student_result.index') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
-                </a>
-            </li>
+
 
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
                     <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
+                    <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
                 </a>
             </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('processDegreeStudent') }}">
                     <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
+                    <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
                 </a>
             </li>
 
@@ -240,6 +375,12 @@
                 <a class="side-menu__item" href="{{ route('process_exams.index') }}">
                     <i class="fe fe-file-text side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
+                </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('processExamStudent') }}">
+                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.process_exam_students') }}</span>
                 </a>
             </li>
         @endif
@@ -287,12 +428,12 @@
                     <span class="side-menu__label">{{ trans('admin.deadlines')}}</span>
                 </a>
             </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('settings.index') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.settings') }}</span>
-                </a>
-            </li>
+{{--            <li class="slide">--}}
+{{--                <a class="side-menu__item" href="{{ route('settings.index') }}">--}}
+{{--                    <i class="fe fe-file-text side-menu__icon"></i>--}}
+{{--                    <span class="side-menu__label">{{ trans('admin.settings') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
 
             <li class="slide">

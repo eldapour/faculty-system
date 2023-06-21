@@ -146,23 +146,23 @@
                 data: formData,
                 beforeSend: function () {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>').attr('disabled', true);
                 },
 
                 success: function (data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('Admin added successfully');
+                        toastr.success('{{ trans('admin.added_successfully') }}');
                     }
                     else
                         toastr.error('There is an error');
-                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
 
                 error: function (data) {
                     if (data.status === 500) {
-                        toastr.error('There is an error');
+                        toastr.error('{{ trans('admin.something_went_wrong') }}');
                     } else if (data.status === 422) {
 
                         var errors = $.parseJSON(data.responseText);
@@ -175,7 +175,7 @@
                         });
                     } else
                         toastr.error('there in an error');
-                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                 },//end error method
                 cache: false,
                 contentType: false,
@@ -205,17 +205,17 @@
                     $('#updateButton').html(`Update`).attr('disabled', false);
                     if (data.status == 200){
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('Admin updated successfully');
+                        toastr.success('{{ trans('admin.updated_successfully') }}');
                     }
                     else
-                        toastr.error('There is an error');
+                        toastr.error('{{ trans('admin.something_went_wrong') }}');
 
                     $('#editOrCreate').modal('hide')
                 },
                 error: function (data) {
 
                     if (data.status === 500) {
-                        toastr.error('There is an error');
+                        toastr.error('{{ trans('admin.something_went_wrong') }}');
 
                     } else if (data.status === 422) {
 
@@ -228,7 +228,7 @@
                             }
                         });
                     } else
-                        toastr.error('there in an error');
+                        toastr.error('{{ trans('admin.something_went_wrong') }}');
                     $('#updateButton').html(`Update`).attr('disabled', false);
                 },//end error method
 

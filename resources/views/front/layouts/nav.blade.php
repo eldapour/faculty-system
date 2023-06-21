@@ -9,16 +9,17 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse bg-white" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse bg-white pe-3 ps-3" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('/') }}">home</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('/') }}">{{ trans('admin.home') }}</a>
                 </li>
                 @foreach ($categories as $category)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $category->category_name[lang()] }}
+                            {{ $category->category_name[lang()] }} <span class="icon-nav"><i
+                                    class="fa-solid fa-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @if ($category->id == 1)
@@ -39,7 +40,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="{{ route('index.event') }}">Event</a></li>
                                 <li>
-                                    <hr class="dropdown-divider">
+
                                 </li>
                             @elseif($category->id == 7)
                                 <li><a class="dropdown-item" href="{{ route('index.time_uses') }}">Time Uses</a></li>
@@ -58,6 +59,7 @@
                                     @endif
 
                             @endforeach
+
                         </ul >
 
 
@@ -146,6 +148,7 @@
                         <li><a class="dropdown-item" href="digital-magazine.html">college s digital magazine</a></li>
                     </ul>
                 </li>  --}}
+
                 @endforeach
             </ul>
         </div>

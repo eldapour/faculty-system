@@ -3,109 +3,110 @@
 namespace App\Http\Controllers\Admin;
 
 use DateTime;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SubjectStudentRequest;
-use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
-use App\Models\SubjectStudent;
 use App\Models\User;
-use App\Models\Subject;
 use App\Models\Group;
+use App\Models\Period;
+use App\Models\Subject;
+use App\Models\Department;
+use Illuminate\Http\Request;
+use App\Models\SubjectStudent;
+use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SubjectStudentRequest;
 
 class SubjectStudentController extends Controller
 {
-     // Index Start
-     public function index(request $request)
-     {
-         if ($request->ajax()) {
-             $subject_students = SubjectStudent::get();
-             return Datatables::of($subject_students)
-                 ->addColumn('action', function ($subject_students) {
-                     return '
-                             <button type="button" data-id="' . $subject_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                     data-id="' . $subject_students->id . '" data-title="' . $subject_students->user->first_name . '">
-                                     <i class="fas fa-trash"></i>
-                             </button>
-                        ';
-                 })
-                 ->editColumn('user_id', function ($subject_students) {
-                     return'<td>'. $subject_students->user->first_name .'</td>';
-                 })
-                 ->editColumn('subject_id', function ($subject_students) {
-                     return'<td>'. $subject_students->subject->subject_name .'</td>';
-                 })
-                 ->editColumn('group_id', function ($subject_students) {
-                     return'<td>'. $subject_students->group->group_name .'</td>';
-                 })
-                 ->editColumn('year', function ($subject_students) {
+    // Index Start
+    public function index(request $request)
+    {
+        if ($request->ajax()) {
+            $periods = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+            $subject_students = SubjectStudent::query()
+                ->where('user_id', '=', Auth::id())
+                ->where('period', '=', $periods->period)
+                ->where('year', '=', $periods->year_start)
+                ->get();
+            return Datatables::of($subject_students)
+                ->editColumn('subject_id', function ($subject_students) {
+                    return '<td>' . $subject_students->subject->subject_name . '</td>';
+                })
+                ->editColumn('group_id', function ($subject_students) {
+                    return '<td>' . $subject_students->group->group_name . '</td>';
+                })
+                ->editColumn('year', function ($subject_students) {
                     $date = new DateTime($subject_students->year);
                     return '<td>' . $date->format('Y') . '</td>';
                 })
-                 ->escapeColumns([])
-                 ->make(true);
-         } else {
-             return view('admin.subject_students.index');
-         }
-     }
-     // Index End
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.subject_students.index');
+        }
+    }
 
-     // Create Start
-     public function create()
-     {
-         $data['users'] = User::all();
-         $data['subjects'] = Subject::all();
-         $data['groups'] = Group::all();
-         return view('admin.subject_students.parts.create', compact('data'));
-     }
-     // Create End
 
-     // Store Start
+    public function create()
+    {
+        $data['users'] = User::query()
+            ->where('user_type', '=', 'student')
+            ->select('id', 'identifier_id')
+            ->get();
 
-     public function store(SubjectStudentRequest $request)
-     {
-         $inputs = $request->all();
 
-         if (SubjectStudent::create($inputs)) {
-             return response()->json(['status' => 200]);
-         } else {
-             return response()->json(['status' => 405]);
-         }
-     }
-
-     // Store End
-
-     // Edit Start
-     public function edit(SubjectStudent $subjectStudent)
-     {
-        $data['users'] = User::all();
         $data['subjects'] = Subject::all();
         $data['groups'] = Group::all();
-         return view('admin.subject_students.parts.edit', compact('subjectStudent', 'data'));
-     }
-     // Edit End
+        $data['departments'] = Department::all();
+        return view('admin.subject_students.parts.create', compact('data'));
+    }
 
-     // Update Start
 
-     public function update(Request $request, SubjectStudent $subjectStudent)
-     {
-         if ($subjectStudent->update($request->all())) {
-             return response()->json(['status' => 200]);
-         } else {
-             return response()->json(['status' => 405]);
-         }
-     }
+    public function store(SubjectStudentRequest $request): \Illuminate\Http\JsonResponse
+    {
 
-     // Edit End
 
-     // Destroy Start
+        $user = User::query()
+            ->where('id', '=', $request->user_id)
+            ->first();
 
-     public function destroy(Request $request)
-     {
-         $subject_students = SubjectStudent::where('id', $request->id)->firstOrFail();
-         $subject_students->delete();
-         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-     }
+        if ($user->subjects()->syncWithPivotValues($request->subject_id, ['group_id' => $request->group_id, 'year' => $request->year, 'period' => $request->period])) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
+    }
 
-     // Destroy End
+    public function edit(SubjectStudent $subjectStudent)
+    {
+
+
+        $data['subjects'] = Subject::all();
+        $data['groups'] = Group::all();
+        return view('admin.subject_students.parts.edit', compact('subjectStudent', 'data'));
+    }
+
+
+    public function update(Request $request, SubjectStudent $subjectStudent)
+    {
+
+        if ($subjectStudent->update($request->all())) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
+    }
+
+
+    public function destroy(Request $request)
+    {
+
+        $subject_students = SubjectStudent::where('id', $request->id)->firstOrFail();
+        $subject_students->delete();
+        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    } // end delete
+
+
 }

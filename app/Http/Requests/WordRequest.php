@@ -24,9 +24,16 @@ class WordRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
-            'role' => 'required',
+            'name.ar' => 'required',
+            'name.en' => 'required',
+            'name.fr' => 'required',
+            'description.ar' => 'required',
+            'description.en' => 'required',
+            'description.fr' => 'required',
+            'role.ar' => 'required',
+            'role.en' => 'required',
+            'role.fr' => 'required',
+            'image' => 'nullable|mimes:png,jpg',
             'category_id' => 'required',
         ];
     }

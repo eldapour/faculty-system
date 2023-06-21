@@ -10,19 +10,18 @@ class Unit extends Model
 {
     use HasFactory, HasTranslations;
 
-    public array $translatable = ['unit_name'];
+    public array $translatable = ['unit_name','unit_code'];
 
     protected $fillable = [
         'unit_name',
-        'subject_id'
+        'unit_code'
+
     ];
 
     protected $casts = [
-        'unit_name' => 'json'
+        'unit_name' => 'json',
+        'unit_code' => 'json'
     ];
 
-    public function subject()
-    {
-        return $this->belongsTo(Subject::class, 'subject_id', 'id');
-    }
+
 }

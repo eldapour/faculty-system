@@ -14,15 +14,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" required>
+                    <input type="text" class="form-control" name="title[ar]" >
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" required>
+                    <input type="text" class="form-control" name="title[en]" >
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" required>
+                    <input type="text" class="form-control" name="title[fr]" >
                 </div>
             </div>
         </div>
@@ -30,15 +30,15 @@
             <div class="row">
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <textarea type="text" class="form-control" name="description[ar]" required></textarea>
+                    <textarea type="text" class="form-control" name="description[ar]" ></textarea>
                 </div>
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
-                    <textarea type="text" class="form-control" name="description[en]" required></textarea>
+                    <textarea type="text" class="form-control" name="description[en]" ></textarea>
                 </div>
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
-                    <textarea type="text" class="form-control" name="description[fr]" required></textarea>
+                    <textarea type="text" class="form-control" name="description[fr]" ></textarea>
                 </div>
             </div>
         </div>

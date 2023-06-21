@@ -12,10 +12,13 @@
         rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+    {{--  @dd(@lang())  --}}
     <!-- slick plugin -->
     @if(@lang() != 'ar')
     <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/responsive.css">
+
     @else
     <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/rtl.css">
     @endif
@@ -28,11 +31,10 @@
     <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/slick-theme.css">
     <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/slick.css">
 
-    <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/style.css">
-    <link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/responsive.css">
+
 
     <!-- rtl -->
-    <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+    {{--  <!-- <link rel="stylesheet" href="css/rtl.css"> -->  --}}
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,26 +1,12 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('subject.store') }}">
+    <form id="addForm" class="addForm" method="POST" action="{{ route('subjects.store') }}">
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-4">
-                    <label for="subject_name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
-                    <input type="text" class="form-control" name="subject_name[ar]">
-                </div>
-                <div class="col-md-4">
-                    <label for="subject_name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" class="form-control" name="subject_name[en]">
-                </div>
-                <div class="col-md-4">
-                    <label for="subject_name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
-                    <input type="text" class="form-control" name="subject_name[fr]">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+
+
+
+                <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.group') }} </label>
                     <select name="group_id" style="text-align: center" id="" class="form-control">
                         @foreach ($data['groups'] as $group)
@@ -28,8 +14,19 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="row">
+
+
+                <div class="col-md-6">
+                    <label for="subject_name" class="form-control-label">{{ trans('admin.unit_name') }} </label>
+                    <select  name="unit_id" style="text-align: center" id=""
+                             class="form-control department_id">
+                        @foreach ($data['units'] as $unit)
+                            <option value="{{ $unit->id }}">{{ $unit->unit_name }}</option>
+                        @endforeach
+                    </select>
+                </div><br>
+
+                
                 <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                     <select name="department_id" style="text-align: center" id=""
@@ -39,13 +36,35 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="col-md-6">
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" required>
                         <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
                     </select>
                 </div>
+
+
+                <div class="col-md-12">
+                    <label for="subject_name"
+                           class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
+                    <input type="text" class="form-control" name="subject_name[ar]">
+                </div>
+                <div class="col-md-12">
+                    <label for="subject_name"
+                           class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
+                    <input type="text" class="form-control" name="subject_name[en]">
+                </div>
+                <div class="col-md-12">
+                    <label for="subject_name"
+                           class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
+                    <input type="text" class="form-control" name="subject_name[fr]">
+                </div>
+
             </div>
+
+
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
@@ -53,6 +72,16 @@
         </div>
     </form>
 </div>
+
+
+
+<script>
+    $('.dropify').dropify();
+    $(document).ready(function() {
+        $('select').select2();
+    });
+
+</script>
 
 <script>
     $('.dropify').dropify()

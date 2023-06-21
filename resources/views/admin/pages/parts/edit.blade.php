@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.image') }}</label>
-                    <input type="file" id="gallery-photo-add" class="form-control" name="images[]" multiple>
+                    <input type="file" value="" id="gallery-photo-add" class="form-control" name="images[]" multiple>
                     <div class="col-md-12 gallery"></div>
                 </div>
             </div>

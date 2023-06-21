@@ -4,8 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
+
     /**
      * Run the migrations.
      *
@@ -13,8 +13,9 @@ return new class extends Migration
      */
 
     /*
-     * نتيجه كل ماده للطالب الجامعي
+      نتائج امتحان الوحده للطالب وتفاصيل درجه الامتحان للطالب ايضا
      */
+
     public function up()
     {
         Schema::create('subject_exam_student_results', function (Blueprint $table) {

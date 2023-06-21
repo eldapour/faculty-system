@@ -67,6 +67,11 @@ return [
     'Those concerned with evidence and diploma' => "Those concerned with evidence and diploma",
     'Diploma certificates' => "Diploma certificates",
     'Student documents' => "Student documents",
+    "exam" => "Exam",
+    "exams" => "Exams",
+    "full_name" =>  "Full Name",
+    "annual_programming" => "Annual Programming",
+    "Reasons_for_redress" => "Reasons for Redress",
 
 
 
@@ -81,6 +86,9 @@ return [
     "request_status_is_accepted" => "Request status is accepted",
     "request_status_is_refused" => "Request status is refused",
     "request_status_is_under_processing" => "Request status is Under Processing",
+    "process_exam_students" => "Process Exam Students",
+    "the_remedial_request_has_been_registered_successfully" => "The remedial request has been registered successfully",
+    "You_are_only" => "You are only entitled to one request during the period of the catch-up session",
 
 
 
@@ -229,7 +237,7 @@ return [
     'period' => 'Period',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'Subject Unit Doctor',
+    'subject_unit_doctor' => 'Add a unit to the professor',
     'subject_unit_doctors' => 'Unit Doctors',
 
     // University Setting
@@ -253,7 +261,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => 'Subject Exam Student',
+    'subject_exam_student' => 'Exam recall',
     'subject_exam_students' => 'Exam Calls',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
@@ -327,6 +335,7 @@ return [
     "edit_degree_student" => "Edit Degree Student",
     "exam_degree_actuel" => "Exam Degree Actuel",
     "The_students_grade_after_adjustment" => "The student's grade after adjustment",
+    "the_score_has_been_modified_successfully" => "The Score Has Been Modified Successfully",
 
     // Subject Exam Student Result
     "subject_exam_student_results" => "Exam Results",
@@ -390,5 +399,68 @@ return [
      'period_add' => "Add a new period",
      'period_all' => 'all periods',
     'period finished' => "period finished",
+    'group_choice' => "choose group",
+
+    'subject_choice' => "subject choice",
+    'for' => ' for the student ',
+
+    'unit name' => 'class', 'description text' => 'notes',
+
+    'result' => 'Subject results',
+
+
+
+    "group_code" => "group_code",
+    "department_code" => "department_code",
+    "department_branch_code" => "department_branch_code",
+    "unit_code" => "unit_code",
+
+
+    "group_code_ar" => "group code in Arabic",
+    "group_code_en" => "group code in English",
+    "group_code_fr" => "group code in French",
+
+
+    "department_code_ar" => "Department Code in Arabic",
+    "department_code_en" => "department code in English",
+    "department_code_fr" => "department code in French",
+
+
+    "department_branch_code_ar" => "Department branch code Arabic",
+    "department_branch_code_en" => "department branch code English",
+    "department_branch_code_fr" => "department branch code french",
+
+
+    "unit_code_ar" => "Unit Code in Arabic",
+    "unit_code_en" => "Unit code English",
+    "unit_code_fr" => "Unit code french",
+
+
+
+    "situation_with_management" => "situation with management",
+    "situation_with_treasury" => "situation with treasury",
+
+
+    "description_situation_with_management" => "A note on the situation with management",
+    "description_situation_with_management_ar" => "A note on the situation with management in Arabic",
+    "description_situation_with_management_en" => "A Note on Situation with Management in English",
+    "description_situation_with_management_fr" => "A note on situation with management in French",
+
+
+    "description_situation_with_treasury" => "A note on the situation with the safe",
+    "description_situation_with_treasury_ar" => "A note on the situation with the treasury in Arabic",
+    "description_situation_with_treasury_en" => "A note on the situation with the treasury in English",
+    "description_situation_with_treasury_fr" => "A note on the situation with the treasury in French",
+
+
+    "pay" => "payable",
+    "not_pay" => "not payable",
+
+
+    "problem" => "there is a problem",
+    "no_problem" => "no problem",
+    "no_notes" => "there are no notes",
 ];
+
+
 

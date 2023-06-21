@@ -22,7 +22,6 @@ class UserController extends Controller
                 ->latest()
                 ->get();
 
-
             return Datatables::of($users)
                 ->addColumn('action', function ($user) {
                     return '
@@ -38,17 +37,9 @@ class UserController extends Controller
                     return $user->created_at->diffForHumans();
 
                 })
-                ->editColumn('city', function ($user) {
-
-                    return $user->getTranslation('city', app()->getLocale());
-
+                ->editColumn('first_name', function($user) {
+                    return '<td>'. $user->first_name .'  '. $user->last_name .'</td>';
                 })
-                ->editColumn('birthday_place', function ($user) {
-
-                    return $user->getTranslation('birthday_place', app()->getLocale());
-
-                })
-
                 ->editColumn('image', function ($user) {
 
                     if($user->image != null){
@@ -80,8 +71,8 @@ class UserController extends Controller
 
         if($user->image != null){
 
-            if (file_exists(public_path("users/". $user->image))) {
-                unlink(public_path("users/". $user->image));
+            if (file_exists(public_path("uploads/users/". $user->image))) {
+                unlink(public_path("uploads/users/". $user->image));
 
                 $user->delete();
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
@@ -118,18 +109,18 @@ class UserController extends Controller
             'last_name' => 'required',
             'password' => 'required|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'university_email'  => 'nullable|unique:users,university_email',
-            'identifier_id' => 'nullable|unique:users,identifier_id',
-            'national_id'  => 'nullable|unique:users,national_id',
-            'national_number' => 'nullable|unique:users,national_number',
-            'birthday_date' => 'nullable|date_format:Y-m-d',
-            'university_register_year' => 'nullable|min:'. (date('Y')),
+            'university_email'  => 'required|unique:users,university_email',
+            'identifier_id' => 'required|unique:users,identifier_id',
+            'national_id'  => 'required|unique:users,national_id',
+            'national_number' => 'required|unique:users,national_number',
+            'birthday_date' => 'required|date_format:Y-m-d',
+            'university_register_year' => 'required|min:'. (date('Y')),
         ]);
 
 
         if ($image = $request->file('image')) {
 
-            $destinationPath = 'users/';
+            $destinationPath = 'uploads/users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
