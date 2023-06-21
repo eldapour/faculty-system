@@ -19,7 +19,6 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows)
     {
-        // data
         $data = [];
         $rows[0]['subject_name_in_english'];
         for ($i = 0; $i < count($rows); $i++) {
