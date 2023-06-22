@@ -378,6 +378,15 @@
 
         @if(checkUser('manger'))
             <li class="slide">
+                <a class="side-menu__item" href="{{ route('points.index') }}">
+                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.point statement') }}</span>
+                </a>
+            </li>
+        @endif
+
+        @if(checkUser('manger'))
+            <li class="slide">
                 <a class="side-menu__item" href="{{ route('data_modify.index') }}">
                     <i class="fe fe-file-text side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.data_modify') }}</span>

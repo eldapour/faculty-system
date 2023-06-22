@@ -68,7 +68,9 @@
     <a href="#top" id="back-to-top"><i class="fa fa-angle-up mt-4"></i></a>
 
     @include('admin.layouts.scripts')
+
     @yield('ajaxCalls')
+
 
 </body>
 

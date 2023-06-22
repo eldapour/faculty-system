@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PeriodController;
+use App\Http\Controllers\Admin\PointStatementController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -87,6 +88,7 @@ Route::group([
     Route::resource('admins', AdminController::class)->except(['show']);
     Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete');
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');
+    Route::post('updatePass', [AdminController::class, 'updatePass'])->name('updatePass');
 
     #### Deadline ####
     Route::resource('deadlines', DeadlineController::class);
@@ -157,6 +159,7 @@ Route::group([
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class);
+    Route::post('maintenanceCheck', [UniversitySettingController::class,'maintenanceCheck'])->name('maintenanceCheck');
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
@@ -178,7 +181,8 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
-
+    Route::get('exportSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'exportSubjectExamStudentResult'])->name('exportSubjectExamStudentResult');
+    Route::post('importSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'importSubjectExamStudentResult'])->name('importSubjectExamStudentResult');
 
     #### document types ####
     Route::resource('document_types', DocumentTypeController::class);
@@ -243,6 +247,10 @@ Route::group([
     Route::resource('certificate_name', CertificateTypeController::class);
 
 
+    #### Point Statement ####
+    Route::resource('points', PointStatementController::class);
+    Route::get('exportPointStatement', [PointStatementController::class, 'exportPointStatement'])->name('exportPointStatement');
+    Route::post('importPointStatement', [PointStatementController::class, 'importPointStatement'])->name('importPointStatement');
 
 });
 

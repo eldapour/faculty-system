@@ -79,6 +79,18 @@
 {{--</script>--}}
 
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script>
 
+    $('.dropify').dropify();
+
+    $(document).ready(function() {
+        let userType = '{{ auth()->user()->user_type }}';
+        let maintenance = '{{ $maintenance->maintenance }}';
+
+        if(userType == 'student' && maintenance == 1){
+            window.location.href = '{{ route('logout') }}';
+        }
+    });
+</script>
 
 @yield('js')

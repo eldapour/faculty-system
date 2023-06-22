@@ -1,4 +1,3 @@
-
 <link href="{{asset('assets/admin')}}/plugins/select2/select2.min.css" rel="stylesheet"/>
 <div class="modal-header">
     <h5 class="modal-title" id="example-Modal3">{{trans('admin.edit_model')}}</h5>

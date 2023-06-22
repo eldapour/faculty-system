@@ -12,12 +12,13 @@ use App\Models\UniversitySetting;
 class UniversitySettingController extends Controller
 {
 
-    use PhotoTrait; 
+    use PhotoTrait;
+
     // Index Start
     public function index(request $request)
     {
         $university_settings = UniversitySetting::first();
-        return view('admin.university_settings.index',compact('university_settings'));
+        return view('admin.university_settings.index', compact('university_settings'));
     }
     // Index End
 
@@ -30,7 +31,7 @@ class UniversitySettingController extends Controller
             if (file_exists($universitySetting->logo)) {
                 unlink($universitySetting->logo);
             }
-            $inputs['logo'] = $this->saveImage($request->logo, 'uploads/university_setting','photo');
+            $inputs['logo'] = $this->saveImage($request->logo, 'uploads/university_setting', 'photo');
         }
 
         if ($universitySetting->update($inputs)) {
@@ -38,7 +39,16 @@ class UniversitySettingController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }
+    }// Edit End
 
-    // Edit End
+    /**
+     * @param Request $request
+     * @return void
+     */
+    public function maintenanceCheck(Request $request)
+    {
+        $maintenance = UniversitySetting::first();
+        $data = $maintenance->update(['maintenance' => $request->check]);
+        return response()->json(['status' => 200]);
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\SubjectExamStudentResultExport;
+use App\Imports\SubjectExamStudentResultImport;
 use App\Models\Period;
 use App\Models\SubjectUnitDoctor;
 use App\Models\User;
@@ -9,6 +11,7 @@ use App\Models\SubjectExam;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Models\SubjectExamStudentResult;
@@ -112,13 +115,27 @@ class SubjectExamStudentResultController extends Controller
         }
     }
 
-
     public function destroy(Request $request)
     {
         $subjectExamStudentResults = SubjectExamStudentResult::where('id', $request->id)->firstOrFail();
         $subjectExamStudentResults->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    }
+    } // end delete
 
+
+    public function exportSubjectExamStudentResult()
+    {
+        return Excel::download(new SubjectExamStudentResultExport(), 'SubjectExamStudentResult.xlsx');
+    } // end export
+
+    public function importSubjectExamStudentResult(Request $request)
+    {
+        $import = Excel::import(new SubjectExamStudentResultImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    } // end import
 
 }

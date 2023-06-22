@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Exports\PointStatementExport;
+use App\Http\Controllers\Controller;
+use App\Imports\PointStatementImport;
+use App\Models\PointStatement;
+use App\Models\User;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\DataTables;
+
+class PointStatementController extends Controller
+{
+    /**
+     * @param Request $request
+     * @return Application|Factory|View|JsonResponse
+     * @throws Exception
+     */
+    public function index(request $request)
+    {
+        if ($request->ajax()) {
+            $points = PointStatement::get();
+            return Datatables::of($points)
+                ->addColumn('action', function ($points) {
+                    return '
+                            <button type="button" data-id="' . $points->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                    data-id="' . $points->id . '" data-title="">
+                                    <i class="fas fa-trash"></i>
+                            </button>
+                       ';
+                })
+                ->editColumn('user_id',function ($points){
+                    return $points->user->first_name . ' ' . $points->user->last_name;
+                })
+                ->editColumn('identifier_id',function ($points){
+                    return $points->user->identifier_id;
+                })
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.point_statement.index');
+        }
+    } // end index
+
+    /**
+     * @param PointStatement $points
+     * @return Application|Factory|View
+     */
+    public function edit(PointStatement $point){
+
+        return view('admin.point_statement.parts.edit', compact('point'));
+    } // end edit
+
+
+    /**
+     * @param Request $request
+     * @param PointStatement $point
+     * @return JsonResponse
+     */
+    public function update(Request $request, PointStatement $point): JsonResponse
+    {
+        $point->update([
+            'degree_student' => $request->degree_student,
+        ]);
+        if ($point->save()) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
+    }// end update
+
+    /**
+     * @param Request $request
+     * @return Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function destroy(Request $request){
+
+        $point = PointStatement::where('id', $request->id)->firstOrFail();
+        $point->delete();
+        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    } // end destroy
+
+
+    public function exportPointStatement()
+    {
+        return Excel::download(new PointStatementExport(), 'PointStatement'. date('d-m-Y-H-i-s') .'.xlsx');
+    } // end export
+
+    public function importPointStatement(Request $request)
+    {
+        $import = Excel::import(new PointStatementImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    } // end import
+
+}
