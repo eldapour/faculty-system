@@ -61,7 +61,13 @@ Route::group([
 ], function () {
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
-    Route::get('/login-d', [LoginController::class, 'indexStudent'])->name('student.login');
+    Route::get('/active-student', [LoginController::class, 'activeStudent'])->name('activeStudent');
+    Route::post('/activeStudents', [LoginController::class, 'activeStudents'])->name('activeStudents');
+    Route::get('/activeStd/{email}', [LoginController::class, 'activeStd'])->name('activeStd');
+    Route::get('/resetPassView/', [LoginController::class, 'resetPassView'])->name('resetPassView');
+    Route::post('/resetPass', [LoginController::class, 'resetPass'])->name('resetPass');
+    Route::get('/doResetPass/{email}', [LoginController::class, 'doResetPass'])->name('doResetPass');
+    Route::post('/DoneResetPass', [LoginController::class, 'DoneResetPass'])->name('DoneResetPass');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 });
 

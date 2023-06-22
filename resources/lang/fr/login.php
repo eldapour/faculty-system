@@ -21,6 +21,7 @@ return [
     'Forgot Password?' => 'Mot de passe oublié?',
     'user_type' => 'Type de connexion',
     'sign in' => 's\'identifier',
+    'Account activation' => 'activer le compte',
     'This field is required' => 'Ce champ est obligatoire',
 
 

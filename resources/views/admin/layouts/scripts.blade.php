@@ -88,7 +88,11 @@
         let maintenance = '{{ $maintenance->maintenance }}';
 
         if(userType == 'student' && maintenance == 1){
-            window.location.href = '{{ route('logout') }}';
+            toastr.error('{{ trans('admin.The_platform_is_in_maintenance') }}');
+            setTimeout(x => {
+                window.location.href = '{{ route('logout') }}';
+            }, 2000);
+
         }
     });
 </script>

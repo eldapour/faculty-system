@@ -140,6 +140,7 @@ class UserController extends Controller
             'city' => ["ar" => $request->city_ar, "en" => $request->city_en, "fr" => $request->city_fr],
             'birthday_place' => ["ar" => $request->birthday_place_ar, "en" => $request->birthday_place_en, "fr" => $request->birthday_place_fr],
             'address' => $request->address,
+            'user_status' => 'un_active',
             'university_register_year' => $request->university_register_year,
             'email' => $request->email,
             'password' => Hash::make($request->password),
