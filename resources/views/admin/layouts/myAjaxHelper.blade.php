@@ -8,7 +8,17 @@
 
 
     // Show Data Using YAJRA
+    /**
+     *
+     * @param routeOfShow
+     * @param columns
+     * @returns {Promise<void>}
+     */
     async function showData(routeOfShow, columns) {
+        /**
+         *
+         * @type {*|jQuery}
+         */
       var table = $('#dataTable').DataTable({
             processing: true,
             serverSide: true,
@@ -72,6 +82,10 @@
         });
     }
 
+    /**
+     *
+     * @param routeOfDelete
+     */
     // Delete Using Ajax
     function deleteScript(routeOfDelete) {
         $(document).ready(function() {
@@ -317,20 +331,6 @@
 
             setTimeout(function() {
                 $('#modal-renew').load(url)
-            }, 500)
-        })
-    }
-
-    function showEditModal(routeOfEdit) {
-        $(document).on('click', '.editBtn', function() {
-            var id = $(this).data('id')
-            var url = routeOfEdit;
-            url = url.replace(':id', id)
-            $('#modal-body').html(loader)
-            $('#editOrCreate').modal('show')
-
-            setTimeout(function() {
-                $('#modal-body').load(url)
             }, 500)
         })
     }

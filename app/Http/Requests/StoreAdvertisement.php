@@ -24,8 +24,12 @@ class StoreAdvertisement extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
+            'title.ar' => 'required',
+            'title.en' => 'required',
+            'title.fr' => 'required',
+            'description.ar' => 'required',
+            'description.en' => 'required',
+            'description.fr' => 'required',
             'image' => 'required|image',
             'background_image' => 'required|image',
             'category_id' => 'required',

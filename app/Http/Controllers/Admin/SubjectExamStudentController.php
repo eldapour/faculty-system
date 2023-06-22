@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\SubjectExamStudentExport;
+use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
 use App\Models\Period;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Subject;
-use App\Models\SubjectStudent;
 use App\Models\Unit;
 use App\Models\User;
-use App\Models\SubjectExam;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\SubjectExamStudent;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SubjectExamStudentRequest;
 
 class SubjectExamStudentController extends Controller{
 
@@ -150,7 +150,23 @@ class SubjectExamStudentController extends Controller{
 
             )
             ->pluck('first_name', 'id');
-    }
+    } // end of all
+
+
+    public function exportSubjectExamStudent()
+    {
+        return Excel::download(new SubjectExamStudentExport(), 'SubjectExamStudent.xlsx');
+    } // end export
+
+    public function importSubjectExamStudent(Request $request)
+    {
+        $import = Excel::import(new SubjectExamStudentImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    } // end import
 
 
 

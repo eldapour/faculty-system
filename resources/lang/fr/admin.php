@@ -68,6 +68,13 @@ return [
     'Student documents' => "Documents étudiants",
     "exam" => "Examen",
     "exams" => "Examens",
+    "full_name" =>  "Nom et prénom",
+    "annual_programming" => "Programmation annuelle",
+    "Reasons_for_redress" => "Motifs de réparation",
+    "certificate_name" => "Nom du certificat",
+    "update_degree" => "Mettre à jour le diplôme",
+    "updated_degree_successfully" => "Diplôme mis à jour avec succès",
+    "the_entered_mark" => "La note saisie est supérieure à la note de l'examen",
 
 
 

@@ -38,7 +38,9 @@ use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ProcessDegreeController;
 use App\Http\Controllers\Admin\ProcessExamController;
+use App\Http\Controllers\Admin\ReasonRedresseController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
+use App\Http\Controllers\Admin\CertificateTypeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -114,6 +116,8 @@ Route::group([
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class);
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches');
+    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent');
+    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent');
 
 
     #### Internal Ads ####
@@ -162,7 +166,8 @@ Route::group([
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
     Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
-
+    Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
+    Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
 
     #### Element ####
     Route::resource('elements', ElementController::class);
@@ -200,6 +205,7 @@ Route::group([
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree');
+    Route::get('/updateDegree_edit/{id}', [ProcessDegreeController::class, 'editUpdateDegree'])->name('editUpdateDegree');
     Route::post('updateDegree', [ProcessDegreeController::class, 'updateDegree'])->name('updateDegree');
 
     #### Subject Exam Student Result ####
@@ -229,6 +235,12 @@ Route::group([
 
     #### subject of doctor ####
     Route::get('subject',[\App\Http\Controllers\Doctor\SubjectController::class, 'index'])->name('dashboard.subject');
+
+    #### Reasons for redress ####
+    Route::resource('reasons_redress', ReasonRedresseController::class);
+
+    #### Certificate Name ####
+    Route::resource('certificate_name', CertificateTypeController::class);
 
 
 

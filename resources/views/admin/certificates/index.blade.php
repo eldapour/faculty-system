@@ -114,8 +114,13 @@
                                 <label class="form-label" for="exelFile"></label>
                                 <input class="form-control form-control-file dropify" type="file" name="exelFile">
                             </div>
+                            <div class="progress d-none">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 1%"></div>
+                            </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">{{ trans('admin.close') }}</button>
                                 <button type="submit" class="btn btn-primary importBtn">@lang('admin.import')</button>
                             </div>
                         </form>
@@ -282,13 +287,17 @@
             });
         });
 
-        $(document).on('click','.exportBtn',function(){
-           location.href = '{{ route('exportCertificate') }}';
+        $(document).on('click', '.exportBtn', function () {
+            location.href = '{{ route('exportCertificate') }}';
         });
 
         $(document).on("submit", "#importExelForm", function (event) {
             event.preventDefault();
             event.stopImmediatePropagation();
+
+            var progressDiv = $('.progress');
+            var progressBar = $('.progress-bar');
+            progressDiv.addClass('d-none');
 
             var formData = new FormData(this);
 
@@ -296,15 +305,32 @@
                 url: '{{ route('importCertificate') }}',
                 type: 'POST',
                 data: formData,
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total * 100;
+                            progressBar.css('width', percentComplete + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                beforeSend: function () {
+                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                    progressDiv.removeClass('d-none');
+                },
                 success: function (data) {
                     if (data.status === 200) {
-                        toastr.success('{{ trans('admin.added_successfully') }}')
+                        toastr.success('{{ trans('admin.added_successfully') }}');
+                        progressDiv.addClass('d-none');
+                        console.log(data.timeout);
                         setTimeout(function () {
                             window.location.reload();
                         }, 2000)
 
                     } else if (data.status === 500) {
-                        toastr.error('erro')
+                        toastr.error('error')
                         setTimeout(function () {
                             window.location.reload();
                         }, 2000)

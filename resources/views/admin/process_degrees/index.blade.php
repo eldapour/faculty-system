@@ -91,40 +91,7 @@
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <form id="addFormDegree" class="addFormDegree" action="{{ route('updateDegree') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $degree_old->id }}">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="department_branch_id"
-                                            class="form-control-label">@lang('admin.exam_degree')</label>
-                                        <input type="number" step="any" disabled name=""
-                                            value="{{ $degree_old->exam_degree }}" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="department_branch_id"
-                                            class="form-control-label">@lang('admin.exam_degree_actuel')</label>
-                                        <input type="number" step="any" disabled name=""
-                                            value="{{ $degree_old->student_degree }}" class="form-control">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="department_branch_id"
-                                            class="form-control-label">@lang('admin.The_students_grade_after_adjustment')</label>
-                                        <input type="number" id="student_degree_input" step="any"
-                                            name="student_degree" value="" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{ trans('admin.close') }}</button>
-                                <button type="submit" class="btn btn-primary"
-                                    id="addButton">{{ trans('admin.update') }}</button>
-                            </div>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -204,7 +171,8 @@
                         if (data.status == 'new') {
                             toastr.success('{{ trans('admin.request_status_is_new') }}');
                         } else if (data.status == 'accept') {
-                            $('#myModal').modal('show');
+                            var url = "{{ route('editUpdateDegree',[':id']) }}".replace(':id', id)
+                            location.href = url;
                             toastr.success('{{ trans('admin.request_status_is_accepted') }}');
                         } else if (data.status == 'refused') {
                             toastr.success('{{ trans('admin.request_status_is_refused') }}');
@@ -221,31 +189,5 @@
             });
         }
 
-
-        $(document).ready(function() {
-            $('#addFormDegree').submit(function(event) {
-                event.preventDefault();
-
-                var formData = $(this).serialize();
-
-                $.ajax({
-                    url: '{{ route('updateDegree') }}',
-                    type: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        $('#myModal').modal('hide');
-                        if (response.code == 200) {
-                            toastr.success(
-                                '{{ trans('admin.the_score_has_been_modified_successfully') }}'
-                                );
-                        }
-                    },
-                    error: function(xhr) {
-                        // Handle error response
-                        console.log(textStatus, errorThrown);
-                    }
-                });
-            });
-        });
     </script>
 @endsection

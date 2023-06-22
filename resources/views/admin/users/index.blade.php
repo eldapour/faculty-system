@@ -34,18 +34,8 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('admin.id')}}</th>
                                 <th class="min-w-50px">{{trans('admin.image_user')}}</th>
-                                <th class="min-w-50px">{{trans('admin.first_name')}}</th>
-                                <th class="min-w-125px">{{trans('admin.last_name')}}</th>
+                                <th class="min-w-50px">{{trans('admin.full_name')}} </th>
                                 <th class="min-w-125px">{{trans('admin.email')}}</th>
-                                <th class="min-w-125px">{{trans('admin.university_email')}}</th>
-                                <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
-                                <th class="min-w-125px">{{trans('admin.national_id')}}</th>
-                                <th class="min-w-125px">{{trans('admin.national_number')}}</th>
-                                <th class="min-w-125px">{{trans('admin.points')}}</th>
-                                <th class="min-w-125px">{{trans('admin.address')}}</th>
-                                <th class="min-w-125px">{{trans('admin.city')}}</th>
-                                <th class="min-w-125px">{{trans('admin.birthday_place')}}</th>
-                                <th class="min-w-125px">{{trans('admin.birthday_date')}}</th>
                                 <th class="min-w-125px">{{trans('admin.created_at')}}</th>
                                 <th class="min-w-50px rounded-end">{{trans('admin.action')}}</th>
                             </tr>
@@ -109,17 +99,7 @@
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
             {data: 'first_name', name: 'first_name'},
-            {data: 'last_name', name: 'last_name'},
             {data: 'email', name: 'email'},
-            {data: 'university_email', name: 'university_email'},
-            {data: 'identifier_id', name: 'identifier_id'},
-            {data: 'national_number', name: 'national_number'},
-            {data: 'national_id', name: 'national_id'},
-            {data: 'points', name: 'points'},
-            {data: 'address', name: 'address'},
-            {data: 'city', name: 'city'},
-            {data: 'birthday_place', name: 'birthday_place'},
-            {data: 'birthday_date', name: 'birthday_date'},
             {data: 'created_at', name: 'created_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
@@ -164,16 +144,17 @@
                 data: formData,
                 beforeSend: function () {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>').attr('disabled', true);
                 },
 
                 success: function (data) {
+
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('User added successfully');
+                        toastr.success('{{ trans('admin.added_successfully') }}');
                     } else
                         toastr.error('There is an error');
-                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#addButton').html('{{ trans('admin.create') }}').attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
 
@@ -221,7 +202,7 @@
                     $('#updateButton').html(`Update`).attr('disabled', false);
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('User updated successfully');
+                        toastr.success('{{ trans('admin.updated_successfully') }}');
                     } else
                         toastr.error('There is an error');
 
@@ -243,7 +224,7 @@
                             }
                         });
                     } else
-                        toastr.error('there in an error');
+                        toastr.error('{{ trans('admin.something_went_wrong') }}');
                     $('#updateButton').html(`Update`).attr('disabled', false);
                 },//end error method
 

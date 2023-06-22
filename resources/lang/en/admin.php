@@ -69,6 +69,13 @@ return [
     'Student documents' => "Student documents",
     "exam" => "Exam",
     "exams" => "Exams",
+    "full_name" =>  "Full Name",
+    "annual_programming" => "Annual Programming",
+    "Reasons_for_redress" => "Reasons for Redress",
+    "certificate_name" => "Certificate Name",
+    "update_degree" => "Update Degree",
+    "updated_degree_successfully" => "Updated Degree Successfully",
+    "the_entered_mark" => "The entered mark is greater than the exam mark",
 
 
 

@@ -116,7 +116,7 @@ class PageController extends Controller
      * @throws ImageMimeNotSupportedException
      * @throws DriverIsNotSupportedException
      */
-    public function update(PageRequest $request, Page $page)
+    public function update(Request $request, Page $page)
     {
         $inputs = $request->all();
 
