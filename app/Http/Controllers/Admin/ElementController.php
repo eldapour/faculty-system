@@ -11,7 +11,7 @@ use App\Models\Element;
 
 class ElementController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -38,17 +38,13 @@ class ElementController extends Controller
             return view('admin.elements.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         $data['department_branchs'] = DepartmentBranch::all();
         return view('admin.elements.parts.create', compact('data'));
     }
-    // Create End
 
-    // Store Start
 
     public function store(ElementRequest $request)
     {
@@ -60,19 +56,14 @@ class ElementController extends Controller
         }
     }
 
-    // Store End
-
-    // Edit Start
     public function edit(Element $element)
     {
         $data['department_branchs'] = DepartmentBranch::all();
         return view('admin.elements.parts.edit', compact('element', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Element $element)
+    public function update(Request $request, Element $element): \Illuminate\Http\JsonResponse
     {
         if ($element->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -81,9 +72,6 @@ class ElementController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -92,5 +80,4 @@ class ElementController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

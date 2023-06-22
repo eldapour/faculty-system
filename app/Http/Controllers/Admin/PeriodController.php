@@ -7,6 +7,7 @@ use App\Models\Document;
 use App\Models\DocumentType;
 use App\Models\Period;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -42,7 +43,7 @@ class PeriodController extends Controller
         return view('admin.periods.parts.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $request->validate([
 
@@ -64,8 +65,6 @@ class PeriodController extends Controller
             return response()->json(['status' => 405]);
         }
     }
-
-
 
 
     public function status(Request $request)

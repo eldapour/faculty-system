@@ -7,22 +7,25 @@ use App\Http\Requests\WordRequest;
 use App\Models\Category;
 use App\Models\Word;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class WordController extends Controller
 {
     use PhotoTrait;
-    public function index(request $request)
+    public function index()
     {
-        $word = Word::first();
-        $categories = Category::get();
+        $word = Word::query()
+        ->first();
+
+        $categories = Category::query()
+        ->get();
         return view('admin.word.index',compact('word','categories'));
     }
-    // Index End
 
-    // Update Start
-    public function update(WordRequest $request, Word $word)
+
+    public function update(WordRequest $request, Word $word): JsonResponse
     {
         $inputs = $request->all();
 
@@ -39,6 +42,4 @@ class WordController extends Controller
             return response()->json(['status' => 405]);
         }
     }
-
-    // Edit End
 }

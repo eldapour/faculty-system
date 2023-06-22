@@ -16,7 +16,7 @@ class AdvertisementController extends Controller
 
     use PhotoTrait;
 
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -59,18 +59,13 @@ class AdvertisementController extends Controller
             return view('admin.advertisements.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         $data['categories'] = Category::all();
         $data['services'] = Service::all();
         return view('admin.advertisements.parts.create', compact('data'));
     }
-    // Create End
-
-    // Store Start
 
     public function store(StoreAdvertisement $request)
     {
@@ -89,18 +84,12 @@ class AdvertisementController extends Controller
         }
     }
 
-    // Store End
-
-    // Edit Start
     public function edit(Advertisement $advertisement)
     {
         $data['categories'] = Category::all();
         $data['services'] = Service::all();
         return view('admin.advertisements.parts.edit', compact('advertisement', 'data'));
     }
-    // Edit End
-
-    // Update Start
 
     public function update(Request $request, Advertisement $advertisement)
     {
@@ -128,10 +117,6 @@ class AdvertisementController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
-
     public function destroy(Request $request)
     {
         $advertisement = Advertisement::where('id', $request->id)->firstOrFail();
@@ -139,5 +124,5 @@ class AdvertisementController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

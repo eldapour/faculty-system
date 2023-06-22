@@ -14,7 +14,7 @@ class EventController extends Controller
 {
 
     use PhotoTrait;
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -54,19 +54,15 @@ class EventController extends Controller
             return view('admin.events.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         $data['categories'] = Category::all();
         return view('admin.events.parts.create', compact('data'));
     }
-    // Create End
 
-    // Store Start
-
-    public function store(EventRequest $request)
+    public function store(EventRequest $request): \Illuminate\Http\JsonResponse
     {
         $inputs = $request->all();
 
@@ -83,19 +79,15 @@ class EventController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Event $event)
     {
         $data['categories'] = Category::query()->select('id', 'category_name')->get();
         return view('admin.events.parts.edit', compact('event', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Event $event)
+    public function update(Request $request, Event $event): \Illuminate\Http\JsonResponse
     {
 
         $inputs = $request->all();
@@ -121,9 +113,7 @@ class EventController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -132,5 +122,4 @@ class EventController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

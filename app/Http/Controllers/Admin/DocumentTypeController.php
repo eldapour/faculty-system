@@ -10,7 +10,7 @@ use Yajra\DataTables\DataTables;
 
 class DocumentTypeController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -39,17 +39,13 @@ class DocumentTypeController extends Controller
             return view('admin.document_types.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.document_types.parts.create');
     }
-    // Create End
 
-    // Store Start
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
 
         $request->validate([
@@ -59,7 +55,11 @@ class DocumentTypeController extends Controller
         ]);
 
         $document_type = DocumentType::create([
-            'document_name' => ['ar' => $request->document_name_ar,'en' => $request->document_name_en,'fr' => $request->document_name_fr],
+            'document_name' => [
+                'ar' => $request->document_name_ar,
+                'en' => $request->document_name_en,
+                'fr' => $request->document_name_fr
+            ],
 
 
         ]);
@@ -70,18 +70,14 @@ class DocumentTypeController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(DocumentType $documentType)
     {
         return view('admin.document_types.parts.edit', compact('documentType'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request,DocumentType $documentType)
+    public function update(Request $request,DocumentType $documentType): \Illuminate\Http\JsonResponse
     {
 
         $request->validate([
@@ -90,8 +86,11 @@ class DocumentTypeController extends Controller
             'document_name_fr' => 'required',
         ]);
         $documentType->update([
-            'document_name' => ['ar' => $request->document_name_ar,'en' => $request->document_name_en,'fr' => $request->document_name_fr],
-
+            'document_name' => [
+                'ar' => $request->document_name_ar,
+                'en' => $request->document_name_en,
+                'fr' => $request->document_name_fr
+            ],
 
         ]);
 
@@ -102,9 +101,6 @@ class DocumentTypeController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -116,5 +112,5 @@ class DocumentTypeController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

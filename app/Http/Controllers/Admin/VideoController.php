@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVideo;
 USE App\Models\Video;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class VideoController extends Controller
 {
     use PhotoTrait;
 
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -45,18 +46,14 @@ class VideoController extends Controller
             return view('admin.videos.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.videos.parts.create');
     }
-    // Create End
 
-    // Store Start
 
-    public function store(StoreVideo $request)
+    public function store(StoreVideo $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -70,18 +67,13 @@ class VideoController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Video $video)
     {
         return view('admin.videos.parts.edit', compact('video'));
     }
-    // Edit End
 
-    // Update Start
-
-    public function update(Request $request, Video $video)
+    public function update(Request $request, Video $video): JsonResponse
     {
         if ($video->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -90,9 +82,6 @@ class VideoController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -101,5 +90,4 @@ class VideoController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

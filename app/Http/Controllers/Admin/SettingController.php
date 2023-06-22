@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Setting;
 use App\Http\Requests\StoreSetting;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -34,18 +35,13 @@ class SettingController extends Controller
             return view('admin.settings.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.settings.parts.create');
     }
-    // Create End
 
-    // Store Start
-
-    public function store(StoreSetting $request)
+    public function store(StoreSetting $request): JsonResponse
     {
        $inputs = $request->all();
         if (Setting::create($inputs)) {
@@ -55,18 +51,14 @@ class SettingController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Setting $setting)
     {
         return view('admin.settings.parts.edit', compact('setting'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Setting $setting)
+    public function update(Request $request, Setting $setting): JsonResponse
     {
 
         if ($setting->update($request->all())) {
@@ -76,9 +68,6 @@ class SettingController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -87,5 +76,4 @@ class SettingController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

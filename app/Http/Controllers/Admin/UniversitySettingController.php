@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UniversitySettingRequest;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\UniversitySetting;
@@ -14,16 +15,15 @@ class UniversitySettingController extends Controller
 
     use PhotoTrait;
 
-    // Index Start
     public function index(request $request)
     {
-        $university_settings = UniversitySetting::first();
+        $university_settings = UniversitySetting::query()
+        ->first();
+
         return view('admin.university_settings.index', compact('university_settings'));
     }
-    // Index End
 
-    // Update Start
-    public function update(UniversitySettingRequest $request, UniversitySetting $universitySetting)
+    public function update(UniversitySettingRequest $request, UniversitySetting $universitySetting): JsonResponse
     {
         $inputs = $request->all();
 
@@ -39,13 +39,10 @@ class UniversitySettingController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }// Edit End
+    }
 
-    /**
-     * @param Request $request
-     * @return void
-     */
-    public function maintenanceCheck(Request $request)
+
+    public function maintenanceCheck(Request $request): JsonResponse
     {
         $maintenance = UniversitySetting::first();
         $data = $maintenance->update(['maintenance' => $request->check]);
