@@ -93,6 +93,4 @@ class GroupController extends Controller
         $group->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
-
-
 }

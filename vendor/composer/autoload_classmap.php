@@ -141,6 +141,7 @@ return array(
     'App\\Models\\UniversitySetting' => $baseDir . '/app/Models/UniversitySetting.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
+    'App\\Models\\WithdrawalMethod' => $baseDir . '/app/Models/WithdrawalMethod.php',
     'App\\Models\\Word' => $baseDir . '/app/Models/Word.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

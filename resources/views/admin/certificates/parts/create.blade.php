@@ -28,7 +28,7 @@
                     <select class="form-control" name="certificate_type_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach($certificate_types as $certificate_type)
-                            <option value="{{ $certificate_type->id}}">{{ $certificate_type->{'certificate_type_'.lang()} }}</option>
+                            <option value="{{ $certificate_type->id}}">{{ $certificate_type->name }}</option>
                         @endforeach
                     </select>
                 </div>
