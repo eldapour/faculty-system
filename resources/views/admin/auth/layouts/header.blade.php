@@ -7,16 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description"
-        content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+          content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords"
-        content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+          content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>{{ __('login.Login Page') }}</title>
+    @if(Route::currentRouteName() == 'activeStudent')
+        <title>{{ __('login.Account activation') }}</title>
+    @else
+        <title>{{ __('login.Login Page') }}</title>
+    @endif
     <link rel="apple-touch-icon" href="{{ asset('app-assets') }}/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets') }}/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
-        rel="stylesheet">
-
+          rel="stylesheet">
 
 
     @if (lang() == 'en' || lang() == 'fr')
@@ -39,9 +42,9 @@
 
         <!-- BEGIN: Page CSS-->
         <link rel="stylesheet" type="text/css"
-            href="{{ asset('app-assets') }}/css-rtl/core/menu/menu-types/vertical-menu.css">
+              href="{{ asset('app-assets') }}/css-rtl/core/menu/menu-types/vertical-menu.css">
         <link rel="stylesheet" type="text/css"
-            href="{{ asset('app-assets') }}/css-rtl/plugins/forms/form-validation.css">
+              href="{{ asset('app-assets') }}/css-rtl/plugins/forms/form-validation.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('app-assets') }}/css-rtl/pages/page-auth.css">
         <!-- END: Page CSS-->
 
@@ -52,7 +55,7 @@
     @endif
 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet"/>
 
 
     <style>

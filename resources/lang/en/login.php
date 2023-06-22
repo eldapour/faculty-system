@@ -21,6 +21,7 @@ return [
     'password' => 'password',
     'Forgot Password?' => 'Forgot Password ?',
     'sign in' => 'sign in',
+    'Account activation' => 'Account activation',
     'This field is required' => 'This field is required',
 
     'student' => 'student',

@@ -21,6 +21,7 @@ return [
     'user_type' => 'نوع تسجيل الدخول',
     'Forgot Password?' => 'هل نسيت كلمة السر؟',
     'sign in' => 'تسجيل الدخول ',
+    'Account activation' => 'تفعيل الحساب',
     'This field is required' => 'هذه الخانة مطلوبه',
 
 
