@@ -85,7 +85,12 @@ class SubjectExamStudentResultController extends Controller
             )
             ->get();
 
-        return view('admin.subject_exam_student_results.parts.create', compact('data','idOfSubjectDoctor'));
+        return view('admin.subject_exam_student_results.parts.create',
+            compact(
+                'data',
+                'idOfSubjectDoctor'
+            )
+        );
     }
 
 
@@ -123,12 +128,13 @@ class SubjectExamStudentResultController extends Controller
     } // end delete
 
 
-    public function exportSubjectExamStudentResult()
+    public function exportSubjectExamStudentResult(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectExamStudentResultExport(), 'SubjectExamStudentResult.xlsx');
-    } // end export
+    }
 
-    public function importSubjectExamStudentResult(Request $request)
+
+    public function importSubjectExamStudentResult(Request $request): JsonResponse
     {
         $import = Excel::import(new SubjectExamStudentResultImport(), $request->exelFile);
         if ($import) {
@@ -136,6 +142,6 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end import
+    }
 
 }

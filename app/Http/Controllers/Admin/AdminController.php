@@ -14,6 +14,12 @@ class AdminController extends Controller
 {
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|JsonResponse
+     * @throws \Exception
+     */
+
     public function index(request $request)
     {
 
@@ -197,7 +203,7 @@ class AdminController extends Controller
         $user = User::find(auth()->user()->id);
         $user_data = DataModification::where('user_id', $user->id)->get();
 
-        return view('admin.admins.profile', compact('user', 'user_data'));
+        return view('admin.admins.profile',compact('user', 'user_data'));
     }
 
     public function updatePass(Request $request): JsonResponse
@@ -205,25 +211,40 @@ class AdminController extends Controller
         $user = User::query()
             ->findOrFail($request->id);
 
-        if (!Hash::check($request->old_password,$user->password)) {
+
+        if (!Hash::check($request->old_password,$user->password)){
+
             return response()->json(['status' => 201]);
-        } else {
-            if ($request->password != $request->password_confirm) {
-                return response()->json(['status' => 203]);
-            } else {
-                $user->update([
-                    'password' => Hash::make($request->password),
-                ]);
 
-                if ($user->save()) {
+        }elseif ($request->password != $request->password_confirm){
 
-                    return response()->json(['status' => 200]);
+            return response()->json(['status' => 203]);
 
-                } else {
+        } else{
 
-                    return response()->json(['status' => 405]);
-                }
-            }
+            $user->update(['password' => Hash::make($request->password),]);
+             return response()->json(['status' => 200]);
         }
+
+//        if (!Hash::check($request->old_password,$user->password)) {
+//            return response()->json(['status' => 201]);
+//        } else {
+//            if ($request->password != $request->password_confirm) {
+//                return response()->json(['status' => 203]);
+//            } else {
+//                $user->update([
+//                    'password' => Hash::make($request->password),
+//                ]);
+//
+//                if ($user->save()) {
+//
+//                    return response()->json(['status' => 200]);
+//
+//                } else {
+//
+//                    return response()->json(['status' => 405]);
+//                }
+//            }
+//        }
     }
 }

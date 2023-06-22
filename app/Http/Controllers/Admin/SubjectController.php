@@ -90,8 +90,11 @@ class SubjectController extends Controller
 
         $data = [
 
-            'subject_name' => ['ar' => $request->subject_name_ar, 'en' => $request->subject_name_en,
-                'fr' => $request->subject_name_fr],
+            'subject_name' => [
+                'ar' => $request->subject_name_ar,
+                'en' => $request->subject_name_en,
+                'fr' => $request->subject_name_fr
+            ],
         ];
 
 

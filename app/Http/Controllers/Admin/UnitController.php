@@ -15,7 +15,9 @@ class UnitController extends Controller{
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $units = Unit::get();
+            $units = Unit::query()
+            ->get();
+
             return Datatables::of($units)
                 ->addColumn('action', function ($units) {
                     return '
@@ -71,8 +73,17 @@ class UnitController extends Controller{
     {
 
         $unit->update([
-            'unit_name' => ['ar' => $request->unit_name_ar,'en' => $request->unit_name_en,'fr' => $request->unit_name_fr],
-            'unit_code' => ['ar' => $request->unit_code_ar,'en' => $request->unit_code_en,'fr' => $request->unit_code_fr],
+            'unit_name' => [
+                'ar' => $request->unit_name_ar,
+                'en' => $request->unit_name_en,
+                'fr' => $request->unit_name_fr
+            ],
+
+            'unit_code' => [
+                'ar' => $request->unit_code_ar,
+                'en' => $request->unit_code_en,
+                'fr' => $request->unit_code_fr
+            ],
 
         ]);
         if ($unit->save()) {

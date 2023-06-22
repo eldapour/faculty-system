@@ -11,7 +11,7 @@ use App\Http\Requests\ReasonsRedresRequest;
 class ReasonRedresseController extends Controller
 {
 
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -35,7 +35,6 @@ class ReasonRedresseController extends Controller
             return view('admin.reasons_redress.index');
         }
     }
-    // Index End
 
     public function create()
     {
@@ -43,7 +42,7 @@ class ReasonRedresseController extends Controller
     }
 
 
-    public function store(ReasonsRedresRequest $request)
+    public function store(ReasonsRedresRequest $request): \Illuminate\Http\JsonResponse
     {
         $inputs = $request->all();
         if (ReasonsRedress::create($inputs)) {
@@ -59,7 +58,7 @@ class ReasonRedresseController extends Controller
     }
 
 
-    public function update(Request $request, ReasonsRedress $reasonsRedress)
+    public function update(Request $request, ReasonsRedress $reasonsRedress): \Illuminate\Http\JsonResponse
     {
         if ($reasonsRedress->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -68,12 +67,7 @@ class ReasonRedresseController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request)
     {
         $reason_redress = ReasonsRedress::where('id', $request->id)->firstOrFail();

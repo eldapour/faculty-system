@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\StoreService;
 
 class ServiceController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -35,18 +36,15 @@ class ServiceController extends Controller
             return view('admin.services.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         return view('admin.services.parts.create');
     }
-    // Create End
 
-    // Store Start
 
-    public function store(StoreService $request)
+    public function store(StoreService $request): JsonResponse
     {
         $inputs = $request->all();
         if (Service::create($inputs)) {
@@ -56,16 +54,12 @@ class ServiceController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Service $service)
     {
         return view('admin.services.parts.edit', compact('service'));
     }
-    // Edit End
 
-    // Update Start
 
     public function update(Request $request, Service $service)
     {
@@ -76,10 +70,6 @@ class ServiceController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
-
     public function destroy(Request $request)
     {
         $services = Service::where('id', $request->id)->firstOrFail();
@@ -87,5 +77,5 @@ class ServiceController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

@@ -154,8 +154,14 @@ class CertificateController extends Controller
 
         $certificate->update([
 
-            'description_situation_with_management' => ['ar' => $request->description_situation_with_management_ar ,'en' => $request->description_situation_with_management_en ,'fr' => $request->description_situation_with_management_fr],
-            'description_situation_with_treasury' => ['ar' => $request->description_situation_with_treasury_ar ,'en' => $request->description_situation_with_treasury_en ,'fr' => $request->description_situation_with_treasury_fr],
+            'description_situation_with_management' => ['ar' => $request->description_situation_with_management_ar ,
+                'en' => $request->description_situation_with_management_en ,
+                'fr' => $request->description_situation_with_management_fr],
+
+            'description_situation_with_treasury' => ['ar' => $request->description_situation_with_treasury_ar ,
+                'en' => $request->description_situation_with_treasury_en ,
+                'fr' => $request->description_situation_with_treasury_fr],
+
             'situation_with_management' => $request->situation_with_management,
             'situation_with_treasury' => $request->situation_with_treasury,
             'validation_year' => $request->validation_year,
@@ -187,7 +193,7 @@ class CertificateController extends Controller
 
     public function importCertificate(Request $request): JsonResponse
     {
-        $import = Excel::import(new CertificateImport(), $request->exelFile);
+        $import = Excel::import(new CertificateImport(),$request->exelFile);
         if ($import) {
             return response()->json(['status' => 200]);
         } else {

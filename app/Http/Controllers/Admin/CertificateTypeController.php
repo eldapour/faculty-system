@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CertificateTypesRequest;
 use App\Models\CertificateType;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,7 @@ class CertificateTypeController extends Controller
     }
 
 
-    public function store(CertificateTypesRequest $request)
+    public function store(CertificateTypesRequest $request): JsonResponse
     {
         $inputs = $request->all();
         if (CertificateType::create($inputs)) {
@@ -57,7 +58,7 @@ class CertificateTypeController extends Controller
     }
 
 
-    public function update(CertificateTypesRequest $request, CertificateType $certificateName)
+    public function update(CertificateTypesRequest $request, CertificateType $certificateName): JsonResponse
     {
 
         if ($certificateName->update($request->all())) {

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Period;
 use App\Traits\PhotoTrait;
 use App\Models\ProcessExam;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class ProcessExamController extends Controller
 {
     use PhotoTrait;
 
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -65,19 +66,19 @@ class ProcessExamController extends Controller
             return view('admin.process_exams.index');
         }
     }
-    // Index End
 
-    // index Student
     public function processExamStudent(Request $request)
     {
         $period = Period::query()
                 ->where('status', '=', 'start')
                 ->first();
+
         $process_exam_students = ProcessExam::query()
                 ->where('user_id', '=', Auth::id())
                 ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year_start)
                 ->get();
+
         if ($request->ajax()) {
             return Datatables::of($process_exam_students)
                 ->addColumn('action', function ($process_exam_students) {
@@ -115,18 +116,14 @@ class ProcessExamController extends Controller
         }
     }
 
-    // Create Start
     public function create()
     {
         $updated_at = ProcessExam::query()->select('updated_at');
         $data['users'] = User::where('user_type', 'student')->get();
         return view('admin.process_exams.parts.create', compact('data', 'updated_at'));
     }
-    // Create End
 
-    // Store Start
-
-    public function store(ProcessExamRequest $request)
+    public function store(ProcessExamRequest $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -141,19 +138,15 @@ class ProcessExamController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(ProcessExam $processExam)
     {
         $data['users'] = User::all();
         return view('admin.process_exams.parts.edit', compact('processExam', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, ProcessExam $processExam)
+    public function update(Request $request, ProcessExam $processExam): JsonResponse
     {
         $inputs = $request->all();
 
@@ -168,9 +161,7 @@ class ProcessExamController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -179,10 +170,8 @@ class ProcessExamController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    // Update Request Status
-    public function updateRequestStatus(Request $request)
+    public function updateRequestStatus(Request $request): JsonResponse
     {
         $inputs = ProcessExam::find($request->id)->update([
             'request_status' => $request->status,

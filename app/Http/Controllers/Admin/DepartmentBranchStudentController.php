@@ -54,9 +54,7 @@ class DepartmentBranchStudentController extends Controller{
             return view('admin.branch_students.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         $departments = Department::get();
@@ -68,11 +66,9 @@ class DepartmentBranchStudentController extends Controller{
 
         return view('admin.branch_students.parts.create', compact('departments','students'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(BranchStudentRequest $request)
+    public function store(BranchStudentRequest $request): \Illuminate\Http\JsonResponse
     {
         $inputs = $request->all();
 
@@ -83,20 +79,16 @@ class DepartmentBranchStudentController extends Controller{
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(DepartmentBranchStudent $userBranch)
     {
         $departments = Department::get();
         $students = User::where('user_type','student')->where('user_status','active')->get();
         return view('admin.branch_students.parts.edit', compact('students','userBranch', 'departments'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(BranchStudentRequest $request, DepartmentBranchStudent $userBranch)
+    public function update(BranchStudentRequest $request, DepartmentBranchStudent $userBranch): \Illuminate\Http\JsonResponse
     {
         if ($userBranch->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -105,10 +97,6 @@ class DepartmentBranchStudentController extends Controller{
         }
     }
 
-    // Edit End
-
-    // Destroy Start
-
     public function destroy(Request $request)
     {
         $branchStudent = DepartmentBranchStudent::where('id', $request->id)->firstOrFail();
@@ -116,7 +104,6 @@ class DepartmentBranchStudentController extends Controller{
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
     public function getBranches(Request $request)
     {
@@ -133,15 +120,15 @@ class DepartmentBranchStudentController extends Controller{
         } else {
             return response()->json(404);
         }
-    } // end getBranches
+    }
 
 
-    public function exportDepartmentBranchStudent()
+    public function exportDepartmentBranchStudent(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new DepartmentBranchStudentExport, 'DepartmentBranchStudent.xlsx');
-    } // end export
+    }
 
-    public function importDepartmentBranchStudent(Request $request)
+    public function importDepartmentBranchStudent(Request $request): \Illuminate\Http\JsonResponse
     {
         $import = Excel::import(new DepartmentBranchStudentImport(), $request->exelFile);
         if ($import) {
@@ -149,5 +136,5 @@ class DepartmentBranchStudentController extends Controller{
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end import
+    }
 }

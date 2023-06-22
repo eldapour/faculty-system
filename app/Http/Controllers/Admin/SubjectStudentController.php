@@ -18,7 +18,7 @@ use App\Http\Requests\SubjectStudentRequest;
 
 class SubjectStudentController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -72,7 +72,12 @@ class SubjectStudentController extends Controller
             ->where('id', '=', $request->user_id)
             ->first();
 
-        if ($user->subjects()->syncWithPivotValues($request->subject_id, ['group_id' => $request->group_id, 'year' => $request->year, 'period' => $request->period])) {
+        if ($user->subjects()->syncWithPivotValues($request->subject_id,
+            ['group_id' => $request->group_id,
+                'year' => $request->year,
+                'period' => $request->period
+            ]
+        )) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -106,7 +111,7 @@ class SubjectStudentController extends Controller
         $subject_students = SubjectStudent::where('id', $request->id)->firstOrFail();
         $subject_students->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    } // end delete
+    }
 
 
 }

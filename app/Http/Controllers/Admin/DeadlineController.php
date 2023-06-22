@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class DeadlineController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -40,16 +40,12 @@ class DeadlineController extends Controller
             return view('admin.deadlines.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.deadlines.parts.create');
     }
-    // Create End
 
-    // Store Start
 
     public function store(StoreDeadline $request)
     {
@@ -61,16 +57,12 @@ class DeadlineController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Deadline $deadline)
     {
         return view('admin.deadlines.parts.edit', compact('deadline'));
     }
-    // Edit End
 
-    // Update Start
 
     public function update(Request $request, Deadline $deadline)
     {
@@ -81,9 +73,6 @@ class DeadlineController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -92,5 +81,4 @@ class DeadlineController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

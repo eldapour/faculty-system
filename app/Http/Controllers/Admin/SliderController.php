@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use App\Models\Slider;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -43,18 +44,13 @@ class SliderController extends Controller
             return view('admin.sliders.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.sliders.parts.create');
     }
-    // Create End
 
-    // Store Start
-
-    public function store(SliderRequest $request)
+    public function store(SliderRequest $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -67,18 +63,14 @@ class SliderController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Slider $slider)
     {
         return view('admin.sliders.parts.edit', compact('slider'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(SliderRequest $request, Slider $slider)
+    public function update(SliderRequest $request, Slider $slider): JsonResponse
     {
         $inputs = $request->all();
 
@@ -96,9 +88,6 @@ class SliderController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -106,6 +95,4 @@ class SliderController extends Controller
         $sliders->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
-
-    // Destroy End
 }
