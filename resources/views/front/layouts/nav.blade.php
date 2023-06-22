@@ -51,11 +51,14 @@
                             @foreach ($category->pages as $page)
                                 <li><a class="dropdown-item"
                                         href="{{ route('page', $page->id) }}">{{ $page->title[lang()] }}</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                    @if (!$loop->last)
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    @endif
+
                             @endforeach
-                        </ul </li>
+                        </ul >
 
 
 

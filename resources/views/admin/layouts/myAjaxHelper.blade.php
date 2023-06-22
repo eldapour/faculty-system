@@ -8,7 +8,17 @@
 
 
     // Show Data Using YAJRA
+    /**
+     *
+     * @param routeOfShow
+     * @param columns
+     * @returns {Promise<void>}
+     */
     async function showData(routeOfShow, columns) {
+        /**
+         *
+         * @type {*|jQuery}
+         */
       var table = $('#dataTable').DataTable({
             processing: true,
             serverSide: true,
@@ -72,6 +82,10 @@
         });
     }
 
+    /**
+     *
+     * @param routeOfDelete
+     */
     // Delete Using Ajax
     function deleteScript(routeOfDelete) {
         $(document).ready(function() {
