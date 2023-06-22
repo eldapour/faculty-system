@@ -169,6 +169,7 @@
         $(document).ready(function () {
             $('select').select2();
         });
+
         editScript();
 
         $(document).on('click', '.maintenanceCheck', function () {
@@ -183,11 +184,10 @@
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'check': check,
-                }, success: function (data) {
+                }, success: function () {
                     toastr.success('{{ trans('admin.updated_successfully') }}');
                 }
             })
         })
-
     </script>
 @endsection
