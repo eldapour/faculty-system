@@ -68,7 +68,7 @@ class DataModificationController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $check_column = Schema::getColumnListing('data_modifications');
 

@@ -7,6 +7,7 @@ use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
 use App\Models\Period;
+use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Subject;
 use App\Models\Unit;
@@ -117,9 +118,7 @@ class SubjectExamStudentController extends Controller{
     }
 
 
-
-    //get all subject with filter data (group,department,department_branch,unit)
-    public function allSubjects(Request $request): \Illuminate\Support\Collection
+    public function allSubjects(Request $request): Collection
     {
 
 
@@ -133,7 +132,7 @@ class SubjectExamStudentController extends Controller{
 
     //get all students with subject_id
 
-    public function allStudents(Request $request): \Illuminate\Support\Collection
+    public function allStudents(Request $request): Collection
     {
 
         $period = Period::query()
@@ -150,15 +149,16 @@ class SubjectExamStudentController extends Controller{
 
             )
             ->pluck('first_name', 'id');
-    } // end of all
+    }
 
 
-    public function exportSubjectExamStudent()
+    public function exportSubjectExamStudent(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectExamStudentExport(), 'SubjectExamStudent.xlsx');
-    } // end export
+    }
 
-    public function importSubjectExamStudent(Request $request)
+
+    public function importSubjectExamStudent(Request $request): JsonResponse
     {
         $import = Excel::import(new SubjectExamStudentImport(), $request->exelFile);
         if ($import) {
@@ -166,7 +166,7 @@ class SubjectExamStudentController extends Controller{
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end import
+    }
 
 
 

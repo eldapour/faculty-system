@@ -80,11 +80,9 @@ class UserController extends Controller
             }else{
 
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
-
-            }//
+            }
 
         }else{
-
             $user->delete();
             return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
         }
@@ -226,4 +224,4 @@ class UserController extends Controller
 
 
     }
-}//end class
+}

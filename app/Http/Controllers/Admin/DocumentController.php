@@ -148,11 +148,9 @@ class DocumentController extends Controller
 
         return view('admin.documents.parts.create',compact('types'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $request->validate([
             'document_type_id' => 'required|exists:document_types,id',
@@ -189,18 +187,14 @@ class DocumentController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Document $document)
     {
         return view('admin.documents.parts.edit', compact('document'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function processing(Request $request)
+    public function processing(Request $request): \Illuminate\Http\JsonResponse
     {
 
         $document = Document::query()
@@ -213,7 +207,6 @@ class DocumentController extends Controller
 
             ]);
 
-
         if ($document->save()) {
             return response()->json(['status' => 200]);
         } else {
@@ -221,9 +214,6 @@ class DocumentController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -235,5 +225,4 @@ class DocumentController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

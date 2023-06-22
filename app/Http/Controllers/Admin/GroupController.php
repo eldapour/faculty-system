@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -50,8 +50,16 @@ class GroupController extends Controller
 
 
       $group =   Group::create([
-            'group_name' => ['ar' => $request->group_name_ar,'en' => $request->group_name_en,'fr' => $request->group_name_fr],
-            'group_code' => ['ar' => $request->group_code_ar,'en' => $request->group_code_en,'fr' => $request->group_code_fr],
+            'group_name' => [
+                'ar' => $request->group_name_ar,
+                'en' => $request->group_name_en,
+                'fr' => $request->group_name_fr
+            ],
+            'group_code' => [
+                'ar' => $request->group_code_ar,
+                'en' => $request->group_code_en,
+                'fr' => $request->group_code_fr
+            ],
 
         ]);
         if ($group->save()) {
@@ -73,8 +81,16 @@ class GroupController extends Controller
 
         $group->update([
 
-            'group_name' => ['ar' => $request->group_name_ar,'en' => $request->group_name_en,'fr' => $request->group_name_fr],
-            'group_code' => ['ar' => $request->group_code_ar,'en' => $request->group_code_en,'fr' => $request->group_code_fr],
+            'group_name' => [
+                'ar' => $request->group_name_ar,
+                'en' => $request->group_name_en,
+                'fr' => $request->group_name_fr
+            ],
+            'group_code' => [
+                'ar' => $request->group_code_ar,
+                'en' => $request->group_code_en,
+                'fr' => $request->group_code_fr
+            ],
 
         ]);
 

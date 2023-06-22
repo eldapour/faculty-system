@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInternalAd;
 use App\Models\InternalAd;
 use App\Models\Service;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class InternalAdController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -46,19 +47,15 @@ class InternalAdController extends Controller
             return view('admin.internal_ads.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         $data['services'] = Service::get();
         return view('admin.internal_ads.parts.create', compact('data'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(StoreInternalAd $request)
+    public function store(StoreInternalAd $request): JsonResponse
     {
         $inputs = $request->all();
         if (InternalAd::create($inputs)) {
@@ -68,17 +65,13 @@ class InternalAdController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(InternalAd $internalAd)
     {
         $data['services'] = Service::get();
         return view('admin.internal_ads.parts.edit', compact('internalAd', 'data'));
     }
-    // Edit End
 
-    // Update Start
 
     public function update(Request $request, InternalAd $internalAd)
     {
@@ -89,9 +82,7 @@ class InternalAdController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -100,16 +91,13 @@ class InternalAdController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    //TODO: Function to make ad show or hide by checkbox
-    public function makeActive(Request $request)
+    public function makeActive(Request $request): JsonResponse
     {
         $like = $request->status;
         $internal_ads = InternalAd::findOrFail($request->id);
         $internal_ads->status = $like;
-        $internal_ads->save();
-        if($internal_ads) {
+        if($internal_ads->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

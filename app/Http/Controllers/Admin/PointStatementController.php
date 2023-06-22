@@ -18,11 +18,7 @@ use Yajra\DataTables\DataTables;
 
 class PointStatementController extends Controller
 {
-    /**
-     * @param Request $request
-     * @return Application|Factory|View|JsonResponse
-     * @throws Exception
-     */
+
     public function index(request $request)
     {
         if ($request->ajax()) {
@@ -48,23 +44,14 @@ class PointStatementController extends Controller
         } else {
             return view('admin.point_statement.index');
         }
-    } // end index
+    }
 
-    /**
-     * @param PointStatement $points
-     * @return Application|Factory|View
-     */
     public function edit(PointStatement $point){
 
         return view('admin.point_statement.parts.edit', compact('point'));
-    } // end edit
+    }
 
 
-    /**
-     * @param Request $request
-     * @param PointStatement $point
-     * @return JsonResponse
-     */
     public function update(Request $request, PointStatement $point): JsonResponse
     {
         $point->update([
@@ -75,26 +62,22 @@ class PointStatementController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }// end update
+    }
 
-    /**
-     * @param Request $request
-     * @return Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function destroy(Request $request){
 
         $point = PointStatement::where('id', $request->id)->firstOrFail();
         $point->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    } // end destroy
+    }
 
 
-    public function exportPointStatement()
+    public function exportPointStatement(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new PointStatementExport(), 'PointStatement'. date('d-m-Y-H-i-s') .'.xlsx');
-    } // end export
+    }
 
-    public function importPointStatement(Request $request)
+    public function importPointStatement(Request $request): JsonResponse
     {
         $import = Excel::import(new PointStatementImport(), $request->exelFile);
         if ($import) {
@@ -102,6 +85,6 @@ class PointStatementController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end import
+    }
 
 }

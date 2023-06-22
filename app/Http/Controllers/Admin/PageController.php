@@ -10,6 +10,7 @@ use App\Traits\PhotoTrait;
 use Buglinjo\LaravelWebp\Exceptions\CwebpShellExecutionFailed;
 use Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException;
 use Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -52,24 +53,16 @@ class PageController extends Controller
             return view('admin.pages.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         $categories = Category::get();
         return view('admin.pages.parts.create', compact('categories'));
     }
-    // Create End
 
-    // Store Start
 
-    /**
-     * @throws CwebpShellExecutionFailed
-     * @throws ImageMimeNotSupportedException
-     * @throws DriverIsNotSupportedException
-     */
-    public function store(PageRequest $request)
+
+    public function store(PageRequest $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -99,24 +92,16 @@ class PageController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Page $page)
     {
         $categories = Category::get();
         return view('admin.pages.parts.edit', compact('page', 'categories'));
     }
-    // Edit End
 
-    // Update Start
 
-    /**
-     * @throws CwebpShellExecutionFailed
-     * @throws ImageMimeNotSupportedException
-     * @throws DriverIsNotSupportedException
-     */
-    public function update(Request $request, Page $page)
+
+    public function update(Request $request, Page $page): JsonResponse
     {
         $inputs = $request->all();
 
@@ -151,9 +136,7 @@ class PageController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -162,5 +145,5 @@ class PageController extends Controller
         return response(['message' => trans('admin.deleted_successfully'), 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

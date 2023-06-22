@@ -7,23 +7,26 @@ use App\Http\Requests\StorePresentation;
 use App\Models\Presentation;
 use App\Models\Category;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 
 class PresentationController extends Controller
 {
     use PhotoTrait;
-    public function index(request $request)
+    public function index()
     {
-        $data['presentations'] = Presentation::first();
-        $data['categories'] = Category::get();
+        $data['presentations'] = Presentation::query()
+        ->first();
+
+        $data['categories'] = Category::query()
+        ->get();
+
         return view('admin.presentations.index',$data);
     }
 
 
-    // Update Start
-
-    public function update(Request $request, Presentation $presentation)
+    public function update(Request $request, Presentation $presentation): JsonResponse
     {
 
         $inputs = $request->all();
@@ -50,6 +53,5 @@ class PresentationController extends Controller
         }
     }
 
-    // Update End
 
 }

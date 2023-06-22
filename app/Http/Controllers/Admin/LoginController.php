@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\UniversitySetting;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -29,12 +30,16 @@ class LoginController extends Controller
         return view('admin.auth.login-student');
     }
 
-    public function login(Request $request): \Illuminate\Http\JsonResponse
+    public function login(Request $request): JsonResponse
     {
         $maintenance = UniversitySetting::first('maintenance');
+
         if ($request->user_type == 'student' && $maintenance->maintenance == 1) {
             return response()->json(700);
-        } else {
+
+
+        }else{
+
             $data = $request->validate([
                 'email' => 'required|exists:users',
                 'password' => 'required',
@@ -44,6 +49,7 @@ class LoginController extends Controller
                 'email.required' => trans('login.Please enter your e-mail'),
                 'password.required' => trans('login.Please enter your password'),
             ]);
+
             if (Auth::guard('web')->attempt($data)) {
                 if (\auth()->user()->user_status !== 'un_active'){
                     return response()->json(200);
@@ -133,9 +139,9 @@ class LoginController extends Controller
        return redirect()->route('student.login')->with('success', 'check your email');
     }
 
-    public function logout()
+    public function logout(): \Illuminate\Http\RedirectResponse
     {
-        if (\auth()->user()->user_type !== 'student') {
+        if (auth()->user()->user_type !== 'student') {
             Auth::logout();
             return redirect()->route('admin.login');
         } else {
@@ -145,4 +151,4 @@ class LoginController extends Controller
 
     } // end logout()
 
-}//end class
+}

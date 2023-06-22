@@ -7,6 +7,7 @@ use App\Models\Group;
 use App\Models\Schedule;
 use App\Models\Unit;
 use App\Traits\PhotoTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -71,7 +72,7 @@ class ScheduleController extends Controller{
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
 
         $request->validate([
@@ -117,7 +118,7 @@ class ScheduleController extends Controller{
 
 
 
-    public function update(Request $request,Schedule $schedule)
+    public function update(Request $request,Schedule $schedule): JsonResponse
     {
 
         $request->validate([

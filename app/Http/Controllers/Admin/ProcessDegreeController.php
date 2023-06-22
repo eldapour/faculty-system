@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Period;
 use App\Models\Subject;
 use App\Models\ProcessExam;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\ProcessDegree;
 use Yajra\DataTables\DataTables;
@@ -17,7 +18,7 @@ use App\Http\Requests\ProcessDegreeRequest;
 
 class ProcessDegreeController extends Controller
 {
-    // Index Start
+
     public function index(Request $request)
     {
         $process_degrees = ProcessDegree::get();
@@ -61,20 +62,18 @@ class ProcessDegreeController extends Controller
         }
     }
 
-
-
-
-    // index Student
     public function processDegreeStudent(Request $request)
     {
         $period = Period::query()
             ->where('status', '=', 'start')
             ->first();
+
         $process_degree_students = ProcessDegree::query()
             ->where('user_id', '=', Auth::id())
             ->where('period', '=', $period->period)
             ->where('year', '=', $period->year_start)
             ->get();
+
         if ($request->ajax()) {
             return Datatables::of($process_degree_students)
                 ->addColumn('action', function ($process_degree_students) {
@@ -124,15 +123,12 @@ class ProcessDegreeController extends Controller
     }
 
 
-    // Create Start
     public function create()
     {
         $data['subjects'] = Subject::all();
         return view('admin.process_degrees.parts.create', compact('data'));
     }
-    // Create End
 
-    // Store Start
 
     public function store(ProcessDegreeRequest $request)
     {
@@ -145,23 +141,24 @@ class ProcessDegreeController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(ProcessDegree $processDegree)
     {
-        $data['students'] = User::where('user_type', 'student')->get();
-        $data['subjects'] = Subject::all();
+        $data['students'] = User::query()
+        ->where('user_type', 'student')
+            ->get();
+
+        $data['subjects'] = Subject::query()
+        ->get();
+
         $data['doctors'] = User::find($processDegree->doctor_id);
         return view('admin.process_degrees.parts.edit', compact('processDegree', 'data'));
     }
-    // Edit End
-    // Edit Degree Start
+
     public function editUpdateDegree($id)
     {
         $degree_old = [];
         $process_degrees = ProcessDegree::find($id);
-        // dd($process_degrees);
         foreach ($process_degrees as $degree) {
             $old_degree = SubjectExamStudentResult::where('user_id', $process_degrees->user_id)
                 ->where('year', $process_degrees->year)
@@ -171,11 +168,9 @@ class ProcessDegreeController extends Controller
         }
         return view('admin.process_degrees.parts.update_degree', compact('old_degree'));
     }
-    // Edit Degree End
 
-    // Update Start
 
-    public function update(Request $request, ProcessDegree $processDegree)
+    public function update(Request $request, ProcessDegree $processDegree): JsonResponse
     {
         $inputs = $request->all();
         $inputs['user_id'] = auth()->user()->id;
@@ -186,35 +181,36 @@ class ProcessDegreeController extends Controller
         }
     }
 
-    // Edit End
-
-    // Destroy Start
 
     public function destroy(Request $request)
     {
-        $processDegree = ProcessDegree::where('id', $request->id)->firstOrFail();
+        $processDegree = ProcessDegree::query()
+        ->where('id', $request->id)
+            ->firstOrFail();
+
         $processDegree->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    // Get Doctor
     public function getDoctor(Request $request)
     {
         $id = $request->id;
-        $doctor = SubjectUnitDoctor::query()->join('users', 'subject_unit_doctors.user_id', '=', 'users.id')
+        $doctor = SubjectUnitDoctor::query()
+            ->join('users', 'subject_unit_doctors.user_id', '=', 'users.id')
             ->where('subject_id', $id)
             ->pluck('users.first_name', 'subject_unit_doctors.user_id')
             ->toArray();
+
         if (count($doctor) > 0) {
             return $doctor;
         } else {
             return response()->json(404);
         }
     }
-    // Update Request Status
-    public function RequestStatusDegree(Request $request)
+
+
+    public function RequestStatusDegree(Request $request): JsonResponse
     {
         $inputs = ProcessDegree::find($request->id)->update([
             'request_status' => $request->status,
@@ -223,9 +219,12 @@ class ProcessDegreeController extends Controller
         return response()->json(['code' => 200, 'status' => $request->status]);
     }
 
-    public function updateDegree(Request $request)
+    public function updateDegree(Request $request): JsonResponse
     {
-        $inputs = SubjectExamStudentResult::where('id', $request->id)->first();
+        $inputs = SubjectExamStudentResult::query()
+        ->where('id', $request->id)
+            ->first();
+
         if ($inputs->exam_degree < $request->studentDegree) {
             return response()->json(['code' => 505]);
         } else {
