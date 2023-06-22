@@ -8,7 +8,7 @@
 
                 <div class="col-md-12 mt-3">
                     <label for="user_id" class="form-control-label">{{trans('admin.situation_with_management')}}</label>
-                    <select class="form-control" name="situation_with_management">
+                    <select class="form-control" name="situation_with_management" id="situation_with_management">
                         <option value="" selected disabled>@lang('admin.select')</option>
                             <option value="1">{{trans('admin.no_problem')}}</option>
                             <option value="0">{{trans('admin.problem')}}</option>
@@ -37,7 +37,7 @@
 
                 <div class="col-md-12 mt-3">
                     <label for="user_id" class="form-control-label">{{trans('admin.situation_with_treasury')}}</label>
-                    <select class="form-control" name="situation_with_treasury">
+                    <select class="form-control" name="situation_with_treasury" id="situation_with_treasury">
                         <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="1">{{trans('admin.pay')}}</option>
                         <option value="0">{{trans('admin.not_pay')}}</option>

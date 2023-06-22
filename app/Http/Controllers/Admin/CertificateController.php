@@ -16,8 +16,9 @@ use Yajra\DataTables\DataTables;
 
 class CertificateController extends Controller
 {
-    public function index(request $request)
-    {
+    public function index(request $request){
+
+
         if ($request->ajax()) {
             $certificates = Certificate::query()
             ->get();
@@ -32,7 +33,6 @@ class CertificateController extends Controller
                 ->editColumn('certificate_type_id', function ($certificates) {
                     return $certificates->certificateType->name;
                 })
-
                 ->editColumn('situation_with_management', function ($certificates) {
 
                     if($certificates->situation_with_management == 1){
