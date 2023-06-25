@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\UniversitySetting;
+use Carbon\Carbon;
 use App\Models\User;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Models\UniversitySetting;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -36,8 +38,6 @@ class LoginController extends Controller
 
         if ($request->user_type == 'student' && $maintenance->maintenance == 1) {
             return response()->json(700);
-
-
         }else{
 
             $data = $request->validate([
@@ -52,6 +52,15 @@ class LoginController extends Controller
 
             if (Auth::guard('web')->attempt($data)) {
                 if (\auth()->user()->user_status !== 'un_active'){
+                    // Check if the user exists in the department_branch_students table
+                    $student = DB::table('department_branch_students')
+                        ->where('user_id', auth()->user()->id)
+                        ->where('register_year', Carbon::now()->year)
+                        ->first();
+                        if($student->branch_restart_register == 0)
+                        {
+                            return response()->json(250);
+                        }
                     return response()->json(200);
                 }else {
                     return response()->json(600);

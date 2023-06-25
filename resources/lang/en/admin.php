@@ -72,6 +72,10 @@ return [
     "full_name" =>  "Full Name",
     "annual_programming" => "Annual Programming",
     "Reasons_for_redress" => "Reasons for Redress",
+    "re_record_the_track" => 'Re Record The Track',
+    "You_must_re_register" => "You must re-register to be able to access the platform",
+    "this_process_is_extended" => "This Process Is Extended",
+    "until_an_end" => "Until An End",
 
     "oldPassword" => "old Password",
     "repeatPassword" => "repeat Password",
