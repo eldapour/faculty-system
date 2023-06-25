@@ -42,6 +42,7 @@ use App\Http\Controllers\Admin\ProcessExamController;
 use App\Http\Controllers\Admin\ReasonRedresseController;
 use App\Http\Controllers\Admin\SubjectExamStudentResultController;
 use App\Http\Controllers\Admin\CertificateTypeController;
+use App\Http\Controllers\Admin\ReRecordTheTrackController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -257,6 +258,9 @@ Route::group([
     Route::resource('points', PointStatementController::class);
     Route::get('exportPointStatement', [PointStatementController::class, 'exportPointStatement'])->name('exportPointStatement');
     Route::post('importPointStatement', [PointStatementController::class, 'importPointStatement'])->name('importPointStatement');
+
+    #### Re Record The Track ####
+    Route::resource('re_record_the_track', ReRecordTheTrackController::class);
 
 });
 

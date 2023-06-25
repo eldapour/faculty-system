@@ -74,6 +74,11 @@ return [
 
     "oldPassword" => "ancien mot de passe",
     "repeatPassword" => "Répéter le mot de passe",
+    "this_process_is_extended" => "Ce processus est étendu",
+    "until_an_end" => "Jusqu'à la fin",
+
+    "re_record_the_track" => 'Réenregistrer la piste',
+    "You_must_re_register" => "Vous devez vous réinscrire pour pouvoir accéder à la plateforme",
 
     "certificate_name" => "Nom du certificat",
     "update_degree" => "Mettre à jour le diplôme",

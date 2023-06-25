@@ -78,6 +78,8 @@ return [
     "updated_degree_successfully" => "تم تعديل العلامة بنجاح",
     "the_entered_mark" => "العلامة المدخلة اكبر من علامة الامتحان",
 
+    "re_record_the_track" => 'اعادة تسجيل المسار',
+
 
 
 
@@ -131,6 +133,9 @@ return [
     "register_year" => "سنة التسجيل",
     "branch_restart_register" => "إعادة تسجيل المسار",
     "student_branch" => "الطالب",
+    "You_must_re_register" => "يجب عليك اعادة التسجيل لتستطيع الدخول الى المنصة",
+    "this_process_is_extended" => "هذه العملية ممتدة",
+    "until_an_end" => "الى غاية",
 
 
     // Category

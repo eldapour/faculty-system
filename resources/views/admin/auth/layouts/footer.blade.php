@@ -27,7 +27,7 @@
 </style>
 
 <script>
-    $(window).on('load', function () {
+    $(window).on('load', function() {
         if (feather) {
             feather.replace({
                 width: 14,
@@ -36,12 +36,12 @@
         }
     })
 
-    $(document).on('click', '.langBtn', function () {
+    $(document).on('click', '.langBtn', function() {
         let url = $(this).data('url');
         location.href = url;
     })
 
-    $('input[name="email"]').on('keyup', function () {
+    $('input[name="email"]').on('keyup', function() {
         let emailErr = $('.email-error');
         if ($(this).val() == '')
             emailErr.removeClass('d-none');
@@ -49,7 +49,7 @@
             emailErr.addClass('d-none');
     })
 
-    $('input[name="password"]').on('keyup', function () {
+    $('input[name="password"]').on('keyup', function() {
         let passwordErr = $('.password-error');
         if ($(this).val() == '')
             passwordErr.removeClass('d-none');
@@ -57,7 +57,7 @@
             passwordErr.addClass('d-none');
     })
     // student login form
-    $(document).on('click', '.btnLogin-student', function () {
+    $(document).on('click', '.btnLogin-student', function() {
         let email = $('input[name="email"]').val();
         let password = $('input[name="password"]').val();
         let type = $('input[name="user_type"]').val();
@@ -77,30 +77,43 @@
                     'email': email,
                     'password': password,
                     'user_type': type,
-                }, success: function (data) {
+                },
+                success: function(data) {
                     if (data === 200) {
                         toastr.success('{{ trans('login.Logged in successfully') }}');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             location.href = '{{ route('admin.home') }}';
                         }, 2000)
-                    } else if (data === 405) {
+                    } else if (data === 250) {
+                        toastr.success('{{ trans('login.Logged in successfully') }}');
+                        setTimeout(function() {
+                            var additionalData = 'example'; // Add your additional data here
+                            var route =
+                                '{{ route('re_record_the_track.index', ['data' => ':data']) }}';
+                            route = route.replace(':data', additionalData);
+                            location.href = route;
+                        }, 2000);
+                    } else if (data === 700) {} else if (data === 405) {
                         toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     } else if (data === 700) {
                         toastr.error('{{ trans('admin.The_platform_is_in_maintenance') }}');
-                    } else if(data === 600) {
-                        toastr.error('{{ trans('admin.This email is not activated. Do it through the link sent to the mail, or contact the administration') }}',null,{
-                            "positionClass": "toast-center-center",
-                            "timeOut": "90000000",
-                        });
+                    } else if (data === 600) {
+                        toastr.error(
+                            '{{ trans('admin.This email is not activated. Do it through the link sent to the mail, or contact the administration') }}',
+                            null, {
+                                "positionClass": "toast-center-center",
+                                "timeOut": "90000000",
+                            });
                         setTimeout(E => {
-                            window.location.href = '{{ route('logout')}}';
-                        },3000);
+                            window.location.href = '{{ route('logout') }}';
+                        }, 3000);
                     }
-                }, error: function (data) {
+                },
+                error: function(data) {
                     var errors = $.parseJSON(data.responseText);
-                    $.each(errors, function (key, value) {
+                    $.each(errors, function(key, value) {
                         if ($.isPlainObject(value)) {
-                            $.each(value, function (key, value) {
+                            $.each(value, function(key, value) {
                                 toastr.error(value, '{{ trans('login.Error') }}');
                             });
                         }
@@ -111,7 +124,7 @@
     })
 
     // login form
-    $(document).on('click', '.btnLogin', function () {
+    $(document).on('click', '.btnLogin', function() {
         let email = $('input[name="email"]').val();
         let password = $('input[name="password"]').val();
         let type = $('select[name="user_type"]').val();
@@ -131,20 +144,22 @@
                     'email': email,
                     'password': password,
                     'user_type': type,
-                }, success: function (data) {
+                },
+                success: function(data) {
                     if (data === 200) {
                         toastr.success('{{ trans('login.Logged in successfully') }}');
-                        setTimeout(function () {
+                        setTimeout(function() {
                             location.href = '{{ route('admin.home') }}';
                         }, 2000)
                     } else if (data === 405) {
                         toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     }
-                }, error: function (data) {
+                },
+                error: function(data) {
                     var errors = $.parseJSON(data.responseText);
-                    $.each(errors, function (key, value) {
+                    $.each(errors, function(key, value) {
                         if ($.isPlainObject(value)) {
-                            $.each(value, function (key, value) {
+                            $.each(value, function(key, value) {
                                 toastr.error(value, '{{ trans('login.Error') }}');
                             });
                         }
@@ -155,7 +170,7 @@
     })
 
 
-    $(document).on('submit', 'Form#ActiveForm', function (e) {
+    $(document).on('submit', 'Form#ActiveForm', function(e) {
         e.preventDefault();
         var formData = new FormData(this);
         var url = $('#ActiveForm').attr('action');
@@ -163,30 +178,34 @@
             url: url,
             type: 'POST',
             data: formData,
-            beforeSend: function () {
+            beforeSend: function() {
                 $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                    ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>').attr(
+                    ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>'
+                ).attr(
                     'disabled', true);
             },
-            success: function (data) {
+            success: function(data) {
                 if (data == 200) {
-                    toastr.success(' {{ trans('login.Account activation') . ' ' . trans('admin.Loading') }} ');
+                    toastr.success(
+                        ' {{ trans('login.Account activation') . ' ' . trans('admin.Loading') }} '
+                    );
                     setTimeout(x => {
-                        {{--window.location.href = '{{ route('student.login') }}';--}}
+                        {{-- window.location.href = '{{ route('student.login') }}'; --}}
                     }, 3000)
                 } else if (data == 401) {
                     toastr.error('{{ trans('admin.This email has already been activated') }}');
                 } else if (data == 600)
-                    toastr.error('{{ trans('admin.Verify that the data is correct and try again') }}');
+                    toastr.error(
+                        '{{ trans('admin.Verify that the data is correct and try again') }}');
             },
-            error: function (data) {
+            error: function(data) {
                 if (data.status === 500) {
                     toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                 } else if (data.status === 422) {
                     var errors = $.parseJSON(data.responseText);
-                    $.each(errors, function (key, value) {
+                    $.each(errors, function(key, value) {
                         if ($.isPlainObject(value)) {
-                            $.each(value, function (key, value) {
+                            $.each(value, function(key, value) {
                                 toastr.error(value, '{{ trans('admin.wrong') }}');
                             });
                         }
@@ -201,8 +220,6 @@
             processData: false
         });
     });
-
-
 </script>
 </body>
 <!-- END: Body-->
