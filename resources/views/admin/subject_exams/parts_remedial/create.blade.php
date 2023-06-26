@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
@@ -65,11 +65,12 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
+                    <input type="hidden" name="session" value="استدراكيه">
+                    {{--  <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control">
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
-                        <option value="استدراكيه" style="text-align: center">استدراكي</option>
-                    </select>
+                        <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
+                    </select>  --}}
                 </div>
             </div>
             <div class="row">

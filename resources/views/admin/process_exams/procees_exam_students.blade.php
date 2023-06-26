@@ -193,7 +193,7 @@
 
 
 
-        showData('{{ route('processExamStudent') }}', columns);
+        showData('{{ route('processExamStudent', $subject_exam_id) }}', columns);
         deleteScriptExam('{{ route('process_exams.destroy', ':id') }}');
         showEditModal('{{ route('process_exams.edit', ':id') }}');
         editScript();
