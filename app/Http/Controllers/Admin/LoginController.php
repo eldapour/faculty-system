@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         if ($request->user_type == 'student' && $maintenance->maintenance == 1) {
             return response()->json(700);
-        }else{
+        } else {
 
             $data = $request->validate([
                 'email' => 'required|exists:users',
@@ -52,18 +52,17 @@ class LoginController extends Controller
             ]);
 
             if (Auth::guard('web')->attempt($data)) {
-                if (\auth()->user()->user_status !== 'un_active'){
+                if (\auth()->user()->user_status !== 'un_active') {
                     // Check if the user exists in the department_branch_students table
                     $student = DB::table('department_branch_students')
                         ->where('user_id', auth()->user()->id)
                         ->where('register_year', Carbon::now()->year)
                         ->first();
-                        if($student->branch_restart_register == 0)
-                        {
-                            return response()->json(250);
-                        }
+                    if ($student->branch_restart_register == 0) {
+                        return response()->json(250);
+                    }
                     return response()->json(200);
-                }else {
+                } else {
                     return response()->json(600);
                 }
             } else {
@@ -93,9 +92,9 @@ class LoginController extends Controller
             if ($user->user_status !== 'un_active') {
                 return response()->json(401);
             } else {
-                $data = array('name'=>$user->first_name .' ' . $user->last_name,'email' => $user->email);
-                Mail::send('admin.mail', $data, function($message) use ($user) {
-                    $message->to($user->email,$user->first_name)->subject
+                $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email);
+                Mail::send('admin.mail', $data, function ($message) use ($user) {
+                    $message->to($user->email, $user->first_name)->subject
                     ('Activation Email');
                     $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
                 });
@@ -131,28 +130,36 @@ class LoginController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        $data = array('name'=>$user->first_name .' ' . $user->last_name,'email' => $user->email,'token' => $token);
-        Mail::send('admin.password_reset', $data, function($message) use ($user,$email) {
-            $message->to($email,$user->first_name)->subject
+        $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email, 'token' => $token);
+        Mail::send('admin.password_reset', $data, function ($message) use ($user, $email) {
+            $message->to($email, $user->first_name)->subject
             ('Reset Password');
             $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
         });
+        toastr()->success('check your email');
         return redirect()->route('student.login')->with('success', 'check your email');
     }
 
-    public function doResetPass($email)
+    public function doResetPass($token)
     {
-        return view('admin.do_password_reset',compact('email'));
+        return view('admin.do_password_reset', compact('token'));
     }
 
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function DoneResetPass(Request $request)
     {
-        $email = $request->email;
-       $user = User::where('email', '=', $request->email)->first();
-       $user->password = Hash::make($request->password);
-       $user->save();
-       return redirect()->route('student.login')->with('success', 'check your email');
+
+        $token = $request->token;
+        $email = DB::table('password_resets')
+            ->where('token', '=', $token)
+            ->whereDate('created_at','=',Carbon::now()->format('Y-m-d'))
+            ->first('email');
+        $user = User::where('email', $email->email)->first();
+        $user->password = Hash::make($request->password);
+        return redirect()->route('student.login')->with('success', 'check your email');
     }
 
     public function logout(): \Illuminate\Http\RedirectResponse

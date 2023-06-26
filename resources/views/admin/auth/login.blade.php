@@ -159,7 +159,7 @@
                                     <div class="form-group">
                                         <div class="d-flex justify-content-between">
                                             <label for="login-password">@lang('login.password')</label><a
-                                                href=""><small>@lang('login.Forgot Password?')</small></a>
+                                                href="{{ route('resetPassView') }}"><small>@lang('login.Forgot Password?')</small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="password"

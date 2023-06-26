@@ -5,35 +5,29 @@ namespace App\Exports;
 use App\Models\Certificate;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class CertificateExport implements FromCollection, WithHeadings, WithColumnWidths
+class CertificateExport implements FromCollection, WithHeadings, ShouldAutoSize
 
 {
-
-    public function columnWidths(): array
-    {
-        return [
-            'A' => 10,
-            'B' => 30,
-            'C' => 30,
-            'D' => 30,
-            'E' => 20,
-            'F' => 20,
-        ];
-    }
-
     public function headings(): array
     {
         return [
             '#',
-            'diploma Name in arabic',
-            'diploma Name in English',
-            'diploma Name in french',
-            'year',
+            'Certificate Code',
             'User Code',
+            'situation with management',
+            'situation with treasury',
+            'description situation with management (ar)',
+            'description situation with management (en)',
+            'description situation with management (fr)',
+            'description situation with treasury (ar)',
+            'description situation with treasury (en)',
+            'description situation with treasury (fr)',
+            'year',
         ];
     }
 
@@ -44,20 +38,28 @@ class CertificateExport implements FromCollection, WithHeadings, WithColumnWidth
     public function collection(): Collection
 
     {
-        $certificate = Certificate::select('id', 'diploma_name', 'year', 'user_id')->get();
+        $certificates = Certificate::get();
+
         $data = [];
-        foreach ($certificate as $certificate) {
+        foreach ($certificates as $certificate) {
             $certificate_data = [
                 'id' => $certificate->id,
-                'diploma_name_ar' => $certificate->getTranslation('diploma_name', 'ar'),
-                'diploma_name_en' => $certificate->getTranslation('diploma_name', 'en'),
-                'diploma_name_fr' => $certificate->getTranslation('diploma_name', 'fr'),
+                'Certificate Code' => (string) $certificate->certificateType->code,
+                'User Code' => (string) $certificate->user->identifier_id,
+                'situation with management' => (string) $certificate->situation_with_management,
+                'situation with treasury' => (string) $certificate->situation_with_treasury,
+                'description situation with management (ar)' => $certificate->getTranslation('description_situation_with_management','ar'),
+                'description situation with management (en)' => $certificate->getTranslation('description_situation_with_management','en'),
+                'description situation with management (fr)' => $certificate->getTranslation('description_situation_with_management','fr'),
+                'description situation with treasury (ar)' => $certificate->getTranslation('description_situation_with_treasury','ar'),
+                'description situation with treasury (en)' => $certificate->getTranslation('description_situation_with_treasury','en'),
+                'description situation with treasury (fr)' => $certificate->getTranslation('description_situation_with_treasury','fr'),
                 'year' => $certificate->year,
-                'user' => $certificate->user->identifier_id,
             ];
             $data[] = $certificate_data;
         }
 
+//        dd($data);
         return collect([$data]);
 
     }
