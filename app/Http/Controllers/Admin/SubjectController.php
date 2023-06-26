@@ -16,6 +16,7 @@ use App\Models\Subject;
 class SubjectController extends Controller
 {
 
+    // index start
     public function index(request $request)
     {
         if ($request->ajax()) {
