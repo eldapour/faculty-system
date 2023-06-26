@@ -7,20 +7,12 @@
             <div class="row">
 
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_ar')}} </label>
-                    <input type="text" class="form-control" id="group_code_ar" name="group_code_ar" value="{{ $group->getTranslation('group_code', 'ar') }}">
+                <div class="col-md-12">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.code_latin')}} </label>
+                    <input type="text" class="form-control" id="group_code" name="group_code" value="{{ $group->group_code }}">
                 </div>
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_en')}} </label>
-                    <input type="text" class="form-control" id="group_code_en" name="group_code_en" value="{{ $group->getTranslation('group_code', 'en') }}">
-                </div>
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_fr')}}</label>
-                    <input type="text" class="form-control" id="group_code_fr" name="group_code_fr" value="{{ $group->getTranslation('group_code', 'fr') }}">
-                </div>
 
 
                 <div class="col-md-4">

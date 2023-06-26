@@ -23,13 +23,30 @@ class UnitRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'unit_name_ar' => 'required',
-            'unit_name_en' => 'required',
-            'unit_name_fr' => 'required',
-            'unit_code_ar' => 'required',
-            'unit_code_en' => 'required',
-            'unit_code_fr' => 'required',
-        ];
+
+
+
+        if (request()->isMethod('post')) {
+
+            $rules = [
+                'unit_name_ar' => 'required',
+                'unit_name_en' => 'required',
+                'unit_name_fr' => 'required',
+                'unit_code' => 'required|unique:units,unit_code',
+
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'unit_name_ar' => 'required',
+                'unit_name_en' => 'required',
+                'unit_name_fr' => 'required',
+                'unit_code' => 'required|unique:units,unit_code,' . request()->id,
+
+            ];
+        }
+
+        return $rules;
     }
 }

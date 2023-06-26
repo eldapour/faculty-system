@@ -5,38 +5,29 @@
             <div class="row">
 
                 <div class="col-md-12 mt-3">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.unit_code_ar')}} </label>
-                    <input type="text" id="unit_code_ar"  class="form-control" name="unit_code_ar">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.code_latin')}} </label>
+                    <input type="text" id="unit_code"  class="form-control" name="unit_code">
                 </div>
 
-                <div class="col-md-12 mt-3">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.unit_code_ar')}} </label>
-                    <input type="text" id="unit_code_en" class="form-control" name="unit_code_en">
-                </div>
-
-                <div class="col-md-12 mt-3">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.unit_code_ar')}}</label>
-                    <input type="text" id="unit_code_fr" class="form-control" name="unit_code_fr">
-                </div>
 
 
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
-                    <input type="text" class="form-control" name="unit_name[ar]">
+                    <input type="text" class="form-control" name="unit_name_ar">
                 </div>
 
 
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" class="form-control" name="unit_name[en]">
+                    <input type="text" class="form-control" name="unit_name_en">
                 </div>
 
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
-                    <input type="text" class="form-control" name="unit_name[fr]">
+                    <input type="text" class="form-control" name="unit_name_fr">
                 </div>
 
 

@@ -29,9 +29,7 @@ class GroupController extends Controller
                 ->editColumn('group_name', function ($groups) {
                     return $groups->getTranslation('group_name', app()->getLocale());
                 })
-                ->editColumn('group_code', function ($groups) {
-                    return $groups->getTranslation('group_code', app()->getLocale());
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -47,19 +45,13 @@ class GroupController extends Controller
 
     public function store(GroupRequest $request): JsonResponse
     {
-
-
       $group =   Group::create([
             'group_name' => [
                 'ar' => $request->group_name_ar,
                 'en' => $request->group_name_en,
                 'fr' => $request->group_name_fr
             ],
-            'group_code' => [
-                'ar' => $request->group_code_ar,
-                'en' => $request->group_code_en,
-                'fr' => $request->group_code_fr
-            ],
+          'group_code' => $request->group_code,
 
         ]);
         if ($group->save()) {
@@ -86,12 +78,7 @@ class GroupController extends Controller
                 'en' => $request->group_name_en,
                 'fr' => $request->group_name_fr
             ],
-            'group_code' => [
-                'ar' => $request->group_code_ar,
-                'en' => $request->group_code_en,
-                'fr' => $request->group_code_fr
-            ],
-
+            'group_code' => $request->group_code,
         ]);
 
         if ($group->save()) {

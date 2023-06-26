@@ -23,14 +23,31 @@ class DepartmentBranchRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'branch_name_ar' => 'required',
-            'branch_name_en' => 'required',
-            'branch_name_fr' => 'required',
-            'department_branch_code_ar' => 'required',
-            'department_branch_code_en' => 'required',
-            'department_branch_code_fr' => 'required',
-            'department_id' => 'required',
-        ];
+
+
+
+        if (request()->isMethod('post')) {
+
+
+            $rules = [
+                'branch_name_ar' => 'required',
+                'branch_name_en' => 'required',
+                'branch_name_fr' => 'required',
+                'department_id' => 'required|exists:departments,id',
+                'department_branch_code' => 'required|unique:department_branches,department_branch_code',
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'branch_name_ar' => 'required',
+                'branch_name_en' => 'required',
+                'branch_name_fr' => 'required',
+                'department_id' => 'required|exists:departments,id',
+                'department_branch_code' => 'required|unique:department_branches,department_branch_code,'. request()->id,
+            ];
+        }
+
+        return $rules;
     }
 }

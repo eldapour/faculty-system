@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CertificateTypesRequest;
 use App\Models\CertificateType;
+use App\Models\Department;
 use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class CertificateTypeController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $certificate_names = CertificateType::get();
+            $certificate_names = CertificateType::query()
+            ->get();
             return Datatables::of($certificate_names)
                 ->addColumn('action', function ($certificate_names) {
                     return '
@@ -25,8 +27,20 @@ class CertificateTypeController extends Controller
                             </button>
                        ';
                 })
-                ->editColumn('name', function ($certificate_names) {
-                    return $certificate_names->getTranslation('name', app()->getLocale());
+                ->addColumn('name', function ($certificate_names) {
+
+                    if(lang() == 'ar'){
+                        return $certificate_names->certificate_type_ar;
+
+                    }elseif (lang() == 'en'){
+
+                        return $certificate_names->certificate_type_en;
+
+                    }else{
+
+                        return $certificate_names->certificate_type_fr;
+
+                    }
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -43,8 +57,14 @@ class CertificateTypeController extends Controller
 
     public function store(CertificateTypesRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (CertificateType::create($inputs)) {
+
+        $certificateType =  CertificateType::create([
+            'certificate_type_ar' => $request->certificate_type_ar,
+            'certificate_type_en' => $request->certificate_type_en,
+            'certificate_type_fr' => $request->certificate_type_fr,
+            'code' => $request->code,
+        ]);
+        if ($certificateType->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -61,7 +81,13 @@ class CertificateTypeController extends Controller
     public function update(CertificateTypesRequest $request, CertificateType $certificateName): JsonResponse
     {
 
-        if ($certificateName->update($request->all())) {
+        $certificateName->update([
+            'certificate_type_ar' => $request->certificate_type_ar,
+            'certificate_type_en' => $request->certificate_type_en,
+            'certificate_type_fr' => $request->certificate_type_fr,
+            'code' => $request->code,
+        ]);
+        if ($certificateName->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

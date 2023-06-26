@@ -32,9 +32,7 @@ class DepartmentBranchController extends Controller
                 ->editColumn('department_id',function($branches){
                     return $branches->department->getTranslation('department_name', app()->getLocale());
                 })
-                ->editColumn('department_branch_code',function($branches){
-                    return $branches->getTranslation('department_branch_code', app()->getLocale());
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -59,11 +57,9 @@ class DepartmentBranchController extends Controller
            'branch_name' => ['ar' => $request->branch_name_ar,
                'en' => $request->branch_name_en,
                'fr' => $request->branch_name_fr],
-
-            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
-                'en' => $request->department_branch_code_en,
-                'fr' => $request->department_branch_code_fr],
             'department_id' => $request->department_id,
+            'department_branch_code' => $request->department_branch_code,
+
 
         ];
 
@@ -91,9 +87,8 @@ class DepartmentBranchController extends Controller
                 'en' => $request->branch_name_en,
                 'fr' => $request->branch_name_fr],
             'department_id' => $request->department_id,
-            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
-                'en' => $request->department_branch_code_en,
-                'fr' => $request->department_branch_code_fr],
+            'department_branch_code' => $request->department_branch_code,
+
         ];
         if ($branch->update($data)) {
             return response()->json(['status' => 200]);

@@ -23,13 +23,30 @@ class DepartmentRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'department_name_ar' => 'required',
-            'department_name_en' => 'required',
-            'department_name_fr' => 'required',
-            'department_code_ar' => 'required',
-            'department_code_en' => 'required',
-            'department_code_fr' => 'required',
-        ];
+
+
+        if (request()->isMethod('post')) {
+
+
+            $rules = [
+                'department_name_ar' => 'required',
+                'department_name_en' => 'required',
+                'department_name_fr' => 'required',
+                'department_code' => 'required|unique:departments,department_code',
+
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'department_name_ar' => 'required',
+                'department_name_en' => 'required',
+                'department_name_fr' => 'required',
+                'department_code' => 'required|unique:departments,department_code,' . request()->id,
+
+            ];
+        }
+
+        return $rules;
     }
 }

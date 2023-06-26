@@ -5,20 +5,30 @@
         <input type="hidden" value="{{ $certificateName->id }}" name="id">
         <div class="form-group">
             <div class="row">
+
+                <div class="col-md-12">
+                    <label for="name" class="form-control-label">{{ trans('admin.code_latin')}}</label>
+                    <input type="text"  class="form-control" name="code" id="code" value="{{$certificateName->code}}">
+                </div>
+
+
+
                 <div class="col-md-4">
                     <label for="name" class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }}
                     </label>
-                    <input type="text" id="name" class="form-control" value="{{ $certificateName->getTranslation('name', 'ar') }}" name="name[ar]">
+                    <input type="text"  class="form-control" name="certificate_type_ar" id="certificate_type_ar" value="{{$certificateName->certificate_type_ar}}">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="name"
+                           class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
+                    <input type="text" class="form-control" name="certificate_type_en" id="certificate_type_en" value="{{$certificateName->certificate_type_en}}">
                 </div>
                 <div class="col-md-4">
                     <label for="name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" id="name" class="form-control" value="{{ $certificateName->getTranslation('name', 'en') }}" name="name[en]">
-                </div>
-                <div class="col-md-4">
-                    <label for="name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }}</label>
-                    <input type="text" id="name" value="{{ $certificateName->getTranslation('name', 'fr') }}" class="form-control" name="name[fr]">
+                           class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }}</label>
+                    <input type="text" class="form-control" name="certificate_type_fr" id="certificate_type_fr" value="{{$certificateName->certificate_type_fr}}">
                 </div>
             </div>
         </div>

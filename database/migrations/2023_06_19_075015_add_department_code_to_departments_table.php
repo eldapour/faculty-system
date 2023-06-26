@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('departments', function (Blueprint $table) {
 
-            $table->json('department_code')->after('department_name')->nullable()->comment('رمز المسلك');
+            $table->string('department_code')->after('department_name')->unique()->nullable()->comment('رمز المسلك');
 
         });
     }
