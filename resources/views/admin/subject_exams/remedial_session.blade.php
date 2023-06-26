@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.subject_exams') }}
+    {{ trans('admin.session') ." ". trans('admin.remedial') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.subject_exams') }}
+{{ trans('admin.session') ." ". trans('admin.remedial') }}
 @endsection
 @section('content')
 
@@ -35,7 +35,6 @@
                                 <th class="min-w-50px">{{ trans('admin.exam_date') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.exam_day') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.period') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.session') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_start') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_end') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.subject') }}</th>
@@ -80,7 +79,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_exam') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_students') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -102,21 +101,20 @@
             {data: 'exam_date', name: 'exam_date'},
             {data: 'exam_day', name: 'exam_day'},
             {data: 'period', name: 'period'},
-            {data: 'session', name: 'session'},
             {data: 'time_start', name: 'time_start'},
             {data: 'time_end', name: 'time_send'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('subject_exams.index')}}', columns);
+        showData('{{route('remedialSession')}}', columns);
         // Delete Using Ajax
         destroyScript('{{route('subject_exams.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('subject_exams.create')}}');
+        showAddModal('{{route('createRemedial')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('subject_exams.edit',':id')}}');
+        showEditModal('{{route('subject_exams.show', ':id')}}');
         editScript();
     </script>
 @endsection
