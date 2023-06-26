@@ -25,6 +25,12 @@
                     <input type="text" class="form-control" name="subject_name_fr" id="subject_name_fr"  value="{{$subject->getTranslation('subject_name','fr')}}">
                 </div>
 
+                <div class="col-md-12">
+                    <label for="name" class="form-control-label">{{ trans('admin.code_latin')}}</label>
+                    <input type="text"  class="form-control" name="code" id="code" value="{{$subject->code}}">
+                </div>
+
+
             </div>
 
         </div>
