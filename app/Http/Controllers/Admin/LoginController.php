@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Str;
 
 class LoginController extends Controller
 {
@@ -122,9 +123,15 @@ class LoginController extends Controller
     {
         $email = $request->email;
         $user = User::where('email', '=', $email)->first();
-        $token = rand(10,30);
-        dd($request->all());
-        $data = array('name'=>$user->first_name .' ' . $user->last_name,'email' => $user->email);
+        $token = Str::random(64);
+
+        DB::table('password_resets')->insert([
+            'email' => $email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+
+        $data = array('name'=>$user->first_name .' ' . $user->last_name,'email' => $user->email,'token' => $token);
         Mail::send('admin.password_reset', $data, function($message) use ($user,$email) {
             $message->to($email,$user->first_name)->subject
             ('Reset Password');
