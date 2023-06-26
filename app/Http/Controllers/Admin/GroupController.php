@@ -47,8 +47,6 @@ class GroupController extends Controller
 
     public function store(GroupRequest $request): JsonResponse
     {
-
-
       $group =   Group::create([
             'group_name' => [
                 'ar' => $request->group_name_ar,

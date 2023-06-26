@@ -23,20 +23,20 @@
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
-                    <input type="text" class="form-control" name="unit_name[ar]">
+                    <input type="text" class="form-control" name="unit_name_ar">
                 </div>
 
 
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" class="form-control" name="unit_name[en]">
+                    <input type="text" class="form-control" name="unit_name_en">
                 </div>
 
                 <div class="col-md-12 mt-3">
                     <label for="unit_name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
-                    <input type="text" class="form-control" name="unit_name[fr]">
+                    <input type="text" class="form-control" name="unit_name_fr">
                 </div>
 
 
