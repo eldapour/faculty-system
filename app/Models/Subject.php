@@ -19,6 +19,7 @@ class Subject extends Model
         'group_id',
         'department_id',
         'department_branch_id',
+        'code',
         'unit_id'
     ];
 
