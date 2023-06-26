@@ -190,13 +190,12 @@
                         ' {{ trans('login.Account activation') . ' ' . trans('admin.Loading') }} '
                     );
                     setTimeout(x => {
-                        {{-- window.location.href = '{{ route('student.login') }}'; --}}
+                         window.location.href = '{{ route('student.login') }}';
                     }, 3000)
                 } else if (data == 401) {
                     toastr.error('{{ trans('admin.This email has already been activated') }}');
                 } else if (data == 600)
-                    toastr.error(
-                        '{{ trans('admin.Verify that the data is correct and try again') }}');
+                    toastr.error('{{ trans('admin.Verify that the data is correct and try again') }}');
             },
             error: function(data) {
                 if (data.status === 500) {

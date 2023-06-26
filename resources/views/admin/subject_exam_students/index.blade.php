@@ -184,9 +184,9 @@
                     return xhr;
                 },
                 beforeSend: function () {
-                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
-                    progressDiv.removeClass('d-none');
+                    // $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                    //     ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                    // progressDiv.removeClass('d-none');
                 },
                 success: function (data) {
                     if (data.status === 200) {

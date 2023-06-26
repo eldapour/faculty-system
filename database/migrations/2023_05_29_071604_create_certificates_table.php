@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
-            $table->unsignedBigInteger('certificate_type_id')->comment('اسم الطالب');
+            $table->unsignedBigInteger('certificate_type_id')->comment('اسم الشهادات');
             $table->string('validation_year')->comment('سنه استيفاء الدبلوم');
             $table->boolean('situation_with_management')->default(false)->comment('الوضعيه مع الاداره');
             $table->boolean('situation_with_treasury')->nullable()->default(false)->comment('الوضعيه مع الخزانه');
