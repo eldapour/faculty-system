@@ -19,7 +19,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->json('subject_name')->comment('اسم الماده');
-            $table->string('code')->comment('كود الماده')->unique();
+            $table->string('code')->unique()->comment('كود الماده');
             $table->unsignedBigInteger('group_id')->comment('الفرقه الدراسيه');
             $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
             $table->timestamps();
