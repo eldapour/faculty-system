@@ -43,4 +43,4 @@ class PointStatementImport implements ToCollection, WithHeadingRow
             ]);
         }
     }
-}
+} // end class
