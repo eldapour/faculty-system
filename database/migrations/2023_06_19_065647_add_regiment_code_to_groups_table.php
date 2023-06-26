@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('groups', function (Blueprint $table) {
 
-            $table->json('group_code')->after('group_name')->comment('رمز الفوج');
+            $table->string('group_code')->after('group_name')->nullable()->unique()->comment('رمز الفوج');
         });
     }
 

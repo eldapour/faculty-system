@@ -3,20 +3,30 @@
         @csrf
         <div class="form-group">
             <div class="row">
+
+                <div class="col-md-12">
+                    <label for="name" class="form-control-label">{{ trans('admin.code_latin')}}</label>
+                    <input type="text"  class="form-control" name="code" id="code">
+                </div>
+
+
+
                 <div class="col-md-4">
                     <label for="name" class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }}
                     </label>
-                    <input type="text" id="name" class="form-control" name="name[ar]">
+                    <input type="text"  class="form-control" name="certificate_type_ar" id="certificate_type_ar">
                 </div>
+
+
                 <div class="col-md-4">
                     <label for="name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" id="name" class="form-control" name="name[en]">
+                    <input type="text" class="form-control" name="certificate_type_en" id="certificate_type_en">
                 </div>
                 <div class="col-md-4">
                     <label for="name"
                         class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }}</label>
-                    <input type="text" id="name" class="form-control" name="name[fr]">
+                    <input type="text" class="form-control" name="certificate_type_fr" id="certificate_type_fr">
                 </div>
             </div>
         </div>

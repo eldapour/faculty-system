@@ -11,7 +11,7 @@ class Department extends Model
     use HasFactory, HasTranslations;
 
 
-    public array $translatable = ['department_name','department_code'];
+    public array $translatable = ['department_name'];
 
     protected $fillable = [
         'department_name',
@@ -20,6 +20,5 @@ class Department extends Model
 
     protected $casts = [
       'department_name' => 'json',
-      'department_code' => 'json'
     ];
 }

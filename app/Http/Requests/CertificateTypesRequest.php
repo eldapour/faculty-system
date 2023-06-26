@@ -11,7 +11,7 @@ class CertificateTypesRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +21,31 @@ class CertificateTypesRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
-        return [
-            'name.ar' => 'required',
-            'name.en' => 'required',
-            'name.fr' => 'required',
-        ];
+
+
+        if (request()->isMethod('post')) {
+
+
+            $rules = [
+                'certificate_type_ar' => 'required',
+                'certificate_type_en' => 'required',
+                'certificate_type_fr' => 'required',
+                'code' => 'required|unique:certificate_types,code',
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'certificate_type_ar' => 'required',
+                'certificate_type_en' => 'required',
+                'certificate_type_fr' => 'required',
+                'code' => 'required|unique:certificate_types,code,'. request()->id,
+            ];
+        }
+
+        return $rules;
+
     }
 }

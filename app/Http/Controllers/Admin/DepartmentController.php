@@ -29,9 +29,6 @@ class DepartmentController extends Controller
                     return $departments->getTranslation('department_name', app()->getLocale());
                 })
 
-                ->editColumn('department_code',function($departments){
-                    return $departments->getTranslation('department_code', app()->getLocale());
-                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -51,7 +48,7 @@ class DepartmentController extends Controller
 
         $department =  Department::create([
             'department_name' => ['ar' => $request->department_name_ar,'en' => $request->department_name_en,'fr' => $request->department_name_fr],
-            'department_code' => ['ar' => $request->department_code_ar,'en' => $request->department_code_en,'fr' => $request->department_code_fr],
+            'department_code' => $request->department_code,
 
 
         ]);
@@ -75,7 +72,7 @@ class DepartmentController extends Controller
         $department->update([
 
             'department_name' => ['ar' => $request->department_name_ar,'en' => $request->department_name_en,'fr' => $request->department_name_fr],
-            'department_code' => ['ar' => $request->department_code_ar,'en' => $request->department_code_en,'fr' => $request->department_code_fr],
+            'department_code' => $request->department_code,
 
         ]);
         if ($department->save()) {

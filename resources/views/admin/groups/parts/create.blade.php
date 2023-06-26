@@ -6,20 +6,11 @@
             <div class="row">
 
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_ar')}} </label>
-                    <input type="text" id="group_code_ar"  class="form-control" name="group_code_ar">
+                <div class="col-md-12">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.code_latin')}} </label>
+                    <input type="text" id="group_code"  class="form-control" name="group_code">
                 </div>
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_en')}} </label>
-                    <input type="text" id="group_code_en" class="form-control" name="group_code_en">
-                </div>
-
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.group_code_fr')}}</label>
-                    <input type="text" id="group_code_fr" class="form-control" name="group_code_fr">
-                </div>
 
 
                 <div class="col-md-4">

@@ -14,19 +14,11 @@
                 </div>
 
                 <div class="col-md-12 mt-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}} </label>
-                    <input type="text" id="department_branch_code_ar"  class="form-control" name="department_branch_code_ar">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.code_latin')}} </label>
+                    <input type="text" id="department_branch_code"  class="form-control" name="department_branch_code">
                 </div>
 
-                <div class="col-md-12 mt-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}} </label>
-                    <input type="text" id="department_branch_code_en" class="form-control" name="department_branch_code_en">
-                </div>
 
-                <div class="col-md-12 mt-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}}</label>
-                    <input type="text" id="department_branch_code_fr" class="form-control" name="department_branch_code_fr">
-                </div>
             </div>
 
 
