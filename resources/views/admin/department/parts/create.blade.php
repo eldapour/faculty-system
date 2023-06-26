@@ -4,21 +4,10 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_ar')}} </label>
-                    <input type="text" id="department_code_ar"  class="form-control" name="department_code_ar">
+                <div class="col-md-12">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.code_latin')}} </label>
+                    <input type="text" id="department_code"  class="form-control" name="department_code">
                 </div>
-
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_en')}} </label>
-                    <input type="text" id="department_code_en" class="form-control" name="department_code_en">
-                </div>
-
-                <div class="col-md-4">
-                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_fr')}}</label>
-                    <input type="text" id="department_code_fr" class="form-control" name="department_code_fr">
-                </div>
-
 
 
                 <div class="col-md-4">

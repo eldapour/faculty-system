@@ -490,6 +490,8 @@ return [
 
     // point statements
     "point statement" => "déclaration ponctuelle",
+
+    "code_latin" => "Code in Latin",
 ];
 
 

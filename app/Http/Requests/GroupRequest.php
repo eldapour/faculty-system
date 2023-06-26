@@ -23,13 +23,28 @@ class GroupRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'group_name_ar' => 'required',
-            'group_name_en' => 'required',
-            'group_name_fr' => 'required',
-            'group_code_ar' => 'required',
-            'group_code_en' => 'required',
-            'group_code_fr' => 'required',
-        ];
+
+
+        if (request()->isMethod('post')) {
+
+            $rules = [
+                'group_name_ar' => 'required',
+                'group_name_en' => 'required',
+                'group_name_fr' => 'required',
+                'group_code' => 'required|unique:groups,group_code',
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'group_name_ar' => 'required',
+                'group_name_en' => 'required',
+                'group_name_fr' => 'required',
+                'group_code' => 'required|unique:groups,group_code,' . request()->id,
+
+            ];
+        }
+
+        return $rules;
     }
 }

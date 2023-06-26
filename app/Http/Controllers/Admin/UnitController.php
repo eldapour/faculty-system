@@ -31,9 +31,7 @@ class UnitController extends Controller{
                 ->editColumn('unit_name', function ($units) {
                     return $units->getTranslation('unit_name', app()->getLocale());
                 })
-                ->editColumn('unit_code', function ($units) {
-                    return $units->getTranslation('unit_code', app()->getLocale());
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -52,7 +50,7 @@ class UnitController extends Controller{
 
         $unit = Unit::create([
             'unit_name' => ['ar' => $request->unit_name_ar,'en' => $request->unit_name_en,'fr' => $request->unit_name_fr],
-            'unit_code' => ['ar' => $request->unit_code_ar,'en' => $request->unit_code_en,'fr' => $request->unit_code_fr],
+            'unit_code' => $request->unit_code,
 
         ]);
         if ($unit->save()) {
@@ -79,11 +77,8 @@ class UnitController extends Controller{
                 'fr' => $request->unit_name_fr
             ],
 
-            'unit_code' => [
-                'ar' => $request->unit_code_ar,
-                'en' => $request->unit_code_en,
-                'fr' => $request->unit_code_fr
-            ],
+            'unit_code' => $request->unit_code,
+
 
         ]);
         if ($unit->save()) {

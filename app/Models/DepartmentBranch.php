@@ -12,7 +12,7 @@ class DepartmentBranch extends Model
     use HasFactory, HasTranslations;
 
 
-    public array $translatable = ['branch_name','department_branch_code'];
+    public array $translatable = ['branch_name'];
 
     protected $fillable = [
         'branch_name',
@@ -22,7 +22,6 @@ class DepartmentBranch extends Model
 
     protected $casts = [
       'branch_name' => 'json',
-      'department_branch_code'
     ];
 
     public function department(): BelongsTo
