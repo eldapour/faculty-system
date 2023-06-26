@@ -4,8 +4,6 @@
         <div class="form-group">
             <div class="row">
 
-
-
                 <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.group') }} </label>
                     <select name="group_id" style="text-align: center" id="" class="form-control">
@@ -26,7 +24,7 @@
                     </select>
                 </div><br>
 
-                
+
                 <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                     <select name="department_id" style="text-align: center" id=""
@@ -48,17 +46,17 @@
                 <div class="col-md-12">
                     <label for="subject_name"
                            class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }} </label>
-                    <input type="text" class="form-control" name="subject_name[ar]">
+                    <input type="text" class="form-control" name="subject_name_ar" id="subject_name_ar">
                 </div>
                 <div class="col-md-12">
                     <label for="subject_name"
                            class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }} </label>
-                    <input type="text" class="form-control" name="subject_name[en]">
+                    <input type="text" class="form-control" name="subject_name_en" id="subject_name_en">
                 </div>
                 <div class="col-md-12">
                     <label for="subject_name"
                            class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }} </label>
-                    <input type="text" class="form-control" name="subject_name[fr]">
+                    <input type="text" class="form-control" name="subject_name_fr" id="subject_name_fr">
                 </div>
 
             </div>

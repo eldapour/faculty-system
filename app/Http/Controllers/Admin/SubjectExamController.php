@@ -39,6 +39,7 @@ class SubjectExamController extends Controller
                                     data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
+                            <a class="btn btn-primary" href="'. route('processExamStudent') .'"><i class="fa fa-request"></i></a>
                        ';
                 })
                 ->editColumn('subject_id', function ($subject_exams) {

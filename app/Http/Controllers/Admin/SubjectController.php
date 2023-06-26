@@ -67,8 +67,15 @@ class SubjectController extends Controller
 
     public function store(SubjectRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (Subject::create($inputs)) {
+        $data = [
+            'subject_name' => ['ar' => $request->subject_name_ar,'en' => $request->subject_name_en,'fr' => $request->subject_name_fr],
+           'group_id' => $request->group_id,
+            'department_id' => $request->department_id,
+            'department_branch_id' => $request->department_branch_id,
+            'unit_id' => $request->unit_id,
+        ];
+
+        if (Subject::create($data)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
