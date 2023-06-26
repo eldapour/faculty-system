@@ -668,6 +668,11 @@ p{
     color: var(--dark-color);
 }
 
+.sidebar img {
+    height: 70px;
+    width: 70px;
+}
+
 .btn-share{
     background-color: var(--second-color);
     color: white;
