@@ -3,17 +3,35 @@
         @csrf
         <div class="form-group">
             <div class="row">
+
+                <div class="col-md-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_ar')}} </label>
+                    <input type="text" id="department_code_ar"  class="form-control" name="department_code_ar">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_en')}} </label>
+                    <input type="text" id="department_code_en" class="form-control" name="department_code_en">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_code_fr')}}</label>
+                    <input type="text" id="department_code_fr" class="form-control" name="department_code_fr">
+                </div>
+
+
+
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="department_name[ar]" required>
+                    <input type="text" id="department_code_ar" class="form-control" name="department_name_ar">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="department_name[en]" required>
+                    <input type="text" id="department_code_en" class="form-control" name="department_name_en">
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="department_name[fr]" required>
+                    <input type="text" id="department_code_fr" class="form-control" name="department_name_fr">
                 </div>
             </div>
         </div>

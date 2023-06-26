@@ -19,9 +19,6 @@ return new class extends Migration
     {
         Schema::create('subject_exam_students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
-            $table->unsignedBigInteger('department_id')->comment('القسم');
-            $table->unsignedBigInteger('department_branch_id')->comment('التخصص');
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
             $table->string('exam_code');
@@ -29,14 +26,9 @@ return new class extends Migration
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
             $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
             $table->string('year');
-
-            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('department_branch_id')->references('id')->on('department_branches')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
-
         });
     }
 

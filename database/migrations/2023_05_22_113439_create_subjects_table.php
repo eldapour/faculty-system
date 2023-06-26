@@ -20,8 +20,10 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->json('subject_name')->comment('اسم الماده');
             $table->unsignedBigInteger('group_id')->comment('الفرقه الدراسيه');
+            $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
             $table->timestamps();
             $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('unit_id')->references('id')->on('units')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }

@@ -27,6 +27,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px"> {{__('admin.name')}}</th>
+                                <th class="min-w-50px"> {{__('admin.department_branch_code')}}</th>
                                 <th class="min-w-50px"> {{__('admin.department')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
@@ -88,6 +89,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'branch_name', name: 'branch_name'},
+            {data: 'department_branch_code', name: 'department_branch_code'},
             {data: 'department_id', name: 'department_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]

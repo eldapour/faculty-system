@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DepartmentBranchRequest;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -31,58 +32,77 @@ class DepartmentBranchController extends Controller
                 ->editColumn('department_id',function($branches){
                     return $branches->department->getTranslation('department_name', app()->getLocale());
                 })
+                ->editColumn('department_branch_code',function($branches){
+                    return $branches->getTranslation('department_branch_code', app()->getLocale());
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.branches.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
-        $departments = Department::get();
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
         return view('admin.branches.parts.create',compact('departments'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(DepartmentBranchRequest $request)
+    public function store(DepartmentBranchRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (DepartmentBranch::create($inputs)) {
+        $data = [
+
+           'branch_name' => ['ar' => $request->branch_name_ar,
+               'en' => $request->branch_name_en,
+               'fr' => $request->branch_name_fr],
+
+            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
+                'en' => $request->department_branch_code_en,
+                'fr' => $request->department_branch_code_fr],
+            'department_id' => $request->department_id,
+
+        ];
+
+        if (DepartmentBranch::create($data)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(DepartmentBranch $branch)
     {
         $departments = Department::get();
         return view('admin.branches.parts.edit', compact('branch','departments'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(DepartmentBranchRequest $request, DepartmentBranch $branch)
+    public function update(DepartmentBranchRequest $request, DepartmentBranch $branch): JsonResponse
     {
-        if ($branch->update($request->all())) {
+
+        $data = [
+
+            'branch_name' => ['ar' => $request->branch_name_ar,
+                'en' => $request->branch_name_en,
+                'fr' => $request->branch_name_fr],
+            'department_id' => $request->department_id,
+            'department_branch_code' => ['ar' => $request->department_branch_code_ar,
+                'en' => $request->department_branch_code_en,
+                'fr' => $request->department_branch_code_fr],
+        ];
+        if ($branch->update($data)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -91,5 +111,4 @@ class DepartmentBranchController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 }

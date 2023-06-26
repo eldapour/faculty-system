@@ -30,7 +30,6 @@
 
                             <tr class="fw-bolder text-muted bg-light">
 
-
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-25px">{{trans('admin.period_start_date')}}</th>
                                 <th class="min-w-25px">{{trans('admin.period_end_date')}}</th>

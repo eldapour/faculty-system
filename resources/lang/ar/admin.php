@@ -63,7 +63,13 @@ return [
     "Ads section" => "قسم الاعلانات",
     'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
     'Diploma certificates' => "شواهد الدبلومات",
-    'Student documents' => "وثائق الطالب",
+    'Student documents' => "طلبات الوثائق",
+    "exam" => "امتحان",
+    "exams" => "امتحانات",
+    "full_name" =>  "الاسم الكامل",
+    "annual_programming" => "البرمجة السنوية",
+    "Reasons_for_redress" => "أسباب الاستدراك",
+
 
 
 
@@ -210,7 +216,7 @@ return [
     'period' => 'فترة',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'دكتور وحدة الموضوع',
+    'subject_unit_doctor' => 'اضافه وحده للاستاذ',
     'subject_unit_doctors' => 'وحدات الاستاذ',
 
     // University Setting
@@ -232,7 +238,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => 'امتحان طالب المادة',
+    'subject_exam_student' => 'استدعاء الامتحان',
     'subject_exam_students' => 'استدعاء الامتحان',
     'exam_code' => 'رمز الامتحان',
     'section' => 'قاعة',
@@ -306,6 +312,8 @@ return [
     "edit_degree_student" => "تعديل درجة الطالب",
     "exam_degree_actuel" => "درجة الطالب الحالية",
     "The_students_grade_after_adjustment" => "درجة الطالب بعد التعديل",
+    "exam_degree" => "درجة الامتحان",
+    "the_score_has_been_modified_successfully" => "تم تعديل الدرجة بنجاح",
 
 
     // Subject Exam Student Result
@@ -341,6 +349,9 @@ return [
     "request_status_is_accepted" => "حالة الطلب مقبولة",
     "request_status_is_refused" => "تم رفض حالة الطلب",
     "request_status_is_under_processing" => "حالة الطلب قيد المعالجة",
+    "process_exam_students" => "تقديم طلب استدراك",
+    "the_remedial_request_has_been_registered_successfully" => "تم تسجيل طلب الاستدراك بنجاح",
+    "You_are_only" => "لا يحق لك غير طلب واحد خلال مدة الدورة الاستدراكية",
 
 
     // data modification
@@ -381,6 +392,73 @@ return [
     'period_add' => "اضافه فتره جديده",
     'period_all' => "جميع الفترات",
     'period_finished' => "انهاء الفتره",
+
+
+    'group_choice' => "اختر الفوج",
+    'subject_choice' => "اختر الوحده",
+    'for' => " للطالب ",
+
+
+    'unit_name' => "الفصل لدراسي",
+    'description_text' => "ملاحظات",
+
+    'result' => 'نتائج الوحده',
+
+
+    //الرموز
+    "group_code" => "رمز الفوج",
+    "department_code" => "رمز المسلك",
+    "department_branch_code" => "رمز المسار",
+    "unit_code" => "رمز الفصل",
+
+
+
+    "group_code_ar" => "رمز الفوج باللغه العربيه",
+    "group_code_en" => "رمز الفوج باللغه الانجليزيه",
+    "group_code_fr" => "رمز الفوج باللغه الفرنسيه",
+
+
+    "department_code_ar" => "رمز المسلك باللغه العربيه",
+    "department_code_en" => "رمز المسلك باللغه الانجليزيه",
+    "department_code_fr" => "رمز المسلك باللغه الفرنسيه",
+
+
+    "department_branch_code_ar" => "رمز المسار باللغه العربيه",
+    "department_branch_code_en" => "رمز المسار باللغه الانجليزيه",
+    "department_branch_code_fr" => "رمز المسار باللغه الفرنسيه",
+
+
+    "unit_code_ar" => "رمز الفصل باللغه العربيه",
+    "unit_code_en" => "رمز الفصل باللغه الانجليزيه",
+    "unit_code_fr" => "رمز الفصل باللغه الفرنسيه",
+
+
+
+
+    "situation_with_management" => "الوضعيه مع الاداره",
+    "situation_with_treasury" => "الوضعيه مع الخزانه",
+
+
+    "description_situation_with_management" => "ملاحظه علي الوضعيه مع الاداره",
+    "description_situation_with_management_ar" => "ملاحظه علي الوضعيه مع الاداره باللغه العربيه",
+    "description_situation_with_management_en" => "ملاحظه علي الوضعيه مع الاداره باللغه الانجليزيه",
+    "description_situation_with_management_fr" => "ملاحظه علي الوضعيه مع الاداره باللغه الفرنسيه",
+
+
+    "description_situation_with_treasury" => "ملاحظه علي الوضعيه مع الخزانه",
+    "description_situation_with_treasury_ar" => "ملاحظه علي الوضعيه مع الخزانه باللغه العربيه",
+    "description_situation_with_treasury_en" => "ملاحظه علي الوضعيه مع الخزانه باللغه الانجليزيه",
+    "description_situation_with_treasury_fr" => "ملاحظه علي الوضعيه مع الخزانه باللغه الفرنسيه",
+
+
+    "pay" => "قابل للدفع",
+    "not_pay" => "غير قابع للدفع",
+
+
+    "problem" => "يوجد مشكله",
+    "no_problem" => "لا يوجد مشكله",
+    "no_notes" => "لا يوجد ملاحظات",
+
 
 
 ];

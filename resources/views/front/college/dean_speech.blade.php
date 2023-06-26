@@ -27,7 +27,7 @@
                     <h1 class="mt-3">{{ $dean_speech->name[lang()] }} </h1>
                     <h3>ahmed hesham </h3>
                     <h5 class="color-second mb-3">{{ $dean_speech->role[lang()] }} </h5>
-                    <p>{{ $dean_speech->description[lang()] }}</p>
+                    <p>{!! $dean_speech->description[lang()] !!}</p>
                 </div>
             </div>
         </div>

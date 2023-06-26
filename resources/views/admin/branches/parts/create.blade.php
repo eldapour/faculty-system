@@ -3,7 +3,7 @@
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-4">
                     <label for="department_id" class="form-control-label">@lang('admin.departments')</label>
                     <select class="form-control" name="department_id" required>
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -12,19 +12,36 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="col-md-12 mt-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}} </label>
+                    <input type="text" id="department_branch_code_ar"  class="form-control" name="department_branch_code_ar">
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}} </label>
+                    <input type="text" id="department_branch_code_en" class="form-control" name="department_branch_code_en">
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <label for="group_name" class="form-control-label">{{ trans('admin.department_branch_code_ar')}}</label>
+                    <input type="text" id="department_branch_code_fr" class="form-control" name="department_branch_code_fr">
+                </div>
             </div>
+
+
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12 mt-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="branch_name_ar" required>
+                    <input type="text" class="form-control" name="branch_name_ar" id="branch_name_ar">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12 mt-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="branch_name_en" required>
+                    <input type="text" class="form-control" name="branch_name_en" id="branch_name_en">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12 mt-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.name') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="branch_name_fr" required>
+                    <input type="text" class="form-control" name="branch_name_fr" id="branch_name_fr">
                 </div>
             </div>
         </div>
@@ -35,6 +52,13 @@
     </form>
 </div>
 
+<script>
+    $('.dropify').dropify();
+    $(document).ready(function() {
+        $('select').select2();
+    });
+
+</script>
 <script>
     $('.dropify').dropify()
 </script>

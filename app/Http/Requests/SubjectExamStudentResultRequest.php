@@ -11,7 +11,7 @@ class SubjectExamStudentResultRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,16 +21,25 @@ class SubjectExamStudentResultRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
-        return [
-            'student_degree' => 'required',
-            'exam_degree' => 'required',
-            'date_enter_degree' => 'required',
-            'period' => 'required',
-            'year' => 'required|date',
-            'user_id' => 'required',
-            'subject_id' => 'required'
-        ];
+
+        if (request()->isMethod('post')) {
+            $rules = [
+                'student_degree' => 'required',
+                'exam_degree' => 'required',
+                'date_enter_degree' => 'required',
+                'period' => 'required',
+                'year' => 'required|date_format:Y',
+                'user_id' => 'required',
+                'subject_id' => 'required'
+            ];
+        } elseif (request()->isMethod('PUT')) {
+            $rules = [
+                'student_degree' => 'required',
+            ];
+        }
+
+        return $rules;
     }
 }

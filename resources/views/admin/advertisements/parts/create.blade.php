@@ -5,16 +5,16 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title')  ." ". trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" required>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') }} {{ trans('admin.arabic') }}</label>
+                    <input type="text" class="form-control" name="title[ar]" >
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" required>
+                    <input type="text" class="form-control" name="title[en]" >
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" required>
+                    <input type="text" class="form-control" name="title[fr]" >
                 </div>
             </div>
             <div class="row">
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
-                    <select name="category_id" class="form-control" required>
+                    <select name="category_id" class="form-control" >
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
                                 {{ $category->category_name[lang()] }}</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
-                    <select name="service_id" class="form-control" required>
+                    <select name="service_id" class="form-control" >
                         @foreach ($data['services'] as $service)
                             <option value="{{ $service->id }}" style="text-align: center">
                                 {{ $service->service_name[lang()] }}</option>

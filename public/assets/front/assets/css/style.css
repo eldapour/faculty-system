@@ -201,6 +201,7 @@ p{
     border: none;
     height: 530px;
     transition: all 0.5 ease;
+    border-radius: 10px;
 }
 .card-blog a{
     overflow: hidden;
@@ -256,20 +257,20 @@ p{
 
 .owl-carousel .owl-nav button.owl-prev:hover,
 .owl-carousel .owl-nav button.owl-next:hover{
-    background-color: var(--dark-color);
+    background-color: var(--dark-color) !important;
 }
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel .owl-nav button.owl-next{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    color: white;
+    font-size: 30px !important;
+    color: white !important;
     position: absolute;
     width: 60px;
     height: 60px;
     top: -90px;
-    background-color: var(--second-color);
+    background-color: var(--second-color) !important;
 }
 .owl-carousel .owl-nav button.owl-prev span,
 .owl-carousel .owl-nav button.owl-next span{
@@ -282,6 +283,12 @@ p{
 .owl-carousel .owl-nav button.owl-next{
     right: 20px;
 }
+
+.card-blog .card-img-top{
+    height: 280px;
+    border-radius: 10px;
+}
+
 /* end section blogs */
 
 /* start section video */
@@ -290,7 +297,7 @@ p{
     background-position: center;
     background-size: cover;
     padding: 130px 0;
-    margin: 0px 10px;
+    margin: 0px 10px !important;
 }
 .video1{
     background-image: url(../photo/slider_bg_01.ac8b8779408287a47977.png);
@@ -363,6 +370,7 @@ p{
 .card-newest .card-img-top{
     transition: all 0.5s ease;
     border-radius: 10px;
+    height: 280px;
 }
 .card-newest:hover .card-img-top{
     transform: scale(1.1);
@@ -478,9 +486,13 @@ p{
 .btn-platform{
     padding: 10px 20px;
     background-color: white;
-    color: var(--second-color);
+    color: var(--dark-color);
     border-radius: 5px;
     font-weight: 600;
+}
+
+.btn-platform:hover {
+    color: var(--second-color);
 }
 
 /* end section platform */
@@ -530,6 +542,12 @@ p{
     color: #b2c0d8;
     transition: all 0.5s ease;
 }
+
+.footer .blog img {
+    height: 70px;
+    width: 70px;
+}
+
 .footer .blog a:hover{
     color: white;
 }

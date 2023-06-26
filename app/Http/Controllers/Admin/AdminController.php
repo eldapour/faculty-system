@@ -5,15 +5,11 @@ use App\Models\DataModification;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Schema;
-use mysql_xdevapi\ColumnResult;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
-{
+class AdminController extends Controller{
 
 
     public function index(request $request)
@@ -74,7 +70,7 @@ class AdminController extends Controller
             }else{
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
 
-            }//
+            }
 
         }else{
 
@@ -193,7 +189,7 @@ class AdminController extends Controller
 
             return response()->json(['status' => 405]);
         }
-    } // end update
+    }
 
     public function profile(Request $request)
     {
@@ -202,4 +198,4 @@ class AdminController extends Controller
 
         return view('admin.admins.profile',compact('user','user_data'));
     }
-}//end class
+}

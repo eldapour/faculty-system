@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DepartmentBranchStudentExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BranchStudentRequest;
 use App\Http\Requests\DepartmentBranchRequest;
+use App\Imports\DepartmentBranchStudentImport;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
 use App\Models\DepartmentBranchStudent;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class DepartmentBranchStudentController extends Controller{
@@ -41,7 +44,7 @@ class DepartmentBranchStudentController extends Controller{
                         return '<input class="tgl tgl-ios" id="cb3" type="checkbox" checked disabled/>
                     <label class="tgl-btn" dir="ltr" for="cb3"></label>';
                     } else {
-                        return '<input class="tgl tgl-ios" id="cb4" type="checkbox"/>
+                        return '<input class="tgl tgl-ios" id="cb4" type="checkbox" disabled/>
                     <label class="tgl-btn" dir="ltr" for="cb4"></label>';
                     }
                 })
@@ -130,5 +133,21 @@ class DepartmentBranchStudentController extends Controller{
         } else {
             return response()->json(404);
         }
-    }
+    } // end getBranches
+
+
+    public function exportDepartmentBranchStudent()
+    {
+        return Excel::download(new DepartmentBranchStudentExport, 'DepartmentBranchStudent.xlsx');
+    } // end export
+
+    public function importDepartmentBranchStudent(Request $request)
+    {
+        $import = Excel::import(new DepartmentBranchStudentImport(), $request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    } // end import
 }

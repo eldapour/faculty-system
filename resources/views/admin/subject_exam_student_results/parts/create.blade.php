@@ -4,24 +4,18 @@
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="subject_id" class="form-control-label">{{ trans('admin.student') }}</label>
                     <select name="user_id" class="form-control" required>
                         @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center">{{ $user->first_name }}
+                            <option value="{{ $user->id }}" style="text-align: center">{{ $user->identifier_id }}
                             </option>
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6">
-                    <label for="subject_id" class="form-control-label">{{ trans('admin.subject_exam') }}</label>
-                    <select name="subject_id" class="form-control" required>
-                        @foreach ($data['subject_exams'] as $subject_exam)
-                            <option value="{{ $subject_exam->id }}" style="text-align: center">
-                                {{ $subject_exam->subject->subject_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+
+                <input type="hidden" name="subject_id" value="{{$idOfSubjectDoctor}}" class="form-control">
+
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -45,7 +39,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
-                    <input type="date" name="year" class="form-control">
+                    <input type="text" name="year" class="form-control">
                 </div>
             </div>
             <div class="row">
@@ -64,5 +58,8 @@
 </div>
 
 <script>
-    $('.dropify').dropify()
+    $('.dropify').dropify();
+    $(document).ready(function() {
+        $('select').select2();
+    });
 </script>

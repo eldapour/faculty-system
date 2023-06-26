@@ -6,10 +6,13 @@ use App\Exports\CertificateExport;
 use App\Http\Controllers\Controller;
 use App\Imports\CertificateImport;
 use App\Models\Certificate;
+use App\Models\CertificateType;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
+
 
 class CertificateController extends Controller
 {
@@ -26,8 +29,57 @@ class CertificateController extends Controller
 
                        ';
                 })
-                ->editColumn('diploma_name', function ($certificates) {
-                    return $certificates->getTranslation('diploma_name', app()->getLocale());
+                ->editColumn('certificate_type_id', function ($certificates) {
+                    return $certificates->certificateType->{'certificate_type_'.lang()};
+                })
+
+                ->editColumn('situation_with_management', function ($certificates) {
+
+                    if($certificates->situation_with_management == 1){
+
+                        return trans('admin.no_problem');
+
+                    }else{
+
+                        return trans('admin.problem');
+
+                    }
+                })
+                ->editColumn('situation_with_treasury', function ($certificates) {
+
+                    if($certificates->situation_with_treasury == 1){
+
+                        return trans('admin.pay');
+
+                    }else{
+
+                        return trans('admin.not_pay');
+
+                    }
+                })
+
+                ->editColumn('description_situation_with_management', function ($certificates) {
+
+                    if($certificates->description_situation_with_management != null){
+
+                        return $certificates->getTranslation('description_situation_with_management', app()->getLocale());
+
+                    }else{
+
+                        return trans('admin.no_notes');
+                    }
+                })
+
+                ->editColumn('description_situation_with_treasury', function ($certificates) {
+
+                    if($certificates->description_situation_with_treasury != null){
+
+                        return $certificates->getTranslation('description_situation_with_treasury', app()->getLocale());
+
+                    }else{
+                        return trans('admin.no_notes');
+
+                    }
                 })
                 ->editColumn('created_at', function ($admins) {
                     return $admins->created_at->diffForHumans();
@@ -54,30 +106,29 @@ class CertificateController extends Controller
             ->where('user_type','=','student')
             ->get();
 
+        $certificate_types = CertificateType::query()
+            ->get();
 
-        return view('admin.certificates.parts.create',compact('users'));
+        return view('admin.certificates.parts.create',compact('users','certificate_types'));
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
 
         $request->validate([
-            'diploma_name_ar' => 'required',
-            'diploma_name_en' => 'required',
-            'diploma_name_fr' => 'required',
-            'user_id' => 'required|exists:users,id',
-            'year' => 'required|date_format:Y',
-            'validation_year' => 'required|date_format:Y',
+            'certificate_type_id' => 'required|exists:certificate_types,id',
+            'user_id'             => 'required|exists:users,id',
+            'year'                => 'required|date_format:Y',
+            'validation_year'     => 'required|date_format:Y',
 
         ]);
 
         $certificate = Certificate::create([
-
-            'diploma_name' => ['ar' => $request->diploma_name_ar ,'en' => $request->diploma_name_en ,'fr' => $request->diploma_name_fr],
-            'validation_year' => $request->validation_year,
-            'year' => $request->year,
-            'user_id' => $request->user_id
+            'certificate_type_id' => $request->certificate_type_id,
+            'validation_year'     => $request->validation_year,
+            'year'                => $request->year,
+            'user_id'             => $request->user_id
         ]);
 
         if ($certificate->save()) {
@@ -93,20 +144,20 @@ class CertificateController extends Controller
         return view('admin.certificates.parts.edit', compact('certificate'));
     }
 
-    public function update(Request $request, Certificate $certificate)
+    public function update(Request $request, Certificate $certificate): JsonResponse
     {
 
         $request->validate([
-            'diploma_name_ar' => 'required',
-            'diploma_name_en' => 'required',
-            'diploma_name_fr' => 'required',
             'year' => 'required|date_format:Y',
             'validation_year' => 'required|date_format:Y',
         ]);
 
         $certificate->update([
 
-            'diploma_name' => ['ar' => $request->diploma_name_ar ,'en' => $request->diploma_name_en ,'fr' => $request->diploma_name_fr],
+            'description_situation_with_management' => ['ar' => $request->description_situation_with_management_ar ,'en' => $request->description_situation_with_management_en ,'fr' => $request->description_situation_with_management_fr],
+            'description_situation_with_treasury' => ['ar' => $request->description_situation_with_treasury_ar ,'en' => $request->description_situation_with_treasury_en ,'fr' => $request->description_situation_with_treasury_fr],
+            'situation_with_management' => $request->situation_with_management,
+            'situation_with_treasury' => $request->situation_with_treasury,
             'validation_year' => $request->validation_year,
             'year' => $request->year,
         ]);
@@ -127,14 +178,14 @@ class CertificateController extends Controller
 
         $certificate->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    } // Delete
+    }
 
-    public function exportCertificate()
+    public function exportCertificate(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new CertificateExport, 'Certificate.xlsx');
-    } // end export
+    }
 
-    public function importCertificate(Request $request)
+    public function importCertificate(Request $request): JsonResponse
     {
         $import = Excel::import(new CertificateImport(), $request->exelFile);
         if ($import) {
@@ -142,6 +193,5 @@ class CertificateController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end question import
-
+    }
 }

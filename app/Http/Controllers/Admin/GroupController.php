@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GroupRequest;
+use Illuminate\Http\JsonResponse;
 use Yajra\DataTables\DataTables;
 use App\Models\Group;
 use Illuminate\Http\Request;
@@ -28,63 +29,70 @@ class GroupController extends Controller
                 ->editColumn('group_name', function ($groups) {
                     return $groups->getTranslation('group_name', app()->getLocale());
                 })
+                ->editColumn('group_code', function ($groups) {
+                    return $groups->getTranslation('group_code', app()->getLocale());
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.groups.index');
         }
     }
-    // Index End
 
-    // Create Start
     public function create()
     {
         return view('admin.groups.parts.create');
     }
-    // Create End
 
-    // Store Start
 
-    public function store(GroupRequest $request)
+    public function store(GroupRequest $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (Group::create($inputs)) {
+
+
+      $group =   Group::create([
+            'group_name' => ['ar' => $request->group_name_ar,'en' => $request->group_name_en,'fr' => $request->group_name_fr],
+            'group_code' => ['ar' => $request->group_code_ar,'en' => $request->group_code_en,'fr' => $request->group_code_fr],
+
+        ]);
+        if ($group->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(Group $group)
     {
         return view('admin.groups.parts.edit', compact('group'));
     }
-    // Edit End
 
-    // Update Start
 
-    public function update(Request $request, Group $group)
+    public function update(GroupRequest $request, Group $group): JsonResponse
     {
-        if ($group->update($request->all())) {
+
+        $group->update([
+
+            'group_name' => ['ar' => $request->group_name_ar,'en' => $request->group_name_en,'fr' => $request->group_name_fr],
+            'group_code' => ['ar' => $request->group_code_ar,'en' => $request->group_code_en,'fr' => $request->group_code_fr],
+
+        ]);
+
+        if ($group->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
+
         $group = Group::where('id', $request->id)->firstOrFail();
         $group->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
+
 }

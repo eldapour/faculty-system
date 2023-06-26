@@ -11,7 +11,7 @@ class GroupRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +21,15 @@ class GroupRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'group_name.ar' => 'required',
-            'group_name.en' => 'required',
-            'group_name.fr' => 'required',
+            'group_name_ar' => 'required',
+            'group_name_en' => 'required',
+            'group_name_fr' => 'required',
+            'group_code_ar' => 'required',
+            'group_code_en' => 'required',
+            'group_code_fr' => 'required',
         ];
     }
 }

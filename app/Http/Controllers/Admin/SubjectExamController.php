@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Period;
 use DateTime;
 use App\Models\Group;
 use App\Models\Subject;
 use App\Models\Department;
 use App\Models\SubjectExam;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -15,11 +17,20 @@ use App\Models\DepartmentBranch;
 
 class SubjectExamController extends Controller
 {
-    // Index Start
+
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $subject_exams = SubjectExam::get();
+
+            $period = Period::query()
+                ->where('status','=','start')
+                ->first();
+
+            $subject_exams = SubjectExam::query()
+                ->where('period','=',$period->period)
+                ->where('year','=',$period->year_start)
+                ->get();
+
             return Datatables::of($subject_exams)
                 ->addColumn('action', function ($subject_exams) {
                     return '
@@ -33,12 +44,8 @@ class SubjectExamController extends Controller
                 ->editColumn('subject_id', function ($subject_exams) {
                     return '<td>' . $subject_exams->subject->subject_name . '</td>';
                 })
-                ->editColumn('group_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->group->group_name . '</td>';
-                })
-                ->editColumn('exam_day', function ($subject_exams) {
-                    $date = new DateTime($subject_exams->exam_day);
-                    return '<td>' . $date->format('l') . '</td>';
+                ->addColumn('group_id', function ($subject_exams) {
+                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -46,24 +53,23 @@ class SubjectExamController extends Controller
             return view('admin.subject_exams.index');
         }
     }
-    // Index End
 
-    // Create Start
+
     public function create()
     {
         $groups = Group::query()
             ->select('id', 'group_name')
             ->get();
+
             $departments = Department::query()
             ->select('id','department_name')
             ->get();
+
         return view('admin.subject_exams.parts.create', compact('departments', 'groups'));
     }
-    // Create End
 
-    // Store Start
 
-    public function store(SubjectExamRequest $request)
+    public function store(SubjectExamRequest $request): JsonResponse
     {
         $inputs = $request->all();
 
@@ -74,24 +80,21 @@ class SubjectExamController extends Controller
         }
     }
 
-    // Store End
 
-    // Edit Start
     public function edit(SubjectExam $subjectExam)
     {
         $groups = Group::query()
             ->select('id', 'group_name')
             ->get();
+
             $departments = Department::query()
             ->select('id','department_name')
             ->get();
+
             $branches = DepartmentBranch::find($subjectExam->department_branch_id);
             $subjects = Subject::find($subjectExam->subject_id);
         return view('admin.subject_exams.parts.edit', compact('subjectExam', 'groups', 'departments', 'subjects', 'branches'));
     }
-    // Edit End
-
-    // Update Start
 
     public function update(Request $request, SubjectExam $subjectExam)
     {
@@ -102,9 +105,7 @@ class SubjectExamController extends Controller
         }
     }
 
-    // Edit End
 
-    // Destroy Start
 
     public function destroy(Request $request)
     {
@@ -113,28 +114,16 @@ class SubjectExamController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-    // Destroy End
 
-    // Get Subject
-    public function getSubject(Request $request)
-{
-    $department_id = $request->department_id;
-    $group_id = $request->group_id;
+    public function getSubject(Request $request): \Illuminate\Support\Collection{
 
-    $subjects = Subject::query()
-        ->where('department_id', $department_id)
-        ->when($group_id, function ($query) use ($group_id) {
-            return $query->where('group_id', $group_id);
-        })
-        ->get()
-        ->pluck('subject_name', 'id')
-        ->toArray();
 
-    if (count($subjects) > 0) {
-        return $subjects;
-    } else {
-        return response()->json(404);
-    }
-}
+
+     return Subject::query()
+        ->where('department_branch_id','=',$request->department_branch_id)
+        ->where('group_id','=',$request->group_id)
+        ->pluck('subject_name', 'id');
+
+  }
 
 }

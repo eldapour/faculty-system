@@ -6,15 +6,15 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}_Ar</label>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.arabic') }}</label>
                     <input type="text" class="form-control" value="{{ $advertisement->title[lang()] }}" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}_En</label>
+                    <label for="title" class="form-control-label">{{ trans('admin.title')  ." ". trans('admin.english') }}</label>
                     <input type="text" class="form-control" value="{{ $advertisement->title[lang()] }}" name="title[en]" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="title" class="form-control-label">{{ trans('admin.title') }}_Fr</label>
+                    <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.france') }}</label>
                     <input type="text" class="form-control" value="{{ $advertisement->title[lang()] }}" name="title[fr]" required>
                 </div>
             </div>
@@ -49,20 +49,20 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_Ar</label>
-                    <textarea name="description[ar]" class="form-control" rows="8"></textarea>
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.arabic') }}</label>
+                    <textarea name="description[ar]" class="form-control" rows="8">{{ $advertisement->description['ar'] }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_En</label>
-                    <textarea name="description[en]" class="form-control" rows="8"></textarea>
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.english') }}</label>
+                    <textarea name="description[en]" class="form-control" rows="8">{{ $advertisement->description['en'] }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}_Fr</label>
-                    <textarea name="description[fr]" class="form-control" rows="8"></textarea>
+                    <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.france') }}</label>
+                    <textarea name="description[fr]" class="form-control" rows="8">{{ $advertisement->description['fr'] }}</textarea>
                 </div>
             </div>
         </div>

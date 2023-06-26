@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -66,6 +67,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function subjects(): BelongsToMany{
+
+        return $this->belongsToMany(Subject::class,'subject_students','user_id','subject_id','id','id')
+            ->withPivot(['group_id', 'year','period'])
+            ->withTimestamps();
+    }
+
+
+
 }
 
 

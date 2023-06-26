@@ -2,11 +2,14 @@
 <html lang="en" dir="ltr">
 
 <head>
+
     @include('admin.layouts.head')
+
 
     <style>
         @include('admin.layouts.loader.formLoader.loaderCss')
     </style>
+
 
 
 </head>

@@ -66,6 +66,11 @@ return [
     'Those concerned with evidence and diploma' => "Ceux concernés par la preuve et le diplôme",
     'Diploma certificates' => "Certificats de diplôme",
     'Student documents' => "Documents étudiants",
+    "exam" => "Examen",
+    "exams" => "Examens",
+    "full_name" =>  "Nom et prénom",
+    "annual_programming" => "Programmation annuelle",
+    "Reasons_for_redress" => "Motifs de réparation",
 
 
 
@@ -213,7 +218,7 @@ return [
     'period' => 'période',
 
     // Subject Unit Doctor
-    'subject_unit_doctor' => 'médecin de l unité de discipline',
+    'subject_unit_doctor' => 'Ajouter une unité au professeur',
     'subject_unit_doctors' => 'unité sujette',
 
     // University Setting
@@ -237,7 +242,7 @@ return [
 
 
     // Subject Exam Student
-    'subject_exam_student' => "Appel d'examen",
+    'subject_exam_student' => 'Rappel examen',
     'subject_exam_students' => 'Subject Exam Students',
     'exam_code' => 'Exam Code',
     'section' => 'Section',
@@ -320,6 +325,8 @@ return [
     "date_enter_degree" => "Date Entrez le diplôme",
     "number_of_students" => "nombre d'étudiants",
     "number_of_doctors" => "nombre de médecins",
+    "exam_degree" => "Diplôme d'examen",
+    "the_score_has_been_modified_successfully" => "Le score a été modifié avec succès",
 
 
     //Certificates
@@ -346,6 +353,9 @@ return [
     "request_status_is_accepted" => "Le statut de la demande est accepté",
     "request_status_is_refused" => "Le statut de la demande est refusé",
     "request_status_is_under_processing" => "Le statut de la demande est en cours de traitement",
+    "process_exam_students" => "Processus d'examen des étudiants",
+    "the_remedial_request_has_been_registered_successfully" => "La demande de réparation a été enregistrée avec succès",
+    "You_are_only" => "Vous n'avez droit qu'à une seule demande pendant la période de la session de rattrapage",
 
 
     // data modification
@@ -391,8 +401,71 @@ return [
      'period_all' => 'toutes les périodes',
     'period_finished' => "période terminée",
 
+    'group_choice' => "choisir le groupe",
+
+    'subject_choice' => "choix du sujet",
+    'for' => " pour l'élève ",
 
 
+    "unit_name" => 'classe',
+    'description_text' => 'notes',
+
+    'result' => 'Résultats unitaires',
+
+
+    //الرموز
+    "group_code" => "code_groupe",
+    "department_code" => "code_departement",
+    "department_branch_code" => "department_branch_code",
+    "unit_code" => "unit_code",
+
+
+
+
+    "group_code_ar" => "group code in Arabic",
+    "group_code_en" => "group code in English",
+    "group_code_fr" => "group code in French",
+
+
+    "department_code_ar" => "Department Code in Arabic",
+    "department_code_en" => "department code in English",
+    "department_code_fr" => "department code in French",
+
+
+    "department_branch_code_ar" => "Department branch code Arabic",
+    "department_branch_code_en" => "department branch code English",
+    "department_branch_code_fr" => "department branch code french",
+
+
+    "unit_code_ar" => "Unit Code in Arabic",
+    "unit_code_en" => "Unit code English",
+    "unit_code_fr" => "Unit code french",
+
+
+    "situation_with_management" => "situation with management",
+    "situation_with_treasury" => "situation with treasury",
+
+
+    "description_situation_with_management" => "A note on the situation with management",
+    "description_situation_with_management_ar" => "A note on the situation with management in Arabic",
+    "description_situation_with_management_en" => "A Note on Situation with Management in English",
+    "description_situation_with_management_fr" => "A note on situation with management in French",
+
+
+    "description_situation_with_treasury" => "A note on the situation with the safe",
+    "description_situation_with_treasury_ar" => "A note on the situation with the treasury in Arabic",
+    "description_situation_with_treasury_en" => "A note on the situation with the treasury in English",
+    "description_situation_with_treasury_fr" => "A note on the situation with the treasury in French",
+
+
+    "pay" => "payable",
+    "not_pay" => "not payable",
+
+
+    "problem" => "there is a problem",
+    "no_problem" => "no problem",
+
+    "no_notes" => "there are no notes",
 ];
 
 

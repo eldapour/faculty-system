@@ -10,13 +10,15 @@ class Group extends Model
 {
     use HasFactory, HasTranslations;
 
-    public array $translatable = ['group_name'];
+    public array $translatable = ['group_name','group_code'];
 
     protected $fillable = [
-        'group_name'
+        'group_name',
+        'group_code'
     ];
 
     protected $casts = [
-        'group_name' => 'json'
+        'group_name' => 'json',
+        'group_code' => 'json'
     ];
 }

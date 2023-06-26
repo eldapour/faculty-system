@@ -11,7 +11,7 @@ class UnitRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,13 +21,15 @@ class UnitRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'unit_name.ar' => 'required',
-            'unit_name.en' => 'required',
-            'unit_name.fr' => 'required',
-            'subject_id' => 'required',
+            'unit_name_ar' => 'required',
+            'unit_name_en' => 'required',
+            'unit_name_fr' => 'required',
+            'unit_code_ar' => 'required',
+            'unit_code_en' => 'required',
+            'unit_code_fr' => 'required',
         ];
     }
 }

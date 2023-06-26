@@ -12,9 +12,10 @@ return new class extends Migration
      * @return void
      */
 
-    /*
+     /*
      * طلب اعاده الامتحان المقصود بها طلبات الاستدراك
      */
+
     public function up()
     {
         Schema::create('process_exams', function (Blueprint $table) {
