@@ -73,7 +73,7 @@ return [
     "oldPassword" => "كلمة السر القديمة",
     "repeatPassword" => "تاكيد كلمة السر",
 
-    "certificate_name" => "اسم الشهادة",
+    "certificate_name" => "جميع الشهادات",
     "update_degree" => "تعديل العلامة",
     "updated_degree_successfully" => "تم تعديل العلامة بنجاح",
     "the_entered_mark" => "العلامة المدخلة اكبر من علامة الامتحان",

@@ -241,12 +241,12 @@
                     </a>
                     <ul class="slide-menu">
 
-                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
-                        </li>
+                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a></li>
 
 
                     </ul>
                 </li>
+
 
 
 
@@ -310,9 +310,10 @@
                     <span class="side-menu__label">{{ trans('admin.subjects') }}</span>
                 </a>
             </li>
+
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('certificate_name.index') }}">
-                    <i class="fa fa-book side-menu__icon"></i>
+                    <i class="fa fa-paperclip side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.certificate_name') }}</span>
                 </a>
             </li>
@@ -347,22 +348,23 @@
                 </a>
             </li>
 
-{{--            <li class="slide">--}}
-{{--                <a class="side-menu__item" href="{{ route('subject_student.index') }}">--}}
-{{--                    <i class="fa fa-user-check side-menu__icon"></i>--}}
-{{--                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
 
 
 
             <li class="slide">
-                <a class="side-menu__item" href="{{ route('subject_exam_students.index') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span>
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-search side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span><i
+                            class="angle fa fa-angle-right"></i>
                 </a>
-            </li>
+                <ul class="slide-menu">
 
+                    <li><a href="{{ route('subject_exams.index') }}" class="slide-item">{{ trans('admin.subject_exams') }}</a></li>
+                    <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a></li>
+
+
+                </ul>
+            </li>
 
 
 

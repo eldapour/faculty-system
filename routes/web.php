@@ -14,7 +14,6 @@ use App\Http\Controllers\Front\TimeUsesController;
 
 require __DIR__ . '/admin.php';
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front',

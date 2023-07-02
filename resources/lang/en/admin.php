@@ -80,7 +80,7 @@ return [
     "oldPassword" => "old Password",
     "repeatPassword" => "repeat Password",
 
-    "certificate_name" => "Certificate Name",
+    "certificate_name" => "All certificates",
     "update_degree" => "Update Degree",
     "updated_degree_successfully" => "Updated Degree Successfully",
     "the_entered_mark" => "The entered mark is greater than the exam mark",
