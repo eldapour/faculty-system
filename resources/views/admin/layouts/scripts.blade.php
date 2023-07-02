@@ -105,12 +105,13 @@
         `;
 
     <?php
-        $reregistration = \App\Models\TrackReregister::where('user_id', '=',auth()->user()->id)
-        ->whereYear('year',\Carbon\Carbon::now()->format('Y'))->latest()->first()
-        ?>
-    // show RegisterForm Modal
+    $reregistration = \App\Models\TrackReregister::query()
+        ->where('user_id', auth()->user()->id)
+        ->whereYear('year', \Carbon\Carbon::now()->format('Y'))->first();
+    ?>
+    @if($reregistration == null)
     $(document).ready(function () {
-        if ({{ auth()->user()->user_type == 'student' && $reregistration->status = 0 }} && {{ $university_settings[0]->reregister_start < \Carbon\Carbon::now()}}) {
+        if ({{ auth()->user()->user_type == 'student' && $university_settings[0]->reregister_start < \Carbon\Carbon::now() }}) {
             $('#RegisterForm-body').html(loader)
             $('#RegisterForm').modal('show')
             setTimeout(function () {
@@ -118,6 +119,8 @@
             }, 250)
         }
     })
+    @endif
+
 
 
     $(document).ready(function () {
