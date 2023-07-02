@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\UniversitySetting;
 use Illuminate\Http\JsonResponse;
@@ -71,7 +75,7 @@ class LoginController extends Controller
         }
     } // end Login
 
-    public function activeStudent(Request $request)
+    public function activeStudent()
     {
         return view('admin.auth.active-student');
     }
@@ -92,8 +96,14 @@ class LoginController extends Controller
             if ($user->user_status !== 'un_active') {
                 return response()->json(401);
             } else {
-                $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email);
-                Mail::send('admin.mail', $data, function ($message) use ($user) {
+                $token = Str::random(64);
+                DB::table('email_verification')->insert([
+                    'email' => $user->email,
+                    'token' => $token,
+                    'created_at' => Carbon::now()
+                ]);
+                $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email, 'token' => $token);
+                Mail::send('admin.mail.mail', $data, function ($message) use ($user) {
                     $message->to($user->email, $user->first_name)->subject
                     ('Activation Email');
                     $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
@@ -105,17 +115,21 @@ class LoginController extends Controller
         }
     } // end active Student
 
-    public function activeStd($email)
+    public function activeStd($token)
     {
-        $user = User::where('email', '=', $email)->first();
+        $email = DB::table('email_verification')
+            ->where('token', '=', $token)
+            ->whereDate('created_at', '=', Carbon::now()->format('Y-m-d'))
+            ->first('email');
+        $user = User::where('email', '=', $email->email)->first();
         $user->user_status = 'active';
         $user->save();
-        return view('admin.mail_active');
+        return view('admin.mail.mail_active');
     }
 
     public function resetPassView(Request $request)
     {
-        return view('admin.mailPass');
+        return view('admin.reset_password.mailPass');
     }
 
     public function resetPass(Request $request)
@@ -131,7 +145,7 @@ class LoginController extends Controller
         ]);
 
         $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email, 'token' => $token);
-        Mail::send('admin.password_reset', $data, function ($message) use ($user, $email) {
+        Mail::send('admin.reset_password.password_reset', $data, function ($message) use ($user, $email) {
             $message->to($email, $user->first_name)->subject
             ('Reset Password');
             $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
@@ -140,14 +154,28 @@ class LoginController extends Controller
         return redirect()->route('student.login')->with('success', 'check your email');
     }
 
+    /**
+     * @param $token
+     * @return Application|Factory|View
+     */
     public function doResetPass($token)
     {
-        return view('admin.do_password_reset', compact('token'));
+        $expiredDate = Carbon::now()->addHour();
+        $checkToken = DB::table('password_resets')
+            ->where('token', $token)
+            ->first();
+        if (!$checkToken) {
+            return view('admin.error.index');
+        }else if ($checkToken->created_at > $expiredDate) {
+            return view('admin.error.index');
+        } else {
+            return view('admin.reset_password.do_password_reset', compact('token'));
+        }
     }
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function DoneResetPass(Request $request)
     {
@@ -155,14 +183,16 @@ class LoginController extends Controller
         $token = $request->token;
         $email = DB::table('password_resets')
             ->where('token', '=', $token)
-            ->whereDate('created_at','=',Carbon::now()->format('Y-m-d'))
+            ->whereDate('created_at', '=', Carbon::now()->format('Y-m-d'))
             ->first('email');
         $user = User::where('email', $email->email)->first();
         $user->password = Hash::make($request->password);
+
+        DB::table('password_resets')->where('token', $token)->delete();
         return redirect()->route('student.login')->with('success', 'check your email');
     }
 
-    public function logout(): \Illuminate\Http\RedirectResponse
+    public function logout(): RedirectResponse
     {
         if (auth()->user()->user_type !== 'student') {
             Auth::logout();

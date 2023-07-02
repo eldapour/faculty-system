@@ -95,6 +95,19 @@
 
         }
     });
+
+    $(document).ready(function() {
+        let userType = '{{ auth()->user()->user_type }}';
+        let active = '{{ auth()->user()->user_status }}';
+
+        if(userType == 'student' && active == 'un_active'){
+            toastr.error('{{ trans('admin.logout') }}');
+            setTimeout(x => {
+                window.location.href = '{{ route('logout') }}';
+            }, 2000);
+
+        }
+    });
 </script>
 
 @yield('js')

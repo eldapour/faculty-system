@@ -12,8 +12,7 @@
         <div class="content-body container-fluid">
 
             <div class="auth-wrapper auth-v2">
-                <div class="auth-inner row m-0">
-
+                <div class="auth-inner col-12 row justify-content-center">
                     <div class=" col-lg-8">
                         <div class="d-none d-lg-flex">
                             <!-- Brand logo-->
@@ -124,16 +123,10 @@
                                 </div>
                             </div>
                         </div>
-
-{{--                        <div class="d-none d-lg-flex">--}}
-{{--                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img--}}
-{{--                                    class="img-fluid" src="{{ asset('app-assets')}}/images/pages/login-v2.svg"--}}
-{{--                                    alt="Login V2"/></div>--}}
-{{--                        </div>--}}
                     </div>
                     <!-- /Left Text-->
                     <!-- Login-->
-                    <div class="d-flex col-lg-12 align-items-center auth-bg px-2 p-lg-5">
+                    <div class="d-flex col-lg-6 col-12 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                             <div class="d-flex justify-content-center">
                                 <img src="{{ asset('assets/logo/download.jfif') }}" alt="no-image">
@@ -151,7 +144,7 @@
                                 <div class="form-group">
                                     <label class="form-label" for="national_number">@lang('admin.national_number')/ @lang('admin.department_branch_code')</label>
                                     <input class="form-control" id="national_number" type="number" name="national_number"
-                                           placeholder="WXYZ" aria-describedby="email" autofocus=""
+                                           placeholder="XXXXXXXXXXXXXXXX" aria-describedby="email" autofocus=""
                                            tabindex="1"/>
                                 </div>
                                 <div class="form-group">

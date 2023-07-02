@@ -101,7 +101,6 @@
                         toastr.error(
                             '{{ trans('admin.This email is not activated. Do it through the link sent to the mail, or contact the administration') }}',
                             null, {
-                                "positionClass": "toast-center-center",
                                 "timeOut": "90000000",
                             });
                         setTimeout(E => {
@@ -190,7 +189,7 @@
                         ' {{ trans('login.Account activation') . ' ' . trans('admin.Loading') }} '
                     );
                     setTimeout(x => {
-                         window.location.href = '{{ route('student.login') }}';
+                         window.location.href = '{{ route('emailSentBack') }}';
                     }, 3000)
                 } else if (data == 401) {
                     toastr.error('{{ trans('admin.This email has already been activated') }}');
