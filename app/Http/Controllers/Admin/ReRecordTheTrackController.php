@@ -59,8 +59,19 @@ class ReRecordTheTrackController extends Controller
             ->first('year_start');
         $reregister = TrackReregister::query()
             ->where('user_id','=',$request->user_id)
-            ->whereYear('year','=',$period->year_start)
-            ->update(['status' => 1]);
+            ->whereYear('year','=',Carbon::parse($period->year_start))
+            ->first();
+        if (!$reregister){
+            $reregister = TrackReregister::query()
+            ->create([
+                'user_id' => auth()->user()->id,
+                'year' => Carbon::parse($period->year_start),
+                'status' => 1,
+            ]);
+        }else {
+            $reregister->status = 1;
+            $reregister->save();
+        }
         if ($reregister){
             return response()->json(['status' => 200]);
         } else {

@@ -49,8 +49,10 @@
             },
             success: function (data) {
                 if (data.status == 200) {
-                    $('#dataTable').DataTable().ajax.reload();
                     toastr.success(' {{ trans('admin.re_record_the_track') }} ');
+                    setTimeout(function() {
+                       window.location.href = '{{ route('admin.home') }}';
+                    },2000);
                 } else if (data.status == 405) {
                     toastr.error(data.mymessage);
                 } else

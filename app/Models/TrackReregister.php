@@ -9,7 +9,6 @@ class TrackReregister extends Model
 {
     protected $fillable = [
         'user_id',
-        'department_branch_id',
         'year',
         'status',
     ];
@@ -18,10 +17,4 @@ class TrackReregister extends Model
     {
         return $this->belongsTo(User::class,'user_id', 'id');
     } // user
-
-    public function departmentBranch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(DepartmentBranch::class,'department_branch_id', 'id');
-    } // end department
-
 }
