@@ -23,7 +23,7 @@
                             <form class="auth-Active-form mt-2" method="POST" id="ActiveForm" action="{{ route('DoneResetPass') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="hidden" name="email" value="{{ $email }}">
+                                    <input type="hidden" name="token" value="{{ $token }}">
                                     <label class="form-label" for="password">New Password</label>
                                     <input class="form-control" id="password" type="password" name="password"
                                            placeholder="*********" aria-describedby="email" autofocus=""

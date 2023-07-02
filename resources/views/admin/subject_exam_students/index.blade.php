@@ -32,6 +32,11 @@
 										<i class="fe fe-plus"></i>
 									</span> {{ trans('admin.add') }}
                         </button>
+                        <a href="{{ route('process_exams.index') }}" class="btn btn-danger btn-icon text-white">
+									<span>
+										<i class="fe fe-pen"></i>
+									</span> {{ trans('admin.process_exams') }}
+                        </a>
                     </div>
                     @endif
                 </div>
@@ -184,9 +189,9 @@
                     return xhr;
                 },
                 beforeSend: function () {
-                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
-                    progressDiv.removeClass('d-none');
+                    // $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                    //     ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                    // progressDiv.removeClass('d-none');
                 },
                 success: function (data) {
                     if (data.status === 200) {
