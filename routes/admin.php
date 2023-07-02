@@ -232,6 +232,7 @@ Route::group([
 
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
+    Route::get('certificate/registeration', [CertificateController::class, 'registeration'])->name('certificates.registeration');
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
     Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
 
