@@ -134,7 +134,7 @@ return [
     "branch_restart_register" => "إعادة تسجيل المسار",
     "student_branch" => "الطالب",
     "You_must_re_register" => "يجب عليك اعادة التسجيل لتستطيع الدخول الى المنصة",
-    "this_process_is_extended" => "هذه العملية ممتدة",
+    "this_process_is_extended" => "هذه العملية ممتدة من ",
     "until_an_end" => "الى غاية",
 
 

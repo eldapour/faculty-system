@@ -84,42 +84,10 @@
         </div>
         <!-- Create Or Edit Modal -->
 
-        <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{ trans('admin.re_record_the_track') }}</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>{{ trans('admin.this_process_is_extended') }} .'2023-02-05'.  {{ trans('admin.until_an_end') }} .'2023-02-08'. </p>
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
     </div>
     @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
-    // this code to get parameter sended from footer page when student logged in but not recored the department
-    <?php
-$additionalData = request()->input('data');
-
-if (!empty($additionalData)) { ?>
-    <script>
-        $("#myModal").modal("show");
-    </script>
-    <?php       }
-?>
     <script>
         var columns = [{
                 data: 'id',
@@ -153,13 +121,5 @@ if (!empty($additionalData)) { ?>
         // Add Using Ajax
         showEditModal('{{ route('group.edit', ':id') }}');
         editScript();
-
-        // this function make refresh if user try to ignore this modal
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') { // Check if ESC key is pressed
-                toastr.info('{{ trans('admin.You_must_re_register') }}');
-                location.reload(); // Reload the page
-            }
-        });
     </script>
 @endsection

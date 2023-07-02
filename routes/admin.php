@@ -267,7 +267,9 @@ Route::group([
     Route::post('importPointStatement', [PointStatementController::class, 'importPointStatement'])->name('importPointStatement');
 
     #### Re Record The Track ####
-    Route::resource('re_record_the_track', ReRecordTheTrackController::class);
+    Route::resource('reregisterTrack', ReRecordTheTrackController::class);
+    Route::get('reregisterForm', [ReRecordTheTrackController::class,'reregisterForm'])->name('reregisterForm');
+    Route::post('reregisterFormStore', [ReRecordTheTrackController::class,'reregisterFormStore'])->name('reregisterFormStore');;
 
 });
 
