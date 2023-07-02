@@ -150,8 +150,8 @@ class LoginController extends Controller
             ('Reset Password');
             $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
         });
-        toastr()->success('check your email');
-        return redirect()->route('student.login')->with('success', 'check your email');
+
+        return redirect()->route('emailSentBack');
     }
 
     /**
@@ -189,7 +189,7 @@ class LoginController extends Controller
         $user->password = Hash::make($request->password);
 
         DB::table('password_resets')->where('token', $token)->delete();
-        return redirect()->route('student.login')->with('success', 'check your email');
+        return redirect()->route('student.login');
     }
 
     public function logout(): RedirectResponse

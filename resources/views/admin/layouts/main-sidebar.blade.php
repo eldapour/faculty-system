@@ -153,7 +153,7 @@
             <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
         </li>
         <li class="slide">
-            <a class="side-menu__item" href="{{ route('re_record_the_track.index') }}">
+            <a class="side-menu__item" href="{{ route('reregisterTrack.index') }}">
                 <i class="fa fa-book side-menu__icon"></i>
                 <span class="side-menu__label">{{ trans('admin.re_record_the_track') }}
             </a>
