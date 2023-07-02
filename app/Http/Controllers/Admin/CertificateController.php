@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\CertificateImport;
 use App\Models\Certificate;
 use App\Models\CertificateType;
+use App\Models\SubjectStudent;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -199,5 +200,15 @@ class CertificateController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
+    }
+
+    public function registeration(request $request){
+
+        $data['semesters'] = SubjectStudent::query()
+            ->get();
+
+
+        return view('admin.certificates.registeration',$data);
+
     }
 }

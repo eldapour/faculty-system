@@ -1,4 +1,8 @@
 <?php
+
+use App\Models\UniversitySetting;
+
+$university_settings=UniversitySetting::all()->first();
 return [
     'welcome_back' => 'مرحبا بعودتك',
     'language' => 'اللغة',
@@ -350,6 +354,7 @@ return [
     //Certificates
     "diploma_id" => "رمز الشهاده",
     "diploma_name" => "اسم الشهاده",
+    "registered_units" => "الوحدات المسجل بها ",
     "diploma_name_ar" => "اسم الشهاده باللغه العربيه",
     "diploma_name_en" => "اسم الشهاده باللغه الانجليزيه",
     "diploma_name_fr" => "اسم الشهاده باللغه الفرنسيه",
@@ -418,7 +423,12 @@ return [
 
     'group_choice' => "اختر الفوج",
     'subject_choice' => "اختر الوحده",
+    'unit_name_lang' => "اسم الوحده",
     'for' => " للطالب ",
+    'semester' => "الفصل الدراسي",
+    'college_enrollment_certificate' => "شهادة التسجيل بالكلية",
+    'national' => "شهادة التسجيل بالكلية",
+    'dean_of_college_testifies' => "يشهد عميد الكلية '".$university_settings->title[app()->getLocale()]."' أن الطالب:",
 
 
     'unit_name' => "الفصل لدراسي",
