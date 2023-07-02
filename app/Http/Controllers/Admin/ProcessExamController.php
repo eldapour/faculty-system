@@ -69,6 +69,7 @@ class ProcessExamController extends Controller
 
     public function processExamStudent(Request $request)
     {
+        $subject_exam_id = $request->id;
         $period = Period::query()
                 ->where('status', '=', 'start')
                 ->first();
@@ -112,7 +113,7 @@ class ProcessExamController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('admin.process_exams.procees_exam_students');
+            return view('admin.process_exams.procees_exam_students', compact('subject_exam_id'));
         }
     }
 

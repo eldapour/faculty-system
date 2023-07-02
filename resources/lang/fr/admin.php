@@ -80,7 +80,7 @@ return [
     "re_record_the_track" => 'Réenregistrer la piste',
     "You_must_re_register" => "Vous devez vous réinscrire pour pouvoir accéder à la plateforme",
 
-    "certificate_name" => "Nom du certificat",
+    "certificate_name" => "Tous les certificats",
     "update_degree" => "Mettre à jour le diplôme",
     "updated_degree_successfully" => "Diplôme mis à jour avec succès",
     "the_entered_mark" => "La note saisie est supérieure à la note de l'examen",

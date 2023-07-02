@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.subjects') }}
+    {{ trans('admin.session') ." ". trans('admin.normal') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.subjects') }}
+{{ trans('admin.session') ." ". trans('admin.normal') }}
 @endsection
 @section('content')
 
@@ -13,6 +13,9 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
+                    @if(auth()->user()->user_type == 'student')
+
+                    @else
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
@@ -20,6 +23,7 @@
 									</span> {{ trans('admin.add') }}
                         </button>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -28,12 +32,13 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.code_latin')}}</th>
-                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.exam_date') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.exam_day') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.period') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.time_start') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.time_end') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.department') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.branch') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -74,7 +79,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_students') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -93,22 +98,23 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'subject_name', name: 'subject_name'},
-            {data: 'code', name: 'code'},
-            {data: 'unit_id', name: 'unit_id'},
+            {data: 'exam_date', name: 'exam_date'},
+            {data: 'exam_day', name: 'exam_day'},
+            {data: 'period', name: 'period'},
+            {data: 'time_start', name: 'time_start'},
+            {data: 'time_end', name: 'time_send'},
+            {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
-            {data: 'department_id', name: 'department_id'},
-            {data: 'department_branch_id', name: 'department_branch_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('subjects.index')}}', columns);
+        showData('{{route('normalSession')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('subjects.destroy',':id')}}');
+        destroyScript('{{route('subject_exams.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('subjects.create')}}');
+        showAddModal('{{route('subject_exams.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('subjects.edit',':id')}}');
+        showEditModal('{{route('subject_exams.edit',':id')}}');
         editScript();
     </script>
 @endsection

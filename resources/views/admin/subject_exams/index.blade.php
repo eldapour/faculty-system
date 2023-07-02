@@ -14,7 +14,7 @@
                 <div class="card-header">
                     <h3 class="card-title"></h3>
                     @if(auth()->user()->user_type == 'student')
-                    
+
                     @else
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
@@ -80,7 +80,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_students') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_exam') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

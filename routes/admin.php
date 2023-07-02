@@ -174,6 +174,9 @@ Route::group([
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
+    Route::get('remedial_session', [SubjectExamController::class, 'remedialSession'])->name('remedialSession');
+    Route::get('normal_session', [SubjectExamController::class, 'normalSession'])->name('normalSession');
+    Route::get('create_remedial', [SubjectExamController::class, 'createRemedial'])->name('createRemedial');
     Route::get('getAllSubjectOfDepartmentBranchById', [SubjectExamController::class, 'getSubject'])->name('getAllSubjectOfDepartmentBranchById');
 
     #### Subject Exam Student ####
@@ -209,7 +212,7 @@ Route::group([
 
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
-    Route::get('process_examss/students', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
+    Route::get('process_examss/students/{id}', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
 
 

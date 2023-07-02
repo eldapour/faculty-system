@@ -29,6 +29,7 @@ class SubjectRequest extends FormRequest
                 'subject_name_ar' => 'required',
                 'subject_name_en' => 'required',
                 'subject_name_fr' => 'required',
+                'code' => 'required|unique:subjects,code',
                 'group_id' => 'required|exists:groups,id',
                 'department_id' => 'required|exists:departments,id',
                 'department_branch_id' => 'required|exists:department_branches,id',
@@ -39,6 +40,7 @@ class SubjectRequest extends FormRequest
                 'subject_name_ar' => 'required',
                 'subject_name_en' => 'required',
                 'subject_name_fr' => 'required',
+                'code' => 'required|unique:subjects,code,'. request()->id,
             ];
         }
 
