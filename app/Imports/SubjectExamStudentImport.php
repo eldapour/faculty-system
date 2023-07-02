@@ -22,9 +22,9 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {
             $user = User::where('user_type', '=', 'student')
-                ->where('identifier_id', $rows[$i]['user_code'])->first('id');
+                ->where('identifier_id','=', $rows[$i]['user_code'])->first('id');
 
-            $subject = Subject::where('code', $rows[$i]['subject_code'])->first('id');
+            $subject = Subject::where('code','=', $rows[$i]['subject_code'])->first('id');
 
             $data['user_id'] = $user->id;
             $data['subject_id'] = $subject->id;
