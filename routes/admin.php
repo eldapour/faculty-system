@@ -196,6 +196,7 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+    Route::get('exam_result/all', [\App\Http\Controllers\Student\SubjectExamStudentResultController::class,'index'])->name('exam_result.all');
     Route::get('exportSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'exportSubjectExamStudentResult'])->name('exportSubjectExamStudentResult');
     Route::post('importSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'importSubjectExamStudentResult'])->name('importSubjectExamStudentResult');
 
