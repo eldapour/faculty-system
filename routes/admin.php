@@ -174,6 +174,7 @@ Route::group([
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
+    Route::get('subject_exams/students/all', [\App\Http\Controllers\Student\SubjectExamController::class,'index'])->name('subject_exams.students.all');
     Route::get('remedial_session', [SubjectExamController::class, 'remedialSession'])->name('remedialSession');
     Route::get('normal_session', [SubjectExamController::class, 'normalSession'])->name('normalSession');
     Route::get('create_remedial', [SubjectExamController::class, 'createRemedial'])->name('createRemedial');
