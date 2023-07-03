@@ -152,7 +152,7 @@ return array(
     'App\\Models\\SubjectExamStudentResult' => $baseDir . '/app/Models/SubjectExamStudentResult.php',
     'App\\Models\\SubjectStudent' => $baseDir . '/app/Models/SubjectStudent.php',
     'App\\Models\\SubjectUnitDoctor' => $baseDir . '/app/Models/SubjectUnitDoctor.php',
-    'App\\Models\\TrackReregiter' => $baseDir . '/app/Models/TrackReregiter.php',
+    'App\\Models\\TrackReregister' => $baseDir . '/app/Models/TrackReregister.php',
     'App\\Models\\Unit' => $baseDir . '/app/Models/Unit.php',
     'App\\Models\\UniversitySetting' => $baseDir . '/app/Models/UniversitySetting.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

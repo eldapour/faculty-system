@@ -804,7 +804,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Models\\SubjectExamStudentResult' => __DIR__ . '/../..' . '/app/Models/SubjectExamStudentResult.php',
         'App\\Models\\SubjectStudent' => __DIR__ . '/../..' . '/app/Models/SubjectStudent.php',
         'App\\Models\\SubjectUnitDoctor' => __DIR__ . '/../..' . '/app/Models/SubjectUnitDoctor.php',
-        'App\\Models\\TrackReregiter' => __DIR__ . '/../..' . '/app/Models/TrackReregiter.php',
+        'App\\Models\\TrackReregister' => __DIR__ . '/../..' . '/app/Models/TrackReregister.php',
         'App\\Models\\Unit' => __DIR__ . '/../..' . '/app/Models/Unit.php',
         'App\\Models\\UniversitySetting' => __DIR__ . '/../..' . '/app/Models/UniversitySetting.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
