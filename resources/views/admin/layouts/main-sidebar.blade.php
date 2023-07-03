@@ -420,14 +420,14 @@
 
 
     <li class="slide">
-        <a class="side-menu__item" href="{{route('subject_exam_students.index')}}">
+        <a class="side-menu__item" href="{{route('subject_exams.students.all')}}">
             <i class="fe fe-settings side-menu__icon"></i>
             <span class="side-menu__label">استدعاء الامتحانات</span>
         </a>
     </li>
 
     <li class="slide">
-        <a class="side-menu__item" href="#">
+        <a class="side-menu__item" href="{{route('exam_result.all')}}">
             <i class="fe fe-settings side-menu__icon"></i>
             <span class="side-menu__label">نتائج الامتحانات</span>
         </a>

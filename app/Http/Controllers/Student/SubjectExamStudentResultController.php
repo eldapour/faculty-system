@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Student;
+
 use App\Exports\SubjectExamStudentResultExport;
 use App\Imports\SubjectExamStudentResultImport;
 use App\Models\Period;
@@ -34,22 +35,15 @@ class SubjectExamStudentResultController extends Controller
 
             return Datatables::of($subject_exam_student_results)
 
-                 ->addColumn('user', function ($subject_exam_student_results) {
-                     return $subject_exam_student_results->user->first_name;
-                 })
                  ->addColumn('subject_id', function ($subject_exam_student_results) {
-                     return $subject_exam_student_results->subject->subject_name ;
+                     return $subject_exam_student_results->subject->subject_name;
                  })
-                ->addColumn('identifier_id', function ($subject_exam_student_results) {
-                    return  $subject_exam_student_results->user->identifier_id ;
-                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('admin.students.subject_exam_student_results.index');
+            return view('admin.subject_exam_student_results.students.index');
         }
     }
-
 
 
 

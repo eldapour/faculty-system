@@ -507,7 +507,16 @@ return [
     "subject_name_" => "unit",
     "group_name_" => "cohort",
     "year_name_" => "academic year",
-    "period_name_" => "period"
+    "period_name_" => "period",
+
+
+    "unit_name_" => "chapter",
+    "doctor_name_" => "professor",
+    "day_name_" => "today",
+    "date_" => "date",
+    "time_" => "time",
+    "section_" => "hall",
+    "exam_code_" => "Exam Code",
 
 ];
 

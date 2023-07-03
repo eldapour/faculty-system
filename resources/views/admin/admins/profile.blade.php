@@ -165,7 +165,7 @@
                                 @foreach($subject_students as $data)
                                 <tr>
                                     <td>{{ $data->year }}</td>
-                                    <td>{{ $data->group->group_name }}</td>
+                                    <td>{{ $data->subject->group->group_name }}</td>
                                     <td>{{ $data->subject->subject_name }}</td>
                                     <td>{{ $period->period }}</td>
                                 </tr>
