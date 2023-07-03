@@ -11,6 +11,7 @@ use App\Models\SubjectExam;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -30,6 +31,7 @@ class SubjectExamStudentResultController extends Controller
 
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period','=',$period->period)
+                ->where('user_id','=',Auth::id())
                 ->where('year','=',$period->year_start)
                 ->get();
 
