@@ -20,6 +20,7 @@ class User extends Authenticatable
 
     use HasTranslations;
 
+    //translate data
     public $translatable = ['city','birthday_place'];
 
     /**
