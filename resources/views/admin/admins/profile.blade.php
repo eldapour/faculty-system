@@ -386,7 +386,7 @@
                 $('select').select2();
             });
 
-            // Update By Ajax
+            // updatePassForm By Ajax 
             $(document).on('submit','Form#updatePassForm',function(e) {
                 e.preventDefault();
                 var formData = new FormData(this);
