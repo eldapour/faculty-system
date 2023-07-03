@@ -79,7 +79,7 @@
                             </div>
                             @if(auth()->user()->user_type == 'student')
                                 <div class="row">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered table-striped">
                                         <tbody>
                                         <tr>
                                             <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
@@ -131,7 +131,7 @@
                                 </div>
                             @else
                                 <div class="row">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered table-striped">
                                         <tbody>
                                         <tr>
                                             <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
