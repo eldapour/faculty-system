@@ -185,7 +185,7 @@ Route::group([
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
     Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
     Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
-
+    Route::get('printSubjectExamStudent/{id?}', [SubjectExamStudentController::class, 'printSubjectExamStudent'])->name('printSubjectExamStudent');
     #### Element ####
     Route::resource('elements', ElementController::class);
 

@@ -57,10 +57,12 @@
                                     <a href="#details" class="active show"
                                                 data-toggle="tab">@lang('admin.information')</a>
                                 </li>
+                                @if(auth()->user()->user_type == 'student')
                                 <li class="">
                                     <a href="#units" class="show"
                                        data-toggle="tab">@lang('admin.subjects')</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -84,9 +86,6 @@
                                         </tr>
                                         <tr>
                                             <td>{{ trans('admin.last_name') }}</td><td>{{ $user->last_name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{ trans('admin.department') }}</td><td></td>
                                         </tr>
                                         <tr>
                                             <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
@@ -132,9 +131,19 @@
                                 </div>
                             @else
                                 <div class="row">
-                                    <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
-                                    <h5 class="col-6">{{ trans('admin.last_name') }} : {{ $user->last_name }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.last_name') }}</td><td>{{ $user->last_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             @endif
                             <button type="button" style="color: white;" class="btn btn-sm badge badge-info-gradient"
@@ -144,6 +153,7 @@
                         </div>
                     </div>
                 </div>
+                @if(auth()->user()->user_type == 'student')
                 <div class="tab-pane" id="units">
                     <div class="card">
                         <div class="card-body">
@@ -175,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div><!-- COL-END -->
     </div>
