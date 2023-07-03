@@ -1,25 +1,20 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.subject_students') }}
+    {{ trans('admin.all_schedules') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.subject_students') }}
+    {{ trans('admin.all_schedules') }}
 @endsection
 @section('content')
+
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
-                    {{--  <div class="">
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.add') }}
-                        </button>
-                    </div>  --}}
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -28,12 +23,10 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-
-                                <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.year_name_') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period_name_') }}</th>
-                                {{--  <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>  --}}
+                                <th class="min-w-50px">{{ trans('admin.department_name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.description_text') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.schedule_pdf_upload') }}</th>
                             </tr>
                             </thead>
                         </table>
@@ -73,12 +66,12 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_students') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3"> {{ trans('admin.add_schedule') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="modal-body">
+                    <div class="modalContent" id="modalContent">
 
                     </div>
                 </div>
@@ -88,25 +81,30 @@
     </div>
     @include('admin.layouts.myAjaxHelper')
 @endsection
+
+
 @section('ajaxCalls')
     <script>
+        var loader = ` <div class="linear-background">
+                            <div class="inter-crop"></div>
+                            <div class="inter-right--top"></div>
+                            <div class="inter-right--bottom"></div>
+                        </div>
+        `;
+
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'subject_id', name: 'subject_id'},
-            {data: 'group_id', name: 'group_id'},
-            {data: 'year', name: 'year'},
-            {data: 'period', name: 'period'},
-            //{data: 'action', name: 'action', orderable: false, searchable: false},
+            {data: 'department_id', name: 'department_id'},
+            {data: 'unit_id', name: 'unit_id'},
+            {data: 'description', name: 'description'},
+            {data: 'pdf_upload', name: 'pdf_upload'},
         ]
-        showData('{{route('subject_student.index')}}', columns);
-        // Delete Using Ajax
-        destroyScript('{{route('subject_student.destroy',':id')}}');
-        // Add Using Ajax
-        showAddModal('{{route('subject_student.create')}}');
-        addScript();
-        // Add Using Ajax
-        showEditModal('{{route('subject_student.edit',':id')}}');
-        editScript();
+
+        showData('{{route('schedules.students.all')}}', columns);
+
     </script>
+
+
 @endsection
+
 

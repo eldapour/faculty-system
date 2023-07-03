@@ -13,11 +13,12 @@ class Schedule extends Model
     protected $fillable = [
         'department_id',
         'unit_id',
+        'year',
         'description',
         'pdf_upload'
     ];
 
-   
+
 
     public function department(): BelongsTo
     {

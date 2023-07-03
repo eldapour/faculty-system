@@ -88,9 +88,6 @@ class SubjectExamController extends Controller
             return view('admin.subject_exams.remedial_session');
         }
     }
-    // end remedialSession
-
-    // Start Normal Session
 
     public function normalSession(request $request)
     {
@@ -130,7 +127,7 @@ class SubjectExamController extends Controller
         }
     }
 
-    // end Normal Session
+
 
 
     public function create()
@@ -222,8 +219,6 @@ class SubjectExamController extends Controller
 
 
     public function getSubject(Request $request): \Illuminate\Support\Collection{
-
-
 
      return Subject::query()
         ->where('department_branch_id','=',$request->department_branch_id)

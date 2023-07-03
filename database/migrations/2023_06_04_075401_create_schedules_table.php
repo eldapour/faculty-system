@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
             $table->longText('description')->nullable();
             $table->longText('pdf_upload');
+            $table->string('year');
             $table->timestamps();
             $table->foreign('unit_id')->references('id')->on('units')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();

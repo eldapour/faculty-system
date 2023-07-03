@@ -486,6 +486,12 @@ return [
     "code_latin" => "Code in Latin",
     "requests" => "requests",
 
+
+    "subject_name_" => "unit",
+    "group_name_" => "cohort",
+    "year_name_" => "academic year",
+    "period_name_" => "period"
+
 ];
 
 

@@ -36,11 +36,15 @@ class AppServiceProvider extends ServiceProvider
     {
         View::share('settings',Setting::first());
         View::share('categories',Category::all());
-        View::share('advertisements', Advertisement::latest()->take(3)->get());
+        View::share('advertisements', Advertisement::query()
+        ->latest()->take(3)
+            ->get());
         View::share('university_settings',UniversitySetting::all());
         View::share('maintenance',UniversitySetting::first());
         View::share('periods',Period::all());
-        View::share('pages',Page::where('category_id', '=', '8')->get());
+        View::share('pages',Page::query()
+        ->where('category_id', '=', '8')
+            ->get());
         Schema::defaultStringLength(191);
     }
 }
