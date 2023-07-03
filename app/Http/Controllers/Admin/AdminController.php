@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\DataModification;
+use App\Models\DepartmentBranchStudent;
+use App\Models\Period;
+use App\Models\SubjectStudent;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
@@ -203,7 +208,20 @@ class AdminController extends Controller
         $user = User::find(auth()->user()->id);
         $user_data = DataModification::where('user_id', $user->id)->get();
 
-        return view('admin.admins.profile',compact('user', 'user_data'));
+        $departmentStudent = DepartmentBranchStudent::query()
+            ->where('user_id',$user->id)
+            ->first('department_branch_id');
+        $period = Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+        $subject_students = SubjectStudent::query()
+            ->where('user_id', '=', Auth::id())
+            ->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start)
+            ->get();
+
+
+        return view('admin.admins.profile',compact('user', 'user_data','subject_students','period','departmentStudent'));
     }
 
     public function updatePass(Request $request): JsonResponse
@@ -222,29 +240,13 @@ class AdminController extends Controller
 
         } else{
 
-            $user->update(['password' => Hash::make($request->password),]);
+            $user->update(['password' => Hash::make($request->password)]);
+            $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email);
+            Mail::send('admin.reset_password.password_reset_dashboard', $data, function ($message) use ($user) {
+                $message->to($user->email, $user->first_name)->subject('Password Changes');
+                $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
+            });
              return response()->json(['status' => 200]);
         }
-
-//        if (!Hash::check($request->old_password,$user->password)) {
-//            return response()->json(['status' => 201]);
-//        } else {
-//            if ($request->password != $request->password_confirm) {
-//                return response()->json(['status' => 203]);
-//            } else {
-//                $user->update([
-//                    'password' => Hash::make($request->password),
-//                ]);
-//
-//                if ($user->save()) {
-//
-//                    return response()->json(['status' => 200]);
-//
-//                } else {
-//
-//                    return response()->json(['status' => 405]);
-//                }
-//            }
-//        }
     }
 }

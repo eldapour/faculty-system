@@ -56,6 +56,7 @@
         else
             passwordErr.addClass('d-none');
     })
+
     // student login form
     $(document).on('click', '.btnLogin-student', function() {
         let email = $('input[name="email"]').val();
@@ -84,11 +85,6 @@
                         setTimeout(function () {
                             location.href = '{{ route('admin.home') }}';
                         }, 2000)
-                    } else if (data === 250) {
-                        toastr.success('{{ trans('login.Logged in successfully') }}');
-                        setTimeout(function() {
-                            location.href = '{{ route('admin.home') }}';
-                        }, 2000);
                     } else if (data === 700) {} else if (data === 405) {
                         toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     } else if (data === 700) {

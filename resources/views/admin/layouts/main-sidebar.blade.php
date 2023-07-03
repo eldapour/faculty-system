@@ -160,6 +160,7 @@
         </li>
 
 
+
                 <li class="slide">
 {{--                    <a class="side-menu__item" data-toggle="slide" href="#">--}}
 {{--                        <i class="fa fa-id-card side-menu__icon"></i>--}}
