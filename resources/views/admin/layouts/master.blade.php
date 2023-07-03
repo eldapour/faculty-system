@@ -58,6 +58,22 @@
                 <!-- End Page -->
             </div>
             <!-- CONTAINER END -->
+
+            <!-- reregisterForm Modal -->
+            <div class="modal fade bd-example-modal-lg" id="RegisterForm" data-backdrop="static" tabindex="-1" role="dialog"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="example-Modal3">{{ trans('admin.re_record_the_track') }} @lang('admin.period') ({{ $periods[0]->period_start_date }} - {{ $periods[0]->period_end_date }})</h5>
+                        </div>
+                        <div class="modal-body" id="RegisterForm-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- reregisterForm Modal -->
         </div>
         <!-- SIDE-BAR -->
 

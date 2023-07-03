@@ -1,7 +1,7 @@
 <!-- DATATABLE CSS -->
-<link href="{{asset('assets/admin')}}/plugins/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />
-<link href="{{asset('assets/admin')}}/plugins/datatable/responsivebootstrap4.min.css" rel="stylesheet" />
-<link href="{{asset('assets/admin')}}/plugins/datatable/fileexport/buttons.bootstrap4.min.css" rel="stylesheet" />
+<link href="{{asset('assets/admin')}}/plugins/datatable/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+<link href="{{asset('assets/admin')}}/plugins/datatable/responsivebootstrap4.min.css" rel="stylesheet"/>
+<link href="{{asset('assets/admin')}}/plugins/datatable/fileexport/buttons.bootstrap4.min.css" rel="stylesheet"/>
 
 <!-- JQUERY JS -->
 <script src="{{asset('assets/admin')}}/js/jquery-3.4.1.min.js"></script>
@@ -22,9 +22,8 @@
 <script src="{{asset('assets/admin')}}/plugins/datatable/fileexport/buttons.colVis.min.js"></script>
 
 
-<link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('assets/admin//css/select2.min.css') }}" rel="stylesheet"/>
 <script src="{{ asset('assets/admin//js/select2.min.js') }}"></script>
-
 
 
 <!-- BOOTSTRAP JS -->
@@ -67,27 +66,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
 
-{{--<script>--}}
-{{--    $(document).ready(function () {--}}
-{{--        $('.dropify').dropify();--}}
-{{--    });--}}
-{{--    @if(auth()->user()->can('CS') || admin()->user()->can('Master'))--}}
-{{--    $('#contact-span').load("{{route('getCount')}}")--}}
-{{--    $('#nav-span').load("{{route('getCount')}}")--}}
-{{--    @endif--}}
-{{--    $('.header-brand-img').attr("src","{{asset($setting->logo)}}")--}}
-{{--</script>--}}
-
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script>
 
     $('.dropify').dropify();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         let userType = '{{ auth()->user()->user_type }}';
         let maintenance = '{{ $maintenance->maintenance }}';
 
-        if(userType == 'student' && maintenance == 1){
+        if (userType == 'student' && maintenance == 1) {
             toastr.error('{{ trans('admin.The_platform_is_in_maintenance') }}');
             setTimeout(x => {
                 window.location.href = '{{ route('logout') }}';
@@ -95,6 +83,58 @@
 
         }
     });
+
+    $(document).ready(function () {
+        let userType = '{{ auth()->user()->user_type }}';
+        let active = '{{ auth()->user()->user_status }}';
+
+        if (userType == 'student' && active == 'un_active') {
+            toastr.error('{{ trans('admin.logout') }}');
+            setTimeout(x => {
+                window.location.href = '{{ route('logout') }}';
+            }, 2000);
+
+        }
+    });
+
+    var loader = ` <div class="linear-background">
+                            <div class="inter-crop"></div>
+                            <div class="inter-right--top"></div>
+                            <div class="inter-right--bottom"></div>
+                        </div>
+        `;
+
+    <?php
+    $reregistration = \App\Models\TrackReregister::query()
+        ->where('user_id', auth()->user()->id)
+        ->whereYear('year', \Carbon\Carbon::now()->format('Y'))->first();
+    ?>
+    @if($reregistration == null)
+    $(document).ready(function () {
+        if ({{ auth()->user()->user_type == 'student' && $university_settings[0]->reregister_start < \Carbon\Carbon::now() }}) {
+            $('#RegisterForm-body').html(loader)
+            $('#RegisterForm').modal('show')
+            setTimeout(function () {
+                $('#RegisterForm-body').load('{{ route('reregisterForm') }}')
+            }, 250)
+        }
+    })
+    @endif
+
+
+
+    $(document).ready(function () {
+        // Get the modal
+        var modal = $('#RegisterForm');
+
+        $(window).click(function (event) {
+            if (event.target == modal[0]) {
+                // Modal cannot be closed
+                return false;
+            }
+        });
+    });
+
 </script>
 
 @yield('js')

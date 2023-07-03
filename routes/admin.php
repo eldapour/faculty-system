@@ -64,13 +64,17 @@ Route::group([
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
     Route::get('/active-student', [LoginController::class, 'activeStudent'])->name('activeStudent');
     Route::post('/activeStudents', [LoginController::class, 'activeStudents'])->name('activeStudents');
-    Route::get('/activeStd/{email}', [LoginController::class, 'activeStd'])->name('activeStd');
+    Route::get('/activeStd/{token}', [LoginController::class, 'activeStd'])->name('activeStd');
     Route::get('/resetPassView/', [LoginController::class, 'resetPassView'])->name('resetPassView');
     Route::post('/resetPass', [LoginController::class, 'resetPass'])->name('resetPass');
-    Route::get('/doResetPass/{email}', [LoginController::class, 'doResetPass'])->name('doResetPass');
+    Route::get('/doResetPass/{token}', [LoginController::class, 'doResetPass'])->name('doResetPass');
     Route::post('/DoneResetPass', [LoginController::class, 'DoneResetPass'])->name('DoneResetPass');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 });
+
+Route::get('/emailSentBack',function (){
+    return view('admin.mail.emailSentBack');
+})->name('emailSentBack');
 
 
 Route::group([
@@ -228,6 +232,7 @@ Route::group([
 
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
+    Route::get('certificate/registeration', [CertificateController::class, 'registeration'])->name('certificates.registeration');
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
     Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
 
@@ -263,7 +268,9 @@ Route::group([
     Route::post('importPointStatement', [PointStatementController::class, 'importPointStatement'])->name('importPointStatement');
 
     #### Re Record The Track ####
-    Route::resource('re_record_the_track', ReRecordTheTrackController::class);
+    Route::resource('reregisterTrack', ReRecordTheTrackController::class);
+    Route::get('reregisterForm', [ReRecordTheTrackController::class,'reregisterForm'])->name('reregisterForm');
+    Route::post('reregisterFormStore', [ReRecordTheTrackController::class,'reregisterFormStore'])->name('reregisterFormStore');;
 
 });
 

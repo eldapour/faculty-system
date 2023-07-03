@@ -152,23 +152,36 @@
         @endif
 
 
-        @if (checkUser('student'))
-            <li>
-                <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard') }}</a></h3>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('re_record_the_track.index') }}">
-                    <i class="fa fa-book side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.re_record_the_track') }}
-                </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-book side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span><i
-                        class="angle fa fa-angle-right"></i>
-                </a>
-                <ul class="slide-menu">
+
+        @if(checkUser('student'))
+
+        <li>
+            <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('reregisterTrack.index') }}">
+                <i class="fa fa-book side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.re_record_the_track') }}
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
+                <i class="fa fa-book side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.college_enrollment_certificate') }}
+            </a>
+        </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_students') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_student.index') }}" class="slide-item">{{ trans('admin.subject_students') }}</a>
+                        </li>
+
+
 
                     <li><a href="{{ route('subject_student.index') }}"
                             class="slide-item">{{ trans('admin.subject_students') }}</a>
@@ -238,8 +251,15 @@
 {{--                    </li>--}}
 
 
+                    <li><a href="{{ route('subject_exam_students.index') }}"
+                            class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
+                    </li>
+
+
+
                 </ul>
             </li>
+
 
 
 
@@ -252,6 +272,9 @@
 {{--                                class="angle fa fa-angle-right"></i>--}}
 {{--                    </a>--}}
                     <ul class="slide-menu">
+
+
+
 
             <li class="slide">
 {{--                <a class="side-menu__item" data-toggle="slide" href="#">--}}
@@ -349,6 +372,9 @@
                     <span class="side-menu__label">{{ trans('admin.subject_unit_doctors') }}</span>
                 </a>
             </li>
+
+
+
 
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">

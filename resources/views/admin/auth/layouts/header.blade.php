@@ -13,6 +13,8 @@
     <meta name="author" content="PIXINVENT">
     @if(Route::currentRouteName() == 'activeStudent')
         <title>{{ __('login.Account activation') }}</title>
+    @elseif(Route::currentRouteName() == 'doResetPass')
+        <title>Reset Password</title>
     @else
         <title>{{ __('login.Login Page') }}</title>
     @endif

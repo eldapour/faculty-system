@@ -81,17 +81,13 @@
                 success: function(data) {
                     if (data === 200) {
                         toastr.success('{{ trans('login.Logged in successfully') }}');
-                        setTimeout(function() {
+                        setTimeout(function () {
                             location.href = '{{ route('admin.home') }}';
                         }, 2000)
                     } else if (data === 250) {
                         toastr.success('{{ trans('login.Logged in successfully') }}');
                         setTimeout(function() {
-                            var additionalData = 'example'; // Add your additional data here
-                            var route =
-                                '{{ route('re_record_the_track.index', ['data' => ':data']) }}';
-                            route = route.replace(':data', additionalData);
-                            location.href = route;
+                            location.href = '{{ route('admin.home') }}';
                         }, 2000);
                     } else if (data === 700) {} else if (data === 405) {
                         toastr.error('{{ trans('login.The email or password is incorrect') }}');
@@ -101,7 +97,6 @@
                         toastr.error(
                             '{{ trans('admin.This email is not activated. Do it through the link sent to the mail, or contact the administration') }}',
                             null, {
-                                "positionClass": "toast-center-center",
                                 "timeOut": "90000000",
                             });
                         setTimeout(E => {
@@ -190,7 +185,7 @@
                         ' {{ trans('login.Account activation') . ' ' . trans('admin.Loading') }} '
                     );
                     setTimeout(x => {
-                         window.location.href = '{{ route('student.login') }}';
+                         window.location.href = '{{ route('emailSentBack') }}';
                     }, 3000)
                 } else if (data == 401) {
                     toastr.error('{{ trans('admin.This email has already been activated') }}');
