@@ -245,6 +245,7 @@ Route::group([
 
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
+    Route::get('schedules-of-students', [\App\Http\Controllers\Student\ScheduleController::class,'allSchedules'])->name('schedules.students.all');
     Route::post('schedules/delete', [ScheduleController::class, 'delete'])->name('schedules.delete');
 
 
@@ -280,13 +281,10 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
 
-//get all subject by group_id and department_branch_id
 Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
 
 
-//filter data in subject exam student model from create.blade.php
 Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
 Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
 
-//syncWithPivotValues
 });

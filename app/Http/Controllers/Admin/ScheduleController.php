@@ -79,6 +79,7 @@ class ScheduleController extends Controller{
 
             'department_id' => 'required|exists:departments,id',
             'unit_id' => 'required|exists:units,id',
+            'year' => 'required|date_format:Y',
             'description' => 'nullable|max:255',
             'pdf_upload' => 'required|mimes:pdf',
 
@@ -97,6 +98,7 @@ class ScheduleController extends Controller{
 
             'department_id' => $request->department_id,
             'unit_id' => $request->unit_id,
+            'year' => $request->year,
             'pdf_upload' => $pdf_name,
             'description' => $request->description,
 

@@ -496,6 +496,14 @@ return [
     "code_latin" => "الكود بالاتينيه",
     "requests" => "الطلبات",
 
+
+
+    //helper
+    "subject_name_" => "الوحده",
+    "group_name_" => "الفوج",
+    "year_name_" => "السنه الدراسيه",
+    "period_name_" => "الفتره",
+
 ];
 
 
