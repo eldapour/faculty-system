@@ -1,4 +1,8 @@
 <?php
+use App\Models\UniversitySetting;
+
+$university_settings= UniversitySetting::all()->first();
+
 return [
     'welcome_back' => 'Content de te revoir',
     'language' => 'Langue',
@@ -426,7 +430,12 @@ return [
 
     'subject_choice' => "choix du sujet",
     'for' => " pour l'élève ",
-
+    'unit_name_lang' => "Nom de l'unité",
+    'semester' => "Semestre",
+    'college_enrollment_certificate' => "Certificat d'inscription au collège",
+    'national' => "Certificat d'inscription au collège",
+    'dean_of_college_testifies' => "Le doyen du collège témoigne '".$university_settings->title[app()->getLocale()]."' cet étudiant:",
+    "registered_units" => "Unités nominatives",
 
     "unit_name" => 'classe',
     'description_text' => 'notes',
@@ -498,7 +507,16 @@ return [
     "subject_name_" => "unit",
     "group_name_" => "cohort",
     "year_name_" => "academic year",
-    "period_name_" => "period"
+    "period_name_" => "period",
+
+
+    "unit_name_" => "chapter",
+    "doctor_name_" => "professor",
+    "day_name_" => "today",
+    "date_" => "date",
+    "time_" => "time",
+    "section_" => "hall",
+    "exam_code_" => "Exam Code",
 
 ];
 
