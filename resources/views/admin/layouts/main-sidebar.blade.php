@@ -241,17 +241,20 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-search side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span><i
-                        class="angle fa fa-angle-right"></i>
-                </a>
+
                 <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a></li>
+
+{{--                    <li><a href="{{ route('subject_exam_students.index') }}"--}}
+{{--                            class="slide-item">{{ trans('admin.subject_exam_students') }}</a>--}}
+{{--                    </li>--}}
 
 
                     <li><a href="{{ route('subject_exam_students.index') }}"
                             class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
                     </li>
+
 
 
                 </ul>
@@ -260,12 +263,25 @@
 
 
 
+
+
+                <li class="slide">
+{{--                    <a class="side-menu__item" data-toggle="slide" href="#">--}}
+{{--                        <i class="fa fa-id-card side-menu__icon"></i>--}}
+{{--                        <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i--}}
+{{--                                class="angle fa fa-angle-right"></i>--}}
+{{--                    </a>--}}
+                    <ul class="slide-menu">
+
+
+
+
             <li class="slide">
-                <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-id-card side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i
-                        class="angle fa fa-angle-right"></i>
-                </a>
+{{--                <a class="side-menu__item" data-toggle="slide" href="#">--}}
+{{--                    <i class="fa fa-id-card side-menu__icon"></i>--}}
+{{--                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i--}}
+{{--                        class="angle fa fa-angle-right"></i>--}}
+{{--                </a>--}}
                 <ul class="slide-menu">
 
 
@@ -358,10 +374,12 @@
             </li>
 
 
+
+
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fa fa-book-open side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
+                    <i class="fa fa-mail-bulk side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.requests') }}</span><i
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">

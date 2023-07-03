@@ -483,8 +483,9 @@ return [
 
     // point statements
     "point statement" => "point statement",
-
     "code_latin" => "Code in Latin",
+    "requests" => "requests",
+
 ];
 
 
