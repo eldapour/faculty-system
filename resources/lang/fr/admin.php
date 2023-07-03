@@ -492,6 +492,8 @@ return [
     "point statement" => "déclaration ponctuelle",
 
     "code_latin" => "Code in Latin",
+    "requests" => "Demandes",
+
 ];
 
 

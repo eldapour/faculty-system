@@ -483,9 +483,8 @@ return [
 
     // point statements
     "point statement" => "بيان النقط",
-
-
     "code_latin" => "الكود بالاتينيه",
+    "requests" => "الطلبات",
 
 ];
 
