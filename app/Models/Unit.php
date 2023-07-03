@@ -10,7 +10,7 @@ class Unit extends Model
 {
     use HasFactory, HasTranslations;
 
-    public array $translatable = ['unit_name','unit_code'];
+    public array $translatable = ['unit_name'];
 
     protected $fillable = [
         'unit_name',
@@ -20,7 +20,6 @@ class Unit extends Model
 
     protected $casts = [
         'unit_name' => 'json',
-        'unit_code' => 'json'
     ];
 
 

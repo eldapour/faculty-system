@@ -1,4 +1,9 @@
 <?php
+
+use App\Models\UniversitySetting;
+
+$university_settings= UniversitySetting::all()->first();
+
 return [
     'welcome_back' => 'Welcome Back',
     'language' => 'Language',
@@ -423,6 +428,13 @@ return [
 
     'subject_choice' => "subject choice",
     'for' => ' for the student ',
+    'unit_name_lang' => "Unit name",
+
+    'semester' => "Semester",
+    'college_enrollment_certificate' => "College enrollment certificate ",
+    'national' => "شهادة التسجيل بالكلية",
+    'dean_of_college_testifies' => "The dean of the college testifies '".$university_settings->title[app()->getLocale()]."' that student:",
+    "registered_units" => "Registered units",
 
     'unit name' => 'class', 'description text' => 'notes',
 
