@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
+        "ext-json": "*",
         "buglinjo/laravel-webp": "^2.3",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
@@ -15,10 +16,10 @@
         "laravel/ui": "^4.2",
         "maatwebsite/excel": "3.1.48",
         "mcamara/laravel-localization": "^1.8",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-translatable": "^6.5",
         "yajra/laravel-datatables": "9.0",
-        "yoeunes/toastr": "^2.3",
-      "ext-json": "*"
+        "yoeunes/toastr": "^2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
