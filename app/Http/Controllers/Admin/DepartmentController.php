@@ -49,8 +49,6 @@ class DepartmentController extends Controller
         $department =  Department::create([
             'department_name' => ['ar' => $request->department_name_ar,'en' => $request->department_name_en,'fr' => $request->department_name_fr],
             'department_code' => $request->department_code,
-
-
         ]);
         if ($department->save()) {
             return response()->json(['status' => 200]);
