@@ -11,9 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Translatable\HasTranslations;
 
 
-/**
- * @property $user_type
- */
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -21,7 +19,7 @@ class User extends Authenticatable
     use HasTranslations;
 
     //translate data
-    public $translatable = ['city','birthday_place'];
+    public array $translatable = ['city','birthday_place'];
 
     /**
      * The attributes that are mass assignable.
