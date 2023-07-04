@@ -196,6 +196,20 @@
         })
     }
 
+    function showEditModal(routeOfEdit) {
+        $(document).on('click', '.editBtnAnswer', function() {
+            var id = $(this).data('id')
+            var url = routeOfEdit;
+            url = url.replace(':id', id)
+            $('#modal-body').html(loader)
+            $('#editOrCreate').modal('show')
+
+            setTimeout(function() {
+                $('#modal-body').load(url)
+            }, 500)
+        })
+    }
+
     function showReply(routeOfEdit) {
         $(document).on('click', '.replys', function() {
             var id = $(this).data('id')
