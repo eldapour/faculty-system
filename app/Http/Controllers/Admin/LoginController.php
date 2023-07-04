@@ -57,14 +57,6 @@ class LoginController extends Controller
 
             if (Auth::guard('web')->attempt($data)) {
                 if (\auth()->user()->user_status !== 'un_active') {
-                    // Check if the user exists in the department_branch_students table
-                    $student = DB::table('department_branch_students')
-                        ->where('user_id', auth()->user()->id)
-                        ->where('register_year', Carbon::now()->year)
-                        ->first();
-                    if ($student->branch_restart_register == 0) {
-                        return response()->json(250);
-                    }
                     return response()->json(200);
                 } else {
                     return response()->json(600);

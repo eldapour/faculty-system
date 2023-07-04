@@ -3,6 +3,11 @@
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\DeanSpeechController;
 use App\Http\Controllers\Front\EventController;
+use App\Models\DepartmentBranch;
+use App\Models\DepartmentBranchStudent;
+use App\Models\Schedule;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -46,3 +51,23 @@ Route::group(
         });
     }
 );
+
+
+Route::get('test', function (){
+
+    $departmentId = DepartmentBranchStudent::query()
+        ->where('user_id','=',1)
+        ->where('register_year','=',Carbon::now()->format('Y'))
+        ->first()->branch->department->id;
+
+    $schedules = Schedule::query()
+        ->whereHas('department', fn(Builder $builder) =>
+        $builder->where('department_id','=',$departmentId)
+        )
+        ->latest()
+        ->get();
+
+
+    return $schedules;
+
+});

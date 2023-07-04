@@ -31,16 +31,17 @@ class SubjectStudentController extends Controller
                 ->where('period', '=', $periods->period)
                 ->where('year', '=', $periods->year_start)
                 ->get();
+
             return Datatables::of($subject_students)
                 ->editColumn('subject_id', function ($subject_students) {
-                    return '<td>' . $subject_students->subject->subject_name . '</td>';
+                    return  $subject_students->subject->subject_name;
                 })
-                ->editColumn('group_id', function ($subject_students) {
-                    return '<td>' . $subject_students->group->group_name . '</td>';
+                ->addColumn('group_id', function ($subject_students) {
+                    return  $subject_students->subject->group->group_name;
                 })
                 ->editColumn('year', function ($subject_students) {
                     $date = new DateTime($subject_students->year);
-                    return '<td>' . $date->format('Y') . '</td>';
+                    return  $date->format('Y');
                 })
                 ->escapeColumns([])
                 ->make(true);
