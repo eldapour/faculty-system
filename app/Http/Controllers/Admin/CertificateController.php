@@ -208,7 +208,7 @@ class CertificateController extends Controller
             ->get();
 
 
-        return view('admin.certificates.registeration',$data);
+        return view('admin.certificates.print_certificate',$data);
 
     }
 }
