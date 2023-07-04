@@ -160,8 +160,6 @@
                 importCSS: true,
                 importStyle: true,
                 loadCSS: true,
-                header: null,
-                footer: null,
             });
         }
     </script>
