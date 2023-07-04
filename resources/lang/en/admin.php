@@ -433,7 +433,7 @@ return [
 
     'semester' => "Semester",
     'college_enrollment_certificate' => "College enrollment certificate ",
-    'national' => "شهادة التسجيل بالكلية",
+    'national' => "College enrollment certificate ",
     'dean_of_college_testifies' => "The dean of the college testifies '".$university_settings->title[app()->getLocale()]."' that student:",
     "registered_units" => "Registered units",
 
