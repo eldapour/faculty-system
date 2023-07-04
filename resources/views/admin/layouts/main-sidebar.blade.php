@@ -164,6 +164,22 @@
                 <span class="side-menu__label">{{ trans('admin.re_record_the_track') }}
             </a>
         </li>
+         {{--  internal ads  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('internal_ads.show') }}">
+                <i class="fa fa-blog side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.internal_ads') }}
+            </a>
+        </li>
+         {{--  internal ads  --}}
+         {{--  user point  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('users.show') }}">
+                <i class="fa fa-users side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.students_points') }}
+            </a>
+        </li>
+         {{--  user point  --}}
         <li class="slide">
             <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
                 <i class="fa fa-book side-menu__icon"></i>

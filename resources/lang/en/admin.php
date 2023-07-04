@@ -75,8 +75,9 @@ return [
     "re_record_the_track" => 'Re Record The Track',
     "You_must_re_register" => "You must re-register to be able to access the platform",
     "this_process_is_extended" => "This Process Is Extended",
-    "until_an_end" => "Until An End",
-
+    "until_an_end" => "Students Point",
+    "points" => "Points",
+    "students_point" => "نقاط الطالب",
     "oldPassword" => "old Password",
     "repeatPassword" => "repeat Password",
 

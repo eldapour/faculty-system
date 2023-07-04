@@ -335,7 +335,7 @@
         })
     }
 
-    function showEditModal(routeOfEdit) {
+    function showEditModalStudent(routeOfEdit) {
         $(document).on('click', '.editBtn', function() {
             var id = $(this).data('id')
             var url = routeOfEdit;

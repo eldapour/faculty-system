@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrackReregister extends Model
 {
+    protected $table = 'track_reregiters';
     protected $fillable = [
         'user_id',
         'year',

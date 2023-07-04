@@ -73,7 +73,8 @@ return [
     "full_name" =>  "الاسم الكامل",
     "annual_programming" => "البرمجة السنوية",
     "Reasons_for_redress" => "أسباب الاستدراك",
-
+    "students_point" => "نقاط الطالب",
+    "points" => "نقاط",
     "oldPassword" => "كلمة السر القديمة",
     "repeatPassword" => "تاكيد كلمة السر",
 
@@ -119,7 +120,7 @@ return [
     "ad" => "اعلان",
     "ads" => "اعلانات",
     "internal_ads" => "اعلانات داخلية",
-
+    "date" => "تاريخ",
     "date_ads" => "إعلانات التاريخ",
     "url_ads" => "رابط الاعلانات",
 
