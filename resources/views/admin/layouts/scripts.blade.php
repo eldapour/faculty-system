@@ -107,7 +107,9 @@
     <?php
     $reregistration = \App\Models\TrackReregister::query()
         ->where('user_id', auth()->user()->id)
-        ->whereYear('year', \Carbon\Carbon::now()->format('Y'))->first();
+        ->where('year','>=', \Carbon\Carbon::parse($periods[0]->year_start)->format('Y'))
+        ->where('year','<=', \Carbon\Carbon::parse($periods[0]->year_end)->format('Y'))
+        ->first();
     ?>
     @if($reregistration == null)
     $(document).ready(function () {

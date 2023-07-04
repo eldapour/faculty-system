@@ -32,11 +32,11 @@ class ReRecordTheTrackController extends Controller
 
     public function reregisterFormStore(Request $request)
     {
-        $period = Period::query()
-            ->first('year_start');
+        $period = Period::query()->first();
         $reregister = TrackReregister::query()
             ->where('user_id','=',$request->user_id)
-            ->whereYear('year','=',Carbon::parse($period->year_start))
+            ->where('year','>=',Carbon::parse($period->year_start)->format('Y'))
+            ->where('year','<=',Carbon::parse($period->year_end)->format('Y'))
             ->first();
         if (!$reregister){
             $reregister = TrackReregister::query()

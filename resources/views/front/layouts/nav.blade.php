@@ -39,7 +39,14 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="{{ route('index.event') }}">Event</a></li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> d5056a8d67dc6e907c420277903854c282b0cc7c
+=======
+
+>>>>>>> 8a0853ef1cd151e1c5091a413efebac041d6b78c
                             @elseif($category->id == 7)
                                 <li><a class="dropdown-item" href="{{ route('index.time_uses') }}">Time Uses</a></li>
                                 <li>
