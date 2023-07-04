@@ -157,11 +157,11 @@
         var j = jQuery.noConflict(true);
         function Print_Specific_Element() {
             j('#DivIdToPrint').printThis({
-                importCSS: true, // to import the page css
-                importStyle: true, // to import <style>css here will be imported !</style> the stylesheets (bootstrap included !)
-                loadCSS: true, // to import style="The css writed Here will be imported !"
-                header: null,               // prefix to html
-                footer: null,               // postfix to html
+                importCSS: true,
+                importStyle: true,
+                loadCSS: true,
+                header: null,
+                footer: null,
             });
         }
     </script>
