@@ -183,7 +183,7 @@
     }
 
     function showEdit(routeOfEdit) {
-        $(document).on('click', '.editBtnAnswer', function() {
+        $(document).on('click', '.editBtn', function() {
             var id = $(this).data('id')
             var url = routeOfEdit;
             url = url.replace(':id', id)
@@ -197,7 +197,7 @@
     }
 
     function showEditModal(routeOfEdit) {
-        $(document).on('click', '.editBtnAnswer', function() {
+        $(document).on('click', '.editBtn', function() {
             var id = $(this).data('id')
             var url = routeOfEdit;
             url = url.replace(':id', id)
