@@ -39,6 +39,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="{{ route('index.event') }}">Event</a></li>
+
                             @elseif($category->id == 7)
                                 <li><a class="dropdown-item" href="{{ route('index.time_uses') }}">Time Uses</a></li>
                                 <li>
@@ -97,7 +98,6 @@
                         <li><a class="dropdown-item" href="{{ route('searchStructure') }}">Search structures</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Student life
