@@ -53,15 +53,23 @@
                     <div class="tab-menu-heading">
                         <div class="tabs-menu1">
                             <ul class="nav">
-                                <li class=""><a href="#tab-51" class="active show"
-                                                data-toggle="tab">@lang('admin.information')</a></li>
+                                <li class="">
+                                    <a href="#details" class="active show"
+                                                data-toggle="tab">@lang('admin.information')</a>
+                                </li>
+                                @if(auth()->user()->user_type == 'student')
+                                <li class="">
+                                    <a href="#units" class="show"
+                                       data-toggle="tab">@lang('admin.subjects')</a>
+                                </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-content">
-                <div class="tab-pane active show" id="tab-51">
+                <div class="tab-pane active show" id="details">
                     <div class="card">
                         <div class="card-body">
                             <div id="profile-log-switch">
@@ -71,38 +79,71 @@
                             </div>
                             @if(auth()->user()->user_type == 'student')
                                 <div class="row">
-                                    <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
-                                    <h5 class="col-6">{{ trans('admin.last_name') }} : {{ $user->last_name }}</h5>
-                                    <span>-------------------------------------------------------------------------------------------</span>
-                                    <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.university_email') }}
-                                        : {{ $user->university_email }}</h5>
-                                    <span>-------------------------------------------------------------------------------------------</span>
-                                    <h5 class="col-12">{{ trans('admin.identifier_id') }}
-                                        : {{ $user->identifier_id }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.national_id') }} : {{ $user->national_id  }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.national_number') }}
-                                        : {{ $user->national_number }}</h5>
-                                    <span>-------------------------------------------------------------------------------------------</span>
-                                    <h5 class="col-12">{{ trans('admin.nationality') }} : {{ $user->nationality }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.birthday_date') }}
-                                        : {{ $user->birthday_date }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.birthday_place') }}
-                                        : {{ $user->birthday_place }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.birthday_place') }}
-                                        : {{ $user->birthday_place }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.city') }} : {{ $user->city }}</h5>
-                                    <span>-------------------------------------------------------------------------------------------</span>
-                                    <h5 class="col-12">{{ trans('admin.university_register_year') }}
-                                        : {{ $user->university_register_year }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.points') }} : {{ $user->points }}</h5>
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.last_name') }}</td><td>{{ $user->last_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.university_email') }}</td><td>{{ $user->university_email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.identifier_id') }}</td><td>{{ $user->identifier_id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.national_id') }}</td><td>{{ $user->national_id  }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.national_number') }}</td><td>{{ $user->national_number }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.nationality') }}</td><td>{{ $user->nationality }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.birthday_date') }}</td><td>{{ $user->birthday_date }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.birthday_place') }}</td><td>{{ $user->birthday_place }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.birthday_place') }}</td><td>{{ $user->birthday_place }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.city') }}</td><td>{{ $user->city }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.city') }}</td><td>{{ $user->city }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.university_register_year') }}</td><td>{{ $user->university_register_year }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.points') }}</td><td>{{ $user->points }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             @else
                                 <div class="row">
-                                    <h5 class="col-6">{{ trans('admin.first_name') }} : {{ $user->first_name }}</h5>
-                                    <h5 class="col-6">{{ trans('admin.last_name') }} : {{ $user->last_name }}</h5>
-                                    <h5 class="col-12">{{ trans('admin.email') }} : {{ $user->email }}</h5>
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.last_name') }}</td><td>{{ $user->last_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             @endif
                             <button type="button" style="color: white;" class="btn btn-sm badge badge-info-gradient"
@@ -112,6 +153,39 @@
                         </div>
                     </div>
                 </div>
+                @if(auth()->user()->user_type == 'student')
+                <div class="tab-pane" id="units">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="profile-log-switch">
+                                <div class="media-heading">
+                                    <h5><strong>{{ trans('admin.subjects') }}</strong></h5>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>@lang('admin.year')</th>
+                                    <th>@lang('admin.group')</th>
+                                    <th>@lang('admin.subject')</th>
+                                    <th>@lang('admin.period')</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($subject_students as $data)
+                                <tr>
+                                    <td>{{ $data->year }}</td>
+                                    <td>{{ $data->subject->group->group_name }}</td>
+                                    <td>{{ $data->subject->subject_name }}</td>
+                                    <td>{{ $period->period }}</td>
+                                </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div><!-- COL-END -->
     </div>
@@ -312,7 +386,7 @@
                 $('select').select2();
             });
 
-            // Update By Ajax
+            // updatePassForm By Ajax 
             $(document).on('submit','Form#updatePassForm',function(e) {
                 e.preventDefault();
                 var formData = new FormData(this);

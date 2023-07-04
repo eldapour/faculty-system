@@ -177,6 +177,7 @@ Route::group([
 
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
+    Route::get('subject_exams/students/all', [\App\Http\Controllers\Student\SubjectExamController::class,'index'])->name('subject_exams.students.all');
     Route::get('remedial_session', [SubjectExamController::class, 'remedialSession'])->name('remedialSession');
     Route::get('normal_session', [SubjectExamController::class, 'normalSession'])->name('normalSession');
     Route::get('create_remedial', [SubjectExamController::class, 'createRemedial'])->name('createRemedial');
@@ -188,7 +189,7 @@ Route::group([
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
     Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
     Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
-
+    Route::get('printSubjectExamStudent/{id?}', [SubjectExamStudentController::class, 'printSubjectExamStudent'])->name('printSubjectExamStudent');
     #### Element ####
     Route::resource('elements', ElementController::class);
 
@@ -198,6 +199,7 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
+    Route::get('exam_result/all', [\App\Http\Controllers\Student\SubjectExamStudentResultController::class,'index'])->name('exam_result.all');
     Route::get('exportSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'exportSubjectExamStudentResult'])->name('exportSubjectExamStudentResult');
     Route::post('importSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'importSubjectExamStudentResult'])->name('importSubjectExamStudentResult');
 
@@ -248,6 +250,7 @@ Route::group([
 
     #### schedules ####
     Route::resource('schedules', ScheduleController::class);
+    Route::get('schedules-of-students', [\App\Http\Controllers\Student\ScheduleController::class,'allSchedules'])->name('schedules.students.all');
     Route::post('schedules/delete', [ScheduleController::class, 'delete'])->name('schedules.delete');
 
 
@@ -271,7 +274,6 @@ Route::group([
     Route::post('importPointStatement', [PointStatementController::class, 'importPointStatement'])->name('importPointStatement');
 
     #### Re Record The Track ####
-    Route::resource('reregisterTrack', ReRecordTheTrackController::class);
     Route::get('reregisterForm', [ReRecordTheTrackController::class,'reregisterForm'])->name('reregisterForm');
     Route::post('reregisterFormStore', [ReRecordTheTrackController::class,'reregisterFormStore'])->name('reregisterFormStore');;
 
@@ -284,13 +286,10 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
 
-//get all subject by group_id and department_branch_id
 Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
 
 
-//filter data in subject exam student model from create.blade.php
 Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
 Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
 
-//syncWithPivotValues
 });

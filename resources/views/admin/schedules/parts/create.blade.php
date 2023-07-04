@@ -8,7 +8,14 @@
             <div class="row">
 
 
-
+                <div class="col-md-12">
+                    <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
+                    <select name="year" class="form-control" id="year">
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
+                </div>
 
                 <div class="col-md-12">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>

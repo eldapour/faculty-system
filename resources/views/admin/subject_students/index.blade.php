@@ -28,10 +28,11 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.group') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.subject') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period') }}</th>
+
+                                <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
+                                <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.year_name_') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.period_name_') }}</th>
                                 {{--  <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>  --}}
                             </tr>
                             </thead>
@@ -91,9 +92,9 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'year', name: 'year'},
-            {data: 'group_id', name: 'group_id'},
             {data: 'subject_id', name: 'subject_id'},
+            {data: 'group_id', name: 'group_id'},
+            {data: 'year', name: 'year'},
             {data: 'period', name: 'period'},
             //{data: 'action', name: 'action', orderable: false, searchable: false},
         ]
