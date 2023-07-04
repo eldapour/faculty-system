@@ -159,7 +159,7 @@
             j('#DivIdToPrint').printThis({
                 importCSS: true,
                 importStyle: true,
-                loadCSS: true, // end
+                loadCSS: true,
             });
         }
     </script>
