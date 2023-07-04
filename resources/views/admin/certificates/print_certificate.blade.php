@@ -1,27 +1,3 @@
-{{--<!DOCTYPE html>--}}
-{{--<html lang="ar" dir="rtl">--}}
-{{--<head>--}}
-{{--    <meta charset="UTF-8">--}}
-{{--    <meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
-{{--    <title>MY FACULTY</title>--}}
-{{--    <link href="photo/logo.png" rel="icon" />--}}
-{{--    <!-- bootstrap -->--}}
-{{--    <link rel="stylesheet" href="{{asset('certificate_assets')}}/css/all.min.css">--}}
-{{--    <link rel="stylesheet" href="{{asset('certificate_assets')}}/css/bootstrap.min.css">--}}
-{{--    <!-- owl carousel -->--}}
-{{--    <link rel="stylesheet" href="{{asset('certificate_assets')}}/css/owl.carousel.min.css">--}}
-{{--    <link rel="stylesheet" href="{{asset('certificate_assets')}}/css/owl.theme.default.min.css">--}}
-
-{{--    <!-- font -->--}}
-{{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
-{{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
-{{--    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Jost:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">--}}
-
-
-{{--</head>--}}
-{{--<body>--}}
-
 @extends('admin/layouts/master')
 
 @section('title')
@@ -32,126 +8,132 @@
 @endsection
 @section('content')
     <style>
-        .border1{
+        body {
+            background-color: white;
+        }
+
+        .border1 {
             border: 1px solid #618597;
         }
-        .border2{
+
+        .border2 {
             border: 15px solid #618597;
-            margin:2px;
+            margin: 2px;
         }
-        .border3{
+
+        .border3 {
             border: 1px solid #618597;
-            margin:2px;
+            margin: 2px;
         }
-        .image-logo1{
+
+        .image-logo1 {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
-        .image-logo1 img{
+
+        .image-logo1 img {
             height: 30px;
         }
-        .table{
+
+        .table {
             border: 1px solid black;
         }
-        .border-color{
+
+        .table td {
+            border: 1px solid black;
+        }
+
+        .border-color {
             border: 1px solid black;
             width: 40%;
             font-weight: bold;
         }
+
+        .borded-div {
+            border: 1px solid black;
+            height: 86px;
+            width: 135px;
+            margin: 8px 0px 15px 70px;
+            text-align: center;
+            padding-top: 30px;
+        }
     </style>
-    <div class="section">
+    <button class="btn btn-sm btn-primary" onclick="Print_Specific_Element()">@lang('admin.Print')</button>
+    <div class="section" id="DivIdToPrint">
         <div class="container">
             <div class="border1">
                 <div class="border2">
                     <div class="border3">
                         <div class="p-5">
                             <div class="image-logo1">
-                                <img src="{{asset('certificate_assets')}}/photo/logo.png">
+                                <img src="{{ asset($university_settings[0]->logo) }}">
                             </div>
                             <h3 class="text-center mb-2">شهادة التسجيل بالكلية</h3>
                             <p class="text-center">رقم الشهادة</p>
-                            <h5 class="mb-4">يشهد عميد الكلية 'اسم الكلية' أن الطالب:</h5>
+                            <h5 class="mb-4">يشهد عميد الكلية أن الطالب:</h5>
                             <div class="row">
-                                <div class="col-lg-9 col-12">
+                                <div class="col-lg-9 col-9">
                                     <table class="table">
                                         <tbody>
                                         <tr>
                                             <td class="border-color">الاسم الكامل</td>
-                                            <td></td>
+                                            <td>{{ $user->first_name . ' ' . $user->last_name }}</td>
                                         </tr>
                                         <tr>
                                             <td class="border-color">رقم التسجيل</td>
-                                            <td></td>
+                                            <td>{{ $user->identifier_id }}</td>
                                         </tr>
                                         <tr>
                                             <td class="border-color">رقم أبووجي</td>
-                                            <td></td>
+                                            <td>{{ $user->points }}</td>
                                         </tr>
                                         <tr>
                                             <td class="border-color">الرقم الوطني</td>
-                                            <td></td>
+                                            <td>{{ $user->national_number }}</td>
                                         </tr>
                                         <tr>
                                             <td class="border-color">رقم البطاقة الوطنية/جواز السفر</td>
-                                            <td></td>
+                                            <td>{{ $user->national_id }}</td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-lg-3 col-12 d-flex justify-content-center">
-                                    <img src="{{ asset('certificate_assets') }}/photo/download.png" style="height: 170px;">
+                                <div class="col-lg-3 col-3 d-flex justify-content-center">
+                                    {{ QrCode::size(150)->generate(route('certificates.registeration')) }}
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <span class="fs-6 fw-bold">مسجل بالكلية:</span>
-                                <span>'اسم الكلية'</span>
+                                <span>{{ $university_settings[0]->title[lang()] }}</span>
                                 <span class="fs-6 fw-bold">,برسم الموسم الجامعي: </span>
-                                <span>'الموسم الجامعي'.</span>
+                                <span>{{ $periods[0]->year_start . '/' . $periods[0]->year_end   }}</span>
                             </div>
                             <div class="mb-3">
                                 <span class="fs-6 fw-bold"> بالمسلك الدراسي:</span>
-                                <span>' اسم المسلك'</span>
+                                <span>{{ $department->department_name }}</span>
                             </div>
                             <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td class="fw-bold">الوحدات المسجل بها </td>
+                                    <td class="fw-bold">الوحدات المسجل بها</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="border-color">اسم الوحدة</td>
                                     <td class="fw-bold">الفصل الدراسي</td>
                                 </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-color"> الوحدة 1</td>
-                                    <td>S1</td>
-                                </tr>
+                                @foreach($semesters as $data)
+                                    <tr>
+                                        <td class="border-color">{{ $data->subject->subject_name }}</td>
+                                        <td class="border-color">{{ $data->subject->unit->unit_code }}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <p class="mt-4 mb-3">سلمت هذه الشهادة الى المعني بالامر لتقديمها عند الحاجة</p>
                             <div class="d-flex justify-content-end">
-                                <div>ختم المؤسسة</div>
+                                <div class="borded-div">ختم المؤسسة</div>
                             </div>
                         </div>
                     </div>
@@ -159,4 +141,29 @@
             </div>
         </div>
     </div>
+        <!-- Your Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Another Jquery version, which will be compatible with PrintThis.js -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <!-- CDN/Reference To the pluggin PrintThis.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"
+            integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w=="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        var j = jQuery.noConflict(true);
+        function Print_Specific_Element() {
+            j('#DivIdToPrint').printThis({
+                importCSS: true, // to import the page css
+                importStyle: true, // to import <style>css here will be imported !</style> the stylesheets (bootstrap included !)
+                loadCSS: true, // to import style="The css writed Here will be imported !"
+                header: null,               // prefix to html
+                footer: null,               // postfix to html
+            });
+        }
+    </script>
+
 @endsection
