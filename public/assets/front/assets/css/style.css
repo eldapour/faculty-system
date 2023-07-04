@@ -94,7 +94,7 @@ p{
 }
 .navbar li a{
     color: var(--dark-color) !important;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 16px;
     text-transform: capitalize;
 
