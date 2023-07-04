@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TrackReregister extends Model
 {
 
-    protected $table = 'track_reregiters';
+    protected $table = 'track_reregisters';
 
     protected $fillable = [
         'user_id',
