@@ -75,7 +75,8 @@ return [
     "full_name" =>  "Nom et prénom",
     "annual_programming" => "Programmation annuelle",
     "Reasons_for_redress" => "Motifs de réparation",
-
+    "until_an_end" => "Students Point",
+    "points" => "Points",
     "oldPassword" => "ancien mot de passe",
     "repeatPassword" => "Répéter le mot de passe",
     "this_process_is_extended" => "Ce processus est étendu",

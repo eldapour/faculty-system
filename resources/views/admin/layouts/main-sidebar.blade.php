@@ -158,8 +158,130 @@
 
         @if(checkUser('student'))
 
+
+        <li>
+            <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('reregisterTrack.index') }}">
+                <i class="fa fa-book side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.re_record_the_track') }}
+            </a>
+        </li>
+         {{--  internal ads  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('internal_ads.show') }}">
+                <i class="fa fa-blog side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.internal_ads') }}
+            </a>
+        </li>
+         {{--  internal ads  --}}
+         {{--  user point  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('users.show') }}">
+                <i class="fa fa-users side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.students_points') }}
+            </a>
+        </li>
+         {{--  user point  --}}
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
+                <i class="fa fa-book side-menu__icon"></i>
+                <span class="side-menu__label">{{ trans('admin.college_enrollment_certificate') }}
+            </a>
+        </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fa fa-book side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_students') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_student.index') }}" class="slide-item">{{ trans('admin.subject_students') }}</a>
+                        </li>
+
+
+
+                    <li><a href="{{ route('subject_student.index') }}"
+                            class="slide-item">{{ trans('admin.subject_students') }}</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-user-check side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span><i
+                        class="angle fa fa-angle-right"></i>
+                </a>
+                <ul class="slide-menu">
+
+                    <li><a href="{{ route('schedules.index') }}"
+                            class="slide-item">{{ trans('admin.all_schedules') }}</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-pen-alt side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span><i
+                        class="angle fa fa-angle-right"></i>
+                </a>
+                <ul class="slide-menu">
+
+                    <li><a href="{{ route('processDegreeStudent') }}"
+                            class="slide-item">{{ trans('admin.process_degrees') }}</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+
+
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="fa fa-book-open side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
+                        class="angle fa fa-angle-right"></i>
+                </a>
+                <ul class="slide-menu">
+
+                    <li><a href="{{ route('subject_exams.index') }}"
+                            class="slide-item">{{ trans('admin.exams') }}</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li class="slide">
+
+                <ul class="slide-menu">
+
+                        <li><a href="{{ route('subject_exam_students.index') }}" class="slide-item">{{ trans('admin.subject_exam_students') }}</a></li>
+
+{{--                    <li><a href="{{ route('subject_exam_students.index') }}"--}}
+{{--                            class="slide-item">{{ trans('admin.subject_exam_students') }}</a>--}}
+{{--                    </li>--}}
+
+
+                    <li><a href="{{ route('subject_exam_students.index') }}"
+                            class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
+                    </li>
+
+
+
+                </ul>
+
             <li>
                 <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard')}}</a></h3>
+
             </li>
             <li class="slide">
                 <ul class="slide-menu">

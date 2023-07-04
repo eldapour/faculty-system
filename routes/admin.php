@@ -93,6 +93,7 @@ Route::group([
     #### Users ####
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
+    Route::get('users/point', [UserController::class, 'pointUser'])->name('users.show');
 
 
     #### Admins ####
@@ -136,6 +137,8 @@ Route::group([
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
     Route::post('active_status', [InternalAdController::class, 'makeActive'])->name('makeActive');
+    Route::get('internal_ad/student', [InternalAdController::class, 'internalAdsStudent'])->name('internal_ads.show');
+    Route::get('internal_ad/student/{id}', [InternalAdController::class, 'editInternalStudent'])->name('internal_ads_show');
 
     #### Video ####
     Route::resource('video', VideoController::class);

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class UserController extends Controller
 
         if ($request->ajax()) {
             $users = User::query()
-                ->where('user_type','=','student')
+                ->where('user_type', '=', 'student')
                 ->latest()
                 ->get();
 
@@ -35,66 +36,77 @@ class UserController extends Controller
                 ->editColumn('created_at', function ($user) {
 
                     return $user->created_at->diffForHumans();
-
                 })
-                ->editColumn('first_name', function($user) {
-                    return '<td>'. $user->first_name .'  '. $user->last_name .'</td>';
+                ->editColumn('first_name', function ($user) {
+                    return '<td>' . $user->first_name . '  ' . $user->last_name . '</td>';
                 })
                 ->editColumn('image', function ($user) {
 
-                    if($user->image != null){
+                    if ($user->image != null) {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/".$user->image)  .'">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $user->image)  . '">
                     ';
-                    }else{
+                    } else {
 
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' .  asset("uploads/users/default/avatar2.jfif") .'">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' .  asset("uploads/users/default/avatar2.jfif") . '">
                     ';
                     }
-
                 })
                 ->escapeColumns([])
                 ->make(true);
-
         } else {
             return view('admin/users/index');
         }
     }
 
+    // user point
+    public function pointUser(request $request)
+    {
+        if ($request->ajax()) {
+            $users = User::query()
+                ->where('id', '=', auth()->user()->id)
+                ->select('id','first_name', 'points')
+                ->get();
+            return Datatables::of($users)
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin/users/students/index');
+        }
+    }
+
+    // user point
+
 
     public function delete(Request $request)
     {
         $user = User::query()
-        ->where('id', $request->id)
+            ->where('id', $request->id)
             ->first();
 
-        if($user->image != null){
+        if ($user->image != null) {
 
-            if (file_exists(public_path("uploads/users/". $user->image))) {
-                unlink(public_path("uploads/users/". $user->image));
+            if (file_exists(public_path("uploads/users/" . $user->image))) {
+                unlink(public_path("uploads/users/" . $user->image));
 
                 $user->delete();
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
-
-            }else{
+            } else {
 
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
             }
-
-        }else{
+        } else {
             $user->delete();
             return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
         }
-
-
     }
 
 
     public function create()
     {
 
-        $types = ['student','doctor','employee','manger','factor'];
+        $types = ['student', 'doctor', 'employee', 'manger', 'factor'];
 
         return view('admin/users.parts.create', compact('types'));
     }
@@ -112,7 +124,7 @@ class UserController extends Controller
             'national_id'  => 'required|unique:users,national_id',
             'national_number' => 'required|unique:users,national_number',
             'birthday_date' => 'required|date_format:Y-m-d',
-            'university_register_year' => 'required|min:'. (date('Y')),
+            'university_register_year' => 'required|min:' . (date('Y')),
         ]);
 
 
@@ -145,15 +157,13 @@ class UserController extends Controller
 
         ]);
 
-        if($user->save()){
+        if ($user->save()) {
 
             return response()->json(['status' => 200]);
-
-        }else{
+        } else {
 
             return response()->json(['status' => 405]);
         }
-
     }
 
     public function edit(User $user)
@@ -182,7 +192,7 @@ class UserController extends Controller
             'national_id'  => 'nullable|unique:users,national_id,' . $request->id,
             'national_number' => 'nullable|unique:users,national_number,' . $request->id,
             'birthday_date' => 'nullable|date_format:Y-m-d',
-            'university_register_year' => 'nullable|min:'. (date('Y')),
+            'university_register_year' => 'nullable|min:' . (date('Y')),
         ]);
 
         if ($image = $request->file('image')) {
@@ -213,16 +223,12 @@ class UserController extends Controller
 
         ]);
 
-        if($user->save()){
+        if ($user->save()) {
 
             return response()->json(['status' => 200]);
-
-        }else{
+        } else {
 
             return response()->json(['status' => 405]);
         }
-
-
     }
-
 }
