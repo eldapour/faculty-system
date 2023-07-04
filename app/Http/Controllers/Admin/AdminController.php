@@ -18,8 +18,6 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
 
-
-
     public function index(request $request)
     {
 
@@ -206,9 +204,11 @@ class AdminController extends Controller
         $departmentStudent = DepartmentBranchStudent::query()
             ->where('user_id',$user->id)
             ->first('department_branch_id');
+
         $period = Period::query()
             ->where('status', '=', 'start')
             ->first();
+
         $subject_students = SubjectStudent::query()
             ->where('user_id', '=', Auth::id())
             ->where('period', '=', $period->period)
