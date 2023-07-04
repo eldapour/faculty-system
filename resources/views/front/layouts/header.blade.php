@@ -22,7 +22,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     <li>
-                        <a rel="alternate" hreflang="{{ $localeCode }}" class="dropdown-item btn-language btn-color"
+                        <a hreflang="{{ $localeCode }}" class="dropdown-item btn-language btn-color"
                             href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                             <img src="{{ asset('assets/front/assets') }}/photo/{{ $localeCode }}.png">
                             <span dir="{{ $localeCode === 'ar' ? 'rtl' : 'ltr' }}">
