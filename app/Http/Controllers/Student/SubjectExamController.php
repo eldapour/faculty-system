@@ -10,8 +10,10 @@ use App\Models\Group;
 use App\Models\Subject;
 use App\Models\Department;
 use App\Models\SubjectExam;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectExamRequest;
@@ -70,6 +72,7 @@ class SubjectExamController extends Controller
 
                     return SubjectExamStudent::query()
                         ->where('period','=',$period->period)
+                        ->where('user_id','=',Auth::id())
                         ->where('year','=',$period->year_start)
                         ->where('subject_id','=',$subject_exams->subject_id)
                         ->first()
@@ -85,6 +88,7 @@ class SubjectExamController extends Controller
                     return SubjectExamStudent::query()
                         ->where('period','=',$period->period)
                         ->where('year','=',$period->year_start)
+                        ->where('user_id','=',Auth::id())
                         ->where('subject_id','=',$subject_exams->subject_id)
                         ->first()
                         ->section;
