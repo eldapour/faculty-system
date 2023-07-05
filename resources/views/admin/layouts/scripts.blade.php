@@ -111,6 +111,7 @@
         ->where('year','<=', \Carbon\Carbon::parse($periods[0]->year_end)->format('Y'))
         ->first();
     ?>
+
     @if($reregistration == null)
     $(document).ready(function () {
         if ({{ auth()->user()->user_type == 'student' && $university_settings[0]->reregister_start < \Carbon\Carbon::now() }}) {
