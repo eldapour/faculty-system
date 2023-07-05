@@ -110,13 +110,11 @@ class AdminController extends Controller
 
 
         if ($image = $request->file('image')) {
-
             $destinationPath = 'users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
         }
-
 
         $admin = User::create([
             'first_name' => $request->first_name,
@@ -126,7 +124,6 @@ class AdminController extends Controller
             'password' => Hash::make($request->password),
             'user_type' => $request->user_type,
             'job_id' => $request->job_id,
-
         ]);
 
         if ($admin->save()) {
@@ -149,9 +146,7 @@ class AdminController extends Controller
     }
 
 
-    public function update(Request $request): JsonResponse
-    {
-
+    public function update(Request $request): JsonResponse{
 
         $admin = User::query()
             ->findOrFail($request->id);

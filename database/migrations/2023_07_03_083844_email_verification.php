@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('email_verification', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
             $table->string('email',500);
             $table->text('token');
             $table->timestamp('created_at')->nullable();
