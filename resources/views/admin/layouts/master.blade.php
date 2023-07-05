@@ -25,6 +25,11 @@
     @include('admin.layouts.loader')
     <!-- /GLOBAL-LOADER -->
 
+    <style>
+            @media print {
+                #printH {display: none}
+            }
+    </style>
     <!-- PAGE -->
     <div class="page">
         <div class="page-main">
@@ -40,7 +45,7 @@
                 <div class="side-app">
 
                     <!-- PAGE-HEADER -->
-                    <div class="page-header">
+                    <div class="page-header" id="printH">
                         <div>
                             <h1 class="page-title">Welcome Back <i class="fas fa-heart text-danger"></i></h1>
                             <ol class="breadcrumb">

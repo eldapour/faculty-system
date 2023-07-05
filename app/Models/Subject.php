@@ -54,4 +54,6 @@ class Subject extends Model
             ->withPivot(['exam_code','section','period','session','year'])
             ->withTimestamps();
     }
+
+
 }

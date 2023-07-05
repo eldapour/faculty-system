@@ -23,7 +23,7 @@ class ReRecordTheTrackController extends Controller
             ->join('units','units.id','=','subjects.unit_id')
             ->join('subject_unit_doctors','subject_unit_doctors.subject_id','=','subject_students.subject_id')
             ->join('users','users.id','=','subject_unit_doctors.user_id')
-            ->join('groups','subject_students.group_id','=','groups.id')
+            ->join('groups','subjects.group_id','=','groups.id')
             ->where('subject_students.user_id','=',auth()->user()->id)
             ->select("subjects.subject_name->".lang()." as subject",'groups.group_name->ar as group','units.unit_name->ar as unit','users.first_name as user')
             ->get();
