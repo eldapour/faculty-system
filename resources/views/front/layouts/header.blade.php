@@ -14,17 +14,16 @@
             @endforeach
         </div>
         <div class="dropdown" style="z-index: 100000;">
-            <button class="btn-language dropdown-toggle" type="button" id="dropdownMenuButton1"
+            <button class="btn-language" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ asset('assets/front/assets') }}/photo/{{ lang() }}.png">
-                {{ __(lang()) }}
+                {{ LaravelLocalization::getCurrentLocaleName() }}
+                <i class="fa-solid fa-language"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     <li>
                         <a hreflang="{{ $localeCode }}" class="dropdown-item btn-language btn-color"
                             href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            <img src="{{ asset('assets/front/assets') }}/photo/{{ $localeCode }}.png">
                             <span dir="{{ $localeCode === 'ar' ? 'rtl' : 'ltr' }}">
                                 {{ $properties['native'] }}
                             </span>
