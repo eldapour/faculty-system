@@ -18,8 +18,6 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
 
-
-
     public function index(request $request)
     {
 
@@ -112,13 +110,11 @@ class AdminController extends Controller
 
 
         if ($image = $request->file('image')) {
-
             $destinationPath = 'users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
         }
-
 
         $admin = User::create([
             'first_name' => $request->first_name,
@@ -128,7 +124,6 @@ class AdminController extends Controller
             'password' => Hash::make($request->password),
             'user_type' => $request->user_type,
             'job_id' => $request->job_id,
-
         ]);
 
         if ($admin->save()) {
@@ -151,9 +146,7 @@ class AdminController extends Controller
     }
 
 
-    public function update(Request $request): JsonResponse
-    {
-
+    public function update(Request $request): JsonResponse{
 
         $admin = User::query()
             ->findOrFail($request->id);
@@ -206,9 +199,11 @@ class AdminController extends Controller
         $departmentStudent = DepartmentBranchStudent::query()
             ->where('user_id',$user->id)
             ->first('department_branch_id');
+
         $period = Period::query()
             ->where('status', '=', 'start')
             ->first();
+
         $subject_students = SubjectStudent::query()
             ->where('user_id', '=', Auth::id())
             ->where('period', '=', $period->period)

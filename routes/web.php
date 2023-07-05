@@ -19,13 +19,7 @@ use App\Http\Controllers\Front\TimeUsesController;
 
 require __DIR__ . '/admin.php';
 
-Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front',
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-    ],
-    function () {
-
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
         #### Home ####
         Route::get('/', [HomeWebController::class, 'index'])->name('/');
@@ -53,21 +47,4 @@ Route::group(
 );
 
 
-Route::get('test', function (){
 
-    $departmentId = DepartmentBranchStudent::query()
-        ->where('user_id','=',1)
-        ->where('register_year','=',Carbon::now()->format('Y'))
-        ->first()->branch->department->id;
-
-    $schedules = Schedule::query()
-        ->whereHas('department', fn(Builder $builder) =>
-        $builder->where('department_id','=',$departmentId)
-        )
-        ->latest()
-        ->get();
-
-
-    return $schedules;
-
-});

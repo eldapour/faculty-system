@@ -56,10 +56,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-], function () {
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
+
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
     Route::get('/active-student', [LoginController::class, 'activeStudent'])->name('activeStudent');
@@ -70,17 +71,18 @@ Route::group([
     Route::get('/doResetPass/{token}', [LoginController::class, 'doResetPass'])->name('doResetPass');
     Route::post('/DoneResetPass', [LoginController::class, 'DoneResetPass'])->name('DoneResetPass');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
-});
 
-Route::get('/emailSentBack',function (){
-    return view('admin.mail.emailSentBack');
-})->name('emailSentBack');
+  });
+
+    Route::get('/emailSentBack',function (){
+        return view('admin.mail.emailSentBack');
+    })->name('emailSentBack');
 
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale() . '/dashboard',
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-], function () {
+    Route::group([
+        'prefix' => LaravelLocalization::setLocale() . '/dashboard',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ], function () {
 
 
     ###################### Category #############################
@@ -277,19 +279,13 @@ Route::group([
     Route::get('reregisterForm', [ReRecordTheTrackController::class,'reregisterForm'])->name('reregisterForm');
     Route::post('reregisterFormStore', [ReRecordTheTrackController::class,'reregisterFormStore'])->name('reregisterFormStore');;
 
-});
+    });
 
 
+    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-], function () {
+    Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
+    Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
+    Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
 
-Route::get('get-subject-by-branch/{department_branch_id}/{group_id}',[HomeController::class,'getSubjectByBranch']);
-
-
-Route::get('allSubjectsByFilterData',[SubjectExamStudentController::class,'allSubjects']);
-Route::get('allStudentsBySubjectId',[SubjectExamStudentController::class,'allStudents']);
-
-});
+    });
