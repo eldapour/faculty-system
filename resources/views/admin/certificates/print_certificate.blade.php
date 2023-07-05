@@ -1,10 +1,10 @@
 @extends('admin/layouts/master')
 
 @section('title')
-    {{ trans('admin.diploma_all') }}
+    شهادة التسجيل بالكلية
 @endsection
 @section('page_name')
-    {{ trans('admin.diploma_all') }}
+     <button class="btn btn-sm btn-primary" onclick="Print_Specific_Element()">@lang('admin.Print')</button>
 @endsection
 @section('content')
     <style>
@@ -59,8 +59,7 @@
             padding-top: 30px;
         }
     </style>
-    <button class="btn btn-sm btn-primary" onclick="Print_Specific_Element()">@lang('admin.Print')</button>
-    <div class="section" id="DivIdToPrint">
+    <div class="section" style="height: auto" id="DivIdToPrint">
         <div class="container">
             <div class="border1">
                 <div class="border2">
@@ -141,26 +140,14 @@
             </div>
         </div>
     </div>
-        <!-- Your Jquery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-    <!-- Another Jquery version, which will be compatible with PrintThis.js -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
     <!-- CDN/Reference To the pluggin PrintThis.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"
             integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w=="
             crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        var j = jQuery.noConflict(true);
+    <script>
         function Print_Specific_Element() {
-            j('#DivIdToPrint').printThis({
-                importCSS: true,
-                importStyle: true,
-                loadCSS: true,
-            });
+            window.print();
         }
     </script>
 
