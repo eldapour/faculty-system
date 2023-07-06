@@ -44,7 +44,7 @@ class UserController extends Controller
 
                     if ($user->image != null) {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $user->image)  . '">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("/users/" . $user->image)  . '">
                     ';
                     } else {
 

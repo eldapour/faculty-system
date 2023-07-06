@@ -110,7 +110,7 @@
                             </div>
                             <div class="mb-3">
                                 <span class="fs-6 fw-bold"> بالمسلك الدراسي:</span>
-                                <span>{{ $department->department_name }}</span>
+                                <span>{{ $department->department_name ?? '' }}</span>
                             </div>
                             <table class="table">
                                 <tbody>

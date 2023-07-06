@@ -221,9 +221,9 @@ class CertificateController extends Controller
 
         $data['department'] = DepartmentBranchStudent::where('user_id',auth()->user()->id)
             ->first('department_branch_id');
-        $data['department'] = DepartmentBranch::where('id','=',$data['department']->department_branch_id)
+        $data['department'] = DepartmentBranch::where('id','=',$data['department']->department_branch_id ?? '')
             ->first('department_id');
-        $data['department'] = Department::where('id','=',$data['department']->department_id)
+        $data['department'] = Department::where('id','=',$data['department']->department_id ?? '')
             ->first('department_name');
 
         return view('admin.certificates.print_certificate',$data);
