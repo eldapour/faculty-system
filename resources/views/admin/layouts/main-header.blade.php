@@ -146,7 +146,7 @@
 
                             @if(auth()->user()->image != null)
 
-                                <img src="{{asset("uploads/users/".auth()->user()->image )}}" alt="profile-user"
+                                <img src="{{asset("/users/".auth()->user()->image )}}" alt="profile-user"
                                      class="avatar  mr-xl-3 profile-user brround cover-image">
 
                             @else

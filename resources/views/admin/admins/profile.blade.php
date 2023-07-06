@@ -15,7 +15,7 @@
                         <div class="wideget-user-desc">
                             <div class="wideget-user-img">
                                 <img class=""
-                                     src="{{ ($user->image != null) ? asset($user->image) : asset('assets/uploads/avatar.gif') }}"
+                                     src="{{ ($user->image != null) ? asset('/users/'.$user->image) : asset('assets/uploads/avatar.gif') }}"
                                      alt="img">
                             </div>
                             <div class="user-wrap">
@@ -386,7 +386,7 @@
                 $('select').select2();
             });
 
-            // updatePassForm By Ajax 
+            // updatePassForm By Ajax
             $(document).on('submit','Form#updatePassForm',function(e) {
                 e.preventDefault();
                 var formData = new FormData(this);

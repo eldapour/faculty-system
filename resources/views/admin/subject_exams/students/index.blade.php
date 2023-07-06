@@ -13,7 +13,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
-
+                        <button class="btn btn-success btnPrint1">
+                            <i class="fa fa-print"></i>
+                            {{ trans('admin.Print') }}
+                        </button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -39,10 +42,10 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
+
+
+
     @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
@@ -60,6 +63,10 @@
             {data: 'exam_code', name: 'exam_code'},
         ]
         showData('{{route('subject_exams.students.all')}}', columns);
+
+        $(document).on('click','.btnPrint1',function(){
+            window.open('{{route('subject_exams.print')}}',"_blank");
+        });
 
     </script>
 @endsection
