@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('track_reregiters');
+        Schema::dropIfExists('track_reregisters');
     }
 };

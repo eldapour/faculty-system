@@ -34,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
+
         View::share('settings',Setting::first());
         View::share('categories',Category::all());
         View::share('advertisements', Advertisement::query()
@@ -45,6 +47,5 @@ class AppServiceProvider extends ServiceProvider
         View::share('pages',Page::query()
         ->where('category_id', '=', '8')
             ->get());
-        Schema::defaultStringLength(191);
     }
 }
