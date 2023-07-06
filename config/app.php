@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Buglinjo\LaravelWebp\WebpServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Package Service Providers...
