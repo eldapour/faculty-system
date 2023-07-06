@@ -17,7 +17,6 @@
         "maatwebsite/excel": "3.1.48",
         "mcamara/laravel-localization": "^1.8",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "spatie/laravel-permission": "^5.10",
         "spatie/laravel-translatable": "^6.5",
         "yajra/laravel-datatables": "9.0",
         "yoeunes/toastr": "^2.3"

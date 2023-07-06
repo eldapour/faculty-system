@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Middleware\CheckForbidden;
 use App\Models\TrackReregister;
 use DateTime;
 use App\Models\User;
@@ -19,6 +20,10 @@ use App\Http\Requests\SubjectStudentRequest;
 
 class SubjectStudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('index');
+    }
 
     public function index(request $request)
     {
@@ -35,14 +40,14 @@ class SubjectStudentController extends Controller
 
             return Datatables::of($subject_students)
                 ->editColumn('subject_id', function ($subject_students) {
-                    return  $subject_students->subject->subject_name;
+                    return $subject_students->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_students) {
-                    return  $subject_students->subject->group->group_name;
+                    return $subject_students->subject->group->group_name;
                 })
                 ->editColumn('year', function ($subject_students) {
                     $date = new DateTime($subject_students->year);
-                    return  $date->format('Y');
+                    return $date->format('Y');
                 })
                 ->escapeColumns([])
                 ->make(true);

@@ -162,6 +162,12 @@
                         <div class="d-flex justify-content-end">
                             <div>ختم المؤسسة</div>
                         </div>
+                        <div class="d-flex justify-content-end">
+                            <div>
+                                <img style="width: 145px;" src="{{ asset($university_settings[0]->stamp_logo) }}">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

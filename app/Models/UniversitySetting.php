@@ -12,6 +12,7 @@ class UniversitySetting extends Model
     protected $fillable = [
         'email',
         'logo',
+        'stamp_logo',
         'title',
         'description',
         'address',
