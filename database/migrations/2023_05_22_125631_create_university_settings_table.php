@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('email');
             $table->longText('logo');
-            $table->longText('stamp_logo');
+            $table->longText('stamp_logo')->nullable();
             $table->json('title');
             $table->json('description');
             $table->json('address');

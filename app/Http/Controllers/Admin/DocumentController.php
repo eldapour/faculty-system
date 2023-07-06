@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckForbidden;
 use App\Models\Document;
 use App\Models\DocumentType;
 use Carbon\Carbon;
@@ -13,25 +14,29 @@ use Yajra\DataTables\DataTables;
 class DocumentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->only(['index','documentsStudent']);
+    }
     public function index(request $request)
     {
         if ($request->ajax()) {
             $documents = Document::query()
             ->get();
-            
+
             return Datatables::of($documents)
                 ->addColumn('action', function ($documents) {
                     return '
                             <button type="button" id="processing_btn_accept_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="accept" class="btn btn-pill btn-primary-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.accept").'</button>
                             <button type="button" id="processing_btn_refused_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="refused" class="btn btn-pill btn-danger-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.refused").'</button>
                             <button type="button" id="processing_btn_under_processing_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="under_processing" class="btn btn-pill btn-warning-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.under_processing").' </button>
-                            
+
                              <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' .  $documents->id . '" data-title="' .  $documents->document_type->getTranslation('document_name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                                     '.trans("admin.delete").'
                             </button>
-                           
+
                        ';
                 })
                 ->editColumn('user_id', function ($documents) {
@@ -87,7 +92,7 @@ class DocumentController extends Controller
             return Datatables::of($documents)
                 ->addColumn('action', function ($documents) {
                     return '
-                         
+
                              <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' .  $documents->id . '" data-title="' .  $documents->document_type->getTranslation('document_name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>

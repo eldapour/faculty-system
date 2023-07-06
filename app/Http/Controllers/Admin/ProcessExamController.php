@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Middleware\CheckForbidden;
 use DateTime;
 use App\Models\User;
 use App\Models\Period;
@@ -18,6 +19,10 @@ class ProcessExamController extends Controller
 {
     use PhotoTrait;
 
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('processExamStudent');
+    }
 
     public function index(request $request)
     {

@@ -34,6 +34,13 @@ class UniversitySettingController extends Controller
             $inputs['logo'] = $this->saveImage($request->logo, 'uploads/university_setting', 'photo');
         }
 
+        if ($request->has('stamp_logo')) {
+            if (file_exists($universitySetting->stamp_logo)) {
+                unlink($universitySetting->stamp_logo);
+            }
+            $inputs['stamp_logo'] = $this->saveImage($request->stamp_logo, 'uploads/university_setting', 'photo');
+        }
+
         if ($universitySetting->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {

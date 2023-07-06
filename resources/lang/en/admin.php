@@ -166,6 +166,7 @@ return [
     // sliders
     "sliders" => "sliders",
     "image" => "image",
+    "stamp_logo" => "stamp logo",
     "images" => "Images",
     "description" => "description",
 

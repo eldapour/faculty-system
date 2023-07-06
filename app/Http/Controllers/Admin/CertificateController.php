@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\CertificateExport;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckForbidden;
 use App\Imports\CertificateImport;
 use App\Models\Certificate;
 use App\Models\CertificateType;
@@ -21,6 +22,10 @@ use Yajra\DataTables\DataTables;
 
 class CertificateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('registeration');
+    }
     public function index(request $request){
 
 

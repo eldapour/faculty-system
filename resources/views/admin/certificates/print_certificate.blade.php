@@ -132,8 +132,15 @@
                             </table>
                             <p class="mt-4 mb-3">سلمت هذه الشهادة الى المعني بالامر لتقديمها عند الحاجة</p>
                             <div class="d-flex justify-content-end">
-                                <div class="borded-div">ختم المؤسسة</div>
+                                <div class="">ختم المؤسسة</div>
                             </div>
+
+                            <div class="d-flex justify-content-end">
+                                <div>
+                                    <img style="width: 145px;" src="{{ asset($university_settings[0]->stamp_logo) }}">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

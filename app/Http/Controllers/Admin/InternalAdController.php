@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Middleware\CheckForbidden;
 use App\Models\Service;
 use App\Models\InternalAd;
 use Illuminate\Http\Request;
@@ -13,6 +14,10 @@ use App\Http\Requests\StoreInternalAd;
 
 class InternalAdController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('internalAdsStudent');
+    }
 
     public function index(request $request)
     {
@@ -41,7 +46,6 @@ class InternalAdController extends Controller
                     return '<input class="tgl tgl-ios like_active" data-id="' . $internal_ads->id . '" name="like_active" id="like-' . $internal_ads->id . '" type="checkbox" ' . ($internal_ads->status == "show" ? 'checked' : 'unchecked') . '/>
                     <label class="tgl-btn" dir="ltr" for="like-' . $internal_ads->id . '"></label>';
                 })
-
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -62,8 +66,8 @@ class InternalAdController extends Controller
                     <button type="button" data-id="' . $internal_ads->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                        ';
                 })
-                ->editColumn('title', function($internal_ads) {
-                    return '<td>'. $internal_ads->getTranslation('title', app()->getLocale()) .'</td>';
+                ->editColumn('title', function ($internal_ads) {
+                    return '<td>' . $internal_ads->getTranslation('title', app()->getLocale()) . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -113,7 +117,6 @@ class InternalAdController extends Controller
             return response()->json(['status' => 405]);
         }
     }
-
 
 
     public function destroy(Request $request)

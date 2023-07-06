@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckForbidden;
 use App\Models\DataModification;
 use App\Traits\PhotoTrait;
 use Carbon\Carbon;
@@ -14,6 +15,11 @@ use Yajra\DataTables\DataTables;
 class DataModificationController extends Controller
 {
     use PhotoTrait;
+
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('store');
+    }
 
     public function index(Request $request)
     {
@@ -37,11 +43,11 @@ class DataModificationController extends Controller
                 })
                 ->editColumn('request_status', function ($data) {
                     if ($data->request_status == 'refused')
-                        return '<span class="badge badge-danger">' . trans('admin.'.$data->request_status) . '</span>';
+                        return '<span class="badge badge-danger">' . trans('admin.' . $data->request_status) . '</span>';
                     elseif ($data->request_status == 'accept')
-                        return '<span class="badge badge-success">' . trans('admin.'.$data->request_status) . '</span>';
+                        return '<span class="badge badge-success">' . trans('admin.' . $data->request_status) . '</span>';
                     else
-                        return '<span class="badge badge-info">' . trans('admin.'.$data->request_status) . '</span>';
+                        return '<span class="badge badge-info">' . trans('admin.' . $data->request_status) . '</span>';
                 })
                 ->escapeColumns([])
                 ->make(true);
