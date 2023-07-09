@@ -20,6 +20,7 @@
                         </div>
                     </div>
                 @endforeach
+
             </div>
             <button class="carousel-control-prev" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <div class="prev-icon">
