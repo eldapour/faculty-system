@@ -46,52 +46,64 @@
                                                data-default-file="{{ asset($university_settings->stamp_logo) }}" name="stamp_logo"
                                                value="{{ asset($university_settings->stamp_logo) }}">
                                     </div>
+
                                     <div class="col-md-8">
-                                        <label for="name_ar" class="form-control-label">
-                                            {{ trans('admin.title') . ' ' . trans('admin.arabic') }}</label>
-                                        <input type="text" class="form-control"
-                                               value="{{ $university_settings->title['ar']}}" name="title[ar]">
+                                        <label for="name_ar" class="form-control-label mt-3">
+                                            {{ trans('admin.title_ar') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->title['ar']}}" name="title[ar]">
 
                                         <label for="name_ar"
-                                               class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.english') }}</label>
-                                        <input type="text" class="form-control"
-                                               value="{{ $university_settings->title['en']}}" name="title[en]">
+                                               class="form-control-label mt-3">{{ trans('admin.title_en') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->title['en']}}" name="title[en]">
 
                                         <label for="name_ar"
-                                               class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.france') }}</label>
-                                        <input type="text" class="form-control"
-                                               value="{{ $university_settings->title['fr']}}" name="title[fr]">
+                                               class="form-control-label mt-3">{{ trans('admin.title_fr') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->title['fr']}}" name="title[fr]">
+
+
+                                        <label for="name_ar"
+                                               class="form-control-label mt-3">{{ trans('admin.address_ar') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
+
+
+                                        <label for="name_ar"
+                                               class="form-control-label mt-3">{{ trans('admin.address_en') }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
+
+                                        <label for="name_ar"
+                                               class="form-control-label mt-3">{{ trans('admin.address_fr')  }}</label>
+                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label for="facebook_link"
-                                               class="form-control-label">{{ trans('admin.facebook_link') }}</label>
+                                               class="form-control-label mt-3">{{ trans('admin.facebook_link') }}</label>
                                         <input type="text" class="form-control"
                                                value="{{ $university_settings->facebook_link }}" name="facebook_link"
                                                placeholder="https://www.facebook.com/">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="whatsapp_link"
-                                               class="form-control-label">{{ trans('admin.whatsapp_link') }}</label>
+                                               class="form-control-label mt-3">{{ trans('admin.whatsapp_link') }}</label>
                                         <input type="text" class="form-control"
                                                value="{{ $university_settings->whatsapp_link }}" name="whatsapp_link"
                                                placeholder="https://www.whatsapp.com/">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="youtube_link"
-                                               class="form-control-label">{{ trans('admin.youtube_link') }}</label>
+                                               class="form-control-label mt-3">{{ trans('admin.youtube_link') }}</label>
                                         <input type="text" class="form-control"
                                                value="{{ $university_settings->youtube_link }}" name="youtube_link"
                                                placeholder="https://www.youtube.com/">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="email" class="form-control-label">{{ trans('admin.email') }}</label>
+                                        <label for="email" class="form-control-label mt-3">{{ trans('admin.email') }}</label>
                                         <input type="email" class="form-control"
                                                value="{{ $university_settings->email }}" name="email">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="phone" class="form-control-label">{{ trans('admin.phone') }}</label>
+                                        <label for="phone" class="form-control-label mt-3">{{ trans('admin.phone') }}</label>
                                         <input type="text" class="form-control"
                                                value="{{ $university_settings->phone }}" name="phone">
                                     </div>

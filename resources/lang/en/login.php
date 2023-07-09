@@ -25,10 +25,10 @@ return [
     'This field is required' => 'This field is required',
 
     'student' => 'student',
-    'doctor' => 'doctor',
-    'manger' => 'Faculty Dean',
-    'employee' => 'employee',
-    'factor' => 'factor',
+    'doctor' => 'professor',
+    'manger' => 'general clerk',
+    'employee' => 'administration',
+    'factor' => 'net',
 
     'This mail is not registered' =>'This mail is not registered',
     'Please enter your e-mail' =>'Please enter your e-mail',

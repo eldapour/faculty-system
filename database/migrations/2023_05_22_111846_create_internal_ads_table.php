@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->json('title');
             $table->json('description');
-            $table->date('date_ads');
+            $table->time('time_ads');
             $table->longText('url_ads');
             $table->enum('status',['show','hide'])->default('show');
             $table->unsignedBigInteger('service_id');

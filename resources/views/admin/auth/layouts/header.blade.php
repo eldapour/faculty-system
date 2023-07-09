@@ -20,8 +20,9 @@
     @endif
     <link rel="apple-touch-icon" href="{{ asset('app-assets') }}/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets') }}/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
-          rel="stylesheet">
+
+{{--    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"--}}
+{{--          rel="stylesheet">--}}
 
 
     @if (lang() == 'en' || lang() == 'fr')
@@ -61,6 +62,12 @@
 
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+
+        body{
+
+            font-family: 'Cairo', sans-serif;
+        }
         #toast-container > .toast-error {
             background-color: #fb5454;
             color: white;
