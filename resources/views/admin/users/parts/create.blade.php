@@ -9,67 +9,104 @@
     <form id="addForm" class="addForm" method="POST" enctype="multipart/form-data" action="{{route('users.store')}}" >
         @csrf
 
+
+        {{--start form of data-----------------------------------------------------------of------------------------------------------}}
+
+
+
         <div class="row">
-            <div class="col-4">
+
+            <div class="col-md-12 col-12">
+
                 <div class="form-group">
-                    <label for="name" class="form-control-label">{{trans('admin.image_user')}}</label>
+                    <label for="name" class="form-control-label">{{trans('student.image')}}</label>
                     <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
                     <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
                 </div>
+
             </div>
-            <div class="col-4 mt-7">
+
+
+
+            <div class="col-md-6 col-12">
+
                 <div class="form-group">
-                    <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
+                    <label for="name" class="form-control-label">{{trans('student.first_name')}}</label>
                     <input type="text" class="form-control" name="first_name" id="first_name">
                 </div>
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
-                    <input type="text" class="form-control" name="email" id="email">
-                </div>
+
             </div>
-            <div class="col-4 mt-7">
+
+
+            <div class="col-md-6 col-12">
+
                 <div class="form-group">
-                    <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
-                    <input type="text" class="form-control" name="last_name">
+                    <label for="name" class="form-control-label">{{trans('student.last_name')}}</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name">
                 </div>
-                <div class="form-group">
-                    <label for="password" class="form-control-label">{{trans('admin.password')}}</label>
-                    <input type="password" class="form-control" name="password" id="password">
-                </div>
+
             </div>
-        </div>
 
-        <hr>
 
-        <div class="row">
-            <div class="col-6">
+
+            <div class="col-md-6 col-12">
+
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.university_email')}}</label>
-                    <input type="text" class="form-control" name="university_email" id="university_email">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.national_number')}}</label>
-                    <input type="number" class="form-control" name="national_number" id="national_number">
+                    <label for="name" class="form-control-label">{{trans('student.first_name_latin')}}</label>
+                    <input type="text" class="form-control" name="first_name_latin" id="first_name_latin">
                 </div>
 
+            </div>
 
+
+
+            <div class="col-md-6 col-12">
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.national_id')}}</label>
-                    <input type="number" class="form-control" name="national_id" id="national_id">
+                    <label for="name" class="form-control-label">{{trans('student.last_name_latin')}}</label>
+                    <input type="text" class="form-control" name="last_name_latin" id="last_name_latin">
                 </div>
 
+            </div>
+
+
+
+            <div class="col-md-6 col-12">
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.identifier_id')}}</label>
+                    <label for="email" class="form-control-label">{{trans('student.identifier_id')}}</label>
                     <input type="number" class="form-control" name="identifier_id" id="identifier_id">
                 </div>
 
+            </div>
 
+
+
+            <div class="col-md-6 col-12">
 
                 <div class="form-group">
-                    <label class="form-label">{{trans('admin.nationality')}}</label>
-                    <select name="nationality" class="form-control select2" data-placeholder="Choose nationality">
-                        <option value="">-- select one --</option>
+                    <label for="email" class="form-control-label">{{trans('student.national_number')}}</label>
+                    <input type="number" class="form-control" name="national_number" id="national_number">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.national_id')}}</label>
+                    <input type="number" class="form-control" name="national_id" id="national_id">
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <select name="nationality" class="form-control select2 mt-6" data-placeholder="Choose nationality">
+                        <option value="">{{trans('student.choose')}}</option>
                         <option value="afghan">Afghan</option>
                         <option value="albanian">Albanian</option>
                         <option value="algerian">Algerian</option>
@@ -263,76 +300,119 @@
                         <option value="zambian">Zambian</option>
                         <option value="zimbabwean">Zimbabwean</option>
                     </select>
+
                 </div>
-                {{--start city and birthday date with multipe language--}}
+
+            </div>
+
+
+
+            <div class="col-md-6 col-12">
+
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.city_ar')}}</label>
+                    <label for="email" class="form-control-label">{{trans('student.birthday_date')}}د</label>
+                    <input type="date" class="form-control" name="birthday_date" id="birthday_date">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.birthday_place')}}</label>
+                    <input type="text" class="form-control" name="birthday_place" id="birthday_place">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.city_ar')}}</label>
                     <input type="text" class="form-control" name="city_ar" id="city_ar">
                 </div>
 
-
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.city_en')}}</label>
-                    <input type="text" class="form-control" name="city_en" id="city_en">
-                </div>
             </div>
-            <div class="col-6">
 
+
+           <div class="col-md-6 col-12">
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.city_fr')}}</label>
-                    <input type="text" class="form-control" name="city_fr" id="city_fr">
+                    <label for="email" class="form-control-label">{{trans('student.city_latin')}}</label>
+                    <input type="text" class="form-control" name="city_latin" id="city_latin">
                 </div>
 
+            </div>
+
+
+            <div class="col-md-6 col-12">
 
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_ar')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_ar" id="birthday_place_ar">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_en')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_en" id="birthday_place_en">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.birthday_place_fr')}}</label>
-                    <input type="text" class="form-control" name="birthday_place_fr" id="birthday_place_fr">
-                </div>
-
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.birthday_date')}}د</label>
-                    <input type="date" class="form-control" name="birthday_date" id="birthday_date">
-                </div>
-                {{--start city and birthday date with multipe language--}}
-
-
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.address')}}</label>
+                    <label for="email" class="form-control-label">{{trans('student.address')}}</label>
                     <input type="text" class="form-control" name="address" id="address">
                 </div>
 
+            </div>
+
+
+            <div class="col-md-6 col-12">
+
                 <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.university_register_year')}}</label>
-                    <input type="number" class="form-control" name="year" id="year">
+                    <label for="email" class="form-control-label">{{trans('student.country_address_ar')}}</label>
+                    <input type="text" class="form-control" name="country_address_ar" id="country_address_ar">
                 </div>
 
             </div>
+
+
+              <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.country_address_latin')}}</label>
+                    <input type="text" class="form-control" name="country_address_latin" id="country_address_latin">
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.email')}} </label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+
+            </div>
+
+          <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('student.university_email')}}</label>
+                    <input type="text" class="form-control" name="university_email" id="university_email">
+                </div>
+
+            </div>
+
+
+          <div class="col-md-6 col-12">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('admin.university_register_year')}}</label>
+                    <input type="text" class="form-control" name="university_register_year" id="university_register_year">
+                </div>
+
+            </div>
+
+
+
         </div>
 
+        {{--end form of data---------------------------------------------------------------------------------------------}}
 
 
-
-
-
-
-
-
-
-
-        {{--end create model--}}
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('admin.close_model')}}</button>

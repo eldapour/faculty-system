@@ -14,7 +14,17 @@ return [
     "sure_delete" => "هل انت متأكد من حذف",
     "name" => "الاسم",
     "value" => "القيمة",
-    "title" => "عنوان",
+    "title" => "العنوان",
+
+
+    "title_ar" => "اسم الكليه بالعربيه",
+    "title_en" => "اسم الكليه بالانجليزيه",
+    "title_fr" => "اسم الكليه بالفرنسيه",
+    "address_ar" => "عنوان الكليه بالعربيه",
+    "address_en" => "عنوان الكليه بالانجليزيه",
+    "address_fr" => "عنوان الكليه بالفرنسيه",
+
+
     "status" => "الحالة",
     "register" => "سجل",
     "copy" => "نسخ",
@@ -118,11 +128,11 @@ return [
 
     // Internal Ad
     "ad" => "اعلان",
-    "ads" => "اعلانات",
+    "ads" => "اعلانات الموقع",
     "internal_ads" => "اعلانات داخلية",
     "date" => "تاريخ",
-    "date_ads" => "إعلانات التاريخ",
-    "url_ads" => "رابط الاعلانات",
+    "time_ads" => "توقيت الاعلان",
+    "url_ads" => "رابط الاعلان",
 
     // Department
     "departments" => "المسالك",
@@ -186,8 +196,10 @@ return [
 
     //start translate model user and admin
     'id' => 'رمز المستخدم',
-    'first_name' => 'الاسم الاول',
-    'last_name' => 'الاسم الاخير',
+    'first_name' => 'الاسم العائلي',
+    'last_name' => 'الاسم الشخصي',
+    'first_name_latin' => 'الاسم العائلي بالاثينيه',
+    'last_name_latin' => 'الاسم الشخصي بالاثينيه',
     'image_user' => 'صوره الطالب',
     'image_admin' => 'صوره الادمن',
     'points' => 'نقاط الطالب',
@@ -196,11 +208,11 @@ return [
     'national_id' => 'رقم القومي للبطاقه',
     'national_number' => 'الرقم القومي',
     'nationality' => 'الجنسيه',
-    'birthday_date' => 'تاريخ الميلاد',
+    'birthday_date' => 'تاريخ الازدياد',
     'birthday_place' => 'مكان الميلاد',
     'city' => 'الاقليم',
-    'job_id' => "الرقم الوظيفي",
     'address' => 'مكان',
+    'job_id' => "رقم التاجير",
     'This email has already been activated' => 'هذا الايميل مفعل من قبل',
     'This email is not activated. Do it through the link sent to the mail, or contact the administration' => 'لم يتم تنشيط هذا البريد الإلكتروني. قم بذلك من خلال الرابط المرسل إلى البريد ، أو تواصل مع الإدارة',
     'Verify that the data is correct and try again' => 'تاكد من صحة البيانات وحاول مرة اخري',
@@ -331,7 +343,7 @@ return [
     "request_type" => "نوع الطلب",
     "request_status" => "حالة الطلب",
     "processing_date" => "تاريخ المعالجة",
-    "doctor" => "دكتور",
+    "doctor" => "الاستاذ",
     "new" => "جديد",
     "refused" => "مرفوض",
     "absent" => "غائب",
@@ -513,6 +525,9 @@ return [
     "time_" => "التوقيت",
     "section_" => "القاعه",
     "exam_code_" => "رقم الامتحان",
+    "doctors" => "الاستاذه",
+
+    "add_advertisement" => "اضافه اعلان جديد للموقع",
 
 ];
 

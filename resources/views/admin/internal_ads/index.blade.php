@@ -30,7 +30,7 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.desc') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.date_ads') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.time_ads') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.url_ads') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.status') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.service') }}</th>
@@ -95,7 +95,7 @@
             {data: 'id', name: 'id'},
             {data: 'title', name: 'title'},
             {data: 'description', name: 'description'},
-            {data: 'date_ads', name: 'date_ads'},
+            {data: 'time_ads', name: 'time_ads'},
             {data: 'url_ads', name: 'url_ads'},
             {data: 'status', name: 'status'},
             {data: 'service_id', name: 'service_id'},

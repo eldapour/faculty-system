@@ -132,7 +132,7 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="text-white"><h2 class="mb-0 number-font">{{ doctorCount() }}</h2>
-                            <p class="text-white mb-0">{{ trans('admin.doctor') }}</p></div>
+                            <p class="text-white mb-0">{{ trans('admin.doctors') }}</p></div>
                             <div class="mr-auto">
                                 <i class="fa fa-user-tie text-white fs-30 ml-2 mt-2"></i>
                             </div>
@@ -142,19 +142,6 @@
         </div>
 
 
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-            <div class="card bg-info img-card box-info-shadow">
-                <div class="card-body">
-                    <div class="d-flex">
-                        <div class="text-white"><h2 class="mb-0 number-font">{{ adminCount() }}</h2>
-                            <p class="text-white mb-0">{{ trans('admin.admins') }}</p></div>
-                            <div class="mr-auto">
-                                <i class="fa fa-user-secret text-white fs-30 ml-2 mt-2"></i>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">

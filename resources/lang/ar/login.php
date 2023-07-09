@@ -26,10 +26,10 @@ return [
 
 
     'student' => 'طالب',
-    'doctor' => 'دكتور',
-    'manger' => 'العميد',
-    'employee' => 'موظف',
-    'factor' => 'عامل',
+    'doctor' => ' الاستاذ',
+    'manger' => 'العميد - الكاتب العام',
+    'employee' => 'الاداره',
+    'factor' => 'الشباك',
 
     'This mail is not registered' => 'هذا البريد غير مسجل',
     'Please enter your e-mail' => 'يرجي ادخال البريد الالكتروني',

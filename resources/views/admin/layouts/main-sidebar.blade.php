@@ -69,7 +69,6 @@
                     <li><a href="{{ route('word.index') }}" class="slide-item">{{ trans('admin.wordManager') }}</a>
                     </li>
                     <li><a href="{{ route('pages.index') }}" class="slide-item">{{ trans('admin.pages') }}</a></li>
-                    <li><a href="{{ route('advertisements.index') }}" class="slide-item">{{ trans('admin.ads') }}</a>
                     </li>
                     <li><a href="{{ route('presentations.index') }}"
                            class="slide-item">{{ trans('admin.presentations') }}</a></li>
@@ -114,9 +113,16 @@
                 <ul class="slide-menu">
                     <li><a href="{{ route('services.index') }}" class="slide-item">{{ trans('admin.services') }}</a>
                     </li>
+
                     <li><a href="{{ route('internal_ads.index') }}"
                            class="slide-item">{{ trans('admin.internal_ads') }}</a>
                     </li>
+
+                    <li><a href="{{ route('advertisements.index') }}"
+                           class="slide-item">{{ trans('admin.ads') }}</a>
+                    </li>
+
+
                 </ul>
             </li>
         @endif

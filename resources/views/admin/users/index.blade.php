@@ -30,12 +30,27 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
 
-
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('admin.id')}}</th>
-                                <th class="min-w-50px">{{trans('admin.image_user')}}</th>
-                                <th class="min-w-50px">{{trans('admin.full_name')}} </th>
-                                <th class="min-w-125px">{{trans('admin.email')}}</th>
+                                <th class="min-w-50px">{{trans('student.image')}}</th>
+                                <th class="min-w-50px">{{trans('student.points')}} </th>
+                                <th class="min-w-125px">{{trans('student.identifier_id')}}</th>
+                                <th class="min-w-125px">{{trans('student.national_number')}}</th>
+                                <th class="min-w-125px">{{trans('student.national_id')}}</th>
+                                <th class="min-w-125px">{{trans('student.first_name')}}</th>
+                                <th class="min-w-125px">{{trans('student.last_name')}}</th>
+                                <th class="min-w-125px">{{trans('student.first_name_latin')}}</th>
+                                <th class="min-w-125px">{{trans('student.last_name_latin')}}</th>
+                                <th class="min-w-125px">{{trans('student.nationality')}}</th>
+                                <th class="min-w-125px">{{trans('student.birthday_date')}}</th>
+                                <th class="min-w-125px">{{trans('student.birthday_place')}}</th>
+                                <th class="min-w-125px">{{trans('student.city_ar')}}</th>
+                                <th class="min-w-125px">{{trans('student.city_latin')}}</th>
+                                <th class="min-w-125px">{{trans('student.address')}}</th>
+                                <th class="min-w-125px">{{trans('student.country_address_ar')}}</th>
+                                <th class="min-w-125px">{{trans('student.country_address_latin')}}</th>
+                                <th class="min-w-125px">{{trans('student.email')}}</th>
+                                <th class="min-w-125px">{{trans('student.university_email')}}</th>
                                 <th class="min-w-125px">{{trans('admin.created_at')}}</th>
                                 <th class="min-w-50px rounded-end">{{trans('admin.action')}}</th>
                             </tr>
@@ -95,11 +110,29 @@
                         </div>
         `;
 
+
+
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
+            {data: 'points', name: 'points'},
+            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'national_number', name: 'national_number'},
+            {data: 'national_id', name: 'national_id'},
             {data: 'first_name', name: 'first_name'},
+            {data: 'last_name', name: 'last_name'},
+            {data: 'first_name_latin', name: 'first_name_latin'},
+            {data: 'last_name_latin', name: 'last_name_latin'},
+            {data: 'nationality', name: 'nationality'},
+            {data: 'birthday_date', name: 'birthday_date'},
+            {data: 'birthday_place', name: 'birthday_place'},
+            {data: 'city_ar', name: 'city_ar'},
+            {data: 'city_latin', name: 'city_latin'},
+            {data: 'address', name: 'address'},
+            {data: 'country_address_ar', name: 'country_address_ar'},
+            {data: 'country_address_latin', name: 'country_address_latin'},
             {data: 'email', name: 'email'},
+            {data: 'university_email', name: 'university_email'},
             {data: 'created_at', name: 'created_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]

@@ -16,19 +16,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    use HasTranslations;
 
-    //translate data
-    public array $translatable = ['city','birthday_place'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'first_name',
         'last_name',
+        'first_name_latin',
+        'last_name_latin',
         'image',
         'points',
         'university_email',
@@ -38,8 +38,11 @@ class User extends Authenticatable
         'nationality',
         'birthday_date',
         'birthday_place',
-        'city',
+        'city_ar',
+        'city_latin',
         'address',
+        'country_address_ar',
+        'country_address_latin',
         'user_status',
         'user_type',
         'job_id',

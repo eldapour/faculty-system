@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,9 +16,8 @@ class InternalAd extends Model
     protected $fillable = [
         "title",
         "description",
-        "date_ads",
+        "time_ads",
         "url_ads",
-        "status",
         "service_id"
     ];
 
@@ -26,7 +26,7 @@ class InternalAd extends Model
         'description' => 'json'
     ];
 
-    public function service()
+    public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class, 'service_id', 'id');
     }

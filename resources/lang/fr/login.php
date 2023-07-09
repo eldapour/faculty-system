@@ -26,10 +26,10 @@ return [
 
 
     'student' => 'étudiant',
-    'doctor' => 'médecin',
-    'manger' => 'Doyen du Collège',
-    'employee' => 'employé',
-    'factor' => 'facteur',
+    'doctor' => 'professeur',
+    'manger' => 'employé général',
+    'employee' => 'administration',
+    'factor' => 'net',
 
     'This mail is not registered' => 'Ce courrier n\'est pas enregistré',
     'Please enter your e-mail' => 'Veuillez saisir votre e-mail',

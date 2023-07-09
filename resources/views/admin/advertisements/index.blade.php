@@ -25,7 +25,7 @@
                     <div class="table-responsive">
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
-                            <thead>
+                        <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.image') }}</th>
@@ -74,7 +74,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.an_appointment') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add_advertisement') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -96,8 +96,8 @@
             {data: 'image', name: 'image'},
             {data: 'background_image', name: 'background_image'},
             {data: 'title', name: 'title'},
-            {data: 'title', name: 'category'},
-            {data: 'title', name: 'service'},
+            {data: 'category_id', name: 'category_id'},
+            {data: 'service_id', name: 'service_id'},
             {data: 'description', name: 'description'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
@@ -112,4 +112,8 @@
         editScript();
     </script>
 @endsection
+
+
+
+
 

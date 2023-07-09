@@ -15,7 +15,16 @@ return [
     "sure_delete" => "Are you sure to delete",
     "name" => "Name",
     "value" => "Value",
-    "title" => "Title",
+    "title" => "title",
+
+    "title_ar" => "The name of the college in Arabic",
+    "title_en" => "Name of the College in English",
+    "title_fr" => "Faculty Name in French",
+    "address_ar" => "College address in Arabic",
+    "address_en" => "College address in English",
+    "address_fr" => "Faculty Address in French",
+
+
     "status" => "Status",
     "register" => "register",
     "from" => "from",
@@ -138,10 +147,10 @@ return [
 
     // Internal Ad
     "ad" => "Ad",
-    "ads" => "Ads",
+    "ads" => "Website Ads",
     "internal_ads" => "Internal Ads",
 
-    "date_ads" => "Date Ads",
+    "time_ads" => "Time Ads",
     "url_ads" => "Url Ads",
 
     // Department
@@ -196,8 +205,11 @@ return [
 
 
     'id' => 'User ID',
-    'first_name' => 'first name',
-    'last_name' => 'last name',
+    'first_name' => 'family name',
+    'last_name' => 'First name',
+    'first_name_latin' => 'Last name in Athenian',
+    'last_name_latin' => 'Personal name in Athenian',
+    'job_id' => 'Job ID',
     'image_user' => 'Student image',
     'image_admin' => 'admin photo',
      'points' => 'Student points',
@@ -206,10 +218,12 @@ return [
      'national_id' => 'National ID',
      'national_number' => 'National number',
      'nationality' => 'nationality',
-     'birthday_date' => 'birthday',
+
+
+    'birthday_date' => 'birthday',
+
      'birthday_place' => 'birthplace',
      'city' => 'province',
-    'job_id' => "Job Id",
     'address' => 'address',
      'user_status' => 'User status',
      'user_type' => 'User type',
@@ -514,6 +528,8 @@ return [
      "time_" => "time",
      "section_" => "hall",
      "exam_code_" => "Exam Code",
+    "doctors" => "teachers",
+    "add_advertisement" => "Add a new advertisement to the site",
 ];
 
 

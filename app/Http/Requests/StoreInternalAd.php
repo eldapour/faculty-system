@@ -11,7 +11,7 @@ class StoreInternalAd extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,16 +21,18 @@ class StoreInternalAd extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            "title",
-            "description",
-            "date_ads",
-            "url_ads",
-            "status",
-            "service_id",
-            
+            "title_ar" => 'required',
+            "title_en" => 'required',
+            "title_fr" => 'required',
+            "description_ar" => 'required',
+            "description_en" => 'required',
+            "description_fr" => 'required',
+            "time_ads" => 'required',
+            "url_ads" => 'required',
+            "service_id" => 'required|exists:services,id',
         ];
     }
 }

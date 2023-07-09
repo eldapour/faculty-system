@@ -27,15 +27,33 @@
                     <label for="name" class="form-control-label">{{trans('admin.first_name')}}</label>
                     <input type="text" class="form-control"  value="{{ $user->first_name }}" name="first_name" id="first_name">
                 </div>
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
-                    <input type="text" class="form-control"  value="{{ $user->email }}" name="email" id="email">
-                </div>
-            </div>
-            <div class="col-4 mt-7">
+
+
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{trans('admin.last_name')}}</label>
                     <input type="text" class="form-control"  value="{{ $user->last_name }}" name="last_name" id="last_name">
+                </div>
+            </div>
+
+
+            <div class="col-4 mt-7">
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.first_name_latin')}}</label>
+                    <input type="text" class="form-control" name="first_name_latin" id="first_name_latin"  value="{{ $user->first_name_latin }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.last_name_latin')}}</label>
+                    <input type="text" class="form-control" name="last_name_latin" id="last_name_latin"  value="{{ $user->last_name_latin }}">
+                </div>
+
+            </div>
+
+            <div class="col-4 mt-7">
+
+                <div class="form-group">
+                    <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
+                    <input type="text" class="form-control"  value="{{ $user->email }}" name="email" id="email">
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-control-label">{{trans('admin.password')}}</label>

@@ -11,7 +11,7 @@ class StoreAdvertisement extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,19 +21,41 @@ class StoreAdvertisement extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
-        return [
-            'title.ar' => 'required',
-            'title.en' => 'required',
-            'title.fr' => 'required',
-            'description.ar' => 'required',
-            'description.en' => 'required',
-            'description.fr' => 'required',
-            'image' => 'required|image',
-            'background_image' => 'required|image',
-            'category_id' => 'required',
-            'service_id' => 'required'
-        ];
+
+        if (request()->isMethod('post')) {
+
+            $rules = [
+                'title_ar' => 'required',
+                'title_en' => 'required',
+                'title_fr' => 'required',
+                'description_ar' => 'required',
+                'description_en' => 'required',
+                'description_fr' => 'required',
+                'image' => 'required|image',
+                'background_image' => 'required|image',
+                'category_id' => 'required',
+                'service_id' => 'required'
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'title_ar' => 'required',
+                'title_en' => 'required',
+                'title_fr' => 'required',
+                'description_ar' => 'required',
+                'description_en' => 'required',
+                'description_fr' => 'required',
+                'image' => 'nullable|image',
+                'background_image' => 'nullable|image',
+                'category_id' => 'required',
+                'service_id' => 'required'
+
+            ];
+        }
+
+        return $rules;
     }
 }

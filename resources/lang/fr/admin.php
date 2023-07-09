@@ -14,7 +14,16 @@ return [
     "sure_delete" => "Êtes-vous sûr de vouloir supprimer",
     "name" => "Nom",
     "value" => "Value",
-    "title" => "Titre",
+
+    "title" => "title",
+    "title_ar" => "Le nom du collège en arabe",
+    "title_en" => "Nom du Collège en anglais",
+    "title_fr" => "Nom de la faculté en français",
+    "address_ar" => "Adresse du collège en arabe",
+    "address_en" => "Adresse du collège en anglais",
+    "address_fr" => "Adresse de la faculté en français",
+
+
     "status" => "Statut",
     "register" => "Enregistrer",
     "from" => "Depuis",
@@ -120,10 +129,10 @@ return [
 
     // Internal Ad
     "ad" => "Publicité",
-    "ads" => "annonces",
+    "ads" => "Annonces du site",
     "internal_ads" => "Annonces Internes",
 
-    "date_ads" => "Annonces De Rendez-vous",
+    "date_ads" => "Moment de l'annonce",
     "url_ads" => "Lien Des Annonces",
     // Department
     "departments" => "Des Pistes",
@@ -174,12 +183,13 @@ return [
     'presentations' => 'Page des présentations',
     'experience_year' => 'Année d expérience',
     'type' => 'Taper',
-
-
     'id' => "ID de l'utilisateur",
     'first_name' => "prénom",
-    'last_name' => "nom de famille",
-    'image_user' => "Image étudiante",
+    'first_name' => 'nom de famille',
+    'first_name_latin' => 'Nom de famille en athénien',
+    'last_name_latin' => 'Nom personnel en athénien',
+    'last_name' => 'Prénom',
+    'job_id' => 'Identifiant du travail',
     'image_admin' => "photo d'administration",
     'points' => "Points étudiants",
     'university_email' => "courriel de l'université",
@@ -187,10 +197,11 @@ return [
     'national_id' => "Carte d'identité",
     'national_number' => "Numéro national",
     'nationality' => "nationalité",
-    'birthday_date' => "anniversaire",
+
+    'birthday_date' => 'anniversaire',
+
     'birthday_place' => "Lieu de naissance",
     'city' => "province",
-    'job_id' => "Employee ID",
     'address' => "adresse",
     'user_status' => "Statut de l'utilisateur",
     'user_type' => "Type d'utilisateur",
@@ -519,6 +530,9 @@ return [
     "time_" => "time",
     "section_" => "hall",
     "exam_code_" => "Exam Code",
+    "doctors" => "le professeur",
+    "add_advertisement" => "Ajouter une nouvelle annonce au site",
+
 
 ];
 

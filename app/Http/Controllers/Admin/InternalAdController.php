@@ -22,25 +22,27 @@ class InternalAdController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $internal_ads = InternalAd::get();
+            $internal_ads = InternalAd::query()
+            ->get();
+
             return Datatables::of($internal_ads)
                 ->addColumn('action', function ($internal_ads) {
                     return '
                             <button type="button" data-id="' . $internal_ads->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $internal_ads->id . '" data-title="' . $internal_ads->title[lang()] . '">
+                                    data-id="' . $internal_ads->id . '" data-title="' . $internal_ads->getTranslation('title', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('title', function ($internal_ads) {
-                    return '<td>' . $internal_ads->title[lang()] . '</td>';
+                    return  $internal_ads->getTranslation('title', app()->getLocale());
                 })
                 ->editColumn('description', function ($internal_ads) {
-                    return '<td>' . $internal_ads->description[lang()] . '</td>';
+                    return $internal_ads->getTranslation('description', app()->getLocale());
                 })
                 ->editColumn('service_id', function ($internal_ads) {
-                    return '<td>' . $internal_ads->service->service_name[lang()] . '</td>';
+                    return $internal_ads->service->getTranslation('service_name', app()->getLocale());
                 })
                 ->addColumn('status', function ($internal_ads) {
                     return '<input class="tgl tgl-ios like_active" data-id="' . $internal_ads->id . '" name="like_active" id="like-' . $internal_ads->id . '" type="checkbox" ' . ($internal_ads->status == "show" ? 'checked' : 'unchecked') . '/>
@@ -53,7 +55,6 @@ class InternalAdController extends Controller
         }
     }
 
-    // internal ads students start
 
     public function internalAdsStudent(Request $request)
     {
@@ -67,7 +68,7 @@ class InternalAdController extends Controller
                        ';
                 })
                 ->editColumn('title', function ($internal_ads) {
-                    return '<td>' . $internal_ads->getTranslation('title', app()->getLocale()) . '</td>';
+                    return $internal_ads->getTranslation('title', app()->getLocale());
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -76,25 +77,36 @@ class InternalAdController extends Controller
         }
     }
 
-    // internal ads students end
 
     public function editInternalStudent($id)
     {
-        $internal_ads = InternalAd::findOrFail($id);
+        $internal_ads = InternalAd::query()
+        ->findOrFail($id);
         return view('admin.internal_ads.parts_students.edit', compact('internal_ads'));
     }
 
     public function create()
     {
-        $data['services'] = Service::get();
+        $data['services'] = Service::query()
+            ->get();
         return view('admin.internal_ads.parts.create', compact('data'));
     }
 
 
     public function store(StoreInternalAd $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (InternalAd::create($inputs)) {
+
+
+        $internalAd = InternalAd::create([
+            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
+            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+            "time_ads" => $request->time_ads,
+            "url_ads" => $request->url_ads,
+            "service_id" => $request->service_id
+        ]);
+
+
+        if ($internalAd->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -109,9 +121,18 @@ class InternalAdController extends Controller
     }
 
 
-    public function update(Request $request, InternalAd $internalAd)
+    public function update(StoreInternalAd $request,InternalAd $internalAd)
     {
-        if ($internalAd->update($request->all())) {
+
+        $internalAd->update([
+            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
+            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+            "time_ads" => $request->time_ads,
+            "url_ads" => $request->url_ads,
+            "service_id" => $request->service_id
+        ]);
+
+        if ($internalAd->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -121,7 +142,10 @@ class InternalAdController extends Controller
 
     public function destroy(Request $request)
     {
-        $internal_ads = InternalAd::where('id', $request->id)->firstOrFail();
+        $internal_ads = InternalAd::query()
+        ->where('id', $request->id)
+            ->firstOrFail();
+
         $internal_ads->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
