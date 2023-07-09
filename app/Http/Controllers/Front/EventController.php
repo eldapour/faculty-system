@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $data['events'] = Event::all();
+        $data['events'] = Event::latest();
         return view('front.blogs.event', $data);
     }
 

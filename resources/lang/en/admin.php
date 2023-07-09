@@ -25,6 +25,7 @@ return [
     "No results" => "No results",
     "Search" => "Search",
     "research" => "research",
+    "download" => "download",
     "zero_records" => "No results",
     "copy" => "copy",
     "Print" => "Print",
@@ -514,6 +515,24 @@ return [
      "time_" => "time",
      "section_" => "hall",
      "exam_code_" => "Exam Code",
+
+      // web
+    "digital platform" => "digital platform",
+    "latest posts" => "latest posts",
+    "details" => "details",
+    "Contact Us" => "Contact Us",
+    "welcome to" => "Welcome to",
+    "College in numbers" => "College in numbers",
+    "Total students" => "Total students",
+    "Administrative crews" => "Administrative crews",
+    "Educational crews" => "Educational crews",
+    "vacation students" => "vacation students",
+    "Master students" => "Master students",
+    "PhD students" => "PhD students",
+    "Digital Student Platform" => "Digital Student Platform",
+    "Colleges Digital Platform" => "Colleges Digital Platform",
+    "Colleges Digital Magazine" => "Colleges Digital Magazine",
+
 ];
 
 

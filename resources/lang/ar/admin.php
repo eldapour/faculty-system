@@ -24,6 +24,7 @@ return [
     "to" => "الى",
     "show" => "اظهار",
     "Loading" => "جاري التحميل",
+    "download" => "تحميل",
     "No results" => "لا نتائج",
     "Search" => "للبحث",
     "research" => "بحث",
@@ -513,6 +514,23 @@ return [
     "time_" => "التوقيت",
     "section_" => "القاعه",
     "exam_code_" => "رقم الامتحان",
+
+    // web
+    "digital platform" => "المنصات الرقمية",
+    "latest posts" => "آخر المشاركات",
+    "details" => "التفاصيل",
+    "Contact Us" => "اتصل بنا",
+    "welcome to" => "مرحبا بكم في ",
+    "College in numbers" => "الكلية في أرقام",
+    "Total students" => "مجموع الطلاب",
+    "Administrative crews" => "الأطقم الإدارية",
+    "Educational crews" => "أطقم تعليمية",
+    "vacation students" => "طلاب إجازة",
+    "Master students" => "طلاب الماجستير",
+    "PhD students" => "طلاب الدكتوراه",
+    "Digital Student Platform" => "منصة الطالب الرقمية",
+    "Colleges Digital Platform" => "المنصة الرقمية للكليات",
+    "Colleges Digital Magazine" => "مجلة الكليات الرقمية",
 
 ];
 

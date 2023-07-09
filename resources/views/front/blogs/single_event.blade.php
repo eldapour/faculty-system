@@ -8,7 +8,7 @@
                 <h1 class="text-center">{{ $event_item->title[lang()] }}</h1>
                 <div class="title-breadcrumb">
                     <div class="link-breadcrumb">
-                        <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">home</a>|
+                        <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
                         <span class="ms-2">{{ $event_item->title[lang()] }}</span>
                     </div>
                 </div>
@@ -43,10 +43,10 @@
                             @foreach ($university_settings as $university_setting)
                                 <h3 class="mt-4 mb-3">share blog in</h3>
                                 <a class="text-decoration-none btn-share whatsapp"
-                                    href="{{ $university_setting->whatsapp_link }}" target="_blank"><i
+                                    href="https://api.whatsapp.com/send?text={{$event_item->title[lang()] .' : '. route('event',$event_item->id) }}" target="_blank"><i
                                         class="fa-brands fa-whatsapp"></i></a>
                                 <a class="text-decoration-none btn-share facebook"
-                                    href="{{ $university_setting->facebook_link }}" target="_blank"><i
+                                    href="https://www.facebook.com/sharer/sharer.php?u={{ route('event',$event_item->id) }}" target="_blank"><i
                                         class="fa-brands fa-facebook-f"></i></a>
                             @endforeach
                         </div>
@@ -64,7 +64,7 @@
                                             src="{{ asset($advertisement->image) }}"></div>
                                     <div>
                                         <div style="max-width: 190px;">
-                                            <a class="text-decoration-none" href="#">{{ $advertisement->title[lang()] }}</a>
+                                            <a class="text-decoration-none" href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
                                         </div>
                                         <span class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
                                     </div>
@@ -74,22 +74,6 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- digital platform -->
-        <section class="digital-platform mt-5">
-            <div class="container">
-                <h1 class="text-white text-center mb-5">digital platform</h1>
-                <div class="owl-carousel owl-theme">
-                    @foreach ($pages as $page)
-                        <div class="m-3 d-flex justify-content-center">
-                            <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </section>

@@ -85,7 +85,7 @@
                         setTimeout(function () {
                             location.href = '{{ route('admin.home') }}';
                         }, 2000)
-                    } else if (data === 700) {} else if (data === 405) {
+                    } else if (data === 405) {
                         toastr.error('{{ trans('login.The email or password is incorrect') }}');
                     } else if (data === 700) {
                         toastr.error('{{ trans('admin.The_platform_is_in_maintenance') }}');
