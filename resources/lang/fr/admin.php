@@ -36,6 +36,7 @@ return [
     "zero_records" => "Aucun résultat",
     "copy" => "Copie",
     "Print" => "Imprimer",
+    "download" => "télécharger",
     "Excel" => "Exceller",
     "select" => "sélect",
     "import" => "importer",
@@ -532,6 +533,24 @@ return [
     "exam_code_" => "Exam Code",
     "doctors" => "le professeur",
     "add_advertisement" => "Ajouter une nouvelle annonce au site",
+
+
+     // web
+     "digital platform" => "plateforme numérique",
+     "latest posts" => "derniers articles",
+     "details" => "détails",
+     "Contact Us" => "Contactez-nous",
+     "welcome to" => "BIENVENUE À",
+    "College in numbers" => "Le collège en chiffres",
+    "Total students" => "Nombre total d'étudiants",
+    "Administrative crews" => "Equipes administratives",
+    "Educational crews" => "Equipes pédagogiques",
+    "vacation students" => "étudiants en vacances",
+    "Master students" => "Étudiants en master",
+    "PhD students" => "Doctorants",
+    "Digital Student Platform" => "Plateforme étudiante numérique",
+    "Colleges Digital Platform" => "Plateforme numérique des collèges",
+    "Colleges Digital Magazine" => "Magazine numérique des collèges",
 
 
 ];

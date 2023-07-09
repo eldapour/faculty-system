@@ -1,5 +1,5 @@
 body{
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo', sans-serif !important;
     scroll-behavior: smooth;
     direction: rtl;
     padding: 0;
@@ -79,7 +79,7 @@ p{
     width: 150px;
 }
 .dropdown-toggle::after{
-    display: none;
+    display: none !important;
 }
 .active .icon-nav{
     transform: rotate(180deg);
@@ -97,6 +97,7 @@ p{
     /* font-weight: bold; */
     font-size: 16px;
     text-transform: capitalize;
+    text-align : right;
 
 }
 .navbar .nav-item{

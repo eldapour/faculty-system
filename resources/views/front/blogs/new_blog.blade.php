@@ -7,7 +7,7 @@
             <h1 class="text-center">our blog</h1>
             <div class="title-breadcrumb">
                 <div class="link-breadcrumb">
-                    <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">home</a>|
+                    <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
                     <span class="ms-2">our blog</span>
                 </div>
             </div>
@@ -49,17 +49,5 @@
     </section>
 
 
-    <!-- digital platform -->
-    <section class="digital-platform mt-5">
-        <div class="container">
-            <h1 class="text-white text-center mb-5">digital platform</h1>
-            <div class="owl-carousel owl-theme">
-                @foreach ($pages as $page)
-                    <div class="m-3 d-flex justify-content-center">
-                        <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+
 @endsection

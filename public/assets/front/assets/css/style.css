@@ -79,7 +79,7 @@ p{
     width: 150px;
 }
 .dropdown-toggle::after{
-    display: none;
+    display: none !important;
 }
 .active .icon-nav{
     transform: rotate(180deg);

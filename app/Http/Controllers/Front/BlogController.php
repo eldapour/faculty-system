@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $data['advertisements'] = Advertisement::all();
+        $data['advertisements'] = Advertisement::latest();
         return view('front.blogs.new_blog', $data);
     }
 
