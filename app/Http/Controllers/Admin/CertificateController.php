@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Imports\CertificateImport;
 use App\Models\Certificate;
 use App\Models\CertificateType;
+use App\Models\Department;
+use App\Models\DepartmentBranch;
+use App\Models\DepartmentBranchStudent;
+use App\Models\Period;
 use App\Models\SubjectStudent;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -204,9 +208,23 @@ class CertificateController extends Controller
 
     public function registeration(request $request){
 
-        $data['semesters'] = SubjectStudent::query()
-            ->get();
+        $period = Period::first();
 
+        $data['semesters'] = SubjectStudent::query()
+            ->where('user_id','=',auth()->user()->id)
+            ->where('year', '>=', $period->year_start)
+            ->where('year', '<=', $period->year_end)
+            ->with(['subject.unit'])
+            ->get();
+        $data['user'] = User::findOrFail(auth()->user()->id);
+        $data['manager'] = User::where('user_type','=','manger')->first(['first_name','last_name']);
+
+        $data['department'] = DepartmentBranchStudent::where('user_id',auth()->user()->id)
+            ->first('department_branch_id');
+        $data['department'] = DepartmentBranch::where('id','=',$data['department']->department_branch_id)
+            ->first('department_id');
+        $data['department'] = Department::where('id','=',$data['department']->department_id)
+            ->first('department_name');
 
         return view('admin.certificates.print_certificate',$data);
 

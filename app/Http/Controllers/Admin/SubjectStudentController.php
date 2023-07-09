@@ -29,7 +29,8 @@ class SubjectStudentController extends Controller
             $subject_students = SubjectStudent::query()
                 ->where('user_id', '=', Auth::id())
                 ->where('period', '=', $periods->period)
-                ->where('year', '=', $periods->year_start)
+                ->where('year', '>=', $periods->year_start)
+                ->where('year', '<=', $periods->year_end)
                 ->get();
 
             return Datatables::of($subject_students)

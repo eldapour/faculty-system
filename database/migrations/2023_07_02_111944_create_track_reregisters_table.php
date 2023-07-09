@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('track_reregisters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->date('year');
+            $table->year('year');
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

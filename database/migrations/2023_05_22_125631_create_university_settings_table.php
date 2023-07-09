@@ -22,6 +22,8 @@ return new class extends Migration
             $table->json('address');
             $table->string('phone');
             $table->boolean('maintenance')->default(false);
+            $table->date('reregister_start')->nullable();
+            $table->date('reregister_end')->nullable();
             $table->longText('facebook_link');
             $table->longText('whatsapp_link');
             $table->longText('youtube_link');
