@@ -36,7 +36,7 @@
                             perferendis, eveniet eum culpa soluta tempore optio!
                         </p>
                     </div>
-                </div>  --}}
+                </div>    --}}
             </div>
             <button class="carousel-control-prev" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <div class="prev-icon">
