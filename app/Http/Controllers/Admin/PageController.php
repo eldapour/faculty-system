@@ -61,7 +61,6 @@ class PageController extends Controller
     }
 
 
-
     public function store(PageRequest $request): JsonResponse
     {
         $inputs = $request->all();
@@ -100,8 +99,7 @@ class PageController extends Controller
     }
 
 
-
-    public function update(Request $request, Page $page): JsonResponse
+    public function update(Request $request, Page $page)
     {
         $inputs = $request->all();
 
@@ -109,15 +107,23 @@ class PageController extends Controller
         $files = [];
 
         if ($request->has('images')) {
+            foreach ($request->file('images') as $image) {
+                $images[] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
+            }
             foreach ($page->images as $image) {
+
                 if (file_exists($image)) {
                     unlink($image);
                 }
             }
-            foreach ($request->file('images') as $image) {
-                $images[] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
+        } else {
+            $request->except('images');
+            foreach ($page->images as $image) {
+            $images[] = $image;
             }
         }
+
+
 
         if ($request->file('files')) {
 
@@ -135,7 +141,6 @@ class PageController extends Controller
             return response()->json(['status' => 405]);
         }
     }
-
 
 
     public function destroy(Request $request)

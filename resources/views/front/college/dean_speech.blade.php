@@ -4,11 +4,11 @@
     <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
-            <h1 class="text-center">Dean's speech</h1>
+            <h1 class="text-center">@lang('admin.wordManager')</h1>
             <div class="title-breadcrumb">
                 <div class="link-breadcrumb">
-                    <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">home</a>|
-                    <span class="ms-2">Dean's speech</span>
+                    <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
+                    <span class="ms-2">@lang('admin.wordManager')</span>
                 </div>
             </div>
         </div>
@@ -33,17 +33,5 @@
         </div>
     </section>
 
-    <!-- digital platform -->
-    <section class="digital-platform mt-5">
-        <div class="container">
-            <h1 class="text-white text-center mb-5">digital platform</h1>
-            <div class="owl-carousel owl-theme">
-                @foreach ($pages as $page)
-                    <div class="m-3 d-flex justify-content-center">
-                        <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+
 @endsection
