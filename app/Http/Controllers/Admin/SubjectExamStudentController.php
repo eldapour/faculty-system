@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Exports\SubjectExamStudentExport;
+use App\Http\Middleware\CheckForbidden;
 use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
@@ -24,6 +25,10 @@ use App\Http\Controllers\Controller;
 class SubjectExamStudentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except(['index','printSubjectExamStudent']);
+    }
 
     public function index(request $request)
     {

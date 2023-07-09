@@ -26,6 +26,7 @@ class UniversitySettingRequest extends FormRequest
         return [
             'email' => 'required|email',
             'logo' => 'required',
+            'stamp_logo' => 'required|mimes:png',
             'title.ar' => 'required',
             'title.en' => 'required',
             'title.fr' => 'required',

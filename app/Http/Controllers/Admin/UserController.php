@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Middleware\CheckForbidden;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,10 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('pointUser');
+    }
     //all of students
     public function index(request $request)
     {
@@ -44,7 +49,7 @@ class UserController extends Controller
 
                     if ($user->image != null) {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $user->image)  . '">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("/users/" . $user->image)  . '">
                     ';
                     } else {
 

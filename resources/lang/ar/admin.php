@@ -151,6 +151,7 @@ return [
     // sliders
     "sliders" => "صور متحركة",
     "image" => "الصورة",
+    "stamp_logo" => "ختم المؤسسة",
     "images" => "الصور",
     "description" => "التفاصيل",
 

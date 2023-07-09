@@ -24,6 +24,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Diplôme d ingénieur mécanique',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -32,6 +33,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Diplôme d ingénieur en informatique',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -40,6 +42,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Diplôme d ingénieur agronome',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -48,6 +51,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Certificat de commerce et d économie',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -56,6 +60,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Certificat délevage',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -64,6 +69,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Certificat d ingénieur en mécatronique',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(4,100000)
             ],
             [
                 'name' => json_encode([
@@ -72,6 +78,7 @@ class CertificateTypeSeeder extends Seeder
                     'fr' => 'Diplôme d ingénieur pétrolier',
                 ]),
                 'created_at' => Carbon::now(),
+                'code' => rand(100,100000)
             ],
         ];
 

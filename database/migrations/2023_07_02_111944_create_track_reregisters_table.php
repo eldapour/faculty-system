@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('track_reregisters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->year('year');
+            $table->string('year',224);
             $table->boolean('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('track_reregiters');
+        Schema::dropIfExists('track_reregisters');
     }
 };

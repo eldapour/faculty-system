@@ -42,7 +42,7 @@ class ReRecordTheTrackController extends Controller
             $reregister = TrackReregister::query()
             ->create([
                 'user_id' => auth()->user()->id,
-                'year' => Carbon::parse($period->year_start),
+                'year' => Carbon::now()->format('Y'),
                 'status' => 1,
             ]);
         }else {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\CertificateExport;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\CheckForbidden;
 use App\Imports\CertificateImport;
 use App\Models\Certificate;
 use App\Models\CertificateType;
@@ -21,6 +22,10 @@ use Yajra\DataTables\DataTables;
 
 class CertificateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(CheckForbidden::class)->except('registeration');
+    }
     public function index(request $request){
 
 
@@ -221,9 +226,9 @@ class CertificateController extends Controller
 
         $data['department'] = DepartmentBranchStudent::where('user_id',auth()->user()->id)
             ->first('department_branch_id');
-        $data['department'] = DepartmentBranch::where('id','=',$data['department']->department_branch_id)
+        $data['department'] = DepartmentBranch::where('id','=',$data['department']->department_branch_id ?? '')
             ->first('department_id');
-        $data['department'] = Department::where('id','=',$data['department']->department_id)
+        $data['department'] = Department::where('id','=',$data['department']->department_id ?? '')
             ->first('department_name');
 
         return view('admin.certificates.print_certificate',$data);
