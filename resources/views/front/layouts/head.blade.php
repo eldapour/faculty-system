@@ -45,6 +45,7 @@
 
 
 
+
 {{--    @toastr_css--}}
     {{--    <link href="{{ asset('assets/front/') }}/assets/css/edit.css" rel="stylesheet" />--}}
 
