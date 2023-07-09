@@ -66,6 +66,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
 
+{{--<script src="{{asset('assets/admin/ck5/ckeditor.js')}}"></script>--}}
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script>
 

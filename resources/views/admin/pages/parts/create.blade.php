@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <textarea type="text" class="form-control" name="description[ar]" ></textarea>
+                    <textarea type="text" id="description" class="form-control" name="description[ar]" ></textarea>
                 </div>
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
@@ -64,11 +64,16 @@
         </div>
     </form>
 </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
 
 <script>
     $('.dropify').dropify()
 
-    CKEDITOR.replaceAll();
+    ClassicEditor
+        .create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 
     $(function() {
         var imagesPreview = function(input, placeToInsertImagePreview) {
