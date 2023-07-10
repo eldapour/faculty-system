@@ -10,7 +10,7 @@
                         <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="no image">
 
                         <div class="carousel-caption d-md-block text-white">
-                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings[0]->title[lang()] }}</p>
+                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings[0]->getTranslation('title', app()->getLocale()) }}ity_settings[0]->title[lang()] {{  $univers}}</p>
                             <h1 class="heading text-white tw-bolder">
                                 {{ $slider->title[lang()] }}
                             </h1>
