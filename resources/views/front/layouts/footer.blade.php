@@ -162,7 +162,7 @@
 <script>
     $(document).ready(function () {
         $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
+                    var button = $(event.relatedTarget) // Button that triggered the modal
             var url = button.data('url') // Extract info from data-* attributes
             var modal = $(this)
             modal.find('.modal-body iframe').attr('src', url)
