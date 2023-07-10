@@ -63,28 +63,29 @@
             </div>
         </div>
         <!-- MODAL CLOSED -->
+    </div>
 
-        <!-- Create Or Edit Modal -->
-        <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.pages')}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
+    <!-- Create Or Edit Modal -->
+    <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="example-Modal3">{{ trans('admin.add') . ' ' . trans('admin.pages')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('admin.close')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
 
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- Create Or Edit Modal -->
     </div>
+    <!-- Create Or Edit Modal -->
     @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
+
     <script>
         var columns = [
             {data: 'id', name: 'id'},

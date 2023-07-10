@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.image') }}</label>
-                    <input type="file" class="form-control " id="gallery-photo-add" name="images[]" multiple>
+                    <input type="file" class="form-control dropify" id="gallery-photo-add" name="images[]" multiple>
                     <div class="col-md-12 gallery"></div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <textarea type="text" class="form-control" name="description[ar]" ></textarea>
+                    <textarea type="text" id="description" class="form-control" name="description[ar]" ></textarea>
                 </div>
                 <div class="col-md-12   ">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
