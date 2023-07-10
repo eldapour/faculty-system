@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $this->middleware(CheckForbidden::class)->except('pointUser');
     }
-    //all of students
+
     public function index(request $request)
     {
 
@@ -62,7 +62,7 @@ class UserController extends Controller
         }
     }
 
-    // user point
+
     public function pointUser(request $request)
     {
         if ($request->ajax()) {

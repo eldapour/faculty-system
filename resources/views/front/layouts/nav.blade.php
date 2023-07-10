@@ -17,8 +17,9 @@
                 @foreach ($categories as $category)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $category->category_name }} <span class="icon-nav"><i
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ $category->getTranslation('category_name', app()->getLocale()) }} <span class="icon-nav"><i
+
                                     class="fa-solid fa-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -71,12 +72,13 @@
                             @endif
                             @foreach ($category->pages as $page)
                                 <li><a class="dropdown-item"
-                                       href="{{ route('page', $page->id) }}">{{ $page->title[lang()] }}</a></li>
-                                @if (!$loop->last)
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                @endif
+
+                                        href="{{ route('page', $page->id) }}">{{ $page->getTranslation('title', app()->getLocale()) }}</a></li>
+                                    @if (!$loop->last)
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    @endif
 
                             @endforeach
                         </ul>
