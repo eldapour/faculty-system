@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UserExport;
 use App\Http\Middleware\CheckForbidden;
+use App\Imports\UserImport;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
@@ -259,5 +262,21 @@ class UserController extends Controller
 
             return response()->json(['status' => 405]);
         }
+    } // end update
+
+    public function exportUser()
+    {
+        return Excel::download(new UserExport(), 'Students.xlsx');
     }
-}
+
+    public function importUser(Request $request): JsonResponse
+    {
+        $import = Excel::import(new UserImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    }
+
+} // end class
