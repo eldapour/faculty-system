@@ -40,12 +40,12 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                             <h6 class="ms-2 me-2">our news</h6>
                         </div>
-                        <h1 class="color-dark">{{ $presentations->title[lang()] }}</h1>
+                        <h1 class="color-dark">{{ $presentations->getTranslation('title', app()->getLocale()) }}</h1>
                     </div>
-                    <p>{!! $presentations->description[lang()] !!}</p>
+                    <p>{!! $presentations->getTranslation('description', app()->getLocale()) !!}</p>
                 </div>
             </div>
-            <p class="mt-4">{!! $presentations->sub_desc[lang()] !!}</p>
+            <p class="mt-4">{!! $presentations->getTranslation('sub_desc', app()->getLocale()) !!}</p>
         </div>
     </section>
 

@@ -5,11 +5,11 @@
         <!-- breadcrumb -->
         <div class="breadcrumb">
             <div class="container">
-                <h1 class="text-center">{{ $blog_item->title[lang()] }}</h1>
+                <h1 class="text-center">{{ $blog_item->getTranslation('title', app()->getLocale()) }}</h1>
                 <div class="title-breadcrumb">
                     <div class="link-breadcrumb">
                         <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
-                        <span class="ms-2">{{ $blog_item->title[lang()] }}</span>
+                        <span class="ms-2">{{ $blog_item->getTranslation('title', app()->getLocale()) }}</span>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <div class="d-flex flex-wrap  date-details">
                         <div class="me-3">
                             <i class="fa-solid fa-user"></i>
-                            {{ $blog_item->service->service_name[lang()] }}
+                            {{ $blog_item->service->getTranslation('service_name', app()->getLocale()) }}
                         </div>
                         <div class="me-3">
                             <i class="fa-solid fa-calendar-days"></i>
@@ -39,15 +39,15 @@
                 <div class="row mt-4">
                     <div class="col-lg-9 col-12">
                         <h2 class="color-blue mb-3">
-                            {{ $blog_item->title[lang()] }}
+                            {{ $blog_item->getTranslation('title', app()->getLocale()) }}
                         </h2>
-                        <p>{!! $blog_item->description[lang()] !!}</p>
+                        <p>{!! $blog_item->getTranslation('description', app()->getLocale()) !!}</p>
                         <hr>
                         <div>
                             @foreach ($university_settings as $university_setting)
                                 <h3 class="mt-4 mb-3">share blog in</h3>
                                 <a class="text-decoration-none btn-share whatsapp"
-                                   href="https://api.whatsapp.com/send?text={{$blog_item->title[lang()] .' : '. route('blog',$blog_item->id) }}" target="_blank"><i
+                                   href="https://api.whatsapp.com/send?text={{$blog_item->getTranslation('title', app()->getLocale()) .' : '. route('blog',$blog_item->id) }}" target="_blank"><i
                                         class="fa-brands fa-whatsapp"></i></a>
                                 <a class="text-decoration-none btn-share facebook"
                                    href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog',$blog_item->id) }}" target="_blank"><i
@@ -69,7 +69,7 @@
                                         <div>
                                             <div style="max-width: 190px;">
                                                 <a class="text-decoration-none"
-                                                   href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
+                                                   href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                             </div>
                                             <span
                                                 class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
