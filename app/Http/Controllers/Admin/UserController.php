@@ -247,6 +247,7 @@ class UserController extends Controller
             'country_address_latin' => $request->country_address_latin,
             'university_register_year' => $request->university_register_year,
             'email' => $request->email,
+            'points' => $request->points,
             'password' => Hash::make($request->password),
 
         ]);

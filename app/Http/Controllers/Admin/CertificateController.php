@@ -47,11 +47,11 @@ class CertificateController extends Controller
 
                     if($certificates->situation_with_management == 1){
 
-                        return trans('admin.no_problem');
+                        return trans('certificate.true');
 
                     }else{
 
-                        return trans('admin.problem');
+                        return trans('certificate.false');
 
                     }
                 })
@@ -59,11 +59,11 @@ class CertificateController extends Controller
 
                     if($certificates->situation_with_treasury == 1){
 
-                        return trans('admin.pay');
+                        return trans('certificate.true');
 
                     }else{
 
-                        return trans('admin.not_pay');
+                        return trans('certificate.false');
 
                     }
                 })
@@ -91,12 +91,24 @@ class CertificateController extends Controller
 
                     }
                 })
-                ->editColumn('created_at', function ($admins) {
-                    return $admins->created_at->diffForHumans();
+
+                ->addColumn('diploma_name', function ($certificates) {
+
+                    if(lang() == 'ar'){
+
+                        return $certificates->certificateType->certificate_type_ar;
+
+                    }elseif (lang() == 'en'){
+
+                        return $certificates->certificateType->certificate_type_en;
+
+                    }else{
+
+                        return $certificates->certificateType->certificate_type_fr;
+
+                    }
                 })
-                ->editColumn('user_id', function ($certificates) {
-                    return $certificates->user->first_name  .' ' . $certificates->user->last_name;
-                })
+
                 ->addColumn('identifier_id', function ($certificates) {
 
                     return $certificates->user->identifier_id;
