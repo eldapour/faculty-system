@@ -46,14 +46,16 @@
                 </div>
                 <h1 class="color-dark">The latest news</h1>
             </div>
-            <div class="owl-carousel owl-theme">
-                <div class="row">
-                    @foreach ($advertisements as $advertisement)
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+{{--            <div class="row">--}}
+                <div class="owl-carousel owl-theme">
+                    @foreach ($advertisements_list as $advertisement)
+                        <div class="ms-2 me-2">
                             <div class="card card-blog">
                                 <a class="text-decoration-none" href="#">
-                                    <img src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}" class="card-img-top"
-                                         alt="no-image">
+                                    <img
+                                        src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}"
+                                        class="card-img-top"
+                                        alt="no-image">
                                 </a>
                                 <div class="card-body mt-3">
                                     <div class="card-date">
@@ -64,7 +66,7 @@
                                     </div>
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark"
-                                            href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
+                                           href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
                                     </h3>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
@@ -77,8 +79,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
-        </div>
+{{--            </div>--}}
     </section>
 
     <!-- video -->
@@ -234,7 +235,7 @@
                     @foreach ($dean_speech as $dean)
 
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
-{{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
+                        {{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
                         <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
                         <div class="mt-5">
                             <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
