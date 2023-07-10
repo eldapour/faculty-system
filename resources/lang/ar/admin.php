@@ -441,7 +441,7 @@ return [
     'semester' => "الفصل الدراسي",
     'college_enrollment_certificate' => "شهادة التسجيل بالكلية",
     'national' => "شهادة التسجيل بالكلية",
-    'dean_of_college_testifies' => "يشهد عميد الكلية '".$university_settings->title[app()->getLocale()]."' أن الطالب:",
+    'dean_of_college_testifies' => "يشهد عميد الكلية '".$university_settings->getTranslation('title', app()->getLocale())."' أن الطالب:",
     "registered_units" => "الوحدات المسجل بها ",
 
 

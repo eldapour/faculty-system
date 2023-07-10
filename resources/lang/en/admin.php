@@ -449,7 +449,7 @@ return [
     'semester' => "Semester",
     'college_enrollment_certificate' => "College enrollment certificate ",
     'national' => "College enrollment certificate ",
-    'dean_of_college_testifies' => "The dean of the college testifies '".$university_settings->title[app()->getLocale()]."' that student:",
+    'dean_of_college_testifies' => "The dean of the college testifies '".$university_settings->getTranslation('title', app()->getLocale())."' that student:",
     "registered_units" => "Registered units",
 
     'unit name' => 'class', 'description text' => 'notes',

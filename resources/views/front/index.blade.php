@@ -12,10 +12,10 @@
                         <div class="carousel-caption d-md-block text-white">
                             <p class="small-title">welcome to university</p>
                             <h1 class="heading text-white tw-bolder">
-                                {{ $slider->title[lang()] }}
+                                {{ $slider->getTranslation('title', app()->getLocale()) }}
                             </h1>
                             <p class="text-start description">
-                                {!! $slider->description[lang()] !!}
+                                {!! $slider->getTranslation('description', app()->getLocale()) !!}
                             </p>
                         </div>
                     </div>
@@ -77,13 +77,13 @@
                                     </div>
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark"
-                                            href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
+                                            href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
                                     </h3>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
                                         <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
                                         <strong
-                                            class="color-second">{{ $advertisement->service->service_name[lang()] }}</strong>
+                                            class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
                                     </div>
                                 </div>
                             </div>
@@ -102,9 +102,9 @@
                     <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
                         <div class="col-lg-6 col-12">
                             <h1 class="heading-video text-white">
-                                {{ $video->title[lang()] }}
+                                {{ $video->getTranslation('title', app()->getLocale()) }}
                             </h1>
-                            <p>{!! $video->description[lang()] !!}</p>
+                            <p>{!! $video->getTranslation('description', app()->getLocale()) !!}</p>
                         </div>
                         <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center">
                             <div class="icon-video">
@@ -149,7 +149,7 @@
                                         </p>
                                     </div>
                                     <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
-                                        <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}</h4>
+                                        <h4 class="card-title color-dark mt-2 mb-3">{{ $event->getTranslation('title', app()->getLocale()) }}</h4>
                                     </a>
                                 </div>
                             </div>
@@ -240,9 +240,9 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     @foreach ($dean_speech as $dean)
-                        <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
-                        <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
-                        <p>{!! $dean->description[lang()] !!}</p>
+                        <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
+{{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
+                        <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
                         <div class="mt-5">
                             <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
                                 details
@@ -264,7 +264,7 @@
             <div class="owl-carousel owl-theme">
                 @foreach ($pages as $page)
                     <div class="m-3 d-flex justify-content-center">
-                        <a class="text-decoration-none btn-platform">{{ $page->title[lang()] }}</a>
+                        <a class="text-decoration-none btn-platform">{{ $page->getTranslation('title', app()->getLocale()) }}</a>
                     </div>
                 @endforeach
             </div>

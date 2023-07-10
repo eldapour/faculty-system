@@ -7,7 +7,7 @@
                     <img class="mb-4" src="{{ asset('assets/front/assets') }}/photo/logo.png" alt="no logo">
                 </a>
                 @foreach ($university_settings as $university_setting)
-                    <p>{!! $university_setting->description[lang()] !!}</p>
+                    <p>{!! $university_setting->getTranslation('description', app()->getLocale()) !!}</p>
                 @endforeach
                 <div class="mt-5 mb-4">
                     <a class="text-decoration-none footer-btn" href="#">
@@ -27,7 +27,7 @@
                                 <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">{!! $advertisement->title[lang()] !!}</a>
+                                        <a class="text-decoration-none" href="#">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
                                     </div>
                                     <p class="color-second">{{ $advertisement->created_at->format('d') }}
                                         {{ $advertisement->created_at->format('M') }},
@@ -72,7 +72,7 @@
                                     <i class="fa-solid fa-location-dot text-white"></i>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    {{ $university_setting->address[lang()] }}
+                                    {{ $university_setting->getTranslation('address', app()->getLocale()) }}
                                 </div>
                             </div>
                         </li>

@@ -8,7 +8,9 @@ use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
-    use HasFactory ;
+    use HasFactory, HasTranslations;
+
+    public array $translatable = ['title', 'description'];
 
     protected $fillable = [
             'title',
