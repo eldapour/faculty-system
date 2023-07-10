@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.image') }}</label>
-                    <input type="file" class="form-control " id="gallery-photo-add" name="images[]" multiple>
+                    <input type="file" class="form-control dropify" id="gallery-photo-add" name="images[]" multiple>
                     <div class="col-md-12 gallery"></div>
                 </div>
             </div>
@@ -64,16 +64,11 @@
         </div>
     </form>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
 
 <script>
     $('.dropify').dropify()
 
-    ClassicEditor
-        .create( document.querySelector( '#description' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    CKEDITOR.replaceAll();
 
     $(function() {
         var imagesPreview = function(input, placeToInsertImagePreview) {
