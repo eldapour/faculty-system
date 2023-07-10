@@ -38,17 +38,16 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('admin.diploma_id')}}</th>
-                                <th class="min-w-50px"> {{ trans('admin.diploma_name') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.situation_with_management') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.situation_with_treasury') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.description_situation_with_management') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.description_situation_with_treasury') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.validation_year') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.diploma_identifier_id') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.diploma_user') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.diploma_created_at') }}</th>
-                                <th class="min-w-50px"> {{ trans('admin.diploma_year') }}</th>
+
+                                <th class="min-w-25px">{{trans('certificate.id')}}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.identifier_id') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.diploma_name') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.diploma_year') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.year') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.situation_with_management') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.description_situation_with_management') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.situation_with_treasury') }}</th>
+                                <th class="min-w-50px"> {{ trans('certificate.description_situation_with_treasury') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.action') }}</th>
 
                             </tr>
@@ -142,18 +141,18 @@
                         </div>
         `;
 
+
+
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'certificate_type_id', name: 'certificate_type_id'},
-            {data: 'situation_with_management', name: 'situation_with_management'},
-            {data: 'situation_with_treasury', name: 'situation_with_treasury'},
-            {data: 'description_situation_with_management', name: 'description_situation_with_management'},
-            {data: 'description_situation_with_treasury', name: 'description_situation_with_treasury'},
-            {data: 'validation_year', name: 'validation_year'},
             {data: 'identifier_id', name: 'identifier_id'},
-            {data: 'user_id', name: 'user_id'},
-            {data: 'created_at', name: 'created_at'},
+            {data: 'diploma_name', name: 'diploma_name'},
+            {data: 'validation_year', name: 'validation_year'},
             {data: 'year', name: 'year'},
+            {data: 'situation_with_management', name: 'situation_with_management'},
+            {data: 'description_situation_with_management', name: 'description_situation_with_management'},
+            {data: 'situation_with_treasury', name: 'situation_with_treasury'},
+            {data: 'description_situation_with_treasury', name: 'description_situation_with_treasury'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 

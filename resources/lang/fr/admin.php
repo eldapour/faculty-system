@@ -244,7 +244,7 @@ return [
     'groups' => 'cohortes',
 
 
-    'subject' => 'unité',
+    'subject' => 'Ajouter un nouvel élément',
     'subjects' => 'unités',
 
     'unit' => 'séparé',
@@ -262,7 +262,7 @@ return [
 
     // University Setting
     'university_setting' => 'Cadre universitaire',
-    'university_settings' => 'Paramètres universitaires',
+    'university_settings' => 'Paramètres site',
 
     // Subject Exam
     'subject_exam' => 'Subject Exam',
@@ -552,6 +552,11 @@ return [
     "Colleges Digital Platform" => "Plateforme numérique des collèges",
     "Colleges Digital Magazine" => "Magazine numérique des collèges",
 
+
+    "department_branch_students" => "Étudiants en cours de sélection",
+    "all_subject_students" => "Fiche de l'élève en unités",
+    "university_year" => "l'enseignant",
+    "all_doctors" => "année universitaire",
 
 ];
 

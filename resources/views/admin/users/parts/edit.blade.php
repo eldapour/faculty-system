@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{trans('student.image')}}</label>
-                    <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" value="{{ asset('uploads/users/'.$user->image) }}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
+                    <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
                     <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
                 </div>
 
