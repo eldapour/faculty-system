@@ -19,6 +19,7 @@ class HomeWebController extends Controller
         $data['events'] = Event::latest()->limit(6)->get();
         $data['dean_speech'] = Word::all();
         $data['videos'] = Video::all();
+        $data['advertisements_list'] = Advertisement::all();
         return view('front.index', $data);
     }
 }

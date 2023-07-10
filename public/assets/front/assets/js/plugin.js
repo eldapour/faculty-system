@@ -14,13 +14,13 @@ $(function(){
         $('.prev-icon').css("display","none");
     });
 
-    // blogs 
+    // blogs
 
     $(".blogs .owl-carousel").owlCarousel({
         autoplay: false,
         autoplayhoverpause: true,
         autoplaytimeout: 100,
-        items: 1,
+        items: 3,
         nav: true,
         loop: false,
         dots: false,
@@ -33,10 +33,10 @@ $(function(){
                 items: 1
             },
             728 : {
-                items: 1
+                items: 2
             },
             1200 : {
-                items: 1
+                items: 3
             }
         }
     });
@@ -122,7 +122,7 @@ $(function(){
         }
     });
 
-    // blogs page 
+    // blogs page
 
     $(".blogs-bage .owl-carousel").owlCarousel({
         autoplay: false,
@@ -179,7 +179,7 @@ $(window).scroll(function () {
     }
 });
 $('.scroll-top').click(function () {
-    
+
     window.scrollTo({
         top: 0,
         behavior: "smooth",
