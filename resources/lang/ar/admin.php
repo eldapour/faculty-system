@@ -188,7 +188,7 @@ return [
     'group' => 'فوج',
     'groups' => 'الافواج',
 
-    'subject' => 'وحده',
+    'subject' => 'اضافه وحده',
     'subjects' => 'وحدات',
     'unit' => 'فصل',
     'units' => 'فصول',
@@ -262,7 +262,7 @@ return [
 
     // University Setting
     'university_setting' => 'اعداد الجامعة',
-    'university_settings' => 'اعدادات الجامعة',
+    'university_settings' => 'اعدادات الموقع',
 
     // Subject Exam
     'subject_exam' => 'امتحان المادة',
@@ -408,7 +408,7 @@ return [
 
     // Event
     'event' => 'حدث',
-    'events' => 'احداث',
+    'events' => 'الاحداث',
 
 
 
@@ -442,7 +442,7 @@ return [
     'semester' => "الفصل الدراسي",
     'college_enrollment_certificate' => "شهادة التسجيل بالكلية",
     'national' => "شهادة التسجيل بالكلية",
-    'dean_of_college_testifies' => "يشهد عميد الكلية '".$university_settings->title[app()->getLocale()]."' أن الطالب:",
+    'dean_of_college_testifies' => "يشهد عميد الكلية '".$university_settings->getTranslation('title', app()->getLocale())."' أن الطالب:",
     "registered_units" => "الوحدات المسجل بها ",
 
 
@@ -547,6 +547,13 @@ return [
     "Colleges Digital Platform" => "المنصة الرقمية للكليات",
     "Colleges Digital Magazine" => "مجلة الكليات الرقمية",
 
-];
 
+    "department_branch_students" => "المعنيون باختيار المسار",
+    "all_subject_students" => "سجل الطالب بالوحدات",
+    "university_year" => "الاستاذه",
+    "all_doctors" => "السنه الجامعيه",
+
+
+
+];
 

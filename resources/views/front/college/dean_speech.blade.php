@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
-                    <h1 class="mt-3">{{ $dean_speech->name[lang()] }} </h1>
+                    <h1 class="mt-3">{{ $dean_speech->getTranslation('name', app()->getLocale()) }} </h1>
                     <h3>ahmed hesham </h3>
-                    <h5 class="color-second mb-3">{{ $dean_speech->role[lang()] }} </h5>
-                    <p>{!! $dean_speech->description[lang()] !!}</p>
+                    <h5 class="color-second mb-3">{{ $dean_speech->getTranslation('role', app()->getLocale()) }} </h5>
+                    <p>{!! $dean_speech->getTranslation('description', app()->getLocale()) !!}</p>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ class Presentation extends Model
 {
     use HasFactory;
 
-    public array $translatable = ['title', 'description'];
+    public array $translatable = ['title', 'description','sub_desc'];
 
     protected $fillable = [
         'title',

@@ -5,11 +5,11 @@
         <!-- breadcrumb -->
         <div class="breadcrumb">
             <div class="container">
-                <h1 class="text-center">{{ $event_item->title[lang()] }}</h1>
+                <h1 class="text-center">{{ $event_item->getTranslation('title', app()->getLocale()) }}</h1>
                 <div class="title-breadcrumb">
                     <div class="link-breadcrumb">
                         <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
-                        <span class="ms-2">{{ $event_item->title[lang()] }}</span>
+                        <span class="ms-2">{{ $event_item->getTranslation('title', app()->getLocale()) }}</span>
                     </div>
                 </div>
             </div>
@@ -35,15 +35,15 @@
                 <div class="row mt-4">
                     <div class="col-lg-9 col-12">
                         <h2 class="color-blue mb-3">
-                            {{ $event_item->title[lang()] }}
+                            {{ $event_item->getTranslation('title', app()->getLocale()) }}
                         </h2>
-                        <p>{!! $event_item->description[lang()] !!}</p>
+                        <p>{!! $event_item->getTranslation('description', app()->getLocale()) !!}</p>
                         <hr>
                         <div>
                             @foreach ($university_settings as $university_setting)
                                 <h3 class="mt-4 mb-3">share blog in</h3>
                                 <a class="text-decoration-none btn-share whatsapp"
-                                    href="https://api.whatsapp.com/send?text={{$event_item->title[lang()] .' : '. route('event',$event_item->id) }}" target="_blank"><i
+                                    href="https://api.whatsapp.com/send?text={{$event_item->getTranslation('title', app()->getLocale()) .' : '. route('event',$event_item->id) }}" target="_blank"><i
                                         class="fa-brands fa-whatsapp"></i></a>
                                 <a class="text-decoration-none btn-share facebook"
                                     href="https://www.facebook.com/sharer/sharer.php?u={{ route('event',$event_item->id) }}" target="_blank"><i
@@ -64,7 +64,7 @@
                                             src="{{ asset($advertisement->image) }}"></div>
                                     <div>
                                         <div style="max-width: 190px;">
-                                            <a class="text-decoration-none" href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
+                                            <a class="text-decoration-none" href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                         </div>
                                         <span class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
                                     </div>

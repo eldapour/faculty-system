@@ -59,7 +59,7 @@
                                     <div>
                                         <div style="max-width: 190px;">
                                             <a class="text-decoration-none"
-                                                href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
+                                                href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                         </div>
                                         <span class="color-second">{{ $advertisement->created_at->format('d') }}
                                             {{ $advertisement->created_at->format('M') }},

@@ -244,7 +244,7 @@ return [
     'groups' => 'cohortes',
 
 
-    'subject' => 'unité',
+    'subject' => 'Ajouter un nouvel élément',
     'subjects' => 'unités',
 
     'unit' => 'séparé',
@@ -262,7 +262,7 @@ return [
 
     // University Setting
     'university_setting' => 'Cadre universitaire',
-    'university_settings' => 'Paramètres universitaires',
+    'university_settings' => 'Paramètres site',
 
     // Subject Exam
     'subject_exam' => 'Subject Exam',
@@ -448,7 +448,7 @@ return [
     'semester' => "Semestre",
     'college_enrollment_certificate' => "Certificat d'inscription au collège",
     'national' => "Certificat d'inscription au collège",
-    'dean_of_college_testifies' => "Le doyen du collège témoigne '".$university_settings->title[app()->getLocale()]."' cet étudiant:",
+    'dean_of_college_testifies' => "Le doyen du collège témoigne '".$university_settings->getTranslation('title', app()->getLocale())."' cet étudiant:",
     "registered_units" => "Unités nominatives",
 
     "unit_name" => 'classe',
@@ -552,6 +552,11 @@ return [
     "Colleges Digital Platform" => "Plateforme numérique des collèges",
     "Colleges Digital Magazine" => "Magazine numérique des collèges",
 
+
+    "department_branch_students" => "Étudiants en cours de sélection",
+    "all_subject_students" => "Fiche de l'élève en unités",
+    "university_year" => "l'enseignant",
+    "all_doctors" => "année universitaire",
 
 ];
 

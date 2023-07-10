@@ -74,12 +74,12 @@ Route::group([
 
 });
 
-Route::get('/emailSentBack', function () {
-    return view('admin.mail.emailSentBack');
-})->name('emailSentBack');
-Route::get('/forbidden', function () {
-    return view('admin.error.forbidden');
-})->name('forbidden');
+    Route::get('/emailSentBack', function () {
+        return view('admin.mail.emailSentBack');
+    })->name('emailSentBack');
+    Route::get('/forbidden', function () {
+        return view('admin.error.forbidden');
+    })->name('forbidden');
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale() . '/dashboard',
