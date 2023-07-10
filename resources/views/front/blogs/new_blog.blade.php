@@ -32,12 +32,12 @@
                                         <p>{{ $advertisement->created_at->format('M') }},{{ $advertisement->created_at->format('Y') }}</p>
                                     </div>
                                     <h3 class="card-title">
-                                        <a class="text-decoration-none color-dark" href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
+                                        <a class="text-decoration-none color-dark" href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                     </h3>
                                     <div class="time color-gray">
                                         {{ $advertisement->created_at->format('H:i A') }}
                                         <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
-                                        <strong class="color-second">{{ $advertisement->service->service_name[lang()] }}</strong>
+                                        <strong class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
                                     </div>
                                 </div>
                             </div>

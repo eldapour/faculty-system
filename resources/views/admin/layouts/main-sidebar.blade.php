@@ -336,6 +336,43 @@
                                 <span class="side-menu__label">{{ trans('admin.university_settings') }}</span>
                             </a>
                         </li>
+
+
+                        {{-- start fields added to sidebar admin--}}
+
+                        <li class="slide">
+                            <a class="side-menu__item" href="#">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.department_branch_students') }}</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="slide">
+                            <a class="side-menu__item" href="#">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.all_subject_students') }}</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="slide">
+                            <a class="side-menu__item" href="#">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.university_year') }}</span>
+                            </a>
+                        </li>
+
+
+                        <li class="slide">
+                            <a class="side-menu__item" href="#">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.all_doctors') }}</span>
+                            </a>
+                        </li>
+                        {{--end fields added to sidebar admin--}}
                     @endif
                 </ul>
 

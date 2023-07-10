@@ -267,7 +267,7 @@ return [
     'group' => 'Group',
     'groups' => 'cohorts',
 
-    'subject' => 'unit',
+    'subject' => ' Add new subject',
      'subjects' => 'units',
      'unit' => 'separate',
      'units' => 'chapters',
@@ -284,7 +284,7 @@ return [
 
     // University Setting
     'university_setting' => 'University Setting',
-    'university_settings' => 'University Settings',
+    'university_settings' => 'Website Settings',
 
     // Subject Exam
     'subject_exam' => 'Subject Exam',
@@ -550,6 +550,12 @@ return [
     "Colleges Digital Platform" => "Colleges Digital Platform",
     "Colleges Digital Magazine" => "Colleges Digital Magazine",
 
+
+
+    "department_branch_students" => "Students in course selection",
+    "all_subject_students" => "Student Record in Units",
+    "university_year" => "the teacher",
+    "all_doctors" => "college year",
 ];
 
 

@@ -232,6 +232,7 @@
                 <div class="col-lg-6 col-12">
 
                     @foreach ($dean_speech as $dean)
+
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
 {{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
                         <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
@@ -248,4 +249,5 @@
             </div>
         </div>
     </section>
+
 @endsection

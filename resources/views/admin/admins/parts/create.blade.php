@@ -55,9 +55,10 @@
         <div class="form-group">
             <label class="form-label">{{trans('admin.user_type')}}</label>
             <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
-                @foreach($types as $type)
-                    <option value="{{$type}}">{{$type}}</option>
-                @endforeach
+                <option class="form-control" value="doctor">@lang('login.doctor')</option>
+                <option class="form-control" value="manger">@lang('login.manger')</option>
+                <option class="form-control" value="employee">@lang('login.employee')</option>
+                <option class="form-control" value="factor">@lang('login.factor')</option>
             </select>
         </div>
 
