@@ -18,7 +18,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $category->category_name[lang()] }} <span class="icon-nav"><i
+                            {{ $category->category_name }} <span class="icon-nav"><i
                                     class="fa-solid fa-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
