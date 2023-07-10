@@ -4,11 +4,11 @@
     <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
-            <h1 class="text-center">{{ $page->title[lang()] }}</h1>
+            <h1 class="text-center">{{ $page->getTranslation('title', app()->getLocale()) }}</h1>
             <div class="title-breadcrumb">
                 <div class="link-breadcrumb">
                     <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
-                    <span class="ms-2">{{ $page->title[lang()] }}</span>
+                    <span class="ms-2">{{ $page->getTranslation('title', app()->getLocale()) }}</span>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <h2 class="color-blue mb-3">
 
                     </h2>
-                    <p>{!! $page->description[lang()] !!}</p>
+                    <p>{!! $page->getTranslation('description', app()->getLocale()) !!}</p>
                     <hr>
                     <div class="mt-5 d-flex">
                         {{--  <div>
@@ -64,7 +64,7 @@
                                             src="{{ asset($advertisement->image) }}"></div>
                                     <div>
                                         <div style="max-width: 190px;">
-                                            <a class="text-decoration-none" href="#">{{ $advertisement->title[lang()] }}</a>
+                                            <a class="text-decoration-none" href="#">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                         </div>
                                         <span class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
                                     </div>

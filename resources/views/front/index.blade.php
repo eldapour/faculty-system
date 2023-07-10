@@ -10,7 +10,7 @@
                         <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="no image">
 
                         <div class="carousel-caption d-md-block text-white">
-                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings[0]->title[lang()] }}</p>
+                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings[0]->getTranslation('title', app()->getLocale()) }}</p>
                             <h1 class="heading text-white tw-bolder">
                                 {{ $slider->getTranslation('title', app()->getLocale()) }}
                             </h1>
@@ -64,11 +64,8 @@
                                     </div>
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark"
-<<<<<<< HEAD
                                             href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
-=======
-                                           href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->title[lang()] }}</a>
->>>>>>> 41040f204d74207ba16d2b2b6816b65963ebf2fd
+
                                     </h3>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
@@ -233,8 +230,6 @@
                         </div>
                 </div>
                 <div class="col-lg-6 col-12">
-<<<<<<< HEAD
-                    @foreach ($dean_speech as $dean)
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
 {{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
                         <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
@@ -244,17 +239,7 @@
                                 <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                             </a>
                         </div>
-=======
-                    <h1 class="mt-3">{{ $dean->name[lang()] }} </h1>
-                    <h5 class="color-second mb-3">{{ $dean->role[lang()] }} </h5>
-                    <p>{!! $dean->description[lang()] !!}</p>
-                    <div class="mt-5">
-                        <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
-                            @lang('admin.details')
-                            <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
-                        </a>
-                    </div>
->>>>>>> 41040f204d74207ba16d2b2b6816b65963ebf2fd
+
                     @endforeach
 
 
@@ -263,7 +248,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
     <!-- digital platform -->
     <section class="digital-platform mt-5">
         <div class="container">
@@ -277,7 +261,5 @@
             </div>
         </div>
     </section>
-=======
 
->>>>>>> 41040f204d74207ba16d2b2b6816b65963ebf2fd
 @endsection
