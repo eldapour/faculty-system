@@ -50,7 +50,8 @@
                                 <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
+                                        <a class="text-decoration-none"
+                                           href="{{ route('blog',$advertisement->id) }}">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
 
                                     </div>
                                     <p class="color-second">{{ $advertisement->created_at->format('d') }}</p>

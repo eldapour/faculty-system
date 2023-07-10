@@ -52,7 +52,7 @@
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
                             <div class="card card-blog">
                                 <a class="text-decoration-none" href="#">
-                                    <img src="{{ $advertisement->background_image }}" class="card-img-top"
+                                    <img src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}" class="card-img-top"
                                          alt="no-image">
                                 </a>
                                 <div class="card-body mt-3">
@@ -65,7 +65,6 @@
                                     <h3 class="card-title">
                                         <a class="text-decoration-none color-dark"
                                             href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
-
                                     </h3>
                                     <div class="time color-gray">
                                         3:30 pm - 4:30 pm
@@ -228,8 +227,12 @@
                                  src="{{ asset($dean->image)}}"
                                  alt="no-image">
                         </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-6 col-12">
+
+                    @foreach ($dean_speech as $dean)
+
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
 {{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
                         <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
@@ -239,7 +242,6 @@
                                 <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                             </a>
                         </div>
-
                     @endforeach
 
 
@@ -248,5 +250,4 @@
         </div>
     </section>
 
-   
 @endsection
