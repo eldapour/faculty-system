@@ -16,6 +16,14 @@ if (!function_exists('checkUser')){
     }
 }
 
+if(!function_exists('logo')){
+    function logo(): string
+    {
+        $university_settings = \App\Models\UniversitySetting::first();
+        return asset('/uploads/university_setting/' . $university_settings->logo);
+    }
+}
+
 if (!function_exists('saveFile')) {
     function saveFile($photo,$folder)
     {

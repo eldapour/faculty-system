@@ -1,5 +1,5 @@
 @if($maintenance->maintenance == 1)
-   @include('admin.error.maintenance')
+    @include('admin.error.maintenance')
 @else
     <!DOCTYPE html>
     <html>

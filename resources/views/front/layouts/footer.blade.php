@@ -1,5 +1,5 @@
 <style>
-    .digitalA a:hover{
+    .digitalA a:hover {
         color: white;
         background-color: #ff7350;
     }
@@ -10,7 +10,8 @@
         <h1 class="text-white text-center mb-5">@lang('admin.digital platform')</h1>
         <div class="owl-carousel owl-theme">
             <div class="m-3 digitalA d-flex justify-content-center">
-                <a href="{{ route('student.login') }}" class="text-decoration-none btn-platform">@lang('admin.Digital Student Platform')</a>
+                <a href="{{ route('student.login') }}"
+                   class="text-decoration-none btn-platform">@lang('admin.Digital Student Platform')</a>
             </div>
             <div class="m-3 digitalA d-flex justify-content-center">
                 <a href="#" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Platform')</a>
@@ -29,11 +30,10 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 col-12">
                 <a class="navbar-brand" href="{{ route('/') }}">
-                    <img class="mb-4" src="{{ asset($university_settings[0]->logo) }}" alt="no logo">
+                    <img class="mb-4" src="{{ logo() }}"
+                         alt="no logo">
                 </a>
-                @foreach ($university_settings as $university_setting)
-                    <p>{!! $university_setting->getTranslation('description', app()->getLocale()) !!}</p>
-                @endforeach
+                <p>{!! $university_settings->getTranslation('description', app()->getLocale()) !!}</p>
                 <div class="mt-5 mb-4">
                     <a class="text-decoration-none footer-btn" href="{{ route('index.presentation') }}">
                         @lang('admin.details')
@@ -51,14 +51,16 @@
                     @foreach ($advertisements as $advertisement)
                         <li class="mb-3">
                             <div class="d-flex blog">
-                                <div class="me-3"><img src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}"></div>
+                                <div class="me-3"><img
+                                        src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                </div>
                                 <div>
                                     <div style="max-width: 190px;">
                                         <a class="text-decoration-none"
                                            href="{{ route('blog',$advertisement->id) }}">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
 
                                     </div>
-                                    <p class="color-second">{{ $advertisement->created_at->format('d') }}</p>
+                                    <p class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</p>
 
 
                                 </div>
@@ -74,15 +76,14 @@
                     <h2 class="title-footer">@lang('admin.Contact Us')</h2>
                 </div>
                 <ul>
-                    @foreach ($university_settings as $university_setting)
                         <li class="mb-4">
                             <div class="d-flex">
                                 <div class="icon-footer me-3">
                                     <i class="fa-solid fa-phone-flip text-white"></i>
                                 </div>
                                 <div class="d-flex align-items-center"><a class="text-decoration-none phone"
-                                                                          href="tel: {{ $university_setting->phone }}">
-                                        {{ $university_setting->phone }}
+                                                                          href="tel: {{ $university_settings->phone }}">
+                                        {{ $university_settings->phone }}
                                     </a></div>
                             </div>
                         </li>
@@ -92,8 +93,8 @@
                                     <i class="fa-regular fa-envelope text-white"></i>
                                 </div>
                                 <div class="d-flex align-items-center"><a class="text-decoration-none phone"
-                                                                          href="mailto: {{ $university_setting->email }}">
-                                        {{ $university_setting->email }}
+                                                                          href="mailto: {{ $university_settings->email }}">
+                                        {{ $university_settings->email }}
                                     </a></div>
                             </div>
                         </li>
@@ -103,11 +104,10 @@
                                     <i class="fa-solid fa-location-dot text-white"></i>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    {{ $university_setting->getTranslation('address', app()->getLocale()) }}
+                                    {{ $university_settings->getTranslation('address', app()->getLocale()) }}
                                 </div>
                             </div>
                         </li>
-                    @endforeach
                 </ul>
             </div>
         </div>
@@ -148,7 +148,6 @@
 </div>
 
 
-
 <script src="{{ asset('assets/front/') }}/assets/js/jquery-1.10.1.min.js"></script>
 <script src="{{ asset('assets/front/') }}/assets/js/owl.carousel.min.js"></script>
 <script src="{{ asset('assets/front/') }}/assets/js/slick.min.js"></script>
@@ -164,12 +163,12 @@
 <script src="{{ asset('assets/front/') }}/assets/js/slick.min.js"></script>
 <script src="{{ asset('assets/front/') }}/assets/js/plugin.js"></script>
 
-<script src="{{ asset('assets/front/') }}/assets/js/main.js"></script>
+<script src="{{ asset('assets/front/assets/js/main.js') }}"></script>
 
 <script>
     $(document).ready(function () {
         $('#exampleModal').on('show.bs.modal', function (event) {
-                    var button = $(event.relatedTarget) // Button that triggered the modal
+            var button = $(event.relatedTarget) // Button that triggered the modal
             var url = button.data('url') // Extract info from data-* attributes
             var modal = $(this)
             modal.find('.modal-body iframe').attr('src', url)

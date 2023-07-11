@@ -16,15 +16,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="title[ar]" value="{{ $page->title['ar'] }}" required>
+                    <input type="text" class="form-control" name="title[ar]" value="{{ $page->getTranslation('title', 'ar') }}" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="title[en]" value="{{ $page->title['en'] }}" required>
+                    <input type="text" class="form-control" name="title[en]" value="{{ $page->getTranslation('title', 'en') }}" required>
                 </div>
                 <div class="col-md-4">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.title') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="title[fr]" value="{{ $page->title['fr'] }}" required>
+                    <input type="text" class="form-control" name="title[fr]" value="{{ $page->getTranslation('title', 'fr') }}" required>
                 </div>
             </div>
         </div>
@@ -32,15 +32,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
-                    <textarea type="text" class="form-control" name="description[ar]" required> {{ $page->description['ar'] }}</textarea>
+                    <textarea type="text" class="form-control" name="description[ar]" required> {{ $page->getTranslation('description', 'ar') }}</textarea>
                 </div>
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
-                    <textarea type="text"  class="form-control" name="description[en]" required> {{ $page->description['en'] }}</textarea>
+                    <textarea type="text"  class="form-control" name="description[en]" required> {{ $page->getTranslation('description', 'en') }}</textarea>
                 </div>
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
-                    <textarea type="text" class="form-control" name="description[fr]" required> {{ $page->description['fr'] }}</textarea>
+                    <textarea type="text" class="form-control" name="description[fr]" required> {{ $page->getTranslation('description', 'fr') }}</textarea>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                         @foreach($categories as $category)
                             <option
                                 {{ $page->category_id == $category->id ? 'selected' : ''}}
-                                value="{{ $category->id }}">{{ $category->category_name[lang()] }}
+                                value="{{ $category->id }}">{{ $category->category_name }}
                             </option>
                         @endforeach
                     </select>

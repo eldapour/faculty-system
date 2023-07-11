@@ -10,13 +10,13 @@ class EventController extends Controller
 {
     public function index()
     {
-        $data['events'] = Event::latest();
+        $data['events'] = Event::latest()->get();
         return view('front.blogs.event', $data);
     }
 
     public function eventItem($id)
     {
-        $data['event_items'] = Event::where('id', $id)->get();
-        return view('front.blogs.single_event', $data);
+        $event_item = Event::where('id', $id)->first();
+        return view('front.blogs.single_event', compact('event_item'));
     }
 }

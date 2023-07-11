@@ -25,7 +25,7 @@
                                 <tr class="head-table">
                                     <th scope="col">@lang('admin.department')</th>
                                     <th scope="col">@lang('admin.unit')</th>
-                                    <th scope="col">@lang('admin.subject')</th>
+                                    <th scope="col">@lang('admin.subjects')</th>
                                     <th scope="col">@lang('admin.download')</th>
                                 </tr>
                                 @foreach ($times as $time)
@@ -55,7 +55,7 @@
                         @foreach ($advertisements as $advertisement)
                             <li class="mb-3">
                                 <div class="d-flex blog">
-                                    <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
+                                    <div class="me-3"><img src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}"></div>
                                     <div>
                                         <div style="max-width: 190px;">
                                             <a class="text-decoration-none"

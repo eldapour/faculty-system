@@ -27,7 +27,7 @@ class PageController extends Controller
                     return '
                             <button type="button" data-id="' . $pages->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $pages->id . '" data-title="' . $pages->title[lang()] . '">
+                                    data-id="' . $pages->id . '" data-title="' . $pages->title . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -42,10 +42,10 @@ class PageController extends Controller
                     }
                 })
                 ->editColumn('title', function ($pages) {
-                    return $pages->title[lang()];
+                    return $pages->title;
                 })
                 ->editColumn('category_id', function ($pages) {
-                    return $pages->category->category_name[lang()];
+                    return $pages->category->category_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -110,10 +110,12 @@ class PageController extends Controller
             foreach ($request->file('images') as $image) {
                 $images[] = $this->saveImage($image, 'uploads/pagesImage', 'photo');
             }
-            foreach ($page->images as $image) {
+            if ($page->images != null){
+                foreach ($page->images as $image) {
 
-                if (file_exists($image)) {
-                    unlink($image);
+                    if (file_exists($image)) {
+                        unlink($image);
+                    }
                 }
             }
         } else {
