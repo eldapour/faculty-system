@@ -13,8 +13,8 @@ class PageController extends Controller
     // College Start
     public function page($id)
     {
-        $data['page'] = Page::find($id);
-        return view('front.single_page', $data);
+        $page = Page::findOrFail($id);
+        return view('front.single_page', compact('page'));
     }
 
     // College End

@@ -285,11 +285,11 @@
                 processData: false
             });
         });
-
+        // export exel
         $(document).on('click', '.exportBtn', function () {
             location.href = '{{ route('exportCertificate') }}';
         });
-
+        // import exel
         $(document).on("submit", "#importExelForm", function (event) {
             event.preventDefault();
             event.stopImmediatePropagation();

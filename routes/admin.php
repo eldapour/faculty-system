@@ -99,6 +99,8 @@ Route::group([
     Route::resource('users', UserController::class)->except(['show']);
     Route::post('users.delete', [UserController::class, 'delete'])->name('users.delete');
     Route::get('users/point', [UserController::class, 'pointUser'])->name('users.show');
+    Route::get('exportUser', [UserController::class, 'exportUser'])->name('exportUser');
+    Route::post('importUser', [UserController::class, 'importUser'])->name('importUser');
 
 
     #### Admins ####

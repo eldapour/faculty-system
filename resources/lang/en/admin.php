@@ -2,7 +2,7 @@
 
 use App\Models\UniversitySetting;
 
-$university_settings= UniversitySetting::all()->first();
+$university_settings = UniversitySetting::all()->first();
 
 return [
     'welcome_back' => 'Welcome Back',
@@ -84,7 +84,7 @@ return [
     'Student documents' => "Student documents",
     "exam" => "Exam",
     "exams" => "Exams",
-    "full_name" =>  "Full Name",
+    "full_name" => "Full Name",
     "annual_programming" => "Annual Programming",
     "Reasons_for_redress" => "Reasons for Redress",
     "re_record_the_track" => 'Re Record The Track',
@@ -102,10 +102,6 @@ return [
     "the_entered_mark" => "The entered mark is greater than the exam mark",
 
 
-
-
-
-
     // Process Exam
     "process_exams" => "Process Exam",
     "attachment_file" => "Attachment File",
@@ -118,9 +114,6 @@ return [
     "process_exam_students" => "Process Exam Students",
     "the_remedial_request_has_been_registered_successfully" => "The remedial request has been registered successfully",
     "You_are_only" => "You are only entitled to one request during the period of the catch-up session",
-
-
-
 
 
     // crud
@@ -144,7 +137,7 @@ return [
 
     // Service
     "service" => "Service",
-    "services" =>"Services",
+    "services" => "Services",
 
     // Internal Ad
     "ad" => "Ad",
@@ -213,31 +206,31 @@ return [
     'job_id' => 'Job ID',
     'image_user' => 'Student image',
     'image_admin' => 'admin photo',
-     'points' => 'Student points',
-     'university_email' => 'university email',
-     'identifier_id' => 'University ID',
-     'national_id' => 'National ID',
-     'national_number' => 'National number',
-     'nationality' => 'nationality',
+    'points' => 'Student points',
+    'university_email' => 'university email',
+    'identifier_id' => 'University ID',
+    'national_id' => 'National ID',
+    'national_number' => 'National number',
+    'nationality' => 'nationality',
 
 
     'birthday_date' => 'birthday',
 
-     'birthday_place' => 'birthplace',
-     'city' => 'province',
+    'birthday_place' => 'birthplace',
+    'city' => 'province',
     'address' => 'address',
-     'user_status' => 'User status',
-     'user_type' => 'User type',
+    'user_status' => 'User status',
+    'user_type' => 'User type',
     'This email has already been activated' => 'This email has already been activated',
     'This email is not activated. Do it through the link sent to the mail, or contact the administration' => 'This email is not activated. Do it through the link sent to the mail, or contact the administration',
     'Verify that the data is correct and try again' => 'Verify that the data is correct and try again',
-     'university_register_year' => 'University enrollment year',
-     'email' => 'login email',
-    'password' =>  "password",
-    'password_not_correct' =>  "password not correct",
-    'password_new_not_correct' =>  "new password not match",
-    'The_platform_is_in_maintenance' =>  "The platform is currently under maintenance, try again later !",
-    'maintenance' =>  "maintenance mode",
+    'university_register_year' => 'University enrollment year',
+    'email' => 'login email',
+    'password' => "password",
+    'password_not_correct' => "password not correct",
+    'password_new_not_correct' => "new password not match",
+    'The_platform_is_in_maintenance' => "The platform is currently under maintenance, try again later !",
+    'maintenance' => "maintenance mode",
     'add_user' => "Add Student",
     'add_admin' => "Add Admin",
     'action' => 'action',
@@ -268,9 +261,9 @@ return [
     'groups' => 'cohorts',
 
     'subject' => ' Add new subject',
-     'subjects' => 'units',
-     'unit' => 'separate',
-     'units' => 'chapters',
+    'subjects' => 'units',
+    'unit' => 'separate',
+    'units' => 'chapters',
 
     // Subject Student
     'subject_student' => 'Subject Student',
@@ -318,40 +311,40 @@ return [
 
 
     //Document
-     'document_id' => "Document Request Id",
-     'student_name' => "student's name",
-     'identifier_id_student' => "University ID",
-     'document_type' => 'Document Type',
-     'withdraw_by_proxy' => "withdraw by proxy",
-     'person_name' => "person_name",
-     'national_id_of_person' => "National ID of the person assigned to him",
-     'card_image' => "A copy of the national card of the person entrusted to him",
+    'document_id' => "Document Request Id",
+    'student_name' => "student's name",
+    'identifier_id_student' => "University ID",
+    'document_type' => 'Document Type',
+    'withdraw_by_proxy' => "withdraw by proxy",
+    'person_name' => "person_name",
+    'national_id_of_person' => "National ID of the person assigned to him",
+    'card_image' => "A copy of the national card of the person entrusted to him",
     'card_image_user' => "A copy of the national card ",
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "The request has been added successfully",
     "orders" => "Orders",
     "order" => "Order",
-     'request_date' => "request date",
-     'pull_type' => "pull type",
-     'pull_date' => "pull date",
-     'pull_return' => "Return Date",
-     'request_status' => 'Request status',
-     'processing_request_date' => 'the date the request was processed',
+    'request_date' => "request date",
+    'pull_type' => "pull type",
+    'pull_date' => "pull date",
+    'pull_return' => "Return Date",
+    'request_status' => 'Request status',
+    'processing_request_date' => 'the date the request was processed',
 
-     'add_document' => "Document Withdrawal Request",
-     'all_documents' => 'All Document Requests',
+    'add_document' => "Document Withdrawal Request",
+    'all_documents' => 'All Document Requests',
 
 
-     'accept' => "accept the request",
-     'refused' => "Refused",
-     'under_processing' => 'under_processing',
+    'accept' => "accept the request",
+    'refused' => "Refused",
+    'under_processing' => 'under_processing',
 
     "temporary" => "temporary withdrawal",
     "final" => "final draw",
 
-     'withdraw_by_proxy_yes' => 'withdraw by proxy',
-     'withdraw_by_proxy_no' => "withdraw by proxy",
+    'withdraw_by_proxy_yes' => 'withdraw by proxy',
+    'withdraw_by_proxy_no' => "withdraw by proxy",
 
     //Element
     'element' => 'element',
@@ -403,7 +396,6 @@ return [
     "diploma all" => "All Diplomas",
 
 
-
     // data modification
     "data_modify" => "Data Modification",
     'first_name_ar' => 'first name in Arabic',
@@ -431,15 +423,15 @@ return [
     "all_schedules" => "schedules",
     "remedial" => "Remedial",
 
-     'period_start_date' => 'period start date',
-     'period_end_date' => 'period end date',
-     'period_name' => 'period',
-     'session_name' => "Session",
-     'year_start' => "year of start",
-     'year_end' => "year-end",
-     'status_period' => 'period status',
-     'period_add' => "Add a new period",
-     'period_all' => 'all periods',
+    'period_start_date' => 'period start date',
+    'period_end_date' => 'period end date',
+    'period_name' => 'period',
+    'session_name' => "Session",
+    'year_start' => "year of start",
+    'year_end' => "year-end",
+    'status_period' => 'period status',
+    'period_add' => "Add a new period",
+    'period_all' => 'all periods',
     'period finished' => "period finished",
     'group_choice' => "choose group",
 
@@ -450,13 +442,12 @@ return [
     'semester' => "Semester",
     'college_enrollment_certificate' => "College enrollment certificate ",
     'national' => "College enrollment certificate ",
-    'dean_of_college_testifies' => "The dean of the college testifies '".$university_settings->getTranslation('title', app()->getLocale())."' that student:",
+    'dean_of_college_testifies' => "The dean of the college testifies '" . $university_settings->getTranslation('title', app()->getLocale()) . "' that student:",
     "registered_units" => "Registered units",
 
     'unit name' => 'class', 'description text' => 'notes',
 
     'result' => 'Subject results',
-
 
 
     "group_code" => "group_code",
@@ -483,7 +474,6 @@ return [
     "unit_code_ar" => "Unit Code in Arabic",
     "unit_code_en" => "Unit code English",
     "unit_code_fr" => "Unit code french",
-
 
 
     "situation_with_management" => "situation with management",
@@ -523,17 +513,17 @@ return [
 
 
     "unit_name_" => "chapter",
-     "doctor_name_" => "professor",
-     "day_name_" => "today",
-     "date_" => "date",
-     "time_" => "time",
-     "section_" => "hall",
-     "exam_code_" => "Exam Code",
+    "doctor_name_" => "professor",
+    "day_name_" => "today",
+    "date_" => "date",
+    "time_" => "time",
+    "section_" => "hall",
+    "exam_code_" => "Exam Code",
     "doctors" => "teachers",
     "add_advertisement" => "Add a new advertisement to the site",
 
 
-      // web
+    // web
     "digital platform" => "digital platform",
     "latest posts" => "latest posts",
     "details" => "details",
@@ -549,17 +539,26 @@ return [
     "Digital Student Platform" => "Digital Student Platform",
     "Colleges Digital Platform" => "Colleges Digital Platform",
     "Colleges Digital Magazine" => "Colleges Digital Magazine",
-
-
-
     "department_branch_students" => "Students in course selection",
     "all_subject_students" => "Student Record in Units",
+<<<<<<< HEAD
     "university_year" => "college year",
     "all_doctors" => "the teacher",
 
     "add_department_to_student" => "Add a course for a student",
 
     "remaining_days" => "Remaining Days",
+=======
+    "university_year" => "the teacher",
+    "all_doctors" => "college year",
+    "add_department_to_student" => "Add a course for a student",
+    "our news" => "our news",
+    "The latest news" => "The latest news",
+    "our events" => "our events",
+    "The latest events" => "The latest events",
+    "share in" => "share in",
+    "years of giving" => "years of giving",
+>>>>>>> a0af1e1b0ed2877c3cb8694a12efa50e67567510
 
 ];
 

@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('/') }}">
-            @foreach ($university_settings as $university_setting)
-                <img src="{{ asset($university_setting->logo) }}" alt="no logo">
-            @endforeach
+            <img src="{{ logo() }}" alt="no logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +15,7 @@
                 @foreach ($categories as $category)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             {{ $category->getTranslation('category_name', app()->getLocale()) }} <span class="icon-nav"><i
 
                                     class="fa-solid fa-angle-down"></i></span>
@@ -54,31 +52,32 @@
                                 </li>
                             @endif
                             @if($category->id == 8)
-                                    <li><a class="dropdown-item"
-                                           href="{{ route('student.login') }}">{{  trans('admin.Digital Student Platform') }}</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                           href="#">{{  trans('admin.Colleges Digital Platform') }}</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                           href="#">{{  trans('admin.Colleges Digital Magazine') }}</a>
-                                    </li>
+                                <li><a class="dropdown-item"
+                                       href="{{ route('student.login') }}">{{  trans('admin.Digital Student Platform') }}</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                       href="#">{{  trans('admin.Colleges Digital Platform') }}</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                       href="#">{{  trans('admin.Colleges Digital Magazine') }}</a>
+                                </li>
                             @endif
                             @foreach ($category->pages as $page)
                                 <li><a class="dropdown-item"
 
-                                        href="{{ route('page', $page->id) }}">{{ $page->getTranslation('title', app()->getLocale()) }}</a></li>
-                                    @if (!$loop->last)
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    @endif
+                                       href="{{ route('page', $page->id) }}">{{ $page->getTranslation('title', app()->getLocale()) }}</a>
+                                </li>
+                                @if (!$loop->last)
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                @endif
 
                             @endforeach
                         </ul>

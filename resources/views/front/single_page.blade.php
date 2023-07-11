@@ -17,31 +17,25 @@
     <!-- section -->
     <section class="pt-5 pb-5">
         <div class="container">
-            <div class="main-slider">
+            <div class="">
                 <div class="slide-img">
-                    <img class="img-fluid" src="{{ asset($page->images[0]) }}" alt="product image" />
+                    <img style="width: 100%; height: 600px;" class="img-fluid image-show" src="{{ asset($page->images[0]) }}" alt="product image"/>
                 </div>
             </div>
             <div class="small-slider">
                 @foreach ($page->images as $image)
-                    <img class="img-fluid" src="{{ asset($image) }}" alt="product image" />
+                    <img style="width: 100%; height: 122px;" class="img-fluid image-small" src="{{ asset($image) }}" alt="product image"/>
                 @endforeach
             </div>
 
             <div class="row mt-4">
                 <div class="col-lg-9 col-12">
                     <h2 class="color-blue mb-3">
-
+                        {{ $page->getTranslation('title', app()->getLocale()) }}
                     </h2>
                     <p>{!! $page->getTranslation('description', app()->getLocale()) !!}</p>
                     <hr>
                     <div class="mt-5 d-flex">
-                        {{--  <div>
-                            <a class="text-decoration-none main-btn me-2 ms-2 mb-3" href="#">
-                                <i class="fa-solid fa-download me-2 text-white"></i>
-                                download
-                            </a>
-                        </div>  --}}
                         <div>
                             @foreach ($page->files as $file)
                                 <a class="text-decoration-none main-btn me-2 ms-2 mb-3" href="{{ asset($file) }}">
@@ -54,19 +48,22 @@
                 </div>
                 <div class="col-lg-3 col-12 sidebar mt-5">
                     <div class="mt-3 ms-3">
-                        <h2 class="title" style="font-size: 30px;">latest post</h2>
+                        <h2 class="title" style="font-size: 30px;">@lang('admin.latest posts')</h2>
                     </div>
                     <ul class="ms-3">
                         @foreach ($advertisements as $advertisement)
                             <li class="mb-3">
                                 <div class="d-flex blog">
                                     <div class="me-3"><img
-                                            src="{{ asset($advertisement->image) }}"></div>
+                                            src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                    </div>
                                     <div>
                                         <div style="max-width: 190px;">
-                                            <a class="text-decoration-none" href="#">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
+                                            <a class="text-decoration-none"
+                                               href="#">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                         </div>
-                                        <span class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
+                                        <span
+                                            class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
                                     </div>
                                 </div>
                             </li>
@@ -76,7 +73,12 @@
             </div>
         </div>
     </section>
-
-
-
+    <script>
+        $(document).ready(function () {
+            $('.image-small').on('click', function(){
+                let src = $(this).attr('src');
+                $('.image-show').attr('src',src);
+            })
+        })
+    </script>
 @endsection

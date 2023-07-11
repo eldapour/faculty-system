@@ -10,7 +10,7 @@
                         <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="no image">
 
                         <div class="carousel-caption d-md-block text-white">
-                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings[0]->getTranslation('title', app()->getLocale()) }}</p>
+                            <p class="small-title">@lang('admin.welcome to')  {{  $university_settings->getTranslation('title', app()->getLocale()) }}</p>
                             <h1 class="heading text-white tw-bolder">
                                 {{ $slider->getTranslation('title', app()->getLocale()) }}
                             </h1>
@@ -42,49 +42,48 @@
             <div class="main-heading mb-5">
                 <div class="d-flex color-second mb-1">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <h6 class="ms-2 me-2">our news</h6>
+                    <h6 class="ms-2 me-2">@lang('admin.our news')</h6>
                 </div>
-                <h1 class="color-dark">The latest news</h1>
+                <h1 class="color-dark">@lang('admin.The latest news')</h1>
             </div>
             <div class="owl-carousel owl-theme">
-                <div class="row">
-                    @foreach ($advertisements as $advertisement)
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="card card-blog">
-                                <a class="text-decoration-none" href="#">
-                                    <img src="{{ $advertisement->background_image }}" class="card-img-top"
-                                         alt="no-image">
-                                </a>
-                                <div class="card-body mt-3">
-                                    <div class="card-date">
-                                        <h4>{{ $advertisement->created_at->format('d') }}</h4>
-                                        <p>{{ $advertisement->created_at->format('F') }}
-                                            ,{{ $advertisement->created_at->format('Y') }}
-                                        </p>
-                                    </div>
-                                    <h3 class="card-title">
-                                        <a class="text-decoration-none color-dark"
-                                            href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
-
-                                    </h3>
-                                    <div class="time color-gray">
-                                        3:30 pm - 4:30 pm
-                                        <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
-                                        <strong
-                                            class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
-                                    </div>
+                @foreach ($advertisements_list as $advertisement)
+                    <div class="ms-2 me-2">
+                        <div class="card card-blog">
+                            <a class="text-decoration-none" href="{{ route('blog', $advertisement->id) }}">
+                                <img
+                                    src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}"
+                                    class="card-img-top"
+                                    alt="no-image">
+                            </a>
+                            <div class="card-body mt-3">
+                                <div class="card-date">
+                                    <h4>{{ $advertisement->created_at->format('d') }}</h4>
+                                    <p>{{ $advertisement->created_at->format('F') }}
+                                        ,{{ $advertisement->created_at->format('Y') }}
+                                    </p>
+                                </div>
+                                <h3 class="card-title">
+                                    <a class="text-decoration-none color-dark"
+                                       href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
+                                </h3>
+                                <div class="time color-gray">
+                                    {{ $advertisement->created_at->format('H:i A') }}
+                                    <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
+                                    <strong
+                                        class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- video -->
     <section class="video-slider mb-5 mt-5">
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
             <div class="owl-carousel owl-theme">
                 @foreach ($videos as $video)
                     <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
@@ -107,8 +106,6 @@
                 @endforeach
             </div>
         </div>
-        </div>
-        </div>
     </section>
 
     <!-- newest -->
@@ -117,9 +114,9 @@
             <div class="main-heading mb-5">
                 <div class="d-flex justify-content-center color-second mb-1">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <h6 class="ms-2 me-2">our events</h6>
+                    <h6 class="ms-2 me-2">@lang('admin.our events')</h6>
                 </div>
-                <h1 class="color-dark text-center">The latest events</h1>
+                <h1 class="color-dark text-center">@lang('admin.The latest events')</h1>
             </div>
             <div>
                 <div class="owl-carousel owl-theme">
@@ -133,7 +130,8 @@
                                     <div class="card-date1">
                                         <p>
                                             <i class="fa-solid fa-calendar-days"></i>
-                                            {{ $event->created_at->format('d') }} {{ $event->created_at->format('M') }}
+                                            {{ $event->created_at->format('d') }}
+                                            {{ $event->created_at->format('M') }}
                                             ,{{ $event->created_at->format('Y') }}
                                         </p>
                                     </div>
@@ -228,18 +226,20 @@
                                  src="{{ asset($dean->image)}}"
                                  alt="no-image">
                         </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-6 col-12">
+
+                    @foreach ($dean_speech as $dean)
+
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
-{{--                        <h5 class="color-second mb-3">{{ $dean->getTranslation('title', app()->getLocale()) }} </h5>--}}
                         <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
                         <div class="mt-5">
                             <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
-                                details
+                                @lang('admin.details')
                                 <i class="fa-solid fa-arrow-right-long ms-2 text-white"></i>
                             </a>
                         </div>
-
                     @endforeach
 
 
@@ -248,5 +248,4 @@
         </div>
     </section>
 
-    
 @endsection

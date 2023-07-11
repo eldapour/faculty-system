@@ -4,11 +4,11 @@
     <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
-            <h1 class="text-center">our events</h1>
+            <h1 class="text-center">@lang('admin.our events')</h1>
             <div class="title-breadcrumb">
                 <div class="link-breadcrumb">
                     <a class="text-decoration-none me-2 text-white" href="{{ route('/') }}">@lang('admin.home')</a>|
-                    <span class="ms-2">our events</span>
+                    <span class="ms-2">@lang('admin.our events')</span>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                                         </p>
                                     </div>
                                     <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
-                                        <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title[lang()] }}.</h4>
+                                        <h4 class="card-title color-dark mt-2 mb-3">{{ $event->title }}.</h4>
                                     </a>
                                 </div>
                             </div>

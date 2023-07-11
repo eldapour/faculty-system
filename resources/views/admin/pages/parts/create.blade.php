@@ -52,7 +52,7 @@
                     <label for="name_ar" class="form-control-label">{{  trans('admin.category') }}</label>
                     <select class="form-control" name="category_id">
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name[lang()] }}</option>
+                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                         @endforeach
                     </select>
                 </div>

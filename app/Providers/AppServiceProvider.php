@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('advertisements', Advertisement::query()
         ->latest()->take(3)
             ->get());
-        View::share('university_settings',UniversitySetting::all());
+        View::share('university_settings',UniversitySetting::first());
         View::share('maintenance',UniversitySetting::first());
         View::share('periods',Period::all());
         View::share('pages',Page::query()

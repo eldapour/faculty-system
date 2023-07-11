@@ -61,14 +61,20 @@
 <!-- CUSTOM JS -->
 <script src="{{asset('assets/admin')}}/js/custom.js"></script>
 
+
 <!-- Switcher JS -->
 <script src="{{asset('assets/admin')}}/switcher/js/switcher.js"></script>
+
+<!-- dropify JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
+
+<!-- toastr JS -->
+<script type="text/javascript"  src="{{ asset('assets/admin/toastr/toastr.js') }}"></script>
 
 
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('assets/admin/js/dropify.js')}}"></script>
+
 <script>
 
     $('.dropify').dropify();
