@@ -53,12 +53,17 @@ class SubjectExamStudentController extends Controller
                             </button>
                        ';
                 })
-                ->editColumn('subject_id', function ($subject_exam_students) {
-                    return '<td>' . $subject_exam_students->subject->subject_name . '</td>';
+                ->addColumn('identifier_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
                 })
-                ->editColumn('user_id', function ($subject_exam_students) {
-                    return '<td>' . $subject_exam_students->user->first_name . '</td>';
+                ->addColumn('group', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
                 })
+
+                ->addColumn('code', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->code;
+                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -67,9 +72,8 @@ class SubjectExamStudentController extends Controller
     }
 
 
-    public function create()
+    public function edit(SubjectExamStudent $subjectExamStudent)
     {
-
         $groups = Group::query()
             ->select('id', 'group_name')
             ->get();
@@ -82,29 +86,16 @@ class SubjectExamStudentController extends Controller
             ->select('id', 'department_name')
             ->get();
 
-        return view('admin.subject_exam_students.parts.create', compact('groups', 'units', 'departments'));
-    }
+        $subjects = Subject::query()
+            ->select('id', 'subject_name')
+            ->get();
 
+        $users = User::query()
+            ->select('id','identifier_id')
+            ->where('user_type','=','student')
+            ->get();
 
-    public function store(Request $request): JsonResponse
-    {
-
-        $subject = Subject::query()
-            ->where('id', '=', $request->subject_id)
-            ->first();
-
-        if ($subject->students()->syncWithPivotValues($request->user_id, ['exam_code' => $request->exam_code, 'section' => $request->section, 'period' => $request->period, 'session' => $request->session_id, 'year' => $request->year])) {
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
-        }
-    }
-
-
-    public function edit(SubjectExamStudent $subjectExamStudent)
-    {
-
-        return view('admin.subject_exam_students.parts.edit');
+        return view('admin.subject_exam_students.parts.edit',compact('subjectExamStudent','groups','units','departments','subjects','users'));
     }
 
 

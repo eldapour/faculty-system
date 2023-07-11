@@ -2,7 +2,7 @@
 <aside class="app-sidebar">
     <div class="side-header">
         <a class="header-brand1" href="#">
-            <img src="{{ asset('assets/logo/download.jfif') }}" class="header-brand-img light-logo1" alt="logo">
+            <img src="{{ asset('uploads/university_setting/'. $university_settings->logo) }}" class="header-brand-img light-logo1" alt="logo">
         </a>
         <!-- LOGO -->
     </div>
@@ -356,13 +356,13 @@
                         <li class="slide">
                             <a class="side-menu__item" href="#">
                                 <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.university_year') }}</span>
+                                <span class="side-menu__label">{{ trans('admin.university_year') }} {{\Carbon\Carbon::now()->format('Y') .'-' . \Carbon\Carbon::now()->addYear()->format('Y')}}</span>
                             </a>
                         </li>
 
 
                         <li class="slide">
-                            <a class="side-menu__item" href="#">
+                            <a class="side-menu__item" href="{{route('doctors.index')}}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.all_doctors') }}</span>
                             </a>

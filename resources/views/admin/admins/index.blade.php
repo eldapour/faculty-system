@@ -34,6 +34,8 @@
                                 <th class="min-w-50px">{{trans('admin.image_admin')}}</th>
                                 <th class="min-w-50px">{{trans('admin.first_name')}}</th>
                                 <th class="min-w-125px">{{trans('admin.last_name')}}</th>
+                                <th class="min-w-125px">{{trans('student.first_name_latin')}}</th>
+                                <th class="min-w-125px">{{trans('student.last_name_latin')}}</th>
                                 <th class="min-w-125px">{{trans('admin.email')}}</th>
                                 <th class="min-w-125px">{{trans('admin.user_type')}}</th>
                                 <th class="min-w-125px">{{trans('admin.job_id')}}</th>
@@ -99,6 +101,8 @@
             {data: 'image', name: 'image'},
             {data: 'first_name', name: 'first_name'},
             {data: 'last_name', name: 'last_name'},
+            {data: 'first_name_latin', name: 'first_name_latin'},
+            {data: 'last_name_latin', name: 'last_name_latin'},
             {data: 'email', name: 'email'},
             {data: 'user_type', name: 'user_type'},
             {data: 'job_id', name: 'job_id'},

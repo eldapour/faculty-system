@@ -28,10 +28,10 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.deadline_date_start') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.deadline_date_end') }}</th>
-                                <th class="min-w-50px">الباقي</th>
+                                <th class="min-w-50px">{{trans('admin.remaining_days')}}</th>
+                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -91,10 +91,10 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'description', name: 'description'},
             {data: 'deadline_date_start', name: 'deadline_date_start'},
             {data: 'deadline_date_end', name: 'deadline_date_end'},
             {data: 'the_rest', name: 'the_rest'},
+            {data: 'description', name: 'description'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('deadlines.index')}}', columns);

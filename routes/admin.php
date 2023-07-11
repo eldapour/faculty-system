@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DataModificationController;
 use App\Http\Controllers\Admin\DepartmentBranchController;
 use App\Http\Controllers\Admin\DepartmentBranchStudentController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\DoctorsController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PageController;
@@ -202,6 +203,7 @@ Route::group([
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
     Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
     Route::post('importSubjectExamStudent', [SubjectExamStudentController::class, 'importSubjectExamStudent'])->name('importSubjectExamStudent');
+
     Route::get('printSubjectExamStudent/{id?}', [SubjectExamStudentController::class, 'printSubjectExamStudent'])->name('printSubjectExamStudent');
     #### Element ####
     Route::resource('elements', ElementController::class)->middleware('forbidden');
@@ -260,6 +262,11 @@ Route::group([
 
     #### Event ####
     Route::resource('events', EventController::class)->middleware('forbidden');
+
+    #### Doctors ####
+    Route::resource('doctors', DoctorsController::class)->middleware('forbidden');
+    Route::post('doctors.delete', [DoctorsController::class, 'delete'])->name('doctors.delete');
+
 
     #### schedules ####
     Route::resource('schedules', ScheduleController::class)->middleware('forbidden');

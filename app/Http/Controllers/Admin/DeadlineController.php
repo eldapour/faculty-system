@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Deadline;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\StoreDeadline;
 use App\Http\Controllers\Controller;
@@ -26,7 +28,11 @@ class DeadlineController extends Controller
                        ';
                 })
                 ->editColumn('description', function ($deadlines) {
-                    return '<td>'. $deadlines->description .'</td>';
+
+
+                    $des = $deadlines->getTranslation('description', app()->getLocale());
+
+                    return Str::limit($des,100);
                 })
                 ->addColumn('the_rest', function ($deadlines) {
                     $deadline_date_start = \Carbon\Carbon::parse($deadlines->deadline_date_start);
@@ -47,10 +53,17 @@ class DeadlineController extends Controller
     }
 
 
-    public function store(StoreDeadline $request)
+    public function store(StoreDeadline $request): JsonResponse
     {
-        $inputs = $request->all();
-        if (Deadline::create($inputs)) {
+
+       $deadline = Deadline::create([
+
+            'deadline_date_start' => $request->deadline_date_start,
+            'deadline_date_end' => $request->deadline_date_end,
+           "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+       ]);
+
+        if ($deadline->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -64,9 +77,17 @@ class DeadlineController extends Controller
     }
 
 
-    public function update(Request $request, Deadline $deadline)
+    public function update(Request $request, Deadline $deadline): JsonResponse
     {
-        if ($deadline->update($request->all())) {
+
+        $deadline->update([
+
+            'deadline_date_start' => $request->deadline_date_start,
+            'deadline_date_end' => $request->deadline_date_end,
+            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+        ]);
+
+        if ($deadline->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

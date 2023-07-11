@@ -27,12 +27,15 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
 
-                                <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.year_name_') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period_name_') }}</th>
+
+
+                                <th class="min-w-25px">{{trans('subject_student.id')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student.year')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student.subject_id')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student.group')}}</th>
+
                                 {{--  <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>  --}}
                             </tr>
                             </thead>
@@ -89,13 +92,14 @@
     @include('admin.layouts.myAjaxHelper')
 @endsection
 @section('ajaxCalls')
+
     <script>
         var columns = [
             {data: 'id', name: 'id'},
+            {data: 'year', name: 'year'},
+            {data: 'identifier_id', name: 'identifier_id'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
-            {data: 'year', name: 'year'},
-            {data: 'period', name: 'period'},
             //{data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('subject_student.index')}}', columns);

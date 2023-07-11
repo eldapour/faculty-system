@@ -80,10 +80,10 @@ class SubjectExamController extends Controller
                        ';
                 })
                 ->editColumn('subject_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
+                    return $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
+                    return  $subject_exams->subject->group->group_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -257,6 +257,7 @@ class SubjectExamController extends Controller
             ->where('year', '=', $period->year_start)
             ->whereIn('subject_id', $subject_ids)
             ->first();
+
         $section = SubjectExamStudent::query()
             ->where('period', '=', $period->period)
             ->where('year', '=', $period->year_start)

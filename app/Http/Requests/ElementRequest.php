@@ -11,7 +11,7 @@ class ElementRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +21,12 @@ class ElementRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name.ar' => 'required',
-            'name.en' => 'required',
-            'name.fr' => 'required',
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'name_fr' => 'required',
             'period' => 'required',
             'department_branch_id' => 'required',
         ];

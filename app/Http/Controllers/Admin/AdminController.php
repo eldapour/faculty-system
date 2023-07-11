@@ -23,7 +23,9 @@ class AdminController extends Controller
 
         if ($request->ajax()) {
             $admins = User::query()
-                ->where('user_type', '!=', 'student')
+                ->where('user_type', '=', 'manger')
+                ->orWhere('user_type', '=', 'factor')
+                ->orWhere('user_type', '=', 'employee')
                 ->latest()
                 ->get();
 
@@ -34,7 +36,7 @@ class AdminController extends Controller
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $admin->id . '" data-title="' . $admin->first_name . '">
                                     <i class="fas fa-trash"></i>
-                                    حذف الادمن
+
                             </button>
                        ';
                 })
@@ -67,8 +69,8 @@ class AdminController extends Controller
 
         if ($admin->image != null) {
 
-            if (file_exists(public_path("users/" . $admin->image))) {
-                unlink(public_path("users/" . $admin->image));
+            if (file_exists(public_path("uploads/users/" . $admin->image))) {
+                unlink(public_path("uploads/users/" . $admin->image));
 
                 $admin->delete();
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
@@ -102,15 +104,17 @@ class AdminController extends Controller
             'email' => 'required|unique:users,email',
             'first_name' => 'required',
             'last_name' => 'required',
+            'first_name_latin' => 'required',
+            'last_name_latin' => 'required',
             'password' => 'required|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'user_type' => 'required|in:doctor,manger,employee,factor',
+            'user_type' => 'required|in:manger,employee,factor',
             'job_id' => 'nullable|unique:users,job_id',
         ]);
 
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'users/';
+            $destinationPath = 'uploads/users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
@@ -119,6 +123,8 @@ class AdminController extends Controller
         $admin = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'first_name_latin' => $request->first_name_latin,
+            'last_name_latin' => $request->last_name_latin,
             'image' => $profileImage ?? null,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -155,24 +161,32 @@ class AdminController extends Controller
             'email' => 'required|unique:users,email,' . $request->id,
             'first_name' => 'required',
             'last_name' => 'required',
+            'first_name_latin' => 'required',
+            'last_name_latin' => 'required',
             'password' => 'nullable|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'user_type' => 'required|in:doctor,manger,employee,factor',
+            'user_type' => 'required|in:manger,employee,factor',
             'job_id' => 'nullable|unique:users,job_id,' . $request->id,
         ]);
 
         if ($image = $request->file('image')) {
 
-            $destinationPath = 'users/';
+            $destinationPath = 'uploads/users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
+
+            if (file_exists(public_path('uploads/users/'.$admin->image)) && $admin->image != null) {
+                unlink(public_path('uploads/users/'.$admin->image));
+            }
         }
 
 
         $admin->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'first_name_latin' => $request->first_name_latin,
+            'last_name_latin' => $request->last_name_latin,
             'image' => $request->image != null ? $profileImage : $admin->image,
             'national_id' => $request->national_id,
             'email' => $request->email,

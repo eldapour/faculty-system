@@ -29,6 +29,17 @@
             <input type="text" class="form-control" name="last_name" id="last_name">
         </div>
 
+        <div class="form-group">
+            <label for="name" class="form-control-label">{{trans('student.first_name_latin')}}</label>
+            <input type="text" class="form-control" name="first_name_latin" id="first_name_latin">
+        </div>
+
+
+        <div class="form-group">
+            <label for="name" class="form-control-label">{{trans('student.last_name_latin')}}</label>
+            <input type="text" class="form-control" name="last_name_latin" id="last_name_latin">
+        </div>
+
 
         <div class="form-group">
             <label for="email" class="form-control-label">{{trans('admin.email')}} </label>
@@ -55,7 +66,6 @@
         <div class="form-group">
             <label class="form-label">{{trans('admin.user_type')}}</label>
             <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
-                <option class="form-control" value="doctor">@lang('login.doctor')</option>
                 <option class="form-control" value="manger">@lang('login.manger')</option>
                 <option class="form-control" value="employee">@lang('login.employee')</option>
                 <option class="form-control" value="factor">@lang('login.factor')</option>

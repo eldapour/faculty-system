@@ -7,29 +7,29 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="name_en" class="form-control-label">{{ trans('admin.deadline_date_start') }}</label>
-                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_start }}" name="deadline_date_start" required>
+                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_start }}" name="deadline_date_start">
                 </div>
                 <div class="col-md-6">
                     <label for="name_en" class="form-control-label">{{ trans('admin.deadline_date_end') }}</label>
-                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_end }}" name="deadline_date_end" required>
+                    <input type="date" class="form-control" value="{{ $deadline->deadline_date_end }}" name="deadline_date_end">
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }} {{ trans('admin.arabic') }}</label>
-                    <textarea name="description[ar]" class="form-control" rows="8">{{ $deadline->description['ar'] }}</textarea>
+                    <textarea name="description_ar" class="form-control" rows="8">{{ $deadline->getTranslation('description', 'ar') }}</textarea>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.english') }}</label>
-                    <textarea name="description[en]" class="form-control" rows="8">{{ $deadline->description['en'] }}</textarea>
+                    <textarea name="description_en" class="form-control" rows="8">{{ $deadline->getTranslation('description', 'en') }}</textarea>
                 </div>
             </div>
-            <div class="">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}  {{ trans('admin.france') }}</label>
-                    <textarea name="description[fr]" class="form-control" rows="8">{{ $deadline->description['fr'] }}</textarea>
+                    <textarea name="description_fr" class="form-control" rows="8">{{ $deadline->getTranslation('description', 'fr') }}</textarea>
                 </div>
             </div>
         </div>
@@ -41,8 +41,6 @@
 </div>
 <script>
     $('.dropify').dropify()
-
-        CKEDITOR.replaceAll();
 
         $(document).ready(function() {
             $('select').select2();

@@ -541,6 +541,12 @@ return [
     "Colleges Digital Magazine" => "Colleges Digital Magazine",
     "department_branch_students" => "Students in course selection",
     "all_subject_students" => "Student Record in Units",
+    "university_year" => "college year",
+    "all_doctors" => "the teacher",
+
+    "add_department_to_student" => "Add a course for a student",
+
+    "remaining_days" => "Remaining Days",
     "university_year" => "the teacher",
     "all_doctors" => "college year",
     "add_department_to_student" => "Add a course for a student",
