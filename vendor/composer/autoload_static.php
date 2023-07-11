@@ -697,6 +697,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Http\\Controllers\\Admin\\DepartmentBranchController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DepartmentBranchController.php',
         'App\\Http\\Controllers\\Admin\\DepartmentBranchStudentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DepartmentBranchStudentController.php',
         'App\\Http\\Controllers\\Admin\\DepartmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DepartmentController.php',
+        'App\\Http\\Controllers\\Admin\\DoctorsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DoctorsController.php',
         'App\\Http\\Controllers\\Admin\\DocumentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DocumentController.php',
         'App\\Http\\Controllers\\Admin\\DocumentTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DocumentTypeController.php',
         'App\\Http\\Controllers\\Admin\\ElementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ElementController.php',

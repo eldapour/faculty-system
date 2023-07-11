@@ -34,11 +34,7 @@
 										<i class="fe fe-upload"></i>
 									</span> {{ trans('admin.export') }}
                             </button>
-                            <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.add') }}
-                            </button>
+
                             <a href="{{ route('process_exams.index') }}" class="btn btn-danger btn-icon text-white">
 									<span>
 										<i class="fe fe-pen"></i>
@@ -52,12 +48,18 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
+
+
+
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.section') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.subject') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period') }}</th>
+                                <th class="min-w-25px">{{trans('subject_exam.id')}}</th>
+                                <th class="min-w-50px">{{trans('subject_exam.identifier_id')}}</th>
+                                <th class="min-w-25px">{{ trans('subject_exam.subject_code') }}</th>
+                                <th class="min-w-25px">{{ trans('subject_exam.group') }}</th>
+                                <th class="min-w-50px">{{ trans('subject_exam.university_year') }}</th>
+                                <th class="min-w-50px">{{ trans('subject_exam.exam_code') }}</th>
+                                <th class="min-w-50px">{{ trans('subject_exam.section') }}</th>
+                                <th class="min-w-50px">{{ trans('subject_exam.session') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -162,18 +164,19 @@
 
                 var columns = [
                     {data: 'id', name: 'id'},
+                    {data: 'identifier_id', name: 'identifier_id'},
+                    {data: 'code', name: 'code'},
+                    {data: 'group', name: 'group'},
+                    {data: 'year', name: 'year'},
                     {data: 'exam_code', name: 'exam_code'},
                     {data: 'section', name: 'section'},
-                    {data: 'subject_id', name: 'subject_id'},
-                    {data: 'period', name: 'period'},
+                    {data: 'session', name: 'session'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
                 showData('{{route('subject_exam_students.index')}}', columns);
                 // Delete Using Ajax
                 destroyScript('{{route('subject_exam_students.destroy',':id')}}');
-                // Add Using Ajax
-                showAddModal('{{route('subject_exam_students.create')}}');
-                addScript();
+
                 // Add Using Ajax
                 showEditModal('{{route('subject_exam_students.edit',':id')}}');
                 editScript();

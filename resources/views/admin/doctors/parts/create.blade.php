@@ -6,7 +6,7 @@
     </button>
 </div>
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" enctype="multipart/form-data" action="{{route('admins.store')}}" >
+    <form id="addForm" class="addForm" method="POST" enctype="multipart/form-data" action="{{route('doctors.store')}}" >
         @csrf
 
 
@@ -16,6 +16,8 @@
             <input type="file" class="dropify" name="image" data-default-file="{{asset('assets/uploads/avatar.gif')}}" accept="image/png, image/gif, image/jpeg,image/jpg"/>
             <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
         </div>
+
+
 
 
         <div class="form-group">
@@ -29,16 +31,20 @@
             <input type="text" class="form-control" name="last_name" id="last_name">
         </div>
 
+
         <div class="form-group">
             <label for="name" class="form-control-label">{{trans('student.first_name_latin')}}</label>
             <input type="text" class="form-control" name="first_name_latin" id="first_name_latin">
         </div>
 
 
+
+
         <div class="form-group">
             <label for="name" class="form-control-label">{{trans('student.last_name_latin')}}</label>
             <input type="text" class="form-control" name="last_name_latin" id="last_name_latin">
         </div>
+
 
 
         <div class="form-group">
@@ -65,10 +71,12 @@
 
         <div class="form-group">
             <label class="form-label">{{trans('admin.user_type')}}</label>
-            <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
-                <option class="form-control" value="manger">@lang('login.manger')</option>
-                <option class="form-control" value="employee">@lang('login.employee')</option>
-                <option class="form-control" value="factor">@lang('login.factor')</option>
+            <select name="professor_position" id="type" class="form-control select2" data-placeholder="Choose professor_position">
+                @foreach($professor_positions as $professor_position)
+                    <option class="form-control" value="{{$professor_position}}">{{$professor_position}}</option>
+
+                @endforeach
+
             </select>
         </div>
 

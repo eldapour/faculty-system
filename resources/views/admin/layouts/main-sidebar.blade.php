@@ -356,13 +356,13 @@
                         <li class="slide">
                             <a class="side-menu__item" href="#">
                                 <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.university_year') }}</span>
+                                <span class="side-menu__label">{{ trans('admin.university_year') }} {{\Carbon\Carbon::now()->format('Y') .'-' . \Carbon\Carbon::now()->addYear()->format('Y')}}</span>
                             </a>
                         </li>
 
 
                         <li class="slide">
-                            <a class="side-menu__item" href="#">
+                            <a class="side-menu__item" href="{{route('doctors.index')}}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.all_doctors') }}</span>
                             </a>

@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="group_id" class="form-control-label">@lang('admin.year')</label>
-                    <input type="text" class="form-control" name="year">
+                    <select name="year" class="form-control" id="year">
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -51,13 +55,23 @@
                     <label for="title" class="form-control-label">{{ trans('admin.exam_date') }}</label>
                     <input type="date" class="form-control" name="exam_date">
                 </div>
+
+                @php
+
+                $days = ["السبت","الاحد","الاثنين","الثلاثاء","الاربعاء","الخميس"];
+                @endphp
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.exam_day') }}</label>
-                    <input type="text" class="form-control" name="exam_day">
+
+                    <select name="exam_day" class="form-control">
+                        @foreach($days as $day)
+                            <option value="{{$day}}" style="text-align: center">{{ $day }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
@@ -65,12 +79,11 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="hidden" name="session" value="عاديه">
-                    {{--  <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
+                      <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control">
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
                         <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
-                    </select>  --}}
+                    </select>
                 </div>
             </div>
             <div class="row">

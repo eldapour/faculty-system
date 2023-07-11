@@ -3,14 +3,17 @@
         @csrf
         @method('PUT')
         <input type="hidden" value="{{ $subjectExamStudent->id }}" name="id">
+
         <div class="form-group">
-            <div class="row">
+
+
+            <div class="row mt-2">
                 <div class="col-md-6">
                     <label for="group_id" class="form-label">@lang('admin.group_name')</label>
                     <select class="form-control" name="group_id" id="group_id">
                         <option value="" disabled>{{ trans('admin.select') . ' ' . trans('admin.group') }}</option>
                         @foreach($groups as $group)
-                            <option {{ $subjectExamStudent->group_id == $group->id ? 'selected' : '' }}
+                            <option {{ $subjectExamStudent->subject->group_id == $group->id ? 'selected' : '' }}
                                     value="{{ $group->id }}">
                                 {{ $group->getTranslation('group_name',lang()) }}
                             </option>
@@ -23,7 +26,7 @@
                         <option value="" disabled>{{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
                         @foreach($departments as $department)
                             <option
-                                {{ $subjectExamStudent->department_id == $department->id ? 'selected' : '' }}
+                                {{ $subjectExamStudent->subject->department_id == $department->id ? 'selected' : '' }}
                                 value="{{ $department->id }}">
                                 {{ $department->getTranslation('department_name',lang()) }}
                             </option>
@@ -31,31 +34,44 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
+
+
+
+
+            <div class="row mt-2">
                 <div class="col-md-6">
                     <label for="group_id" class="form-label">@lang('admin.department_branch_name')</label>
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
                         <option value="" disabled>
                             {{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
-                        <option value="{{ $subjectExamStudent->department_branch_id }}"
-                        selected>{{ $subjectExamStudent->departmentBranch->branch_name }}</option>
+                        <option value="{{ $subjectExamStudent->subject->department_branch_id }}"
+                        selected>{{ $subjectExamStudent->subject->department_branch->getTranslation('branch_name',app()->getLocale()) }}</option>
                     </select>
                 </div>
+
+
                 <div class="col-md-6">
                     <label for="department_id" class="form-label">@lang('admin.select') @lang('admin.subject')</label>
                     <select class="form-control" name="subject_id">
                         <option value="">{{ trans('admin.select') . ' ' . trans('admin.subject') }}</option>
-                        <option value="{{ $subjects->id }}" {{ $subjectExamStudent->subject_id == $subjects->id ? 'selected' : '' }}>{{ $subjects->subject_name }}</option>
+                        @foreach($subjects as $subject)
+                        <option value="{{ $subject->id }}" {{ $subjectExamStudent->subject_id == $subject->id ? 'selected' : '' }}>{{ $subject->getTranslation('subject_name',app()->getLocale()) }}</option>
+                        @endforeach
                     </select>
                 </div>
 
             </div>
-            <div class="row">
+
+
+            <div class="row mt-2">
                 <div class="col-md-6">
                     <label for="department_id" class="form-label">@lang('admin.select') @lang('admin.student')</label>
                     <select class="form-control" name="user_id" id="user_id">
                         <option value="">{{ trans('admin.select') . ' ' . trans('admin.subject') }}</option>
+                        @foreach($users as $user)
                         <option value="{{ $user->id }}" {{ $subjectExamStudent->user_id == $user->id ? 'selected' : '' }}>{{ $user->identifier_id }}</option>
+                        @endforeach
+
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -92,6 +108,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('admin.close') }}</button>
             <button type="submit" class="btn btn-success" id="updateButton">{{ trans('admin.update') }}</button>
