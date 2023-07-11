@@ -16,10 +16,10 @@ class HomeWebController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::all();
-        $data['events'] = Event::latest()->limit(6)->get();
+        $data['events'] = Event::latest()->limit(9)->get();
         $data['dean_speech'] = Word::all();
         $data['videos'] = Video::all();
-        $data['advertisements_list'] = Advertisement::all();
+        $data['advertisements_list'] = Advertisement::latest()->limit(9)->get();
         return view('front.index', $data);
     }
 }

@@ -10,13 +10,13 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $data['advertisements'] = Advertisement::latest();
-        return view('front.blogs.new_blog', $data);
+        $advertisements_list = Advertisement::latest()->get();
+        return view('front.blogs.new_blog', compact('advertisements_list'));
     }
 
     public function blogItem($id)
     {
-        $data['blog_items'] = Advertisement::where('id', $id)->get();
-        return view('front.blogs.single-blog', $data);
+        $blog_item = Advertisement::where('id', $id)->first();
+        return view('front.blogs.single-blog', compact('blog_item'));
     }
 }

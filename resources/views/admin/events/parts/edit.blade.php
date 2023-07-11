@@ -7,15 +7,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title')  ." ". trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" value="{{ $event->title['ar'] }}" name="title[ar]" required>
+                    <input type="text" class="form-control" value="{{ $event->getTranslation('title', 'ar') }}" name="title[ar]" required>
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $event->title['en'] }}" name="title[en]" required>
+                    <input type="text" class="form-control" value="{{ $event->getTranslation('title', 'en') }}" name="title[en]" required>
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') ." ". trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $event->title['fr'] }}" name="title[fr]" required>
+                    <input type="text" class="form-control" value="{{ $event->getTranslation('title', 'fr') }}" name="title[fr]" required>
                 </div>
             </div>
             <div class="row">
@@ -35,7 +35,7 @@
                     <select name="category_id" class="form-control" required>
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center" {{ $event->category_id == $category->id ? 'selected' : '' }}>
-                                {{ $category->category_name[lang()] }}</option>
+                                {{ $category->category_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -43,19 +43,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.arabic') }}</label>
-                    <textarea name="description[ar]" class="form-control" rows="8">{{ $event->description['ar'] }}</textarea>
+                    <textarea name="description[ar]" class="form-control" rows="8">{{ $event->getTranslation('description', 'ar') }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.english') }}</label>
-                    <textarea name="description[en]" class="form-control" rows="8">{{ $event->description['en'] }}</textarea>
+                    <textarea name="description[en]" class="form-control" rows="8">{{ $event->getTranslation('description', 'en') }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.france') }}</label>
-                    <textarea name="description[fr]" class="form-control" rows="8">{{ $event->description['fr'] }}</textarea>
+                    <textarea name="description[fr]" class="form-control" rows="8">{{ $event->getTranslation('description', 'fr') }}</textarea>
                 </div>
             </div>
         </div>

@@ -6,15 +6,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="category_name" class="form-control-label">{{ trans('admin.name') }} {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" value="{{ $find->category_name['ar'] }}" name="category_name[ar]" required>
+                    <input type="text" class="form-control" value="{{ $find->getTranslation('category_name', 'ar') }}" name="category_name[ar]" required>
                 </div>
                 <div class="col-md-4">
                     <label for="category_name" class="form-control-label">{{ trans('admin.name') }}  {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $find->category_name['en'] }}" name="category_name[en]" required>
+                    <input type="text" class="form-control" value="{{ $find->getTranslation('category_name', 'en') }}" name="category_name[en]" required>
                 </div>
                 <div class="col-md-4">
                     <label for="category_name" class="form-control-label">{{ trans('admin.name') }}  {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $find->category_name['fr'] }}" name="category_name[fr]" required>
+                    <input type="text" class="form-control" value="{{ $find->getTranslation('category_name', 'fr') }}" name="category_name[fr]" required>
                 </div>
             </div>
         </div>

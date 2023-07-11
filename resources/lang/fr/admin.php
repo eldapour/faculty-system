@@ -551,15 +551,17 @@ return [
     "Digital Student Platform" => "Plateforme étudiante numérique",
     "Colleges Digital Platform" => "Plateforme numérique des collèges",
     "Colleges Digital Magazine" => "Magazine numérique des collèges",
-
-
     "department_branch_students" => "Étudiants en cours de sélection",
     "all_subject_students" => "Fiche de l'élève en unités",
     "university_year" => "l'enseignant",
     "all_doctors" => "année universitaire",
-
-
     "add_department_to_student" => "Ajouter un cours pour un étudiant",
+    "our news" => "nos actualités",
+    "The latest news" => "Les dernières nouvelles",
+    "our events" => "nos événements",
+    "The latest events" => "Les derniers événements",
+    "share in" => "partager dans",
+    "years of giving" => "années de don"
 
 ];
 

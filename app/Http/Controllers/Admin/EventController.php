@@ -24,13 +24,13 @@ class EventController extends Controller
                     return '
                             <button type="button" data-id="' . $events->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $events->id . '" data-title="' . $events->title[lang()] . '">
+                                    data-id="' . $events->id . '" data-title="' . $events->title . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('title', function ($events) {
-                    return '<td>' . $events->title[lang()] . '</td>';
+                    return '<td>' . $events->title . '</td>';
                 })
                 ->editColumn('image', function ($events) {
                     return '
@@ -43,10 +43,10 @@ class EventController extends Controller
                     ';
                 })
                 ->editColumn('description', function ($events) {
-                    return '<td>' . $events->description[lang()] . '</td>';
+                    return '<td>' . $events->description . '</td>';
                 })
                 ->editColumn('category_id', function ($events) {
-                    return '<td>' . @$events->category->category_name[lang()] . '</td>';
+                    return '<td>' . $events->category->category_name . '</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);

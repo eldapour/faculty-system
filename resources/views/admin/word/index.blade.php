@@ -37,22 +37,22 @@
                                             @foreach($categories as $category)
                                                 <option
                                                     {{ $word->category_id == $category->id ? ' selected' : '' }}
-                                                    value="{{ $category->id }}">{{ $category->category_name[lang()] }}</option>
+                                                    value="{{ $category->id }}">{{ $category->category_name }}</option>
                                             @endforeach
                                         </select>
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.word_role') }} {{ trans('admin.arabic') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->role['ar'] }}"
+                                        <input type="text" class="form-control" value="{{ $word->getTranslation('role', 'ar') }}"
                                                name="role[ar]" >
 
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.english') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->role['en'] }}"
+                                        <input type="text" class="form-control" value=" {{ $word->getTranslation('role', 'en') }}"
                                                name="role[en]" >
 
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.word_role') }}  {{ trans('admin.france') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->role['fr'] }}"
+                                        <input type="text" class="form-control" value=" {{ $word->getTranslation('role', 'fr') }}"
                                                name="role[fr]" >
 
                                         {{--  <label for="name_ar"
@@ -68,19 +68,19 @@
                                     <div class="col-md-4">
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.arabic') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['ar'] }}"
+                                        <input type="text" class="form-control" value="{{ $word->getTranslation('name', 'ar') }}"
                                                name="name[ar]" >
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.name') . ' ' . trans('admin.english') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['en'] }}"
+                                        <input type="text" class="form-control" value=" {{ $word->getTranslation('name', 'en') }}"
                                                name="name[en]" >
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.name')  . ' ' . trans('admin.france') }}</label>
-                                        <input type="text" class="form-control" value="{{ $word->name['fr'] }}"
+                                        <input type="text" class="form-control" value=" {{ $word->getTranslation('name', 'fr') }}"
                                                name="name[fr]" >
                                     </div>
                                 </div>
@@ -92,21 +92,21 @@
                                                class="form-control-label">{{  trans('admin.description') }} {{ trans('admin.arabic') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
                                                   name="description[ar]"
-                                                  >{{ $word->description['ar'] }}</textarea>
+                                                  >{{ $word->getTranslation('description', 'ar') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.english') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
                                                   name="description[en]"
-                                                  >{{ $word->description['en'] }}</textarea>
+                                                  > {{ $word->getTranslation('description', 'en') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar"
                                                class="form-control-label">{{  trans('admin.description') }}  {{ trans('admin.france') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
                                                   name="description[fr]"
-                                                  >{{ $word->description['fr'] }}</textarea>
+                                                  > {{ $word->getTranslation('description', 'fr') }}</textarea>
                                     </div>
                                 </div>
                             </div>
