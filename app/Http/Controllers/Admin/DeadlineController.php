@@ -29,6 +29,7 @@ class DeadlineController extends Controller
                 })
                 ->editColumn('description', function ($deadlines) {
 
+
                     $des = $deadlines->getTranslation('description', app()->getLocale());
 
                     return Str::limit($des,100);

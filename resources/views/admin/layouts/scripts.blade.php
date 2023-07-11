@@ -122,7 +122,7 @@
 
     @if($reregistration == null)
     $(document).ready(function () {
-        if ({{ auth()->user()->user_type == 'student' && $university_settings[0]->reregister_start < \Carbon\Carbon::now() }}) {
+        if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_start < \Carbon\Carbon::now() }}) {
             $('#RegisterForm-body').html(loader)
             $('#RegisterForm').modal('show')
             setTimeout(function () {

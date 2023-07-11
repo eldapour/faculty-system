@@ -66,7 +66,7 @@
                     <div class="border3">
                         <div class="p-5">
                             <div class="image-logo1">
-                                <img src="{{ asset($university_settings[0]->logo) }}">
+                                <img style="height: 100px" src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}">
                             </div>
                             <h3 class="text-center mb-2">شهادة التسجيل بالكلية</h3>
                             <p class="text-center">رقم الشهادة</p>
@@ -99,12 +99,12 @@
                                     </table>
                                 </div>
                                 <div class="col-lg-3 col-3 d-flex justify-content-center">
-                                    {{ QrCode::size(150)->generate(route('certificates.registeration')) }}
+                                    {{ QrCode::size(100)->generate(route('certificates.registeration')) }}
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <span class="fs-6 fw-bold">مسجل بالكلية:</span>
-                                <span>{{ $university_settings[0]->title[lang()] }}</span>
+                                <span>{{ $university_settings->title }}</span>
                                 <span class="fs-6 fw-bold">,برسم الموسم الجامعي: </span>
                                 <span>{{ $periods[0]->year_start . '/' . $periods[0]->year_end   }}</span>
                             </div>
@@ -137,7 +137,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <div>
-                                    <img style="width: 145px;" src="{{ asset($university_settings[0]->stamp_logo) }}">
+                                    <img style="width: 145px;" src="{{ asset('/uploads/university_setting/'.$university_settings->stamp_logo) }}">
                                 </div>
                             </div>
 

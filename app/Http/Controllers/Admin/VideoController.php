@@ -24,13 +24,13 @@ class VideoController extends Controller
                     return '
                             <button type="button" data-id="' . $videos->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $videos->id . '" data-title="' . $videos->title[lang()] . '">
+                                    data-id="' . $videos->id . '" data-title="' . $videos->title . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('title', function ($videos) {
-                    return'<td>'. $videos->title[lang()] .'</td>';
+                    return'<td>'. $videos->title .'</td>';
                 })
                 ->editColumn('background_image', function ($videos) {
                     return '
@@ -38,7 +38,7 @@ class VideoController extends Controller
                     ';
                 })
                 ->editColumn('description', function ($videos) {
-                    return'<td>'. $videos->description[lang()] .'</td>';
+                    return'<td>'. $videos->description .'</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);

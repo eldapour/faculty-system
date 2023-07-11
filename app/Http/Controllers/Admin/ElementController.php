@@ -21,12 +21,14 @@ class ElementController extends Controller
                     return '
                             <button type="button" data-id="' . $elements->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+
                                     data-id="' . $elements->id . '" data-title="' . $elements->getTranslation('name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('name', function ($elements) {
+
                     return $elements->getTranslation('name', app()->getLocale());
                 })
                 ->editColumn('department_branch_id ', function ($elements) {

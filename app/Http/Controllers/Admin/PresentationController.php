@@ -14,15 +14,16 @@ use Illuminate\Http\Request;
 class PresentationController extends Controller
 {
     use PhotoTrait;
+
     public function index()
     {
         $data['presentations'] = Presentation::query()
-        ->first();
+            ->first();
 
         $data['categories'] = Category::query()
-        ->get();
+            ->get();
 
-        return view('admin.presentations.index',$data);
+        return view('admin.presentations.index', $data);
     }
 
 
@@ -34,9 +35,11 @@ class PresentationController extends Controller
         $images = [];
 
         if ($request->has('images')) {
-            foreach ($presentation->images as $image) {
-                if (file_exists($image)) {
-                    unlink($image);
+            if ($presentation->images != null) {
+                foreach ($presentation->images as $image) {
+                    if (file_exists($image)) {
+                        unlink($image);
+                    }
                 }
             }
             foreach ($request->file('images') as $image) {

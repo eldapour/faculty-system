@@ -27,7 +27,7 @@ class SettingController extends Controller
                        ';
                 })
                 ->editColumn('setting_name', function ($settings) {
-                    return '<td>'. $settings->setting_name[lang()] .'</td>';
+                    return '<td>'. $settings->setting_name .'</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);

@@ -35,6 +35,7 @@
                     <label for="name" class="form-control-label">{{ trans('admin.department') ." ". trans('admin.branch') }}</label>
                     <select name="department_branch_id" class="form-control">
                         @foreach ($data['department_branchs'] as $key => $department_branch)
+
                             <option value="{{ $department_branch->id }}" style="text-align: center">{{ $department_branch->getTranslation('branch_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>

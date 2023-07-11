@@ -18,6 +18,6 @@
     <h1>We&rsquo;ll be back soon!</h1>
     <div>
         <p>Sorry for the inconvenience. We&rsquo;re performing some maintenance at the moment. we&rsquo;ll be back up shortly!</p>
-        <p>&mdash; The {{$university_settings[0]->title['en']}} Team &mdash;</p>
+        <p>&mdash; The {{$university_settings->title}} Team &mdash;</p>
     </div>
 </article>

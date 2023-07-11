@@ -25,8 +25,8 @@
                                     <div class="col-md-4">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.images') }}</label>
                                         <input type="file" class="form-control dropify" multiple
-                                            data-default-file="{{ asset($presentations->images[0]) }}" name="images[]"
-                                            value="{{ asset($presentations->images[0]) }}">
+                                            data-default-file="{{ ($presentations->images) ? asset($presentations->images[0]) : ''  }}" name="images[]"
+                                            value="{{ ($presentations->images) ? asset($presentations->images[0]) : ''  }}">
                                     </div>
                                     <div class="col-md-8">
                                         <label for="name_ar"
@@ -35,7 +35,7 @@
                                             @foreach ($categories as $category)
                                                 <option
                                                     {{ $presentations->category_id == $category->id ? ' selected' : '' }}
-                                                    value="{{ $category->id }}">{{ $category->category_name[lang()] }}
+                                                    value="{{ $category->id }}">{{ $category->category_name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -50,61 +50,61 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.arabic') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->title['ar'] }}" name="title[ar]" required>
+                                            value="{{ $presentations->getTranslation('title','ar') }}" name="title[ar]" required>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.english') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->title['en'] }}" name="title[en]" required>
+                                            value="{{ $presentations->getTranslation('title','en') }}" name="title[en]" required>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.tile') . ' ' . trans('admin.france') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->title['fr'] }}" name="title[fr]" required>
+                                            value="{{ $presentations->getTranslation('title','fr') }}" name="title[fr]" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.arabic') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $presentations->description['ar'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $presentations->getTranslation('description','ar') }}</textarea>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.english') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $presentations->description['en'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $presentations->getTranslation('description','en') }}</textarea>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.france') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $presentations->description['fr'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $presentations->getTranslation('description','fr') }}</textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.arabic') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[ar]" required>{{ $presentations->sub_desc['ar'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[ar]" required>{{ $presentations->getTranslation('sub_desc','ar') }}</textarea>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.english') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[en]" required>{{ $presentations->sub_desc['en'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[en]" required>{{ $presentations->getTranslation('sub_desc','en') }}</textarea>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.france') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[fr]" required>{{ $presentations->sub_desc['fr'] }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[fr]" required>{{ $presentations->getTranslation('sub_desc','fr') }}</textarea>
                                     </div>
                                 </div>
                             </div>
