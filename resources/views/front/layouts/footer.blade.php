@@ -54,7 +54,8 @@
                                 <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
-                                        <a class="text-decoration-none" href="#">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
+                                        <a class="text-decoration-none"
+                                           href="{{ route('blog',$advertisement->id) }}">{!! $advertisement->getTranslation('title', app()->getLocale()) !!}</a>
 
                                     </div>
                                     <p class="color-second">{{ $advertisement->created_at->format('d') }}</p>
@@ -168,7 +169,7 @@
 <script>
     $(document).ready(function () {
         $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
+                    var button = $(event.relatedTarget) // Button that triggered the modal
             var url = button.data('url') // Extract info from data-* attributes
             var modal = $(this)
             modal.find('.modal-body iframe').attr('src', url)
