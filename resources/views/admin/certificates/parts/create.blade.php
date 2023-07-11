@@ -35,7 +35,12 @@
 
                 <div class="col-md-12 mt-3">
                     <label for="category_name" class="form-control-label">{{trans('admin.validation_year')}}</label>
-                    <input type="text" class="form-control" name="validation_year" id="validation_year">
+
+                    <select name="validation_year" class="form-control" id="validation_year">
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
                 </div>
 
 

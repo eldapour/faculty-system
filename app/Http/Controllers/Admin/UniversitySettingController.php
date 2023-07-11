@@ -25,23 +25,47 @@ class UniversitySettingController extends Controller
 
     public function update(UniversitySettingRequest $request, UniversitySetting $universitySetting): JsonResponse
     {
-        $inputs = $request->all();
 
-        if ($request->has('logo')) {
-            if (file_exists($universitySetting->logo)) {
-                unlink($universitySetting->logo);
+        if ($logo = $request->file('logo')) {
+
+            $destinationPath = 'uploads/university_setting';
+            $logoImage = date('YmdHis') . "." . $logo->getClientOriginalExtension();
+            $logo->move($destinationPath, $logoImage);
+            $request['logo'] = "$logoImage";
+
+            if (file_exists(public_path('uploads/university_setting/'.$universitySetting->logo))) {
+                unlink(public_path('uploads/university_setting/'.$universitySetting->logo));
             }
-            $inputs['logo'] = $this->saveImage($request->logo, 'uploads/university_setting', 'photo');
         }
 
-        if ($request->has('stamp_logo')) {
-            if (file_exists($universitySetting->stamp_logo)) {
-                unlink($universitySetting->stamp_logo);
+
+        if ($stamp_logo = $request->file('stamp_logo')) {
+
+            $destinationPath = 'uploads/university_setting';
+            $stampLogoImage = date('YmdHis') . "." . $stamp_logo->getClientOriginalExtension();
+            $stamp_logo->move($destinationPath, $stampLogoImage);
+            $request['stamp_logo'] = "$stampLogoImage";
+
+            if (file_exists(public_path('uploads/university_setting/'.$universitySetting->stamp_logo))) {
+                unlink(public_path('uploads/university_setting/'.$universitySetting->stamp_logo));
             }
-            $inputs['stamp_logo'] = $this->saveImage($request->stamp_logo, 'uploads/university_setting', 'photo');
         }
 
-        if ($universitySetting->update($inputs)) {
+
+        $universitySetting->update([
+            'email' => $request->email,
+            'logo' =>  $request->file('logo') != null ? $logoImage : $universitySetting->logo,
+            'stamp_logo' =>  $request->file('stamp_logo') != null ? $stampLogoImage : $universitySetting->stamp_logo,
+            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
+            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+            "address" => ['ar' => $request->address_ar,'en' => $request->address_en,'fr' => $request->address_fr],
+            'phone' => $request->phone,
+            'facebook_link' => $request->facebook_link,
+            'whatsapp_link' => $request->whatsapp_link,
+            'youtube_link' => $request->youtube_link,
+
+        ]);
+        if ($universitySetting->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

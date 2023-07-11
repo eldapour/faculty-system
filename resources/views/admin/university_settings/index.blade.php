@@ -50,29 +50,29 @@
                                     <div class="col-md-8">
                                         <label for="name_ar" class="form-control-label mt-3">
                                             {{ trans('admin.title_ar') }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->title['ar']}}" name="title[ar]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('title', 'ar')}}" name="title_ar">
 
                                         <label for="name_ar"
                                                class="form-control-label mt-3">{{ trans('admin.title_en') }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->title['en']}}" name="title[en]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('title','en')}}" name="title_en">
 
                                         <label for="name_ar"
                                                class="form-control-label mt-3">{{ trans('admin.title_fr') }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->title['fr']}}" name="title[fr]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('title','fr')}}" name="title_fr">
 
 
                                         <label for="name_ar"
                                                class="form-control-label mt-3">{{ trans('admin.address_ar') }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('address','ar')}}" name="address_ar">
 
 
                                         <label for="name_ar"
                                                class="form-control-label mt-3">{{ trans('admin.address_en') }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('address','en')}}" name="address_en">
 
                                         <label for="name_ar"
                                                class="form-control-label mt-3">{{ trans('admin.address_fr')  }}</label>
-                                        <input type="text" class="form-control" value="{{ $university_settings->address['fr']}}" name="address[fr]">
+                                        <input type="text" class="form-control" value="{{ $university_settings->getTranslation('address','fr')}}" name="address_fr">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -110,50 +110,31 @@
                                 </div>
                                 <hr>
                             </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="name_ar"
-                                               class="form-control-label">{{ trans('admin.address') . ' ' . trans('admin.arabic') }}</label>
-                                        <textarea name="address[ar]"
-                                                  rows="8">{{ $university_settings->address['ar']}}</textarea>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="name_ar"
-                                               class="form-control-label">{{ trans('admin.address') . ' ' . trans('admin.english') }}</label>
-                                        <textarea name="address[en]"
-                                                  rows="8">{{ $university_settings->address['en']}}</textarea>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="name_ar"
-                                               class="form-control-label">{{ trans('admin.address') . ' ' . trans('admin.france') }}</label>
-                                        <textarea name="address[fr]"
-                                                  rows="8">{{ $university_settings->address['fr']}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
+
+
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.arabic') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
-                                                  name="description[ar]"
-                                                  required>{{ $university_settings->address['ar']}}</textarea>
+                                                  name="description_ar"
+                                                  required>{{ $university_settings->getTranslation('description','ar')}}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.english') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
-                                                  name="description[en]"
-                                                  required>{{ $university_settings->address['en']}}</textarea>
+                                                  name="description_en"
+                                                  required>{{ $university_settings->getTranslation('description','en')}}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.france') }}</label>
                                         <textarea type="text" rows="5" class="form-control editor"
-                                                  name="description[fr]"
-                                                  required>{{ $university_settings->address['fr']}}</textarea>
+                                                  name="description_fr"
+                                                  required>{{ $university_settings->getTranslation('description','fr')}}</textarea>
                                     </div>
                                 </div>
                             </div>

@@ -553,6 +553,8 @@ return [
     "university_year" => "الاستاذه",
     "all_doctors" => "السنه الجامعيه",
 
+    "add_department_to_student" => "اضافه مسار للطالب",
+
 
 
 ];

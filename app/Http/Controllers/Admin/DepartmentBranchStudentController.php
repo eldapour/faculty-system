@@ -36,18 +36,10 @@ class DepartmentBranchStudentController extends Controller{
                 ->editColumn('department_branch_id', function ($branchStudent) {
                     return $branchStudent->branch->getTranslation('branch_name', app()->getLocale());
                 })
-                ->editColumn('user_id', function ($branchStudent) {
-                    return $branchStudent->student->first_name . ' ' . $branchStudent->student->last_name;
+                ->editColumn('identifier_id', function ($branchStudent) {
+                    return $branchStudent->student->identifier_id;
                 })
-                ->editColumn('branch_restart_register', function ($branchStudent) {
-                    if ($branchStudent->branch_restart_register == 1) {
-                        return '<input class="tgl tgl-ios" id="cb3" type="checkbox" checked disabled/>
-                    <label class="tgl-btn" dir="ltr" for="cb3"></label>';
-                    } else {
-                        return '<input class="tgl tgl-ios" id="cb4" type="checkbox" disabled/>
-                    <label class="tgl-btn" dir="ltr" for="cb4"></label>';
-                    }
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {

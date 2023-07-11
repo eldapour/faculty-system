@@ -83,9 +83,7 @@ class DepartmentBranchController extends Controller
 
         $data = [
 
-            'branch_name' => ['ar' => $request->branch_name_ar,
-                'en' => $request->branch_name_en,
-                'fr' => $request->branch_name_fr],
+            'branch_name' => ['ar' => $request->branch_name_ar, 'en' => $request->branch_name_en, 'fr' => $request->branch_name_fr],
             'department_id' => $request->department_id,
             'department_branch_code' => $request->department_branch_code,
 

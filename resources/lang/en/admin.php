@@ -556,6 +556,8 @@ return [
     "all_subject_students" => "Student Record in Units",
     "university_year" => "the teacher",
     "all_doctors" => "college year",
+
+    "add_department_to_student" => "Add a course for a student",
 ];
 
 
