@@ -28,7 +28,7 @@
     <div class="container pt-4 pb-5">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-12">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ route('/') }}">
                     <img class="mb-4" src="{{ asset($university_settings[0]->logo) }}" alt="no logo">
                 </a>
                 @foreach ($university_settings as $university_setting)
@@ -51,7 +51,7 @@
                     @foreach ($advertisements as $advertisement)
                         <li class="mb-3">
                             <div class="d-flex blog">
-                                <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
+                                <div class="me-3"><img src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
                                         <a class="text-decoration-none"
