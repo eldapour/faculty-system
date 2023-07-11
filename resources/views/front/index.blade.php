@@ -84,7 +84,7 @@
 
     <!-- video -->
     <section class="video-slider mb-5 mt-5">
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
             <div class="owl-carousel owl-theme">
                 @foreach ($videos as $video)
                     <div class="row card-video" style="background-image: url({{ asset($video->background_image) }})">
