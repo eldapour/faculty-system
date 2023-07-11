@@ -1,7 +1,7 @@
 @extends('admin/layouts/master')
 
-@section('title')  {{trans('admin.all_admins')}} @endsection
-@section('page_name') {{trans('admin.all_admins')}} @endsection
+@section('title')  {{trans('doctor.all_doctors')}} @endsection
+@section('page_name') {{trans('doctor.all_doctors')}} @endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
@@ -11,12 +11,12 @@
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.all_admins')}}</h3>
+                    <h3 class="card-title">{{trans('doctor.all_doctors')}}</h3>
                     <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span>{{trans('admin.add_admin')}}
+									</span>{{trans('doctor.add_doctor')}}
                         </button>
                     </div>
                 </div>
@@ -29,16 +29,10 @@
 
                             <tr class="fw-bolder text-muted bg-light">
 
-
-                                <th class="min-w-25px">{{trans('admin.id')}}</th>
-                                <th class="min-w-50px">{{trans('admin.image_admin')}}</th>
-                                <th class="min-w-50px">{{trans('admin.first_name')}}</th>
-                                <th class="min-w-125px">{{trans('admin.last_name')}}</th>
-                                <th class="min-w-125px">{{trans('student.first_name_latin')}}</th>
-                                <th class="min-w-125px">{{trans('student.last_name_latin')}}</th>
-                                <th class="min-w-125px">{{trans('admin.email')}}</th>
-                                <th class="min-w-125px">{{trans('admin.user_type')}}</th>
-                                <th class="min-w-125px">{{trans('admin.job_id')}}</th>
+                                <th class="min-w-25px">{{trans('doctor.id')}}</th>
+                                <th class="min-w-25px">{{trans('doctor.name')}}</th>
+                                <th class="min-w-25px">{{trans('doctor.name_latin')}}</th>
+                                <th class="min-w-25px">{{trans('doctor.professor_position')}}</th>
                                 <th class="min-w-125px">{{trans('admin.action')}}</th>
                             </tr>
 
@@ -98,26 +92,20 @@
 
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'image', name: 'image'},
-            {data: 'first_name', name: 'first_name'},
-            {data: 'last_name', name: 'last_name'},
-            {data: 'first_name_latin', name: 'first_name_latin'},
-            {data: 'last_name_latin', name: 'last_name_latin'},
-            {data: 'email', name: 'email'},
-            {data: 'user_type', name: 'user_type'},
-            {data: 'job_id', name: 'job_id'},
+            {data: 'name', name: 'name'},
+            {data: 'name_latin', name: 'name_latin'},
+            {data: 'professor_position', name: 'professor_position'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 
 
-
-        showData('{{route('admins.index')}}', columns);
-        deleteScript('{{route('admins.delete')}}');
+        showData('{{route('doctors.index')}}', columns);
+        deleteScript('{{route('doctors.delete')}}');
 
         // Get Edit View
         $(document).on('click', '.editBtn', function () {
             var id = $(this).data('id')
-            var url = "{{route('admins.edit',':id')}}";
+            var url = "{{route('doctors.edit',':id')}}";
             url = url.replace(':id', id)
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
@@ -134,7 +122,7 @@
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
             setTimeout(function () {
-                $('#modalContent').load('{{route('admins.create')}}')
+                $('#modalContent').load('{{route('doctors.create')}}')
             }, 250)
         });
 

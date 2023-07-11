@@ -11,7 +11,7 @@ class StoreDeadline extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +21,15 @@ class StoreDeadline extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            "description" => "required",
             'deadline_date_start' => 'required|date',
             'deadline_date_end' => 'required|date|after:deadline_date_start',
+            "description_ar" => "required",
+            "description_en" => "required",
+            "description_fr" => "required",
+
         ];
     }
 }

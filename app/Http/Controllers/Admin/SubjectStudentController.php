@@ -38,16 +38,17 @@ class SubjectStudentController extends Controller
                 ->get();
 
             return Datatables::of($subject_students)
+
+                ->addColumn('identifier_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
+                })
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_students) {
                     return $subject_students->subject->group->group_name;
                 })
-                ->editColumn('year', function ($subject_students) {
-                    $date = new DateTime($subject_students->year);
-                    return $date->format('Y');
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {

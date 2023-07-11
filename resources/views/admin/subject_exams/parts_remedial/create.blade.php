@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="group_id" class="form-control-label">@lang('admin.year')</label>
-                    <input type="text" class="form-control" name="year">
+                    <select name="year" class="form-control" id="year">
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
                 </div>
             </div>
             <div class="row">

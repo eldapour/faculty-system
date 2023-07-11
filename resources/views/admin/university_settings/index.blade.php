@@ -36,15 +36,15 @@
                                         <label for="logo"
                                                class="form-control-label">{{ trans('admin.image') }}</label>
                                         <input type="file" class="form-control dropify"
-                                               data-default-file="{{ asset($university_settings->logo) }}" name="logo"
-                                               value="{{ asset($university_settings->logo) }}">
+                                               data-default-file="{{ asset('uploads/university_setting/'.$university_settings->logo) }}" name="logo"
+                                               value="{{ asset('uploads/university_setting/'.$university_settings->logo) }}">
                                     </div>
                                     <div class="col-md-4">
                                         <label for="stamp_logo"
                                                class="form-control-label">{{ trans('admin.stamp_logo') }}</label>
                                         <input type="file" class="form-control dropify"
-                                               data-default-file="{{ asset($university_settings->stamp_logo) }}" name="stamp_logo"
-                                               value="{{ asset($university_settings->stamp_logo) }}">
+                                               data-default-file="{{ asset('uploads/university_setting/'.$university_settings->stamp_logo) }}" name="stamp_logo"
+                                               value="{{ asset('uploads/university_setting/'.$university_settings->stamp_logo) }}">
                                     </div>
 
                                     <div class="col-md-8">

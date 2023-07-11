@@ -29,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\DepartmentBranchController' => $baseDir . '/app/Http/Controllers/Admin/DepartmentBranchController.php',
     'App\\Http\\Controllers\\Admin\\DepartmentBranchStudentController' => $baseDir . '/app/Http/Controllers/Admin/DepartmentBranchStudentController.php',
     'App\\Http\\Controllers\\Admin\\DepartmentController' => $baseDir . '/app/Http/Controllers/Admin/DepartmentController.php',
+    'App\\Http\\Controllers\\Admin\\DoctorsController' => $baseDir . '/app/Http/Controllers/Admin/DoctorsController.php',
     'App\\Http\\Controllers\\Admin\\DocumentController' => $baseDir . '/app/Http/Controllers/Admin/DocumentController.php',
     'App\\Http\\Controllers\\Admin\\DocumentTypeController' => $baseDir . '/app/Http/Controllers/Admin/DocumentTypeController.php',
     'App\\Http\\Controllers\\Admin\\ElementController' => $baseDir . '/app/Http/Controllers/Admin/ElementController.php',

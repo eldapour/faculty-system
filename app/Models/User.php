@@ -49,6 +49,7 @@ class User extends Authenticatable
         'university_register_year',
         'email',
         'password',
+        'professor_position'
     ];
 
     /**

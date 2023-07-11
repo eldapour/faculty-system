@@ -35,11 +35,6 @@
                     </select>
                 </div>
 
-                <div class="col-md-12">
-                    <label for="name" class="form-control-label">{{ trans('admin.code_latin')}}</label>
-                    <input type="text"  class="form-control" name="code" id="code">
-                </div>
-
 
                 <div class="col-md-12">
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
@@ -47,6 +42,14 @@
                         <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
                     </select>
                 </div>
+
+
+                <div class="col-md-12">
+                    <label for="name" class="form-control-label">{{ trans('admin.code_latin')}}</label>
+                    <input type="text"  class="form-control" name="code" id="code">
+                </div>
+
+
 
 
                 <div class="col-md-12">

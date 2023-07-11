@@ -115,8 +115,8 @@ return [
     // Deadlines
     "deadlines" => "المواعيد النهائية",
     "desc" => "الوصف",
-    "deadline_date_start" => "موعد بدء الموعد النهائي",
-    "deadline_date_end" => "موعد انتهاء الموعد النهائي",
+    "deadline_date_start" => "بدايه الموعد",
+    "deadline_date_end" => "نهايه الموعد",
     "an_appointment" => "موعد",
 
     // Setting
@@ -550,12 +550,12 @@ return [
 
     "department_branch_students" => "المعنيون باختيار المسار",
     "all_subject_students" => "سجل الطالب بالوحدات",
-    "university_year" => "الاستاذه",
-    "all_doctors" => "السنه الجامعيه",
+    "university_year" => "السنه الجامعيه",
+    "all_doctors" => "الاستاذه",
 
     "add_department_to_student" => "اضافه مسار للطالب",
 
-
+   "remaining_days" => "الايام المتبقيه",
 
 ];
 

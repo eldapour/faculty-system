@@ -555,11 +555,13 @@ return [
 
     "department_branch_students" => "Étudiants en cours de sélection",
     "all_subject_students" => "Fiche de l'élève en unités",
-    "university_year" => "l'enseignant",
-    "all_doctors" => "année universitaire",
+    "university_year" => "année universitaire",
+    "all_doctors" => "l'enseignant",
 
 
     "add_department_to_student" => "Ajouter un cours pour un étudiant",
+
+    "remaining_days" => "jours restants",
 
 ];
 

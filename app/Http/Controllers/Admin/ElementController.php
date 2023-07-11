@@ -21,16 +21,16 @@ class ElementController extends Controller
                     return '
                             <button type="button" data-id="' . $elements->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $elements->id . '" data-title="' . $elements->name[lang()] . '">
+                                    data-id="' . $elements->id . '" data-title="' . $elements->getTranslation('name', app()->getLocale()) . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('name', function ($elements) {
-                    return '<td>'. $elements->name[lang()] .'</td>';
+                    return $elements->getTranslation('name', app()->getLocale());
                 })
                 ->editColumn('department_branch_id ', function ($elements) {
-                    return '<td>'. $elements->department_branch->branch_name[lang()] .'</td>';
+                    return $elements->department_branch->getTranslation('branch_name', app()->getLocale());
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -48,8 +48,13 @@ class ElementController extends Controller
 
     public function store(ElementRequest $request)
     {
-        $inputs = $request->all();
-        if (Element::create($inputs)) {
+        $element = Element::create([
+
+            'name' => ['ar' => $request->name_ar,'en' => $request->name_en,'fr' => $request->name_fr],
+            'period' => $request->period,
+            'department_branch_id' => $request->department_branch_id,
+        ]);
+        if ($element->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -65,7 +70,14 @@ class ElementController extends Controller
 
     public function update(Request $request, Element $element): \Illuminate\Http\JsonResponse
     {
-        if ($element->update($request->all())) {
+        $element->update([
+
+            'name' => ['ar' => $request->name_ar,'en' => $request->name_en,'fr' => $request->name_fr],
+            'period' => $request->period,
+            'department_branch_id' => $request->department_branch_id,
+        ]);
+
+        if ($element->save()) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
