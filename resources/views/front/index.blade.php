@@ -248,18 +248,5 @@
         </div>
     </section>
 
-    <!-- digital platform -->
-    <section class="digital-platform mt-5">
-        <div class="container">
-            <h1 class="text-white text-center mb-5">digital platform</h1>
-            <div class="owl-carousel owl-theme">
-                @foreach ($pages as $page)
-                    <div class="m-3 d-flex justify-content-center">
-                        <a class="text-decoration-none btn-platform">{{ $page->getTranslation('title', app()->getLocale()) }}</a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
+    
 @endsection

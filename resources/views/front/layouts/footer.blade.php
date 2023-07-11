@@ -21,6 +21,8 @@
         </div>
     </div>
 </section>
+
+
 <!-- footer -->
 <section class="footer pt-5 pb-5">
     <div class="container pt-4 pb-5">
@@ -39,6 +41,8 @@
                     </a>
                 </div>
             </div>
+
+
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="mt-3">
                     <h2 class="title-footer">@lang('admin.latest posts')</h2>
@@ -62,6 +66,8 @@
                     @endforeach
                 </ul>
             </div>
+
+
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="mt-3">
                     <h2 class="title-footer">@lang('admin.Contact Us')</h2>

@@ -220,12 +220,7 @@
                             </a>
                         </li>
 
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('userBranches.index') }}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.Users_Branches') }}</span>
-                            </a>
-                        </li>
+
 
                         <li class="slide">
                             <a class="side-menu__item" href="{{ route('subject_unit_doctor.index') }}">
@@ -341,7 +336,7 @@
                         {{-- start fields added to sidebar admin--}}
 
                         <li class="slide">
-                            <a class="side-menu__item" href="#">
+                            <a class="side-menu__item" href="{{route('userBranches.index')}}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.department_branch_students') }}</span>
                             </a>
@@ -350,7 +345,7 @@
 
 
                         <li class="slide">
-                            <a class="side-menu__item" href="#">
+                            <a class="side-menu__item" href="{{route('subject_student.index')}}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.all_subject_students') }}</span>
                             </a>

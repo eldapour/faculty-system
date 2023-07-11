@@ -11,7 +11,7 @@ class UniversitySettingRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,21 +21,21 @@ class UniversitySettingRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'email' => 'required|email',
             'logo' => 'nullable',
             'stamp_logo' => 'nullable|mimes:png',
-            'title.ar' => 'required',
-            'title.en' => 'required',
-            'title.fr' => 'required',
-            'description.ar' => 'required',
-            'description.en' => 'required',
-            'description.fr' => 'required',
-            'address.ar' => 'required',
-            'address.en' => 'required',
-            'address.fr' => 'required',
+            'title_ar' => 'required',
+            'title_en' => 'required',
+            'title_fr' => 'required',
+            'description_ar' => 'required',
+            'description_en' => 'required',
+            'description_fr' => 'required',
+            'address_ar' => 'required',
+            'address_en' => 'required',
+            'address_fr' => 'required',
             'facebook_link' => 'required',
             'whatsapp_link' => 'required',
             'youtube_link' => 'required',

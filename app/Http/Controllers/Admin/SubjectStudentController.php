@@ -32,7 +32,6 @@ class SubjectStudentController extends Controller
                 ->where('status', '=', 'start')
                 ->first();
             $subject_students = SubjectStudent::query()
-                ->where('user_id', '=', Auth::id())
                 ->where('period', '=', $periods->period)
                 ->where('year', '>=', $periods->year_start)
                 ->where('year', '<=', $periods->year_end)

@@ -558,6 +558,9 @@ return [
     "university_year" => "l'enseignant",
     "all_doctors" => "année universitaire",
 
+
+    "add_department_to_student" => "Ajouter un cours pour un étudiant",
+
 ];
 
 
