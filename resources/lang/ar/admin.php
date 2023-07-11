@@ -548,14 +548,12 @@ return [
     "Colleges Digital Magazine" => "مجلة الكليات الرقمية",
     "department_branch_students" => "المعنيون باختيار المسار",
     "all_subject_students" => "سجل الطالب بالوحدات",
-<<<<<<< HEAD
     "university_year" => "السنه الجامعيه",
     "all_doctors" => "الاستاذه",
 
     "add_department_to_student" => "اضافه مسار للطالب",
 
    "remaining_days" => "الايام المتبقيه",
-=======
     "university_year" => "الاستاذه",
     "all_doctors" => "السنه الجامعيه",
     "add_department_to_student" => "اضافه مسار للطالب",
@@ -566,7 +564,6 @@ return [
     "share in" => "المشاركة في",
     "years of giving" => "سنوات من العطاء"
 
->>>>>>> a0af1e1b0ed2877c3cb8694a12efa50e67567510
 
 ];
 

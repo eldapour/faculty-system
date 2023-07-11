@@ -541,14 +541,12 @@ return [
     "Colleges Digital Magazine" => "Colleges Digital Magazine",
     "department_branch_students" => "Students in course selection",
     "all_subject_students" => "Student Record in Units",
-<<<<<<< HEAD
     "university_year" => "college year",
     "all_doctors" => "the teacher",
 
     "add_department_to_student" => "Add a course for a student",
 
     "remaining_days" => "Remaining Days",
-=======
     "university_year" => "the teacher",
     "all_doctors" => "college year",
     "add_department_to_student" => "Add a course for a student",
@@ -558,7 +556,6 @@ return [
     "The latest events" => "The latest events",
     "share in" => "share in",
     "years of giving" => "years of giving",
->>>>>>> a0af1e1b0ed2877c3cb8694a12efa50e67567510
 
 ];
 
