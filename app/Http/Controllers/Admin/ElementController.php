@@ -21,16 +21,16 @@ class ElementController extends Controller
                     return '
                             <button type="button" data-id="' . $elements->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $elements->id . '" data-title="' . $elements->name[lang()] . '">
+                                    data-id="' . $elements->id . '" data-title="' . $elements->name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('name', function ($elements) {
-                    return '<td>'. $elements->name[lang()] .'</td>';
+                    return '<td>'. $elements->name .'</td>';
                 })
                 ->editColumn('department_branch_id ', function ($elements) {
-                    return '<td>'. $elements->department_branch->branch_name[lang()] .'</td>';
+                    return '<td>'. $elements->department_branch->branch_name .'</td>';
                 })
                 ->escapeColumns([])
                 ->make(true);

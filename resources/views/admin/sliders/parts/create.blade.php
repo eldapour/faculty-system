@@ -53,13 +53,10 @@
 </div>
 
 <script>
-    $('.dropify').dropify();
 
     $('.dropify').dropify()
 
     CKEDITOR.replaceAll();
-
-    $('.dropify').dropify();
 
     $(document).ready(function() {
         $('select').select2();

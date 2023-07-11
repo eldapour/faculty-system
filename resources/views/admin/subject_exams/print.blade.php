@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MY FACULTY</title>
-    <link href="{{ asset($university_settings[0]->logo) }}" rel="icon" />
+    <title>{{ $university_settings->title }}</title>
+    <link href="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}" rel="icon" />
     <!-- bootstrap -->
     <link rel="stylesheet" href="{{ asset('certificate_student_exam_assets') }}/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('certificate_student_exam_assets') }}/css/bootstrap.min.css" />
@@ -49,7 +49,7 @@
         }
 
         .image-logo1 img {
-            height: 30px;
+            height: 100px;
         }
         .border-color {
             border: 1px solid black;
@@ -75,7 +75,7 @@
                             </div>
                             <!--end left_section_1 -->
                             <div class="image-logo1 right_section_1 col-6">
-                                <img src="{{ asset($university_settings[0]->logo) }}" />
+                                <img src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}" />
                             </div>
                             <!--end right_section_1 -->
                         </div>
@@ -164,7 +164,7 @@
                         </div>
                         <div class="d-flex justify-content-end">
                             <div>
-                                <img style="width: 145px;" src="{{ asset($university_settings[0]->stamp_logo) }}">
+                                <img style="width: 145px;" src="{{ asset('/uploads/university_setting/'.$university_settings->stamp_logo) }}">
                             </div>
                         </div>
 

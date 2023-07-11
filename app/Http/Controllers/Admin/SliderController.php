@@ -22,7 +22,7 @@ class SliderController extends Controller
                     return '
                             <button type="button" data-id="' . $sliders->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $sliders->id . '" data-title="' . $sliders->title[lang()] . '">
+                                    data-id="' . $sliders->id . '" data-title="' . $sliders->title . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -33,10 +33,10 @@ class SliderController extends Controller
                     ';
                 })
                 ->editColumn('title', function ($sliders) {
-                    return $sliders->title[lang()];
+                    return $sliders->title;
                 })
                 ->editColumn('description', function ($sliders) {
-                    return $sliders->description[lang()];
+                    return $sliders->description;
                 })
                 ->escapeColumns([])
                 ->make(true);

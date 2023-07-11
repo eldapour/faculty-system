@@ -8,19 +8,19 @@
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}
                         {{ trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[ar]"
+                    <input type="text" class="form-control" value="{{ $video->title }}" name="title[ar]"
                         required>
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}
                         {{ trans('admin.english') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[en]"
+                    <input type="text" class="form-control" value="{{ $video->title }}" name="title[en]"
                         required>
                 </div>
                 <div class="col-md-4">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}
                         {{ trans('admin.france') }}</label>
-                    <input type="text" class="form-control" value="{{ $video->title[lang()] }}" name="title[fr]"
+                    <input type="text" class="form-control" value="{{ $video->title }}" name="title[fr]"
                         required>
                 </div>
             </div>
@@ -42,21 +42,21 @@
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
                         {{ trans('admin.arabic') }}</label>
-                    <textarea name="description[ar]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
+                    <textarea name="description[ar]" class="form-control" rows="8">{{ $video->description }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
                         {{ trans('admin.english') }}</label>
-                    <textarea name="description[en]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
+                    <textarea name="description[en]" class="form-control" rows="8">{{ $video->description }}</textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') }}
                         {{ trans('admin.france') }}</label>
-                    <textarea name="description[fr]" class="form-control" rows="8">{{ $video->description[lang()] }}</textarea>
+                    <textarea name="description[fr]" class="form-control" rows="8">{{ $video->description }}</textarea>
                 </div>
             </div>
         </div>
