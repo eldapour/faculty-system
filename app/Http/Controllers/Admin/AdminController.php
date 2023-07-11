@@ -176,7 +176,6 @@ class AdminController extends Controller
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
 
-
             if (file_exists(public_path('uploads/users/'.$admin->image)) && $admin->image != null) {
                 unlink(public_path('uploads/users/'.$admin->image));
             }

@@ -223,10 +223,15 @@ class UserController extends Controller
 
         if ($image = $request->file('image')) {
 
-            $destinationPath = 'users/';
+            $destinationPath = 'uploads/users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request['image'] = "$profileImage";
+
+
+            if (file_exists(public_path('uploads/users/'.$user->image)) && $user->image != null) {
+                unlink(public_path('uploads/users/'.$user->image));
+            }
         }
 
 

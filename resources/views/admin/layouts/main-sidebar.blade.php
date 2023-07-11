@@ -2,7 +2,7 @@
 <aside class="app-sidebar">
     <div class="side-header">
         <a class="header-brand1" href="#">
-            <img src="{{ asset('assets/logo/download.jfif') }}" class="header-brand-img light-logo1" alt="logo">
+            <img src="{{ asset('uploads/university_setting/'. $university_settings->logo) }}" class="header-brand-img light-logo1" alt="logo">
         </a>
         <!-- LOGO -->
     </div>
