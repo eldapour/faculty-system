@@ -47,7 +47,7 @@
                     @foreach ($advertisements as $advertisement)
                         <li class="mb-3">
                             <div class="d-flex blog">
-                                <div class="me-3"><img src="{{ asset($advertisement->image) }}"></div>
+                                <div class="me-3"><img src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}"></div>
                                 <div>
                                     <div style="max-width: 190px;">
                                         <a class="text-decoration-none"
