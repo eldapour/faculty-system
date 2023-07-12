@@ -8,7 +8,7 @@
 <section class="digital-platform mt-5">
     <div class="container">
         <h1 class="text-white text-center mb-5">@lang('admin.digital platform')</h1>
-        <div class="owl-carousel owl-theme">
+        <div class="d-flex justify-content-between">
             <div class="m-3 digitalA d-flex justify-content-center">
                 <a href="{{ route('student.login') }}"
                    class="text-decoration-none btn-platform">@lang('admin.Digital Student Platform')</a>
@@ -51,8 +51,12 @@
                     @foreach ($advertisements as $advertisement)
                         <li class="mb-3">
                             <div class="d-flex blog">
-                                <div class="me-3"><img
+                                <div class="me-3">
+                                    <a class="text-decoration-none"
+                                       href="{{ route('blog',$advertisement->id) }}">
+                                    <img
                                         src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                    </a>
                                 </div>
                                 <div>
                                     <div style="max-width: 190px;">
