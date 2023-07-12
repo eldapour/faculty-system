@@ -2,10 +2,6 @@ $(function(){
 
     'use strict';
 
-    $('.dropdown-toggle').click(function(){
-        $(this).toggleClass('active');
-    });
-
     // landing
     $('.carousel').hover(function () {
         $('.prev-icon').css("display","block");
@@ -17,10 +13,10 @@ $(function(){
     // blogs
 
     $(".blogs .owl-carousel").owlCarousel({
-        autoplay: false,
+        autoplay: true,
         autoplayhoverpause: true,
         autoplaytimeout: 100,
-        items: 3,
+        items: 1,
         nav: true,
         loop: false,
         dots: false,
@@ -33,10 +29,10 @@ $(function(){
                 items: 1
             },
             728 : {
-                items: 2
+                items: 1
             },
             1200 : {
-                items: 3
+                items: 1
             }
         }
     });
@@ -49,7 +45,7 @@ $(function(){
         autoplaytimeout: 100,
         items: 1,
         nav: true,
-        loop: true,
+        loop: false,
         dots: false,
         navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>",],
         responsive: {
@@ -69,7 +65,7 @@ $(function(){
     });
 
 
-        // newest
+    // newest
 
     $(".newest-blog .owl-carousel").owlCarousel({
         autoplay: true,
@@ -77,7 +73,7 @@ $(function(){
         autoplaytimeout: 100,
         items: 3,
         nav: false,
-        loop: true,
+        loop: false,
         dots: true,
         responsive: {
             0 : {
@@ -95,9 +91,9 @@ $(function(){
         }
     });
 
-     // platform
+    // platform
 
-     $(".digital-platform .owl-carousel").owlCarousel({
+    $(".digital-platform .owl-carousel").owlCarousel({
         autoplay: true,
         autoplayhoverpause: true,
         autoplaytimeout: 100,
@@ -157,8 +153,8 @@ $(function(){
         arrows: false,
         fade: true,
         asNavFor: '.small-slider'
-      });
-      $('.small-slider').slick({
+    });
+    $('.small-slider').slick({
         slidesToShow: 5,
         slidesToScroll: 1,
         asNavFor: '.main-slider',
@@ -167,24 +163,24 @@ $(function(){
         focusOnSelect: true,
         autoplay: true,
         autoplaySpeed: 2000
-      });
-
-      // scroll to top
-
-$(window).scroll(function () {
-    if ($(window).scrollTop() >= 300) {
-        $('.scroll-top').fadeIn(400);
-    }else{
-        $('.scroll-top').fadeOut(400);
-    }
-});
-$('.scroll-top').click(function () {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
     });
-});
+
+    // scroll to top
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= 700) {
+            $('.scroll-top').fadeIn(400);
+        }else{
+            $('.scroll-top').fadeOut(400);
+        }
+    });
+    $('.scroll-top').click(function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
 
 
 });

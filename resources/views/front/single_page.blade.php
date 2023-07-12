@@ -35,7 +35,7 @@
                     <h2 class="color-blue mb-3">
                         {{ $page->getTranslation('title', app()->getLocale()) }}
                     </h2>
-                    <p>{!! $page->getTranslation('description', app()->getLocale()) !!}</p>
+                    <p style="color: #245b73;">{!! $page->getTranslation('description', app()->getLocale()) !!}</p>
                     <hr>
                     <div class="mt-5 d-flex">
                         <div>
