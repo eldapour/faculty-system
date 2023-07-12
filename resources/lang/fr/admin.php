@@ -566,7 +566,7 @@ return [
     "years of giving" => "années de don",
 
     "remaining_days" => "jours restants",
-
+    "reset_password" => "Modifier le mot de passe",
 ];
 
 
