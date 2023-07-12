@@ -15,13 +15,21 @@ use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
+
 class UserController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware(CheckForbidden::class)->except('pointUser');
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|JsonResponse
+     * @throws \Exception
+     */
     public function index(request $request)
     {
 
