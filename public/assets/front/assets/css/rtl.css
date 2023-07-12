@@ -712,7 +712,7 @@ table .head-table{
     font-size: 15px;
 }
 .btn-table{
-    padding: 5px;
+    padding: 5px !important;
 }
 
 .card-years{

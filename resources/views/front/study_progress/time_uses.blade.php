@@ -33,11 +33,10 @@
                                         <td>{{ $time->department->department_name }}</td>
                                         <td>{{ $time->unit->unit_name }}</td>
                                         <td>{{ $time->description }}</td>
-                                        <td>
+                                        <td style="width: 25%">
                                             <div class="p-1">
-                                                <a class="text-decoration-none main-btn btn-table" href="{{ asset('uploads/schedules/'. $time->pdf_upload) }}" target="_blank">
-                                                    <i class="fa-solid fa-download me-2 text-white"></i>
-                                                    Pdf
+                                                <a style="width: 50%;display: inline-block;text-align: center;" class="text-decoration-none main-btn btn-table" href="{{ asset('uploads/schedules/'. $time->pdf_upload) }}" target="_blank">
+                                                    <i class="fa-solid fa-download text-white"></i>
                                                 </a>
                                                 <!-- aya -->
                                             </div>
