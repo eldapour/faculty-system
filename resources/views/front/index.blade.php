@@ -233,7 +233,7 @@
                     @foreach ($dean_speech as $dean)
 
                         <h1 class="mt-3">{{ $dean->getTranslation('name', app()->getLocale()) }} </h1>
-                        <p>{!! $dean->getTranslation('description', app()->getLocale()) !!}</p>
+                        <p>{!! Str::limit($dean->getTranslation('description', app()->getLocale()),400,'....') !!}</p>
                         <div class="mt-5">
                             <a class="text-decoration-none main-btn" href="{{ route('dean_speech.index') }}">
                                 @lang('admin.details')
