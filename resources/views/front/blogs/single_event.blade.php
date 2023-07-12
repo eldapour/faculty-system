@@ -59,8 +59,12 @@
                         @foreach ($advertisements as $advertisement)
                             <li class="mb-3">
                                 <div class="d-flex blog">
-                                    <div class="me-3"><img
+                                    <div class="me-3">
+                                        <a class="text-decoration-none"
+                                           href="{{ route('blog',$advertisement->id) }}">
+                                        <img
                                             src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                        </a>
                                     </div>
                                     <div>
                                         <div style="max-width: 190px;">

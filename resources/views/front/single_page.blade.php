@@ -19,12 +19,14 @@
         <div class="container">
             <div class="">
                 <div class="slide-img">
-                    <img style="width: 100%; height: 600px;" class="img-fluid image-show" src="{{ asset($page->images[0]) }}" alt="product image"/>
+                    <img style="width: 100%; height: 600px;" class="img-fluid image-show"
+                         src="{{ asset($page->images[0]) }}" alt="product image"/>
                 </div>
             </div>
             <div class="small-slider">
                 @foreach ($page->images as $image)
-                    <img style="width: 100%; height: 122px;" class="img-fluid image-small" src="{{ asset($image) }}" alt="product image"/>
+                    <img style="width: 100%; height: 122px;" class="img-fluid image-small" src="{{ asset($image) }}"
+                         alt="product image"/>
                 @endforeach
             </div>
 
@@ -54,13 +56,17 @@
                         @foreach ($advertisements as $advertisement)
                             <li class="mb-3">
                                 <div class="d-flex blog">
-                                    <div class="me-3"><img
-                                            src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                    <div class="me-3">
+                                        <a class="text-decoration-none"
+                                           href="{{ route('blog',$advertisement->id) }}">
+                                            <img
+                                                src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                        </a>
                                     </div>
                                     <div>
                                         <div style="max-width: 190px;">
                                             <a class="text-decoration-none"
-                                               href="#">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
+                                               href="{{ route('blog',$advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale()) }}</a>
                                         </div>
                                         <span
                                             class="color-second">{{ $advertisement->created_at->format('d') }} {{ $advertisement->created_at->format('M') }}, {{ $advertisement->created_at->format('Y') }}</span>
@@ -75,9 +81,9 @@
     </section>
     <script>
         $(document).ready(function () {
-            $('.image-small').on('click', function(){
+            $('.image-small').on('click', function () {
                 let src = $(this).attr('src');
-                $('.image-show').attr('src',src);
+                $('.image-show').attr('src', src);
             })
         })
     </script>

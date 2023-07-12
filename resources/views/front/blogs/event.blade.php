@@ -24,7 +24,9 @@
                         <div class="col-lg-4 col-md-6 col-12 mb-4">
                             <div class="card card-newest">
                                 <div class="image-card">
+                                    <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
                                     <img src="{{ asset($event->image) }}" class="card-img-top" alt="no-image">
+                                    </a>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-date1">
