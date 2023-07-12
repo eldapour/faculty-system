@@ -23,13 +23,22 @@
                         <img class="w-100 img-fluid rounded" src="{{ asset($dean_speech->image) }}" alt="no-image">
                     </div>
                 </div>
+                <?php
+                $description = $dean_speech->getTranslation('description', app()->getLocale());
+                $start = 0;
+                $end = 750;
+                $firstPart = substr($description, $start, $end);
+                $secondPart = substr($description, $end);
+                ?>
                 <div class="col-lg-6 col-12">
                     <h1 class="mt-3">{{ $dean_speech->getTranslation('name', app()->getLocale()) }} </h1>
                     <h3>{{ $manager->first_name .' ' . $manager->last_name .' - ' . $manager->first_name_latin .' ' . $manager->last_name_latin  }}</h3>
                     <h5 class="color-second mb-3">{{ $dean_speech->getTranslation('role', app()->getLocale()) }} </h5>
-                    <p>{!! $dean_speech->getTranslation('description', app()->getLocale()) !!}</p>
+                    <p>{!! $firstPart !!}</p>
                 </div>
+
             </div>
+            <p class="mt-4">{!! $secondPart !!}</p>
         </div>
     </section>
 
