@@ -557,8 +557,6 @@ return [
     "all_doctors" => "l'enseignant",
 
 
-    "university_year" => "l'enseignant",
-    "all_doctors" => "année universitaire",
     "add_department_to_student" => "Ajouter un cours pour un étudiant",
     "our news" => "nos actualités",
     "The latest news" => "Les dernières nouvelles",

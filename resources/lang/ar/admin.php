@@ -554,9 +554,7 @@ return [
     "add_department_to_student" => "اضافه مسار للطالب",
 
    "remaining_days" => "الايام المتبقيه",
-    "university_year" => "الاستاذه",
-    "all_doctors" => "السنه الجامعيه",
-    "add_department_to_student" => "اضافه مسار للطالب",
+
     "our news" => "أخبارنا",
     "The latest news" => "آخر الأخبار",
     "our events" => "أحداثنا",

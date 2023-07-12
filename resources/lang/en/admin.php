@@ -547,9 +547,7 @@ return [
     "add_department_to_student" => "Add a course for a student",
 
     "remaining_days" => "Remaining Days",
-    "university_year" => "the teacher",
-    "all_doctors" => "college year",
-    "add_department_to_student" => "Add a course for a student",
+
     "our news" => "our news",
     "The latest news" => "The latest news",
     "our events" => "our events",
