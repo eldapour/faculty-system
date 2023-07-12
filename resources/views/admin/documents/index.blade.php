@@ -25,7 +25,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('admin.document_id')}}</th>
                                 <th class="min-w-25px">{{trans('admin.student_name')}}</th>
-                                <th class="min-w-25px">{{trans('admin.identifier_id_student')}} </th>
+                                <th class="min-w-25px">{{trans('student.identifier_id')}} </th>
                                 <th class="min-w-25px">{{trans('admin.document_type')}} </th>
                                 <th class="min-w-25px">{{trans('admin.withdraw_by_proxy')}} </th>
                                 <th class="min-w-25px">{{trans('admin.person_name')}}  </th>

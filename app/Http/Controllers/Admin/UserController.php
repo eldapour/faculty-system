@@ -275,7 +275,7 @@ class UserController extends Controller
 
             return response()->json(['status' => 405]);
         }
-    } // end update
+    }
 
     public function exportUser()
     {

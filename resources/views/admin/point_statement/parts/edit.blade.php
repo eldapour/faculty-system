@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="student_degree"
-                           class="form-control-label">{{ trans('admin.degree') . ' ' . trans('admin.student') }}</label>
+                           class="form-control-label">{{ trans('point_statement.degree_student') }}</label>
                     <input type="number" class="form-control" name="degree_student" value="{{$point->degree_student}}">
                 </div>
             </div>
