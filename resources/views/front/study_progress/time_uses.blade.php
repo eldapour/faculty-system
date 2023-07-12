@@ -37,7 +37,7 @@
                                             <div class="p-1">
                                                 <a class="text-decoration-none main-btn btn-table" href="{{ asset('uploads/schedules/'. $time->pdf_upload) }}" target="_blank">
                                                     <i class="fa-solid fa-download me-2 text-white"></i>
-                                                    pdf
+                                                    Pdf
                                                 </a>
                                                 <!-- aya -->
                                             </div>
