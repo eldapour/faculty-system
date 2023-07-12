@@ -15,7 +15,7 @@
                         <div class="wideget-user-desc">
                             <div class="wideget-user-img">
                                 <img class=""
-                                     src="{{ ($user->image != null) ? asset('/users/'.$user->image) : asset('assets/uploads/avatar.gif') }}"
+                                     src="{{ ($user->image != null) ? asset('uploads/users/'.$user->image) : asset('assets/uploads/avatar.gif') }}"
                                      alt="img">
                             </div>
                             <div class="user-wrap">
@@ -336,7 +336,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="modalContent">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="example-Modal3">{{trans('admin.orders')}}</h5>
+                    <h5 class="modal-title" id="example-Modal3">{{trans('admin.reset_password')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

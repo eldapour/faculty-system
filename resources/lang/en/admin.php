@@ -554,7 +554,7 @@ return [
     "The latest events" => "The latest events",
     "share in" => "share in",
     "years of giving" => "years of giving",
-
+    "reset_password" => "Change password",
 ];
 
 

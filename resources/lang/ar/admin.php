@@ -560,7 +560,9 @@ return [
     "our events" => "أحداثنا",
     "The latest events" => "آخر الأحداث",
     "share in" => "المشاركة في",
-    "years of giving" => "سنوات من العطاء"
+    "years of giving" => "سنوات من العطاء",
+
+    "reset_password" => "تغيير كلمه المرور",
 
 
 ];
