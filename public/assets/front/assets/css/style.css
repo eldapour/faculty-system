@@ -346,7 +346,7 @@ p{
   }
 .video-slider .owl-carousel .owl-nav button.owl-prev,
 .video-slider .owl-carousel .owl-nav button.owl-next{
-    top: -80px;
+    top: -75px;
 }
 
 /* end section video */
@@ -728,7 +728,7 @@ table .head-table{
     font-size: 15px;
 }
 .btn-table{
-    padding: 5px;
+    padding: 5px !important;
 }
 
 .card-years{

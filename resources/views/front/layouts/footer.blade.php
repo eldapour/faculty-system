@@ -8,15 +8,15 @@
 <section class="digital-platform mt-5">
     <div class="container">
         <h1 class="text-white text-center mb-5">@lang('admin.digital platform')</h1>
-        <div class="d-flex justify-content-between">
-            <div class="m-3 digitalA d-flex justify-content-center">
+        <div class="row">
+            <div class="mb-3 col-lg-4 col-md-6 col-12 digitalA d-flex justify-content-center">
                 <a href="{{ route('student.login') }}"
                    class="text-decoration-none btn-platform">@lang('admin.Digital Student Platform')</a>
             </div>
-            <div class="m-3 digitalA d-flex justify-content-center">
+            <div class="mb-3 digitalA col-lg-4 col-md-6 col-12 d-flex justify-content-center">
                 <a href="#" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Platform')</a>
             </div>
-            <div class="m-3 digitalA d-flex justify-content-center">
+            <div class="mb-3 digitalA col-lg-4 col-md-6 col-12 d-flex justify-content-center">
                 <a href="#" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Magazine')</a>
             </div>
         </div>

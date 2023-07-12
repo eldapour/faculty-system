@@ -1,5 +1,4 @@
 @extends('front.layouts.master')
-
 @section('content')
     <!-- landing -->
     <div class="landing">
@@ -46,39 +45,42 @@
                 </div>
                 <h1 class="color-dark">@lang('admin.The latest news')</h1>
             </div>
-            <div class="owl-carousel owl-theme">
-                @foreach ($advertisements_list as $advertisement)
-                    <div class="ms-2 me-2">
-                        <div class="card card-blog">
-                            <a class="text-decoration-none" href="{{ route('blog', $advertisement->id) }}">
-                                <img
-                                    src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}"
-                                    class="card-img-top"
-                                    alt="no-image">
-                            </a>
-                            <div class="card-body mt-3">
-                                <div class="card-date">
-                                    <h4>{{ $advertisement->created_at->format('d') }}</h4>
-                                    <p>{{ $advertisement->created_at->format('F') }}
-                                        ,{{ $advertisement->created_at->format('Y') }}
-                                    </p>
-                                </div>
-                                <h3 class="card-title">
-                                    <a class="text-decoration-none color-dark"
-                                       href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
-                                </h3>
-                                <div class="time color-gray">
-                                    {{ $advertisement->created_at->format('H:i A') }}
-                                    <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
-                                    <strong
-                                        class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
+            <div class="owl-carousel owl-theme mb-5">
+                @foreach ($advertisements_list->chunk(6) as $chunk)
+                    <div class="row">
+                        @foreach ($chunk as $advertisement)
+                            <div class="col-lg-4 col-md-6 col-12 mb-4">
+                                <div class="card card-blog">
+                                    <a class="text-decoration-none" href="{{ route('blog', $advertisement->id) }}">
+                                        <img
+                                            src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}"
+                                            class="card-img-top"
+                                            alt="no-image">
+                                    </a>
+                                    <div class="card-body mt-3">
+                                        <div class="card-date">
+                                            <h4>{{ $advertisement->created_at->format('d') }}</h4>
+                                            <p>{{ $advertisement->created_at->format('F') }}
+                                                ,{{ $advertisement->created_at->format('Y') }}
+                                            </p>
+                                        </div>
+                                        <h3 class="card-title">
+                                            <a class="text-decoration-none color-dark"
+                                               href="{{ route('blog', $advertisement->id) }}">{{ $advertisement->getTranslation('title', app()->getLocale())}}</a>
+                                        </h3>
+                                        <div class="time color-gray">
+                                            {{ $advertisement->created_at->format('H:i A') }}
+                                            <i class="fa-solid fa-arrow-right-long ms-2 me-2"></i>
+                                            <strong
+                                                class="color-second">{{ $advertisement->service->getTranslation('service_name', app()->getLocale()) }}</strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 @endforeach
             </div>
-        </div>
     </section>
 
     <!-- video -->
@@ -125,7 +127,7 @@
                             <div class="card card-newest">
                                 <div class="image-card">
                                     <a class="text-decoration-none" href="{{ route('event', $event->id) }}">
-                                    <img src="{{ asset($event->image) }}" class="card-img-top" alt="no-image">
+                                        <img src="{{ asset($event->image) }}" class="card-img-top" alt="no-image">
                                     </a>
                                 </div>
                                 <div class="card-body">
