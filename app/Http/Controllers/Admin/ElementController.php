@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ElementExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ElementRequest;
+use App\Imports\ElementImport;
 use App\Models\DepartmentBranch;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Models\Element;
 
@@ -92,6 +96,22 @@ class ElementController extends Controller
         $element = Element::where('id', $request->id)->firstOrFail();
         $element->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    } // end of destroy
+
+
+    public function exportElement()
+    {
+        return Excel::download(new ElementExport(), 'Elements.xlsx');
+    }
+
+    public function importElement(Request $request): JsonResponse
+    {
+        $import = Excel::import(new ElementImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
     }
 
 }

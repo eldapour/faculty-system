@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\FacultyCount;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Slider;
@@ -20,6 +21,8 @@ class HomeWebController extends Controller
         $data['dean_speech'] = Word::all();
         $data['videos'] = Video::all();
         $data['advertisements_list'] = Advertisement::latest()->get();
+        $data['faculty_count'] = FacultyCount::query()
+        ->get();
         return view('front.index', $data);
     }
 }

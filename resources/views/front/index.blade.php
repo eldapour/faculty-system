@@ -81,6 +81,7 @@
                     </div>
                 @endforeach
             </div>
+        </div>
     </section>
 
     <!-- video -->
@@ -152,69 +153,23 @@
     </section>
 
     <!-- faculty number -->
-
     <section class="faculty-num mt5 mb-5">
         <div class="container">
             <div class="main-heading mb-5">
                 <h1 class="color-second text-center">@lang('admin.College in numbers')</h1>
             </div>
             <div class="row mt-5">
+                @foreach($faculty_count as $count)
                 <div class="col-lg-4 col-md-6 col-12 mb-5">
                     <div class="text-white">
                         <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/مجموع الطلبة-01.png" alt="no-image">
+                            <img src="{{ asset($count->image) }}" alt="no-image">
                         </div>
-                        <?php $count_user = userCount(); ?>
-                        <h4 class="text-center">@lang('admin.Total students')</h4>
-                        <h6 class="text-center">{{ $count_user }}</h6>
+                        <h4 class="text-center">{{ $count->title }}</h4>
+                        <h6 class="text-center">{{ $count->count }}</h6>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5">
-                    <div class="text-white">
-                        <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/الاطقم الادارية-01.png" alt="no-image">
-                        </div>
-                        <?php $count_admin = adminCount(); ?>
-                        <h4 class="text-center">@lang('admin.Administrative crews')</h4>
-                        <h6 class="text-center">{{ $count_admin }}</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5">
-                    <div class="text-white">
-                        <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/الاطقم التربوية-01.png" alt="no-image">
-                        </div>
-                        <h4 class="text-center">@lang('admin.Educational crews')</h4>
-                        <h6 class="text-center">50</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5">
-                    <div class="text-white">
-                        <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/طلبة الاجازة-01.png" alt="no-image">
-                        </div>
-                        <h4 class="text-center">@lang('admin.vacation students')</h4>
-                        <h6 class="text-center">3000</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5">
-                    <div class="text-white">
-                        <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/طلبة الماستر-01.png" alt="no-image">
-                        </div>
-                        <h4 class="text-center">@lang('admin.Master students')</h4>
-                        <h6 class="text-center">200</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 mb-5">
-                    <div class="text-white">
-                        <div class="d-flex justify-content-center image-number">
-                            <img src="{{ asset('assets/front/assets') }}/photo/طلبة الدكتوراه-01.png" alt="no-image">
-                        </div>
-                        <h4 class="text-center">@lang('admin.PhD students')</h4>
-                        <h6 class="text-center">150</h6>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

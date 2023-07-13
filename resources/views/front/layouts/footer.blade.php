@@ -10,14 +10,14 @@
         <h1 class="text-white text-center mb-5">@lang('admin.digital platform')</h1>
         <div class="row">
             <div class="mb-3 col-lg-4 col-md-6 col-12 digitalA d-flex justify-content-center">
-                <a href="{{ route('student.login') }}"
+                <a href="{{ $university_settings->digital_student_platform }}"
                    class="text-decoration-none btn-platform">@lang('admin.Digital Student Platform')</a>
             </div>
             <div class="mb-3 digitalA col-lg-4 col-md-6 col-12 d-flex justify-content-center">
-                <a href="#" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Platform')</a>
+                <a href="{{ $university_settings->colleges_digital_platform }}" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Platform')</a>
             </div>
             <div class="mb-3 digitalA col-lg-4 col-md-6 col-12 d-flex justify-content-center">
-                <a href="#" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Magazine')</a>
+                <a href="{{ $university_settings->colleges_digital_magazine }}" class="text-decoration-none btn-platform">@lang('admin.Colleges Digital Magazine')</a>
             </div>
         </div>
     </div>
@@ -134,7 +134,7 @@
 </a>
 
 <!-- modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="d-flex justify-content-end p-2">
