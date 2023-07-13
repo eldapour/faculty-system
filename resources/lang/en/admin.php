@@ -557,6 +557,9 @@ return [
     "reset_password" => "Change password",
 
 
+    "counter" => "site management statistics",
+
+
 
 ];
 

@@ -69,6 +69,7 @@
                     <li><a href="{{ route('word.index') }}" class="slide-item">{{ trans('admin.wordManager') }}</a>
                     </li>
                     <li><a href="{{ route('pages.index') }}" class="slide-item">{{ trans('admin.pages') }}</a></li>
+                    <li><a href="{{ route('facultyCount.index') }}" class="slide-item">{{ trans('admin.counter') }}</a></li>
                     </li>
                     <li><a href="{{ route('presentations.index') }}"
                            class="slide-item">{{ trans('admin.presentations') }}</a></li>
@@ -181,7 +182,7 @@
                         <li class="slide">
                             <a class="side-menu__item" href="{{ route('process_exams.index') }}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.process_exams') }} <div style="width: 30px;height: 30px;border-radius: 50%;background: #2196F3;color: #fff;display: inline-block;padding: 6px;text-align: center">{{processExamCount()}}</div> </span>
+                                <span class="side-menu__label">{{ trans('admin.process_exams') }} <div style="width: 30px;height: 30px;border-radius: 50%;background: #56d094;color: #fff;display: inline-block;padding: 6px;text-align: center">{{processExamCount()}}</div> </span>
                             </a>
                         </li>
                         <li class="slide">
@@ -315,13 +316,6 @@
                             <a class="side-menu__item" href="{{ route('university_settings.index') }}">
                                 <i class="fe fe-settings side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.university_settings') }}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('facultyCount.index') }}">
-                                <i class="fe fe-settings side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.College in numbers') }}</span>
                             </a>
                         </li>
 
