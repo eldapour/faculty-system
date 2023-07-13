@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="app sidebar-mini">
+<body class="app sidebar-mini" onload="myFunction()">
 
     <!-- Start Switcher -->
 {{--    @include('admin.layouts.switcher')--}}

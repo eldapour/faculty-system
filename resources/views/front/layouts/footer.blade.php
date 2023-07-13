@@ -121,8 +121,7 @@
 <!-- copyright -->
 <div class="copyright">
     <div class="container text-center">
-        Copyright © 2023 <a target="_blank" style="color: white;text-decoration: none" href="https://topbusiness.io">Top
-            Business</a> . All rights reserved.
+        Copyright © {{ date('Y') }} . All rights reserved.
     </div>
 </div>
 
@@ -178,4 +177,18 @@
             modal.find('.modal-body iframe').attr('src', url)
         })
     })
+
+
+</script>
+
+<script>
+    var myVar;
+
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+    }
 </script>

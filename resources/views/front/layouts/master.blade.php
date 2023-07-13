@@ -4,8 +4,8 @@
     <!DOCTYPE html>
     <html>
     @include('front.layouts.head')
-    <body>
-
+    <body onload="myFunction()">
+    @include('front.layouts.loader')
     @include('front.layouts.header')
     @include('front.layouts.nav')
 
