@@ -83,7 +83,7 @@
 
                         <div class="row">
                             <div class="col-2  d-flex justify-content-center">
-                                <img src="{{ asset('/users/'.auth()->user()->image) }}"
+                                <img src="{{ asset('uploads/users/'.auth()->user()->image) }}"
                                      alt="{{ auth()->user()->first_name }}" style="width: 140px; height: 120px" class="img-fluid" />
                             </div>
                             <div class="col-8">
