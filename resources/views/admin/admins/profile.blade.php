@@ -191,7 +191,7 @@
     </div>
 
     <!-- Edit MODAL -->
-    <div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="data_modal"  role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="modalContent">
                 <div class="modal-header">
@@ -266,7 +266,7 @@
     <!-- Edit MODAL CLOSED -->
 
     <!-- data MODAL -->
-    <div class="modal fade" id="data_modal_modify" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="data_modal_modify"  role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="modalContent">
                 <div class="modal-header">
@@ -332,7 +332,7 @@
     <!-- Edit MODAL CLOSED -->
 
     <!-- Password MODAL -->
-    <div class="modal fade" id="data_password" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="data_password"  role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="modalContent">
                 <div class="modal-header">

@@ -32,14 +32,14 @@
                             <input type="hidden" value="{{ $university_settings->id }}" name="id">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="logo"
                                                class="form-control-label">{{ trans('admin.image') }}</label>
                                         <input type="file" class="form-control dropify"
                                                data-default-file="{{ asset('uploads/university_setting/'.$university_settings->logo) }}" name="logo"
                                                value="{{ asset('uploads/university_setting/'.$university_settings->logo) }}">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="stamp_logo"
                                                class="form-control-label">{{ trans('admin.stamp_logo') }}</label>
                                         <input type="file" class="form-control dropify"

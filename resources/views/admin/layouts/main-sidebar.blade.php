@@ -332,6 +332,13 @@
                             </a>
                         </li>
 
+                        <li class="slide">
+                            <a class="side-menu__item" href="{{ route('facultyCount.index') }}">
+                                <i class="fe fe-settings side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.College in numbers') }}</span>
+                            </a>
+                        </li>
+
 
                         {{-- start fields added to sidebar admin--}}
 
