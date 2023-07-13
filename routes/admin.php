@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorsController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
+use App\Http\Controllers\Admin\FacultyCountController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\PointStatementController;
@@ -185,6 +186,7 @@ Route::group([
 
     #### University Setting
     Route::resource('university_settings', UniversitySettingController::class)->middleware('forbidden');
+    Route::resource('facultyCount', FacultyCountController::class)->middleware('forbidden');
     Route::post('maintenanceCheck', [UniversitySettingController::class, 'maintenanceCheck'])->name('maintenanceCheck')->middleware('forbidden');
 
     #### Subject Exam ####

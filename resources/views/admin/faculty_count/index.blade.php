@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.certificate_name') }}
+    {{ trans('admin.College in numbers') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.certificate_name') }}
+    {{ trans('admin.College in numbers') }}
 @endsection
 @section('content')
 
@@ -28,8 +28,9 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
+                                <th class="min-w-50px">{{ trans('admin.image') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.code_latin')}}</th>
+                                <th class="min-w-50px">{{ trans('admin.value') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -70,7 +71,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.certificate_name') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.College in numbers') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -89,18 +90,19 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'code', name: 'code'},
+            {data: 'image', name: 'image'},
+            {data: 'title', name: 'title'},
+            {data: 'count', name: 'count'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('certificate_name.index')}}', columns);
+        showData('{{route('facultyCount.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('certificate_name.destroy',':id')}}');
+        destroyScript('{{route('facultyCount.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('certificate_name.create')}}');
+        showAddModal('{{route('facultyCount.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('certificate_name.edit',':id')}}');
+        showEditModal('{{route('facultyCount.edit',':id')}}');
         editScript();
 
     </script>

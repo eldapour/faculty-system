@@ -112,7 +112,6 @@ class PageController extends Controller
             }
             if ($page->images != null){
                 foreach ($page->images as $image) {
-
                     if (file_exists($image)) {
                         unlink($image);
                     }
