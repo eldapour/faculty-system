@@ -4,9 +4,10 @@ use App\Models\Document;
 use App\Models\ProcessDegree;
 use App\Models\ProcessExam;
 use App\Models\SubjectStudent;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use App\Models\UniversitySetting;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 
 if (!function_exists('checkUser')){
@@ -19,13 +20,13 @@ if (!function_exists('checkUser')){
 if(!function_exists('logo')){
     function logo(): string
     {
-        $university_settings = \App\Models\UniversitySetting::first();
+        $university_settings = UniversitySetting::first();
         return asset('/uploads/university_setting/' . $university_settings->logo);
     }
 }
 
 if (!function_exists('saveFile')) {
-    function saveFile($photo,$folder)
+    function saveFile($photo,$folder): string
     {
         $file_extension = $photo->getClientOriginalExtension();
         $file_name =  $folder.'/'.rand('1','9999').time().'.'.$file_extension;
@@ -82,6 +83,7 @@ if(!function_exists('lang')){
         return Config::get('app.locale');
     }
 }
+
 if (!function_exists('trans_model')) {
 
     function trans_model($model,$word){
@@ -92,7 +94,8 @@ if (!function_exists('trans_model')) {
 }
 
 if (!function_exists('get_user_file')) {
-    function get_user_file($image) {
+    function get_user_file($image): string
+    {
         if ($image!= null){
             if (!file_exists($image)){
                 return asset('assets/uploads/avatar.png');
@@ -104,40 +107,69 @@ if (!function_exists('get_user_file')) {
         }
     }
 }
+
+
 if (!function_exists('userCount')) {
-    function userCount() {
-        $count = DB::table('users')->where('user_type', 'student')->count();
-        return $count;
+    function userCount(): int
+    {
+
+        return DB::table('users')
+            ->where('user_type', 'student')
+            ->count();
+       ;
     }
 }
+
+
 if (!function_exists('doctorCount')) {
-    function doctorCount() {
-        $count = DB::table('users')->where('user_type', 'doctor')->count();
-        return $count;
+    function doctorCount(): int
+    {
+        return DB::table('users')
+            ->where('user_type', 'doctor')
+            ->count();
+
     }
 }
+
+
 if (!function_exists('adminCount')) {
-    function adminCount() {
-        $count = DB::table('users')->where('user_type', 'manger')->count();
-        return $count;
+    function adminCount(): int
+    {
+
+        return DB::table('users')
+            ->where('user_type', 'manger')
+            ->count();
+
     }
 }
+
+
+
 if (!function_exists('departmentCount')) {
-    function departmentCount() {
-        $count = DB::table('departments')->count();
-        return $count;
+    function departmentCount(): int
+    {
+
+        return DB::table('departments')
+            ->count();
+
     }
 }
+
+
 if (!function_exists('branchCount')) {
-    function branchCount() {
-        $count = DB::table('department_branches')->count();
-        return $count;
+    function branchCount(): int
+    {
+
+        return DB::table('department_branches')
+            ->count();
+
     }
 }
 
 
 if (!function_exists('get_file')) {
-    function get_file($image) {
+    function get_file($image): string
+    {
 
         if ($image!= null){
             if (!file_exists($image)){
@@ -151,6 +183,7 @@ if (!function_exists('get_file')) {
     }
 }
 
+
 if (!function_exists('api')) {
     function api() {
         return auth()->guard('api');
@@ -158,21 +191,14 @@ if (!function_exists('api')) {
 }
 
 if (!function_exists('helperJson')) {
-    function helperJson($data=null,$message='',$code=200,$status=200) {
-        $json = response()->json(['data'=>$data,'message'=>$message,'code'=>$code],$status);
-        return $json;
+    function helperJson($data=null,$message='',$code=200,$status=200): JsonResponse
+    {
+        return response()->json(['data'=>$data,'message'=>$message,'code'=>$code],$status);
+
     }
 }
 
 
-//dashboard student home
-
-/*
- * documentCountUser()
- * processExamCountUser()
- * processDegreeCountUser()
- * subjectStudentCountUser()
- */
 if (!function_exists('documentCountUser')) {
     function documentCountUser(): int
     {
@@ -284,4 +310,16 @@ if (!function_exists('subjectStudentCountUser')) {
 
 
     }
+
+
+    if (!function_exists('processExamCount')) {
+        function processExamCount(): int {
+
+            return  ProcessExam::query()
+                ->whereDate('created_at','=',\Carbon\Carbon::now()->format('Y-m-d'))
+                ->count();
+
+        }
+    }
+
 }

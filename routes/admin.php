@@ -299,6 +299,14 @@ Route::group([
     Route::get('reregisterForm', [ReRecordTheTrackController::class, 'reregisterForm'])->name('reregisterForm');
     Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');;
 
+
+    /*
+     * Details of process degrees
+     */
+
+
+    Route::get('processDegreeDetails/{id}',[SubjectExamController::class,'processDegreeDetails'])->name('processDegreeDetails');
+    Route::post('changeRequestStatus',[SubjectExamController::class,'changeRequestStatus'])->name('changeRequestStatus');
 });
 
 

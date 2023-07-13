@@ -21,22 +21,21 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
 
-
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('admin.document_id')}}</th>
-                                <th class="min-w-25px">{{trans('admin.student_name')}}</th>
-                                <th class="min-w-25px">{{trans('student.identifier_id')}} </th>
-                                <th class="min-w-25px">{{trans('admin.document_type')}} </th>
-                                <th class="min-w-25px">{{trans('admin.withdraw_by_proxy')}} </th>
-                                <th class="min-w-25px">{{trans('admin.person_name')}}  </th>
-                                <th class="min-w-25px">{{trans('admin.national_id_of_person')}} 	 </th>
-                                <th class="min-w-25px">{{trans('admin.card_image')}} 	 </th>
-                                <th class="min-w-25px">{{trans('admin.request_date')}}  </th>
-                                <th class="min-w-25px">{{trans('admin.pull_type')}} 	 </th>
-                                <th class="min-w-25px">{{trans('admin.pull_date')}}  </th>
-                                <th class="min-w-25px">{{trans('admin.pull_return')}} </th>
-                                <th class="min-w-25px">{{trans('admin.request_status')}} </th>
-                                <th class="min-w-25px">{{trans('admin.processing_request_date')}} </th>
+                                <th class="min-w-25px">{{trans('document.id')}}</th>
+                                <th class="min-w-25px">{{trans('document.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('document.university_year')}}</th>
+                                <th class="min-w-25px">{{trans('document.document_type_id')}}</th>
+                                <th class="min-w-25px">{{trans('document.withdraw_by_proxy')}}</th>
+                                <th class="min-w-25px">{{trans('document.person_name')}}</th>
+                                <th class="min-w-25px">{{trans('document.national_id_of_person')}}</th>
+                                <th class="min-w-25px">{{trans('document.card_image')}}</th>
+                                <th class="min-w-25px">{{trans('document.request_date')}}</th>
+                                <th class="min-w-25px">{{trans('document.pull_type')}}</th>
+                                <th class="min-w-25px">{{trans('document.pull_date')}}</th>
+                                <th class="min-w-25px">{{trans('document.pull_return')}}</th>
+                                <th class="min-w-25px">{{trans('document.request_status')}}</th>
+                                <th class="min-w-25px">{{trans('document.processing_request_date')}}</th>
                                 <th class="min-w-25px">{{trans('admin.action')}}</th>
 
                             </tr>
@@ -94,10 +93,12 @@
                         </div>
         `;
 
+
+
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'user_id', name: 'user_id'},
             {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'university_year', name: 'university_year'},
             {data: 'document_type_id', name: 'document_type_id'},
             {data: 'withdraw_by_proxy', name: 'withdraw_by_proxy'},
             {data: 'person_name', name: 'person_name'},

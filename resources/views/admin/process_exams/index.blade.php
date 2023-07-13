@@ -19,15 +19,15 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
-                                    <th class="min-w-25px">#</th>
-                                    <th class="min-w-50px">{{ trans('admin.user') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.attachment_file') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.period') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.request_date') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.request_status') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.processing_request_date') }}</th>
-                                    <th class="min-w-50px">{{ trans('admin.reason') }}</th>
+
+                                    <th class="min-w-50px">{{ trans('process_exams.id') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.identifier_id') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.attachment_file') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.period') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.university_year') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.request_date') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.request_status') }}</th>
+                                    <th class="min-w-50px">{{ trans('process_exams.processing_date') }}</th>
                                     <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                                 </tr>
                             </thead>
@@ -86,48 +86,18 @@
 @endsection
 @section('ajaxCalls')
     <script>
-        var columns = [{
-                data: 'id',
-                name: 'id'
-            },
-            {
-                data: 'user_id',
-                name: 'user_id'
-            },
-            {
-                data: 'attachment_file',
-                name: 'attachment_file'
-            },
-            {
-                data: 'period',
-                name: 'period'
-            },
-            {
-                data: 'year',
-                name: 'year'
-            },
-            {
-                data: 'request_date',
-                name: 'request_date'
-            },
-            {
-                data: 'request_status',
-                name: 'request_status'
-            },
-            {
-                data: 'updated_at',
-                name: 'updated_at'
-            },
-            {
-                data: 'reason',
-                name: 'reason'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
+        var columns = [
+
+
+            {data: 'id', name: 'id'},
+            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'attachment_file', name: 'attachment_file'},
+            {data: 'period', name: 'period'},
+            {data: 'year', name: 'year'},
+            {data: 'request_date', name: 'request_date'},
+            {data: 'request_status', name: 'request_status'},
+            {data: 'processing_request_date', name: 'processing_request_date'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{ route('process_exams.index') }}', columns);
         // Delete Using Ajax

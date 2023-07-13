@@ -343,8 +343,8 @@ return [
     "temporary" => "temporary withdrawal",
     "final" => "final draw",
 
-    'withdraw_by_proxy_yes' => 'withdraw by proxy',
-    'withdraw_by_proxy_no' => "withdraw by proxy",
+    'withdraw_by_proxy_yes' => 'Yes',
+    'withdraw_by_proxy_no' => "No",
 
     //Element
     'element' => 'element',
@@ -555,6 +555,9 @@ return [
     "share in" => "share in",
     "years of giving" => "years of giving",
     "reset_password" => "Change password",
+
+
+
 ];
 
 

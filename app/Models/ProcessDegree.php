@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProcessDegree extends Model
 {
@@ -13,7 +14,7 @@ class ProcessDegree extends Model
         'user_id',
         'subject_id',
         'doctor_id',
-        'period',
+        'session',
         'year',
         'section',
         'exam_code',
@@ -24,18 +25,17 @@ class ProcessDegree extends Model
         'processing_date',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')
-        ->where('user_type', 'student');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function subject()
+    public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
 
-    public function doctor()
+    public function doctor(): BelongsTo
     {
         return $this->belongsTo(User::class, 'doctor_id', 'id')
             ->where('user_type', 'doctor');
