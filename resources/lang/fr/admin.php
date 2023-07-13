@@ -567,6 +567,9 @@ return [
 
     "remaining_days" => "jours restants",
     "reset_password" => "Modifier le mot de passe",
+    "counter" => "statistiques de gestion du site",
+
+
 ];
 
 

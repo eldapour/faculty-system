@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.College in numbers') }}
+    {{ trans('admin.counter') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.College in numbers') }}
+    {{ trans('admin.counter') }}
 @endsection
 @section('content')
 

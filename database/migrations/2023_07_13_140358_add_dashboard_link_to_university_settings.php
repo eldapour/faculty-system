@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('university_settings', function (Blueprint $table) {
-            $table->longText('digital_student_platform')->nullable()->after('youtube_link');
-            $table->longText('colleges_digital_platform')->nullable()->after('digital_student_platform');
-            $table->longText('colleges_digital_magazine')->nullable()->after('colleges_digital_magazine');
+            $table->longText('digital_student_platform')->comment('لينك منصه الطالب')->nullable()->after('youtube_link');
+            $table->longText('colleges_digital_platform')->comment('لينك المنصه الرقميه للكليه')->nullable()->after('youtube_link');
+            $table->longText('colleges_digital_magazine')->comment('لينك المجله الرقميه للكليه')->nullable()->after('youtube_link');
         });
     }
 
