@@ -17,7 +17,7 @@ class DocumentController extends Controller
 
     public function __construct()
     {
-        $this->middleware(CheckForbidden::class)->only(['index','documentsStudent']);
+//        $this->middleware(CheckForbidden::class)->except(['documentsStudent']);
     }
     public function index(request $request)
     {
