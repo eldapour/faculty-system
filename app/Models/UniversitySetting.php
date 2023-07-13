@@ -24,6 +24,9 @@ class UniversitySetting extends Model
         'whatsapp_link',
         'youtube_link',
         'phone',
+        'digital_student_platform',
+        'colleges_digital_platform',
+        'colleges_digital_magazine',
     ];
 
     protected $casts = [

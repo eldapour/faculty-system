@@ -63,6 +63,9 @@ class UniversitySettingController extends Controller
             'facebook_link' => $request->facebook_link,
             'whatsapp_link' => $request->whatsapp_link,
             'youtube_link' => $request->youtube_link,
+            'digital_student_platform' => route('student.login'),
+            'colleges_digital_platform' => $request->colleges_digital_platform,
+            'colleges_digital_magazine' => $request->colleges_digital_magazine,
 
         ]);
         if ($universitySetting->save()) {
