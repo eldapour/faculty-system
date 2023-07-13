@@ -328,8 +328,8 @@ return [
     "final" => "سحب نهائي",
 
 
-    'withdraw_by_proxy_yes' => "مسحوب بالوكاله",
-    'withdraw_by_proxy_no' => "غير مسحوب بالوكاله",
+    'withdraw_by_proxy_yes' => "نعم",
+    'withdraw_by_proxy_no' => "لا",
 
     //Element
     'element' => 'عنصر البيدغولوجيه',
@@ -561,8 +561,10 @@ return [
     "The latest events" => "آخر الأحداث",
     "share in" => "المشاركة في",
     "years of giving" => "سنوات من العطاء",
-
     "reset_password" => "تغيير كلمه المرور",
+
+
+
 
 
 ];

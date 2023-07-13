@@ -177,6 +177,13 @@
                                 <span class="side-menu__label">{{ trans('admin.groups') }}</span>
                             </a>
                         </li>
+
+                        <li class="slide">
+                            <a class="side-menu__item" href="{{ route('process_exams.index') }}">
+                                <i class="fe fe-file-text side-menu__icon"></i>
+                                <span class="side-menu__label">{{ trans('admin.process_exams') }} <div style="width: 30px;height: 30px;border-radius: 50%;background: #2196F3;color: #fff;display: inline-block;padding: 6px;text-align: center">{{processExamCount()}}</div> </span>
+                            </a>
+                        </li>
                         <li class="slide">
                             <a class="side-menu__item" href="{{ route('reasons_redress.index') }}">
                                 <i class="fe fe-file-text side-menu__icon"></i>
@@ -232,21 +239,6 @@
 
 
 
-                        <li class="slide">
-                            <a class="side-menu__item" data-toggle="slide" href="#">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.requests') }}</span><i
-                                    class="angle fa fa-angle-right"></i>
-                            </a>
-                            <ul class="slide-menu">
-                                <li><a href="{{ route('remedialSession') }}"
-                                       class="slide-item">{{ trans('admin.session') . ' ' . trans('admin.remedial') }}</a>
-                                </li>
-                                <li><a href="{{ route('normalSession') }}"
-                                       class="slide-item">{{ trans('admin.session') . ' ' . trans('admin.normal') }}</a>
-                                </li>
-                            </ul>
-                        </li>
 
                         <li class="slide">
                             <a class="side-menu__item" data-toggle="slide" href="#">
@@ -265,12 +257,6 @@
 
 
 
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('process_degrees.index') }}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.process_degrees_admin') }}</span>
-                            </a>
-                        </li>
 
                     @endif
 

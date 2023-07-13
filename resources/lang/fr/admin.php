@@ -328,8 +328,8 @@ return [
     "final" => "tirage final",
 
 
-    'withdraw_by_proxy_yes' => 'retirer par procuration',
-    'withdraw_by_proxy_no' => "retirer par procuration",
+    'withdraw_by_proxy_yes' => 'Oui',
+    'withdraw_by_proxy_no' => "Non",
 
 
     //Element

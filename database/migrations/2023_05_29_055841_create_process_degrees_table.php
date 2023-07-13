@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
             $table->unsignedBigInteger('doctor_id')->comment('اسم دكتور الماده');
-            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
+            $table->enum('session',['عاديه','استدراكيه'])->comment('الدوره اللي الطالب امتحن فيها الماده دي');
             $table->string('year');
             $table->string('section')->comment('اسم القاعه اللي هيمتحن فيها الطالب');
             $table->string('exam_code')->comment('رقم الامتحان');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Period;
+use App\Models\ProcessDegree;
 use App\Models\SubjectExamStudent;
 use App\Models\SubjectUnitDoctor;
 use DateTime;
@@ -30,21 +31,20 @@ class SubjectExamController extends Controller
                 ->first();
 
             $subject_exams = SubjectExam::query()
-                ->where('period', '=', $period->period)
+                ->where('session', '=', $period->session)
                 ->where('year', '=', $period->year_start)
                 ->get();
 
             return Datatables::of($subject_exams)
-                ->addColumn('action', function ($subject_exams) {
-                    return '
-                            <a class="btn btn-primary" href="' . route('processExamStudent', $subject_exams->id) . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
-                       ';
+                ->addColumn('processDegreeDetails', function ($subject_exams) {
+                    return '<span style="cursor:pointer" class="icon btn btn-info processDegreeDetails" data-bs-toggle="tooltip" title=" details " data-id="' . $subject_exams->id . '"> ' . trans('subject_exam.process_exam_details') . '  <i class="fa fa-eye"></i></span>';
                 })
+
                 ->editColumn('subject_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
+                    return $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
+                    return $subject_exams->subject->group->group_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -53,82 +53,82 @@ class SubjectExamController extends Controller
         }
     }
 
-    // Start remedialSession
-    public function remedialSession(Request $request)
-    {
-        if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status', '=', 'start')
-                ->first();
-
-            $subject_exams = SubjectExam::query()
-                ->where('period', '=', $period->period)
-                ->where('year', '=', $period->year_start)
-                ->where('session', 'استدراكيه')
-                ->get();
-
-            return Datatables::of($subject_exams)
-                ->addColumn('action', function ($subject_exams) {
-                    return '
-                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                            <a class="btn btn-primary" href="' . route('process_exams.index') . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
-                       ';
-                })
-                ->editColumn('subject_id', function ($subject_exams) {
-                    return $subject_exams->subject->subject_name;
-                })
-                ->addColumn('group_id', function ($subject_exams) {
-                    return  $subject_exams->subject->group->group_name;
-                })
-                ->escapeColumns([])
-                ->make(true);
-        } else {
-            return view('admin.subject_exams.remedial_session');
-        }
-    }
-
-    public function normalSession(request $request)
-    {
-        if ($request->ajax()) {
-
-            $period = Period::query()
-                ->where('status', '=', 'start')
-                ->first();
-
-            $subject_exams = SubjectExam::query()
-                ->where('period', '=', $period->period)
-                ->where('year', '=', $period->year_start)
-                ->where('session', 'عاديه')
-                ->get();
-
-            return Datatables::of($subject_exams)
-                ->addColumn('action', function ($subject_exams) {
-                    return '
-                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                            <a class="btn btn-primary" href="' . route('processExamStudent', $subject_exams->id) . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
-                       ';
-                })
-                ->editColumn('subject_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
-                })
-                ->addColumn('group_id', function ($subject_exams) {
-                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
-                })
-                ->escapeColumns([])
-                ->make(true);
-        } else {
-            return view('admin.subject_exams.normal_session');
-        }
-    }
+//    public function remedialSession(Request $request)
+//    {
+//        if ($request->ajax()) {
+//
+//            $period = Period::query()
+//                ->where('status', '=', 'start')
+//                ->first();
+//
+//            $subject_exams = SubjectExam::query()
+//                ->where('period', '=', $period->period)
+//                ->where('year', '=', $period->year_start)
+//                ->where('session', 'استدراكيه')
+//                ->get();
+//
+//            return Datatables::of($subject_exams)
+//                ->addColumn('action', function ($subject_exams) {
+//                    return '
+//                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+//                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+//                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
+//                                    <i class="fas fa-trash"></i>
+//                            </button>
+//                            <a class="btn btn-primary" href="' . route('process_exams.index') . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
+//                       ';
+//                })
+//                ->editColumn('subject_id', function ($subject_exams) {
+//                    return $subject_exams->subject->subject_name;
+//                })
+//                ->addColumn('group_id', function ($subject_exams) {
+//                    return  $subject_exams->subject->group->group_name;
+//                })
+//                ->escapeColumns([])
+//                ->make(true);
+//        } else {
+//            return view('admin.subject_exams.remedial_session');
+//        }
+//    }
+//
+//    public function normalSession(request $request)
+//    {
+//        if ($request->ajax()) {
+//
+//            $period = Period::query()
+//                ->where('status', '=', 'start')
+//                ->first();
+//
+//            $subject_exams = SubjectExam::query()
+//                ->where('period', '=', $period->period)
+//                ->where('year', '=', $period->year_start)
+//                ->where('session', 'عاديه')
+//                ->get();
+//
+//            return Datatables::of($subject_exams)
+//                ->addColumn('action', function ($subject_exams) {
+//                    return '
+//                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+//                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+//                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
+//                                    <i class="fas fa-trash"></i>
+//                            </button>
+//                            <a class="btn btn-primary" href="' . route('processExamStudent', $subject_exams->id) . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
+//                       ';
+//                })
+//                ->editColumn('subject_id', function ($subject_exams) {
+//                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
+//                })
+//                ->addColumn('group_id', function ($subject_exams) {
+//                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
+//                })
+//                ->escapeColumns([])
+//                ->make(true);
+//        } else {
+//            return view('admin.subject_exams.normal_session');
+//        }
+//    }
 
 
     public function create()
@@ -274,5 +274,44 @@ class SubjectExamController extends Controller
             'period'
         ]));
     }
+
+
+
+    public function ProcessDegreeDetails($id)
+    {
+        $subjectExam = SubjectExam::query()
+        ->findOrFail($id);
+
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
+        $processDegrees = ProcessDegree::query()
+            ->with(['user','doctor','subject'])
+        ->where('subject_id', $subjectExam->subject_id)
+        ->where('year', $period->year_start)
+        ->where('session', $period->session)
+            ->get();
+
+        return view('admin.subject_exams.details.processDegreeDetails', compact('processDegrees'));
+    }
+
+ public function changeRequestStatus(Request $request): JsonResponse
+ {
+
+        $processDegrees = ProcessDegree::query()
+        ->where('id', $request->id)
+            ->first();
+
+        $processDegrees->update(['request_status' => $request->request_status]);
+
+        if ($processDegrees->save()) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
+    }
+
+
 
 }

@@ -27,11 +27,7 @@
 										<i class="fe fe-upload"></i>
 									</span> {{ trans('admin.export') }}
                         </button>
-{{--                        <button class="btn btn-secondary btn-icon text-white addBtn">--}}
-{{--									<span>--}}
-{{--										<i class="fe fe-plus"></i>--}}
-{{--									</span> {{ trans('admin.add') }}--}}
-{{--                        </button>--}}
+
                     </div>
                     @endif
                 </div>
@@ -40,15 +36,15 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
+
+
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
-                                <th class="min-w-25px">{{ trans('admin.student') }}</th>
-                                <th class="min-w-125px">{{trans('admin.identifier_id')}}</th>
-                                <th class="min-w-25px">{{ trans('admin.element') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.degree') ." ". trans('admin.student') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.degree') ." ". trans('admin.element') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.period') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.year') }}</th>
+                                <th class="min-w-25px">{{trans('point_statement.id')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.element_code')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.degree_student')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.degree_element')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.period')}}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -141,24 +137,21 @@
 @endsection
 @section('ajaxCalls')
     <script>
+
+
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'user_id', name: 'user_id'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'element_code', name: 'element_code'},
             {data: 'degree_student', name: 'degree_student'},
             {data: 'degree_element', name: 'degree_element'},
             {data: 'period', name: 'period'},
-            {data: 'year', name: 'year'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('points.index')}}', columns);
         // Delete Using Ajax
         destroyScript('{{route('points.destroy',':id')}}');
-        // Add Using Ajax
-        showAddModal('{{route('points.create')}}');
-        addScript();
-        // Add Using Ajax
+
         showEditModal('{{route('points.edit',':id')}}');
         editScript();
 

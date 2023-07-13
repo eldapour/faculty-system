@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\CheckForbidden;
 use App\Models\Document;
 use App\Models\DocumentType;
+use App\Models\Period;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,11 +40,7 @@ class DocumentController extends Controller
 
                        ';
                 })
-                ->editColumn('user_id', function ($documents) {
 
-                    return $documents->user->first_name . ' ' . $documents->user->last_name;
-
-                })
                 ->editColumn('card_image', function ($documents) {
 
                     return '
@@ -54,6 +51,13 @@ class DocumentController extends Controller
                 ->editColumn('identifier_id', function ($documents) {
 
                     return $documents->user->identifier_id;
+
+                })
+                ->addColumn('university_year', function ($documents) {
+
+                     return Period::query()
+                        ->where('status', '=', 'start')
+                        ->first()->year_start;
 
                 })
                 ->editColumn('withdraw_by_proxy', function ($documents) {

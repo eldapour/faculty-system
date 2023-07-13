@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Middleware\CheckForbidden;
+use Carbon\Carbon;
 use DateTime;
 use App\Models\User;
 use App\Models\Period;
@@ -27,7 +28,17 @@ class ProcessExamController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $process_exams = ProcessExam::get();
+
+            $period = \App\Models\Period::query()
+                ->where('status','=','start')
+                ->first();
+
+            $process_exams = ProcessExam::query()
+                ->where('year','=',$period->year_start)
+                ->where('period','=',$period->period)
+                ->latest()
+                ->get();
+
             return Datatables::of($process_exams)
                 ->addColumn('action', function ($process_exams) {
                     return '
@@ -37,22 +48,12 @@ class ProcessExamController extends Controller
                             </button>
                        ';
                 })
-                ->editColumn('user_id', function ($process_degrees) {
-                    return '<td><a class="btn btn-primary">' . @$process_degrees->user->first_name . '  <i class="fa fa-user"></i><a/></td>';
-                })
+
                 ->editColumn('attachment_file', function ($process_degrees) {
-                    return '<td><a target="_blank" class="btn btn-success" href="' . asset($process_degrees->attachment_file) . '">' . trans('admin.pdf') . '  <i class="fa fa-file-pdf"></i></a></td>';
+                    return '<td><a style="width: 100%" target="_blank" class="btn btn-success" href="' . asset('uploads/process_exams/'.$process_degrees->attachment_file) . '">' . '  <i class="fa fa-file-pdf"></i></a></td>';
                 })
-                ->editColumn('period', function ($process_degrees) {
-                    return '<td><a target="_blank" class="btn btn-warning"> ' . $process_degrees->period . ' <i class="fa fa-leaf"></i></a></td>';
-                })
-                ->editColumn('year', function ($process_degrees) {
-                    $date = new DateTime($process_degrees->year);
-                    return '<td>' . $date->format('Y') . '</td>';
-                })
-                ->editColumn('updated_at', function ($process_degrees) {
-                    $date = new DateTime($process_degrees->year);
-                    return '<td>' . $date->format('Y-m-d') . '</td>';
+                ->addColumn('identifier_id', function ($process_degrees) {
+                    return $process_degrees->user->identifier_id;
                 })
 
                 ->editColumn('request_status', function ($process_degrees) {
@@ -181,6 +182,7 @@ class ProcessExamController extends Controller
     {
         $inputs = ProcessExam::find($request->id)->update([
             'request_status' => $request->status,
+            'processing_request_date' => Carbon::now()->format('Y-m-d')
         ]);
 
         return response()->json(['code' => 200, 'status' => $request->status]);

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('element_code')->comment('رمز العنصر');
             $table->double('degree_student',12,2)->default(0.00)->comment('درجه الطالب');
             $table->double('degree_element',12,2)->default(0.00)->comment('درجه العنصر');
-            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
+            $table->enum('period',['عاديه','استدراكيه'])->comment('الدوره');
             $table->string('year');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
