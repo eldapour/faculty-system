@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Exports\DoctorExport;
+use App\Imports\DoctorImport;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 
@@ -188,8 +191,22 @@ class DoctorsController extends Controller
             $doctor->delete();
             return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
         }
+    } // end delete
 
 
+    public function exportDoctor()
+    {
+        return Excel::download(new DoctorExport(), 'Doctors.xlsx');
+    }
+
+    public function importDoctor(Request $request): JsonResponse
+    {
+        $import = Excel::import(new DoctorImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
     }
 
 }

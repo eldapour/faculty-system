@@ -207,6 +207,8 @@ Route::group([
     Route::get('printSubjectExamStudent/{id?}', [SubjectExamStudentController::class, 'printSubjectExamStudent'])->name('printSubjectExamStudent');
     #### Element ####
     Route::resource('elements', ElementController::class)->middleware('forbidden');
+    Route::get('exportElement', [ElementController::class, 'exportElement'])->name('exportElement')->middleware('forbidden');
+    Route::post('importElement', [ElementController::class, 'importElement'])->name('importElement')->middleware('forbidden');
 
     #### process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->middleware('forbidden');
@@ -265,7 +267,9 @@ Route::group([
 
     #### Doctors ####
     Route::resource('doctors', DoctorsController::class)->middleware('forbidden');
-    Route::post('doctors.delete', [DoctorsController::class, 'delete'])->name('doctors.delete');
+    Route::post('doctors.delete', [DoctorsController::class, 'delete'])->name('doctors.delete')->middleware('forbidden');
+    Route::get('exportDoctor', [DoctorsController::class, 'exportDoctor'])->name('exportDoctor')->middleware('forbidden');
+    Route::post('importDoctor', [DoctorsController::class, 'importDoctor'])->name('importDoctor')->middleware('forbidden');
 
 
     #### schedules ####
