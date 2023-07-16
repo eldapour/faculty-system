@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 
 if (!function_exists('checkUser')){
-    function checkUser($user): bool
+    function checkUser($userTypr): bool
     {
-        return auth()->user()->user_type == $user;
+        return auth()->user()->user_type == $userTypr;
     }
 }
 

@@ -152,6 +152,7 @@ return [
     "You_must_re_register" => "يجب عليك اعادة التسجيل لتستطيع الدخول الى المنصة",
     "this_process_is_extended" => "هذه العملية ممتدة من ",
     "until_an_end" => "الى غاية",
+    "student_count_department" => "اعداد الطلبة حسب المسالك",
 
 
     // Category

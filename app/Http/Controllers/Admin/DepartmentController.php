@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DepartmentRequest;
 use App\Models\Department;
+use App\Models\DepartmentBranchStudent;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class DepartmentController extends Controller
@@ -78,7 +80,7 @@ class DepartmentController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }
+    } // end update
 
 
     public function destroy(Request $request)
@@ -86,6 +88,18 @@ class DepartmentController extends Controller
         $departments = Department::where('id', $request->id)->firstOrFail();
         $departments->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    } // end delete
+
+    public function departmentStudent()
+    {
+            $departments = DB::table('department_branch_students')
+            ->join('department_branches', 'department_branches.id', '=', 'department_branch_students.department_branch_id')
+            ->join('departments', 'departments.id', '=', 'department_branches.department_id')
+            ->select("departments.department_name->".lang()." as name",DB::raw('COUNT(department_branch_students.id) as student_count'))
+            ->groupBy('departments.id')
+            ->get();
+
+            return view('admin.department.departmentStudent',compact('departments'));
     }
 
 }

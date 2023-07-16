@@ -123,6 +123,7 @@ Route::group([
 
         #### departments ####
         Route::resource('departments', DepartmentController::class);
+        Route::get('department/student', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
 
         #### sliders ####
         Route::resource('sliders', SliderController::class);
