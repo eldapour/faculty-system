@@ -180,4 +180,92 @@ class SubjectExamStudentController extends Controller
         ]));
     }
 
+
+
+    public function normalSES(request $request)
+    {
+        if ($request->ajax()) {
+
+            $period = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+
+            $subject_exam_students = SubjectExamStudent::query()
+                ->where('period', '=', $period->period)
+                ->where('session','=','عاديه')
+                ->where('year', '=', $period->year_start)
+                ->get();
+
+            return Datatables::of($subject_exam_students)
+                ->addColumn('action', function ($subject_exam_students) {
+                    return '
+                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                    data-id="' . $subject_exam_students->id . '" data-title="' . $subject_exam_students->subject->subject_name . '">
+                                    <i class="fas fa-trash"></i>
+                            </button>
+                       ';
+                })
+                ->addColumn('identifier_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
+                })
+                ->addColumn('group', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                })
+
+                ->addColumn('code', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->code;
+                })
+
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.subject_exam_students.index');
+        }
+    } // end of normal index
+
+
+    public function catchupSES(request $request)
+    {
+        if ($request->ajax()) {
+
+            $period = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+
+            $subject_exam_students = SubjectExamStudent::query()
+                ->where('period', '=', $period->period)
+                ->where('session','=','استدراكيه')
+                ->where('year', '=', $period->year_start)
+                ->get();
+
+            return Datatables::of($subject_exam_students)
+                ->addColumn('action', function ($subject_exam_students) {
+                    return '
+                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                    data-id="' . $subject_exam_students->id . '" data-title="' . $subject_exam_students->subject->subject_name . '">
+                                    <i class="fas fa-trash"></i>
+                            </button>
+                       ';
+                })
+                ->addColumn('identifier_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
+                })
+                ->addColumn('group', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                })
+
+                ->addColumn('code', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->code;
+                })
+
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.subject_exam_students.catch_up');
+        }
+    } // end of catch_up index
+
+
 }

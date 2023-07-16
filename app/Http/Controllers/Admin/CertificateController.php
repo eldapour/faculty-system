@@ -119,7 +119,7 @@ class CertificateController extends Controller
         } else {
             return view('admin.certificates.index');
         }
-    }
+    } // end  index
 
     public function create()
     {
@@ -245,5 +245,102 @@ class CertificateController extends Controller
 
         return view('admin.certificates.print_certificate',$data);
 
-    }
+    } // end regiseration
+
+    public function managerIndex(request $request){
+
+
+        if ($request->ajax()) {
+            $certificates = Certificate::query()
+                ->where('situation_with_management' ,'=',0)
+                ->Orwhere('situation_with_treasury' ,'=',0)
+                ->get();
+
+            return Datatables::of($certificates)
+                ->addColumn('action', function ($certificates) {
+                    return '
+                            <button type="button" data-id="' . $certificates->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+
+                       ';
+                })
+                ->editColumn('certificate_type_id', function ($certificates) {
+                    return $certificates->certificateType->name;
+                })
+                ->editColumn('situation_with_management', function ($certificates) {
+
+                    if($certificates->situation_with_management == 1){
+
+                        return trans('certificate.true');
+
+                    }else{
+
+                        return trans('certificate.false');
+
+                    }
+                })
+                ->editColumn('situation_with_treasury', function ($certificates) {
+
+                    if($certificates->situation_with_treasury == 1){
+
+                        return trans('certificate.true');
+
+                    }else{
+
+                        return trans('certificate.false');
+
+                    }
+                })
+
+                ->editColumn('description_situation_with_management', function ($certificates) {
+
+                    if($certificates->description_situation_with_management != null){
+
+                        return $certificates->getTranslation('description_situation_with_management', app()->getLocale());
+
+                    }else{
+
+                        return trans('admin.no_notes');
+                    }
+                })
+
+                ->editColumn('description_situation_with_treasury', function ($certificates) {
+
+                    if($certificates->description_situation_with_treasury != null){
+
+                        return $certificates->getTranslation('description_situation_with_treasury', app()->getLocale());
+
+                    }else{
+                        return trans('admin.no_notes');
+
+                    }
+                })
+
+                ->addColumn('diploma_name', function ($certificates) {
+
+                    if(lang() == 'ar'){
+
+                        return $certificates->certificateType->certificate_type_ar;
+
+                    }elseif (lang() == 'en'){
+
+                        return $certificates->certificateType->certificate_type_en;
+
+                    }else{
+
+                        return $certificates->certificateType->certificate_type_fr;
+
+                    }
+                })
+
+                ->addColumn('identifier_id', function ($certificates) {
+
+                    return $certificates->user->identifier_id;
+
+                })
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.certificates.managerIndex');
+        }
+    } // end manager index
 }

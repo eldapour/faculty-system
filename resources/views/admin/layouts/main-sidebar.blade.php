@@ -483,6 +483,30 @@
                             <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
                         </a>
                     </li>
+                    <li class="slide">
+                        <a class="side-menu__item" href="{{route('managerIndex')}}">
+                            <i class="fe fe-settings side-menu__icon"></i>
+                            <span class="side-menu__label">{{ trans('admin.Those concerned with evidence and diploma') }}</span>
+                        </a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="#">
+                            <i class="fe fe-file-text side-menu__icon"></i>
+                            <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
+                                class="angle fa fa-angle-right"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            <li>
+                                <a href="{{ route('normalSES') }}"
+                                   class="slide-item">{{ trans('admin.normal') }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('catchupSES') }}"
+                                   class="slide-item">{{ trans('admin.catch_up') }}</a>
+                            </li>
+
+                        </ul>
+                    </li>
                 @endif
                 {{-------------------------- end region manager - العميد ------------------------}}
 

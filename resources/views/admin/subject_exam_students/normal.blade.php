@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('admin.subject_exam_students') }}
+    {{ trans('admin.catch_up') }}
 @endsection
 @section('page_name')
-    {{ trans('admin.subject_exam_students') }}
+    {{ trans('admin.catch_up') }}
 @endsection
 @section('content')
 
@@ -102,7 +102,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.subject_exam_student') }}</h5>
+                        <h5 class="modal-title" id="example-Modal3">{{ trans('admin.catch_up') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -173,7 +173,7 @@
                     {data: 'session', name: 'session'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
-                showData('{{route('normalSES')}}', columns);
+                showData('{{route('subject_exam_students.index')}}', columns);
                 // Delete Using Ajax
                 destroyScript('{{route('subject_exam_students.destroy',':id')}}');
 
