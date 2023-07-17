@@ -254,6 +254,20 @@
 
 
 
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#">
+                                    <i class="fe fe-file-text side-menu__icon"></i>
+                                    <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span><i
+                                        class="angle fa fa-angle-right"></i>
+                                </a>
+                                <ul class="slide-menu">
+                                    <li><a href="{{ route('subject_exams.index') }}"
+                                           class="slide-item">{{ trans('admin.subject_exams') }}</a></li>
+                                    <li><a href="{{ route('subject_exam_students.index') }}"
+                                           class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
+                                    </li>
+                                </ul>
+                            </li>
 
 
                     <li class="slide">
@@ -273,22 +287,7 @@
 
 
 
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="#">
-                        <i class="fe fe-file-text side-menu__icon"></i>
-                        <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span><i
-                            class="angle fa fa-angle-right"></i>
-                    </a>
-                    <ul class="slide-menu">
-                        <li><a href="{{ route('subject_exams.index') }}"
-                               class="slide-item">{{ trans('admin.subject_exams') }}</a></li>
-                        <li><a href="{{ route('subject_exam_students.index') }}"
-                               class="slide-item">{{ trans('admin.subject_exam_students') }}</a>
-                        </li>
-                    </ul>
-                </li>
 
-            @endif
 
             @if (checkUser('employee'))
                 <li class="slide">
