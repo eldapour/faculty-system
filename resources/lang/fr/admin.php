@@ -149,6 +149,8 @@ return [
     "register_year" => "année d'inscription",
     "branch_restart_register" => "registre de redémarrage de succursale",
     "student_branch" => "étudiant",
+    "student_count_department" => "Le nombre d'étudiants selon les filières",
+
 
     // Category
     "category" => "catégorie",

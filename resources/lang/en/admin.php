@@ -116,6 +116,7 @@ return [
     "You_are_only" => "You are only entitled to one request during the period of the catch-up session",
 
 
+
     // crud
     "add" => "addition ",
     "edit" => "amendment ",
@@ -161,6 +162,8 @@ return [
     "register_year" => "register_year",
     "branch_restart_register" => "branch_restart_register",
     "student_branch" => "student",
+    "student_count_department" => "The number of students according to the tracks",
+
 
     // Category
     "category" => "Category",

@@ -123,6 +123,7 @@ Route::group([
 
         #### departments ####
         Route::resource('departments', DepartmentController::class);
+        Route::get('department/student', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
 
         #### sliders ####
         Route::resource('sliders', SliderController::class);
@@ -201,6 +202,9 @@ Route::group([
 
     #### Subject Exam Student ####
     Route::resource('subject_exam_students', SubjectExamStudentController::class);
+    Route::get('normalSES', [SubjectExamStudentController::class, 'normalSES'])->name('normalSES');
+    Route::get('catchupSES', [SubjectExamStudentController::class, 'catchupSES'])->name('catchupSES');
+    Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
     Route::get('getStudent', [SubjectExamStudentController::class, 'getStudent'])->name('getStudent');
     Route::get('getSubject', [SubjectExamStudentController::class, 'getSubject'])->name('getSubject');
     Route::get('exportSubjectExamStudent', [SubjectExamStudentController::class, 'exportSubjectExamStudent'])->name('exportSubjectExamStudent');
@@ -256,6 +260,7 @@ Route::group([
 
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
+    Route::get('certificate/manager', [CertificateController::class, 'managerIndex'])->name('managerIndex');
     Route::get('certificate/registeration', [CertificateController::class, 'registeration'])->name('certificates.registeration');
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
     Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');

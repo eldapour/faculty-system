@@ -97,7 +97,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'year', name: 'year'},
-            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'user_code', name: 'user_code'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
             //{data: 'action', name: 'action', orderable: false, searchable: false},

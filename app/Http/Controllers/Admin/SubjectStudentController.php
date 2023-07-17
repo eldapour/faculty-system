@@ -39,7 +39,7 @@ class SubjectStudentController extends Controller
 
             return Datatables::of($subject_students)
 
-                ->addColumn('identifier_id', function ($subject_exam_students) {
+                ->addColumn('user_code', function ($subject_exam_students) {
                     return $subject_exam_students->user->identifier_id;
                 })
                 ->editColumn('subject_id', function ($subject_students) {
