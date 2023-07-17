@@ -14,7 +14,7 @@ return [
     "date_enter_degree" => "date entry_degree",
     "year" => "academic year",
 
-
+    "results" => "Exam Result",
     "normal" => "normal round results",
     "remedial" => "Remedial Course Results",
     "add_degrees_for_students" => "Add Degrees for Students",

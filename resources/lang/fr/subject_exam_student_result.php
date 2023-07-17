@@ -14,6 +14,7 @@ return [
     "date_enter_degree" => "date entry_degree",
     "year" => "année académique",
 
+    "result" => "résultats d'examen",
 
     "normal" => "résultats du tour normal",
     "remedial" => "Résultats du cours de rattrapage",
