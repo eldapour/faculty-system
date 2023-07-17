@@ -161,7 +161,15 @@ class InternalAdController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
+    }// Function End
+
+    public function indexDoctor(Request $request)
+    {
+        return view('admin.internal_ads.internal_ads_doctor.index');
     }
 
-    // Function End
+    public function detailsDoctor(Request $request)
+    {
+        return view('admin.internal_ads.internal_ads_doctor.details');
+    }
 }

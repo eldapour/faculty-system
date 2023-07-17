@@ -75,6 +75,9 @@
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('assets/admin/js/dropify.js')}}"></script>
 
+{{--owl carousel --}}
+<script src="{{ asset('assets/front/') }}/assets/js/owl.carousel.min.js"></script>
+
 <script>
 
     $('.dropify').dropify();
