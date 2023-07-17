@@ -58,10 +58,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
@@ -79,14 +76,14 @@ Route::group([
     Route::get('/emailSentBack', function () {
         return view('admin.mail.emailSentBack');
     })->name('emailSentBack');
+
+//    Route::view('emailSentBack','admin.mail.emailSentBack')->name('emailSentBack');
+
     Route::get('/forbidden', function () {
         return view('admin.error.forbidden');
     })->name('forbidden');
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale() . '/dashboard',
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
-], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
 
 
     ###################### Category #############################
@@ -222,6 +219,7 @@ Route::group([
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class)->middleware('forbidden');
+    Route::get('results/remedial', [SubjectExamStudentResultController::class,'index2'])->name('results.remedial')->middleware('forbidden');
     Route::get('exam_result/all', [\App\Http\Controllers\Student\SubjectExamStudentResultController::class, 'index'])->name('exam_result.all');
     Route::get('exportSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'exportSubjectExamStudentResult'])->name('exportSubjectExamStudentResult')->middleware('forbidden');
     Route::post('importSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'importSubjectExamStudentResult'])->name('importSubjectExamStudentResult')->middleware('forbidden');
@@ -318,7 +316,7 @@ Route::group([
 
     Route::get('processDegreeDetails/{id}',[SubjectExamController::class,'processDegreeDetails'])->name('processDegreeDetails');
     Route::post('changeRequestStatus',[SubjectExamController::class,'changeRequestStatus'])->name('changeRequestStatus');
-});
+  });
 
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'forbidden']], function () {

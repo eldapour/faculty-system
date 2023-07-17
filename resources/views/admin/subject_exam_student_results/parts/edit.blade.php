@@ -8,8 +8,8 @@
 
                 <div class="col-md-12">
                     <label for="student_degree"
-                           class="form-control-label">{{ trans('admin.degree') . ' ' . trans('admin.student') }}</label>
-                    <input type="number" class="form-control" name="student_degree" value="{{$subjectExamStudentResult->student_degree}}">
+                           class="form-control-label">{{trans('subject_exam_student_result.student_degree') }}</label>
+                    <input type="number" class="form-control" min="0"  name="student_degree" value="{{$subjectExamStudentResult->student_degree}}">
                 </div>
             </div>
 
