@@ -478,7 +478,7 @@
                         </a>
                     </li>
                     <li class="slide">
-                        <a class="side-menu__item" href="{{route('internal_ads.index')}}">
+                        <a class="side-menu__item" href="{{route('indexDoctor')}}">
                             <i class="fe fe-settings side-menu__icon"></i>
                             <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
                         </a>
