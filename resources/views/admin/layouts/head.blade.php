@@ -71,6 +71,10 @@
 <link href="{{ asset('assets/admin/css/dropify.css') }}" rel="stylesheet" />
 <script src="{{ asset('assets/admin/js/dropify.js') }}"></script>
 
+<!-- owl carousel -->
+<link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="{{ asset('assets/front') }}/assets/css/owl.theme.default.min.css">
+
 
 {{--@include('admin.layouts.switch')--}}
 

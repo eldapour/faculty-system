@@ -145,6 +145,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::resource('internal_ads', InternalAdController::class);
     Route::post('active_status', [InternalAdController::class, 'makeActive'])->name('makeActive');
     Route::get('internal_ad/student/{id}', [InternalAdController::class, 'editInternalStudent'])->name('internal_ads_show');
+    Route::get('internal_ad/doctor/index', [InternalAdController::class, 'indexDoctor'])->name('indexDoctor');
+    Route::get('internal_ad/doctor/details', [InternalAdController::class, 'detailsDoctor'])->name('detailsDoctor');
     Route::get('internal_ad/student', [InternalAdController::class, 'internalAdsStudent'])->name('internal_ads.show');
 
 
