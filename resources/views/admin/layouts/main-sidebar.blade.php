@@ -256,6 +256,23 @@
 
 
 
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="#">
+                            <i class="fe fe-file-text side-menu__icon"></i>
+                            <span class="side-menu__label">نتائج الامتحانات</span><i
+                                class="angle fa fa-angle-right"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">نتائج الدوره العاديه</a></li>
+                            <li><a href="{{ route('results.remedial') }}" class="slide-item">نتائج الدوره الاستدراكيه</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                @endif
+
+
+
                 <li class="slide">
                     <a class="side-menu__item" data-toggle="slide" href="#">
                         <i class="fe fe-file-text side-menu__icon"></i>
