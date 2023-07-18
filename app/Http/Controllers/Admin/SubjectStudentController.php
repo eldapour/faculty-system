@@ -22,7 +22,7 @@ class SubjectStudentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(CheckForbidden::class)->except('index');
+        $this->middleware(CheckForbidden::class)->except('Studentindex');
     }
 
     public function index(request $request)
@@ -119,6 +119,38 @@ class SubjectStudentController extends Controller
         $subject_students = SubjectStudent::where('id', $request->id)->firstOrFail();
         $subject_students->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    }
+
+    public function Studentindex(request $request)
+    {
+        if ($request->ajax()) {
+            $periods = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+            $subject_students = SubjectStudent::query()
+                ->where('period', '=', $periods->period)
+                ->where('user_id',Auth::user()->id)
+                ->where('year', '>=', $periods->year_start)
+                ->where('year', '<=', $periods->year_end)
+                ->get();
+
+            return Datatables::of($subject_students)
+
+                ->addColumn('user_code', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
+                })
+                ->editColumn('subject_id', function ($subject_students) {
+                    return $subject_students->subject->subject_name;
+                })
+                ->addColumn('group_id', function ($subject_students) {
+                    return $subject_students->subject->group->group_name;
+                })
+
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.subject_students.Studentindex');
+        }
     }
 
 
