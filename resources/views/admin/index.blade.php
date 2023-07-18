@@ -9,8 +9,6 @@
 @section('content')
 
     <div class="row">
-
-
         @if(checkUser('student'))
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
                 <div class="card bg-success img-card box-success-shadow">
@@ -114,7 +112,7 @@
 
 
 
-        @if(checkUser('manger'))
+        @if(checkUser('manger') || checkUser('doctor') || checkUser('employee'))
 
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
                 <div class="card bg-success img-card box-success-shadow">
