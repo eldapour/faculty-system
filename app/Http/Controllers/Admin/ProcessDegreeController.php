@@ -65,12 +65,11 @@ class ProcessDegreeController extends Controller
     public function processDegreeStudent(Request $request)
     {
         $period = Period::query()
-            ->where('status', '=', 'start')
+            ->where('status', 'start')
             ->first();
 
         $process_degree_students = ProcessDegree::query()
-            ->where('user_id', '=', Auth::id())
-            ->where('period', '=', $period->period)
+            ->where('user_id', '=', Auth::user()->id)
             ->where('year', '=', $period->year_start)
             ->get();
 

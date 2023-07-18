@@ -163,13 +163,15 @@ class InternalAdController extends Controller
         }
     }// Function End
 
-    public function indexDoctor(Request $request)
+    public function indexDoctor()
     {
-        return view('admin.internal_ads.internal_ads_doctor.index');
+        $ads = InternalAd::get();
+        return view('admin.internal_ads.internal_ads_doctor.index',compact('ads'));
     }
 
-    public function detailsDoctor(Request $request)
+    public function detailsDoctor($id)
     {
-        return view('admin.internal_ads.internal_ads_doctor.details');
+        $ad = InternalAd::findOrFail($id);
+        return view('admin.internal_ads.internal_ads_doctor.details',compact('ad'));
     }
 }
