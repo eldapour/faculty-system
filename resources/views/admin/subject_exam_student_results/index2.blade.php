@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    {{ trans('subject_exam_student_result.normal') }}
+    {{ trans('subject_exam_student_result.remedial') }}
 @endsection
 @section('page_name')
-    {{ trans('subject_exam_student_result.normal') }}
+    {{ trans('subject_exam_student_result.remedial') }}
 @endsection
 @section('content')
 
@@ -15,24 +15,24 @@
                     <h3 class="card-title"></h3>
                     @if(auth()->user()->user_type == 'student')
                     @else
-                    <div class="">
-                        <button class="btn btn-primary btn-icon text-white"
-                                data-toggle="modal" data-target="#importExel">
+                        <div class="">
+                            <button class="btn btn-primary btn-icon text-white"
+                                    data-toggle="modal" data-target="#importExel">
 									<span>
 										<i class="fe fe-download"></i>
 									</span> {{ trans('admin.import') }}
-                        </button>
-                        <button class="btn btn-success btn-icon exportBtn text-white">
+                            </button>
+                            <button class="btn btn-success btn-icon exportBtn text-white">
 									<span>
 										<i class="fe fe-upload"></i>
 									</span> {{ trans('admin.export') }}
-                        </button>
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
+                            </button>
+                            <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
 									</span> {{ trans('admin.add') }}
-                        </button>
-                    </div>
+                            </button>
+                        </div>
                     @endif
                 </div>
                 <div class="card-body">
@@ -141,96 +141,96 @@
                 </div>
             </div>
             <!-- Import Modal -->
-    </div>
-    @include('admin.layouts.myAjaxHelper')
-@endsection
-@section('ajaxCalls')
+        </div>
+        @include('admin.layouts.myAjaxHelper')
+        @endsection
+        @section('ajaxCalls')
 
-    <script>
-        var columns = [
-            {data: 'id', name: 'id'},
-            {data: 'identifier_id', name: 'identifier_id'},
-            {data: 'user_id', name: 'user_id'},
-            {data: 'subject_id', name: 'subject_id'},
-            {data: 'group_id', name: 'group_id'},
-            {data: 'period', name: 'period'},
-            {data: 'student_degree', name: 'student_degree'},
-            {data: 'exam_degree', name: 'exam_degree'},
-            {data: 'date_enter_degree', name: 'date_enter_degree'},
-            {data: 'year', name: 'year'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-        showData('{{route('subject_exam_student_result.index')}}', columns);
-        // Delete Using Ajax
-        destroyScript('{{route('subject_exam_student_result.destroy',':id')}}');
-        // Add Using Ajax
-        showAddModal('{{route('subject_exam_student_result.create')}}');
-        addScript();
-        // Add Using Ajax
-        showEditModal('{{route('subject_exam_student_result.edit',':id')}}');
-        editScript();
+            <script>
+                var columns = [
+                    {data: 'id', name: 'id'},
+                    {data: 'identifier_id', name: 'identifier_id'},
+                    {data: 'user_id', name: 'user_id'},
+                    {data: 'subject_id', name: 'subject_id'},
+                    {data: 'group_id', name: 'group_id'},
+                    {data: 'period', name: 'period'},
+                    {data: 'student_degree', name: 'student_degree'},
+                    {data: 'exam_degree', name: 'exam_degree'},
+                    {data: 'date_enter_degree', name: 'date_enter_degree'},
+                    {data: 'year', name: 'year'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+                showData('{{route('results.remedial')}}', columns);
+                // Delete Using Ajax
+                destroyScript('{{route('subject_exam_student_result.destroy',':id')}}');
+                // Add Using Ajax
+                showAddModal('{{route('subject_exam_student_result.create')}}');
+                addScript();
+                // Add Using Ajax
+                showEditModal('{{route('subject_exam_student_result.edit',':id')}}');
+                editScript();
 
-        $(document).on('click', '.exportBtn', function () {
-            location.href = '{{ route('exportSubjectExamStudentResult') }}';
-        });
+                $(document).on('click', '.exportBtn', function () {
+                    location.href = '{{ route('exportSubjectExamStudentResult') }}';
+                });
 
-        $(document).on("submit", "#importExelForm", function (event) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
+                $(document).on("submit", "#importExelForm", function (event) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
 
-            var progressDiv = $('.progress');
-            var progressBar = $('.progress-bar');
-            progressDiv.addClass('d-none');
+                    var progressDiv = $('.progress');
+                    var progressBar = $('.progress-bar');
+                    progressDiv.addClass('d-none');
 
-            var formData = new FormData(this);
+                    var formData = new FormData(this);
 
-            $.ajax({
-                url: '{{ route('importSubjectExamStudentResult') }}',
-                type: 'POST',
-                data: formData,
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = evt.loaded / evt.total * 100;
-                            progressBar.css('width', percentComplete + '%');
-                        }
-                    }, false);
-                    return xhr;
-                },
-                beforeSend: function () {
-                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
-                    progressDiv.removeClass('d-none');
-                },
-                success: function (data) {
-                    if (data.status === 200) {
-                        toastr.success('{{ trans('admin.added_successfully') }}');
-                        progressDiv.addClass('d-none');
-                        console.log(data.timeout);
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 2000)
+                    $.ajax({
+                        url: '{{ route('importSubjectExamStudentResult') }}',
+                        type: 'POST',
+                        data: formData,
+                        xhr: function() {
+                            var xhr = new window.XMLHttpRequest();
+                            xhr.upload.addEventListener("progress", function(evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = evt.loaded / evt.total * 100;
+                                    progressBar.css('width', percentComplete + '%');
+                                }
+                            }, false);
+                            return xhr;
+                        },
+                        beforeSend: function () {
+                            $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                                ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                            progressDiv.removeClass('d-none');
+                        },
+                        success: function (data) {
+                            if (data.status === 200) {
+                                toastr.success('{{ trans('admin.added_successfully') }}');
+                                progressDiv.addClass('d-none');
+                                console.log(data.timeout);
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2000)
 
-                    } else if (data.status === 500) {
-                        toastr.error('error')
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 2000)
-                    }
-                },
-                error: function (data) {
-                    toastr.error('error')
-                    setTimeout(function () {
-                        // window.location.reload();
-                    }, 2000)
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
-        });
+                            } else if (data.status === 500) {
+                                toastr.error('error')
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2000)
+                            }
+                        },
+                        error: function (data) {
+                            toastr.error('error')
+                            setTimeout(function () {
+                                // window.location.reload();
+                            }, 2000)
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+                });
 
-    </script>
+            </script>
 @endsection
 

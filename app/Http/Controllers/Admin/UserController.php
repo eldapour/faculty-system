@@ -277,7 +277,7 @@ class UserController extends Controller
         }
     }
 
-    public function exportUser()
+    public function exportUser(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new UserExport(), 'Students.xlsx');
     }
@@ -292,4 +292,4 @@ class UserController extends Controller
         }
     }
 
-} // end class
+}
