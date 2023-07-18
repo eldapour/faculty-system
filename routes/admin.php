@@ -59,7 +59,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //first route of admin dashboard
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
@@ -72,7 +72,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::post('/DoneResetPass', [LoginController::class, 'DoneResetPass'])->name('DoneResetPass');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 
-});
+    });
 
     Route::get('/emailSentBack', function () {
         return view('admin.mail.emailSentBack');
@@ -84,7 +84,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         return view('admin.error.forbidden');
     })->name('forbidden');
 
-Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
+    Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
 
 
     ###################### Category #############################
@@ -110,30 +110,30 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::post('updatePass', [AdminController::class, 'updatePass'])->name('updatePass');
 
     Route::group(['middleware' => 'forbidden'],function (){
-        #### Deadline ####
-        Route::resource('deadlines', DeadlineController::class);
+    #### Deadline ####
+    Route::resource('deadlines', DeadlineController::class);
 
-        #### Setting ####
-        Route::resource('settings', SettingController::class);
+    #### Setting ####
+    Route::resource('settings', SettingController::class);
 
-        #### Service ####
-        Route::resource('services', ServiceController::class);
+    #### Service ####
+    Route::resource('services', ServiceController::class);
 
-        #### departments ####
-        Route::resource('departments', DepartmentController::class);
-        Route::get('department/student', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
+    #### departments ####
+    Route::resource('departments', DepartmentController::class);
+    Route::get('department/student', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
 
-        #### sliders ####
-        Route::resource('sliders', SliderController::class);
+    #### sliders ####
+    Route::resource('sliders', SliderController::class);
 
-        #### pages ####
-        Route::resource('pages', PageController::class);
+    #### pages ####
+    Route::resource('pages', PageController::class);
 
-        #### word ####
-        Route::resource('word', WordController::class);
+    #### word ####
+    Route::resource('word', WordController::class);
 
-        #### branches ####
-        Route::resource('branches', DepartmentBranchController::class);
+    #### branches ####
+    Route::resource('branches', DepartmentBranchController::class);
     });
 
     #### user branches ####
@@ -152,26 +152,26 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
 
     Route::group(['middleware' => 'forbidden'],function (){
-        #### Video ####
-        Route::resource('video', VideoController::class);
+    #### Video ####
+    Route::resource('video', VideoController::class);
 
-        #### Advertisement ####
-        Route::resource('advertisements', AdvertisementController::class);
+    #### Advertisement ####
+    Route::resource('advertisements', AdvertisementController::class);
 
-        #### Presentation ####
-        Route::resource("presentations", PresentationController::class);
+    #### Presentation ####
+    Route::resource("presentations", PresentationController::class);
 
-        #### Slider ####
-        Route::resource('slider', SliderController::class);
+    #### Slider ####
+    Route::resource('slider', SliderController::class);
 
-        #### Group ####
-        Route::resource('group', GroupController::class);
+    #### Group ####
+    Route::resource('group', GroupController::class);
 
-        ### Subject ####
-        Route::resource('subjects', SubjectController::class);
+    ### Subject ####
+    Route::resource('subjects', SubjectController::class);
 
-        #### Unit ####
-        Route::resource('unit', UnitController::class);
+    #### Unit ####
+    Route::resource('unit', UnitController::class);
 
     });
 
@@ -314,13 +314,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### Re Record The Track ####
     Route::get('reregisterForm', [ReRecordTheTrackController::class, 'reregisterForm'])->name('reregisterForm');
     Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');;
-
-
-    /*
-     * Details of process degrees
-     */
-
-
     Route::get('processDegreeDetails/{id}',[SubjectExamController::class,'processDegreeDetails'])->name('processDegreeDetails');
     Route::post('changeRequestStatus',[SubjectExamController::class,'changeRequestStatus'])->name('changeRequestStatus');
   });
