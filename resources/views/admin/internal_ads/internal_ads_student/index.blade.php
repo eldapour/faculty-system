@@ -86,7 +86,7 @@
             {data: 'date_ads', name: 'date_ads'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('internal_ads.show')}}', columns);
+        showData('{{route('internal_ads_show')}}', columns);
         deleteScript('{{route('documents.delete')}}');
         showEditModalStudent('{{ route('internal_ads_show', ':id') }}')
         //$(document).on('click', '.editBtn', function () {

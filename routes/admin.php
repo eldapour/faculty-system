@@ -147,7 +147,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::get('internal_ad/student/{id}', [InternalAdController::class, 'editInternalStudent'])->name('internal_ads_show');
     Route::get('internal_ad/doctor/index', [InternalAdController::class, 'indexDoctor'])->name('indexDoctor');
     Route::get('internal_ad/doctor/details/{id}', [InternalAdController::class, 'detailsDoctor'])->name('detailsDoctor');
-    Route::get('internal_ad/student', [InternalAdController::class, 'internalAdsStudent'])->name('internal_ads.show');
+    Route::get('internal_ad_student', [InternalAdController::class, 'internalAdsStudent'])->name('internal_ads.show');
 
 
     Route::group(['middleware' => 'forbidden'],function (){
@@ -249,6 +249,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     #### Process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
+    Route::get('process_degrees_history', [ProcessDegreeController::class,'history'])->name('process_degrees.history');
+    Route::get('process_degrees_normal', [ProcessDegreeController::class,'normal'])->name('process_degrees.normal');
+    Route::get('process_degrees_catchUp', [ProcessDegreeController::class,'catchUp'])->name('process_degrees.catchUp');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree')->middleware('forbidden');
     Route::get('/updateDegree_edit/{id}', [ProcessDegreeController::class, 'editUpdateDegree'])->name('editUpdateDegree')->middleware('forbidden');

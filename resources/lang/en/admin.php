@@ -507,6 +507,7 @@ return [
     "point statement" => "point statement",
     "code_latin" => "Code in Latin",
     "requests" => "requests",
+    "all_requests" => "All requests for revision",
 
 
     "subject_name_" => "unit",

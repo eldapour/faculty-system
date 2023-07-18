@@ -518,6 +518,7 @@ return [
 
     "code_latin" => "Code in Latin",
     "requests" => "Demandes",
+    "all_requests" => "Toutes les demandes d'avis",
 
 
     "subject_name_" => "unit",
