@@ -925,16 +925,16 @@
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
                     <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.exams') }}</span><i
+                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
                     <li>
-                        <a href="{{ route('normalSES') }}"
+                        <a href="{{ route('subject_exam_student_result.index') }}"
                            class="slide-item">{{ trans('admin.normal') }}</a>
                     </li>
                     <li>
-                        <a href="{{ route('catchupSES') }}"
+                        <a href="{{ route('results.remedial') }}"
                            class="slide-item">{{ trans('admin.catch_up') }}</a>
                     </li>
 
