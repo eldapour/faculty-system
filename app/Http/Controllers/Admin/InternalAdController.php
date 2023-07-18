@@ -16,7 +16,7 @@ class InternalAdController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(CheckForbidden::class)->except('internalAdsStudent');
+        $this->middleware(CheckForbidden::class)->except('indexDoctor','detailsDoctor');
     }
 
     public function index(request $request)
