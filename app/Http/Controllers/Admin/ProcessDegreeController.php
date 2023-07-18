@@ -233,7 +233,9 @@ class ProcessDegreeController extends Controller
 
     public function history()
     {
-        $history = ProcessDegree::get(['id', 'user_id', 'created_at', 'session']);
+        $history = ProcessDegree::query()
+            ->where('doctor_id',Auth::user()->id)
+        ->get(['id', 'user_id', 'created_at', 'session']);
         return view('admin.process_degrees.history', compact('history'));
     } // end process degree history
 
