@@ -57,9 +57,13 @@ class CreateUsersTable extends Migration
                 ')
                 ->default('student');
             $table->bigInteger('job_id')->unique()->nullable()->comment('الرقم الوظيفي خاصه لغير الطالب');
+            $table->bigInteger('student_type_id')->nullable()->comment('نوع الطالب مثال طلاب الاجازه او طلاب البكالوريا');
             $table->string('university_register_year')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('student_type_id')->references('id')->on('student_type')->cascadeOnUpdate()->cascadeOnDelete();
+
         });
     }
 
