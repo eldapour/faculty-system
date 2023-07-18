@@ -160,6 +160,7 @@ return array(
     'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
     'App\\Models\\Slider' => $baseDir . '/app/Models/Slider.php',
     'App\\Models\\StudentRequest' => $baseDir . '/app/Models/StudentRequest.php',
+    'App\\Models\\StudentType' => $baseDir . '/app/Models/StudentType.php',
     'App\\Models\\Subject' => $baseDir . '/app/Models/Subject.php',
     'App\\Models\\SubjectExam' => $baseDir . '/app/Models/SubjectExam.php',
     'App\\Models\\SubjectExamStudent' => $baseDir . '/app/Models/SubjectExamStudent.php',

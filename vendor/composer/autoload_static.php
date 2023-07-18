@@ -827,6 +827,7 @@ class ComposerStaticInit4d5fd50ec06d7ef0e4324a17de84f039
         'App\\Models\\Setting' => __DIR__ . '/../..' . '/app/Models/Setting.php',
         'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',
         'App\\Models\\StudentRequest' => __DIR__ . '/../..' . '/app/Models/StudentRequest.php',
+        'App\\Models\\StudentType' => __DIR__ . '/../..' . '/app/Models/StudentType.php',
         'App\\Models\\Subject' => __DIR__ . '/../..' . '/app/Models/Subject.php',
         'App\\Models\\SubjectExam' => __DIR__ . '/../..' . '/app/Models/SubjectExam.php',
         'App\\Models\\SubjectExamStudent' => __DIR__ . '/../..' . '/app/Models/SubjectExamStudent.php',
