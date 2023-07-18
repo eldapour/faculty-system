@@ -121,7 +121,8 @@ use Illuminate\Support\Facades\Auth;
 
     #### departments ####
     Route::resource('departments', DepartmentController::class);
-    Route::get('department/student', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
+    Route::get('departmentStudent', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
+    Route::get('departmentStudents', [DepartmentController::class,'departmentStudents'])->name('departmentStudents');
 
     #### sliders ####
     Route::resource('sliders', SliderController::class);

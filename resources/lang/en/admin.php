@@ -151,6 +151,7 @@ return [
     // Department
     "departments" => "tracts",
     "department" => "tract",
+    "department_students" => "Student departments",
 
     // Department branch
     "branches" => "Branches",
