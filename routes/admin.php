@@ -58,6 +58,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//first route of admin dashboard
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
