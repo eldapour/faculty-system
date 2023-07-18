@@ -138,6 +138,8 @@ return [
     // Department
     "departments" => "المسالك",
     "department" => "المسلك",
+    "department_students" => "مسالك الطلبة",
+
 
     // Department branch
     "branches" => "المسارات",

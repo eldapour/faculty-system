@@ -100,6 +100,6 @@ class DepartmentController extends Controller
             ->get();
 
             return view('admin.department.departmentStudent',compact('departments'));
-    }
+    } // departmentStudent
 
 }

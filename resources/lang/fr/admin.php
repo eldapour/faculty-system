@@ -138,6 +138,8 @@ return [
     // Department
     "departments" => "Des Pistes",
     "department" => "Piste",
+    "department_students" => "Départements étudiants",
+
 
     // Department branch
     "branches" => "Branches",

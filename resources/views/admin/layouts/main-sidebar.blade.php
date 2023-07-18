@@ -260,6 +260,13 @@
             </li>
 
             <li class="slide">
+                <a class="side-menu__item" href="{{ route('departmentStudents') }}">
+                    <i class="fe fe-arrow-up-circle side-menu__icon"></i>
+                    <span class="side-menu__label">{{ trans('admin.department_students') }}</span>
+                </a>
+            </li>
+
+            <li class="slide">
                 <a class="side-menu__item" href="{{ route('branches.index') }}">
                     <i class="fe fe-arrow-down-circle side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.branches') }}</span>

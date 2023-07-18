@@ -36,6 +36,13 @@ class DepartmentBranchStudentController extends Controller{
                 ->editColumn('department_branch_id', function ($branchStudent) {
                     return $branchStudent->branch->getTranslation('branch_name', app()->getLocale());
                 })
+                ->editColumn('department_id', function ($branchStudent) {
+                    $department_id =  $branchStudent->branch->department_id;
+                    $department = Department::where('id',$department_id)
+                        ->first();
+                    return $department->department_name;
+
+                })
                 ->editColumn('identifier_id', function ($branchStudent) {
                     return $branchStudent->student->identifier_id;
                 })
@@ -128,5 +135,6 @@ class DepartmentBranchStudentController extends Controller{
         } else {
             return response()->json(['status' => 500]);
         }
-    }
+    } // end importDepartmentBranchStudent
+
 }
