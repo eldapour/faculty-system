@@ -11,6 +11,11 @@
 <!-- BOOTSTRAP CSS -->
 <link href="{{ asset('assets/admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
+{{--<!-- google icon -->--}}
+{{--<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />--}}
+{{--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@NaN,0,0,0" />--}}
+
+
 <!-- STYLE CSS -->
 
 @if(lang() == 'ar')
