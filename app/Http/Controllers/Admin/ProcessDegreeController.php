@@ -35,13 +35,10 @@ class ProcessDegreeController extends Controller
                 })
                 ->addColumn('request_status', function ($process_degrees) {
                     if ($process_degrees->request_status === 'refused') {
-                        return '<td><a class="btn btn-danger text-white">'. trans('admin.refused') .'</a></td>';
-                    }
-                    elseif($process_degrees->request_status === 'accept')
-                    {
-                        return '<td><a class="btn btn-success text-white">'. trans('admin.accept') .'</a></td>';
-                    }
-                     else {
+                        return '<td><a class="btn btn-danger text-white">' . trans('admin.refused') . '</a></td>';
+                    } elseif ($process_degrees->request_status === 'accept') {
+                        return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
+                    } else {
                         return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
                             <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
                             <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
@@ -144,11 +141,11 @@ class ProcessDegreeController extends Controller
     public function edit(ProcessDegree $processDegree)
     {
         $data['students'] = User::query()
-        ->where('user_type', 'student')
+            ->where('user_type', 'student')
             ->get();
 
         $data['subjects'] = Subject::query()
-        ->get();
+            ->get();
 
         $data['doctors'] = User::find($processDegree->doctor_id);
         return view('admin.process_degrees.parts.edit', compact('processDegree', 'data'));
@@ -184,7 +181,7 @@ class ProcessDegreeController extends Controller
     public function destroy(Request $request)
     {
         $processDegree = ProcessDegree::query()
-        ->where('id', $request->id)
+            ->where('id', $request->id)
             ->firstOrFail();
 
         $processDegree->delete();
@@ -221,7 +218,7 @@ class ProcessDegreeController extends Controller
     public function updateDegree(Request $request): JsonResponse
     {
         $inputs = SubjectExamStudentResult::query()
-        ->where('id', $request->id)
+            ->where('id', $request->id)
             ->first();
 
         if ($inputs->exam_degree < $request->studentDegree) {
@@ -232,5 +229,98 @@ class ProcessDegreeController extends Controller
             ]);
             return response()->json(['code' => 200]);
         }
+    } // end update degree
+
+    public function history()
+    {
+        $history = ProcessDegree::get(['id', 'user_id', 'created_at', 'session']);
+        return view('admin.process_degrees.history', compact('history'));
+    } // end process degree history
+
+
+    public function normal(Request $request)
+    {
+        $process_degrees = ProcessDegree::query()
+            ->where('session', '=', 'عاديه')
+            ->where('doctor_id','=',Auth::user()->id)
+            ->get();
+
+        if ($request->ajax()) {
+            return DataTables::of($process_degrees)
+                ->addColumn('action', function ($process_degrees) {
+                    return '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal" data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user . '">
+                        <i class="fas fa-trash"></i>
+                    </button>';
+                })
+                ->addColumn('user_id', function () {
+                    return '<td>' . auth()->user()->first_name . '</td>';
+                })
+                ->addColumn('request_status', function ($process_degrees) {
+                    if ($process_degrees->request_status === 'refused') {
+                        return '<td><a class="btn btn-danger text-white">' . trans('admin.refused') . '</a></td>';
+                    } elseif ($process_degrees->request_status === 'accept') {
+                        return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
+                    } else {
+                        return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
+                            <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
+                            <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
+                            <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
+                        </select>';
+                    }
+                })
+                ->addColumn('subject', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->subject->subject_name . '</td>';
+                })
+                ->addColumn('doctor', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->doctor->first_name . '</td>';
+                })
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.process_degrees.normal');
+        }
     }
+
+    public function catchUp(Request $request)
+    {
+        $process_degrees = ProcessDegree::query()
+            ->where('session', '=', 'استدراكيه')
+            ->where('doctor_id','=',Auth::user()->id)
+            ->get();
+
+        if ($request->ajax()) {
+            return DataTables::of($process_degrees)
+                ->addColumn('action', function ($process_degrees) {
+                    return '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal" data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->user . '">
+                        <i class="fas fa-trash"></i>
+                    </button>';
+                })
+                ->addColumn('user_id', function () {
+                    return '<td>' . auth()->user()->first_name . '</td>';
+                })
+                ->addColumn('request_status', function ($process_degrees) {
+                    if ($process_degrees->request_status === 'refused') {
+                        return '<td><a class="btn btn-danger text-white">' . trans('admin.refused') . '</a></td>';
+                    } elseif ($process_degrees->request_status === 'accept') {
+                        return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
+                    } else {
+                        return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
+                            <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
+                            <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
+                            <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
+                        </select>';
+                    }
+                })
+                ->addColumn('subject', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->subject->subject_name . '</td>';
+                })
+                ->addColumn('doctor', function ($process_degrees) {
+                    return '<td>' . @$process_degrees->doctor->first_name . '</td>';
+                })
+                ->escapeColumns([])
+                ->make(true);
+        } else {
+            return view('admin.process_degrees.catch_up');
+        } // end if
+    } // end method
 }

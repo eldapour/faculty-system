@@ -273,8 +273,8 @@ return [
     'session' => "الدورة",
     'time_start' => 'وقت البدء',
     'time_end' => 'وقت النهاية',
-    'catch_up' => 'استدراكي',
-    'normal' => 'عاديه',
+    'catch_up' => 'استدراكية',
+    'normal' => 'عادية',
 
 
 
@@ -511,6 +511,7 @@ return [
     "point statement" => "بيان النقط",
     "code_latin" => "الكود بالاتينيه",
     "requests" => "الطلبات",
+    "all_requests" => "جميع طلبات المراجعة",
 
 
 

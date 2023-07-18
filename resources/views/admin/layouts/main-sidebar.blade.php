@@ -40,13 +40,24 @@
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
-                    <li><a href="{{ route('process_degrees.index') }}"
-                           class="slide-item">{{ trans('admin.normal') }}</a></li>
-                    <li><a href="{{ route('subject_exam_student_result.index') }}"
-                           class="slide-item">{{ trans('admin.catch_up') }}</a></li>
+                    <li><a href="{{ route('process_degrees.normal') }}"
+                           class="slide-item">{{ trans('admin.normal') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('process_degrees.catchUp') }}"
+                           class="slide-item">{{ trans('admin.catch_up') }}
+                        </a>
+                    </li>
 
                 </ul>
             </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('process_degrees.history')}}">
+                        <i class="fe fe-settings side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.all_requests') }}</span>
+                    </a>
+                </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{route('indexDoctor')}}">
                     <i class="fe fe-settings side-menu__icon"></i>
@@ -104,7 +115,7 @@
                     <li><a href="{{ route('presentations.index') }}"
                            class="slide-item">{{ trans('admin.presentations') }}</a></li>
                     <li><a href="{{ route('video.index') }}" class="slide-item">{{ trans('admin.videos') }}</a></li>
-
+                </ul>
                     @endif
                     {{-- end website data --}}
 
