@@ -180,6 +180,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     #### Subject Student ####
     Route::resource('subject_student', SubjectStudentController::class);
+    Route::get('subject_student_U', [SubjectStudentController::class,'Studentindex'])->name('Studentindex');
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class)->middleware('forbidden');
