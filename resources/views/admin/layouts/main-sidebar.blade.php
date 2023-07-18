@@ -116,89 +116,6 @@
                            class="slide-item">{{ trans('admin.presentations') }}</a></li>
                     <li><a href="{{ route('video.index') }}" class="slide-item">{{ trans('admin.videos') }}</a></li>
                 </ul>
-
-
-                    {{-------------------------- start region student - الطالب ------------------------}}
-                    @if(checkUser('student'))
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('profile')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{trans('admin.profile')}}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('subject_student.index')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('internal_ads.show') }}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
-                            </a>
-                        </li>
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.college_enrollment_certificate') }}
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('schedules.students.all')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span>
-                            </a>
-                        </li>
-
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('subject_exams.students.all')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.subject_exam_student') }}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('exam_result.all')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
-                            </a>
-                        </li>
-
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('documents.student')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.Student documents') }}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{ route('users.show') }}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.points') }}</span>
-                            </a>
-                        </li>
-
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('processDegreeStudent')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
-                            </a>
-                        </li>
-                        <li class="slide">
-                            <a class="side-menu__item" href="{{route('subject_exams.index')}}">
-                                <i class="fe fe-file-text side-menu__icon"></i>
-                                <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
-                            </a>
-                        </li>
-                    @endif
-                    {{-------------------------- end region student - الطالب ------------------------}}
-
         @endif
         {{-- end website data --}}
 
@@ -494,91 +411,87 @@
 
 
 
-        {{-------------------------- start region student - الطالب ------------------------}}
-        @if(checkUser('student'))
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('profile')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{trans('admin.profile')}}</span>
-                </a>
-            </li>
 
-            <li class="slide">
+            {{-------------------------- start region student - الطالب ------------------------}}
+            @if(checkUser('student'))
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('profile')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{trans('admin.profile')}}</span>
+                    </a>
+                </li>
 
-                <a class="side-menu__item" href="{{route('Studentindex')}}">
-                    <i class="fe fe-settings side-menu__icon"></i>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('subject_student.index')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
+                    </a>
+                </li>
 
-                <a class="side-menu__item" href="{{route('subject_student.index')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('indexDoctor')}}">
+                        <i class="fe fe-settings side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.college_enrollment_certificate') }}
+                    </a>
+                </li>
 
-                    <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
-                </a>
-            </li>
-
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('internal_ads.show') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.internal_ads') }}</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('certificates.registeration') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.college_enrollment_certificate') }}
-                </a>
-            </li>
-
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('schedules.students.all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span>
-                </a>
-            </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('schedules.students.all')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.all_schedules') }}</span>
+                    </a>
+                </li>
 
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('subject_exams.students.all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_student') }}</span>
-                </a>
-            </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('subject_exams.students.all')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_student') }}</span>
+                    </a>
+                </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('exam_result.all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
-                </a>
-            </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('exam_result.all')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span>
+                    </a>
+                </li>
 
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('documents.student')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.Student documents') }}</span>
-                </a>
-            </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('documents.student')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.Student documents') }}</span>
+                    </a>
+                </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('users.show') }}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.points') }}</span>
-                </a>
-            </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('users.show') }}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.points') }}</span>
+                    </a>
+                </li>
 
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('processDegreeStudent')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
-                </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{route('subject_exams.index')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
-                    <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
-                </a>
-            </li>
-        @endif
-        {{-------------------------- end region student - الطالب ------------------------}}
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('processDegreeStudent')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.process_degrees') }}</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('subject_exams.index')}}">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('admin.process_exams') }}</span>
+                    </a>
+                </li>
+            @endif
+            {{-------------------------- end region student - الطالب ------------------------}}
 
 
         {{-------------------------- start region manager - العميد ------------------------}}
