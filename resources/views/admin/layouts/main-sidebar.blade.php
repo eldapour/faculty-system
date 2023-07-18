@@ -269,7 +269,8 @@
 
 
 
-                        <li class="slide">
+
+                <li class="slide">
                             <a class="side-menu__item" data-toggle="slide" href="#">
                                 <i class="fe fe-file-text side-menu__icon"></i>
                                 <span class="side-menu__label">{{ trans('admin.subject_exams') }}</span><i
@@ -284,7 +285,21 @@
                             </ul>
                         </li>
 
-                    @endif
+                <li class="slide">
+                    <a class="side-menu__item" data-toggle="slide" href="#">
+                        <i class="fe fe-file-text side-menu__icon"></i>
+                        <span class="side-menu__label">{{ trans('subject_exam_student_result.results') }}</span><i
+                            class="angle fa fa-angle-right"></i>
+                    </a>
+                    <ul class="slide-menu">
+                        <li><a href="{{ route('subject_exam_student_result.index') }}" class="slide-item">{{ trans('subject_exam_student_result.normal') }}</a></li>
+                        <li><a href="{{ route('results.remedial') }}" class="slide-item">{{ trans('subject_exam_student_result.remedial') }}</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            @endif
 
                     @if (checkUser('employee'))
                         <li class="slide">
