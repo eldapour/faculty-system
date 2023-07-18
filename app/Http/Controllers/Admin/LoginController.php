@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -16,7 +15,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Str;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -76,14 +75,16 @@ class LoginController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function activeStudents(Request $request)
+    public function activeStudents(Request $request): JsonResponse
     {
-        $user = User::where('email', '=', $request->email)
+        $user = User::query()
+        ->where('email', '=', $request->email)
             ->where('user_type', '=', 'student')
             ->where('national_id', '=', $request->national_id)
             ->where('birthday_date', '=', $request->birthday_date)
             ->where('national_number', '=', $request->national_number)
             ->first();
+
         if ($user) {
             if ($user->user_status !== 'un_active') {
                 return response()->json(401);
@@ -156,6 +157,7 @@ class LoginController extends Controller
         $checkToken = DB::table('password_resets')
             ->where('token', $token)
             ->first();
+
         if (!$checkToken) {
             return view('admin.error.index');
         }else if ($checkToken->created_at > $expiredDate) {
