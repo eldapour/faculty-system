@@ -69,7 +69,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
 <!-- toastr JS -->
-<script type="text/javascript"  src="{{ asset('assets/admin/toastr/toastr.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/admin/toastr/toastr.js') }}"></script>
 
 
 <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
@@ -77,6 +77,7 @@
 
 {{--owl carousel --}}
 <script src="{{ asset('assets/front/') }}/assets/js/owl.carousel.min.js"></script>
+
 
 <script>
 
@@ -115,17 +116,24 @@
                         </div>
         `;
 
-    <?php
-    $reregistration = \App\Models\TrackReregister::query()
-        ->where('user_id', auth()->user()->id)
-        ->where('year','>=', \Carbon\Carbon::parse($periods[0]->year_start)->format('Y'))
-        ->where('year','<=', \Carbon\Carbon::parse($periods[0]->year_end)->format('Y'))
-        ->first();
-    ?>
 
-    @if($reregistration == null)
+    @php
+        $period = \App\Models\Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+
+        $reregistration = \App\Models\DepartmentBranchStudent::query()
+        ->where('user_id', '=', Auth::user()->id)
+        ->where('register_year','=',$period->year_start)
+        ->where('register_year','<',$period->year_end)
+        ->first();
+    @endphp
+
+
+    @if($reregistration)
+    @if($reregistration->branch_restart_register == 0)
     $(document).ready(function () {
-        if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_start < \Carbon\Carbon::now() }}) {
+        if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_end > \Carbon\Carbon::now() }}) {
             $('#RegisterForm-body').html(loader)
             $('#RegisterForm').modal('show')
             setTimeout(function () {
@@ -133,6 +141,7 @@
             }, 250)
         }
     })
+    @endif
     @endif
 
 
