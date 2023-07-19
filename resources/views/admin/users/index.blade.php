@@ -48,6 +48,7 @@
                                 <th class="min-w-125px">{{trans('student.identifier_id')}}</th>
                                 <th class="min-w-125px">{{trans('student.national_number')}}</th>
                                 <th class="min-w-125px">{{trans('student.national_id')}}</th>
+                                <th class="min-w-125px">{{trans('admin.students_types')}}</th>
                                 <th class="min-w-125px">{{trans('student.first_name')}}</th>
                                 <th class="min-w-125px">{{trans('student.last_name')}}</th>
                                 <th class="min-w-125px">{{trans('student.first_name_latin')}}</th>
@@ -167,6 +168,7 @@
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'national_number', name: 'national_number'},
             {data: 'national_id', name: 'national_id'},
+            {data: 'student_type_id', name: 'student_type_id'},
             {data: 'first_name', name: 'first_name'},
             {data: 'last_name', name: 'last_name'},
             {data: 'first_name_latin', name: 'first_name_latin'},

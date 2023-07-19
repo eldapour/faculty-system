@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\UserExport;
 use App\Http\Middleware\CheckForbidden;
 use App\Imports\UserImport;
+use App\Models\StudentType;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -53,16 +54,20 @@ class UserController extends Controller
 
                     return $user->created_at->diffForHumans();
                 })
+                ->editColumn('student_type_id', function ($user) {
+
+                    return $user->types->student_type ?? '';
+                })
                 ->editColumn('image', function ($user) {
 
                     if ($user->image != null) {
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $user->image)  . '">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $user->image) . '">
                     ';
                     } else {
 
                         return '
-                    <img alt="image" class="avatar avatar-md rounded-circle" src="' .  asset("uploads/users/default/avatar2.jfif") . '">
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/default/avatar2.jfif") . '">
                     ';
                     }
                 })
@@ -79,7 +84,7 @@ class UserController extends Controller
         if ($request->ajax()) {
             $users = User::query()
                 ->where('id', '=', auth()->user()->id)
-                ->select('id','first_name', 'points')
+                ->select('id', 'first_name', 'points')
                 ->get();
 
             return Datatables::of($users)
@@ -121,8 +126,11 @@ class UserController extends Controller
     {
 
         $types = ['student', 'doctor', 'employee', 'manger', 'factor'];
+        $studentTypes = StudentType::query()
+            ->select('student_type', 'id')
+            ->get();
 
-        return view('admin/users.parts.create', compact('types'));
+        return view('admin/users.parts.create', compact('types','studentTypes'));
     }
 
     public function store(Request $request): JsonResponse
@@ -135,15 +143,16 @@ class UserController extends Controller
             'last_name_latin' => 'required',
             'email' => 'required|unique:users,email',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'university_email'  => 'required|unique:users,university_email',
+            'university_email' => 'required|unique:users,university_email',
             'identifier_id' => 'required|unique:users,identifier_id',
-            'national_id'  => 'required|unique:users,national_id',
+            'national_id' => 'required|unique:users,national_id',
             'national_number' => 'required|unique:users,national_number',
             'birthday_date' => 'required|date_format:Y-m-d',
             'birthday_place' => 'required',
             'city_ar' => 'required',
             'city_latin' => 'required',
             'address' => 'required',
+            'student_type_id' => 'required',
             'country_address_ar' => 'required',
             'country_address_latin' => 'required',
             'university_register_year' => 'required',
@@ -179,6 +188,7 @@ class UserController extends Controller
             'country_address_latin' => $request->country_address_latin,
             'user_status' => 'un_active',
             'university_register_year' => $request->university_register_year,
+            'student_type_id' => $request->student_type_id,
             'email' => $request->email,
 
         ]);
@@ -195,9 +205,12 @@ class UserController extends Controller
     public function edit(User $user)
     {
 
-        return view('admin/users/parts.edit', compact('user'));
-    }
+        $studentTypes = StudentType::query()
+            ->select('student_type', 'id')
+            ->get();
 
+        return view('admin/users/parts.edit', compact('user','studentTypes'));
+    }
 
 
     public function update(Request $request): JsonResponse
@@ -215,15 +228,16 @@ class UserController extends Controller
             'email' => 'required|unique:users,email,' . $request->id,
             'password' => 'nullable|min:6',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'university_email'  => 'nullable|unique:users,university_email,' . $request->id,
+            'university_email' => 'nullable|unique:users,university_email,' . $request->id,
             'identifier_id' => 'nullable|unique:users,identifier_id,' . $request->id,
-            'national_id'  => 'nullable|unique:users,national_id,' . $request->id,
+            'national_id' => 'nullable|unique:users,national_id,' . $request->id,
             'national_number' => 'nullable|unique:users,national_number,' . $request->id,
             'birthday_date' => 'nullable|date_format:Y-m-d',
             'birthday_place' => 'required',
             'city_ar' => 'required',
             'city_latin' => 'required',
             'address' => 'required',
+            'student_type_id' => 'required',
             'country_address_ar' => 'required',
             'country_address_latin' => 'required',
             'university_register_year' => 'nullable'
@@ -237,8 +251,8 @@ class UserController extends Controller
             $request['image'] = "$profileImage";
 
 
-            if (file_exists(public_path('uploads/users/'.$user->image)) && $user->image != null) {
-                unlink(public_path('uploads/users/'.$user->image));
+            if (file_exists(public_path('uploads/users/' . $user->image)) && $user->image != null) {
+                unlink(public_path('uploads/users/' . $user->image));
             }
         }
 
@@ -252,6 +266,7 @@ class UserController extends Controller
             'university_email' => $request->university_email,
             'identifier_id' => $request->identifier_id,
             'national_id' => $request->national_id,
+            'student_type_id' => $request->student_type_id,
             'national_number' => $request->national_number,
             'nationality' => $request->nationality,
             'birthday_date' => $request->birthday_date,
@@ -284,7 +299,7 @@ class UserController extends Controller
 
     public function importUser(Request $request): JsonResponse
     {
-        $import = Excel::import(new UserImport(),$request->exelFile);
+        $import = Excel::import(new UserImport(), $request->exelFile);
         if ($import) {
             return response()->json(['status' => 200]);
         } else {

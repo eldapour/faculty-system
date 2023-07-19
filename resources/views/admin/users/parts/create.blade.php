@@ -26,6 +26,20 @@
 
             </div>
 
+            <div class="col-md-12 col-12">
+
+                <div class="form-group">
+                    <label for="name" class="form-control-label">{{trans('admin.student_type')}}</label>
+                    <select  class="form-control" name="student_type_id">
+                        <option value="" disabled selected>@lang('admin.select')</option>
+                        @foreach($studentTypes as $t)
+                            <option value="{{ $t->id }}">{{ $t->student_type }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+
 
 
             <div class="col-md-6 col-12">

@@ -59,6 +59,8 @@ return [
     "users" => "مستخدمين",
     "student" => "طالب",
     "students" => "طلاب",
+    "students_types" => "أنواع الطلبة",
+    "student_type" => "نوع الطالب",
     "autumnal" => "ربيعيه",
     "fall" => "خريفيه",
     "facebook_link" => 'رابط الفسيبوك',

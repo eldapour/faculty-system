@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\PointStatementController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StudentTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeadlineController;
@@ -142,6 +143,10 @@ use Illuminate\Support\Facades\Auth;
     Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches')->middleware('forbidden');
     Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent')->middleware('forbidden');
     Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent')->middleware('forbidden');
+
+
+    #### students types ####
+    Route::resource('studentType',StudentTypeController::class);
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);

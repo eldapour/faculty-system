@@ -87,6 +87,7 @@
                 </a>
                 <ul class="slide-menu">
                     <li><a href="{{ route('users.index') }}" class="slide-item">{{ trans('admin.all_users') }}</a></li>
+                    <li><a href="{{route('studentType.index')}}" class="slide-item">{{ trans('admin.students_types') }}</a></li>
                     <li><a href="{{ route('admins.index') }}" class="slide-item">{{ trans('admin.all_admins') }}</a>
                     </li>
                 </ul>

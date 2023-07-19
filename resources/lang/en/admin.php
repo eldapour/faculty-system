@@ -59,6 +59,8 @@ return [
     "users" => "Users",
     "student" => "Student",
     "students" => "Students",
+    "students_types" => "students types",
+    "student_type" => "student type",
     "autumnal" => "Autumnal",
     "fall" => "Fall",
     "facebook_link" => 'Facebook Link',
