@@ -48,9 +48,6 @@
             <div class="owl-carousel owl-theme mb-5">
                 @foreach ($advertisements_list->chunk(6) as $chunk)
                     <div class="row">
-وعليكم السلام
-                    hello
-                    how are u abdullah
                         @foreach ($chunk as $advertisement)
                             <div class="col-lg-4 col-md-6 col-12 mb-4">
                                 <div class="card card-blog">
@@ -59,7 +56,6 @@
                                             src="{{ asset('/uploads/advertisements/background_image/'. $advertisement->background_image) }}"
                                             class="card-img-top"
                                             alt="no-image">
-                                            {!! Form::date($name, $value, [$options]) !!}
                                     </a>
                                     <div class="card-body mt-3">
                                         <div class="card-date">

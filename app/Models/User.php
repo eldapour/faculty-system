@@ -34,6 +34,7 @@ class User extends Authenticatable
         'university_email',
         'identifier_id',
         'national_id',
+        'student_type_id',
         'national_number',
         'nationality',
         'birthday_date',
@@ -77,6 +78,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Subject::class,'subject_students','user_id','subject_id','id','id')
             ->withPivot(['group_id', 'year','period'])
             ->withTimestamps();
+    }
+
+    public function types()
+    {
+        return $this->belongsTo(StudentType::class,'student_type_id','id');
     }
 
 
