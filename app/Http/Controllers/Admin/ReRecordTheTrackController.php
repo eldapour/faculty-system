@@ -32,23 +32,17 @@ class ReRecordTheTrackController extends Controller
 
     public function reregisterFormStore(Request $request)
     {
-        $period = Period::query()->first();
-        $reregister = TrackReregister::query()
-            ->where('user_id','=',$request->user_id)
-            ->where('year','>=',Carbon::parse($period->year_start)->format('Y'))
-            ->where('year','<=',Carbon::parse($period->year_end)->format('Y'))
+        $period = \App\Models\Period::query()
+            ->where('status', '=', 'start')
             ->first();
-        if (!$reregister){
-            $reregister = TrackReregister::query()
-            ->create([
-                'user_id' => auth()->user()->id,
-                'year' => Carbon::now()->format('Y'),
-                'status' => 1,
-            ]);
-        }else {
-            $reregister->status = 1;
-            $reregister->save();
-        }
+        $reregister = DepartmentBranchStudent::query()
+            ->where('user_id','=',auth()->user()->id)
+            ->where('register_year','=',$period->year_start)
+            ->where('register_year','<',$period->year_end)
+        	->first()
+            ->update(['branch_restart_register' => 1]);
+
+
         if ($reregister){
             return response()->json(['status' => 200]);
         } else {

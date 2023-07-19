@@ -9,7 +9,7 @@
                         <th>#</th>
                         <th>@lang('admin.unit')</th>
                         <th>@lang('admin.group')</th>
-                        <th>@lang('admin.subject')</th>
+                        <th>@lang('admin.subjects')</th>
                         <th>@lang('admin.doctor')</th>
                     </tr>
                     </thead>
