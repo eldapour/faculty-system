@@ -15,13 +15,14 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
-class DepartmentBranchStudentController extends Controller{
+class DepartmentBranchStudentController extends Controller
+{
 
     public function index(request $request)
     {
         if ($request->ajax()) {
             $branchStudent = DepartmentBranchStudent::query()
-            ->get();
+                ->get();
 
             return Datatables::of($branchStudent)
                 ->addColumn('action', function ($branchStudent) {
@@ -37,16 +38,21 @@ class DepartmentBranchStudentController extends Controller{
                     return $branchStudent->branch->getTranslation('branch_name', app()->getLocale());
                 })
                 ->editColumn('department_id', function ($branchStudent) {
-                    $department_id =  $branchStudent->branch->department_id;
-                    $department = Department::where('id',$department_id)
+                    $department_id = $branchStudent->branch->department_id;
+                    $department = Department::where('id', $department_id)
                         ->first();
                     return $department->department_name;
 
                 })
+                ->editColumn('branch_restart_register', function ($branchStudent) {
+                    return '<input class="tgl tgl-ios like_active" disabled
+                     id="like-' . $branchStudent->id . '" type="checkbox" ' .
+                        ($branchStudent->branch_restart_register == 1 ? 'checked' : 'unchecked') . '/>
+                  <label class="tgl-btn" dir="ltr" for="like-' . $branchStudent->id . '"></label>';
+                })
                 ->editColumn('identifier_id', function ($branchStudent) {
                     return $branchStudent->student->identifier_id;
                 })
-
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -58,12 +64,12 @@ class DepartmentBranchStudentController extends Controller{
     {
         $departments = Department::get();
         $students = User::query()
-            ->select('id','identifier_id')
-            ->where('user_type','student')
-            ->where('user_status','active')
+            ->select('id', 'identifier_id')
+            ->where('user_type', 'student')
+            ->where('user_status', 'active')
             ->get();
 
-        return view('admin.branch_students.parts.create', compact('departments','students'));
+        return view('admin.branch_students.parts.create', compact('departments', 'students'));
     }
 
 
@@ -82,8 +88,8 @@ class DepartmentBranchStudentController extends Controller{
     public function edit(DepartmentBranchStudent $userBranch)
     {
         $departments = Department::get();
-        $students = User::where('user_type','student')->where('user_status','active')->get();
-        return view('admin.branch_students.parts.edit', compact('students','userBranch', 'departments'));
+        $students = User::where('user_type', 'student')->where('user_status', 'active')->get();
+        return view('admin.branch_students.parts.edit', compact('students', 'userBranch', 'departments'));
     }
 
 
@@ -108,7 +114,7 @@ class DepartmentBranchStudentController extends Controller{
     {
         $id = $request->id;
         $branches = DepartmentBranch::query()
-        ->where('department_id', $id)
+            ->where('department_id', $id)
             ->get()
             ->pluck('branch_name', 'id')
             ->toArray();

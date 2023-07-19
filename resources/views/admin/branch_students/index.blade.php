@@ -42,6 +42,7 @@
                                 <th class="min-w-50px"> {{__('student.identifier_id')}}</th>
                                 <th class="min-w-50px"> {{__('admin.department')}}</th>
                                 <th class="min-w-50px"> {{__('admin.branch')}}</th>
+                                <th class="min-w-50px"> {{__('admin.re_record_the_track')}}</th>
                                 <th class="min-w-50px"> {{__('admin.register_year')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
@@ -142,6 +143,7 @@
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'department_id', name: 'department_id'},
             {data: 'department_branch_id', name: 'department_branch_id'},
+            {data: 'branch_restart_register', name: 'branch_restart_register'},
             {data: 'register_year', name: 'register_year'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
