@@ -62,7 +62,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('student_type_id')->references('id')->on('student_type')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('student_type_id')->references('id')->on('student_types')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
     }
