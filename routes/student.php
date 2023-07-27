@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
+// Humsi fix it eslam
+
 Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath','auth']], function () {
 
     Route::get('subject-student-all',[SubjectStudentController::class,'index'])->name('subject-student-all');
