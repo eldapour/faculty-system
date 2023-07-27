@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ProcessExport;
 use App\Http\Middleware\CheckForbidden;
 use Carbon\Carbon;
 use DateTime;
@@ -15,6 +16,8 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProcessExamRequest;
+use App\Imports\ProcessImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProcessExamController extends Controller
 {
@@ -187,4 +190,20 @@ class ProcessExamController extends Controller
 
         return response()->json(['code' => 200, 'status' => $request->status]);
     }
+
+    public function exportProcess()
+    {
+        return Excel::download(new ProcessExport(), 'processExam.xlsx');
+    }
+
+    public function importProcess(Request $request): JsonResponse
+    {
+        $import = Excel::import(new ProcessImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    }
+
 }

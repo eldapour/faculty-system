@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DocumentExport;
+use App\Exports\DocumentExport as DocumentExportAlias;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\CheckForbidden;
+use App\Imports\DocumentImport;
 use App\Models\Document;
 use App\Models\DocumentType;
 use App\Models\Period;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class DocumentController extends Controller
@@ -232,6 +236,22 @@ class DocumentController extends Controller
 
         $document->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    }
+
+
+    public function exportDocument()
+    {
+        return Excel::download(new DocumentExport(), 'Documents.xlsx');
+    }
+
+    public function importDocument(Request $request)
+    {
+        $import = Excel::import(new DocumentImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
     }
 
 }

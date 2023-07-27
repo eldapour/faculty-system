@@ -106,6 +106,9 @@ use Illuminate\Support\Facades\Auth;
     #### Admins ####
     Route::resource('admins', AdminController::class)->except(['show'])->middleware('forbidden');
     Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete')->middleware('forbidden');
+    Route::get('exportAdmin', [AdminController::class, 'exportAdmin'])->name('exportAdmin')->middleware('forbidden');
+    Route::post('importAdmin', [AdminController::class, 'importAdmin'])->name('importAdmin')->middleware('forbidden');
+
     //user
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');
     Route::post('updatePass', [AdminController::class, 'updatePass'])->name('updatePass');
@@ -244,12 +247,18 @@ use Illuminate\Support\Facades\Auth;
     Route::post('documents.delete', [DocumentController::class, 'delete'])->name('documents.delete')->middleware('forbidden');
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing')->middleware('forbidden');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
+     Route::get('exportDocument', [DocumentController::class, 'exportDocument'])->name('exportDocument')->middleware('forbidden');
+    Route::post('importDocument', [DocumentController::class, 'importDocument'])->name('importDocument')->middleware('forbidden');
+
 
 
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
     Route::get('process_examss/students/{id}', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
+    Route::get('exportProcess', [ProcessExamController::class, 'exportProcess'])->name('exportProcess')->middleware('forbidden');
+    Route::post('importProcess', [ProcessExamController::class, 'importProcess'])->name('importProcess')->middleware('forbidden');
+
 
 
     #### Element ####

@@ -1,22 +1,35 @@
 @extends('admin/layouts/master')
 
-@section('title')  {{trans('admin.all_admins')}} @endsection
-@section('page_name') {{trans('admin.all_admins')}} @endsection
+@section('title')
+    {{ trans('admin.all_admins') }}
+@endsection
+@section('page_name')
+    {{ trans('admin.all_admins') }}
+@endsection
 @section('css')
     @include('admin.layouts.loader.formLoader.loaderCss')
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{trans('admin.all_admins')}}</h3>
+                    <h3 class="card-title">{{ trans('admin.all_admins') }}</h3>
                     <div class="">
+                        <button class="btn btn-primary btn-icon text-white" data-toggle="modal" data-target="#importExel">
+                            <span>
+                                <i class="fe fe-download"></i>
+                            </span> {{ trans('admin.import') }}
+                        </button>
+                        <button class="btn btn-success btn-icon exportBtn text-white">
+                            <span>
+                                <i class="fe fe-upload"></i>
+                            </span> {{ trans('admin.export') }}
+                        </button>
                         <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span>{{trans('admin.add_admin')}}
+                            <span>
+                                <i class="fe fe-plus"></i>
+                            </span>{{ trans('admin.add_admin') }}
                         </button>
                     </div>
                 </div>
@@ -27,20 +40,20 @@
                             <thead>
 
 
-                            <tr class="fw-bolder text-muted bg-light">
+                                <tr class="fw-bolder text-muted bg-light">
 
 
-                                <th class="min-w-25px">{{trans('admin.id')}}</th>
-                                <th class="min-w-50px">{{trans('admin.image_admin')}}</th>
-                                <th class="min-w-50px">{{trans('admin.first_name')}}</th>
-                                <th class="min-w-125px">{{trans('admin.last_name')}}</th>
-                                <th class="min-w-125px">{{trans('student.first_name_latin')}}</th>
-                                <th class="min-w-125px">{{trans('student.last_name_latin')}}</th>
-                                <th class="min-w-125px">{{trans('admin.email')}}</th>
-                                <th class="min-w-125px">{{trans('admin.user_type')}}</th>
-                                <th class="min-w-125px">{{trans('admin.job_id')}}</th>
-                                <th class="min-w-125px">{{trans('admin.action')}}</th>
-                            </tr>
+                                    <th class="min-w-25px">{{ trans('admin.id') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.image_admin') }}</th>
+                                    <th class="min-w-50px">{{ trans('admin.first_name') }}</th>
+                                    <th class="min-w-125px">{{ trans('admin.last_name') }}</th>
+                                    <th class="min-w-125px">{{ trans('student.first_name_latin') }}</th>
+                                    <th class="min-w-125px">{{ trans('student.last_name_latin') }}</th>
+                                    <th class="min-w-125px">{{ trans('admin.email') }}</th>
+                                    <th class="min-w-125px">{{ trans('admin.user_type') }}</th>
+                                    <th class="min-w-125px">{{ trans('admin.job_id') }}</th>
+                                    <th class="min-w-125px">{{ trans('admin.action') }}</th>
+                                </tr>
 
                             </thead>
                         </table>
@@ -50,8 +63,7 @@
         </div>
 
         <!--Delete MODAL -->
-        <div class="modal fade" id="delete_modal"  role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+        <div class="modal fade" id="delete_modal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -76,7 +88,7 @@
         <!-- MODAL CLOSED -->
 
         <!-- Edit MODAL -->
-        <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
+        <div class="modal fade" id="editOrCreate" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" id="modalContent">
 
@@ -85,6 +97,43 @@
         </div>
         <!-- Edit MODAL CLOSED -->
     </div>
+
+     <!-- Import Modal -->
+     <div class="modal fade" id="importExel"  role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@lang('admin.import')</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <form method="post" id="importExelForm" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <label class="form-label" for="exelFile"></label>
+                            <input class="form-control form-control-file dropify" type="file" name="exelFile">
+                        </div>
+                        <div class="progress d-none">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 1%"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">{{ trans('admin.close') }}</button>
+                            <button type="submit" class="btn btn-primary importBtn">@lang('admin.import')</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Import Modal -->
+
     @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
@@ -96,50 +145,80 @@
                         </div>
         `;
 
-        var columns = [
-            {data: 'id', name: 'id'},
-            {data: 'image', name: 'image'},
-            {data: 'first_name', name: 'first_name'},
-            {data: 'last_name', name: 'last_name'},
-            {data: 'first_name_latin', name: 'first_name_latin'},
-            {data: 'last_name_latin', name: 'last_name_latin'},
-            {data: 'email', name: 'email'},
-            {data: 'user_type', name: 'user_type'},
-            {data: 'job_id', name: 'job_id'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
+        var columns = [{
+                data: 'id',
+                name: 'id'
+            },
+            {
+                data: 'image',
+                name: 'image'
+            },
+            {
+                data: 'first_name',
+                name: 'first_name'
+            },
+            {
+                data: 'last_name',
+                name: 'last_name'
+            },
+            {
+                data: 'first_name_latin',
+                name: 'first_name_latin'
+            },
+            {
+                data: 'last_name_latin',
+                name: 'last_name_latin'
+            },
+            {
+                data: 'email',
+                name: 'email'
+            },
+            {
+                data: 'user_type',
+                name: 'user_type'
+            },
+            {
+                data: 'job_id',
+                name: 'job_id'
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false
+            },
         ]
 
 
 
-        showData('{{route('admins.index')}}', columns);
-        deleteScript('{{route('admins.delete')}}');
+        showData('{{ route('admins.index') }}', columns);
+        deleteScript('{{ route('admins.delete') }}');
 
         // Get Edit View
-        $(document).on('click', '.editBtn', function () {
+        $(document).on('click', '.editBtn', function() {
             var id = $(this).data('id')
-            var url = "{{route('admins.edit',':id')}}";
+            var url = "{{ route('admins.edit', ':id') }}";
             url = url.replace(':id', id)
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
 
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#modalContent').load(url)
             }, 250)
-            setTimeout(function () {
-            }, 500)
+            setTimeout(function() {}, 500)
         })
 
         // Get Add View
-        $(document).on('click', '.addBtn', function () {
+        $(document).on('click', '.addBtn', function() {
             $('#modalContent').html(loader)
             $('#editOrCreate').modal('show')
-            setTimeout(function () {
-                $('#modalContent').load('{{route('admins.create')}}')
+            setTimeout(function() {
+                $('#modalContent').load('{{ route('admins.create') }}')
             }, 250)
         });
 
         // Add By Ajax
-        $(document).on('submit','Form#addForm',function(e) {
+        $(document).on('submit', 'Form#addForm', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#addForm').attr('action');
@@ -148,31 +227,31 @@
                 url: url,
                 type: 'POST',
                 data: formData,
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>'
+                    ).attr('disabled', true);
                 },
 
-                success: function (data) {
+                success: function(data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('{{ trans('admin.added_successfully') }}');
-                    }
-                    else
+                    } else
                         toastr.error('There is an error');
                     $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
 
-                error: function (data) {
+                error: function(data) {
                     if (data.status === 500) {
                         toastr.error('{{ trans('admin.something_went_wrong') }}');
                     } else if (data.status === 422) {
 
                         var errors = $.parseJSON(data.responseText);
-                        $.each(errors, function (key, value) {
+                        $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function(key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -180,7 +259,7 @@
                     } else
                         toastr.error('there in an error');
                     $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
-                },//end error method
+                }, //end error method
                 cache: false,
                 contentType: false,
                 processData: false
@@ -190,7 +269,7 @@
 
 
         // Update By Ajax
-        $(document).on('submit','Form#updateForm',function(e) {
+        $(document).on('submit', 'Form#updateForm', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             var url = $('#updateForm').attr('action');
@@ -198,25 +277,25 @@
                 url: url,
                 type: 'POST',
                 data: formData,
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled',
+                        true);
                 },
 
 
-                success: function (data) {
+                success: function(data) {
 
                     $('#updateButton').html(`Update`).attr('disabled', false);
-                    if (data.status == 200){
+                    if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
                         toastr.success('{{ trans('admin.updated_successfully') }}');
-                    }
-                    else
+                    } else
                         toastr.error('{{ trans('admin.something_went_wrong') }}');
 
                     $('#editOrCreate').modal('hide')
                 },
-                error: function (data) {
+                error: function(data) {
 
                     if (data.status === 500) {
                         toastr.error('{{ trans('admin.something_went_wrong') }}');
@@ -224,9 +303,9 @@
                     } else if (data.status === 422) {
 
                         var errors = $.parseJSON(data.responseText);
-                        $.each(errors, function (key, value) {
+                        $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value){
+                                $.each(value, function(key, value) {
                                     toastr.error(value, key);
                                 });
                             }
@@ -234,7 +313,7 @@
                     } else
                         toastr.error('{{ trans('admin.something_went_wrong') }}');
                     $('#updateButton').html(`Update`).attr('disabled', false);
-                },//end error method
+                }, //end error method
 
                 cache: false,
                 contentType: false,
@@ -243,10 +322,67 @@
         });
 
 
+         // export exel
+         $(document).on('click', '.exportBtn', function () {
+            location.href = '{{ route('exportAdmin') }}';
+        });
+        // import exel
+        $(document).on("submit", "#importExelForm", function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            var progressDiv = $('.progress');
+            var progressBar = $('.progress-bar');
+            progressDiv.addClass('d-none');
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: '{{ route('importAdmin') }}',
+                type: 'POST',
+                data: formData,
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total * 100;
+                            progressBar.css('width', percentComplete + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                beforeSend: function () {
+                    $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                    progressDiv.removeClass('d-none');
+                },
+                success: function (data) {
+                    if (data.status === 200) {
+                        toastr.success('{{ trans('admin.added_successfully') }}');
+                        progressDiv.addClass('d-none');
+                        console.log(data.timeout);
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000)
+
+                    } else if (data.status === 500) {
+                        toastr.error('error')
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000)
+                    }
+                },
+                error: function (data) {
+                    toastr.error('error')
+                    setTimeout(function () {
+                        // window.location.reload();
+                    }, 2000)
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
     </script>
-
-
-
 @endsection
-
-
