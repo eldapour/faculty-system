@@ -84,6 +84,10 @@ trait HasTranslations
             return $this->mutateAttribute($key, $translation);
         }
 
+        if($this->hasAttributeMutator($key)){
+            return $this->mutateAttributeMarkedAttribute($key, $translation);
+        }
+
         return $translation;
     }
 
@@ -128,6 +132,11 @@ trait HasTranslations
             $method = 'set'.Str::studly($key).'Attribute';
 
             $this->{$method}($value, $locale);
+
+            $value = $this->attributes[$key];
+        }
+        elseif($this->hasAttributeSetMutator($key)) { // handle new attribute mutator
+            $this->setAttributeMarkedMutatedAttributeValue($key, $value);
 
             $value = $this->attributes[$key];
         }

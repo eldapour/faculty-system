@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('document_type_id')->comment('نوع الوثيقه');
             $table->boolean('withdraw_by_proxy')->default(false)->comment('سحب بالوكاله');
             $table->string('person_name')->nullable()->comment('اسم الموكل اليه');
-            $table->bigInteger('national_id_of_person')->nullable()->comment('رقم البطاقه الوطنيه للموكل اليه');
+            $table->string('national_id_of_person')->nullable()->comment('رقم البطاقه الوطنيه للموكل اليه');
             $table->longText('card_image')->nullable()->comment('صوره البطاقه');
             $table->date('request_date')->comment('تاريخ الطلب');
             $table->enum('pull_type',['temporary','final'])->comment('نوع السحب مؤقت او نهائي');

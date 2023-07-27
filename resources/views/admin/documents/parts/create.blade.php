@@ -19,7 +19,6 @@
             </select>
         </div>
 
-
         <div class="col-md-12 mb-3">
             <label for="name_ar" class="form-control-label">{{trans('admin.person_name')}}</label>
             <input type="text" class="form-control" name="person_name" id="person_name">

@@ -19,4 +19,10 @@ return [
     "request_status" => "حاله الطلب",
     "processing_request_date" => "تاريخ معالجه الطلب",
 
+
+    "new" => "جديد",
+    "accept" => "مقبول",
+    "refused" => "مرفوض",
+    "under_processing" => "تحت المعالجه",
+
 ];
