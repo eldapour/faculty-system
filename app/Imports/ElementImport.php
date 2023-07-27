@@ -17,15 +17,15 @@ class ElementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
-        $data = [];
         for ($i = 0; $i < count($rows); $i++) {
             // get department data id
             $department_branch_id = DepartmentBranch::query()
                 ->where('department_branch_code',$rows[$i]['department_branch_code'])
                 ->first('id');
 
-            //declare Data rows
-            $data[] = [
+            // create elements loop
+            Element::query()
+                ->create([
                 'name' => [
                     'ar' => $rows[$i]['name_in_arabic'],
                     'en' => $rows[$i]['name_in_english'],
@@ -33,14 +33,6 @@ class ElementImport implements ToCollection, WithHeadingRow
                 ],
                 'period' => $rows[$i]['period'],
                 'department_branch_id' => $department_branch_id->id,
-            ];
-
-            // create elements loop
-            Element::query()
-                ->create([
-                'name' => $data[$i]['name'],
-                'period' => $data[$i]['period'],
-                'department_branch_id' => $data[$i]['department_branch_id'],
             ]);
         }
     }

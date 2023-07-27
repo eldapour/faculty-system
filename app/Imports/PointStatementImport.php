@@ -26,20 +26,13 @@ class PointStatementImport implements ToCollection, WithHeadingRow
             $user = User::where('user_type', '=', 'student')
                 ->where('identifier_id', $rows[$i]['user_code'])->first('id');
 
-            $data['user_id'] = $user->id;
-            $data['element_code'] = $rows[$i]['element_code'];
-            $data['degree_student'] = $rows[$i]['student_degree'];
-            $data['degree_element'] = $rows[$i]['element_degree'];
-            $data['period'] = $rows[$i]['period_rbyaayh_khryfyh'];
-            $data['year'] = $rows[$i]['year'];
-
             PointStatement::create([
-                'user_id' =>$data['user_id'],
-                'element_code' =>$data['element_code'],
-                'degree_student' =>$data['degree_student'],
-                'degree_element' =>$data['degree_element'],
-                'period' =>$data['period'],
-                'year' =>$data['year'],
+                'user_id' =>$user->id,
+                'element_code' =>$rows[$i]['element_code'],
+                'degree_student' =>$rows[$i]['student_degree'],
+                'degree_element' =>$rows[$i]['element_degree'],
+                'period' =>$rows[$i]['period_rbyaayh_khryfyh'],
+                'year' =>$rows[$i]['year'],
             ]);
         }
     }
