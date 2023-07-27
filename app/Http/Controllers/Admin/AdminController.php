@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\AdminExport;
+use App\Imports\AdminImport;
 use App\Models\DataModification;
 use App\Models\DepartmentBranchStudent;
 use App\Models\Period;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -251,6 +254,22 @@ class AdminController extends Controller
                 $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
             });
              return response()->json(['status' => 200]);
+        }
+    }
+
+    
+    public function exportAdmin()
+    {
+        return Excel::download(new AdminExport(), 'admins.xlsx');
+    }
+
+    public function importAdmin(Request $request): JsonResponse
+    {
+        $import = Excel::import(new AdminImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
         }
     }
 }

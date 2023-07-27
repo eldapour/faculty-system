@@ -261,7 +261,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{ route('departmentStudents') }}">
+                <a class="side-menu__item" href="{{ route('userBranches.index') }}">
                     <i class="fe fe-arrow-up-circle side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.department_students') }}</span>
                 </a>

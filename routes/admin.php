@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //first route of admin dashboard
-    Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
     Route::get('/login-admin', [LoginController::class, 'index'])->name('admin.login');
     Route::get('/login-student', [LoginController::class, 'indexStudent'])->name('student.login');
@@ -73,19 +73,19 @@ use Illuminate\Support\Facades\Auth;
     Route::post('/DoneResetPass', [LoginController::class, 'DoneResetPass'])->name('DoneResetPass');
     Route::post('/do-login', [LoginController::class, 'login'])->name('login');
 
-    });
+});
 
-    Route::get('/emailSentBack', function () {
-        return view('admin.mail.emailSentBack');
-    })->name('emailSentBack');
+Route::get('/emailSentBack', function () {
+    return view('admin.mail.emailSentBack');
+})->name('emailSentBack');
 
 //    Route::view('emailSentBack','admin.mail.emailSentBack')->name('emailSentBack');
 
-    Route::get('/forbidden', function () {
-        return view('admin.error.forbidden');
-    })->name('forbidden');
+Route::get('/forbidden', function () {
+    return view('admin.error.forbidden');
+})->name('forbidden');
 
-    Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']], function () {
 
 
     ###################### Category #############################
@@ -106,47 +106,50 @@ use Illuminate\Support\Facades\Auth;
     #### Admins ####
     Route::resource('admins', AdminController::class)->except(['show'])->middleware('forbidden');
     Route::post('admins.delete', [AdminController::class, 'delete'])->name('admins.delete')->middleware('forbidden');
+    Route::get('exportAdmin', [AdminController::class, 'exportAdmin'])->name('exportAdmin')->middleware('forbidden');
+    Route::post('importAdmin', [AdminController::class, 'importAdmin'])->name('importAdmin')->middleware('forbidden');
+
     //user
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');
     Route::post('updatePass', [AdminController::class, 'updatePass'])->name('updatePass');
 
-    Route::group(['middleware' => 'forbidden'],function (){
-    #### Deadline ####
-    Route::resource('deadlines', DeadlineController::class);
+    Route::group(['middleware' => 'forbidden'], function () {
+        #### Deadline ####
+        Route::resource('deadlines', DeadlineController::class);
 
-    #### Setting ####
-    Route::resource('settings', SettingController::class);
+        #### Setting ####
+        Route::resource('settings', SettingController::class);
 
-    #### Service ####
-    Route::resource('services', ServiceController::class);
+        #### Service ####
+        Route::resource('services', ServiceController::class);
 
-    #### departments ####
-    Route::resource('departments', DepartmentController::class);
-    Route::get('departmentStudent', [DepartmentController::class,'departmentStudent'])->name('departmentStudent');
-    Route::get('departmentStudents', [DepartmentController::class,'departmentStudents'])->name('departmentStudents');
+        #### departments ####
+        Route::resource('departments', DepartmentController::class);
+        Route::get('departmentStudent', [DepartmentController::class, 'departmentStudent'])->name('departmentStudent');
+        Route::get('departmentStudents', [DepartmentController::class, 'departmentStudents'])->name('departmentStudents');
 
-    #### sliders ####
-    Route::resource('sliders', SliderController::class);
+        #### sliders ####
+        Route::resource('sliders', SliderController::class);
 
-    #### pages ####
-    Route::resource('pages', PageController::class);
+        #### pages ####
+        Route::resource('pages', PageController::class);
 
-    #### word ####
-    Route::resource('word', WordController::class);
+        #### word ####
+        Route::resource('word', WordController::class);
 
-    #### branches ####
-    Route::resource('branches', DepartmentBranchController::class);
+        #### branches ####
+        Route::resource('branches', DepartmentBranchController::class);
     });
 
     #### user branches ####
     Route::resource('userBranches', DepartmentBranchStudentController::class)->middleware('forbidden');
-    Route::get('getBranches', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranches')->middleware('forbidden');
+    Route::get('getBranchesDepartment', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranchesDepartment')->middleware('forbidden');
     Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent')->middleware('forbidden');
     Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent')->middleware('forbidden');
 
 
     #### students types ####
-    Route::resource('studentType',StudentTypeController::class);
+    Route::resource('studentType', StudentTypeController::class);
 
     #### Internal Ads ####
     Route::resource('internal_ads', InternalAdController::class);
@@ -157,27 +160,27 @@ use Illuminate\Support\Facades\Auth;
     Route::get('internal_ad_student', [InternalAdController::class, 'internalAdsStudent'])->name('internal_ads.show');
 
 
-    Route::group(['middleware' => 'forbidden'],function (){
-    #### Video ####
-    Route::resource('video', VideoController::class);
+    Route::group(['middleware' => 'forbidden'], function () {
+        #### Video ####
+        Route::resource('video', VideoController::class);
 
-    #### Advertisement ####
-    Route::resource('advertisements', AdvertisementController::class);
+        #### Advertisement ####
+        Route::resource('advertisements', AdvertisementController::class);
 
-    #### Presentation ####
-    Route::resource("presentations", PresentationController::class);
+        #### Presentation ####
+        Route::resource("presentations", PresentationController::class);
 
-    #### Slider ####
-    Route::resource('slider', SliderController::class);
+        #### Slider ####
+        Route::resource('slider', SliderController::class);
 
-    #### Group ####
-    Route::resource('group', GroupController::class);
+        #### Group ####
+        Route::resource('group', GroupController::class);
 
-    ### Subject ####
-    Route::resource('subjects', SubjectController::class);
+        ### Subject ####
+        Route::resource('subjects', SubjectController::class);
 
-    #### Unit ####
-    Route::resource('unit', UnitController::class);
+        #### Unit ####
+        Route::resource('unit', UnitController::class);
 
     });
 
@@ -186,7 +189,10 @@ use Illuminate\Support\Facades\Auth;
 
     #### Subject Student ####
     Route::resource('subject_student', SubjectStudentController::class);
-    Route::get('subject_student_U', [SubjectStudentController::class,'Studentindex'])->name('Studentindex');
+    Route::get('subject_student_U', [SubjectStudentController::class, 'Studentindex'])->name('Studentindex');
+    Route::get('exportSubjectStudent', [SubjectStudentController::class, 'exportSubjectStudent'])->name('exportSubjectStudent')->middleware('forbidden');
+    Route::post('importSubjectStudent', [SubjectStudentController::class, 'importSubjectStudent'])->name('importSubjectStudent')->middleware('forbidden');
+
 
     #### Subject Unit Doctor ####
     Route::resource('subject_unit_doctor', SubjectUnitDoctorController::class)->middleware('forbidden');
@@ -229,7 +235,7 @@ use Illuminate\Support\Facades\Auth;
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class)->middleware('forbidden');
-    Route::get('results/remedial', [SubjectExamStudentResultController::class,'index2'])->name('results.remedial')->middleware('forbidden');
+    Route::get('results/remedial', [SubjectExamStudentResultController::class, 'index2'])->name('results.remedial')->middleware('forbidden');
     Route::get('exam_result/all', [\App\Http\Controllers\Student\SubjectExamStudentResultController::class, 'index'])->name('exam_result.all');
     Route::get('exportSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'exportSubjectExamStudentResult'])->name('exportSubjectExamStudentResult')->middleware('forbidden');
     Route::post('importSubjectExamStudentResult', [SubjectExamStudentResultController::class, 'importSubjectExamStudentResult'])->name('importSubjectExamStudentResult')->middleware('forbidden');
@@ -244,12 +250,16 @@ use Illuminate\Support\Facades\Auth;
     Route::post('documents.delete', [DocumentController::class, 'delete'])->name('documents.delete')->middleware('forbidden');
     Route::post('documents/processing', [DocumentController::class, 'processing'])->name('documents.processing')->middleware('forbidden');
     Route::get('documents/student', [DocumentController::class, 'documentsStudent'])->name('documents.student');
+    Route::get('exportDocument', [DocumentController::class, 'exportDocument'])->name('exportDocument')->middleware('forbidden');
+    Route::post('importDocument', [DocumentController::class, 'importDocument'])->name('importDocument')->middleware('forbidden');
 
 
     #### Process Exam ####
     Route::resource('process_exams', ProcessExamController::class);
     Route::get('process_examss/students/{id}', [ProcessExamController::class, 'processExamStudent'])->name('processExamStudent');
     Route::post('updateRequestStatus/', [ProcessExamController::class, 'updateRequestStatus'])->name('updateRequestStatus');
+    Route::get('exportProcess', [ProcessExamController::class, 'exportProcess'])->name('exportProcess')->middleware('forbidden');
+    Route::post('importProcess', [ProcessExamController::class, 'importProcess'])->name('importProcess')->middleware('forbidden');
 
 
     #### Element ####
@@ -257,9 +267,9 @@ use Illuminate\Support\Facades\Auth;
 
     #### Process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');
-    Route::get('process_degrees_history', [ProcessDegreeController::class,'history'])->name('process_degrees.history');
-    Route::get('process_degrees_normal', [ProcessDegreeController::class,'normal'])->name('process_degrees.normal');
-    Route::get('process_degrees_catchUp', [ProcessDegreeController::class,'catchUp'])->name('process_degrees.catchUp');
+    Route::get('process_degrees_history', [ProcessDegreeController::class, 'history'])->name('process_degrees.history');
+    Route::get('process_degrees_normal', [ProcessDegreeController::class, 'normal'])->name('process_degrees.normal');
+    Route::get('process_degrees_catchUp', [ProcessDegreeController::class, 'catchUp'])->name('process_degrees.catchUp');
     Route::get('process_degreess/students', [ProcessDegreeController::class, 'processDegreeStudent'])->name('processDegreeStudent');
     Route::post('RequestStatusDegree/', [ProcessDegreeController::class, 'RequestStatusDegree'])->name('RequestStatusDegree')->middleware('forbidden');
     Route::get('/updateDegree_edit/{id}', [ProcessDegreeController::class, 'editUpdateDegree'])->name('editUpdateDegree')->middleware('forbidden');
@@ -320,9 +330,9 @@ use Illuminate\Support\Facades\Auth;
     #### Re Record The Track ####
     Route::get('reregisterForm', [ReRecordTheTrackController::class, 'reregisterForm'])->name('reregisterForm');
     Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');;
-    Route::get('processDegreeDetails/{id}',[SubjectExamController::class,'processDegreeDetails'])->name('processDegreeDetails');
-    Route::post('changeRequestStatus',[SubjectExamController::class,'changeRequestStatus'])->name('changeRequestStatus');
-  });
+    Route::get('processDegreeDetails/{id}', [SubjectExamController::class, 'processDegreeDetails'])->name('processDegreeDetails');
+    Route::post('changeRequestStatus', [SubjectExamController::class, 'changeRequestStatus'])->name('changeRequestStatus');
+});
 
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'forbidden']], function () {

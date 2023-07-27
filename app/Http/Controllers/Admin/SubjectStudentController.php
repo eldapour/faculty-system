@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\SubjectStudentExport;
 use App\Http\Middleware\CheckForbidden;
+use App\Imports\SubjectStudentImport;
 use App\Models\TrackReregister;
 use DateTime;
 use App\Models\User;
@@ -150,6 +152,21 @@ class SubjectStudentController extends Controller
                 ->make(true);
         } else {
             return view('admin.subject_students.Studentindex');
+        }
+    } // end function
+
+    public function exportSubjectStudent()
+    {
+        return Excel::download(new SubjectStudentExport(), 'subject student.xlsx');
+    }
+
+    public function importSubjectStudent(Request $request)
+    {
+        $import = Excel::import(new SubjectStudentImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
         }
     }
 
