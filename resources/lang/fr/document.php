@@ -20,4 +20,9 @@ return [
     "request_status" => "état de la demande",
     "processing_request_date" => "la date à laquelle la demande a été traitée",
 
+
+    "new" => "nouveau",
+    "accept" => "accepté",
+    "refused" => "refusé",
+    "under_processing" => "en cours de traitement",
 ];

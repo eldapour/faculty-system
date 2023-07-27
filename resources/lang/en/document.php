@@ -18,4 +18,10 @@ return [
     "pull_return" => "The date of the return (in case of withdrawing the baccalaureate)",
     "request_status" => "request status",
     "processing_request_date" => "the date the request was processed",
+
+
+    "new" => "new",
+    "accept" => "accepted",
+    "refused" => "refused",
+    "under_processing" => "under processing",
 ];

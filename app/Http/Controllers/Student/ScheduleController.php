@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
 use App\Models\DepartmentBranchStudent;
+use App\Models\DepartmentStudent;
 use App\Models\Group;
 use App\Models\Period;
 use App\Models\Schedule;
@@ -24,23 +25,17 @@ class ScheduleController extends Controller{
     use PhotoTrait;
     public function allSchedules(Request $request)
     {
+
+
         if($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status', '=', 'start')
-                ->first();
-            $departmentId = DepartmentBranchStudent::query()
+
+            $department = DepartmentStudent::query()
                 ->where('user_id','=',Auth::id())
-                ->where('register_year','=', $period->year_start)
-                ->first()
-                ->branch
-                ->department
-                ->id;
+                ->first();
 
             $schedules = Schedule::query()
-                ->whereHas('department', fn(Builder $builder) =>
-                $builder->where('department_id','=',$departmentId)
-                )
+                ->where('department_id','=',$department->department_id)
             ->latest()
                 ->get();
 
@@ -63,7 +58,7 @@ class ScheduleController extends Controller{
                 ->escapeColumns([])
                 ->make(true);
         }else{
-            return view('admin.schedules.students.index');
+            return view('student.schedules.all');
         }
     }
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\Front\TimeUsesController;
 
 
 require __DIR__ . '/admin.php';
+require __DIR__ . '/student.php';
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 

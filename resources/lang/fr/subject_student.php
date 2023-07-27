@@ -7,4 +7,6 @@ return [
     "identifier_id" => "(student) registration number",
     "subject_id" => "unit",
     "group" => "cohort",
+    "doctor" => "professor",
+    "unit" => "semestre en cours",
 ];
