@@ -1,6 +1,17 @@
 @extends('front.layouts.master')
 
 @section('content')
+    <style>
+        .btnEvent a {
+            color: white;
+            background-color: #ff7350;
+            transition: all 0.5s ease;
+        }
+        .btnEvent a:hover {
+            color: white;
+            background-color: #032e3f;
+        }
+    </style>
     <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
@@ -41,6 +52,16 @@
                         {{ $blog_item->getTranslation('title', lang()) }}
                     </h2>
                     <p>{!! $blog_item->getTranslation('description', lang()) !!}</p>
+                    @if($blog_item->file)
+                        <div class="mt-5 mb-4 d-flex">
+                            <div class="btnEvent">
+                                <a class="text-decoration-none btn-platform me-2 ms-2 mb-3" href="{{ asset($blog_item->file) }}">
+                                    <i class="fa-solid fa-download me-2 text-white"></i>
+                                    {{ trans('admin.attachment_file') }}
+                                </a>
+                            </div>
+                        </div>
+                    @endif
                     <hr>
                     <div>
                         <h3 class="mt-4 mb-3">@lang('admin.share in')</h3>

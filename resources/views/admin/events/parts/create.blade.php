@@ -41,6 +41,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <label for="file" class="form-control-label">{{ trans('admin.attachment_file') }}</label>
+                    <input name="file" type="file" class="form-control dropify" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="name_ar" class="form-control-label">{{ trans('admin.desc') ." ". trans('admin.arabic') }}</label>
                     <textarea name="description[ar]" class="form-control" rows="8"></textarea>
                 </div>

@@ -20,6 +20,7 @@ class Event extends Model
         'image',
         'background_image',
         'category_id',
+        'file'
     ];
 
     protected $casts = [

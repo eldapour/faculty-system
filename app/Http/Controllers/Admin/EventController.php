@@ -53,14 +53,14 @@ class EventController extends Controller
         } else {
             return view('admin.events.index');
         }
-    }
+    } // end index
 
 
     public function create()
     {
         $data['categories'] = Category::all();
         return view('admin.events.parts.create', compact('data'));
-    }
+    } // end create
 
     public function store(EventRequest $request): \Illuminate\Http\JsonResponse
     {
@@ -68,6 +68,9 @@ class EventController extends Controller
 
         if ($request->has('image')) {
             $inputs['image'] = $this->saveImage($request->image, 'uploads/events/images', 'photo');
+        }
+        if ($request->has('file')) {
+            $inputs['file'] = $this->saveImage($request->file, 'uploads/events/files', 'file');
         }
         if ($request->has('background_image')) {
             $inputs['background_image'] = $this->saveImage($request->background_image, 'uploads/events/background_image', 'photo');
@@ -77,41 +80,47 @@ class EventController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }
+    } // end store
 
 
     public function edit(Event $event)
     {
         $data['categories'] = Category::query()->select('id', 'category_name')->get();
         return view('admin.events.parts.edit', compact('event', 'data'));
-    }
+    } // end edit
 
 
     public function update(Request $request, Event $event): \Illuminate\Http\JsonResponse
     {
 
         $inputs = $request->all();
-
         if ($request->has('image')) {
             if (file_exists($event->image)) {
                 unlink($event->image);
             }
             $inputs['image'] = $this->saveImage($request->image, 'uploads/events/images', 'photo');
-        }
+        } // end of request image upload
+
+        if ($request->has('file')) {
+            if (file_exists($event->file)) {
+                unlink($event->file);
+            }
+            $inputs['file'] = $this->saveImage($request->file, 'uploads/events/files', 'file');
+        }// end of request file upload
 
         if ($request->has('background_image')) {
             if (file_exists($event->background_image)) {
                 unlink($event->background_image);
             }
             $inputs['background_image'] = $this->saveImage($request->background_image, 'uploads/events/background_images', 'photo');
-        }
+        } // end of request background image upload
 
         if ($event->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
         }
-    }
+    } // end update
 
 
 
@@ -120,6 +129,6 @@ class EventController extends Controller
         $event = Event::where('id', $request->id)->firstOrFail();
         $event->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    }
+    } // end destroy
 
 }

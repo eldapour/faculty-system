@@ -21,12 +21,12 @@
             <div class="row">
                 <div class="col-md-12 mt-3">
                     <label for="image" class="form-control-label">{{ trans('admin.image') }}</label>
-                    <input type="file" name="image" class="dropify" data-default-file="{{ asset($advertisement->image) }}">
+                    <input type="file" name="image" class="dropify" data-default-file="{{ asset('uploads/advertisements/images/'.$advertisement->image) }}">
                 </div>
                 <div class="col-md-12 mt-3">
                     <label for="background_image"
                         class="form-control-label">{{ trans('admin.background_image') }}</label>
-                    <input type="file" name="background_image" class="dropify" data-default-file="{{ asset($advertisement->background_image) }}"">
+                    <input type="file" name="background_image" class="dropify" data-default-file="{{ asset('uploads/advertisements/background_image/'.$advertisement->background_image) }}"">
                 </div>
             </div>
 
@@ -47,6 +47,13 @@
                         <option value="{{ $service->id }}" style="text-align: center" {{ ($service->service_id == $advertisement->sevice_id ) ? 'selected' : " " }}>{{ $service->getTranslation('service_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="file" class="form-control-label">{{ trans('admin.attachment_file') }}</label>
+                    <input name="file" type="file" value="{{ asset($advertisement->file) }}" data-default-file="{{ asset($advertisement->file) }}" class="form-control dropify" />
                 </div>
             </div>
 
