@@ -13,7 +13,7 @@ $(function(){
     // blogs
 
     $(".blogs .owl-carousel").owlCarousel({
-        autoplay: true,
+        autoplay: false,
         autoplayhoverpause: true,
         autoplaytimeout: 100,
         items: 1,

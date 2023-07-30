@@ -25,7 +25,7 @@
                                 <tr class="head-table">
                                     <th scope="col">@lang('admin.department')</th>
                                     <th scope="col">@lang('admin.unit')</th>
-                                    <th scope="col">@lang('admin.subjects')</th>
+                                    <th scope="col">@lang('admin.details')</th>
                                     <th scope="col">@lang('admin.download')</th>
                                 </tr>
                                 @foreach ($times as $time)
