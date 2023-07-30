@@ -26,9 +26,10 @@ class StoreDeadline extends FormRequest
         return [
             'deadline_date_start' => 'required|date',
             'deadline_date_end' => 'required|date|after:deadline_date_start',
-            "description_ar" => "required",
-            "description_en" => "required",
-            "description_fr" => "required",
+            'year' => 'required',
+            'period' => 'required',
+            'deadline_type' => 'required',
+
 
         ];
     }

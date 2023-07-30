@@ -26,12 +26,14 @@
                         <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
+
+
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.deadline_date_start') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.deadline_date_end') }}</th>
-                                <th class="min-w-50px">{{trans('admin.remaining_days')}}</th>
-                                <th class="min-w-50px">{{ trans('admin.desc') }}</th>
+                                <th class="min-w-50px">{{ trans('deadline.year') }}</th>
+                                <th class="min-w-50px">{{ trans('deadline.period') }}</th>
+                                <th class="min-w-50px">{{ trans('deadline.deadline_type') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -89,12 +91,13 @@
 @endsection
 @section('ajaxCalls')
     <script>
+
         var columns = [
-            {data: 'id', name: 'id'},
             {data: 'deadline_date_start', name: 'deadline_date_start'},
             {data: 'deadline_date_end', name: 'deadline_date_end'},
-            {data: 'the_rest', name: 'the_rest'},
-            {data: 'description', name: 'description'},
+            {data: 'year', name: 'year'},
+            {data: 'period', name: 'period'},
+            {data: 'deadline_type', name: 'deadline_type'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('deadlines.index')}}', columns);
