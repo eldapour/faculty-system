@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->longText('file')->nullable();
+            $table->longText('file')->nullable()->after('category_id');
         });
     }
 

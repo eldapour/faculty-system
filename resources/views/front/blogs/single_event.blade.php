@@ -1,6 +1,17 @@
 @extends('front.layouts.master')
 
 @section('content')
+    <style>
+        .btnEvent a {
+            color: white;
+            background-color: #ff7350;
+            transition: all 0.5s ease;
+        }
+        .btnEvent a:hover {
+            color: white;
+            background-color: #032e3f;
+        }
+    </style>
     <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
@@ -38,6 +49,16 @@
                         {{ $event_item->getTranslation('title', app()->getLocale()) }}
                     </h2>
                     <p>{!! $event_item->getTranslation('description', app()->getLocale()) !!}</p>
+                    @if($event_item->file)
+                    <div class="mt-5 mb-4 d-flex">
+                        <div class="btnEvent">
+                            <a class="text-decoration-none btn-platform me-2 ms-2 mb-3" href="{{ asset($event_item->file) }}">
+                                <i class="fa-solid fa-download me-2 text-white"></i>
+                                {{ trans('admin.attachment_file') }}
+                            </a>
+                        </div>
+                    </div>
+                    @endif
                     <hr>
                     <div>
                         <h3 class="mt-4 mb-3">@lang('admin.share in')</h3>
@@ -62,8 +83,8 @@
                                     <div class="me-3">
                                         <a class="text-decoration-none"
                                            href="{{ route('blog',$advertisement->id) }}">
-                                        <img
-                                            src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
+                                            <img
+                                                src="{{ asset('/uploads/advertisements/images/'.$advertisement->image) }}">
                                         </a>
                                     </div>
                                     <div>
@@ -77,9 +98,9 @@
                                 </div>
                             </li>
                         @endforeach
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 @endsection

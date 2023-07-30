@@ -19,6 +19,7 @@ class Advertisement extends Model
         'image',
         'background_image',
         'category_id',
+        'file',
         'service_id'
     ];
 
