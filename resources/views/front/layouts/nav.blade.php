@@ -59,13 +59,13 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="#">{{  trans('admin.Colleges Digital Platform') }}</a>
+                                       href="{{ $university_settings->colleges_digital_platform }}">{{  trans('admin.Colleges Digital Platform') }}</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="#">{{  trans('admin.Colleges Digital Magazine') }}</a>
+                                       href="{{ $university_settings->colleges_digital_magazine }}">{{  trans('admin.Colleges Digital Magazine') }}</a>
                                 </li>
                             @endif
                             @foreach ($category->pages as $page)
