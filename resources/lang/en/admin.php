@@ -273,6 +273,7 @@ return [
 
     // Subject Student
     'subject_student' => 'Subject Student',
+    'subject_re' => 'registration Subject',
     'subject_students' => 'Subject Students',
     'year' => 'Year',
     'period' => 'Period',
@@ -404,12 +405,19 @@ return [
 
     // data modification
     "data_modify" => "Data Modification",
-    'first_name_ar' => 'first name in Arabic',
-    'first_name_en' => 'first name in English',
-    'first_name_fr' => 'first name in France',
-    'last_name_ar' => 'last name in Arabic',
-    'last_name_en' => 'last name in English',
-    'last_name_fr' => 'last name in France',
+    'last_name' =>  'last_name',
+    'first_name' =>  'first_name',
+    'last_name_latin' =>'last_name_latin',
+    'first_name_latin' =>  'first_name_latin',
+    'national_id' =>  'national_id',
+    'birthday_date' =>  'birthday_date',
+    'birthday_place' =>  'birthday_place',
+    'city_ar' =>  'city_ar',
+    'city_latin' =>'city_latin',
+    'address' =>  'address',
+    'country_address_latin' =>  'country_address_latin',
+
+
     'new' => 'new',
     'accept' => 'accept',
     'refused' => 'refused',

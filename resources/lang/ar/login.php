@@ -18,11 +18,13 @@ return [
     'Please sign-in to your account and start the adventure' => 'الرجاء تسجيل الدخول إلى حسابك ',
     'email' => 'البريد الالكتروني',
     'password' => 'كلمة المرور',
+    'confirmPass' => 'تاكيد كلمة المرور',
     'user_type' => 'نوع تسجيل الدخول',
     'Forgot Password?' => 'هل نسيت كلمة السر؟',
     'sign in' => 'تسجيل الدخول ',
     'Account activation' => 'تفعيل الحساب',
     'This field is required' => 'هذه الخانة مطلوبه',
+    'passwords does not match' => 'كلمات السر لا تتطابق',
 
 
     'student' => 'طالب',

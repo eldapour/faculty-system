@@ -258,6 +258,8 @@ return [
 
     // Subject Student
     'subject_student' => 'Sujet Étudiant',
+    'subject_re' => 'Sujet d\'enregistrement',
+
     'subject_students' => 'Sujet Étudiants',
     'year' => 'Année',
     'period' => 'période',

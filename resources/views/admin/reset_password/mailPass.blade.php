@@ -1,5 +1,4 @@
 @include('admin.auth.layouts.header')
-
 <!-- BEGIN: Body-->
 
 <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click"
@@ -20,6 +19,10 @@
                             <div class="d-flex justify-content-center">
                                 <img src="{{ asset('assets/logo/download.jfif') }}" alt="no-image">
                             </div>
+                            @if (Session::has('message'))
+                                <div style="padding: 8px 15px;text-align: center;" class="alert alert-danger">{{ Session::get('message') }}</div>
+                            @endif
+
                             <form class="auth-Active-form mt-2" method="POST" id="ActiveForm" action="{{ route('resetPass') }}">
                                 @csrf
                                 <div class="form-group">

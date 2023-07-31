@@ -30,4 +30,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::post('document-store', [DocumentController::class, 'store'])->name('document-store');
     Route::post('documents-delete', [DocumentController::class, 'destroy'])->name('documents-delete');
 
+
+
+//    #### user department ####
+//    Route::resource('userBranches', DepartmentBranchStudentController::class)->middleware('forbidden');
+//    Route::get('getBranchesDepartment', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranchesDepartment')->middleware('forbidden');
+//    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent')->middleware('forbidden');
+//    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent')->middleware('forbidden');
+
+
 });
