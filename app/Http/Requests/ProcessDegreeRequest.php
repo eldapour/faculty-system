@@ -11,7 +11,7 @@ class ProcessDegreeRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,9 @@ class ProcessDegreeRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'user_id' => 'required',
             'subject_id' => 'required',
             'doctor_id' => 'required',
             'period' => 'required',
@@ -33,8 +32,7 @@ class ProcessDegreeRequest extends FormRequest
             'exam_code' => 'required',
             'student_degree_before_request' => 'required',
             'request_type' => 'required',
-            'student_degree_after_request' => 'nullable',
-            'processing_date' => 'nullable',
+            'student_degree_after_request' => 'required',
         ];
     }
 }

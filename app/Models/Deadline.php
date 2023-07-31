@@ -9,7 +9,6 @@ class Deadline extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         "deadline_date_start",
         "deadline_date_end",
