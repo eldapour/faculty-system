@@ -63,7 +63,7 @@ class SubjectExamStudentResultController extends Controller
                 })
                 ->addColumn('add_request', function ($subject_exam_student_results) {
                         return '
-                            <button type="button" data-id="' . $subject_exam_student_results->id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_button') . '  </button>
+                            <button type="button" data-id="' . $subject_exam_student_results->subject_id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_button') . '  </button>
                        ';
                 })
 

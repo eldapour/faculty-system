@@ -11,7 +11,7 @@ class ProcessExamRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,15 +21,12 @@ class ProcessExamRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'user_id' => 'required',
             'attachment_file' => 'required',
             'period' => 'required',
             'year' => 'required',
-            'request_date' => 'required|date',
-            'processing_request_date' => 'nullable|date',
             'reason' => 'required',
         ];
     }
