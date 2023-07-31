@@ -19,10 +19,12 @@ return [
     'email' => 'email',
     'user_type' => 'Login Type',
     'password' => 'password',
+    'confirmPass' => 'confirm password',
     'Forgot Password?' => 'Forgot Password ?',
     'sign in' => 'sign in',
     'Account activation' => 'Account activation',
     'This field is required' => 'This field is required',
+    'passwords does not match' => 'passwords does not match',
 
     'student' => 'student',
     'doctor' => 'professor',
