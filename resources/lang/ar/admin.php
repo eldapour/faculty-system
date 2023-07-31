@@ -152,6 +152,7 @@ return [
     "User_Branch" => "مسلك الطالب",
     "register_year" => "سنة التسجيل",
     "branch_restart_register" => "إعادة تسجيل المسار",
+    "department_restart_register" => "إعادة تسجيل المسلك",
     "student_branch" => "الطالب",
     "You_must_re_register" => "يجب عليك اعادة التسجيل لتستطيع الدخول الى المنصة",
     "this_process_is_extended" => "هذه العملية ممتدة من ",

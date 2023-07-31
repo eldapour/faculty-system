@@ -43,6 +43,7 @@
                                 <th class="min-w-50px"> {{__('admin.department')}}</th>
                                 <th class="min-w-50px"> {{__('admin.year')}}</th>
                                 <th class="min-w-50px"> {{__('admin.period')}}</th>
+                                <th class="min-w-50px"> {{__('admin.department_restart_register')}}</th>
                                 <th class="min-w-50px rounded-end">{{__('admin.actions')}}</th>
                             </tr>
                             </thead>
@@ -143,21 +144,22 @@
             {data: 'department_id', name: 'department_id'},
             {data: 'year', name: 'year'},
             {data: 'period', name: 'period'},
+            {data: 'confirm_request', name: 'confirm_request'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
-        showData('{{route('userDepartment.index')}}', columns);
+        showData('{{route('departmentStudents.index')}}', columns);
         // Delete Using Ajax
-        destroyScript('{{route('userDepartment.destroy',':id')}}');
+        destroyScript('{{route('departmentStudents.destroy',':id')}}');
         // Add Using Ajax
-        showAddModal('{{route('userDepartment.create')}}');
+        showAddModal('{{route('departmentStudents.create')}}');
         addScript();
         // Add Using Ajax
-        showEditModal('{{route('userDepartment.edit',':id')}}');
+        showEditModal('{{route('departmentStudents.edit',':id')}}');
         editScript();
 
 
         $(document).on('click', '.exportBtn', function () {
-            location.href = '{{ route('exportDepartmentStudent') }}';
+            location.href = '{{ route('exportDepartmentStudents') }}';
         });
 
         $(document).on("submit", "#importExelForm", function (event) {
@@ -171,7 +173,7 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: '{{ route('importDepartmentStudent') }}',
+                url: '{{ route('importDepartmentStudents') }}',
                 type: 'POST',
                 data: formData,
                 xhr: function() {

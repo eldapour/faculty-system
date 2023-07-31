@@ -163,7 +163,8 @@ return [
     "Users_Branches" => "Students's Branches ",
     "User_Branch" => "Student's Branch ",
     "register_year" => "register_year",
-    "branch_restart_register" => "branch_restart_register",
+    "branch_restart_register" => "branch restart register",
+    "department_restart_register" => "Department restart register",
     "student_branch" => "student",
     "student_count_department" => "The number of students according to the tracks",
 
