@@ -27,19 +27,17 @@ class DeadlineController extends Controller
                             </button>
                        ';
                 })
-                ->editColumn('description', function ($deadlines) {
+                ->editColumn('deadline_type', function ($deadlines) {
 
+                    if($deadlines->deadline_type == 1){
 
-                    $des = $deadlines->getTranslation('description', app()->getLocale());
+                        return trans('deadline.process_exam');
+                    }else{
+                        return trans('deadline.process_degree');
+                    }
 
-                    return Str::limit($des,100);
                 })
-                ->addColumn('the_rest', function ($deadlines) {
-                    $deadline_date_start = \Carbon\Carbon::parse($deadlines->deadline_date_start);
-                    $deadline_date_end = \Carbon\Carbon::parse($deadlines->deadline_date_end);
-                    $the_rest = $deadline_date_end->diff($deadline_date_start);
-                    return '<td><a class="btn btn-danger text-white">'.  $the_rest->format('%a Days') .'</a></td>';
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -57,10 +55,11 @@ class DeadlineController extends Controller
     {
 
        $deadline = Deadline::create([
-
             'deadline_date_start' => $request->deadline_date_start,
             'deadline_date_end' => $request->deadline_date_end,
-           "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+            'period' => $request->period,
+            'year' => $request->year,
+            'deadline_type' => $request->deadline_type,
        ]);
 
         if ($deadline->save()) {
@@ -84,7 +83,9 @@ class DeadlineController extends Controller
 
             'deadline_date_start' => $request->deadline_date_start,
             'deadline_date_end' => $request->deadline_date_end,
-            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
+            'period' => $request->period,
+            'year' => $request->year,
+            'deadline_type' => $request->deadline_type,
         ]);
 
         if ($deadline->save()) {

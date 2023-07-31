@@ -4,21 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
 class Deadline extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
 
-    public array $translatable = ['description'];
 
     protected $fillable = [
-        "description",
+        "deadline_date_start",
         "deadline_date_end",
-        "deadline_date_start"
+        "period",
+        "year",
+        "deadline_type"
     ];
 
-    protected $casts = [
-        "description" => "json",
-    ];
+
 }

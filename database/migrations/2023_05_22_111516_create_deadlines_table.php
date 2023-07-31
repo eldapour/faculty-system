@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('deadlines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->json('description');
             $table->date('deadline_date_start');
             $table->date('deadline_date_end');
+            $table->string('year');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
+            $table->boolean('deadline_type')->comment('1 => طلب استدراك 0 => طلب معالجه نقطه');
             $table->timestamps();
         });
     }
