@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DepartmentStudentController;
 use App\Http\Controllers\Student\DocumentController;
 use App\Http\Controllers\Student\PointStatement\PointStatementController;
 use App\Http\Controllers\Student\SubjectExamStudentController;
@@ -27,11 +28,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
 
 
-//    #### user department ####
-//    Route::resource('userBranches', DepartmentBranchStudentController::class)->middleware('forbidden');
-//    Route::get('getBranchesDepartment', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranchesDepartment')->middleware('forbidden');
-//    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent')->middleware('forbidden');
-//    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent')->middleware('forbidden');
+    #### user department ####
+    Route::resource('departmentStudents', DepartmentStudentController::class)->middleware('forbidden');
+    Route::get('exportDepartmentStudents', [DepartmentStudentController::class, 'exportDepartmentStudents'])->name('exportDepartmentStudents')->middleware('forbidden');
+    Route::post('importDepartmentStudents', [DepartmentStudentController::class, 'importDepartmentStudents'])->name('importDepartmentStudents')->middleware('forbidden');
 
 
 });
