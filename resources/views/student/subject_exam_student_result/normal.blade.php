@@ -40,6 +40,16 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Edit MODAL -->
+            <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content" id="modalContent">
+
+                    </div>
+                </div>
+            </div>
+            <!-- Edit MODAL CLOSED -->
         </div>
 
 
@@ -62,6 +72,68 @@
                     {data: 'add_request', name: 'add_request'},
                 ]
                 showData('{{route('subject-exam-result-normal')}}', columns);
+
+                // Get Add View
+                $(document).on('click', '.add-request', function () {
+                    let id = $(this).data('id')
+                    let url = "{{route('create-process-degree-normal',':id')}}";
+                    url = url.replace(':id', id)
+                    $('#modalContent').html(loader)
+                    $('#editOrCreate').modal('show')
+                    setTimeout(function () {
+                        $('#modalContent').load(url)
+                    }, 250)
+                });
+
+                // Add By Ajax
+                $(document).on('submit', 'Form#addForm', function (e) {
+                    e.preventDefault();
+                    var formData = new FormData(this);
+                    var url = $('#addForm').attr('action');
+                    $.ajax({
+
+                        url: url,
+                        type: 'POST',
+                        data: formData,
+                        beforeSend: function () {
+                            $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                                ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>').attr('disabled', true);
+                        },
+
+                        success: function (data) {
+
+                            if (data.status == 200) {
+                                $('#dataTable').DataTable().ajax.reload();
+                                toastr.success('Request Added Successfully');
+                            } else
+                                toastr.error('There is an error');
+                            $('#addButton').html('{{ trans('admin.add') }}').attr('disabled', false);
+                            $('#editOrCreate').modal('hide')
+                        },
+
+                        error: function (data) {
+                            if (data.status === 500) {
+                                toastr.error('There is an error');
+                            } else if (data.status === 422) {
+
+                                var errors = $.parseJSON(data.responseText);
+                                $.each(errors, function (key, value) {
+                                    if ($.isPlainObject(value)) {
+                                        $.each(value, function (key, value) {
+                                            toastr.error(value, key);
+                                        });
+                                    }
+                                });
+                            } else
+                                toastr.error('there in an error');
+                            $('#addButton').html(`Create`).attr('disabled', false);
+                        },//end error method
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+                });
+
             </script>
 
 @endsection

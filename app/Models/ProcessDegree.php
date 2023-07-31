@@ -14,14 +14,14 @@ class ProcessDegree extends Model
         'user_id',
         'subject_id',
         'doctor_id',
-        'session',
+        'period',
         'year',
         'section',
         'exam_code',
         'student_degree_before_request',
         'request_type',
         'request_status',
-        'students_degree_after_request',
+        'student_degree_after_request',
         'processing_date',
     ];
 

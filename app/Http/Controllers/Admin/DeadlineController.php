@@ -80,7 +80,6 @@ class DeadlineController extends Controller
     {
 
         $deadline->update([
-
             'deadline_date_start' => $request->deadline_date_start,
             'deadline_date_end' => $request->deadline_date_end,
             'period' => $request->period,
