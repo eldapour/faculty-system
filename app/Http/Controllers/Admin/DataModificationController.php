@@ -76,12 +76,7 @@ class DataModificationController extends Controller
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $check_column = Schema::getColumnListing('data_modifications');
-
         $inputs = $request->all();
-        $inputs['user_id'] = auth()->user()->id;
-        $inputs['request_date'] = Carbon::now();
-        $inputs['year'] = Carbon::now()->format('Y');
         $inputs['card_image'] = $this->saveImage($inputs['card_image'], 'uploads/data_modification', 'photo');
 
         $data_mod = DataModification::create([
@@ -94,5 +89,16 @@ class DataModificationController extends Controller
         ]);
 
         return redirect()->route('profile')->with('success', trans('admin.order_success'));
+    } // end store
+
+    public function destroy(Request $request)
+    {
+        $data = DataModification::query()
+            ->where('id', $request->id)
+            ->first();
+
+        $data->delete();
+        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
+
 }
