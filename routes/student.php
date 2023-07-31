@@ -30,6 +30,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
 
 
+
     //process exam routes
     Route::get('get-all-process-exams', [ProcessExamController::class, 'get_all_process_exams'])->name('get-all-process-exams');
     Route::get('create-process-exam', [ProcessExamController::class, 'create_process_exam'])->name('create-process-exam');
@@ -46,6 +47,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     Route::get('create-process-degree-remedial/{id}', [ProcessDegreeController::class, 'remedialCreate'])->name('create-process-degree-remedial');
     Route::post('store-process-degree-remedial', [ProcessDegreeController::class, 'remedialStore'])->name('store-process-degree-remedial');
+
+//    #### user department ####
+//    Route::resource('userBranches', DepartmentBranchStudentController::class)->middleware('forbidden');
+//    Route::get('getBranchesDepartment', [DepartmentBranchStudentController::class, 'getBranches'])->name('getBranchesDepartment')->middleware('forbidden');
+//    Route::get('exportDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'exportDepartmentBranchStudent'])->name('exportDepartmentBranchStudent')->middleware('forbidden');
+//    Route::post('importDepartmentBranchStudent', [DepartmentBranchStudentController::class, 'importDepartmentBranchStudent'])->name('importDepartmentBranchStudent')->middleware('forbidden');
+
 
 
 });

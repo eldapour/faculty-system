@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('department_id');
             $table->string('year');
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب  المسلك');
+            $table->boolean('confirm_request')->default(0)->comment('اعادة تسجيل المسلك');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();
 

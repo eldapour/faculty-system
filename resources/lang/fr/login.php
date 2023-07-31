@@ -18,6 +18,7 @@ return [
     'Please sign-in to your account and start the adventure' => 'Veuillez vous connecter à votre compte et commencer l\'aventure',
     'email' => 'e-mail',
     'password' => 'mot de passe',
+    'confirmPass' => 'Confirmez le mot de passe',
     'Forgot Password?' => 'Mot de passe oublié?',
     'user_type' => 'Type de connexion',
     'sign in' => 's\'identifier',

@@ -39,7 +39,7 @@
 
                         </div>
                     </div>
-                    <p>{{ $ad->description }}</p>
+                    <p>{!!  $ad->description  !!}</p>
                     <button class="btn btn-info btn-icon text-white mt-3">
                         <span>
                             <i class="fe fe-download"></i>

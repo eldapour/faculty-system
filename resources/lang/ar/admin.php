@@ -211,12 +211,12 @@ return [
     'points' => 'نقاط الطالب',
     'university_email' => 'البريد الجامعي',
     'identifier_id' => 'رقم الكارنيه الجامعي',
-    'national_id' => 'رقم القومي للبطاقه',
-    'national_number' => 'الرقم القومي',
+    'national_id' => 'رقم الوطني للبطاقه',
+    'national_number' => 'الرقم الوطني',
     'nationality' => 'الجنسيه',
     'birthday_date' => 'تاريخ الازدياد',
-    'birthday_place' => 'مكان الميلاد',
-    'city' => 'الاقليم',
+    'birthday_place' => 'مكان الازدياد',
+    'city' => 'اقليم الازدياد',
     'address' => 'مكان',
     'job_id' => "رقم التاجير",
     'This email has already been activated' => 'هذا الايميل مفعل من قبل',
@@ -238,12 +238,12 @@ return [
 
 
     //create model user and admin
-    'city_ar' => "الاقليم باللغه العربيه",
-    'city_en' => "الاقليم باللغه الانجليزيه",
-    'city_fr' => "الاقليم باللغه الفرنسيه",
-    'birthday_place_ar' => "مكان الميلاد باللغه العربيه",
-    'birthday_place_en' => "مكان الميلاد باللغه الانجليزيه",
-    'birthday_place_fr' => "مكان الميلاد باللغه الفرنسيه",
+    'city_ar' => "اقليم الازدياد باللغه العربيه",
+    'city_en' => "اقليم الازدياد باللغه الانجليزيه",
+    'city_fr' => "اقليم الازدياد باللغه الفرنسيه",
+    'birthday_place_ar' => "مكان الازدياد باللغه العربيه",
+    'birthday_place_en' => "مكان الازدياد باللغه الانجليزيه",
+    'birthday_place_fr' => "مكان الازدياد باللغه الفرنسيه",
 
 
     //button edit or add or close model
@@ -257,6 +257,8 @@ return [
 
     // Subject Student
     'subject_student' => 'طالب المادة',
+    'subject_re' => 'وحدات التسجيل',
+
     'subject_students' => 'وحدات الطالب',
     'year' => 'سنة',
     'period' => 'فترة',
@@ -402,12 +404,20 @@ return [
 
     // data modification
     "data_modify" => "طلب تعديل البيانات",
-    'first_name_ar' => 'الاسم الأول بالعربية',
-    'first_name_en' => 'الاسم الأول باللغة الإنجليزية',
-    'first_name_fr' => 'الاسم الأول باللغة الفرنسية',
-    'last_name_ar' => 'الاسم الاخير بالعربية',
-    'last_name_en' => 'اسم العائلة باللغة الإنجليزية ',
-    'last_name_fr' => 'الاسم الأخير باللغة الفرنسية',
+
+    'last_name' => 'الاسم العائلي',
+    'first_name' => 'الاسم الشخصي',
+    'last_name_latin' => 'الاسم العائلي بالاثينية',
+    'first_name_latin' => 'الاسم الشخصي بالاثينية',
+    'national_id' => 'رقم البطاقة الوطنية/جواز السفر',
+    'birthday_date' => 'تاريخ الازدياد',
+    'birthday_place' => 'مكان الازدياد',
+    'city_ar' => 'إقليم الازدياد',
+    'city_latin' => 'إقليم الازدياد بالاثينية',
+    'address' => 'العنوان',
+    'country_address_latin' => 'اقليم العنوان',
+
+
     'under_processing' => 'قيد المراجعة',
 
 

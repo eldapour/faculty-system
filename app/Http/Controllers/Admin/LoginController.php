@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -15,7 +16,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Session;
 
 class LoginController extends Controller
 {
@@ -78,7 +81,7 @@ class LoginController extends Controller
     public function activeStudents(Request $request): JsonResponse
     {
         $user = User::query()
-        ->where('email', '=', $request->email)
+            ->where('email', '=', $request->email)
             ->where('user_type', '=', 'student')
             ->where('national_id', '=', $request->national_id)
             ->where('birthday_date', '=', $request->birthday_date)
@@ -129,22 +132,27 @@ class LoginController extends Controller
     {
         $email = $request->email;
         $user = User::where('email', '=', $email)->first();
-        $token = Str::random(64);
 
-        DB::table('password_resets')->insert([
-            'email' => $email,
-            'token' => $token,
-            'created_at' => Carbon::now()
-        ]);
+        if ($user) {
+            $token = Str::random(64);
+            DB::table('password_resets')->insert([
+                'email' => $email,
+                'token' => $token,
+                'created_at' => Carbon::now()
+            ]);
 
-        $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email, 'token' => $token);
-        Mail::send('admin.reset_password.password_reset', $data, function ($message) use ($user, $email) {
-            $message->to($email, $user->first_name)->subject
-            ('Reset Password');
-            $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
-        });
+            $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email, 'token' => $token);
+            Mail::send('admin.reset_password.password_reset', $data, function ($message) use ($user, $email) {
+                $message->to($email, $user->first_name)->subject
+                ('Reset Password');
+                $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
+            });
 
-        return redirect()->route('emailSentBack');
+            return redirect()->route('emailSentBack');
+        } else {
+            Session::flash('message', "the email not found in data ");
+            return Redirect::back();
+        }
     }
 
     /**
@@ -160,7 +168,7 @@ class LoginController extends Controller
 
         if (!$checkToken) {
             return view('admin.error.index');
-        }else if ($checkToken->created_at > $expiredDate) {
+        } else if ($checkToken->created_at > $expiredDate) {
             return view('admin.error.index');
         } else {
             return view('admin.reset_password.do_password_reset', compact('token'));
@@ -183,6 +191,7 @@ class LoginController extends Controller
         $user->password = Hash::make($request->password);
 
         DB::table('password_resets')->where('token', $token)->delete();
+        Session::flash('success','Password Reset Successfully');
         return redirect()->route('student.login');
     }
 

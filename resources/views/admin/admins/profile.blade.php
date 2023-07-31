@@ -22,9 +22,9 @@
                                 <h4 class="mb-1 text-capitalize">{{$user->first_name . ' ' . $user->last_name}}</h4>
                                 <h6 class="badge badge-primary-gradient">{{ $user->user_type }}</h6>
                                 @if ($user->user_status == 'active')
-                                    <h6 class="badge badge-success-gradient">{{ $user->user_status }}</h6>
+                                    <h6 class="badge badge-success-gradient">{{ (lang() == 'ar') ? 'مفعل' : 'active' }}</h6>
                                 @else
-                                    <h6 class="badge badge-danger-gradient">{{ $user->user_status }}</h6>
+                                    <h6 class="badge badge-danger-gradient">{{ (lang() == 'ar') ? 'غير مفعل' : 'un active' }}</h6>
                                 @endif
                                 <h6 class="text-muted mb-4">
                                     {{$user->email}}</h6>
@@ -60,7 +60,7 @@
                                 @if(auth()->user()->user_type == 'student')
                                 <li class="">
                                     <a href="#units" class="show"
-                                       data-toggle="tab">@lang('admin.subjects')</a>
+                                       data-toggle="tab">@lang('admin.subject_re')</a>
                                 </li>
                                 @endif
                             </ul>
@@ -85,13 +85,16 @@
                                             <td>{{ trans('admin.first_name') }}</td><td>{{ $user->first_name }}</td>
                                         </tr>
                                         <tr>
+                                            <td>{{ trans('admin.first_name_latin') }}</td><td>{{ $user->first_name_latin }}</td>
+                                        </tr>
+                                        <tr>
                                             <td>{{ trans('admin.last_name') }}</td><td>{{ $user->last_name }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
+                                            <td>{{ trans('admin.last_name_latin') }}</td><td>{{ $user->last_name_latin }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.university_email') }}</td><td>{{ $user->university_email }}</td>
+                                            <td>{{ trans('admin.nationality') }}</td><td>{{ $user->nationality }}</td>
                                         </tr>
                                         <tr>
                                             <td>{{ trans('admin.identifier_id') }}</td><td>{{ $user->identifier_id }}</td>
@@ -102,9 +105,7 @@
                                         <tr>
                                             <td>{{ trans('admin.national_number') }}</td><td>{{ $user->national_number }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>{{ trans('admin.nationality') }}</td><td>{{ $user->nationality }}</td>
-                                        </tr>
+
                                         <tr>
                                             <td>{{ trans('admin.birthday_date') }}</td><td>{{ $user->birthday_date }}</td>
                                         </tr>
@@ -112,19 +113,25 @@
                                             <td>{{ trans('admin.birthday_place') }}</td><td>{{ $user->birthday_place }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.birthday_place') }}</td><td>{{ $user->birthday_place }}</td>
+                                            <td>{{ trans('admin.city_ar') }}</td><td>{{ $user->city_ar }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.city') }}</td><td>{{ $user->city }}</td>
+                                            <td>{{ trans('admin.city_latin') }}</td><td>{{ $user->city_latin }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.city') }}</td><td>{{ $user->city }}</td>
+                                            <td>{{ trans('admin.address') }}</td><td>{{ $user->country_address_ar }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.country_address_latin') }}</td><td>{{ $user->country_address_latin }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.email') }}</td><td>{{ $user->email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('admin.university_email') }}</td><td>{{ $user->university_email }}</td>
                                         </tr>
                                         <tr>
                                             <td>{{ trans('admin.university_register_year') }}</td><td>{{ $user->university_register_year }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{ trans('admin.points') }}</td><td>{{ $user->points }}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -159,7 +166,7 @@
                         <div class="card-body">
                             <div id="profile-log-switch">
                                 <div class="media-heading">
-                                    <h5><strong>{{ trans('admin.subjects') }}</strong></h5>
+                                    <h5><strong>{{ trans('admin.subject_re') }}</strong></h5>
                                 </div>
                             </div>
                             <table class="table table-bordered table-striped">
@@ -209,32 +216,20 @@
                                 <div class="col-12">
 
                                     <label for="data_modification" class="d-flex">{{trans('admin.data_modify')}}</label>
-                                    <select style="width: 450px;" class="form-control" name="data_modification[]"
-                                            multiple="multiple"
-                                            required="required">
-                                        <option
-                                            value="first_name_ar">{{ trans('admin.first_name') }} {{ trans('admin.arabic') }}</option>
-                                        <option
-                                            value="first_name_en">{{ trans('admin.first_name') }} {{ trans('admin.english') }}</option>
-                                        <option
-                                            value="first_name_fr">{{ trans('admin.first_name') }} {{ trans('admin.france') }}</option>
-                                        <option
-                                            value="last_name_ar">{{ trans('admin.last_name') }} {{ trans('admin.arabic') }}</option>
-                                        <option
-                                            value="last_name_en">{{ trans('admin.last_name') }} {{ trans('admin.english') }}</option>
-                                        <option
-                                            value="last_name_fr">{{ trans('admin.last_name') }} {{ trans('admin.france') }}</option>
+                                    <select style="width: 450px;" class="form-control" name="data_modification[]" multiple="multiple" required="required">
+
+                                        <option value="first_name">{{ trans('admin.first_name') }} </option>
+                                        <option value="first_name_latin">{{ trans('admin.first_name_latin') }} </option>
+                                        <option value="last_name">{{ trans('admin.last_name') }} </option>
+                                        <option value="last_name_latin">{{ trans('admin.last_name_latin') }} </option>
+
+                                        <option value="national_id">{{ trans('admin.national_id') }}</option>
                                         <option value="birthday_date">{{ trans('admin.birthday_date') }}</option>
-                                        <option
-                                            value="birthday_place_ar">{{ trans('admin.birthday_place_ar') }}</option>
-                                        <option
-                                            value="birthday_place_en">{{ trans('admin.birthday_place_en') }}</option>
-                                        <option
-                                            value="birthday_place_fr">{{ trans('admin.birthday_place_fr') }}</option>
+                                        <option value="birthday_place">{{ trans('admin.birthday_place') }}</option>
                                         <option value="city_ar">{{ trans('admin.city_ar') }}</option>
-                                        <option value="city_en">{{ trans('admin.city_en') }}</option>
-                                        <option value="city_fr">{{ trans('admin.city_fr') }}</option>
+                                        <option value="city_latin">{{ trans('admin.city_latin') }}  </option>
                                         <option value="address">{{ trans('admin.address') }}</option>
+                                        <option value="country_address_latin">{{ trans('admin.country_address_latin') }} </option>
                                     </select>
                                 </div>
                                 <div class="col-12">
