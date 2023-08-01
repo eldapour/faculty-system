@@ -63,7 +63,7 @@
                     <div class="card-body">
                         <div class="d-flex">
 
-                            <div class="text-white"><h2 class="mb-0 number-font">{{ subjectStudentCountUser() }}</h2>
+                            <div class="text-white"><h2 class="mb-0 number-font">{{ departmentStudentCount() }}</h2>
                                 <p class="text-white mb-0">عدد وحدات الفتره الحاليه</p></div>
                             <div class="mr-auto">
                                 <i class="fa fa-book text-white fs-30 ml-2 mt-2"></i>
@@ -78,7 +78,7 @@
                     <div class="card-body">
                         <div class="d-flex">
 
-                            <div class="text-white">
+                            <div class="text-white"><h2 class="mb-0 number-font"></h2>
                                 <a href="{{ route('index.time_uses') }}"><p
                                         class="text-white mb-0">{{ trans('admin.Usage schedules') }}</p></a></div>
                             <div class="mr-auto">
@@ -94,9 +94,9 @@
                     <div class="card-body">
                         <div class="d-flex">
 
-                            <div class="text-white">
+                            <div class="text-white"><h2 class="mb-0 number-font">{{ internalAdsCount() }}</h2>
                                 <a href="{{ route('page', 15) }}"><p
-                                        class="text-white mb-0">{{ trans('admin.annual_programming') }}</p></a></div>
+                                        class="text-white mb-0">{{ trans('admin.internal_ads') }}</p></a></div>
                             <div class="mr-auto">
                                 <i class="fa fa-code text-white fs-30 ml-2 mt-2"></i>
                             </div>

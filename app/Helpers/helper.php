@@ -1,23 +1,26 @@
 <?php
 
+use App\Models\Period;
 use App\Models\Document;
-use App\Models\ProcessDegree;
 use App\Models\ProcessExam;
+use App\Models\ProcessDegree;
 use App\Models\SubjectStudent;
+use App\Models\DepartmentStudent;
+use App\Models\InternalAd;
 use App\Models\UniversitySetting;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
 
 
-if (!function_exists('checkUser')){
+if (!function_exists('checkUser')) {
     function checkUser($userTypr): bool
     {
         return auth()->user()->user_type == $userTypr;
     }
 }
 
-if(!function_exists('logo')){
+if (!function_exists('logo')) {
     function logo(): string
     {
         $university_settings = UniversitySetting::first();
@@ -26,11 +29,11 @@ if(!function_exists('logo')){
 }
 
 if (!function_exists('saveFile')) {
-    function saveFile($photo,$folder): string
+    function saveFile($photo, $folder): string
     {
         $file_extension = $photo->getClientOriginalExtension();
-        $file_name =  $folder.'/'.rand('1','9999').time().'.'.$file_extension;
-        $photo -> move($folder,$file_name);
+        $file_name =  $folder . '/' . rand('1', '9999') . time() . '.' . $file_extension;
+        $photo->move($folder, $file_name);
 
         return $file_name;
     }
@@ -41,44 +44,49 @@ if (!function_exists('saveFile')) {
 if (!function_exists('get_file')) {
     function getFile($image): string
     {
-        if ($image!= null){
-            if (!file_exists($image)){
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('uploads/noImage.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('uploads/noImage.png');
         }
     }
 }
 
 if (!function_exists('admin')) {
-    function admin(){
+    function admin()
+    {
         return auth()->guard('admin');
     }
 }
 if (!function_exists('setting')) {
-    function setting(){
+    function setting()
+    {
         return \App\Models\Setting::first();
     }
 }
 
 if (!function_exists('loggedAdmin')) {
-    function loggedAdmin($field = null){
+    function loggedAdmin($field = null)
+    {
         return auth()->guard('admin')->user()->$field;
     }
 }
 
 if (!function_exists('user')) {
-    function user() {
+    function user()
+    {
         return auth()->guard('user');
     }
 }
 
-if(!function_exists('lang')){
+if (!function_exists('lang')) {
 
-    function lang(){
+    function lang()
+    {
 
         return Config::get('app.locale');
     }
@@ -86,23 +94,23 @@ if(!function_exists('lang')){
 
 if (!function_exists('trans_model')) {
 
-    function trans_model($model,$word){
+    function trans_model($model, $word)
+    {
 
-        return $model->{$word.'_'. app()->getlocale()};
+        return $model->{$word . '_' . app()->getlocale()};
     }
-
 }
 
 if (!function_exists('get_user_file')) {
     function get_user_file($image): string
     {
-        if ($image!= null){
-            if (!file_exists($image)){
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('assets/uploads/avatar.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('assets/uploads/avatar.png');
         }
     }
@@ -115,8 +123,7 @@ if (!function_exists('userCount')) {
 
         return DB::table('users')
             ->where('user_type', 'student')
-            ->count();
-       ;
+            ->count();;
     }
 }
 
@@ -127,7 +134,6 @@ if (!function_exists('doctorCount')) {
         return DB::table('users')
             ->where('user_type', 'doctor')
             ->count();
-
     }
 }
 
@@ -139,7 +145,6 @@ if (!function_exists('adminCount')) {
         return DB::table('users')
             ->where('user_type', 'manger')
             ->count();
-
     }
 }
 
@@ -151,7 +156,6 @@ if (!function_exists('departmentCount')) {
 
         return DB::table('departments')
             ->count();
-
     }
 }
 
@@ -162,7 +166,6 @@ if (!function_exists('branchCount')) {
 
         return DB::table('department_branches')
             ->count();
-
     }
 }
 
@@ -171,13 +174,13 @@ if (!function_exists('get_file')) {
     function get_file($image): string
     {
 
-        if ($image!= null){
-            if (!file_exists($image)){
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('assets/uploads/empty.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('assets/uploads/empty.png');
         }
     }
@@ -185,16 +188,16 @@ if (!function_exists('get_file')) {
 
 
 if (!function_exists('api')) {
-    function api() {
+    function api()
+    {
         return auth()->guard('api');
     }
 }
 
 if (!function_exists('helperJson')) {
-    function helperJson($data=null,$message='',$code=200,$status=200): JsonResponse
+    function helperJson($data = null, $message = '', $code = 200, $status = 200): JsonResponse
     {
-        return response()->json(['data'=>$data,'message'=>$message,'code'=>$code],$status);
-
+        return response()->json(['data' => $data, 'message' => $message, 'code' => $code], $status);
     }
 }
 
@@ -204,19 +207,19 @@ if (!function_exists('documentCountUser')) {
     {
 
         $period = \App\Models\Period::query()
-            ->where('status','=','start')
+            ->where('status', '=', 'start')
             ->first();
 
         $documentCount = 0;
 
-        if($period){
+        if ($period) {
 
             $documentCount = Document::query()
-                ->where('user_id','=',auth()->id())
-                ->whereYear('created_at','=', $period->year_start);
+                ->where('user_id', '=', auth()->id())
+                ->whereYear('created_at', '=', $period->year_start);
 
             return $documentCount->count();
-        }else{
+        } else {
 
             return $documentCount;
         }
@@ -225,7 +228,8 @@ if (!function_exists('documentCountUser')) {
 
 
 if (!function_exists('checkPeriod')) {
-    function checkPeriod() {
+    function checkPeriod()
+    {
         $namePeriod = null;
 
         $period = \App\Models\Period::query()
@@ -242,84 +246,138 @@ if (!function_exists('checkPeriod')) {
 
 
 if (!function_exists('processExamCountUser')) {
-    function processExamCountUser(): int {
+    function processExamCountUser(): int
+    {
 
         $period = \App\Models\Period::query()
-            ->where('status','=','start')
+            ->where('status', '=', 'start')
             ->first();
 
 
 
-            $processExamCount = ProcessExam::query()
-                ->where('user_id', '=', auth()->id());
+        $processExamCount = ProcessExam::query()
+            ->where('user_id', '=', auth()->id());
 
-            return $processExamCount->count();
+        return $processExamCount->count();
     }
 }
 
 
 if (!function_exists('processDegreeCountUser')) {
-    function processDegreeCountUser():int {
+    function processDegreeCountUser(): int
+    {
 
         $period = \App\Models\Period::query()
-            ->where('status','=','start')
+            ->where('status', '=', 'start')
             ->first();
 
         $processDegreeCount = 0;
 
-        if($period) {
+        if ($period) {
 
             $processDegreeCount = ProcessDegree::query()
                 ->where('user_id', '=', auth()->id())
                 ->where('year', '=', $period->year_start);
 
             return $processDegreeCount->count();
-
-        }else{
+        } else {
 
             return $processDegreeCount;
         }
-
-
     }
 }
 
 if (!function_exists('subjectStudentCountUser')) {
-    function subjectStudentCountUser(): int {
+    function subjectStudentCountUser(): int
+    {
 
 
         $period = \App\Models\Period::query()
-            ->where('status','=','start')
+            ->where('status', '=', 'start')
             ->first();
 
         $subjectStudentCount = 0;
 
-        if($period) {
+        if ($period) {
 
             $subjectStudentCount = SubjectStudent::query()
                 ->where('user_id', '=', auth()->id())
-                ->where('period','=',$period->period)
+                ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year);
 
             return  $subjectStudentCount->count();
-
-        }else{
+        } else {
 
             return  $subjectStudentCount;
         }
-
-
     }
+    
+if (!function_exists('departmentStudentCount')) {
+    function departmentStudentCount(): int
+    {
+
+
+        $period = \App\Models\Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+
+        $departmentStudentCount = 0;
+
+        if ($period) {
+
+            $departmentStudentCount = DepartmentStudent::query()
+                ->where('user_id', '=', auth()->id())
+                ->where('period', '=', $period->period)
+                ->where('year', '=', $period->year_start);
+
+            return  $departmentStudentCount->count();
+        } else {
+
+            return  $departmentStudentCount;
+        }
+    }
+}
+
+    if (!function_exists('internalAdsCount')) {
+        function internalAdsCount(): int
+        {
+            $internalAdsCount = InternalAd::query()->count();
+    
+            return $internalAdsCount;
+        }
+    }
+    
 
 
     if (!function_exists('processExamCount')) {
-        function processExamCount(): int {
+        function processExamCount(): int
+        {
 
             return  ProcessExam::query()
-                ->whereDate('created_at','=',\Carbon\Carbon::now()->format('Y-m-d'))
+                ->whereDate('created_at', '=', \Carbon\Carbon::now()->format('Y-m-d'))
                 ->count();
-
         }
     }
 
+    if (!function_exists('getInformationUser')) {
+        function getInformationUser()
+        {
+            try {
+                $period = Period::where('status', 'start')->first();
+
+                if ($period) {
+                    $data = DepartmentStudent::where('user_id', '=', auth()->user()->id)
+                        ->where('period', '=', $period->period)
+                        ->where('year', '=', $period->year_start)
+                        ->select('year', 'period', 'department_id')
+                        ->first();
+                } else {
+                    $data = [];
+                }
+                return $data;
+            } catch (\Exception $e) {
+                return [];
+            }
+        }
+    }
 }
