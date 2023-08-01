@@ -507,7 +507,7 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item" href=""{{route('profile')}}>
+                    <a class="side-menu__item" href="{{route('profile')}}">
                         <i class="fe fe-file-text side-menu__icon"></i>
                         <span class="side-menu__label">{{ trans('student_sidebar.profile') }}</span>
                     </a>
@@ -520,12 +520,12 @@
                     </a>
                 </li>
 
-                <li class="slide">
-                    <a class="side-menu__item" href="#">
-                        <i class="fe fe-file-text side-menu__icon"></i>
-                        <span class="side-menu__label">{{ trans('student_sidebar.department_student') }}</span>
-                    </a>
-                </li>
+{{--                <li class="slide">--}}
+{{--                    <a class="side-menu__item" href="#">--}}
+{{--                        <i class="fe fe-file-text side-menu__icon"></i>--}}
+{{--                        <span class="side-menu__label">{{ trans('student_sidebar.department_student') }}</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="slide">
                     <a class="side-menu__item" href="{{route('schedules.students.all')}}">

@@ -37,6 +37,11 @@
                                 <i class="fa fa-edit"></i>
                                 {{ trans('admin.data_modify') }}
                             </button>
+
+                            <button type="button" class="btn btn-sm btn-info-light edit-image">
+                                <i class="fa fa-edit"></i>
+                                تعديل صوره
+                            </button>
                             <button type="button" class="btn btn-sm btn-success-light"
                                     data-toggle="modal" data-target="#data_modal_modify">
                                 <i class="fa fa-marker"></i>
@@ -160,6 +165,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 @if(auth()->user()->user_type == 'student')
                 <div class="tab-pane" id="units">
                     <div class="card">
@@ -368,8 +375,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- Edit MODAL -->
+        <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div  class="modal-content container" id="modalContent">
+
+                </div>
+            </div>
+        </div>
+        <!-- Edit MODAL CLOSED -->
+
     </div>
     <!-- Password CLOSED -->
+
 
     @include('admin.layouts.myAjaxHelper')
 
@@ -437,6 +456,65 @@
                 });
             });
 
+            //start edit profile image
+
+            // Get Add View
+            $(document).on('click', '.edit-image', function () {
+                $('#modalContent').html(loader)
+                $('#editOrCreate').modal('show')
+                setTimeout(function () {
+                    $('#modalContent').load('{{route('user-edit-profile-create')}}')
+                }, 250)
+            });
+
+            // Add By Ajax
+            $(document).on('submit', 'Form#addForm', function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                var url = $('#addForm').attr('action');
+                $.ajax({
+
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    beforeSend: function () {
+                        $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
+                            ' ></span> <span style="margin-left: 4px;">{{ trans('admin.Loading') }}</span>').attr('disabled', true);
+                    },
+
+                    success: function (data) {
+
+                        if (data.status == 200) {
+                            $('#dataTable').DataTable().ajax.reload();
+                            toastr.success('Request Added Successfully');
+                        } else
+                            toastr.error('There is an error');
+                        $('#addButton').html('{{ trans('admin.add') }}').attr('disabled', false);
+                        $('#editOrCreate').modal('hide')
+                    },
+
+                    error: function (data) {
+                        if (data.status === 500) {
+                            toastr.error('There is an error');
+                        } else if (data.status === 422) {
+
+                            var errors = $.parseJSON(data.responseText);
+                            $.each(errors, function (key, value) {
+                                if ($.isPlainObject(value)) {
+                                    $.each(value, function (key, value) {
+                                        toastr.error(value, key);
+                                    });
+                                }
+                            });
+                        } else
+                            toastr.error('there in an error');
+                        $('#addButton').html(`Create`).attr('disabled', false);
+                    },//end error method
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
         </script>
     @endsection
 
