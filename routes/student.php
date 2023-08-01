@@ -17,7 +17,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::get('subject-student-all',[SubjectStudentController::class,'index'])->name('subject-student-all');
     Route::get('point-statement-student',[PointStatementController::class,'pointStatementStudent'])->name('point-statement-student');
 
-
     Route::get('subject-exam-result-normal',[SubjectExamStudentResultController::class,'normal'])->name('subject-exam-result-normal');
     Route::get('subject-exam-result-remedial',[SubjectExamStudentResultController::class,'remedial'])->name('subject-exam-result-remedial');
     Route::get('subject-exam-student-normal',[SubjectExamStudentController::class,'normal'])->name('subject-exam-student-normal');
@@ -58,6 +57,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     //student edit profile
     Route::get('user-edit-profile-create', [ProfileController::class, 'userEditProfileCreate'])->name('user-edit-profile-create');
     Route::post('user-edit-profile', [ProfileController::class, 'userEditProfile'])->name('user-edit-profile');
-
-
 });
