@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DepartmentStudentController;
 use App\Http\Controllers\Student\DocumentController;
 use App\Http\Controllers\Student\PointStatement\PointStatementController;
 use App\Http\Controllers\Student\ProcessDegree\ProcessDegreeController;
@@ -30,6 +31,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
 
 
+    #### user department ####
+    Route::resource('departmentStudents', DepartmentStudentController::class)->middleware('forbidden');
+    Route::get('exportDepartmentStudents', [DepartmentStudentController::class, 'exportDepartmentStudents'])->name('exportDepartmentStudents')->middleware('forbidden');
+    Route::post('importDepartmentStudents', [DepartmentStudentController::class, 'importDepartmentStudents'])->name('importDepartmentStudents')->middleware('forbidden');
+
     //process exam routes
     Route::get('get-all-process-exams', [ProcessExamController::class, 'get_all_process_exams'])->name('get-all-process-exams');
     Route::get('create-process-exam', [ProcessExamController::class, 'create_process_exam'])->name('create-process-exam');
@@ -46,6 +52,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     Route::get('create-process-degree-remedial/{id}', [ProcessDegreeController::class, 'remedialCreate'])->name('create-process-degree-remedial');
     Route::post('store-process-degree-remedial', [ProcessDegreeController::class, 'remedialStore'])->name('store-process-degree-remedial');
+
 
 
 });

@@ -152,6 +152,7 @@ return [
     "User_Branch" => "Branche des étudiants",
     "register_year" => "année d'inscription",
     "branch_restart_register" => "registre de redémarrage de succursale",
+    "department_restart_register" => "Réenregistrer la piste",
     "student_branch" => "étudiant",
     "student_count_department" => "Le nombre d'étudiants selon les filières",
 
@@ -258,6 +259,8 @@ return [
 
     // Subject Student
     'subject_student' => 'Sujet Étudiant',
+    'subject_re' => 'Sujet d\'enregistrement',
+
     'subject_students' => 'Sujet Étudiants',
     'year' => 'Année',
     'period' => 'période',

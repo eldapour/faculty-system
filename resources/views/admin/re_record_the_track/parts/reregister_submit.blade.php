@@ -3,29 +3,47 @@
         @csrf
         <div class="form-group">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>@lang('admin.unit')</th>
-                        <th>@lang('admin.group')</th>
-                        <th>@lang('admin.subjects')</th>
-                        <th>@lang('admin.doctor')</th>
-                    </tr>
-                    </thead>
-                    @foreach($subjectStudent as $index => $data)
-                        <tbody>
-                        <tr>
-                            <td>{{ $index+1 }}</td>
-                            <td>{{ $data->unit }}</td>
-                            <td>{{ $data->group }}</td>
-                            <td>{{ $data->subject }}</td>
-                            <td>{{ $data->user }}</td>
-                        </tr>
-                        </tbody>
-                    @endforeach
-                </table>
+
+            <div class="row">
+                <div class="col-12">
+                    <h4>{{ trans('admin.department') .' : ' . $department->department->department_name }}</h4>
+                </div>
+                <div class="col-12">
+                    <label for="branch" class="form-control-label">@lang('admin.branches')</label>
+                    <select class="form-control" name="branch" required>
+                        <option value="" selected disabled>@lang('admin.select')</option>
+                        @foreach($branchs as $branch)
+                            <option value="{{ $branch->id }}">{{ $branch->branch_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
+{{--        <div class="form-group">--}}
+
+{{--                <table class="table table-bordered">--}}
+{{--                    <thead>--}}
+{{--                    <tr>--}}
+{{--                        <th>#</th>--}}
+{{--                        <th>@lang('admin.unit')</th>--}}
+{{--                        <th>@lang('admin.group')</th>--}}
+{{--                        <th>@lang('admin.subjects')</th>--}}
+{{--                        <th>@lang('admin.doctor')</th>--}}
+{{--                    </tr>--}}
+{{--                    </thead>--}}
+{{--                    @foreach($subjectStudent as $index => $data)--}}
+{{--                        <tbody>--}}
+{{--                        <tr>--}}
+{{--                            <td>{{ $index+1 }}</td>--}}
+{{--                            <td>{{ $data->unit }}</td>--}}
+{{--                            <td>{{ $data->group }}</td>--}}
+{{--                            <td>{{ $data->subject }}</td>--}}
+{{--                            <td>{{ $data->user }}</td>--}}
+{{--                        </tr>--}}
+{{--                        </tbody>--}}
+{{--                    @endforeach--}}
+{{--                </table>--}}
+{{--        </div>--}}
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary"
                     id="reregisterBtn">{{ trans('admin.re_record_the_track') }}</button>

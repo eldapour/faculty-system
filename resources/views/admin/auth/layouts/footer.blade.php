@@ -57,6 +57,24 @@
             passwordErr.addClass('d-none');
     })
 
+    $('input[name="confirmPassword"]').on('keyup', function() {
+        let passwordErr = $('.confirmPassword-error');
+        let passwordMatch = $('.confirmPassword-error2');
+        let pass = $('input[name="password"]');
+        if ($(this).val() == ''){
+            passwordErr.removeClass('d-none');
+        }
+        else{
+            passwordErr.addClass('d-none');
+        }
+        if ($(this).val() != pass.val()){
+            passwordMatch.removeClass('d-none');
+        } else {
+            passwordMatch.addClass('d-none');
+
+        }
+    })
+
     // student login form
     $(document).on('click', '.btnLogin-student', function() {
         let email = $('input[name="email"]').val();

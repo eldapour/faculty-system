@@ -15,10 +15,21 @@ use App\Http\Controllers\Front\PresentationController;
 use App\Http\Controllers\Front\HomeWebController;
 use App\Http\Controllers\Front\PageController;
 use App\Http\Controllers\Front\TimeUsesController;
-
+use Illuminate\Support\Facades\Artisan;
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/student.php';
+
+
+// Route to clear the configuration cache
+Route::get('/clear', function () {
+    Artisan::call('config:cache');
+    Artisan::call('cache:clear');
+    Artisan::call('optimize:clear');
+    return 'cache cleared successfully.';
+});
+
+
 
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'front', 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
