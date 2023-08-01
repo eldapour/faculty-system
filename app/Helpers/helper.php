@@ -311,7 +311,7 @@ if (!function_exists('subjectStudentCountUser')) {
             return  $subjectStudentCount;
         }
     }
-    
+
 if (!function_exists('departmentStudentCount')) {
     function departmentStudentCount(): int
     {
@@ -321,19 +321,19 @@ if (!function_exists('departmentStudentCount')) {
             ->where('status', '=', 'start')
             ->first();
 
-        $departmentStudentCount = 0;
+        $subjectStudent = 0;
 
         if ($period) {
 
-            $departmentStudentCount = DepartmentStudent::query()
+            $subjectStudent = SubjectStudent::query()
                 ->where('user_id', '=', auth()->id())
                 ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year_start);
 
-            return  $departmentStudentCount->count();
+            return  $subjectStudent->count();
         } else {
 
-            return  $departmentStudentCount;
+            return  $subjectStudent;
         }
     }
 }
@@ -342,11 +342,11 @@ if (!function_exists('departmentStudentCount')) {
         function internalAdsCount(): int
         {
             $internalAdsCount = InternalAd::query()->count();
-    
+
             return $internalAdsCount;
         }
     }
-    
+
 
 
     if (!function_exists('processExamCount')) {
