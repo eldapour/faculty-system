@@ -5,6 +5,7 @@ use App\Http\Controllers\Student\DocumentController;
 use App\Http\Controllers\Student\PointStatement\PointStatementController;
 use App\Http\Controllers\Student\ProcessDegree\ProcessDegreeController;
 use App\Http\Controllers\Student\ProcessExam\ProcessExamController;
+use App\Http\Controllers\Student\ProfileController;
 use App\Http\Controllers\Student\SubjectExamStudentController;
 use App\Http\Controllers\Student\SubjectExamStudentResultController;
 use App\Http\Controllers\Student\SubjectStudentController;
@@ -53,6 +54,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::get('create-process-degree-remedial/{id}', [ProcessDegreeController::class, 'remedialCreate'])->name('create-process-degree-remedial');
     Route::post('store-process-degree-remedial', [ProcessDegreeController::class, 'remedialStore'])->name('store-process-degree-remedial');
 
+
+    //student edit profile
+    Route::get('user-edit-profile-create', [ProfileController::class, 'userEditProfileCreate'])->name('user-edit-profile-create');
+    Route::post('user-edit-profile', [ProfileController::class, 'userEditProfile'])->name('user-edit-profile');
 
 
 });
