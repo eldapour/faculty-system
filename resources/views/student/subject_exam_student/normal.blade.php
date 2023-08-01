@@ -11,7 +11,17 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
-
+                @if($period_normal)
+                <div class="card-header">
+                <button class="btn btn-info btn-icon text-white"
+                        id="printBtn">
+                            <span>
+                                <i class="fe fe-file-text"></i>
+                            </span>
+                    {{ trans('admin.Print') }}
+                </button>
+                </div>
+                @endif
                 <div class="card-body">
                     <div class="table-responsive">
                         <!--begin::Table-->
@@ -64,6 +74,9 @@
                 ]
                 showData('{{route('subject-exam-student-normal')}}', columns);
 
+                $(document).on('click', '#printBtn',function(){
+                    window.location.href='{{ route('subject_exams.print') }}';
+                })
 
             </script>
 @endsection

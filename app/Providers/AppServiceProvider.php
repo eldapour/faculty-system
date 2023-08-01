@@ -44,6 +44,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('university_settings',UniversitySetting::first());
         View::share('maintenance',UniversitySetting::first());
         View::share('periods',Period::all());
+        View::share('period_normal',Period::query()->where('year_start','=',Carbon::now()->format('Y'))->where('status','=','start')->where('session','=','عاديه')->first());
+        View::share('period_remedial',Period::query()->where('year_start','=',Carbon::now()->format('Y'))->where('status','=','start')->where('session','=','استدراكيه')->first());
         View::share('pages',Page::query()
         ->where('category_id', '=', '8')
             ->get());

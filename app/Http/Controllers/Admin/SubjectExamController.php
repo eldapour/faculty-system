@@ -228,7 +228,7 @@ class SubjectExamController extends Controller
 
     } // end of get subject
 
-    public function student_exam_print(Request $request)
+    public function student_exam_print()
     {
         $period = Period::query()
             ->where('status', '=', 'start')
