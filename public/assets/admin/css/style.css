@@ -1196,6 +1196,17 @@ pre {
 .float-none {
   float: none !important; }
 
+  .student-info {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+  }
+
 @media (min-width: 576px) {
   .float-sm-left {
     float: left !important; }

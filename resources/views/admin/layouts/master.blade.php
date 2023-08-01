@@ -56,6 +56,13 @@
                                 @endif
                                 <li class="breadcrumb-item active" aria-current="page">@yield('page_name')</li>
                             </ol>
+                            <?php
+                            $data = getInformationUser()
+                             ?>
+                             @if(auth()->user()->user_type == 'student')
+                            <p class="student-info"> {{ $data->department->department_name }} - {{ $data->year }} - {{ $data->period }}</p>
+                            @endif
+                            <!-- abdo -->
                         </div>
                     </div>
                     <!-- PAGE-HEADER END -->

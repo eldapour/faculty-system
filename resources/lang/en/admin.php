@@ -526,6 +526,7 @@ return [
     "group_name_" => "cohort",
     "year_name_" => "academic year",
     "period_name_" => "period",
+    "internal_ads" => "Internal ads",
 
 
     "unit_name_" => "chapter",
