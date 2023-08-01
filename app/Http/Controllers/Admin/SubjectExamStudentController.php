@@ -10,6 +10,7 @@ use App\Models\Group;
 use App\Models\Period;
 use App\Models\UniversitySetting;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Subject;
 use App\Models\Unit;
@@ -168,19 +169,12 @@ class SubjectExamStudentController extends Controller
 
     public function printSubjectExamStudent()
     {
-        $user = User::query()->findOrFail(auth()->user()->id);
-        $settings = UniversitySetting::query()->first();
-        $periods = Period::query()->first();
+        $user = Auth::user();
+        $setting = UniversitySetting::query()->first();
+        $period = Period::query()->first();
         $qrcode = QrCode::size(300)->generate(route('printSubjectExamStudent',$user->id));
-        return view('admin.subject_exam_students.parts.print',compact([
-            'user',
-            'settings',
-            'periods',
-            'qrcode'
-        ]));
+        return view('admin.subject_exam_students.parts.print',compact(['user', 'setting', 'period', 'qrcode']));
     }
-
-
 
     public function normalSES(request $request)
     {

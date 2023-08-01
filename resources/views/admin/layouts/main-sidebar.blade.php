@@ -8,13 +8,11 @@
         <!-- LOGO -->
     </div>
     <ul class="side-menu">
-
         @if (checkUser('manger') || checkUser('employee')|| checkUser('student') || checkUser('doctor'))
             <li>
                 <h3><a href="{{ route('admin.home') }}">{{ trans('admin.dashboard') }}</a></h3>
             </li>
         @endif
-
 
         {{-------------------------- start region doctor - الدكتور ------------------------}}
         @if (checkUser('doctor'))
@@ -499,11 +497,10 @@
 {{--        @endif--}}
         {{-------------------------- end region student - الطالب ------------------------}}
 
-
         @if(checkUser('student'))
 
                 <li class="slide">
-                    <a class="side-menu__item" href="#">
+                    <a class="side-menu__item" href="{{url('dashboard')}}">
                         <i class="fe fe-file-text side-menu__icon"></i>
                         <span class="side-menu__label">{{ trans('student_sidebar.dashboard') }}</span>
                     </a>
@@ -545,7 +542,7 @@
                 </li>
 
                  <li class="slide">
-                    <a class="side-menu__item" href="#">
+                    <a class="side-menu__item" href="{{route('certificates.registeration')}}">
                         <i class="fe fe-file-text side-menu__icon"></i>
                         <span class="side-menu__label">{{ trans('student_sidebar.registration_certificate') }}</span>
                     </a>

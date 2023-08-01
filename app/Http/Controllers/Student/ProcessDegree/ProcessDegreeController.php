@@ -131,7 +131,7 @@ class ProcessDegreeController extends Controller
     }
 
 
-    public function normalStore(Request $request): JsonResponse
+    public function normalStore(ProcessDegreeRequest $request): JsonResponse
     {
 
         $inputs = $request->all();
@@ -173,7 +173,7 @@ class ProcessDegreeController extends Controller
     }
 
 
-    public function remedialStore(Request $request): JsonResponse
+    public function remedialStore(ProcessDegreeRequest $request): JsonResponse
     {
         $inputs = $request->all();
         $inputs['user_id'] = Auth::id();
