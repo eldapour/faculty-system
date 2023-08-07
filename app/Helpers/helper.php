@@ -359,6 +359,16 @@ if (!function_exists('departmentStudentCount')) {
         }
     }
 
+    if (!function_exists('documentCount')) {
+        function documentCount(): int
+        {
+
+            return  Document::query()
+                ->whereDate('created_at', '=', \Carbon\Carbon::now())
+                ->count();
+        }
+    }
+
     if (!function_exists('getInformationUser')) {
         function getInformationUser()
         {

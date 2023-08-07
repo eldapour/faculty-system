@@ -340,8 +340,8 @@ return [
     'withdraw_by_proxy_no' => "لا",
 
     //Element
-    'element' => 'عنصر البيدغولوجيه',
-    'elements' => 'عنصر البيدغولوجيه',
+    'element' => 'العنصر البيداغوجي',
+    'elements' => 'العنصر البيداغوجي',
 
     // Process Degrees
     "process_degree" => "درجة العملية",

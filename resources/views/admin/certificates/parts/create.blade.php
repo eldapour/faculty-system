@@ -12,7 +12,7 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="user_id" class="form-control-label">{{trans('admin.diploma_user')}}</label>
                     <select class="form-control" name="user_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -23,7 +23,7 @@
                 </div>
 
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label for="user_id" class="form-control-label">{{trans('admin.diploma_name')}}</label>
                     <select class="form-control" name="certificate_type_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -33,7 +33,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-12 mt-3">
+                <div class="col-md-6 mt-3">
                     <label for="category_name" class="form-control-label">{{trans('admin.validation_year')}}</label>
 
                     <select name="validation_year" class="form-control" id="validation_year">
@@ -44,7 +44,7 @@
                 </div>
 
 
-                <div class="col-md-12 mt-3">
+                <div class="col-md-6 mt-3">
                     <label for="category_name" class="form-control-label">{{trans('admin.diploma_year')}}</label>
                     <select name="year" class="form-control" id="year">
                         @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)

@@ -126,7 +126,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
         #### departments ####
         Route::resource('departments', DepartmentController::class);
         Route::get('departmentStudent', [DepartmentController::class, 'departmentStudent'])->name('departmentStudent');
-        Route::get('departmentStudents', [DepartmentController::class, 'departmentStudents'])->name('departmentStudents');
 
         #### sliders ####
         Route::resource('sliders', SliderController::class);

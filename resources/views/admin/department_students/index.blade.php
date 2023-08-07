@@ -4,7 +4,7 @@
     {{($setting->title) ?? ''}}  @lang('admin.department_students')
 @endsection
 @section('page_name')
-    @lang('admin.department_branch_students')
+    @lang('admin.department_students')
 @endsection
 @section('content')
 
@@ -12,7 +12,7 @@
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> @lang('admin.add_department_to_student') {{($setting->title) ?? ''}}</h3>
+                    <h3 class="card-title"> @lang('admin.department_students') {{($setting->title) ?? ''}}</h3>
                     <div class="">
                         <button class="btn btn-primary btn-icon text-white"
                                 data-toggle="modal" data-target="#importExel">
@@ -28,7 +28,7 @@
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
-									</span> {{trans('admin.add_department_to_student')}}
+									</span> {{trans('admin.add')}}
                         </button>
                     </div>
                 </div>

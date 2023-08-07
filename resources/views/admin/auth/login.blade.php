@@ -134,7 +134,7 @@
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <div class="d-flex justify-content-center">
-                                    <img src="{{ asset('assets/logo/download.jfif') }}" alt="no-image">
+                                    <img style="width:100%"  src="{{ asset('uploads/university_setting/'.$university_settings->logo) }}" alt="no-image">
                                 </div>
                                 <h2 class="card-title font-weight-bold mb-1">@lang('login.welcome to ')</h2>
                                 <p class="card-text mb-2">@lang('login.Please sign-in to your account and start the adventure')</p>
@@ -146,7 +146,6 @@
                                             <option class="form-control" value="doctor">@lang('login.doctor')</option>
                                             <option class="form-control" value="manger">@lang('login.manger')</option>
                                             <option class="form-control" value="employee">@lang('login.employee')</option>
-                                            <option class="form-control" value="factor">@lang('login.factor')</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -158,8 +157,7 @@
                                     <small class="text-danger d-none email-error">* @lang('login.This field is required')</small>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-between">
-                                            <label for="login-password">@lang('login.password')</label><a
-                                                href="{{ route('resetPassView') }}"><small>@lang('login.Forgot Password?')</small></a>
+                                            <label for="login-password">@lang('login.password')</label>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="password"

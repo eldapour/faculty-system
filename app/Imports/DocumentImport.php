@@ -18,6 +18,7 @@ class DocumentImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+        Document::select('*')->delete();
         for ($i = 0; $i < count($rows); $i++) {
             // get user data id
             $user = User::where('identifier_id','=', $rows[$i]['user_code'])->first('id');

@@ -86,7 +86,7 @@
 
         <!-- Edit MODAL -->
         <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" id="modalContent">
 
                 </div>
@@ -144,7 +144,7 @@
 
 
         var columns = [
-            {data: 'id', name: 'id'},
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'diploma_name', name: 'diploma_name'},
             {data: 'validation_year', name: 'validation_year'},

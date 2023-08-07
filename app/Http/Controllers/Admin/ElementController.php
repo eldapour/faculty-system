@@ -6,6 +6,7 @@ use App\Exports\ElementExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ElementRequest;
 use App\Imports\ElementImport;
+use App\Models\Department;
 use App\Models\DepartmentBranch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -36,7 +37,11 @@ class ElementController extends Controller
                     return $elements->getTranslation('name', app()->getLocale());
                 })
                 ->editColumn('department_branch_id ', function ($elements) {
-                    return $elements->department_branch->getTranslation('branch_name', app()->getLocale());
+                    $departmentId = $elements->department_branch->department_id;
+                    return Department::query()->where('id','=',$departmentId)
+                        ->first()
+                    ->department_name;
+
                 })
                 ->escapeColumns([])
                 ->make(true);
