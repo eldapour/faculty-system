@@ -22,14 +22,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::get('subject-exam-student-normal',[SubjectExamStudentController::class,'normal'])->name('subject-exam-student-normal');
     Route::get('subject-exam-student-remedial',[SubjectExamStudentController::class,'remedial'])->name('subject-exam-student-remedial');
 
-
     //documents routes
     Route::get('documents-student-all', [DocumentController::class,'index'])->name('documents-student-all');
     Route::get('document-create', [DocumentController::class, 'create'])->name('document-create');
     Route::post('document-store', [DocumentController::class, 'store'])->name('document-store');
     Route::post('documents-delete', [DocumentController::class, 'destroy'])->name('documents-delete');
-
-
 
     #### user department ####
     Route::resource('departmentStudents', DepartmentStudentController::class)->middleware('forbidden');
@@ -42,17 +39,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::post('store-process-exam', [ProcessExamController::class, 'store_process_exam'])->name('store-process-exam');
     Route::post('delete-process-exam', [ProcessExamController::class, 'delete_process_exam'])->name('delete-process-exam');
 
-
     //process degree routes
     Route::get('get-all-process-degrees', [ProcessDegreeController::class, 'get_all_process_degrees'])->name('get-all-process-degrees');
 
     Route::get('create-process-degree-normal/{id}', [ProcessDegreeController::class, 'normalCreate'])->name('create-process-degree-normal');
     Route::post('store-process-degree-normal', [ProcessDegreeController::class, 'normalStore'])->name('store-process-degree-normal');
 
-
     Route::get('create-process-degree-remedial/{id}', [ProcessDegreeController::class, 'remedialCreate'])->name('create-process-degree-remedial');
     Route::post('store-process-degree-remedial', [ProcessDegreeController::class, 'remedialStore'])->name('store-process-degree-remedial');
-
 
     //student edit profile
     Route::get('user-edit-profile-create', [ProfileController::class, 'userEditProfileCreate'])->name('user-edit-profile-create');

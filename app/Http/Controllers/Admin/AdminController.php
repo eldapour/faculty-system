@@ -74,13 +74,11 @@ class AdminController extends Controller
 
             if (file_exists(public_path("uploads/users/" . $admin->image))) {
                 unlink(public_path("uploads/users/" . $admin->image));
-
                 $admin->delete();
                 return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
 
             } else {
                 return response(['message' => 'Error delete image user', 'status' => 500], 500);
-
             }
 
         } else {
@@ -88,8 +86,6 @@ class AdminController extends Controller
             $admin->delete();
             return response(['message' => 'user Deleted Successfully', 'status' => 200], 200);
         }
-
-
     }
 
 
@@ -257,7 +253,7 @@ class AdminController extends Controller
         }
     }
 
-    
+
     public function exportAdmin()
     {
         return Excel::download(new AdminExport(), 'admins.xlsx');

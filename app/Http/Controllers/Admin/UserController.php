@@ -26,11 +26,6 @@ class UserController extends Controller
     }
 
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|JsonResponse
-     * @throws \Exception
-     */
     public function index(request $request)
     {
 

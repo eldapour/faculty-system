@@ -44,7 +44,6 @@
                                 <th class="min-w-25px">{{trans('subject_student.year')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.subject_id')}}</th>
-                                <th class="min-w-25px">{{trans('subject_student.group')}}</th>
 
                                 {{--  <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>  --}}
                             </tr>
@@ -144,9 +143,8 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'year', name: 'year'},
-            {data: 'user_code', name: 'user_code'},
+            {data: 'user', name: 'user'},
             {data: 'subject_id', name: 'subject_id'},
-            {data: 'group_id', name: 'group_id'},
             //{data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('subject_student.index')}}', columns);

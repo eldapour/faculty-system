@@ -4,26 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Element extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
 
-    public array $translatable = ['name'];
 
     protected $fillable = [
-        'name',
-        'period',
-        'department_branch_id',
+        'element_code',
+        'name_ar',
+        'name_latin',
+        'session',
+        'department_id',
     ];
 
-    protected $casts = [
-        'name' => 'json',
-    ];
 
-    public function department_branch()
+    public function department(): BelongsTo
     {
-        return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
+        return $this->belongsTo(Department::class, 'department_id', 'id');
     }
 }

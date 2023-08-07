@@ -118,6 +118,7 @@
                 </ul>
             {{-- end website data --}}
 
+
             {{-- start schedule data in dashboard --}}
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
@@ -164,7 +165,8 @@
                 <a class="side-menu__item" data-toggle="slide" href="#">
                     <i class="fe fe-repeat side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.Document requests') }}
-                    <div style="width: 30px;height: 30px;border-radius: 50%;background: #56d094;color: #fff;display: inline-block;padding: 6px;text-align: center">{{documentCount()}}</div></span><i
+                    <div style="width: 30px;height: 30px;border-radius: 50%;background: #56d094;color: #fff;display: inline-block;padding: 6px;text-align: center">{{documentCount()}}</div>
+                    </span><i
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
@@ -177,6 +179,8 @@
                 </ul>
             </li>
             {{--   end Document requests  --}}
+
+
 
             {{--   start Diploma certificates  --}}
 
@@ -236,6 +240,7 @@
                     <span class="side-menu__label">{{ trans('admin.subject_students') }}</span>
                 </a>
             </li>
+
 
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('certificate_name.index') }}">
@@ -323,9 +328,11 @@
                 <a class="side-menu__item" href="{{ route('data_modify.index') }}">
                     <i class="fe fe-rewind side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.data_modify') }}</span>
+                    <div style="width: 30px;height: 30px;border-radius: 50%;background: #56d094;color: #fff;display: inline-block;padding: 6px;text-align: center">{{dataModificationCount()}}</div>
+
+
                 </a>
             </li>
-
 
 
             <li class="slide">
