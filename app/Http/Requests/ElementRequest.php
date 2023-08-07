@@ -24,11 +24,12 @@ class ElementRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'element_code' => 'required',
             'name_ar' => 'required',
-            'name_en' => 'required',
-            'name_fr' => 'required',
-            'period' => 'required',
-            'department_branch_id' => 'required',
+            'name_latin' => 'required',
+            'session_name' => 'required',
+            'department_id' => 'required',
         ];
+
     }
 }

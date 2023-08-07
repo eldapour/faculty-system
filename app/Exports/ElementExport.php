@@ -19,11 +19,11 @@ class ElementExport implements FromCollection, WithHeadings, ShouldAutoSize
     {
         return [
             '#',
-            'name in arabic',
-            'name in english',
-            'name in french',
-            'period',
-            'department branch code',
+            'element_code',
+            'name_ar',
+            'name_latin',
+            'session',
+            'department_code',
         ];
     }
 
@@ -38,15 +38,15 @@ class ElementExport implements FromCollection, WithHeadings, ShouldAutoSize
 
         $data = [];
         foreach ($elements as $element) {
-            $user_data = [
+            $elementsCollect = [
               'id' => $element->id,
-                'name in arabic' => $element->getTranslation('name','ar'),
-                'name in english' => $element->getTranslation('name','en'),
-                'name in french' => $element->getTranslation('name','fr'),
-                'period' => $element->period,
-                'department branch id' => (string) $element->department_branch->department_branch_code,
+                'element_code' => $element->element_code,
+                'name_ar' => $element->name_ar,
+                'name_latin' => $element->name_latin,
+                'session' => $element->session,
+                'department_code' =>  $element->department->department_code,
             ];
-            $data[] = $user_data;
+            $data[] = $elementsCollect;
         }
         return collect([$data]);
     } // end collection

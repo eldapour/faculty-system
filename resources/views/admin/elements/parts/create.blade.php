@@ -4,39 +4,43 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-6 col-12">
-                    <label for="name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.arabic') }}</label>
-                    <input type="text" class="form-control" name="name_ar">
-                </div>
 
                 <div class="col-md-6 col-12">
                     <label for="name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.english') }}</label>
-                    <input type="text" class="form-control" name="name_en">
+                           class="form-control-label">{{ trans('elements.element_code') }}</label>
+                    <input type="text" class="form-control" name="element_code">
+                </div>
+
+
+                <div class="col-md-6 col-12">
+                    <label for="name"
+                        class="form-control-label">{{ trans('elements.name_ar') }}</label>
+                    <input type="text" class="form-control" name="name_ar">
                 </div>
 
                 <div class="col-md-12 col-12">
                     <label for="name"
-                        class="form-control-label">{{ trans('admin.name') . ' ' . trans('admin.france') }}</label>
-                    <input type="text" class="form-control" name="name_fr">
+                        class="form-control-label">{{ trans('elements.name_latin') }}</label>
+                    <input type="text" class="form-control" name="name_latin">
                 </div>
+
 
             </div>
             <div class="row">
                 <div class="col-md-12 col-12">
-                    <label for="name" class="form-control-label">{{ trans('admin.period') }}</label>
-                    <select name="period" class="form-control">
+                    <label for="name" class="form-control-label">{{ trans('elements.session') }}</label>
+                    <select name="session_name" class="form-control">
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
-                <div class="col-md-12 col-12">
-                    <label for="name" class="form-control-label">{{ trans('admin.department') ." ". trans('admin.branch') }}</label>
-                    <select name="department_branch_id" class="form-control">
-                        @foreach ($data['department_branchs'] as $key => $department_branch)
 
-                            <option value="{{ $department_branch->id }}" style="text-align: center">{{ $department_branch->getTranslation('branch_name', app()->getLocale()) }}</option>
+                <div class="col-md-12 col-12">
+                    <label for="name" class="form-control-label">{{ trans('elements.department_id') }}</label>
+                    <select name="department_id" class="form-control">
+                        @foreach ($departments as $department)
+
+                            <option value="{{ $department->id }}" style="text-align: center">{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
                 </div>

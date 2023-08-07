@@ -19,10 +19,12 @@ return new class extends Migration
     {
         Schema::create('elements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->json('name');
-            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
-            $table->unsignedBigInteger('department_branch_id');
-            $table->foreign('department_branch_id')->references('id')->on('department_branches')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('element_code');
+            $table->string('name_ar');
+            $table->string('name_latin');
+            $table->enum('session',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

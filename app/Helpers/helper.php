@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\DataModification;
 use App\Models\Period;
 use App\Models\Document;
 use App\Models\ProcessExam;
@@ -365,6 +366,22 @@ if (!function_exists('departmentStudentCount')) {
 
             return  Document::query()
                 ->whereDate('created_at', '=', \Carbon\Carbon::now())
+                ->count();
+        }
+    }
+
+
+    if (!function_exists('dataModificationCount')) {
+        function dataModificationCount(): int
+        {
+
+            $period = Period::query()
+                ->where('status', '=', 'start')
+                ->first();
+
+            return  DataModification::query()
+                ->whereDate('created_at', '=', \Carbon\Carbon::now())
+                ->whereYear('created_at', '=', $period->year_start)
                 ->count();
         }
     }

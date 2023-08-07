@@ -38,10 +38,12 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">#</th>
-                                <th class="min-w-50px">{{ trans('admin.name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.period') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.department') ." ". trans('admin.branch') }}</th>
+
+                                <th class="min-w-50px">{{ trans('elements.element_code') }}</th>
+                                <th class="min-w-50px">{{ trans('elements.name_ar') }}</th>
+                                <th class="min-w-50px">{{ trans('elements.name_latin') }}</th>
+                                <th class="min-w-50px">{{ trans('elements.session') }}</th>
+                                <th class="min-w-50px">{{ trans('elements.department_id') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
                             </thead>
@@ -138,10 +140,11 @@
         $('.dropify').dropify();
 
         var columns = [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'period', name: 'period'},
-            {data: 'department_branch_id ', name: 'department_branch_id '},
+            {data: 'element_code', name: 'element_code'},
+            {data: 'name_ar', name: 'name_ar'},
+            {data: 'name_latin', name: 'name_latin'},
+            {data: 'session', name: 'session'},
+            {data: 'department_id', name: 'department_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('elements.index')}}', columns);

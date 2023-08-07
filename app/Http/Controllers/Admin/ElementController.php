@@ -27,20 +27,15 @@ class ElementController extends Controller
                             <button type="button" data-id="' . $elements->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
 
-                                    data-id="' . $elements->id . '" data-title="' . $elements->getTranslation('name', app()->getLocale()) . '">
+                                    data-id="' . $elements->id . '" data-title="' . $elements->name_ar . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
-                ->editColumn('name', function ($elements) {
 
-                    return $elements->getTranslation('name', app()->getLocale());
-                })
-                ->editColumn('department_branch_id ', function ($elements) {
-                    $departmentId = $elements->department_branch->department_id;
-                    return Department::query()->where('id','=',$departmentId)
-                        ->first()
-                    ->department_name;
+                ->editColumn('department_id ', function ($elements) {
+
+                    return $elements->department->department_code;
 
                 })
                 ->escapeColumns([])
@@ -52,18 +47,22 @@ class ElementController extends Controller
 
     public function create()
     {
-        $data['department_branchs'] = DepartmentBranch::all();
-        return view('admin.elements.parts.create', compact('data'));
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
+        return view('admin.elements.parts.create', compact('departments'));
     }
 
 
-    public function store(ElementRequest $request)
+    public function store(ElementRequest $request): JsonResponse
     {
         $element = Element::create([
-
-            'name' => ['ar' => $request->name_ar,'en' => $request->name_en,'fr' => $request->name_fr],
-            'period' => $request->period,
-            'department_branch_id' => $request->department_branch_id,
+            'element_code' => $request->element_code,
+            'name_ar' => $request->name_ar,
+            'name_latin' => $request->name_latin,
+            'session' => $request->session_name,
+            'department_id' => $request->department_id,
         ]);
         if ($element->save()) {
             return response()->json(['status' => 200]);
@@ -74,18 +73,24 @@ class ElementController extends Controller
 
     public function edit(Element $element)
     {
-        $data['department_branchs'] = DepartmentBranch::all();
-        return view('admin.elements.parts.edit', compact('element', 'data'));
+        $departments = Department::query()
+            ->select('id','department_name')
+            ->get();
+
+        return view('admin.elements.parts.edit', compact('element','departments'));
     }
 
 
-    public function update(Request $request, Element $element): \Illuminate\Http\JsonResponse
+    public function update(Request $request, Element $element): JsonResponse
     {
         $element->update([
 
-            'name' => ['ar' => $request->name_ar,'en' => $request->name_en,'fr' => $request->name_fr],
-            'period' => $request->period,
-            'department_branch_id' => $request->department_branch_id,
+            'element_code' => $request->element_code,
+            'name_ar' => $request->name_ar,
+            'name_latin' => $request->name_latin,
+            'session' => $request->session_name,
+            'department_id' => $request->department_id,
+
         ]);
 
         if ($element->save()) {
@@ -101,7 +106,7 @@ class ElementController extends Controller
         $element = Element::where('id', $request->id)->firstOrFail();
         $element->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    } // end of destroy
+    }
 
 
     public function exportElement()
