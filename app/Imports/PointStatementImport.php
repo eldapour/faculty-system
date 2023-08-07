@@ -21,6 +21,7 @@ class PointStatementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+        PointStatement::select('*')->delete();
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {
             $user = User::where('user_type', '=', 'student')

@@ -14,6 +14,7 @@ class CertificateImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+        Certificate::select('*')->delete();
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {
             $user = User::where('user_type', '=', 'student')

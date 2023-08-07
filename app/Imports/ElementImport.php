@@ -17,6 +17,7 @@ class ElementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+        Element::select('*')->delete();
         for ($i = 0; $i < count($rows); $i++) {
             // get department data id
             $department_branch_id = DepartmentBranch::query()

@@ -115,6 +115,7 @@ class CertificateController extends Controller
 
                 })
                 ->escapeColumns([])
+                ->addIndexColumn()
                 ->make(true);
         } else {
             return view('admin.certificates.index');

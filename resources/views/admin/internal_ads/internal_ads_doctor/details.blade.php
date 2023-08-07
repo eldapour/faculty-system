@@ -26,7 +26,6 @@
                         </div>
                         <div class="ml-3">
                             <i class="fa fa-calendar"></i>
-                            {{--                            15 march,2023--}}
                             {{ $ad->created_at->format('d M,Y') }}
                         </div>
                         <div class="ml-3">
@@ -40,12 +39,16 @@
                         </div>
                     </div>
                     <p>{!!  $ad->description  !!}</p>
-                    <button class="btn btn-info btn-icon text-white mt-3">
+                    {{--                    <button class="btn btn-info btn-icon text-white mt-3">--}}
+                    <a style="text-decoration: none;"
+                       class="btn btn-info btn-icon text-white mt-3"
+                       href="{{ $ad->url_ads }}">
                         <span>
-                            <i class="fe fe-download"></i>
-                            @lang('admin.download')
+                            	<i class="fe fe-download"></i>
+                            	@lang('admin.url_ads')
                         </span>
-                    </button>
+                    </a>
+                    {{--                    </button>--}}
                 </div>
             </div>
         </div>

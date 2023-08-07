@@ -43,7 +43,11 @@
                 </div>
                 <div class="col-md-6">
                     <label for="register_year" class="form-control-label">@lang('admin.register_year')</label>
-                    <input type="text" class="form-control" name="year" required>
+                    <select name="year" class="form-control" id="year" required>
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
                 </div>
             </div>
         </div>
