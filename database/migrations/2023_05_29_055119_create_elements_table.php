@@ -13,6 +13,10 @@ return new class extends Migration
      */
 
     /*
+     Elements
+     */
+
+    /*
      * العناصر البيدغولوجيه هي رموز لوحدات او فصول الاداره بتدخلها تبع قسم معين في فتره (ربيعيه او خريفيه)
      */
     public function up()
