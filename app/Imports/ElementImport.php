@@ -13,7 +13,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
-class ElementImport implements ToCollection, WithHeadingRow
+class ElementImport implements ToCollection,WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
@@ -23,7 +23,6 @@ class ElementImport implements ToCollection, WithHeadingRow
             $department = Department::query()
                 ->where('department_code',$rows[$i]['department_code'])
                 ->first();
-
 
             Element::create([
                     'element_code' => $rows[$i]['element_code'],
