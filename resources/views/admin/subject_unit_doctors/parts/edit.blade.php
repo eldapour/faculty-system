@@ -73,7 +73,11 @@
 
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.year')  }}</label>
-                    <input type="text" class="form-control" name="year" value="{{$subjectUnitDoctor->year}}">
+                    <select name="year" class="form-control" id="year">
+                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
+                            <option @selected(old('year') == $subjectUnitDoctor->year) value="{{ $year }}">{{ $year }}</option>
+                        @endfor
+                    </select>
                 </div>
 
 
