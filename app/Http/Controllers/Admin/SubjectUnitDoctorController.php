@@ -45,10 +45,7 @@ class SubjectUnitDoctorController extends Controller
                 ->addColumn('unit_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
                 })
-                ->editColumn('year', function ($subject_unit_doctors) {
-                    $date = new DateTime($subject_unit_doctors->year);
-                    return '<td>' . $date->format('Y') . '</td>';
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {
