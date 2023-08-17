@@ -26,7 +26,7 @@ class LoginController extends Controller
     public function index()
     {
         if (Auth::guard('web')->check()) {
-            return redirect('admin');
+            return redirect('dashboard');
         }
         return view('admin.auth.login');
     }
@@ -34,7 +34,7 @@ class LoginController extends Controller
     public function indexStudent()
     {
         if (Auth::guard('web')->check()) {
-            return redirect('admin');
+            return redirect('dashboard');
         }
         return view('admin.auth.login-student');
     }
