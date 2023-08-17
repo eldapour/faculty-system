@@ -23,7 +23,7 @@
     <!-- End Switcher -->
 
     <!-- GLOBAL-LOADER -->
-    @include('admin.layouts.loader')
+{{--    @include('admin.layouts.loader')--}}
     <!-- /GLOBAL-LOADER -->
 
     <style>
@@ -57,7 +57,8 @@
                                 <li class="breadcrumb-item active" aria-current="page">@yield('page_name')</li>
                             </ol>
                             <?php
-                            $data = getInformationUser()
+                            $data = getInformationUser();
+//                            dd($data);
                              ?>
                              @if(auth()->user()->user_type == 'student')
                             <p class="student-info"> {{ $data->department->department_name }} - {{ $data->year }} - {{ $data->period }}</p>
