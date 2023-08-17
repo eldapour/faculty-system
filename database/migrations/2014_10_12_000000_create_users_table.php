@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
 
             $table->string('university_email')->nullable()->unique();
             $table->bigInteger('identifier_id')->nullable()->comment('رقم الكارنيه الجامعي')->unique();
-            $table->bigInteger('national_id')->nullable()->comment('رقم القومي للبطاقه')->unique();
+            $table->string('national_id')->nullable()->comment('رقم القومي للبطاقه')->unique();
             $table->string('national_number')->nullable()->comment('الرقم الوطني')->unique();
             $table->string('nationality')->nullable()->comment('الجنسيه');
             $table->date('birthday_date')->comment('تاريخ الازدياد')->nullable();

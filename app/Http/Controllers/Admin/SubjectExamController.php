@@ -290,7 +290,7 @@ class SubjectExamController extends Controller
             ->with(['user','doctor','subject'])
         ->where('subject_id', $subjectExam->subject_id)
         ->where('year', $period->year_start)
-        ->where('session', $period->session)
+        ->where('period', $period->session)
             ->get();
 
         return view('admin.subject_exams.details.processDegreeDetails', compact('processDegrees'));
