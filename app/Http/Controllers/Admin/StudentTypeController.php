@@ -30,11 +30,12 @@ class StudentTypeController extends Controller
                 ->addColumn('action', function ($types) {
                     return '
                             <button type="button" data-id="' . $types->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                       ';
+
+                    $delete = '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $types->id . '" data-title="' . $types->student_type . '">
                                     <i class="fas fa-trash"></i>
-                            </button>
-                       ';
+                            </button>';
                 })
                 ->editColumn('student_type', function ($types) {
                     return $types->student_type;

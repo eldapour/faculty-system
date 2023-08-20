@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <label class="form-label">@lang('admin.department_name')</label>
                     <select class="form-control" name="department_id">
-                        <option value="" disabled>{{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
+                        <option value="" >{{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
                         @foreach($departments as $department)
                             <option
                                 {{ $subjectExamStudent->subject->department_id == $department->id ? 'selected' : '' }}
@@ -100,11 +100,9 @@
                 </div>
                 <div class="col-md-4">
                     <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
-                    <select name="year" class="form-control" required>
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}" {{ $subjectExamStudent->year }}>{{ $year }}</option>
-                        @endfor
-                    </select>
+
+                    <input type="number" class="form-control" name="year" id="year">
+
                 </div>
             </div>
         </div>

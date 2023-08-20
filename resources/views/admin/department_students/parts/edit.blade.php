@@ -10,7 +10,7 @@
 
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
-                        <option value="" disabled>@lang('admin.select')</option>
+                        <option value="" >@lang('admin.select')</option>
                         @foreach($departments as $department)
                             <option {{ $departmentStudent->department_id == $department->id ? 'selected' : '' }}
                                     value="{{ $department->id}}">

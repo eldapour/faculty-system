@@ -32,8 +32,7 @@ class UserController extends Controller
         if ($request->ajax()) {
             $users = User::query()
                 ->where('user_type', '=', 'student')
-                ->latest()
-                ->get();
+                ->latest();
 
             return Datatables::of($users)
                 ->addColumn('action', function ($user) {
@@ -183,7 +182,7 @@ class UserController extends Controller
             'country_address_latin' => $request->country_address_latin,
             'user_status' => 'un_active',
             'university_register_year' => $request->university_register_year,
-            'student_type_id' => $request->student_type_id,
+            'student_type_id' => $request->student_type_id ?? 2,
             'email' => $request->email,
 
         ]);

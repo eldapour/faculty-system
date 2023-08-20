@@ -281,6 +281,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::get('certificate/manager', [CertificateController::class, 'managerIndex'])->name('managerIndex');
+    Route::get('/student-certificate-school-print/{id}', [CertificateController::class, 'student_certificate_school_print'])->name('student_certificate_school.print');
     Route::get('certificate/registeration', [CertificateController::class, 'registeration'])->name('certificates.registeration');
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
     Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');

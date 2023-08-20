@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
-                        <option style="text-align: center" value="" selected disabled>@lang('admin.select')</option>
+                        <option style="text-align: center" value="" selected >@lang('admin.select')</option>
                         @foreach ($departments as $department)
                             <option style="text-align: center" value="{{ $department->id }}">
                                 {{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
