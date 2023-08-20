@@ -6,11 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="group_id" class="form-control-label">@lang('admin.year')</label>
-                    <select name="year" class="form-control" id="year">
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
+                    <input type="number" class="form-control" name="year" id="year">
+
                 </div>
             </div>
             <div class="row">
@@ -28,7 +25,7 @@
                 <div class="col-md-6">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
-                        <option style="text-align: center" value="" selected disabled>@lang('admin.select')</option>
+                        <option style="text-align: center" value="" selected >@lang('admin.select')</option>
                         @foreach ($departments as $department)
                             <option style="text-align: center" value="{{ $department->id }}">
                                 {{ $department->getTranslation('department_name', app()->getLocale()) }}</option>

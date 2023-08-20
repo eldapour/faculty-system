@@ -518,8 +518,8 @@ return [
     "not_pay" => "غير قابع للدفع",
 
 
-    "problem" => "يوجد مشكله",
-    "no_problem" => "لا يوجد مشكله",
+    "problem" => "غير سليمه",
+    "no_problem" => " سليمه",
     "no_notes" => "لا يوجد ملاحظات",
 
     // point statements

@@ -39,6 +39,7 @@ class UserImport implements ToCollection, WithHeadingRow
                 'university_register_year' => $rows[$i]['university_register_year'],
                 'email' => $rows[$i]['email'],
                 'user_type' => 'student',
+                'student_type_id' =>  2,
                 'user_status' => 'un_active'
             ]);
         }

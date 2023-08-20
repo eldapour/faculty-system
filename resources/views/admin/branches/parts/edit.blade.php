@@ -8,7 +8,7 @@
                 <div class="col-md-12 mt-4">
                     <label for="department_id" class="form-control-label">@lang('admin.departments')</label>
                     <select class="form-control" name="department_id" required @selected(old('department_id',$branch->department_id))>
-                        <option value="" disabled>@lang('admin.select')</option>
+                        <option value="" >@lang('admin.select')</option>
                         @foreach($departments as $department)
                             <option value="{{ $department->id}}" {{$branch->department_id ==  $department->id ? 'selected' : ''}}>{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach

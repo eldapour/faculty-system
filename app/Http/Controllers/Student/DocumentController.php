@@ -144,7 +144,7 @@ class DocumentController extends Controller {
         }
 
 
-        $inputs = $request->all();
+        $inputs = $request->except('check');
         $inputs['withdraw_by_proxy'] = $request->person_name != null ? true : false;
         $inputs['user_id'] = Auth::id();
         $inputs['card_image'] = $cardImage ?? null;

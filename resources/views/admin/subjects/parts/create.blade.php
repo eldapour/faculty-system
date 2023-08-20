@@ -4,21 +4,23 @@
         <div class="form-group">
             <div class="row">
 
-                <div class="col-md-6">
-                    <label for="subject_name" class="form-control-label">{{ trans('admin.group') }} </label>
-                    <select name="group_id" style="text-align: center" id="" class="form-control">
-                        @foreach ($data['groups'] as $group)
-                            <option value="{{ $group->id }}">{{ $group->group_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+{{--                <div class="col-md-6">--}}
+{{--                    <label for="subject_name" class="form-control-label">{{ trans('admin.group') }} </label>--}}
+{{--                    <select name="group_id" style="text-align: center" id="" class="form-control">--}}
+{{--                        @foreach ($data['groups'] as $group)--}}
+{{--                            <option value="{{ $group->id }}">{{ $group->group_name }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                </div>--}}
 
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.unit_name') }} </label>
                     <select  name="unit_id" style="text-align: center" id=""
                              class="form-control department_id">
-                        @foreach ($data['units'] as $unit)
+                        <option value="" selected  style="text-align: center">@lang('admin.select')</option>
+
+                    @foreach ($data['units'] as $unit)
                             <option value="{{ $unit->id }}">{{ $unit->unit_name }}</option>
                         @endforeach
                     </select>
@@ -29,7 +31,8 @@
                     <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                     <select name="department_id" style="text-align: center" id=""
                         class="form-control department_id">
-                        @foreach ($data['departments'] as $department)
+                        <option value="" selected  style="text-align: center">@lang('admin.select')</option>
+                    @foreach ($data['departments'] as $department)
                             <option value="{{ $department->id }}">{{ $department->department_name }}</option>
                         @endforeach
                     </select>

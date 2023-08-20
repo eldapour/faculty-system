@@ -31,7 +31,8 @@ class DocumentController extends Controller
 
             return Datatables::of($documents)
                 ->addColumn('action', function ($documents) {
-                    return '
+
+                    $buttons_html = '
                             <button type="button" id="processing_btn_accept_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="accept" class="btn btn-pill btn-primary-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.accept").'</button>
                             <button type="button" id="processing_btn_refused_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="refused" class="btn btn-pill btn-danger-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.refused").'</button>
                             <button type="button" id="processing_btn_under_processing_'.$documents->id.'" data-id="' . $documents->id . '"  data-processing="under_processing" class="btn btn-pill btn-warning-light processing"><i class="fa fa-accessible-icon"></i> '.trans("admin.under_processing").' </button>
@@ -43,6 +44,13 @@ class DocumentController extends Controller
                             </button>
 
                        ';
+                    if($documents->document_type_id == 3){
+                        $buttons_html .= '
+                                    <a type="button" id="'.$documents->id.'" href="'.route('student_certificate_school.print',$documents->id).'" data-id="' . $documents->id . '"  data-processing="" class="btn btn-pill btn-warning-light "><i class="fa fa-accessible-icon"></i> '.trans("admin.download").' </button>
+                                ';
+                    }
+
+                    return $buttons_html;
                 })
 
                 ->editColumn('card_image', function ($documents) {

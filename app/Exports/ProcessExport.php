@@ -17,7 +17,7 @@ class ProcessExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function headings(): array
     {
         return [
-            '#',
+            'id',
             'user code',
             'period',
             'year',

@@ -11,11 +11,16 @@ use App\Models\CertificateType;
 use App\Models\Department;
 use App\Models\DepartmentBranch;
 use App\Models\DepartmentBranchStudent;
+use App\Models\Document;
 use App\Models\Period;
+use App\Models\SubjectExam;
+use App\Models\SubjectExamStudent;
 use App\Models\SubjectStudent;
+use App\Models\SubjectUnitDoctor;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
@@ -344,4 +349,58 @@ class CertificateController extends Controller
             return view('admin.certificates.managerIndex');
         }
     } // end manager index
+
+
+
+    public function student_certificate_school_print($request_id)
+    {
+        $document = Document::find($request_id)->first();
+        $user = User::where(['id' => $document->user_id])->first();
+//                dd($user);
+
+        $period = Period::query()
+            ->where('status', '=', 'start')
+            ->first();
+
+        $subject_exams = SubjectExam::query()
+            ->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start)
+            ->get();
+
+        $subject_ids = SubjectExam::query()
+            ->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start)
+            ->pluck('subject_id')
+            ->toArray();
+
+        $doctor = SubjectUnitDoctor::query()
+            ->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start)
+            ->whereIn('subject_id', $subject_ids)
+            ->first();
+
+        $exam_code = SubjectExamStudent::query()
+            ->where('period', '=', $period->period)
+            ->where('user_id', '=', Auth::id())
+            ->where('year', '=', $period->year_start)
+            ->whereIn('subject_id', $subject_ids)
+            ->first();
+
+        $section = SubjectExamStudent::query()
+            ->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start)
+            ->where('user_id', '=', Auth::id())
+            ->whereIn('subject_id', $subject_ids)
+            ->first();
+
+        return view('admin.certificates.school_certificate', compact([
+            'period',
+            'subject_exams',
+            'doctor',
+            'exam_code',
+            'section',
+            'period',
+            'user'
+        ]));
+    }
 }
