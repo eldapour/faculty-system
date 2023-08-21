@@ -231,6 +231,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->middleware('forbidden');
     Route::get('get_doctor', [ProcessDegreeController::class, 'getDoctor'])->name('getDoctor')->middleware('forbidden');
+    Route::post('importProcessDegree', [ProcessDegreeController::class, 'import'])->name('importProcessDegree')->middleware('forbidden');
+    Route::get('exportProcessDegree', [ProcessDegreeController::class, 'export'])->name('exportProcessDegree')->middleware('forbidden');
+
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class)->middleware('forbidden');

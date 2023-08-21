@@ -61,7 +61,7 @@
 //                            dd($data);
                              ?>
                              @if(auth()->user()->user_type == 'student')
-                            <p class="student-info"> {{ $data->department->department_name }} - {{ $data->year }} - {{ $data->period }}</p>
+                            <p class="student-info"> {{ @$data->department->department_name }} - {{ @$data->year }} - {{ @$data->period }}</p>
                             @endif
                             <!-- abdoss -->
                         </div>
