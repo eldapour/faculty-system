@@ -107,7 +107,7 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('student.national_number')}}</label>
-                    <input type="number" class="form-control" name="national_number" id="national_number" value="{{$user->national_number}}">
+                    <input type="text" class="form-control" name="national_number" id="national_number" value="{{$user->national_number}}">
                 </div>
 
             </div>
@@ -117,7 +117,7 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('student.national_id')}}</label>
-                    <input type="number" class="form-control" name="national_id" id="national_id" value="{{$user->national_id}}">
+                    <input type="text" class="form-control" name="national_id" id="national_id" value="{{$user->national_id}}">
                 </div>
 
             </div>

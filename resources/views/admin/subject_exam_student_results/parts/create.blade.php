@@ -31,7 +31,7 @@
                 <div class="col-md-6 mt-3">
                     <label for="student_degree"
                         class="form-control-label">{{ trans('subject_exam_student_result.student_degree') }}</label>
-                    <input type="number" step="any" min="0" class="form-control" name="student_degree">
+                    <input type="text" step="any"  class="form-control" name="student_degree">
                 </div>
                 <div class="col-md-6">
                     <label for="exam_degree"
@@ -50,11 +50,13 @@
 
                 <div class="col-md-6 mt-3">
                     <label for="email" class="form-control-label">{{trans('subject_exam_student_result.year')}}</label>
-                    <select name="year" class="form-control" id="year">
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
+                    <input type="number" id="yearInput" name="year" min="1900" class="form-control" max="2999">
+
+                    {{--                    <select name="year" class="form-control" id="year">--}}
+{{--                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)--}}
+{{--                            <option value="{{ $year }}">{{ $year }}</option>--}}
+{{--                        @endfor--}}
+{{--                    </select>--}}
                 </div>
 
 
