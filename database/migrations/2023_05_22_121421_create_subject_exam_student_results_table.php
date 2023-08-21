@@ -20,7 +20,7 @@ return new class extends Migration {
     {
         Schema::create('subject_exam_student_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('student_degree',12,2);
+            $table->string('student_degree')->nullable();
             $table->string('exam_degree')->nullable();
             $table->date('date_enter_degree');
             $table->enum('period',['عاديه','استدراكيه'])->comment('الدوره اللي امتحن فيها الطالب');

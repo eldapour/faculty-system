@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/switches.css') }}">
 <div class="modal-body">
     <form id="addForm" class="addForm" method="POST" action="{{ route('departmentStudents.store') }}">
@@ -43,11 +44,12 @@
                 </div>
                 <div class="col-md-6">
                     <label for="register_year" class="form-control-label">@lang('admin.register_year')</label>
-                    <select name="year" class="form-control" id="year" required>
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
+{{--                    <select name="year" class="form-control" id="year" required>--}}
+{{--                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)--}}
+{{--                            <option value="{{ $year }}">{{ $year }}</option>--}}
+{{--                        @endfor--}}
+{{--                    </select>--}}
+                    <input type="number" id="yearInput" name="year" min="1900" class="form-control" max="2999">
                 </div>
             </div>
         </div>
