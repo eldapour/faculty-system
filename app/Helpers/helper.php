@@ -255,7 +255,6 @@ if (!function_exists('processExamCountUser')) {
             ->first();
 
 
-
         $processExamCount = ProcessExam::query()
             ->where('user_id', '=', auth()->id());
 

@@ -18,17 +18,20 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
+                                <th class="min-w-25px">{{trans('process_exam.id')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('admin.student_name')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.subject_id')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.period')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.year')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.section')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.exam_code')}}</th>
+                                <th class="min-w-25px">{{trans('admin.doctor')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.student_degree_before_request')}}</th>
+                                <th class="min-w-25px">{{trans('process_degree.student_degree_after_request')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.request_type')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.request_date')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.request_status')}}</th>
-                                <th class="min-w-25px">{{trans('process_degree.student_degree_after_request')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.processing_date')}}</th>
                                 <th class="min-w-25px">{{trans('process_exam.delete_request')}}</th>
 
@@ -73,17 +76,20 @@
             <script>
 
                 var columns = [
+                    {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
+                    {data: 'student_name', name: 'student_name'},
                     {data: 'subject_id', name: 'subject_id'},
                     {data: 'period', name: 'period'},
                     {data: 'year', name: 'year'},
                     {data: 'section', name: 'section'},
                     {data: 'exam_code', name: 'exam_code'},
+                    {data: 'doctor_name', name: 'doctor_name'},
                     {data: 'student_degree_before_request', name: 'student_degree_before_request'},
+                    {data: 'student_degree_after_request', name: 'student_degree_after_request'},
                     {data: 'request_type', name: 'request_type'},
                     {data: 'request_date', name: 'request_date'},
                     {data: 'request_status', name: 'request_status'},
-                    {data: 'student_degree_after_request', name: 'student_degree_after_request'},
                     {data: 'processing_date', name: 'processing_date'},
                     {data: 'action', name: 'action'},
                 ]
