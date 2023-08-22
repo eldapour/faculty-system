@@ -11,8 +11,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
-
-                @if($processExamCount == 0)
+                @if($processExamCount == 0 && $request_your_turn > 0)
                     <div class="card-header">
                         <h3 class="card-title"></h3>
                         <div class="">

@@ -69,7 +69,6 @@
                                 <img style="height: 100px" src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}">
                             </div>
                             <h3 class="text-center mb-2">شهادة التسجيل بالكلية</h3>
-                            <p class="text-center">رقم الشهادة</p>
                             <h5 class="mb-4">يشهد عميد الكلية أن الطالب:</h5>
                             <div class="row">
                                 <div class="col-lg-9 col-9">
@@ -110,22 +109,22 @@
                             </div>
                             <div class="mb-3">
                                 <span class="fs-6 fw-bold"> بالمسلك الدراسي:</span>
-                                <span>{{ $department->department_name ?? '' }}</span>
+                                <span>{{ @$user->user_department->department->getTranslation('department_name', app()->getLocale()) ?? '' }}</span>
                             </div>
                             <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td class="fw-bold">الوحدات المسجل بها</td>
+                                    <td class=" border-color">الوحدات المسجل بها</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="border-color">اسم الوحدة</td>
-                                    <td class="fw-bold">الفصل الدراسي</td>
+                                    <td class="border-color">الفصل الدراسي</td>
                                 </tr>
                                 @foreach($semesters as $data)
                                     <tr>
-                                        <td class="border-color">{{ $data->subject->subject_name }}</td>
-                                        <td class="border-color">{{ $data->subject->unit->unit_code }}</td>
+                                        <td class="fw-bold">{{ $data->subject->subject_name }}</td>
+                                        <td class="fw-bold">{{ $data->subject->unit->unit_code }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

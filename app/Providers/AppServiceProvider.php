@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Deadline;
 use App\Models\Page;
 use App\Models\Setting;
 use App\Models\Category;
@@ -35,12 +36,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-
+        $dt = Carbon::now();
         View::share('settings',Setting::first());
         View::share('categories',Category::all());
         View::share('advertisements', Advertisement::query()
         ->latest()->take(3)
             ->get());
+        View::share('university_settings',UniversitySetting::first());
+        // طلب الاستدراك
+        View::share('request_your_turn',Deadline::where('deadline_type','1')->where('deadline_date_start','<=', $dt)->where('deadline_date_end','>=', $dt)->count());
+
+        // طلب معالجه
+        View::share('processing_request',Deadline::where('deadline_type','0')->where('deadline_date_start','<=', $dt)->where('deadline_date_end','>=', $dt)->count());
         View::share('university_settings',UniversitySetting::first());
         View::share('maintenance',UniversitySetting::first());
         View::share('periods',Period::all());

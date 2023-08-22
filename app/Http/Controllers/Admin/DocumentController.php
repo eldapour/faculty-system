@@ -179,7 +179,7 @@ class DocumentController extends Controller
             'national_id_of_person' => 'nullable|numeric|max:16|required_with:person_name',
             'card_image' => 'nullable|mimes:jpeg,jpg,png,gif|required_with:person_name',
             'pull_type' => 'required|in:temporary,final',
-            'pull_date' => 'nullable|date:Y-m-d',
+            'pull_date' => 'required|date:Y-m-d',
             'pull_return' => 'nullable|date:Y-m-d',
 
         ]);
