@@ -72,7 +72,9 @@
 
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.year')  }}</label>
-                    <input type="text" class="form-control" name="year">
+
+                    <input type="number" class="form-control" name="year" id="year">
+
                 </div>
 
 

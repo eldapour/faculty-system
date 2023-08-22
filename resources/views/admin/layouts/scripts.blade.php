@@ -109,12 +109,11 @@
         }
     });
 
-    var loader = ` <div class="linear-background">
+    var loader = `<div class="linear-background">
                             <div class="inter-crop"></div>
                             <div class="inter-right--top"></div>
                             <div class="inter-right--bottom"></div>
-                        </div>
-        `;
+                        </div>`;
 
 
     @php
@@ -143,7 +142,17 @@
     })
     @endif
     @endif
-
+    @if(Auth::user()->user_department->confirm_request == 0 && $reregistration->branch_restart_register != 0)
+    $(document).ready(function () {
+        if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_end > \Carbon\Carbon::now() }}) {
+            $('#RegisterTrackForm-body').html(loader)
+            $('#RegisterFormTrack').modal('show')
+            setTimeout(function () {
+                $('#RegisterTrackForm-body').load('{{ route('reregisterFormTrack') }}')
+            }, 250)
+        }
+    })
+    @endif
 
 
     $(document).ready(function () {

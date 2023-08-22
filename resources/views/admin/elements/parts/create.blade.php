@@ -38,7 +38,9 @@
                 <div class="col-md-12 col-12">
                     <label for="name" class="form-control-label">{{ trans('elements.department_id') }}</label>
                     <select name="department_id" class="form-control">
-                        @foreach ($departments as $department)
+                        <option value="" selected  style="text-align: center">@lang('admin.select')</option>
+
+                    @foreach ($departments as $department)
 
                             <option value="{{ $department->id }}" style="text-align: center">{{ $department->getTranslation('department_name', app()->getLocale()) }}</option>
                         @endforeach

@@ -255,7 +255,6 @@ if (!function_exists('processExamCountUser')) {
             ->first();
 
 
-
         $processExamCount = ProcessExam::query()
             ->where('user_id', '=', auth()->id());
 
@@ -393,7 +392,7 @@ if (!function_exists('departmentStudentCount')) {
                 $period = Period::where('status', 'start')->first();
 
                 if ($period) {
-                    $data = DepartmentStudent::where('user_id', '=', auth()->user()->id)
+                    $data = DepartmentStudent::where('user_id', '=', auth()->user()->id)->with('department')
                         ->where('period', '=', $period->period)
                         ->where('year', '=', $period->year_start)
                         ->select('year', 'period', 'department_id')

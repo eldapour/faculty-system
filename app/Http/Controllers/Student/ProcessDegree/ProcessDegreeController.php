@@ -71,6 +71,12 @@ class ProcessDegreeController extends Controller
                 ->addColumn('identifier_id', function ($process_degrees) {
                     return $process_degrees->user->identifier_id;
                 })
+                ->addColumn('student_name', function ($process_degrees) {
+                    return $process_degrees->user->first_name." ".$process_degrees->user->last_name;
+                })
+                ->addColumn('doctor_name', function ($process_degrees) {
+                    return @$process_degrees->doctor->first_name." ".@$process_degrees->doctor->last_name;
+                })
                 ->addColumn('request_date', function ($process_degrees) {
                     return $process_degrees->created_at->format('Y-m-d');
                 })
@@ -156,7 +162,7 @@ class ProcessDegreeController extends Controller
             ->where('id','=',$id)
             ->first();
 
-        $doctor_id = SubjectUnitDoctor::query()
+        $doctor_id = @SubjectUnitDoctor::query()
             ->where('subject_id','=',$subject->id)
             ->where('year', '=',$period->year_start)
             ->first()->id;

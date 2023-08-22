@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ProcessDegreeExport;
+use App\Imports\ProcessDegreeImport;
 use App\Models\User;
 use App\Models\Period;
 use App\Models\Subject;
@@ -52,6 +54,21 @@ class ProcessDegreeController extends Controller
                 })
                 ->addColumn('doctor', function ($process_degrees) {
                     return '<td>' . @$process_degrees->doctor->first_name . '</td>';
+                })
+                ->addColumn('identifier_id', function ($process_degrees) {
+                    return $process_degrees->user->identifier_id;
+                })
+                ->addColumn('student_name', function ($process_degrees) {
+                    return $process_degrees->user->first_name." ".$process_degrees->user->last_name;
+                })
+                ->addColumn('doctor_name', function ($process_degrees) {
+                    return @$process_degrees->doctor->first_name." ".@$process_degrees->doctor->last_name;
+                })
+                ->addColumn('request_date', function ($process_degrees) {
+                    return $process_degrees->created_at->format('Y-m-d');
+                })
+                ->addColumn('subject_id', function ($process_degrees) {
+                    return $process_degrees->subject->subject_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -326,5 +343,20 @@ class ProcessDegreeController extends Controller
             return view('admin.process_degrees.catch_up');
         } // end if
     } // end method
+
+    public function export()
+    {
+        return Excel::download(new ProcessDegreeExport(), 'ProcessDegree.xlsx');
+    }
+
+    public function import(Request $request): JsonResponse
+    {
+        $import = Excel::import(new ProcessDegreeImport(),$request->exelFile);
+        if ($import) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 500]);
+        }
+    }
 
 }

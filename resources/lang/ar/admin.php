@@ -96,7 +96,8 @@ return [
     "updated_degree_successfully" => "تم تعديل العلامة بنجاح",
     "the_entered_mark" => "العلامة المدخلة اكبر من علامة الامتحان",
 
-    "re_record_the_track" => 'اعادة تسجيل المسار',
+    "re_record_the_track" => 'عملية اختيار المسار',
+    "confirm_the_track" => 'اعادة تسجيل المسلك',
 
 
 
@@ -518,8 +519,8 @@ return [
     "not_pay" => "غير قابع للدفع",
 
 
-    "problem" => "يوجد مشكله",
-    "no_problem" => "لا يوجد مشكله",
+    "problem" => "غير سليمه",
+    "no_problem" => " سليمه",
     "no_notes" => "لا يوجد ملاحظات",
 
     // point statements

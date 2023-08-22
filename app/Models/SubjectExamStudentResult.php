@@ -25,8 +25,14 @@ class SubjectExamStudentResult extends Model
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
+    public function processResultRequestSubject(): BelongsTo
+    {
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
+    }
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id')->where('user_type', 'student');
     }
+
+
 }

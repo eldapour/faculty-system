@@ -231,6 +231,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->middleware('forbidden');
     Route::get('get_doctor', [ProcessDegreeController::class, 'getDoctor'])->name('getDoctor')->middleware('forbidden');
+    Route::post('importProcessDegree', [ProcessDegreeController::class, 'import'])->name('importProcessDegree')->middleware('forbidden');
+    Route::get('exportProcessDegree', [ProcessDegreeController::class, 'export'])->name('exportProcessDegree')->middleware('forbidden');
+
 
     #### Subject Exam Student Result ####
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class)->middleware('forbidden');
@@ -281,6 +284,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::get('certificate/manager', [CertificateController::class, 'managerIndex'])->name('managerIndex');
+    Route::get('/student-certificate-school-print/{id}', [CertificateController::class, 'student_certificate_school_print'])->name('student_certificate_school.print');
     Route::get('certificate/registeration', [CertificateController::class, 'registeration'])->name('certificates.registeration');
     Route::post('certificates.delete', [CertificateController::class, 'delete'])->name('certificates.delete');
     Route::post('certificates/processing', [CertificateController::class, 'processing'])->name('certificates.processing');
@@ -328,7 +332,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     #### Re Record The Track ####
     Route::get('reregisterForm', [ReRecordTheTrackController::class, 'reregisterForm'])->name('reregisterForm');
-    Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');;
+    Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');
+    Route::get('reregisterFormTrack', [ReRecordTheTrackController::class, 'reregisterFormTrack'])->name('reregisterFormTrack');
+    Route::post('reregisterTrack', [ReRecordTheTrackController::class, 'reregisterTrack'])->name('reregisterTrack');
     Route::get('processDegreeDetails/{id}', [SubjectExamController::class, 'processDegreeDetails'])->name('processDegreeDetails');
     Route::post('changeRequestStatus', [SubjectExamController::class, 'changeRequestStatus'])->name('changeRequestStatus');
 });

@@ -7,8 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Imports\DepartmentStudentImport;
 use App\Models\Department;
 use App\Models\DepartmentStudent;
+use App\Models\Period;
+use App\Models\SubjectExam;
+use App\Models\SubjectExamStudent;
+use App\Models\SubjectUnitDoctor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
@@ -143,5 +148,6 @@ class DepartmentStudentController extends Controller
             return response()->json(['status' => 500]);
         }
     } // end importDepartmentBranchStudent
+
 
 }

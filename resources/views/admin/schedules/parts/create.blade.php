@@ -10,17 +10,14 @@
 
                 <div class="col-md-12">
                     <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
-                    <select name="year" class="form-control" id="year">
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
+                    <input type="number" class="form-control" name="year" id="year">
+
                 </div>
 
                 <div class="col-md-12">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
-                        <option value="" selected disabled>@lang('admin.select')</option>
+                        <option value="" selected >@lang('admin.select')</option>
                         @foreach($departments as $department)
                             <option value="{{ $department->id}}">{{ $department->getTranslation('department_name', app()->getLocale())}}</option>
                         @endforeach

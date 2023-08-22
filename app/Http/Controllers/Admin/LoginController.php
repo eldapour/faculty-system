@@ -26,7 +26,7 @@ class LoginController extends Controller
     public function index()
     {
         if (Auth::guard('web')->check()) {
-            return redirect('admin');
+            return redirect('dashboard');
         }
         return view('admin.auth.login');
     }
@@ -34,7 +34,7 @@ class LoginController extends Controller
     public function indexStudent()
     {
         if (Auth::guard('web')->check()) {
-            return redirect('admin');
+            return redirect('dashboard');
         }
         return view('admin.auth.login-student');
     }
@@ -80,6 +80,7 @@ class LoginController extends Controller
      */
     public function activeStudents(Request $request): JsonResponse
     {
+//        dd($request->all());
         $user = User::query()
             ->where('email', '=', $request->email)
             ->where('user_type', '=', 'student')
@@ -87,6 +88,7 @@ class LoginController extends Controller
             ->where('birthday_date', '=', $request->birthday_date)
             ->where('national_number', '=', $request->national_number)
             ->first();
+
 
         if ($user) {
             if ($user->user_status !== 'un_active') {
@@ -104,6 +106,9 @@ class LoginController extends Controller
                     ('Activation Email');
                     $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
                 });
+                $user->password = Hash::make($request->password);
+                $user->save();
+
                 return response()->json(200);
             }
         } else {

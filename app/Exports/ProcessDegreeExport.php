@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\ProcessDegree;
 use App\Models\ProcessExam;
 use App\Models\User;
 use Illuminate\Support\Collection;
@@ -11,7 +12,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class ProcessExport implements FromCollection, WithHeadings, ShouldAutoSize
+class ProcessDegreeExport implements FromCollection, WithHeadings, ShouldAutoSize
 
 {
     public function headings(): array
@@ -23,8 +24,13 @@ class ProcessExport implements FromCollection, WithHeadings, ShouldAutoSize
             'year',
             'request date',
             'request status',
-            'processing request date',
-            'reason',
+            'request type',
+            'processing date',
+            'subject id',
+            'doctor id',
+            'exam code',
+            'student degree before request',
+            'student degree after request',
         ];
     }
 
@@ -35,7 +41,7 @@ class ProcessExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function collection(): Collection
 
     {
-        $processes = ProcessExam::query()->get();
+        $processes = ProcessDegree::query()->get();
 
         $data = [];
         foreach ($processes as $process) {
@@ -46,8 +52,14 @@ class ProcessExport implements FromCollection, WithHeadings, ShouldAutoSize
               'year' => $process->year,
               'request_date' => $process->request_date,
               'request_status' => $process->request_status,
-              'processing_request_date' => $process->processing_request_date,
-              'reason' =>  $process->reason,
+              'request_type' => $process->request_type,
+              'processing_date' => $process->processing_date,
+              'subject_id' =>  $process->subject_id,
+              'doctor_id' =>  $process->doctor_id,
+              'exam_code' =>  $process->exam_code,
+              'student_degree_before_request' =>  $process->student_degree_before_request,
+              'student_degree_after_request' =>  $process->student_degree_after_request,
+//              'reason' =>  $process->reason,
             ];
             $data[] = $process_data;
         }

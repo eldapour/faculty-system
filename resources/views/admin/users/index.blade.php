@@ -165,7 +165,7 @@
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
             {data: 'points', name: 'points'},
-            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'identifier_id', name: 'identifier_id', orderable: true, searchable: true},
             {data: 'national_number', name: 'national_number'},
             {data: 'national_id', name: 'national_id'},
             {data: 'student_type_id', name: 'student_type_id'},

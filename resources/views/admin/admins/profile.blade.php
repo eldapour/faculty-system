@@ -102,7 +102,7 @@
                                             <td>{{ trans('admin.nationality') }}</td><td>{{ $user->nationality }}</td>
                                         </tr>
                                         <tr>
-                                            <td>{{ trans('admin.identifier_id') }}</td><td>{{ $user->identifier_id }}</td>
+                                            <td>{{ trans('student.identifier_id') }}</td><td>{{ $user->identifier_id }}</td>
                                         </tr>
                                         <tr>
                                             <td>{{ trans('admin.national_id') }}</td><td>{{ $user->national_id  }}</td>
@@ -181,7 +181,7 @@
                                 <tr>
                                     <th>@lang('admin.year')</th>
                                     <th>@lang('admin.group')</th>
-                                    <th>@lang('admin.subject')</th>
+                                    <th>@lang('admin.subject_name_')</th>
                                     <th>@lang('admin.period')</th>
                                 </tr>
                                 </thead>
@@ -376,19 +376,26 @@
             </div>
         </div>
 
-        <!-- Edit MODAL -->
-        <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div  class="modal-content container" id="modalContent">
 
-                </div>
-            </div>
-        </div>
-        <!-- Edit MODAL CLOSED -->
 
     </div>
     <!-- Password CLOSED -->
-
+    <!-- Edit MODAL -->
+    <div class="modal fade" id="editOrCreate"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div  class="modal-content container" id="modalContent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="example-Modal3">{{trans('admin.image_user')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="edit-image-model">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit MODAL CLOSED -->
 
     @include('admin.layouts.myAjaxHelper')
 
@@ -463,7 +470,7 @@
                 $('#modalContent').html(loader)
                 $('#editOrCreate').modal('show')
                 setTimeout(function () {
-                    $('#modalContent').load('{{route('user-edit-profile-create')}}')
+                    $('#edit-image-model').load('{{route('user-edit-profile-create')}}')
                 }, 250)
             });
 

@@ -34,7 +34,8 @@ class SubjectUnitDoctorController extends Controller
                        ';
                 })
                 ->editColumn('user_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->doctor->first_name . " " . $subject_unit_doctors->doctor->last_name . '</td>';
+
+                    return'<td>'. $subject_unit_doctors->doctor->first_name.' '. $subject_unit_doctors->doctor->last_name .'</td>
                 })
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
@@ -45,10 +46,7 @@ class SubjectUnitDoctorController extends Controller
                 ->addColumn('unit_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
                 })
-                ->editColumn('year', function ($subject_unit_doctors) {
-                    $date = new DateTime($subject_unit_doctors->year);
-                    return '<td>' . $date->format('Y') . '</td>';
-                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {

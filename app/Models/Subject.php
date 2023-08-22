@@ -47,6 +47,11 @@ class Subject extends Model
         return $this->belongsTo(DepartmentBranch::class, 'department_branch_id', 'id');
     }
 
+    public function doctor(): BelongsTo
+    {
+        return $this->belongsTo(SubjectUnitDoctor::class, 'id', 'subject_id');
+    }
+
 
     public function students(): BelongsToMany{
 

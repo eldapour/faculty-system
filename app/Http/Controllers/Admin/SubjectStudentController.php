@@ -47,8 +47,11 @@ class SubjectStudentController extends Controller
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
                 })
-                ->addColumn('group_id', function ($subject_students) {
-                    return $subject_students->subject->group->group_name;
+                ->addColumn('department', function ($subject_students) {
+                    return $subject_students->subject->department->getTranslation('department_name',app()->getLocale());
+                })
+                ->addColumn('department_branch', function ($subject_students) {
+                    return $subject_students->subject->department_branch->getTranslation('branch_name',app()->getLocale());
                 })
 
                 ->escapeColumns([])

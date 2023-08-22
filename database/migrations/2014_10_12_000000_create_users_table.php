@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
 
             $table->string('university_email')->nullable()->unique();
-            $table->bigInteger('identifier_id')->nullable()->comment('رقم الكارنيه الجامعي')->unique();
+            $table->string('identifier_id')->nullable()->comment('رقم الكارنيه الجامعي')->unique();
             $table->string('national_id')->nullable()->comment('رقم القومي للبطاقه')->unique();
             $table->string('national_number')->nullable()->comment('الرقم الوطني')->unique();
             $table->string('nationality')->nullable()->comment('الجنسيه');

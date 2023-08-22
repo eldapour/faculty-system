@@ -85,6 +85,13 @@ class User extends Authenticatable
         return $this->belongsTo(StudentType::class,'student_type_id','id');
     }
 
+    public function user_department()
+    {
+        $period = Period::where('status', 'start')->first();
+        return $this->hasOne(DepartmentStudent::class)->where('period', '=', $period->period)
+            ->where('year', '=', $period->year_start);
+    }
+
 
 
 }

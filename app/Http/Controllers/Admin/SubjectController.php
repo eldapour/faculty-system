@@ -34,9 +34,9 @@ class SubjectController extends Controller
                 ->editColumn('subject_name', function ($subjects) {
                     return $subjects->getTranslation('subject_name', app()->getLocale());
                 })
-                ->editColumn('group_id', function ($subjects) {
-                    return '<td>'. $subjects->group->group_name .'</td>';
-                })
+//                ->editColumn('group_id', function ($subjects) {
+//                    return '<td>'. $subjects->group->group_name .'</td>';
+//                })
                 ->editColumn('unit_id', function ($subjects) {
                     return '<td>'. $subjects->unit->unit_name .'</td>';
                 })
@@ -69,8 +69,8 @@ class SubjectController extends Controller
     {
         $data = [
             'subject_name' => ['ar' => $request->subject_name_ar,'en' => $request->subject_name_en,'fr' => $request->subject_name_fr],
-           'group_id' => $request->group_id,
-           'code' => $request->code,
+//            'group_id' => $request->group_id,
+            'code' => $request->code,
             'department_id' => $request->department_id,
             'department_branch_id' => $request->department_branch_id,
             'unit_id' => $request->unit_id,
@@ -99,7 +99,7 @@ class SubjectController extends Controller
 
         $data = [
             'subject_name' => ['ar' => $request->subject_name_ar, 'en' => $request->subject_name_en, 'fr' => $request->subject_name_fr],
-            'group_id' => $request->group_id,
+//            'group_id' => $request->group_id,
             'code' => $request->code,
             'department_id' => $request->department_id,
             'department_branch_id' => $request->department_branch_id,
