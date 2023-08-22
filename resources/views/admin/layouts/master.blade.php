@@ -59,9 +59,11 @@
                             <?php
                             $data = getInformationUser();
 //                            dd($data);
+                            $user = \App\Models\User::where('id',auth()->id())->first();
                              ?>
                              @if(auth()->user()->user_type == 'student')
-                            <p class="student-info"> {{ @$data->department->department_name }} - {{ @$data->year }} - {{ @$data->period }}</p>
+                            <p class="student-info"> {{ @$data->department->department_name }} - {{ @$data->year }} - {{ @$data->period }} -
+                                {{ @$user->user_department_branch->branch->branch_name }}</p>
                             @endif
                             <!-- abdoss -->
                         </div>

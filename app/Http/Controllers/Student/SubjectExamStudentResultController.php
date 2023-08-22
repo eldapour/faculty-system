@@ -17,11 +17,12 @@ class SubjectExamStudentResultController extends Controller
 
     public function normal(request $request)
     {
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
 
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period','=','عاديه')
@@ -64,10 +65,18 @@ class SubjectExamStudentResultController extends Controller
                     return $doctor->first_name . " " . $doctor->last_name;
 
                 })
-                ->addColumn('add_request', function ($subject_exam_student_results) {
-                        return '
+                ->addColumn('add_request', function ($subject_exam_student_results) use($period) {
+                    $processing_request = Deadline::where('deadline_type','0')->where('deadline_date_start','<=', Carbon::now())->where('deadline_date_end','>=', Carbon::now())->count();
+                    // طلب معالجه النتيجه
+                    $processing_order = ProcessDegree::where(['period'=>'عاديه','user_id'=>Auth::id(),'year'=>$period->year_start,'subject_id'=>$subject_exam_student_results->subject_id])->count();
+//                    dd($processing_order);
+                    $html = '';
+                    if($processing_request > 0 && $processing_order < 1){
+                        $html .= '
                             <button type="button" data-id="' . $subject_exam_student_results->subject_id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_button') . '  </button>
                        ';
+                    }
+                    return $html;
                 })
 
                 ->escapeColumns([])
@@ -129,11 +138,11 @@ class SubjectExamStudentResultController extends Controller
                 ->addColumn('add_request', function ($subject_exam_student_results) use ($period)  {
                     $processing_request = Deadline::where('deadline_type','0')->where('deadline_date_start','<=', Carbon::now())->where('deadline_date_end','>=', Carbon::now())->count();
                     // طلب معالجه النتيجه
-                    $processing_order = ProcessDegree::where(['period'=>'استدراكيه','user_id'=>Auth::id(),'year'=>$period->year_start])->count();
+                    $processing_order = ProcessDegree::where(['period'=>'استدراكيه','user_id'=>Auth::id(),'year'=>$period->year_start,'subject_id'=>$subject_exam_student_results->subject_id])->count();
                     $html = '';
                     if($processing_request > 0 && $processing_order < 1){
                         $html .= '
-                            <button type="button" data-id="' . $subject_exam_student_results->id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_button') . ' </button>
+                            <button type="button" data-id="' . $subject_exam_student_results->id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_buttoncc') . ' </button>
 
                        ';
                     }
