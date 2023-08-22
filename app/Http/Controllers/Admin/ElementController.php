@@ -34,9 +34,7 @@ class ElementController extends Controller
                 })
 
                 ->editColumn('department_id ', function ($elements) {
-
                     return $elements->department->department_code;
-
                 })
                 ->escapeColumns([])
                 ->make(true);
