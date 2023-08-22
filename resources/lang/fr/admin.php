@@ -79,7 +79,7 @@ return [
     "Ads section" => "Rubrique Annonces",
     'Document requests' => "Demandes de documents",
     'Document requests types' => "Types de demandes de documents",
-    'Those concerned with evidence and diploma' => "Ceux concernés par la preuve et le diplôme",
+    'Those concerned with evidence and diploma' => "Le demandeur est dans la mauvaise position",
     'Diploma certificates' => "Certificats de diplôme",
     'Student documents' => "Documents étudiants",
     "exam" => "Examen",

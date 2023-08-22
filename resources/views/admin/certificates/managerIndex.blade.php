@@ -11,27 +11,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ trans('admin.diploma_all') }}</h3>
-                    <div class="">
-                        <button class="btn btn-primary btn-icon text-white"
-                                data-toggle="modal" data-target="#importExel">
-									<span>
-										<i class="fe fe-download"></i>
-									</span> {{ trans('admin.import') }}
-                        </button>
-                        <button class="btn btn-success btn-icon exportBtn text-white">
-									<span>
-										<i class="fe fe-upload"></i>
-									</span> {{ trans('admin.export') }}
-                        </button>
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> {{ trans('admin.diploma_add') }}
-                        </button>
-                    </div>
-                </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
                         <!--begin::Table-->
