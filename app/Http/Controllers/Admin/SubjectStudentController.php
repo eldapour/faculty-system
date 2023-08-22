@@ -42,7 +42,7 @@ class SubjectStudentController extends Controller
             return Datatables::of($subject_students)
 
                 ->addColumn('user', function ($subject_exam_students) {
-                    return $subject_exam_students->user->first_name  . ' ' . $subject_exam_students->user->first_name;
+                    return $subject_exam_students->user->first_name  . ' ' . $subject_exam_students->user->last_name;
                 })
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
@@ -86,7 +86,7 @@ class SubjectStudentController extends Controller
             ->first();
 
         if ($user->subjects()->syncWithPivotValues($request->subject_id,
-            ['group_id' => $request->group_id,
+            [
                 'year' => $request->year,
                 'period' => $request->period
             ]

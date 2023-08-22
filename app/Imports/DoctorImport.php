@@ -13,8 +13,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class DoctorImport implements ToCollection, WithHeadingRow
 {
-    public function collection(Collection $rows): void
-    {
+    public function collection(Collection $rows): void{
 
         for ($i = 0; $i < count($rows); $i++) {
 

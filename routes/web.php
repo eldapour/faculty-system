@@ -59,4 +59,3 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'fron
 );
 
 
-
