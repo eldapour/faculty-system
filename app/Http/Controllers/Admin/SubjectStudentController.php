@@ -35,7 +35,8 @@ class SubjectStudentController extends Controller
                 ->first();
             $subject_students = SubjectStudent::query()
                 ->where('period', '=', $periods->period)
-                ->where('year', '=', $periods->year_start);
+                ->where('year', '=', $periods->year_start)
+                ->latest();
 
             return Datatables::of($subject_students)
 
