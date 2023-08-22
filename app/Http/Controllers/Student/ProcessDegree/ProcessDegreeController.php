@@ -162,7 +162,7 @@ class ProcessDegreeController extends Controller
             ->where('id','=',$id)
             ->first();
 
-        $doctor_id = SubjectUnitDoctor::query()
+        $doctor_id = @SubjectUnitDoctor::query()
             ->where('subject_id','=',$subject->id)
             ->where('year', '=',$period->year_start)
             ->first()->id;

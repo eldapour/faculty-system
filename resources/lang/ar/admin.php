@@ -96,7 +96,8 @@ return [
     "updated_degree_successfully" => "تم تعديل العلامة بنجاح",
     "the_entered_mark" => "العلامة المدخلة اكبر من علامة الامتحان",
 
-    "re_record_the_track" => 'اعادة تسجيل المسار',
+    "re_record_the_track" => 'عملية اختيار المسار',
+    "confirm_the_track" => 'اعادة تسجيل المسلك',
 
 
 

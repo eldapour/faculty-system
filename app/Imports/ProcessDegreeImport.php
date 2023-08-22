@@ -30,7 +30,6 @@ class ProcessDegreeImport implements ToCollection, WithHeadingRow
                 'request_type' => $rows[$i]['request_type'],
                 'processing_date' => $rows[$i]['processing_date'] ?? Carbon::now()->format('Y-m-d'),
                 'request_status' => $rows[$i]['request_status'],
-//                'processing_request_date' => $rows[$i]['processing_request_date'] ?? Carbon::now()->format('Y-m-d'),
                 'subject_id' => $rows[$i]['subject_id'],
                 'doctor_id' => $rows[$i]['doctor_id'],
                 'exam_code' => $rows[$i]['exam_code'],

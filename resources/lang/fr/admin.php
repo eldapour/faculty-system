@@ -102,6 +102,7 @@ return [
     "updated_degree_successfully" => "Diplôme mis à jour avec succès",
     "the_entered_mark" => "La note saisie est supérieure à la note de l'examen",
 
+    "confirm_the_track" => 'Confirm The Track',
 
 
 

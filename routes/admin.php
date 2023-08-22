@@ -332,7 +332,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     #### Re Record The Track ####
     Route::get('reregisterForm', [ReRecordTheTrackController::class, 'reregisterForm'])->name('reregisterForm');
-    Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');;
+    Route::post('reregisterFormStore', [ReRecordTheTrackController::class, 'reregisterFormStore'])->name('reregisterFormStore');
+    Route::get('reregisterFormTrack', [ReRecordTheTrackController::class, 'reregisterFormTrack'])->name('reregisterFormTrack');
+    Route::post('reregisterTrack', [ReRecordTheTrackController::class, 'reregisterTrack'])->name('reregisterTrack');
     Route::get('processDegreeDetails/{id}', [SubjectExamController::class, 'processDegreeDetails'])->name('processDegreeDetails');
     Route::post('changeRequestStatus', [SubjectExamController::class, 'changeRequestStatus'])->name('changeRequestStatus');
 });

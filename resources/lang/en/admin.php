@@ -116,6 +116,7 @@ return [
     "process_exam_students" => "Process Exam Students",
     "the_remedial_request_has_been_registered_successfully" => "The remedial request has been registered successfully",
     "You_are_only" => "You are only entitled to one request during the period of the catch-up session",
+    "confirm_the_track" => 'Confirm The Track',
 
 
 

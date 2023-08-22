@@ -29,17 +29,18 @@
                                     <div
                                         class="card bg-{{ Arr::random($arr) }} img-card box-{{ Arr::random($arr) }}-shadow text-center text-white h-100">
                                         <div class="card-body text-center text-white">
-                                            <h4>{{ $ad->created_at->format('d') }}</h4>
-                                            <h4>{{ $ad->created_at->format('D,Y') }}</h4>
+                                            <h1 style="color: #125875">
+                                                {{ $ad->title }}
+                                            </h1>
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 col-12 d-flex align-items-center">
                                     <div>
                                         <a href="{{ route('detailsDoctor',$ad->id) }}">
-                                            <h1 style="color: #125875">
-                                                {{ $ad->title }}
-                                            </h1>
+                                            <h4>{{ $ad->created_at->format('d') }}</h4>
+                                            <h4>{{ $ad->created_at->format('D,Y') }}</h4>
                                         </a>
                                         <p>{{ $ad->service->service_name }}</p>
                                     </div>
