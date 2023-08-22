@@ -33,9 +33,8 @@ class ElementController extends Controller
                        ';
                 })
 
-                ->editColumn('department_id', function ($elements) {
-
-                    return $elements->department->getTranslation('department_name', app()->getLocale());
+                ->editColumn('department_id ', function ($elements) {
+                    return $elements->department->department_code;
 
                 })
                 ->escapeColumns([])

@@ -92,12 +92,13 @@ class DepartmentController extends Controller
 
     public function departmentStudent()
     {
-            $departments = DB::table('department_branch_students')
-            ->join('department_branches', 'department_branches.id', '=', 'department_branch_students.department_branch_id')
-            ->join('departments', 'departments.id', '=', 'department_branches.department_id')
-            ->select("departments.department_name->".lang()." as name",DB::raw('COUNT(department_branch_students.id) as student_count'))
+            $departments = DB::table('department_students')
+            ->join('departments', 'departments.id', '=', 'department_students.department_id')
+            ->select("departments.department_name->".lang()." as name",DB::raw('COUNT(department_students.id) as student_count'))
             ->groupBy('departments.id')
             ->get();
+
+//            return $departments;
 
             return view('admin.department.departmentStudent',compact('departments'));
     } // departmentStudent

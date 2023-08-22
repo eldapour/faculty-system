@@ -35,14 +35,18 @@ class SubjectStudentController extends Controller
                 ->first();
             $subject_students = SubjectStudent::query()
                 ->where('period', '=', $periods->period)
-                ->where('year', '>=', $periods->year_start)
-                ->where('year', '<=', $periods->year_end)
-                ->get();
+                ->where('year', '=', $periods->year_start);
 
             return Datatables::of($subject_students)
 
                 ->addColumn('user', function ($subject_exam_students) {
-                    return $subject_exam_students->user->first_name  . ' ' . $subject_exam_students->user->first_name;
+                    return $subject_exam_students->user->first_name  . ' ' . $subject_exam_students->user->last_name;
+                })
+                ->addColumn('unit_id', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->unit->unit_name;
+                })
+                ->addColumn('identifier_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->identifier_id;
                 })
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
@@ -86,7 +90,7 @@ class SubjectStudentController extends Controller
             ->first();
 
         if ($user->subjects()->syncWithPivotValues($request->subject_id,
-            ['group_id' => $request->group_id,
+            [
                 'year' => $request->year,
                 'period' => $request->period
             ]

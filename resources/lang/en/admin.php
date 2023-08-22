@@ -81,7 +81,7 @@ return [
     "Ads section" => "Ads section",
     'Document requests' => "Document requests",
     'Document requests types' => "Document requests types",
-    'Those concerned with evidence and diploma' => "Those concerned with evidence and diploma",
+    'Those concerned with evidence and diploma' => "The applicant is in the wrong position",
     'Diploma certificates' => "Diploma certificates",
     'Student documents' => "Student documents",
     "exam" => "Exam",

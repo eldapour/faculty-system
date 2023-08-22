@@ -21,6 +21,8 @@
                             </span>
                             {{ trans('admin.Print') }}
                         </button>
+
+                    @elseif(auth()->user()->user_type == 'manger')
                     @else
                         <div class="">
                             <button class="btn btn-primary btn-icon text-white"
