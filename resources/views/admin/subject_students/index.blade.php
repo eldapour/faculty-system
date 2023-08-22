@@ -11,27 +11,31 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title"></h3>
-                    <div class="">
-                        <button class="btn btn-primary btn-icon text-white" data-toggle="modal"
-                                data-target="#importExel">
+                @if(auth()->user()->user_type == 'student' || auth()->user()->user_type == 'manger')
+
+                @else
+                    <div class="card-header">
+                        <h3 class="card-title"></h3>
+                        <div class="">
+                            <button class="btn btn-primary btn-icon text-white" data-toggle="modal"
+                                    data-target="#importExel">
                             <span>
                                 <i class="fe fe-download"></i>
                             </span> {{ trans('admin.import') }}
-                        </button>
-                        <button class="btn btn-success btn-icon exportBtn text-white">
+                            </button>
+                            <button class="btn btn-success btn-icon exportBtn text-white">
                             <span>
                                 <i class="fe fe-upload"></i>
                             </span> {{ trans('admin.export') }}
-                        </button>
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
+                            </button>
+                            <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
 									</span> {{ trans('admin.add') }}
-                        </button>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                    @endif
                 <div class="card-body">
                     <div class="table-responsive">
                         <!--begin::Table-->
@@ -41,6 +45,8 @@
 
 
                                 <th class="min-w-25px">{{trans('subject_student.id')}}</th>
+                                <th class="min-w-25px">{{trans('student.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student.unit_name')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.year')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.subject_id')}}</th>
@@ -144,6 +150,8 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
+            {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'unit_id', name: 'unit_id'},
             {data: 'year', name: 'year'},
             {data: 'user', name: 'user'},
             {data: 'subject_id', name: 'subject_id'},

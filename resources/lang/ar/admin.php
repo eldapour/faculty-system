@@ -78,7 +78,7 @@ return [
     "phone" => "رقم الهاتف",
     "parts of the site" => "اجزاء الموقع",
     "Ads section" => "قسم الاعلانات",
-    'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
+    'Those concerned with evidence and diploma' => "الطلبه في الوضعيه الغير سليمه",
     'Diploma certificates' => "شواهد الدبلومات",
     'Student documents' => "طلبات الوثائق",
     "exam" => "امتحان",

@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
-                    @if(auth()->user()->user_type == 'student')
+                    @if(auth()->user()->user_type == 'student' || auth()->user()->user_type == 'manger')
                     @else
                         <div class="">
                             <button class="btn btn-primary btn-icon text-white"

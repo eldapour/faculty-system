@@ -9,4 +9,6 @@ return [
     "group" => "cohort",
     "doctor" => "professor",
     "unit" => "semestre en cours",
+    "unit_name" => "Semestre",
+
 ];
