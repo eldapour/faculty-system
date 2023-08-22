@@ -261,7 +261,7 @@ class ProcessDegreeController extends Controller
     public function normal(Request $request)
     {
         $process_degrees = ProcessDegree::query()
-            ->where('session', '=', 'عاديه')
+            ->where('period', '=', 'عاديه')
             ->where('doctor_id','=',Auth::user()->id)
             ->get();
 
@@ -304,7 +304,7 @@ class ProcessDegreeController extends Controller
     public function catchUp(Request $request)
     {
         $process_degrees = ProcessDegree::query()
-            ->where('session', '=', 'استدراكيه')
+            ->where('period', '=', 'استدراكيه')
             ->where('doctor_id','=',Auth::user()->id)
             ->get();
 
