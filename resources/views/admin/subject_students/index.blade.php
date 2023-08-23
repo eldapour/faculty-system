@@ -150,7 +150,7 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'identifier_id', name: 'identifier_id', orderable: true, searchable: true},
+            {data: 'identifier_id', name: 'identifier_id'},
             {data: 'unit_id', name: 'unit_id'},
             {data: 'year', name: 'year'},
             {data: 'user', name: 'user'},
