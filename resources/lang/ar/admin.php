@@ -78,7 +78,8 @@ return [
     "phone" => "رقم الهاتف",
     "parts of the site" => "اجزاء الموقع",
     "Ads section" => "قسم الاعلانات",
-    'Those concerned with evidence and diploma' => "الطلبه في الوضعيه الغير سليمه",
+    'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
+    'The applicant is in the wrong position' => "الطلبه في الوضعيه الغير سليمه",
     'Diploma certificates' => "شواهد الدبلومات",
     'Student documents' => "طلبات الوثائق",
     "exam" => "امتحان",
@@ -195,7 +196,7 @@ return [
     'group' => 'فوج',
     'groups' => 'الافواج',
 
-    'subject' => 'اضافه وحده',
+    'subject' => 'وحدة',
     'subjects' => 'وحدات',
     'unit' => 'فصل',
     'units' => 'فصول',
