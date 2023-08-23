@@ -48,10 +48,7 @@ class SubjectStudentController extends Controller
                     return $subject_exam_students->subject->unit->unit_name;
                 })
                 ->addColumn('identifier_id', function ($subject_exam_students) {
-//                    if(request()->search['value'] == $subject_exam_students->user->identifier_id){
                         return $subject_exam_students->user->identifier_id;
-//                    }
-
                 })
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;

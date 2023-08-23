@@ -21,7 +21,7 @@
          */
       var table = $('#dataTable').DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             ajax: routeOfShow,
             columns: columns,
             order: [
