@@ -11,6 +11,7 @@ use App\Models\ProcessDegree;
 use App\Models\ProcessExam;
 use App\Models\Subject;
 use App\Models\SubjectExamStudent;
+use App\Models\SubjectExamStudentResult;
 use App\Models\SubjectUnitDoctor;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -132,8 +133,14 @@ class ProcessDegreeController extends Controller
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
+        $subjectExamStudentResult = SubjectExamStudentResult::query()
+            ->where('year','=',$period->year_start)
+            ->where('period','عاديه')
+            ->where('subject_id','=',$subject->id)
+            ->where('user_id','=',Auth::id())
+            ->first();
 
-        return view('student.process_degree.normal.create',compact('period','subject','doctor_id','subjectExamStudent'));
+        return view('student.process_degree.normal.create',compact('subjectExamStudentResult','period','subject','doctor_id','subjectExamStudent'));
     }
 
 
@@ -173,8 +180,14 @@ class ProcessDegreeController extends Controller
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
+        $subjectExamStudentResult = SubjectExamStudentResult::query()
+            ->where('year','=',$period->year_start)
+            ->where('period','استدراكيه')
+            ->where('subject_id','=',$subject->id)
+            ->where('user_id','=',Auth::id())
+            ->first();
 
-        return view('student.process_degree.remedial.create',compact('period','subject','doctor_id','subjectExamStudent'));
+        return view('student.process_degree.remedial.create',compact('subjectExamStudentResult','period','subject','doctor_id','subjectExamStudent'));
 
     }
 

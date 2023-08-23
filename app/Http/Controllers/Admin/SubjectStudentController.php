@@ -30,6 +30,7 @@ class SubjectStudentController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
+
             $periods = Period::query()
                 ->where('status', '=', 'start')
                 ->first();
@@ -47,7 +48,10 @@ class SubjectStudentController extends Controller
                     return $subject_exam_students->subject->unit->unit_name;
                 })
                 ->addColumn('identifier_id', function ($subject_exam_students) {
-                    return $subject_exam_students->user->identifier_id;
+//                    if(request()->search['value'] == $subject_exam_students->user->identifier_id){
+                        return $subject_exam_students->user->identifier_id;
+//                    }
+
                 })
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
@@ -59,8 +63,7 @@ class SubjectStudentController extends Controller
                     return $subject_students->subject->department_branch->getTranslation('branch_name',app()->getLocale());
                 })
 
-                ->escapeColumns([])
-                ->make(true);
+                ->toJson();
         } else {
             return view('admin.subject_students.index');
         }

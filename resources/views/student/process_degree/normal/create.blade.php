@@ -22,18 +22,19 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="name" class="form-control-label">{{trans('process_degree.student_degree_before_request')}}</label>
-                        <input type="text" name="student_degree_before_request" id="student_degree_before_request" class="form-control"/>
+                        <input type="text" name="student_degree_before_request" id="student_degree_before_request" class="form-control" readonly value="{{$subjectExamStudentResult->student_degree}}"/>
+
                     </div>
 
                 </div>
 
-                <div class="col-md-6 col-12">
-                    <div class="form-group">
-                        <label for="name" class="form-control-label">{{trans('process_degree.student_degree_after_request')}}</label>
-                        <input type="text" name="student_degree_after_request" id="student_degree_after_request" class="form-control"/>
-                    </div>
+{{--                <div class="col-md-6 col-12">--}}
+{{--                    <div class="form-group">--}}
+{{--                        <label for="name" class="form-control-label">{{trans('process_degree.student_degree_after_request')}}</label>--}}
+{{--                        <input type="text" name="student_degree_after_request" id="student_degree_after_request" class="form-control"/>--}}
+{{--                    </div>--}}
 
-                </div>
+{{--                </div>--}}
 
                 <div class="col-md-12 col-12">
                     <div class="form-group">
