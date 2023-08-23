@@ -44,9 +44,9 @@ class DocumentController extends Controller
                             </button>
 
                        ';
-                    if($documents->document_type_id == 3){
+                    if($documents->document_type_id == 1){
                         $buttons_html .= '
-                                    <a type="button" id="'.$documents->id.'" href="'.route('student_certificate_school.print',$documents->id).'" data-id="' . $documents->id . '"  data-processing="" class="btn btn-pill btn-warning-light "><i class="fa fa-accessible-icon"></i> '.trans("admin.download").' </button>
+                                    <a type="button" target="_blank" id="'.$documents->id.'" href="'.route('student_certificate_school.print',$documents->id).'" data-id="' . $documents->id . '"  data-processing="" class="btn btn-pill btn-warning-light "><i class="fa fa-accessible-icon"></i> '.trans("admin.download").' </button>
                                 ';
                     }
 

@@ -77,7 +77,7 @@
             ]
         });
 
-        $('#type').on('click',function(){
+        $('#type').on('keyup',function(){
             table.draw();
         });
     }
