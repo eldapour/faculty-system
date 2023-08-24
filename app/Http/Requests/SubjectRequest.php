@@ -30,7 +30,6 @@ class SubjectRequest extends FormRequest
                 'subject_name_en' => 'required',
                 'subject_name_fr' => 'required',
                 'code' => 'required|unique:subjects,code',
-                'group_id' => 'nullable|exists:groups,id',
                 'department_id' => 'required|exists:departments,id',
                 'department_branch_id' => 'required|exists:department_branches,id',
                 'unit_id' => 'required|exists:units,id',
