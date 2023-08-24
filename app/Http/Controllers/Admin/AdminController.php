@@ -244,11 +244,7 @@ class AdminController extends Controller
         } else{
 
             $user->update(['password' => Hash::make($request->password)]);
-//            $data = array('name' => $user->first_name . ' ' . $user->last_name, 'email' => $user->email);
-//            Mail::send('admin.reset_password.password_reset_dashboard', $data, function ($message) use ($user) {
-//                $message->to($user->email, $user->first_name)->subject('Password Changes');
-//                $message->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'));
-//            });
+
              return response()->json(['status' => 200]);
         }
     }

@@ -7,6 +7,7 @@ use App\Models\Period;
 use App\Models\SubjectExam;
 use App\Models\SubjectExamStudent;
 use App\Models\SubjectExamStudentResult;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,11 @@ class SubjectExamStudentController extends Controller {
                     return  $subject_exams->subject->code;
                 })
                 ->addColumn('group', function ($subject_exams) {
-                    return $subject_exams->subject->group->group_name;
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exams->user_id,
+                        'subject_id'=>$subject_exams->subject_id
+                        ,'year'=>$subject_exams->year])->first()->group;
+                    return $group_name ? $group_name->group_name : '';
+
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {
@@ -46,7 +51,7 @@ class SubjectExamStudentController extends Controller {
                         ->where('status','=','start')
                         ->first();
 
-                    return SubjectExamStudent::query()
+                    return @SubjectExamStudent::query()
                         ->where('session','=','عاديه')
                         ->where('user_id','=',Auth::id())
                         ->where('year','=',$period->year_start)
@@ -61,7 +66,7 @@ class SubjectExamStudentController extends Controller {
                         ->where('status','=','start')
                         ->first();
 
-                    return SubjectExamStudent::query()
+                    return @SubjectExamStudent::query()
                         ->where('session','=','عاديه')
                         ->where('year','=',$period->year_start)
                         ->where('user_id','=',Auth::id())
@@ -100,7 +105,10 @@ class SubjectExamStudentController extends Controller {
                     return  $subject_exams->subject->code;
                 })
                 ->addColumn('group', function ($subject_exams) {
-                    return $subject_exams->subject->group->group_name;
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exams->user_id,
+                        'subject_id'=>$subject_exams->subject_id
+                        ,'year'=>$subject_exams->year])->first()->group;
+                    return $group_name ? $group_name->group_name : '';
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {
@@ -109,7 +117,7 @@ class SubjectExamStudentController extends Controller {
                         ->where('status','=','start')
                         ->first();
 
-                    return SubjectExamStudent::query()
+                    return @SubjectExamStudent::query()
                         ->where('session','=','استدراكيه')
                         ->where('user_id','=',Auth::id())
                         ->where('year','=',$period->year_start)

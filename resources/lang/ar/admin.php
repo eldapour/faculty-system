@@ -114,6 +114,7 @@ return [
     "update" => "تحديث ",
     "close" => "اغلاق ",
     "delete_confirm" => "هل انت متاكد من حذف ",
+    "confirm" => "تأكيد",
 
 
 

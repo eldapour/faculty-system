@@ -37,7 +37,7 @@
                 </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary"
-                    id="reregisterBtn">{{ trans('admin.update') }}</button>
+                    id="reregisterBtn">{{ trans('admin.confirm') }}</button>
         </div>
     </form>
 </div>
