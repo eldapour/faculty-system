@@ -6,6 +6,7 @@ use App\Exports\SubjectExamStudentResultExport;
 use App\Imports\SubjectExamStudentResultImport;
 use App\Models\Period;
 use App\Models\Subject;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use App\Models\User;
 use App\Models\SubjectExam;
@@ -49,7 +50,9 @@ class SubjectExamStudentResultController extends Controller
                  })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    return $subject_exam_student_results->subject->group->group_name;
+//                    return $subject_exam_student_results->subject->group->group_name;
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,'subject_id'=>$subject_exam_student_results->subject_id,'year'=>$subject_exam_student_results->year])->first()->group;
+                    return $group_name ? $group_name->getTranslation('group_name',app()->getLocale()) : '';
                 })
                  ->editColumn('subject_id', function ($subject_exam_student_results) {
                      return $subject_exam_student_results->subject->subject_name;
@@ -68,11 +71,12 @@ class SubjectExamStudentResultController extends Controller
 
     public function index2(request $request)
     {
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
 
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period','=','استدراكيه')
@@ -94,7 +98,8 @@ class SubjectExamStudentResultController extends Controller
                 })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    return $subject_exam_student_results->subject->group->group_name;
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,'subject_id'=>$subject_exam_student_results->subject_id,'year'=>$subject_exam_student_results->year])->first()->group;
+                    return $group_name ? $group_name->getTranslation('group_name',app()->getLocale()) : '';
                 })
                 ->editColumn('subject_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->subject_name;
