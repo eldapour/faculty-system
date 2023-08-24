@@ -79,7 +79,7 @@ class ScheduleController extends Controller{
 
             'department_id' => 'required|exists:departments,id',
             'unit_id' => 'required|exists:units,id',
-            'year' => 'required|date_format:Y',
+            'year' => 'required|date_format:Y|after_or_equal:1900',
             'description' => 'nullable|max:255',
             'pdf_upload' => 'required|mimes:pdf',
 
@@ -124,7 +124,7 @@ class ScheduleController extends Controller{
     {
 
         $request->validate([
-
+            'year' => 'required|date_format:Y|after_or_equal:1900',
             'pdf_upload' => 'nullable|mimes:pdf',
         ]);
 
