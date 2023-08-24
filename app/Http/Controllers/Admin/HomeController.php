@@ -25,7 +25,6 @@ class HomeController extends Controller
 
         return Subject::query()
             ->where("department_branch_id", '=', $department_branch_id)
-            ->where("group_id", '=', $group_id)
             ->pluck("subject_name", "id");
 
     }

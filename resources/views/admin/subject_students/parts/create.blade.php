@@ -10,7 +10,7 @@
 
                 <div class="col-md-12">
                     <label for="title" class="form-control-label">{{ trans('admin.register_year')  }}</label>
-                    <input style="height: 50px;border: 1px solid #ccc;margin-bottom: 10px" type="text" class="form-control" id="year" name="year">
+                    <input  type="number" min="1900" class="form-control" id="year" name="year">
                 </div><br>
 
 
