@@ -39,6 +39,8 @@ class UniversitySettingRequest extends FormRequest
             'facebook_link' => 'required',
             'whatsapp_link' => 'required',
             'youtube_link' => 'required',
+            'reregister_start' => 'required',
+            'reregister_end' => 'required',
             'phone' => 'required',
         ];
     }

@@ -144,7 +144,7 @@
             {data: 'name_ar', name: 'name_ar'},
             {data: 'name_latin', name: 'name_latin'},
             {data: 'session', name: 'session'},
-            {data: 'department_id', name: 'department_id'},
+            {data: 'department_name', name: 'department_name'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('elements.index')}}', columns);

@@ -264,8 +264,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::post('importProcess', [ProcessExamController::class, 'importProcess'])->name('importProcess')->middleware('forbidden');
 
 
-    #### Element ####
-    Route::resource('elements', ElementController::class)->middleware('forbidden');
 
     #### Process Degrees ####
     Route::resource('process_degrees', ProcessDegreeController::class)->except('show');

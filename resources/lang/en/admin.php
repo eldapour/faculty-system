@@ -7,7 +7,8 @@ $university_settings = UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Welcome Back',
     'language' => 'Language',
-
+    "reregister_start" => "re register start date",
+    "reregister_end" => "re register end date",
     // General
     "home" => 'Home',
     "actions" => "Actions",

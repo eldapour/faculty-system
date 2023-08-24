@@ -9,6 +9,8 @@ return [
 
     // General
     "home" => "الرئيسية",
+    "reregister_start" => "تاريخ بداية عملية التسجيل",
+    "reregister_end" => "تاريخ انتهاء عملية التسجيل",
     "actions" => "العمليات",
     "search" => "بحث",
     "sure_delete" => "هل انت متأكد من حذف",
