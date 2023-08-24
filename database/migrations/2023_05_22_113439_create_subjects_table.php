@@ -22,10 +22,8 @@ return new class extends Migration
 
             $table->string('code')->unique()->nullable()->comment('الكود بالاتينيه');
 
-            $table->unsignedBigInteger('group_id')->nullable()->comment('الفرقه الدراسيه');
             $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
             $table->timestamps();
-//            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('unit_id')->references('id')->on('units')->cascadeOnUpdate()->cascadeOnDelete();
 
         });
