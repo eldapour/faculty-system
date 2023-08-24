@@ -94,7 +94,7 @@
                     {data: 'action', name: 'action'},
                 ]
                 showData('{{route('get-all-process-degrees')}}', columns);
-
+                deleteScript('{{route('delete-process-degrees')}}');
 
             </script>
 @endsection

@@ -116,6 +116,7 @@ return [
     "update" => "Nettre à jour ",
     "close" => "Fermer ",
     "delete_confirm" => "Êtes-vous sûr De Vouloir Supprimer ",
+    "confirm" => "confirmer",
 
     // Deadlines
     "deadlines" => "Les échéances",

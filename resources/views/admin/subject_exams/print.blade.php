@@ -139,7 +139,7 @@
                             <tr>
                                 <td>{{ $subject->subject->unit->unit_name ?? '' }}</td>
                                 <td>{{ $subject->subject->subject_name }}</td>
-                                <td>{{ $subject->subject->group->group_name }}</td>
+                                <td>{{ @$subject->group->group_name }}</td>
                                 <td>{{ $doctor->doctor->first_name }}</td>
                                 <td>{{ $subject->exam_day }}</td>
                                 <td>{{ $subject->exam_date }}</td>
@@ -154,8 +154,9 @@
 
                         <p class="mt-4 mb-3 fw-bold">
                             تنبيهات:
-                            <br>................................................
-                            <br>...........................................
+                            <br>• الحضور الي مقر الا متحانات نصف ساعة قبل الموعد المحدد.
+                            <br>• يمنع منعا كليا ادخال او استعمال الهاتف النقال والاجهزه الالكترونية داخل قاعات الامتحانات .
+                            <br>• احترام لجنه الامتحانات والالتزام التام بضوابط اجراء الامتحانات .
                             <br>
                         </p>
 

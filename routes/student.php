@@ -41,6 +41,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
 
     //process degree routes
     Route::get('get-all-process-degrees', [ProcessDegreeController::class, 'get_all_process_degrees'])->name('get-all-process-degrees');
+    Route::post ('delete-process-degrees', [ProcessDegreeController::class, 'destroy'])->name('delete-process-degrees');
 
     Route::get('create-process-degree-normal/{id}', [ProcessDegreeController::class, 'normalCreate'])->name('create-process-degree-normal');
     Route::post('store-process-degree-normal', [ProcessDegreeController::class, 'normalStore'])->name('store-process-degree-normal');

@@ -128,6 +128,7 @@ return [
     "update" => "update ",
     "close" => "Close ",
     "delete_confirm" => "Are you sure to delete ",
+    "confirm" => "confirm",
 
     // Deadlines
     "deadlines" => "Deadlines",

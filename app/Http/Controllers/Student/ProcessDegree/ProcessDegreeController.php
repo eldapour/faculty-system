@@ -62,7 +62,8 @@ class ProcessDegreeController extends Controller
                     } else {
 
                         return '
-                            <button disabled class="btn btn-pill btn-danger-light" data-toggle="modal">
+                            <button disabled class="btn btn-pill btn-danger-light"
+                            data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->subject_name . '" data-target="#delete_modal">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -204,4 +205,11 @@ class ProcessDegreeController extends Controller
 
     }
 
+
+    public function destroy(Request $request)
+    {
+        $subjects = ProcessDegree::where('id', $request->id)->firstOrFail();
+        $subjects->delete();
+        return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
+    }
 }
