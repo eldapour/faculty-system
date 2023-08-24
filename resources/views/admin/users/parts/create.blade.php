@@ -414,11 +414,8 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('admin.university_register_year')}}</label>
-                    <select name="university_register_year" class="form-control" id="university_register_year">
-                        @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
+                    <input type="number" min="1900"  class="form-control" name="university_register_year" id="university_register_year">
+
                 </div>
             </div>
 
