@@ -40,8 +40,8 @@ class SubjectUnitDoctorController extends Controller
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
                 })
-                ->addColumn('group_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->group->group_name .'</td>';
+                ->editColumn('group_id', function ($subject_unit_doctors) {
+                    return'<td>'. $subject_unit_doctors->group->group_name .'</td>';
                 })
                 ->addColumn('unit_id', function ($subject_unit_doctors) {
                     return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
@@ -83,11 +83,33 @@ class SubjectUnitDoctorController extends Controller
     {
         $inputs = $request->all();
 
-        if (SubjectUnitDoctor::create($inputs)) {
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
+        $subjectUnitDoctor = SubjectUnitDoctor::query()
+            ->where('subject_id','=',$request->subject_id)
+            ->where('year','=',$request->year)
+            ->where('period','=',$request->period);
+
+        $subjectUnitDoctorCreateBefore = SubjectUnitDoctor::query()
+            ->where('user_id','=',$request->user_id)
+            ->where('subject_id','=',$request->subject_id)
+            ->where('year','=',$request->year)
+            ->where('period','=',$request->period);
+
+
+        if($subjectUnitDoctor->exists()){
+            return response()->json(['status' => 411,'mymessage' => 'The subject register before with another doctor']);
+
+        }elseif ($subjectUnitDoctorCreateBefore->count() > 0){
+            return response()->json(['status' => 413,'mymessage' => 'The subject register before with this doctor before']);
+
+        }else{
+            if (SubjectUnitDoctor::create($inputs)) {
+
+                return response()->json(['status' => 200]);
+            } else {
+                return response()->json(['status' => 405]);
+            }
         }
+
     }
 
 
@@ -145,7 +167,6 @@ class SubjectUnitDoctorController extends Controller
     {
 
         return Subject::query()
-        ->where('group_id','=', $request->group_id)
         ->where('unit_id','=', $request->unit_id)
         ->where('department_branch_id','=',$request->department_branch_id)
             ->pluck('subject_name', 'id');

@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     /*
      * مواد الفرق الدراسيه
      */
@@ -19,9 +15,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->json('subject_name')->comment('اسم الماده');
-
             $table->string('code')->unique()->nullable()->comment('الكود بالاتينيه');
-
             $table->unsignedBigInteger('unit_id')->comment('الفصل الدراسي');
             $table->timestamps();
             $table->foreign('unit_id')->references('id')->on('units')->cascadeOnUpdate()->cascadeOnDelete();
