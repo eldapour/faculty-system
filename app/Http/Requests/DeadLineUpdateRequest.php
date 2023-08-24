@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BranchStudentRequest extends FormRequest
+class DeadLineUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,11 @@ class BranchStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'register_year' => 'required|after_or_equal:1900',
-            'branch_restart_register' => 'nullable',
-            'user_id' => 'required',
-            'department_branch_id' => 'required',
+            'deadline_date_start' => 'required|date',
+            'deadline_date_end' => 'required|date|after:deadline_date_start',
+            'year' => 'required|after_or_equal:1900',
+            'period' => 'required',
+            'deadline_type' => 'required',
         ];
     }
 }

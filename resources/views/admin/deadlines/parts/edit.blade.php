@@ -27,11 +27,12 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('deadline.year')}}</label>
-                    <select name="year" class="form-control" id="year">
+                    {{-- <select name="year" class="form-control" id="year">
                         @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
                             <option value="{{ $year }}">{{ $year }}</option>
                         @endfor
-                    </select>
+                    </select> --}}
+                    <input type="number" value="{{ $deadline->year }}" name="year" class="form-control" id="year">
                 </div>
 
             </div>

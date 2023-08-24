@@ -73,7 +73,7 @@ class DepartmentStudentController extends Controller
         $request->validate([
             'user_id' => 'required',
             'department_id' => 'required',
-            'year' => 'required',
+            'year' => 'required|after_or_equal:1900',
             'period' => 'required',
             'confirm_request' => 'nullable',
         ]);
@@ -106,7 +106,7 @@ class DepartmentStudentController extends Controller
         $request->validate([
             'user_id' => 'required',
             'department_id' => 'required',
-            'year' => 'required',
+            'year' => 'required|after_or_equal:1900',
             'period' => 'required',
             'confirm_request' => 'nullable',
         ]);

@@ -17,7 +17,6 @@ class CategoryController extends Controller
     {
         if($request->ajax()) {
             $categories = Category::latest()->get();
-
             return Datatables::of($categories)
                 ->addColumn('action', function ($category) {
                     return '
