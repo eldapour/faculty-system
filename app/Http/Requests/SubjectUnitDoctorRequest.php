@@ -29,12 +29,17 @@ class SubjectUnitDoctorRequest extends FormRequest
             $rules = [
                 'year' => 'required',
                 'user_id' => 'required',
+                'group_id' => 'required',
                 'subject_id' => 'required',
                 'period' => 'required'
             ];
         } elseif (request()->isMethod('PUT')) {
             $rules = [
                 'year' => 'required',
+                'user_id' => 'required',
+                'group_id' => 'required',
+                'subject_id' => 'required',
+                'period' => 'required'
             ];
         }
 

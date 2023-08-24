@@ -74,7 +74,7 @@
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.year')  }}</label>
 
-                    <input type="number" class="form-control" name="year" id="year">
+                    <input type="number" class="form-control" name="year" id="year" value="{{$subjectUnitDoctor->year}}">
 
                 </div>
 
@@ -83,7 +83,7 @@
                     <label for="user_id" class="form-control-label">{{ trans('admin.doctor') }}</label>
                     <select name="user_id" class="form-control">
                         @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center">{{ $user->first_name }}</option>
+                            <option value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -153,7 +153,11 @@
                         toastr.success(' {{ trans('admin.added_successfully') }} ');
                     } else if (data.status == 405) {
                         toastr.error(data.mymessage);
-                    } else
+                    } else if(data.status == 411){
+                        toastr.error(data.mymessage);
+                    }else if(data.status == 413){
+                        toastr.error(data.mymessage);
+                    }else
                         toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
