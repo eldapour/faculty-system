@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Period;
 use App\Models\ProcessDegree;
 use App\Models\SubjectExamStudent;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use DateTime;
 use App\Models\Group;
@@ -44,7 +45,8 @@ class SubjectExamController extends Controller
                     return $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-                    return $subject_exams->subject->group->group_name;
+
+                    return @$subject_exams->group->group_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -223,7 +225,7 @@ class SubjectExamController extends Controller
 
         return Subject::query()
             ->where('department_branch_id', '=', $request->department_branch_id)
-            ->where('group_id', '=', $request->group_id)
+//            ->where('group_id', '=', $request->group_id)
             ->pluck('subject_name', 'id');
 
     } // end of get subject

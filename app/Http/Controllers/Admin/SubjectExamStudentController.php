@@ -8,6 +8,7 @@ use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
 use App\Models\Period;
+use App\Models\SubjectStudent;
 use App\Models\UniversitySetting;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,11 @@ class SubjectExamStudentController extends Controller
                     return $subject_exam_students->user->identifier_id;
                 })
                 ->addColumn('group', function ($subject_exam_students) {
-                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_students->user_id,
+                                            'subject_id'=>$subject_exam_students->subject_id
+                                            ,'year'=>$subject_exam_students->year])->first()->group;
+                    return $group_name ? $group_name->group_name : '';
+//                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
                 })
 
                 ->addColumn('code', function ($subject_exam_students) {
@@ -123,7 +128,7 @@ class SubjectExamStudentController extends Controller
 
 
         return Subject::query()
-            ->where('group_id', '=', $request->group_id)
+//            ->where('group_id', '=', $request->group_id)
             ->where('department_branch_id', '=', $request->department_branch_id)
             ->where('unit_id', '=', $request->unit_id)
             ->pluck('subject_name', 'id');
@@ -204,7 +209,10 @@ class SubjectExamStudentController extends Controller
                     return $subject_exam_students->user->identifier_id;
                 })
                 ->addColumn('group', function ($subject_exam_students) {
-                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_students->user_id,
+                        'subject_id'=>$subject_exam_students->subject_id
+                        ,'year'=>$subject_exam_students->year])->first()->group;
+                    return $group_name ? $group_name->group_name : '';
                 })
 
                 ->addColumn('code', function ($subject_exam_students) {

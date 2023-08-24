@@ -120,6 +120,7 @@
             success: function(data) {
                 if (data !== 404) {
                     $('select[name="department_branch_id"]').empty();
+                    $('select[name="department_branch_id"]').append('  <option value="" selected >@lang('admin.select')</option>')
                     $.each(data, function(key, value) {
                         $('select[name="department_branch_id"]').append('<option value="' +
                             key + '">' + value + '</option>');

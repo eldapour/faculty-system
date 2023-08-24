@@ -6,7 +6,8 @@ $university_settings= UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Content de te revoir',
     'language' => 'Langue',
-
+    "reregister_start" => "date de commencer de réinscription",
+    "reregister_end" => "date de fin de réinscription",
     // General
     "home" => 'Maison',
     "actions" => "Actions",
