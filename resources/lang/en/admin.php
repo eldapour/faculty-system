@@ -408,6 +408,10 @@ return [
 
 
     // data modification
+    'delete_data' => 'Delete Data',
+    "back" => "Back",
+    "working" => "Working",
+    "there_is_an_error" => "There is an error",
     "data_modify" => "Data Modification",
     'last_name' =>  'last_name',
     'first_name' =>  'first_name',

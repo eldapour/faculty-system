@@ -112,7 +112,7 @@
                     if (data.status === 200) {
                         $("#dismiss_delete_modal")[0].click();
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success(data.message)
+                        toastr.success('{{ trans('admin.deleted_successfully') }}')
                     } else {
                         $("#dismiss_delete_modal")[0].click();
                         toastr.error(data.message)
@@ -253,7 +253,7 @@
                 data: formData,
                 beforeSend: function() {
                     $('#addReply').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr(
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>').attr(
                         'disabled', true);
                 },
                 success: function(data) {

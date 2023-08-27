@@ -316,6 +316,7 @@ return [
     'national_id_of_person' => "Identifiant national de la personne qui lui est attribuée",
     'card_image' => "Une copie de la carte nationale de la personne qui lui est confiée",
     'card_image_user' => "Une copie de la carte nationale",
+    'image_user' => 'utilisateur de l image',
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "La demande a été ajoutée avec succès",
