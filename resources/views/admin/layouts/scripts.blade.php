@@ -117,7 +117,6 @@
 
 
     @php
-        $user = \App\Models\User::where('id',Auth::user()->id)->first();
         $period = \App\Models\Period::query()
             ->where('status', '=', 'start')
             ->first();
@@ -127,6 +126,9 @@
         ->where('register_year','=',$period->year_start)
         ->where('register_year','<',$period->year_end)
         ->first();
+
+        $user = \App\Models\User::where('id',auth()->user()->id)->first();
+
     @endphp
 
 
@@ -141,10 +143,12 @@
             }, 250)
         }
     })
+
     @endif
     @endif
     @if(auth()->user()->user_type == 'student')
-        @if($user->user_department->confirm_request == 0 && $reregistration->branch_restart_register != 0)
+
+        @if($user->user_department->confirm_request == 0 && isset($reregistration->branch_restart_register) && $reregistration->branch_restart_register != 0)
         $(document).ready(function () {
             if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_end > \Carbon\Carbon::now() }}) {
                 $('#RegisterTrackForm-body').html(loader)
