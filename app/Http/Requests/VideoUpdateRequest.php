@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreVideo extends FormRequest
+class VideoUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,5 +33,9 @@ class StoreVideo extends FormRequest
             'description.fr' => 'required',
             'video_url' => 'required',
         ];
+        if($this->hasFile('background_image'))
+        {
+            $rules['background_image'] = 'required|image';
+        }
     }
 }

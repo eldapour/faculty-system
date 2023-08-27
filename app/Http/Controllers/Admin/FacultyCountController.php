@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FacultyCountStoreRequest;
+use App\Http\Requests\FacultyCountUpdateRequest;
 use App\Models\FacultyCount;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
@@ -57,14 +59,8 @@ class FacultyCountController extends Controller
      * @throws \Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException
      * @throws \Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException
      */
-    public function store(Request $request)
+    public function store(FacultyCountStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'count' => 'required|numeric',
-        ]);
-
         $image = $request->image;
 
         if ($request->has('image')) {
@@ -97,18 +93,11 @@ class FacultyCountController extends Controller
      * @throws \Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException
      * @throws \Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException
      */
-    public function update(Request $request)
+    public function update(FacultyCountUpdateRequest $request)
     {
         // get FacultyCount
         $facultyCount = FacultyCount::query()
             ->findOrFail($request->id);
-
-        // validate
-        $request->validate([
-            'title' => 'required',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'count' => 'required|numeric',
-        ]);
 
         // declare vars
         $image = $request->image;

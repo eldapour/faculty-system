@@ -54,19 +54,19 @@
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.arabic') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->getTranslation('title','ar') }}" name="title[ar]" required>
+                                            value="{{ $presentations->getTranslation('title','ar') }}" name="title[ar]" >
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.title') . ' ' . trans('admin.english') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->getTranslation('title','en') }}" name="title[en]" required>
+                                            value="{{ $presentations->getTranslation('title','en') }}" name="title[en]" >
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.tile') . ' ' . trans('admin.france') }}</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $presentations->getTranslation('title','fr') }}" name="title[fr]" required>
+                                            value="{{ $presentations->getTranslation('title','fr') }}" name="title[fr]" >
                                     </div>
                                 </div>
                             </div>
@@ -75,17 +75,17 @@
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.arabic') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" required>{{ $presentations->getTranslation('description','ar') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[ar]" >{{ $presentations->getTranslation('description','ar') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.english') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" required>{{ $presentations->getTranslation('description','en') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[en]" >{{ $presentations->getTranslation('description','en') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.description') }}
                                             {{ trans('admin.france') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" required>{{ $presentations->getTranslation('description','fr') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="description[fr]" >{{ $presentations->getTranslation('description','fr') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -94,17 +94,17 @@
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.arabic') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[ar]" required>{{ $presentations->getTranslation('sub_desc','ar') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[ar]" >{{ $presentations->getTranslation('sub_desc','ar') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.english') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[en]" required>{{ $presentations->getTranslation('sub_desc','en') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[en]" >{{ $presentations->getTranslation('sub_desc','en') }}</textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="name_ar" class="form-control-label">{{ trans('admin.sub_desc') }}
                                             {{ trans('admin.france') }}</label>
-                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[fr]" required>{{ $presentations->getTranslation('sub_desc','fr') }}</textarea>
+                                        <textarea type="text" rows="5" class="form-control editor" name="sub_desc[fr]" >{{ $presentations->getTranslation('sub_desc','fr') }}</textarea>
                                     </div>
                                 </div>
                             </div>

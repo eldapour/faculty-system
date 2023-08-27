@@ -401,7 +401,7 @@
                         });
                     } else
                         toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
-                    $('#updateButton').html(`تعديل`).attr('disabled', false);
+                    $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
                 }, //end error method
 
                 cache: false,

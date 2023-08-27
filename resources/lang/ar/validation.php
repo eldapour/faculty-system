@@ -162,6 +162,8 @@ return [
         'category_name.ar' =>'اسم باللغة العربية',
         'category_name.en' =>'اسم باللغة الانجليزية',
         'category_name.fr' =>'اسم باللغة الفرنسية',
+        'category_id' => 'معرف الفئة',
+        'experience_year' => 'سنين الخبرة',
         'name' =>'الاسم',
         'image' => 'الصورة',
         'background_image' => 'خلفية الصورة',
@@ -235,6 +237,7 @@ return [
         'student_type.en' => 'نوع الطالب بالانجليزي',
         'student_type.fr' => 'نوع الطالب بالفرنسي',
         'notes' => 'ملاحظات',
+        'count' => 'القيمة',
     ],
 
 ];

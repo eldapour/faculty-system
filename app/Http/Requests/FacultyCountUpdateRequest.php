@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreVideo extends FormRequest
+class FacultyCountUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class StoreVideo extends FormRequest
     public function rules()
     {
         return [
-            'background_image' => 'required',
             'title.ar' => 'required',
             'title.en' => 'required',
             'title.fr' => 'required',
-            'description.ar' => 'required',
-            'description.en' => 'required',
-            'description.fr' => 'required',
-            'video_url' => 'required',
+            'count' => 'required|numeric',
         ];
+        if ($this->hasFile('image')) {
+            $rules['image'] = 'image|required';
+        }
+        return $rules;
     }
 }
