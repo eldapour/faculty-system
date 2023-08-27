@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminStoreRequest;
+use App\Http\Requests\AdminUpdateRequest;
 
 class AdminController extends Controller
 {
@@ -91,27 +93,13 @@ class AdminController extends Controller
 
     public function create()
     {
-
         $types = ['doctor', 'employee', 'manger', 'factor'];
 
         return view('admin.admins.parts.create', compact('types'));
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(AdminStoreRequest $request): JsonResponse
     {
-        $request->validate([
-            'email' => 'required|unique:users,email',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'first_name_latin' => 'required',
-            'last_name_latin' => 'required',
-            'password' => 'required|min:6',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'user_type' => 'required|in:manger,employee,factor',
-            'job_id' => 'nullable|unique:users,job_id',
-        ]);
-
-
         if ($image = $request->file('image')) {
             $destinationPath = 'uploads/users/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -151,22 +139,10 @@ class AdminController extends Controller
     }
 
 
-    public function update(Request $request): JsonResponse{
+    public function update(AdminUpdateRequest $request): JsonResponse{
 
         $admin = User::query()
             ->findOrFail($request->id);
-
-        $request->validate([
-            'email' => 'required|unique:users,email,' . $request->id,
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'first_name_latin' => 'required',
-            'last_name_latin' => 'required',
-            'password' => 'nullable|min:6',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'user_type' => 'required|in:manger,employee,factor',
-            'job_id' => 'nullable|unique:users,job_id,' . $request->id,
-        ]);
 
         if ($image = $request->file('image')) {
 

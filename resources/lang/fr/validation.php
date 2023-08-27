@@ -210,6 +210,10 @@ return [
         "role.fr" => 'Rôle en France',
         "files" => "Des dossiers",
         "images" => "Images",
+        'student_type.ar' => 'Type d étudiant Ar',
+        'student_type.en' => 'Étudiant de type un',
+        'student_type.fr' => 'Type Étudiant Fr',
+        'notes' => 'Remarques',
     ],
 
 ];

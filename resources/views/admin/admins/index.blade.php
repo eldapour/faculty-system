@@ -67,20 +67,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ trans('admin.delete_data') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>هل تريد حذف المستخدم <span id="title" class="text-danger"></span>?</p>
+                        <p>{{ trans('admin.delete_confirm') }} <span id="title" class="text-danger"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
-                            Back
+                            {{ trans('admin.back') }}
                         </button>
-                        <button type="button" class="btn btn-danger" id="delete_btn">Delete !</button>
+                        <button type="button" class="btn btn-danger" id="delete_btn">{{ trans('admin.delete') }} !</button>
                     </div>
                 </div>
             </div>
@@ -252,7 +252,7 @@
                         $.each(errors, function(key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function(key, value) {
-                                    toastr.error(value, key);
+                                    toastr.error(value);
                                 });
                             }
                         });
@@ -279,7 +279,7 @@
                 data: formData,
                 beforeSend: function() {
                     $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled',
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.working') }}</span>').attr('disabled',
                         true);
                 },
 
@@ -353,7 +353,7 @@
                 },
                 beforeSend: function () {
                     $('.importBtn').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.working') }}</span>').attr('disabled', true);
                     progressDiv.removeClass('d-none');
                 },
                 success: function (data) {

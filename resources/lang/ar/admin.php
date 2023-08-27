@@ -406,7 +406,10 @@ return [
 
     // data modification
     "data_modify" => "طلب تعديل البيانات",
-
+    "back" => "رجوع",
+    "working" => "يتم التحميل",
+    "there_is_an_error" => "هنالك خطأ",
+    'delete_data' => 'حذف بيانات',
     'last_name' => 'الاسم العائلي',
     'first_name' => 'الاسم الشخصي',
     'last_name_latin' => 'الاسم العائلي بالاثينية',
