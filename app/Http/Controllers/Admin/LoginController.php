@@ -194,7 +194,7 @@ class LoginController extends Controller
             ->first('email');
         $user = User::where('email', $email->email)->first();
         $user->password = Hash::make($request->password);
-
+        $user->save();
         DB::table('password_resets')->where('token', $token)->delete();
         Session::flash('success','Password Reset Successfully');
         return redirect()->route('student.login');
