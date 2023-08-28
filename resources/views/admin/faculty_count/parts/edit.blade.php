@@ -17,23 +17,23 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="group_name" class="form-control-label">{{ trans('admin.name') ." ".  trans('admin.arabic')}} </label>
-                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','ar') }}" name="title[ar]" id="group_name_ar" required="required">
+                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','ar') }}" name="title[ar]" id="group_name_ar">
                 </div>
                 <div class="col-md-4">
                     <label for="group_name" class="form-control-label">{{ trans('admin.name') ." ".  trans('admin.english')}} </label>
-                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','en') }}" name="title[en]" id="group_name_en" required="required">
+                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','en') }}" name="title[en]" id="group_name_en">
                 </div>
 
                 <div class="col-md-4">
                     <label for="group_name" class="form-control-label">{{ trans('admin.name') ." ".  trans('admin.france')}} </label>
-                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','fr') }}" name="title[fr]" id="group_name_fr" required="required">
+                    <input type="text" class="form-control" value="{{ $facultyCount->getTranslation('title','fr') }}" name="title[fr]" id="group_name_fr">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.value')  }} </label>
-                    <input type="number" class="form-control" name="count" value="{{ $facultyCount->count }}" id="count" required="required">
+                    <input type="number" class="form-control" name="count" value="{{ $facultyCount->count }}" id="count">
                 </div>
             </div>
 

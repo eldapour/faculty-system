@@ -16,6 +16,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -184,36 +185,10 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request): JsonResponse
+    public function update(UserUpdateRequest $request): JsonResponse
     {
-
-
         $user = User::query()
             ->findOrFail($request->id);
-
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'first_name_latin' => 'required',
-            'last_name_latin' => 'required',
-            'email' => 'required|unique:users,email,' . $request->id,
-            'password' => 'nullable|min:6',
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'university_email' => 'nullable|unique:users,university_email,' . $request->id,
-            'identifier_id' => 'nullable|unique:users,identifier_id,' . $request->id,
-            'national_id' => 'nullable|unique:users,national_id,' . $request->id,
-            'national_number' => 'nullable|unique:users,national_number,' . $request->id,
-            'birthday_date' => 'nullable|date_format:Y-m-d',
-            'birthday_place' => 'required',
-            'city_ar' => 'required',
-            'city_latin' => 'required',
-            'address' => 'required',
-            'student_type_id' => 'required',
-            'country_address_ar' => 'required',
-            'country_address_latin' => 'required',
-            'university_register_year' => 'nullable'
-        ]);
-
         if ($image = $request->file('image')) {
 
             $destinationPath = 'uploads/users/';
