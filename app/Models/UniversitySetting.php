@@ -29,6 +29,8 @@ class UniversitySetting extends Model
         'digital_student_platform',
         'colleges_digital_platform',
         'colleges_digital_magazine',
+        'reregister_the_track_start',
+        'reregister_the_track_end'
     ];
 
     protected $casts = [

@@ -151,6 +151,18 @@
                                         <input type="date" class="form-control"
                                                value="{{ $university_settings->reregister_end }}" name="reregister_end">
                                     </div>
+                                    <div class="col-md-3">
+                                        <label for="reregister_track_start"
+                                               class="form-control-label mt-3">{{ trans('admin.reregister_the_track_start') }}</label>
+                                        <input type="date" class="form-control"
+                                               value="{{ $university_settings->reregister_the_track_start }}" name="reregister_the_track_start">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="reregister_track_End"
+                                               class="form-control-label mt-3">{{ trans('admin.reregister_the_track_end') }}</label>
+                                        <input type="date" class="form-control"
+                                               value="{{ $university_settings->reregister_the_track_end }}" name="reregister_the_track_end">
+                                    </div>
                                 </div>
 
                                 <hr>

@@ -18,7 +18,7 @@ class DocumentExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function headings(): array
     {
         return [
-            '#',
+            'id',
             'user code',
             'document_type_id',
             'withdraw_by_proxy',

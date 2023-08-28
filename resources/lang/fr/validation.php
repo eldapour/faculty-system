@@ -217,6 +217,15 @@ return [
         'student_type.en' => 'Étudiant de type un',
         'student_type.fr' => 'Type Étudiant Fr',
         'notes' => 'Remarques',
+        'title_ar' => 'Titre Ar',
+        'title_en' => 'Titre En',
+        'title_fr' => 'Titre Fr',
+        'address_ar' => 'Adresse Ar',
+        'address_en' => 'Adresse En',
+        'address_fr' => 'Adresse Fr',
+        'description_ar' => 'Description Ar',
+        'description_en' => 'Description En',
+        'description_fr' => 'Description Fr',
     ],
 
 ];

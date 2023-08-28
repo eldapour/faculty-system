@@ -137,6 +137,7 @@ return [
     "ad" => "Publicité",
     "ads" => "Annonces du site",
     "internal_ads" => "Annonces Internes",
+    "image_ads" => "Annonces illustrées",
 
     "date_ads" => "Moment de l'annonce",
     "url_ads" => "Lien Des Annonces",
@@ -582,8 +583,9 @@ return [
     "remaining_days" => "jours restants",
     "reset_password" => "Modifier le mot de passe",
     "counter" => "statistiques de gestion du site",
-
-
+    "reregister_the_track_start" => "Réenregistrer le départ de la piste",
+    "reregister_the_track_end" => "Réenregistrer la fin de la piste",
+    "Those_concerned_with_evidence_and_diploma" => "Ceux qui sont concernés par les preuves et les diplômes",
 ];
 
 

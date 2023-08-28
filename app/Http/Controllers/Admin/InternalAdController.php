@@ -11,9 +11,11 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreInternalAd;
+use App\Traits\PhotoTrait;
 
 class InternalAdController extends Controller
 {
+    use PhotoTrait;
     public function __construct()
     {
         $this->middleware(CheckForbidden::class)->except('indexDoctor','detailsDoctor');
@@ -94,24 +96,21 @@ class InternalAdController extends Controller
 
 
     public function store(StoreInternalAd $request): JsonResponse
-    {
+{
+    $inputs = $request->all();
 
-
-        $internalAd = InternalAd::create([
-            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
-            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
-            "time_ads" => $request->time_ads,
-            "url_ads" => $request->url_ads,
-            "service_id" => $request->service_id
-        ]);
-
-
-        if ($internalAd->save()) {
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
-        }
+    if ($request->hasFile('background_image')) {
+        $file = $request->file('background_image');
+        $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'photo');
     }
+
+    if (InternalAd::create($inputs)) {
+        return response()->json(['status' => 200]);
+    } else {
+        return response()->json(['status' => 405]);
+    }
+}
+
 
 
     public function edit(InternalAd $internalAd)
