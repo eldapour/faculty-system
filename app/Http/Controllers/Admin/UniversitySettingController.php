@@ -26,6 +26,7 @@ class UniversitySettingController extends Controller
     public function update(UniversitySettingRequest $request, UniversitySetting $universitySetting): JsonResponse
     {
 
+        $inputs = $request->all();
         if ($logo = $request->file('logo')) {
 
             $destinationPath = 'uploads/university_setting';
@@ -50,27 +51,7 @@ class UniversitySettingController extends Controller
                 unlink(public_path('uploads/university_setting/'.$universitySetting->stamp_logo));
             }
         }
-
-
-        $universitySetting->update([
-            'email' => $request->email,
-            'logo' =>  $request->file('logo') != null ? $logoImage : $universitySetting->logo,
-            'stamp_logo' =>  $request->file('stamp_logo') != null ? $stampLogoImage : $universitySetting->stamp_logo,
-            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
-            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
-            "address" => ['ar' => $request->address_ar,'en' => $request->address_en,'fr' => $request->address_fr],
-            'phone' => $request->phone,
-            'facebook_link' => $request->facebook_link,
-            'whatsapp_link' => $request->whatsapp_link,
-            'youtube_link' => $request->youtube_link,
-            'reregister_start' => $request->reregister_start,
-            'reregister_end' => $request->reregister_end,
-            'digital_student_platform' => route('student.login'),
-            'colleges_digital_platform' => $request->colleges_digital_platform,
-            'colleges_digital_magazine' => $request->colleges_digital_magazine,
-
-        ]);
-        if ($universitySetting->save()) {
+        if ($universitySetting->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

@@ -149,6 +149,7 @@ return [
     "ad" => "Ad",
     "ads" => "Website Ads",
     "internal_ads" => "Internal Ads",
+    "image_ads" => "Image Ads",
 
     "time_ads" => "Time Ads",
     "url_ads" => "Url Ads",
@@ -582,9 +583,9 @@ return [
 
 
     "counter" => "site management statistics",
-
-
-
+    "reregister_the_track_start" => "Reregister The Track Start",
+    "reregister_the_track_end" => "Reregister The Track End",
+    "Those_concerned_with_evidence_and_diploma" => "Those concerned with evidence and diploma",
 ];
 
 

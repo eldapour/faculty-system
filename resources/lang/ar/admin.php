@@ -136,10 +136,10 @@ return [
     // Internal Ad
     "ad" => "اعلان",
     "ads" => "اعلانات الموقع",
-    "internal_ads" => "البرمجة السنوية",
     "date" => "تاريخ",
     "time_ads" => "توقيت الاعلان",
     "url_ads" => "رابط الاعلان",
+    "image_ads" => "صورة الاعلان",
 
     // Department
     "departments" => "المسالك",
@@ -588,7 +588,10 @@ return [
     "reset_password" => "تغيير كلمه المرور",
 
     "counter" => "احصائيات الاداره في الموقع",
-    "internal_ads" => "البرمجة السنوية"
+    "internal_ads" => "الاعلانات الداخلية",
+    "reregister_the_track_start" => "بداية  اعادة تسجيل المسلك",
+    "reregister_the_track_end" => "نهاية  اعادة تسجيل المسلك",
+    "Those_concerned_with_evidence_and_diploma" => " المعنيون بالشواهد والدبلوم",
 
 
 
