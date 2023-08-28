@@ -299,7 +299,8 @@
                 <li class="slide">
                     <a class="side-menu__item" href="{{route('process_degrees.index')}}">
                         <i class="fe fe-file-text side-menu__icon"></i>
-                        <span class="side-menu__label">{{ trans('student_sidebar.process_degree') }}</span>
+                        <span class="side-menu__label">{{ trans('student_sidebar.process_degree') }} <div
+                            style="width: 30px;height: 30px;border-radius: 50%;background: #56d094;color: #fff;display: inline-block;padding: 6px;text-align: center">{{processDegreeRequestCount()}}</div></span>
                     </a>
                 </li>
 

@@ -33,6 +33,7 @@ class SubjectStudentImport implements ToCollection, WithHeadingRow
                 'user_id' => $user->id,
                 'subject_id' => $subject->id,
                 'period' =>  $rows[$i]['period'],
+                'group_id' => $rows[$i]['group_id'],
                 'year' => $rows[$i]['year'],
             ]);
         }

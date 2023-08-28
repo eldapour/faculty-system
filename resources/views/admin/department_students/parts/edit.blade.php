@@ -38,7 +38,7 @@
                         @foreach($students as $student)
                             <option {{ $departmentStudent->user_id == $student->id ? 'selected' : '' }}
                                     value="{{ $student->id}}">
-                                {{ $student->identifier_id }}
+                                {{ $student->first_name }}
                             </option>
                         @endforeach
                     </select>
