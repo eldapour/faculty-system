@@ -58,6 +58,9 @@
             text-align: center;
             padding-top: 30px;
         }
+         .table td {
+             padding: 0.2rem !important;
+         }
     </style>
     <div class="section" style="height: auto" id="DivIdToPrint">
         <div class="container">

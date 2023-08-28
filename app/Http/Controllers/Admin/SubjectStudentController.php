@@ -153,7 +153,7 @@ class SubjectStudentController extends Controller
                     return $subject_students->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_students) {
-                    return $subject_students->subject->group->group_name;
+                    return $subject_students->group->group_name;
                 })
 
                 ->escapeColumns([])

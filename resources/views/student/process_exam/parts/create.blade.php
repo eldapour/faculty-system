@@ -38,7 +38,15 @@
                 <div class="col-md-12 col-12">
                     <div class="form-group">
                         <label for="name" class="form-control-label">{{trans('process_exam.reason')}}</label>
-                        <input type="text" name="reason" id="reason" class="form-control"/>
+                        <select name="reason" id="reason" class="form-control select2" >
+                            <option class="form-control" value="manger">@lang('admin.select')</option>
+                            @foreach($reasons as $reason)
+                                <option class="form-control" value="{{$reason->id}}">{{$reason->name}}</option>
+
+                            @endforeach
+
+                        </select>
+{{--                        <input type="text" name="reason" id="reason" class="form-control"/>--}}
                     </div>
 
                 </div>

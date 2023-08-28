@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\ProcessExport;
 use App\Http\Middleware\CheckForbidden;
+use App\Models\ReasonsRedress;
 use Carbon\Carbon;
 use DateTime;
 use App\Models\User;
@@ -109,6 +110,10 @@ class ProcessExamController extends Controller
                     $date = new DateTime($process_exam_students->year);
                     return '<td>' . $date->format('Y') . '</td>';
                 })
+                ->editColumn('reason', function ($process_exams) {
+                    return $process_exams->reasonRedress->name;
+                })
+
                 ->editColumn('request_status', function ($process_exam_students) {
                     if ($process_exam_students->request_status == 'new')
                         return '<td><a class="btn btn-primary text-white">' . trans('admin.new') . '<a/></td>';
@@ -128,9 +133,11 @@ class ProcessExamController extends Controller
 
     public function create()
     {
+        $reasons = ReasonsRedress::get();
+
         $updated_at = ProcessExam::query()->select('updated_at');
         $data['users'] = User::where('user_type', 'student')->get();
-        return view('admin.process_exams.parts.create', compact('data', 'updated_at'));
+        return view('admin.process_exams.parts.create', compact('data', 'updated_at','reasons'));
     }
 
     public function store(ProcessExamRequest $request): JsonResponse

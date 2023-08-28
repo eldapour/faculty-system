@@ -25,8 +25,9 @@ class ScheduleController extends Controller{
             return Datatables::of($schedules)
                 ->addColumn('action', function ($schedules) {
                     return '
-                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' type="button" data-id="' . $schedules->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+
+                            <button '. (auth()->user()->user_type != 'employee' ? 'hidden' : '') .' type="button" data-id="' . $schedules->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button '. (auth()->user()->user_type != 'employee' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $schedules->id . '" data-title="' . $schedules->id . '">
                                     <i class="fas fa-trash"></i>
                             </button>

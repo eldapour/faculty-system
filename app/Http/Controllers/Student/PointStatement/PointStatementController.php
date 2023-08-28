@@ -25,7 +25,7 @@ class PointStatementController extends Controller{
                 ->first();
 
             $pointStatements = PointStatement::query()
-                ->where('period','=',$period->period)
+                ->where('course','=',$period->session)
                 ->where('year','=',$period->year_start)
                 ->get();
 
