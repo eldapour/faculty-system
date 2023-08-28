@@ -63,7 +63,7 @@
             {data: 'element_code', name: 'element_code'},
             {data: 'degree_student', name: 'degree_student'},
             {data: 'degree_element', name: 'degree_element'},
-            {data: 'period', name: 'period'},
+            {data: 'course', name: 'course'},
             {data: 'year', name: 'year'},
 
         ]

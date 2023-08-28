@@ -19,6 +19,7 @@
         rel="stylesheet" />
 
     <style>
+
         table{
             width: 100%;
             border: 1px solid black;
@@ -26,7 +27,8 @@
         thead{background-color: #eb9984;}
         table td{
             border: 1px solid black;
-            padding: 10px;
+            padding: 1px;
+            width: 10% !important;
         }
         .border1 {
             border: 1px solid #618597;
@@ -56,7 +58,35 @@
             width: 40%;
             font-weight: bold;
         }
-
+        .table td {
+            padding: 0.2rem !important;
+        }
+        @media print {
+            body{
+                font-size: 7px;
+            }
+            .table td {
+                padding: 0.2rem !important;
+            }
+            .p-5{
+                padding: 10px !important;
+            }
+            .print{
+                font-size: 10px;
+            }
+            .img-print{
+                width: 50px !important;
+            }
+            .mb-4{
+                margin-bottom: 0px;
+            }
+            .mt-4{
+                margin-top: 0px !important;
+            }
+            .image-logo1 {
+                margin-bottom: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -69,9 +99,9 @@
                     <div class="p-5">
                         <div class="row">
                             <div class="left_section_1 col-6">
-                                <h2 class="mb-2">استدعاء الامتحانات</h2>
+                                <h5 class="mb-2 print">استدعاء الامتحانات</h5>
                                 <p>{{ $period->year_start }}: {{ $period->year_end }}</p>
-                                <h5 class="mb-4">{{ $period->period }} - {{ $period->session }}</h5>
+                                <h6 class="mb-4 print">{{ $period->period }} - {{ $period->session }}</h6>
                             </div>
                             <!--end left_section_1 -->
                             <div class="image-logo1 right_section_1 col-6">
@@ -148,10 +178,12 @@
                                 <td>{{ $exam_code->exam_code }}</td>
                             </tr>
                             @endforeach
+
                             </tbody>
                         </table>
                         <!--End table -->
 
+                        <div class="d-flex justify-content-between">
                         <p class="mt-4 mb-3 fw-bold">
                             تنبيهات:
                             <br>• الحضور الي مقر الا متحانات نصف ساعة قبل الموعد المحدد.
@@ -160,13 +192,15 @@
                             <br>
                         </p>
 
-                        <div class="d-flex justify-content-end">
-                            <div>ختم المؤسسة</div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <div>
-                                <img style="width: 145px;" src="{{ asset('/uploads/university_setting/'.$university_settings->stamp_logo) }}">
+
+                        <div class="">
+                            <div class="">
+                                <div>ختم المؤسسة</div>
                             </div>
+                            <div>
+                                <img class="img-print" style="width: 100px;" src="{{ asset('/uploads/university_setting/'.$university_settings->stamp_logo) }}">
+                            </div>
+                        </div>
                         </div>
 
                     </div>

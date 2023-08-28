@@ -25,4 +25,10 @@ class ProcessExam extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function reasonRedress()
+    {
+        return $this->hasOne(ReasonsRedress::class , 'id','reason');
+    }
+
+
 }
