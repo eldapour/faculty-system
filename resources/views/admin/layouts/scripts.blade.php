@@ -131,7 +131,6 @@
 
     @endphp
 
-
     @if($reregistration)
     @if($reregistration->branch_restart_register == 0)
     $(document).ready(function () {
