@@ -99,11 +99,12 @@ class InternalAdController extends Controller
 {
     $inputs = $request->all();
 
-    if ($request->hasFile('background_image')) {
-        $file = $request->file('background_image');
+
+    if ($request->hasFile('url_ads')) {
+        $file = $request->file('url_ads');
         $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'photo');
     }
-
+    // dd($inputs);
     if (InternalAd::create($inputs)) {
         return response()->json(['status' => 200]);
     } else {
@@ -120,7 +121,7 @@ class InternalAdController extends Controller
     }
 
 
-    public function update(StoreInternalAd $request,InternalAd $internalAd)
+    public function update(Request $request,InternalAd $internalAd)
     {
 
         $internalAd->update([

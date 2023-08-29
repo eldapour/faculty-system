@@ -24,12 +24,12 @@ class StoreInternalAd extends FormRequest
     public function rules(): array
     {
         return [
-            "title_ar" => 'required',
-            "title_en" => 'required',
-            "title_fr" => 'required',
-            "description_ar" => 'required',
-            "description_en" => 'required',
-            "description_fr" => 'required',
+            "title.ar" => 'required',
+            "title.en" => 'required',
+            "title.fr" => 'required',
+            "description.ar" => 'required',
+            "description.en" => 'required',
+            "description.fr" => 'required',
             "time_ads" => 'required',
             "url_ads" => 'required|mimes:png,jpg',
             "service_id" => 'required|exists:services,id',

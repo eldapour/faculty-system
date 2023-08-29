@@ -31,7 +31,7 @@
                                 <th class="min-w-50px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.desc') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_ads') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.url_ads') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.image_ads') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.status') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.service') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
