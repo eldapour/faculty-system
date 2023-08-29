@@ -7,6 +7,7 @@
                 <div class="col-md-12 mt-3">
                     <label for="user_id" class="form-control-label">{{ trans('subject_exam_student_result.identifier_id') }}</label>
                     <select name="user_id" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}" style="text-align: center">{{ $user->identifier_id }}
                             </option>
@@ -18,6 +19,7 @@
                 <div class="col-md-12 mt-3">
                     <label for="subject_id" class="form-control-label">{{ trans('subject_exam_student_result.subject') }}</label>
                     <select name="subject_id" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach ($subjects as $subject)
                             <option value="{{ $subject->id }}" style="text-align: center">{{ $subject->subject_name}}
                             </option>
@@ -43,6 +45,7 @@
                 <div class="col-md-6 mt-3">
                     <label for="period" class="form-control-label">{{ trans('subject_exam_student_result.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
                         <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
                     </select>

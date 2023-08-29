@@ -17,6 +17,7 @@
                 <div class="col-md-6">
                     <label for="group_id" class="form-control-label">{{ trans('admin.group_choice') }}</label>
                     <select  id="group_id" name="group_id" class="form-control">
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         @foreach ($data['groups'] as $group)
                             <option value="{{ $group->id }}" style="text-align: center">
                                 {{ $group->group_name }}</option>
@@ -27,6 +28,7 @@
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
@@ -49,6 +51,7 @@
                         <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                         <select  name="department_id" style="text-align: center" id=""
                                 class="form-control department_id">
+                                <option value="" selected>{{ trans('admin.select') }}</option>
                             @foreach ($data['departments'] as $department)
                                 <option value="{{ $department->id }}">{{ $department->department_name }}</option>
                             @endforeach

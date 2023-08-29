@@ -22,6 +22,7 @@
                 <div class="col-md-12">
                     <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
                     <select name="service_id" class="form-control" required>
+                        <option value="">{{ trans('admin.select') }}</option>
                         @foreach($data['services'] as $service)
                         <option value="{{ $service->id }}" style="text-align: center" {{ ($service->service_id == $internalAd->sevice_id ) ? 'selected' : " " }}>{{ $service->getTranslation('service_name', app()->getLocale())}}</option>
                         @endforeach

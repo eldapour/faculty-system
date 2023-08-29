@@ -30,6 +30,7 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
                 'user_id' => $user->id,
                 'subject_id' => $subject->id,
                 'exam_code' => $rows[$i]['exam_code'],
+                'group_id' => $rows[$i]['group_code'],
                 'section' => $rows[$i]['section'],
                 'period' => $rows[$i]['period_rbyaayh_khryfyh'],
                 'session' => $rows[$i]['session_aaadyh_astdrakyh'],

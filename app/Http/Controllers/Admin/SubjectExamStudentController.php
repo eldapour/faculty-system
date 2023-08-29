@@ -58,14 +58,6 @@ class SubjectExamStudentController extends Controller
                 ->addColumn('identifier_id', function ($subject_exam_students) {
                     return $subject_exam_students->user->identifier_id;
                 })
-                ->addColumn('group', function ($subject_exam_students) {
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_students->user_id,
-                                            'subject_id'=>$subject_exam_students->subject_id
-                                            ,'year'=>$subject_exam_students->year])->first()->group;
-                    return $group_name ? $group_name->group_name : '';
-//                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
-                })
-
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })
