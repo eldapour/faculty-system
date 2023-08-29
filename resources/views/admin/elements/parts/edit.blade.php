@@ -32,8 +32,9 @@
                 <div class="col-md-12 col-12">
                     <label for="name" class="form-control-label">{{ trans('elements.session') }}</label>
                     <select name="session_name" class="form-control">
-                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
+                        <option value="" disabled>{{ trans('admin.select') }}</option>
+                        <option value="ربيعيه" style="text-align: center" {{ $element->session == 'ربيعيه' ? 'selected' : '' }}>{{ trans('admin.autumnal') }}</option>
+                        <option value="خريفيه" style="text-align: center" {{ $element->session == 'خريفيه' ? 'selected' : '' }}>{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
 

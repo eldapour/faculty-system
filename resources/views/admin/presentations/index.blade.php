@@ -32,6 +32,7 @@
                                         <label for="name_ar"
                                             class="form-control-label">{{ trans('admin.category') }}</label>
                                         <select class="form-control" name="category_id">
+                                            <option value="">{{ trans('admin.select') }}</option>
                                             @foreach ($categories as $category)
                                                 <option
                                                     {{ $presentations->category_id == $category->id ? ' selected' : '' }}

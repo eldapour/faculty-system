@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\Department;
 use DateTime;
 use App\Models\Unit;
@@ -35,16 +36,16 @@ class SubjectUnitDoctorController extends Controller
                 })
                 ->editColumn('user_id', function ($subject_unit_doctors) {
 
-                    return'<td>'. $subject_unit_doctors->doctor->first_name.' '. $subject_unit_doctors->doctor->last_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->doctor->first_name . ' ' . $subject_unit_doctors->doctor->last_name . '</td>';
                 })
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->subject->subject_name . '</td>';
                 })
                 ->editColumn('group_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->group->group_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->group->group_name . '</td>';
                 })
                 ->addColumn('unit_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->subject->unit->unit_name . '</td>';
                 })
 
                 ->escapeColumns([])
@@ -58,20 +59,20 @@ class SubjectUnitDoctorController extends Controller
     public function create()
     {
         $data['users'] = User::query()
-        ->where('user_type', 'doctor')
+            ->where('user_type', 'doctor')
             ->get();
 
         $data['subjects'] = Subject::query()
-            ->select('id','subject_name')
+            ->select('id', 'subject_name')
             ->get();
 
         $data['groups'] = Group::all();
         $data['units'] = Unit::query()
-            ->select('id','unit_name')
+            ->select('id', 'unit_name')
             ->get();
 
         $data['departments'] = Department::query()
-            ->select('id','department_name')
+            ->select('id', 'department_name')
             ->get();
 
         return view('admin.subject_unit_doctors.parts.create', compact('data'));
@@ -84,24 +85,25 @@ class SubjectUnitDoctorController extends Controller
         $inputs = $request->all();
 
         $subjectUnitDoctor = SubjectUnitDoctor::query()
-            ->where('subject_id','=',$request->subject_id)
-            ->where('year','=',$request->year)
-            ->where('period','=',$request->period);
+            ->where('user_id', '!=', $request->user_id)
+            ->where('subject_id', '=', $request->subject_id)
+            ->where('group_id', '=', $request->group_id)
+            ->where('year', '=', $request->year)
+            ->where('period', '=', $request->period);
+
 
         $subjectUnitDoctorCreateBefore = SubjectUnitDoctor::query()
-            ->where('user_id','=',$request->user_id)
-            ->where('subject_id','=',$request->subject_id)
-            ->where('year','=',$request->year)
-            ->where('period','=',$request->period);
+            ->where('user_id', '=', $request->user_id)
+            ->where('group_id', '=', $request->group_id)
+            ->where('subject_id', '=', $request->subject_id)
+            ->where('year', '=', $request->year)
+            ->where('period', '=', $request->period);
 
-
-        if($subjectUnitDoctor->exists()){
-            return response()->json(['status' => 411,'mymessage' => 'The subject register before with another doctor']);
-
-        }elseif ($subjectUnitDoctorCreateBefore->count() > 0){
-            return response()->json(['status' => 413,'mymessage' => 'The subject register before with this doctor before']);
-
-        }else{
+        if ($subjectUnitDoctor->exists()) {
+            return response()->json(['status' => 411, 'mymessage' => 'The subject register before with another doctor']);
+        } elseif ($subjectUnitDoctorCreateBefore->count() > 0) {
+            return response()->json(['status' => 413, 'mymessage' => 'The subject register before with this doctor before']);
+        } else {
             if (SubjectUnitDoctor::create($inputs)) {
 
                 return response()->json(['status' => 200]);
@@ -109,7 +111,6 @@ class SubjectUnitDoctorController extends Controller
                 return response()->json(['status' => 405]);
             }
         }
-
     }
 
 
@@ -126,16 +127,16 @@ class SubjectUnitDoctorController extends Controller
             ->get();
 
         $data['subjects'] = Subject::query()
-            ->select('id','subject_name')
+            ->select('id', 'subject_name')
             ->get();
 
         $data['groups'] = Group::all();
         $data['units'] = Unit::query()
-            ->select('id','unit_name')
+            ->select('id', 'unit_name')
             ->get();
 
         $data['departments'] = Department::query()
-            ->select('id','department_name')
+            ->select('id', 'department_name')
             ->get();
 
 
@@ -167,10 +168,8 @@ class SubjectUnitDoctorController extends Controller
     {
 
         return Subject::query()
-        ->where('unit_id','=', $request->unit_id)
-        ->where('department_branch_id','=',$request->department_branch_id)
+            ->where('unit_id', '=', $request->unit_id)
+            ->where('department_branch_id', '=', $request->department_branch_id)
             ->pluck('subject_name', 'id');
-
-
     }
 }

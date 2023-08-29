@@ -359,6 +359,17 @@ if (!function_exists('departmentStudentCount')) {
         }
     }
 
+    if (!function_exists('processDegreeRequestCount')) {
+        function processDegreeRequestCount(): int
+        {
+
+            return  ProcessDegree::query()
+                ->whereDate('created_at', '=', \Carbon\Carbon::now()->format('Y-m-d'))
+                ->count();
+        }
+    }
+
+
     if (!function_exists('documentCount')) {
         function documentCount(): int
         {

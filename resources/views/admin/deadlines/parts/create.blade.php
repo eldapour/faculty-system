@@ -17,6 +17,7 @@
                 <div class="col-md-6 col-12">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
@@ -40,6 +41,7 @@
                 <div class="col-md-12 col-12">
                     <label for="period" class="form-control-label">{{trans('deadline.deadline_type')}}</label>
                     <select name="deadline_type" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="1" style="text-align: center">{{trans('deadline.process_exam')}}</option>
                         <option value="0" style="text-align: center">{{trans('deadline.process_degree')}}</option>
                     </select>

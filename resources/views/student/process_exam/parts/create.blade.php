@@ -18,6 +18,7 @@
                 <div class="col-md-6 col-12">
                     <label for="period" class="form-control-label">{{ trans('process_exam.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
@@ -28,6 +29,7 @@
                     <div class="form-group">
                         <label for="email" class="form-control-label">{{trans('process_exam.year')}}</label>
                         <select name="year" class="form-control" id="year">
+                            <option value="" selected>{{ trans('admin.select') }}</option>
                             @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
                                 <option value="{{ $year }}">{{ $year }}</option>
                             @endfor

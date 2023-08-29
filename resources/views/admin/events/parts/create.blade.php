@@ -32,6 +32,7 @@
                 <div class="col-md-12">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
                     <select name="category_id" class="form-control" required>
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
                                 {{ $category->category_name }}</option>

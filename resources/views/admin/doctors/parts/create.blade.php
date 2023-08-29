@@ -72,6 +72,7 @@
         <div class="form-group">
             <label class="form-label">{{trans('admin.user_type')}}</label>
             <select name="professor_position" id="type" class="form-control select2" data-placeholder="Choose professor_position">
+                <option value="" selected>{{ trans('admin.select') }}</option>
                 @foreach($professor_positions as $professor_position)
                     <option class="form-control" value="{{$professor_position}}">{{$professor_position}}</option>
 

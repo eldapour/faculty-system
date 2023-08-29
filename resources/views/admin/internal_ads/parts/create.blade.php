@@ -31,6 +31,7 @@
                 <div class="col-md-12 mt-2 mb-3">
                     <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
                     <select name="service_id" class="form-control" required>
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         @foreach ($data['services'] as $service)
                             <option value="{{ $service->id }}" style="text-align: center">
                                 {{ $service->getTranslation('service_name', app()->getLocale()) }}</option>
