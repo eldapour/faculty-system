@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreService extends FormRequest
+class ScheduleUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreService extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,7 @@ class StoreService extends FormRequest
     public function rules()
     {
         return [
-            "service_name.ar" => "required",
-            "service_name.en" => "required",
-            "service_name.fr" => "required",
+            //
         ];
     }
 }

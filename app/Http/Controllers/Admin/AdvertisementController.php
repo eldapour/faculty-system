@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdvertisementUpdateRequest;
 use App\Http\Requests\StoreAdvertisement;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\JsonResponse;
@@ -142,10 +143,8 @@ class AdvertisementController extends Controller
      * @throws \Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException
      * @throws \Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException
      */
-    public function update(StoreAdvertisement $request, Advertisement $advertisement): JsonResponse
+    public function update(AdvertisementUpdateRequest $request, Advertisement $advertisement): JsonResponse
     {
-
-
         if ($image = $request->file('image')) {
 
             $destinationPath = 'uploads/advertisements/images';

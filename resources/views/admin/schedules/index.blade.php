@@ -34,7 +34,7 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-50px">{{ trans('admin.department_name') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.description_text') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.note') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.schedule_pdf_upload') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
                             </tr>
@@ -174,7 +174,7 @@
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function (key, value){
-                                    toastr.error(value, key);
+                                    toastr.error(value);
                                 });
                             }
                         });

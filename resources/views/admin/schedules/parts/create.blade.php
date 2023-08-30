@@ -16,7 +16,7 @@
 
                 <div class="col-md-12">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
-                    <select class="form-control" name="department_id" required>
+                    <select class="form-control" name="department_id">
                         <option value="" selected >@lang('admin.select')</option>
                         @foreach($departments as $department)
                             <option value="{{ $department->id}}">{{ $department->getTranslation('department_name', app()->getLocale())}}</option>
@@ -27,8 +27,8 @@
 
 
                 <div class="col-md-12">
-                    <label for="department_id" class="form-control-label">@lang('admin.unit_name')</label>
-                    <select class="form-control" name="unit_id" required>
+                    <label for="department_id" class="form-control-label">{{ trans(('admin.unit_name')) }}</label>
+                    <select class="form-control" name="unit_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach($units as $unit)
                             <option value="{{ $unit->id}}">{{ $unit->getTranslation('unit_name', app()->getLocale())}}</option>
@@ -40,7 +40,7 @@
 
 
                 <div class="col-md-12">
-                    <label for="pdf_upload" class="form-control-label">@lang('admin.description_text')</label>
+                    <label for="pdf_upload" class="form-control-label">@lang('admin.note')</label>
                     <input type="text" class="form-control" name="description" id="description">
                 </div>
 

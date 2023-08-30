@@ -153,7 +153,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
+    | with something more reader friendl'document_name.ar' => 'required',y such as "E-Mail Address" instead
     | of "email". This simply helps us make our message more expressive.
     |
     */
@@ -247,6 +247,19 @@ return [
         'description_ar' => 'الوصف بالعربي',
         'description_en' => 'الوصف بالانجليزي',
         'description_fr' => 'الوصف بالفرنسي',
+        'department_id' => 'القسم',
+        'unit_id' => 'الوحدة',
+        'description' => 'الوصف',
+        'pdf_upload' => 'ملف ورقي',
+        'service_name.ar' => 'مصلحة بالعربي',
+        'service_name.en' => 'مصلحة بالانجليزي',
+        'service_name.fr' => 'مصلحة بالفرنسي',
+        'service_id' => 'مصلحة',
+        'url_ads' => 'ملف مطلوب',
+        'time_ads' => 'وقت الاعلان',
+        "document_name.ar" => "نوع الوثيقة بالعربي",
+        "document_name.en" => "نوع الوثيقة بالانكليزي",
+        "document_name.fr" => "نوع الوثيقة بالفرنسي",
     ],
 
 ];

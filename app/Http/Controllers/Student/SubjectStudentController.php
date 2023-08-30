@@ -43,14 +43,13 @@ class SubjectStudentController extends Controller{
                         ->where('status', '=', 'start')
                         ->first();
 
-                    $doctor = SubjectUnitDoctor::query()
+                    $doctor = @SubjectUnitDoctor::query()
                     ->where('subject_id','=',$subject_students->subject_id)
                         ->where('period', '=', $period->period)
                         ->where('year','=', $period->year_start)
                         ->first()
                         ->doctor;
-
-                    return $doctor->first_name . " " . $doctor->last_name;
+                    return @$doctor->first_name . " " . @$doctor->last_name;
                 })
 
                 ->escapeColumns([])

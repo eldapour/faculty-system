@@ -29,7 +29,18 @@ class ServiceController extends Controller
                 ->editColumn('service_name', function ($services) {
                     return '<td>'. $services->service_name .'</td>';
                 })
+                ->editColumn('image', function ($admin) {
 
+                    if ($admin->image != null) {
+                        return '
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/" . $admin->image) . '">
+                    ';
+                    } else {
+                        return '
+                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/default/avatar2.jfif") . '">
+                    ';
+                    }
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {

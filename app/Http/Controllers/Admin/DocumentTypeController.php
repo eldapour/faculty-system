@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DocumentStoreRequest;
+use App\Http\Requests\DocumentTypeStoreRequest;
 use App\Models\Document;
 use App\Models\DocumentType;
 use Illuminate\Http\Request;
@@ -45,25 +47,12 @@ class DocumentTypeController extends Controller
         return view('admin.document_types.parts.create');
     }
 
-    public function store(Request $request): \Illuminate\Http\JsonResponse
+    public function store(DocumentTypeStoreRequest $request, DocumentType $document_type): \Illuminate\Http\JsonResponse
     {
+        $inputs = $request->all();
+        // dd();
 
-        $request->validate([
-            'document_name_ar' => 'required',
-            'document_name_en' => 'required',
-            'document_name_fr' => 'required',
-        ]);
-
-        $document_type = DocumentType::create([
-            'document_name' => [
-                'ar' => $request->document_name_ar,
-                'en' => $request->document_name_en,
-                'fr' => $request->document_name_fr
-            ],
-
-
-        ]);
-        if ($document_type->save()) {
+        if ($document_type->create($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
@@ -102,7 +91,7 @@ class DocumentTypeController extends Controller
     }
 
 
-    public function destroy(Request $request)
+    public function delete(Request $request)
     {
          $document_type = DocumentType::query()
         ->where('id', $request->id)

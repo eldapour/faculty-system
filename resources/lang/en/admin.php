@@ -537,7 +537,7 @@ return [
     "internal_ads" => "Internal ads",
 
 
-    "unit_name_" => "chapter",
+    "unit_name" => "Unit Name",
     "doctor_name_" => "professor",
     "day_name_" => "today",
     "date_" => "date",
@@ -586,6 +586,9 @@ return [
     "reregister_the_track_start" => "Reregister The Track Start",
     "reregister_the_track_end" => "Reregister The Track End",
     "Those_concerned_with_evidence_and_diploma" => "Those concerned with evidence and diploma",
+    "displayed_successfully" => "Displayed successfully",
+    "activation_has_been_deactivated" => "Activation has been deactivated",
+    "success" => "Success",
 ];
 
 

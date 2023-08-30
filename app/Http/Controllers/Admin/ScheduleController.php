@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
-use App\Models\Department;
+use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Schedule;
-use App\Models\Unit;
+use App\Models\Department;
 use App\Traits\PhotoTrait;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ScheduleStoreRequest;
 
 class ScheduleController extends Controller{
 
@@ -28,7 +29,7 @@ class ScheduleController extends Controller{
 
                             <button '. (auth()->user()->user_type != 'employee' ? 'hidden' : '') .' type="button" data-id="' . $schedules->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                             <button '. (auth()->user()->user_type != 'employee' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $schedules->id . '" data-title="' . $schedules->id . '">
+                                    data-id="' . $schedules->id . '" data-title="' . $schedules->department->department_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
@@ -73,19 +74,8 @@ class ScheduleController extends Controller{
     }
 
 
-    public function store(Request $request): JsonResponse
+    public function store(ScheduleStoreRequest $request): JsonResponse
     {
-
-        $request->validate([
-
-            'department_id' => 'required|exists:departments,id',
-            'unit_id' => 'required|exists:units,id',
-            'year' => 'required|date_format:Y|after_or_equal:1900',
-            'description' => 'nullable|max:255',
-            'pdf_upload' => 'required|mimes:pdf',
-
-        ]);
-
 
         if ($pdf = $request->file('pdf_upload')) {
 
