@@ -56,7 +56,7 @@
                     </div>
                     <div class="modal-body">
                         <input id="delete_id" name="id" type="hidden">
-                        <p>هل تريد حذف الوثيقه <span id="title" class="text-danger"></span>?</p>
+                        <p>{{ trans('admin.delete_confirm') }} <span id="title" class="text-danger"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="dismiss_delete_modal">
@@ -137,7 +137,7 @@
                 data: formData,
                 beforeSend: function () {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.working') }}</span>').attr('disabled', true);
                 },
 
                 success: function (data) {
@@ -147,7 +147,7 @@
                     }
                     else
                         toastr.error('There is an error');
-                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
 
@@ -160,13 +160,13 @@
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function (key, value){
-                                    toastr.error(value, key);
+                                    toastr.error(key);
                                 });
                             }
                         });
                     } else
                         toastr.error('there in an error');
-                    $('#addButton').html(`Create`).attr('disabled', false);
+                    $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                 },//end error method
                 cache: false,
                 contentType: false,
@@ -187,7 +187,7 @@
                 data: formData,
                 beforeSend: function () {
                     $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">working</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.working') }}</span>').attr('disabled', true);
                 },
 
 
@@ -196,17 +196,17 @@
                     $('#updateButton').html(`Update`).attr('disabled', false);
                     if (data.status == 200){
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('Document type updated successfully');
+                        toastr.success('{{ trans('admin.updated_successfully') }}');
                     }
                     else
-                        toastr.error('There is an error');
+                        toastr.error('{{ trans('admin.there_is_an_error') }}');
 
                     $('#editOrCreate').modal('hide')
                 },
                 error: function (data) {
 
                     if (data.status === 500) {
-                        toastr.error('There is an error');
+                        toastr.error('{{ trans('admin.there_is_an_error') }}');
 
                     } else if (data.status === 422) {
 
@@ -220,7 +220,7 @@
                         });
                     } else
                         toastr.error('there in an error');
-                    $('#updateButton').html(`Update`).attr('disabled', false);
+                    $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
                 },//end error method
 
                 cache: false,

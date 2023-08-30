@@ -31,7 +31,6 @@ class InternalAdUpdateRequest extends FormRequest
         "description.en" => 'required',
         "description.fr" => 'required',
         "time_ads" => 'required',
-        "url_ads" => 'required',
         "service_id" => 'required|exists:services,id',
     ];
 

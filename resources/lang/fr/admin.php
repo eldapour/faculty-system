@@ -586,6 +586,10 @@ return [
     "reregister_the_track_start" => "Réenregistrer le départ de la piste",
     "reregister_the_track_end" => "Réenregistrer la fin de la piste",
     "Those_concerned_with_evidence_and_diploma" => "Ceux qui sont concernés par les preuves et les diplômes",
+    "time_ads" => "Annonces temporelles",
+    "displayed_successfully" => "Affiché avec succès",
+    "activation_has_been_deactivated" => "L'activation a été désactivée",
+    "success" => "Succès",
 ];
 
 

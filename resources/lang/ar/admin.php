@@ -543,7 +543,6 @@ return [
     "year_name_" => "السنه الدراسيه",
     "period_name_" => "الفتره",
 
-    "unit_name_" => "الفصل",
     "doctor_name_" => "الاستاذ",
     "day_name_" => "اليوم",
     "date_" => "التاريخ",
@@ -592,6 +591,9 @@ return [
     "reregister_the_track_start" => "بداية  اعادة تسجيل المسلك",
     "reregister_the_track_end" => "نهاية  اعادة تسجيل المسلك",
     "Those_concerned_with_evidence_and_diploma" => " المعنيون بالشواهد والدبلوم",
+    "displayed_successfully" => "تم الاظهار بنجاح",
+    "activation_has_been_deactivated" => "تم الغاء التفعيل",
+    "success" => "نجاح",
 
 
 

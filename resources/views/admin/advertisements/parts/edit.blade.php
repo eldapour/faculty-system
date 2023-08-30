@@ -34,16 +34,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
-                    <select name="category_id" class="form-control" required>
+                    <select name="category_id" class="form-control">
                         <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['categories'] as $category)
-                        <option value="{{ $category->id }}" style="text-align: center" {{ ($category->category_id == $advertisement->category_id ) ? 'selected' : " " }}>{{ $category->getTranslation('category_name', app()->getLocale()) }}</option>
+                        <option value="{{ $category->id }}" style="text-align: center" {{ ($category->id == $advertisement->category_id ) ? 'selected' : " " }}>{{ $category->getTranslation('category_name', app()->getLocale()) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
-                    <select name="service_id" class="form-control" required>
+                    <select name="service_id" class="form-control">
                         <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['services'] as $service)
                         <option value="{{ $service->id }}" style="text-align: center" {{ ($service->service_id == $advertisement->sevice_id ) ? 'selected' : " " }}>{{ $service->getTranslation('service_name', app()->getLocale()) }}</option>
