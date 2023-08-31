@@ -96,7 +96,7 @@
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ internalAdsCount() }}</h2>
                                 <a href="{{ route('page', 15) }}"><p
-                                        class="text-white mb-0">{{ trans('admin.internal_ads') }}</p></a></div>
+                                        class="text-white mb-0">{{ trans('admin.annual_programming') }}</p></a></div>
                             <div class="mr-auto">
                                 <i class="fa fa-code text-white fs-30 ml-2 mt-2"></i>
                             </div>
