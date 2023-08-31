@@ -40,11 +40,17 @@
             width: 200px;
             text-align: left;
         }
+        #print_container{
+            height: 100% !important;
+            padding-bottom: 400px !important;
+        }
 
         @media print {
             .app-header{
                 display: none;
             }
+
+
         }
         .text-start{
             text-align: left;
@@ -65,7 +71,7 @@
             <div class="border1">
                 <div class="border2">
                     <div class="border3">
-                        <div class="p-5">
+                        <div class="p-5" id="print_container">
                             <div class="image-logo1 mt-5">
                                 <img style="height: 100px" src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}">
                             </div>

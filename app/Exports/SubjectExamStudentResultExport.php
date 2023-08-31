@@ -23,7 +23,7 @@ class SubjectExamStudentResultExport implements FromCollection, WithHeadings,Sho
             'student degree',
             'exam degree',
             'date enter degree',
-            'period (استدراكيه , عاديه)',
+            'course (استدراكيه , عاديه)',
             'year',
         ];
     }
