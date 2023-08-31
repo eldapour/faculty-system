@@ -348,6 +348,7 @@ return [
 
     //Element
     'element' => 'élément',
+    'element_code' => 'élément code',
     'elements' => 'éléments',
 
     // Process Degrees

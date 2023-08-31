@@ -41,7 +41,8 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('point_statement.id')}}</th>
                                 <th class="min-w-25px">{{trans('point_statement.identifier_id')}}</th>
-                                <th class="min-w-25px">{{trans('point_statement.element_code')}}</th>
+                                <th class="min-w-25px">{{trans('admin.element_code')}}</th>
+                                <th class="min-w-25px">{{trans('admin.element')}}</th>
                                 <th class="min-w-25px">{{trans('point_statement.degree_student')}}</th>
                                 <th class="min-w-25px">{{trans('point_statement.degree_element')}}</th>
                                 <th class="min-w-25px">{{trans('point_statement.period')}}</th>
@@ -143,9 +144,10 @@
             {data: 'id', name: 'id'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'element_code', name: 'element_code'},
+            {data: 'element_name', name: 'element_name'},
             {data: 'degree_student', name: 'degree_student'},
             {data: 'degree_element', name: 'degree_element'},
-            {data: 'period', name: 'period'},
+            {data: 'course', name: 'course'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('points.index')}}', columns);

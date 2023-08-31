@@ -21,6 +21,7 @@ class PointStatementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+//        dd($rows);
         PointStatement::select('*')->delete();
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {
@@ -32,7 +33,7 @@ class PointStatementImport implements ToCollection, WithHeadingRow
                 'element_code' =>$rows[$i]['element_code'],
                 'degree_student' =>$rows[$i]['student_degree'],
                 'degree_element' =>$rows[$i]['element_degree'],
-                'period' =>$rows[$i]['period_rbyaayh_khryfyh'],
+                'course' =>$rows[$i]['course_aaadyh_astdrakyh'],
                 'year' =>$rows[$i]['year'],
             ]);
         }
