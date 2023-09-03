@@ -594,6 +594,8 @@ return [
     "displayed_successfully" => "تم الاظهار بنجاح",
     "activation_has_been_deactivated" => "تم الغاء التفعيل",
     "success" => "نجاح",
+    "official_professor" => "أستاذ رسمي",
+    "visiting_professor" => "أستاذ زائر",
 
 
 

@@ -43,6 +43,15 @@ class DoctorsController extends Controller
                     return $doctors->first_name_latin . ' ' . $doctors->last_name_latin;
 
                 })
+                ->addColumn('professor_position', function ($doctors) {
+                    if ($doctors->professor_position == 'official_professor')
+                    {
+                        return trans('admin.official_professor');
+                    } else {
+                        return trans('admin.visiting_professor');
+                    }
+
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -55,9 +64,9 @@ class DoctorsController extends Controller
     public function create()
     {
 
-        $professor_positions = ['official_professor','visiting_professor'];
+        // $professor_positions = ['official_professor','visiting_professor'];
 
-        return view('admin.doctors.parts.create', compact('professor_positions'));
+        return view('admin.doctors.parts.create');
     }
 
     public function store(Request $request): JsonResponse
@@ -92,6 +101,7 @@ class DoctorsController extends Controller
             'password' => Hash::make($request->password),
             'user_type' => 'doctor',
             'job_id' => $request->job_id,
+            'professor_position' => $request->professor_position
         ]);
 
         if ($doctor->save()) {

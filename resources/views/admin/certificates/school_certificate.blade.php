@@ -75,8 +75,10 @@
                             <h3 class="text-center mt-5 mb-3">شهادة مدرسية </h3>
                             <h3 class="text-center mb-5">ATTESTATIONSCOLAIRE</h3>
                             <br>
-                            <h6 class="mb-5">  يشهد عميد   <strong>{{ $university_settings->getTranslation('title', app()->getLocale()) }}</strong>  أن السيد(ة): </h6>
+                            <div class="d-flex justify-content-between">
+                                <h6 class="mb-5">  يشهد عميد   <strong>{{ $university_settings->getTranslation('title', app()->getLocale()) }}</strong>  أن السيد(ة): </h6>
                             <h6 class="text-start mb-2">Le Doyen de la Faculte</h6>
+                            </div>
                             <h6 class="text-start mb-5">Atteste par la presente que M/Mme</h6>
                             <div class="d-flex justify-content-between mt-5">
                                 <div>
