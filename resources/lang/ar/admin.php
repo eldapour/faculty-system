@@ -345,6 +345,7 @@ return [
 
     //Element
     'element' => 'العنصر البيداغوجي',
+    'element_code' => 'كود العنصر البيداغوجي',
     'elements' => 'العنصر البيداغوجي',
 
     // Process Degrees

@@ -58,6 +58,9 @@ class SubjectExamStudentController extends Controller
                 ->addColumn('identifier_id', function ($subject_exam_students) {
                     return $subject_exam_students->user->identifier_id;
                 })
+                ->addColumn('group', function ($subject_exam_students) {
+                    return @$subject_exam_students->group->group_name;
+                })
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })

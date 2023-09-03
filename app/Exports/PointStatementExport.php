@@ -23,7 +23,7 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
             'element code',
             'student degree',
             'element degree',
-            'period (ربيعيه , خريفيه)',
+            'course (عاديه , استدراكيه)',
             'year',
         ];
     }

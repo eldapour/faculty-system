@@ -39,7 +39,9 @@
                                 <th class="min-w-50px">{{ trans('admin.time_end') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
-{{--                                <th class="min-w-50px">{{trans('subject_exam.process_exam_details')}}</th>--}}
+                                <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
+
+                                {{--                                <th class="min-w-50px">{{trans('subject_exam.process_exam_details')}}</th>--}}
                             </tr>
                             </thead>
                         </table>
@@ -127,6 +129,7 @@
             {data: 'time_end', name: 'time_send'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
+            {data: 'action', name: 'action'},
             // {data: 'processDegreeDetails', name: 'processDegreeDetails', orderable: false, searchable: false},
         ]
         showData('{{route('subject_exams.index')}}', columns);
