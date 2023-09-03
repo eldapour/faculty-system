@@ -67,9 +67,9 @@
             <div class="border1">
                 <div class="border2">
                     <div class="border3">
-                        <div class="p-5">
+                        <div class="p-5" style="padding-bottom : 200px !important;">
                             <div class="image-logo1">
-                                <img style="height: 100px" src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}">
+                                <img style="height: 100px" src="{{ asset('uploads/university_setting/'.$university_settings->logo) }}">
                             </div>
                             <h3 class="text-center mb-2">شهادة التسجيل بالكلية</h3>
                             <h5 class="mb-4">يشهد عميد الكلية أن الطالب:</h5>
@@ -114,7 +114,7 @@
                                 <span class="fs-6 fw-bold"> بالمسلك الدراسي:</span>
                                 <span>{{ @$user->user_department->department->getTranslation('department_name', app()->getLocale()) ?? '' }}</span>
                             </div>
-                            <table class="table">
+                            <table class="table" style="font-size: 20px;">
                                 <tbody>
                                 <tr>
                                     <td class=" border-color">الوحدات المسجل بها</td>

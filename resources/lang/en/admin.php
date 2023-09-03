@@ -590,6 +590,8 @@ return [
     "displayed_successfully" => "Displayed successfully",
     "activation_has_been_deactivated" => "Activation has been deactivated",
     "success" => "Success",
+    "official_professor" => "Official professor",
+    "visiting_professor" => "Visiting professor",
 ];
 
 

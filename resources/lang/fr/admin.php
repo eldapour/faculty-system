@@ -591,6 +591,8 @@ return [
     "displayed_successfully" => "Affiché avec succès",
     "activation_has_been_deactivated" => "L'activation a été désactivée",
     "success" => "Succès",
+    "official_professor" => "Profesora oficial",
+    "visiting_professor" => "Profesora visitante",
 ];
 
 

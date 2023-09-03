@@ -16,6 +16,7 @@ class SubjectExamStudentResult extends Model
         'exam_degree',
         'date_enter_degree',
         'period',
+        'group_id',
         'year',
         'user_id',
         'subject_id'
@@ -29,6 +30,12 @@ class SubjectExamStudentResult extends Model
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id')->where('user_type', 'student');

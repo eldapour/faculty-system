@@ -30,8 +30,10 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
                 'user_id' =>$user->id,
                 'subject_id' =>$rows[$i]['subject_id'],
                 'student_degree' =>$rows[$i]['student_degree'],
+                'group_id' =>$rows[$i]['group_id'],
                 'exam_degree' =>$rows[$i]['exam_degree'],
                 'date_enter_degree' =>$rows[$i]['date_enter_degree'],
+
                 'course' =>$rows[$i]['course_astdrakyh_aaadyh'],
                 'year' =>$rows[$i]['year'],
             ]);
