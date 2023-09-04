@@ -596,6 +596,10 @@ return [
     "success" => "نجاح",
     "official_professor" => "أستاذ رسمي",
     "visiting_professor" => "أستاذ زائر",
+    "document_requests" => "طلبات الوثائق",
+    "requests_redress" => "طلبات الاستدراك",
+    "point_processing_requests" => "طلبات معالجه النقط",
+    "units_of_the_current_period" => "وحدات الفتره الحاليه",
 
 
 

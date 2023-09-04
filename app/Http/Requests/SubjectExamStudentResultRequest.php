@@ -30,6 +30,7 @@ class SubjectExamStudentResultRequest extends FormRequest
                 'exam_degree' => 'required',
                 'date_enter_degree' => 'required',
                 'period' => 'required',
+                'group_id' => 'required',
                 'year' => 'required|date_format:Y',
                 'user_id' => 'required',
                 'subject_id' => 'required'

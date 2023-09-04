@@ -25,6 +25,7 @@ class PointStatementController extends Controller{
                 ->first();
 
             $pointStatements = PointStatement::query()
+                ->where('user_id', '=', auth()->user()->id)
                 ->where('course','=',$period->session)
                 ->where('year','=',$period->year_start)
                 ->get();
@@ -38,7 +39,9 @@ class PointStatementController extends Controller{
                 ->editColumn('user_id', function ($pointStatements) {
                     return  $pointStatements->user->first_name . " " . $pointStatements->user->last_name;
                 })
-
+                ->editColumn('element_id', function ($pointStatements) {
+                    return  $pointStatements->element->name_ar;
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {

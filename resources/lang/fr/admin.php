@@ -592,6 +592,10 @@ return [
     "success" => "Succès",
     "official_professor" => "Profesora oficial",
     "visiting_professor" => "Profesora visitante",
+    "document_requests" => "Solicitudes de documentos",
+    "requests_redress" => "Solicita reparación",
+    "point_processing_requests" => "Solicitudes de procesamiento de puntos",
+    "units_of_the_current_period" => "Unidades del período actual",
 ];
 
 

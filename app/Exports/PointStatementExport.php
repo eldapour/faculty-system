@@ -23,7 +23,7 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
             'element code',
             'student degree',
             'element degree',
-            'period (ربيعيه , خريفيه)',
+            'course',
             'year',
         ];
     }
@@ -41,10 +41,10 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
             $query_data = [
                 '#' => $index+1,
                 'user code' => $q->user->identifier_id,
-                'element code' => $q->element_code,
+                'element code' => $q->element_id,
                 'student degree' => $q->degree_student,
                 'element degree' => $q->degree_element,
-                'period (ربيعيه , خريفيه)' => $q->period,
+                'course' => $q->course,
                 'year' => $q->year,
             ];
             $data[] = $query_data;

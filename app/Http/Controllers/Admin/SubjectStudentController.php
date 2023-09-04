@@ -59,7 +59,6 @@ class SubjectStudentController extends Controller
                 ->addColumn('department_branch', function ($subject_students) {
                     return $subject_students->subject->department_branch->getTranslation('branch_name',app()->getLocale());
                 })
-
                 ->toJson();
         } else {
             return view('admin.subject_students.index');
@@ -84,8 +83,6 @@ class SubjectStudentController extends Controller
 
     public function store(SubjectStudentRequest $request): \Illuminate\Http\JsonResponse
     {
-
-
         $user = User::query()
             ->where('id', '=', $request->user_id)
             ->first();
