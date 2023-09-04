@@ -216,7 +216,7 @@ class SubjectExamStudentController extends Controller
         } else {
             return view('admin.subject_exam_students.index');
         }
-    } // end of normal index
+    } // end of normal index two
 
 
     public function catchupSES(request $request)
