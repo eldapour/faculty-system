@@ -89,6 +89,7 @@ class SubjectStudentController extends Controller
 
         if ($user->subjects()->syncWithPivotValues($request->subject_id,
             [
+                'group_id' => $request->group_id,
                 'year' => $request->year,
                 'period' => $request->period
             ]

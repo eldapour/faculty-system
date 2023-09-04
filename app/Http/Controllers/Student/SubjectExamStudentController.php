@@ -128,7 +128,7 @@ class SubjectExamStudentController extends Controller {
                         ->where('status','=','start')
                         ->first();
 
-                    return SubjectExamStudent::query()
+                    return @SubjectExamStudent::query()
                         ->where('session','=','استدراكيه')
                         ->where('year','=',$period->year_start)
                         ->where('user_id','=',Auth::id())

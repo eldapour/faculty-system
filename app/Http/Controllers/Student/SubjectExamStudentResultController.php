@@ -56,13 +56,13 @@ class SubjectExamStudentResultController extends Controller
                         ->where('status','=','start')
                         ->first();
 
-                    $doctor =  SubjectUnitDoctor::query()
+                    $doctor =  @SubjectUnitDoctor::query()
                         ->where('subject_id','=',$subject_exam_student_results->subject_id)
                         ->where('year','=',$period->year_start)
                         ->first()
                         ->doctor;
 
-                    return $doctor->first_name . " " . $doctor->last_name;
+                    return @$doctor->first_name . " " . @$doctor->last_name;
 
                 })
                 ->addColumn('add_request', function ($subject_exam_student_results) use($period) {

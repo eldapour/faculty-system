@@ -24,6 +24,7 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
             'student degree',
             'element degree',
             'course',
+
             'year',
         ];
     }

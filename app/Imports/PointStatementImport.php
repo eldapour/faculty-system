@@ -12,6 +12,7 @@ class PointStatementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+//        dd($rows);
         PointStatement::select('*')->delete();
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {

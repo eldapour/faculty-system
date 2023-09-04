@@ -88,7 +88,7 @@
                     <select name="user_id" class="form-control">
                         <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name }}</option>
+                            <option   value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name ." ". $user->last_name }}</option>
                         @endforeach
                     </select>
                 </div>

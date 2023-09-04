@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\PointStatementExport;
 use App\Http\Controllers\Controller;
 use App\Imports\PointStatementImport;
+use App\Models\Element;
 use App\Models\PointStatement;
 use App\Models\User;
 use Exception;
@@ -40,6 +41,10 @@ class PointStatementController extends Controller
                 })
                 ->editColumn('identifier_id',function ($points){
                     return $points->user->identifier_id;
+                })
+               ->addColumn('element_name',function ($points){
+                   $element = Element::where(['element_code'=>$points->element_code])->first();
+                    return @$element->name_ar;
                 })
                 ->escapeColumns([])
                 ->make(true);

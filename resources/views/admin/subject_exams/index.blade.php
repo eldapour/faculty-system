@@ -128,6 +128,7 @@
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
             {data: 'actions', name: 'actions', orderable: false, searchable: false},
+
         ]
         showData('{{route('subject_exams.index')}}', columns);
         // Delete Using Ajax

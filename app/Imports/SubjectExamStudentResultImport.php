@@ -20,6 +20,7 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+//        dd($rows);
         SubjectExamStudentResult::select('*')->delete();
         for ($i = 0; $i < count($rows); $i++) {
             $user = User::where('user_type', '=', 'student')
@@ -32,7 +33,8 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
                 'group_id' =>$rows[$i]['group_id'],
                 'exam_degree' =>$rows[$i]['exam_degree'],
                 'date_enter_degree' =>$rows[$i]['date_enter_degree'],
-                'period' =>$rows[$i]['period'],
+
+                'course' =>$rows[$i]['course_astdrakyh_aaadyh'],
                 'year' =>$rows[$i]['year'],
             ]);
         }
