@@ -70,7 +70,7 @@
                 <div class="col-md-6">
                     <label for="subject_id" class="form-control-label">{{ trans('admin.subject_choice') }}</label>
                     <select id="subject_id" class="form-control select2" name="subject_id[]"  multiple>
-
+                        
                     </select>
                 </div>
 

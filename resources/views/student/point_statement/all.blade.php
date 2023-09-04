@@ -60,7 +60,7 @@
         var columns = [
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'user_id', name: 'user_id'},
-            {data: 'element_code', name: 'element_code'},
+            {data: 'element_id', name: 'element_id'},
             {data: 'degree_student', name: 'degree_student'},
             {data: 'degree_element', name: 'degree_element'},
             {data: 'course', name: 'course'},

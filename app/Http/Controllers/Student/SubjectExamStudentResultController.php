@@ -45,12 +45,8 @@ class SubjectExamStudentResultController extends Controller
                  })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,
-                        'subject_id'=>$subject_exam_student_results->subject_id
-                        ,'year'=>$subject_exam_student_results->year])->first()->group;
-                    return $group_name ? $group_name->group_code : '';
+                    return $subject_exam_student_results->group->group_name;
                  })
-
                 ->addColumn('unit_id', function ($subject_exam_student_results) {
                      return @$subject_exam_student_results->subject->unit->unit_code;
                  })
@@ -120,11 +116,8 @@ class SubjectExamStudentResultController extends Controller
                 })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,
-                        'subject_id'=>$subject_exam_student_results->subject_id
-                        ,'year'=>$subject_exam_student_results->year])->first()->group;
-                    return $group_name ? $group_name->group_code : '';
-                })
+                    return $subject_exam_student_results->group->group_name;
+                 })
                 ->addColumn('unit_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->unit->unit_code;
                 })

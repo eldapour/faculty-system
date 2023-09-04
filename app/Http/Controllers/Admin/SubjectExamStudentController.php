@@ -64,7 +64,6 @@ class SubjectExamStudentController extends Controller
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })
-
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -209,17 +208,18 @@ class SubjectExamStudentController extends Controller
                         ,'year'=>$subject_exam_students->year])->first()->group;
                     return $group_name ? $group_name->group_name : '';
                 })
-
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })
-
+                ->addColumn('group_id', function ($subject_exam_students) {
+                    return $subject_exam_students->group->group_name;
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.subject_exam_students.index');
         }
-    } // end of normal index
+    } // end of normal index two
 
 
     public function catchupSES(request $request)

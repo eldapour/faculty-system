@@ -18,6 +18,7 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Models\SubjectExamStudentResult;
 use App\Http\Requests\SubjectExamStudentResultRequest;
+use App\Models\Group;
 
 class SubjectExamStudentResultController extends Controller
 {
@@ -52,9 +53,7 @@ class SubjectExamStudentResultController extends Controller
                  })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-//                    return $subject_exam_student_results->subject->group->group_name;
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,'subject_id'=>$subject_exam_student_results->subject_id,'year'=>$subject_exam_student_results->year])->first()->group;
-                    return $group_name ? $group_name->getTranslation('group_name',app()->getLocale()) : '';
+                   return $subject_exam_student_results->group->group_name;
                 })
                  ->editColumn('subject_id', function ($subject_exam_student_results) {
                      return $subject_exam_student_results->subject->subject_name;
@@ -100,9 +99,8 @@ class SubjectExamStudentResultController extends Controller
                 })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_student_results->user_id,'subject_id'=>$subject_exam_student_results->subject_id,'year'=>$subject_exam_student_results->year])->first()->group;
-                    return $group_name ? $group_name->getTranslation('group_name',app()->getLocale()) : '';
-                })
+                    return $subject_exam_student_results->group->group_name;
+                 })
                 ->editColumn('subject_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->subject_name;
                 })
@@ -126,7 +124,11 @@ class SubjectExamStudentResultController extends Controller
         ->where('user_type', 'student')
             ->get();
 
-        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects')
+            $groups = Group::query()
+            ->select('id', 'group_name')
+            ->get();
+
+        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects', 'groups')
         );
     } // end of create
 

@@ -37,24 +37,16 @@ class SubjectExamController extends Controller
                 ->get();
 
             return Datatables::of($subject_exams)
-                ->addColumn('processDegreeDetails', function ($subject_exams) {
-                    return '<span style="cursor:pointer" class="icon btn btn-info processDegreeDetails" data-bs-toggle="tooltip" title=" details " data-id="' . $subject_exams->id . '"> ' . trans('subject_exam.process_exam_details') . '  <i class="fa fa-eye"></i></span>';
-                })
-                ->addColumn('action', function ($points) {
-                    return '
-                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' type="button" data-id="' . $points->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $points->id . '" data-title="">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                       ';
-                })
+            ->addColumn('actions', function ($subject_exams) {
+                return '
+                        <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                   ';
+            })
 
                 ->editColumn('subject_id', function ($subject_exams) {
                     return $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-
                     return @$subject_exams->group->group_name;
                 })
                 ->escapeColumns([])

@@ -62,7 +62,7 @@
                     {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
                     {data: 'code', name: 'code'},
-                    {data: 'group', name: 'group'},
+                    {data: 'group_id', name: 'group_id'},
                     {data: 'exam_day', name: 'exam_day'},
                     {data: 'exam_date', name: 'exam_date'},
                     {data: 'time_start', name: 'time_start'},

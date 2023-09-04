@@ -1,4 +1,4 @@
-<div class="modal-body">
+    <div class="modal-body">
     <form id="addForm" class="addForm" method="POST" action="{{ route('subject_exam_student_result.store') }}"
         enctype="multipart/form-data">
         @csrf
@@ -16,12 +16,22 @@
                 </div>
 
 
-                <div class="col-md-12 mt-3">
+                <div class="col-md-6 mt-3">
                     <label for="subject_id" class="form-control-label">{{ trans('subject_exam_student_result.subject') }}</label>
                     <select name="subject_id" class="form-control">
                         <option value="" selected disabled>@lang('admin.select')</option>
                         @foreach ($subjects as $subject)
                             <option value="{{ $subject->id }}" style="text-align: center">{{ $subject->subject_name}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label for="subject_id" class="form-control-label">{{ trans('subject_exam_student_result.group') }}</label>
+                    <select name="group_id" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
+                        @foreach ($groups as $group)
+                            <option value="{{ $group->id }}" style="text-align: center">{{ $group->group_name}}
                             </option>
                         @endforeach
                     </select>

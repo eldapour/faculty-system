@@ -592,6 +592,10 @@ return [
     "success" => "Success",
     "official_professor" => "Official professor",
     "visiting_professor" => "Visiting professor",
+    "document_requests" => "Document Requests",
+    "requests_redress" => "Requests Redress",
+    "point_processing_requests" => "Point Processing Requests",
+    "units_of_the_current_period" => "Units of The Current Period",
 ];
 
 

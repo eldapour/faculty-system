@@ -53,9 +53,7 @@ class InternalAdController extends Controller
                 })
                 ->editColumn('url_ads', function ($internal_ads) {
                     if ($internal_ads->url_ads != null) {
-                        return '<a href="' . asset($internal_ads->url_ads) . '" download>
-                                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset($internal_ads->url_ads) . '">
-                                </a>';
+                        return '<a href="' . asset($internal_ads->url_ads) . '" download><button class="btn btn-primary">'.trans('admin.download').'</button></a>';
                     } else {
                         return '<a href="' . asset("uploads/users/default/avatar2.jfif") . '" download>
                                     <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/default/avatar2.jfif") . '">
