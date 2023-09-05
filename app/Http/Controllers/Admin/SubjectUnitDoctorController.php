@@ -139,6 +139,7 @@ class SubjectUnitDoctorController extends Controller
             ->get();
 
 
+
         return view('admin.subject_unit_doctors.parts.edit', compact('subjectUnitDoctor', 'data'));
     }
 
