@@ -24,7 +24,7 @@
                 @endif
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--begin-->
+                        <!--begin::Table-->
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
 
