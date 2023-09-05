@@ -20,7 +20,7 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
         return [
             '#',
             'user code',
-            'element code',
+            'element Id',
             'student degree',
             'element degree',
             'course',
@@ -42,7 +42,7 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
             $query_data = [
                 '#' => $index+1,
                 'user code' => $q->user->identifier_id,
-                'element code' => $q->element_id,
+                'element Id' => $q->element_id,
                 'student degree' => $q->degree_student,
                 'element degree' => $q->degree_element,
                 'course' => $q->course,
