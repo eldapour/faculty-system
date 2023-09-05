@@ -6,7 +6,8 @@ $university_settings= UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Content de te revoir',
     'language' => 'Langue',
-
+    "reregister_start" => "date de commencer de réinscription",
+    "reregister_end" => "date de fin de réinscription",
     // General
     "home" => 'Maison',
     "actions" => "Actions",
@@ -117,6 +118,7 @@ return [
     "update" => "Nettre à jour ",
     "close" => "Fermer ",
     "delete_confirm" => "Êtes-vous sûr De Vouloir Supprimer ",
+    "confirm" => "confirmer",
 
     // Deadlines
     "deadlines" => "Les échéances",
@@ -137,6 +139,7 @@ return [
     "ad" => "Publicité",
     "ads" => "Annonces du site",
     "internal_ads" => "Annonces Internes",
+    "image_ads" => "Annonces illustrées",
 
     "date_ads" => "Moment de l'annonce",
     "url_ads" => "Lien Des Annonces",
@@ -316,6 +319,7 @@ return [
     'national_id_of_person' => "Identifiant national de la personne qui lui est attribuée",
     'card_image' => "Une copie de la carte nationale de la personne qui lui est confiée",
     'card_image_user' => "Une copie de la carte nationale",
+    'image_user' => 'utilisateur de l image',
     'note' => "Note",
     'optional' => "optional",
     'order_success' => "La demande a été ajoutée avec succès",
@@ -346,6 +350,7 @@ return [
 
     //Element
     'element' => 'élément',
+    'element_code' => 'élément code',
     'elements' => 'éléments',
 
     // Process Degrees
@@ -581,8 +586,19 @@ return [
     "remaining_days" => "jours restants",
     "reset_password" => "Modifier le mot de passe",
     "counter" => "statistiques de gestion du site",
-
-
+    "reregister_the_track_start" => "Réenregistrer le départ de la piste",
+    "reregister_the_track_end" => "Réenregistrer la fin de la piste",
+    "Those_concerned_with_evidence_and_diploma" => "Ceux qui sont concernés par les preuves et les diplômes",
+    "time_ads" => "Annonces temporelles",
+    "displayed_successfully" => "Affiché avec succès",
+    "activation_has_been_deactivated" => "L'activation a été désactivée",
+    "success" => "Succès",
+    "official_professor" => "Profesora oficial",
+    "visiting_professor" => "Profesora visitante",
+    "document_requests" => "Solicitudes de documentos",
+    "requests_redress" => "Solicita reparación",
+    "point_processing_requests" => "Solicitudes de procesamiento de puntos",
+    "units_of_the_current_period" => "Unidades del período actual",
 ];
 
 

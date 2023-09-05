@@ -21,6 +21,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
+            $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
             $table->string('exam_code');
             $table->string('section');
             $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->string('year');
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

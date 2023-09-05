@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PresentationRequest;
 use App\Http\Requests\StorePresentation;
 use App\Models\Presentation;
 use App\Models\Category;
@@ -27,9 +28,8 @@ class PresentationController extends Controller
     }
 
 
-    public function update(Request $request, Presentation $presentation): JsonResponse
+    public function update(PresentationRequest $request, Presentation $presentation): JsonResponse
     {
-
         $inputs = $request->all();
 
         $images = [];

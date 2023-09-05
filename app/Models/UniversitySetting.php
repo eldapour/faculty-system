@@ -23,10 +23,14 @@ class UniversitySetting extends Model
         'facebook_link',
         'whatsapp_link',
         'youtube_link',
+        'reregister_start',
+        'reregister_end',
         'phone',
         'digital_student_platform',
         'colleges_digital_platform',
         'colleges_digital_magazine',
+        'reregister_the_track_start',
+        'reregister_the_track_end'
     ];
 
     protected $casts = [

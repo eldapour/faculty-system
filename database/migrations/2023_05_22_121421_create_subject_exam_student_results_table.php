@@ -26,8 +26,10 @@ return new class extends Migration {
             $table->enum('period',['عاديه','استدراكيه'])->comment('الدوره اللي امتحن فيها الطالب');
             $table->string('year');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('group_id');
             $table->unsignedBigInteger('subject_id')->comment('اسم الوحده');
             $table->timestamps();
+            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
 

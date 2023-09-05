@@ -7,7 +7,8 @@ $university_settings = UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Welcome Back',
     'language' => 'Language',
-
+    "reregister_start" => "re register start date",
+    "reregister_end" => "re register end date",
     // General
     "home" => 'Home',
     "actions" => "Actions",
@@ -128,6 +129,7 @@ return [
     "update" => "update ",
     "close" => "Close ",
     "delete_confirm" => "Are you sure to delete ",
+    "confirm" => "confirm",
 
     // Deadlines
     "deadlines" => "Deadlines",
@@ -148,6 +150,7 @@ return [
     "ad" => "Ad",
     "ads" => "Website Ads",
     "internal_ads" => "Internal Ads",
+    "image_ads" => "Image Ads",
 
     "time_ads" => "Time Ads",
     "url_ads" => "Url Ads",
@@ -358,6 +361,7 @@ return [
 
     //Element
     'element' => 'element',
+    'element_code' => 'element code',
     'elements' => 'elements',
 
     // Process Degrees
@@ -407,6 +411,10 @@ return [
 
 
     // data modification
+    'delete_data' => 'Delete Data',
+    "back" => "Back",
+    "working" => "Working",
+    "there_is_an_error" => "There is an error",
     "data_modify" => "Data Modification",
     'last_name' =>  'last_name',
     'first_name' =>  'first_name',
@@ -531,7 +539,7 @@ return [
     "internal_ads" => "Internal ads",
 
 
-    "unit_name_" => "chapter",
+    "unit_name" => "Unit Name",
     "doctor_name_" => "professor",
     "day_name_" => "today",
     "date_" => "date",
@@ -577,9 +585,18 @@ return [
 
 
     "counter" => "site management statistics",
-
-
-
+    "reregister_the_track_start" => "Reregister The Track Start",
+    "reregister_the_track_end" => "Reregister The Track End",
+    "Those_concerned_with_evidence_and_diploma" => "Those concerned with evidence and diploma",
+    "displayed_successfully" => "Displayed successfully",
+    "activation_has_been_deactivated" => "Activation has been deactivated",
+    "success" => "Success",
+    "official_professor" => "Official professor",
+    "visiting_professor" => "Visiting professor",
+    "document_requests" => "Document Requests",
+    "requests_redress" => "Requests Redress",
+    "point_processing_requests" => "Point Processing Requests",
+    "units_of_the_current_period" => "Units of The Current Period",
 ];
 
 

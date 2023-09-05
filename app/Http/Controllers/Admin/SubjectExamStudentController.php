@@ -8,6 +8,7 @@ use App\Imports\SubjectExamStudentImport;
 use App\Models\Department;
 use App\Models\Group;
 use App\Models\Period;
+use App\Models\SubjectStudent;
 use App\Models\UniversitySetting;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -58,13 +59,11 @@ class SubjectExamStudentController extends Controller
                     return $subject_exam_students->user->identifier_id;
                 })
                 ->addColumn('group', function ($subject_exam_students) {
-                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                    return @$subject_exam_students->group->group_name;
                 })
-
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })
-
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -123,7 +122,7 @@ class SubjectExamStudentController extends Controller
 
 
         return Subject::query()
-            ->where('group_id', '=', $request->group_id)
+//            ->where('group_id', '=', $request->group_id)
             ->where('department_branch_id', '=', $request->department_branch_id)
             ->where('unit_id', '=', $request->unit_id)
             ->pluck('subject_name', 'id');
@@ -193,8 +192,8 @@ class SubjectExamStudentController extends Controller
             return Datatables::of($subject_exam_students)
                 ->addColumn('action', function ($subject_exam_students) {
                     return '
-                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button ' . (auth()->user()->user_type == 'student' ? 'hidden' : '') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' type="button" data-id="' . $subject_exam_students->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $subject_exam_students->id . '" data-title="' . $subject_exam_students->subject->subject_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
@@ -204,19 +203,23 @@ class SubjectExamStudentController extends Controller
                     return $subject_exam_students->user->identifier_id;
                 })
                 ->addColumn('group', function ($subject_exam_students) {
-                    return $subject_exam_students->subject->group->getTranslation('group_name', app()->getLocale());
+                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exam_students->user_id,
+                        'subject_id'=>$subject_exam_students->subject_id
+                        ,'year'=>$subject_exam_students->year])->first()->group;
+                    return $group_name ? $group_name->group_name : '';
                 })
-
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
                 })
-
+                ->addColumn('group_id', function ($subject_exam_students) {
+                    return $subject_exam_students->group->group_name;
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
             return view('admin.subject_exam_students.index');
         }
-    } // end of normal index
+    } // end of normal index two
 
 
     public function catchupSES(request $request)

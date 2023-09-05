@@ -17,7 +17,7 @@ class UserExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function headings(): array
     {
         return [
-            '#',
+            'id',
             'first name',
             'last name',
             'first name latin',
@@ -37,6 +37,7 @@ class UserExport implements FromCollection, WithHeadings, ShouldAutoSize
             'country address latin',
             'university register year',
             'email',
+            'user status',
         ];
     }
 
@@ -74,6 +75,7 @@ class UserExport implements FromCollection, WithHeadings, ShouldAutoSize
               'country_address_latin' => $user->country_address_latin,
               'university_register_year' => $user->university_register_year,
               'email' => $user->email,
+              'user_status' => $user->user_status,
             ];
             $data[] = $user_data;
         }

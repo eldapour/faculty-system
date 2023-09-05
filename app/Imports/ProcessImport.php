@@ -28,7 +28,7 @@ class ProcessImport implements ToCollection, WithHeadingRow
 //                'year' => $rows[$i]['year'],
 //                'request_date' => $rows[$i]['request_date'],
                 'request_status' => $rows[$i]['request_status'],
-                'processing_date' => $rows[$i]['processing_request_date'] ?? Carbon::now()->format('Y-m-d'),
+                'processing_request_date' => $rows[$i]['processing_request_date'] ?? Carbon::now()->format('Y-m-d'),
 //                'reason' => $rows[$i]['reason'],
             ]);
         }

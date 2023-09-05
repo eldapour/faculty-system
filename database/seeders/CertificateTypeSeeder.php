@@ -82,6 +82,51 @@ class CertificateTypeSeeder extends Seeder
             ],
         ];
 
+        $data_documents = [
+            [
+                'document_name' => json_encode([
+                    'ar' => 'شهادة مدرسية',
+                    'en' => 'School certificate',
+                    'fr' => 'Certificat école',
+                ]),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'document_name' => json_encode([
+                    'ar' => 'سحب الباكالوريا',
+                    'en' => 'Baccalaureate withdrawal',
+                    'fr' => 'Retrait du baccalauréat',
+                ]),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'document_name' => json_encode([
+                    'ar' => 'شهادة النجاح',
+                    'en' => 'Certificate of success',
+                    'fr' => 'Certificat de réussite',
+                ]),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'document_name' => json_encode([
+                    'ar' => 'بيان النقط',
+                    'en' => 'Point statement',
+                    'fr' => 'Énoncé de points',
+                ]),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'document_name' => json_encode([
+                    'ar' => 'سحب الديبلوم',
+                    'en' => 'Diploma withdrawal',
+                    'fr' => 'Retrait du diplôme',
+                ]),
+                'created_at' => Carbon::now(),
+            ],
+
+        ];
+
         DB::table('certificate_types')->insert($data);
+        DB::table('document_types')->insert($data_documents);
     }
 }

@@ -147,8 +147,8 @@ class CertificateController extends Controller
         $request->validate([
             'certificate_type_id' => 'required|exists:certificate_types,id',
             'user_id'             => 'required|exists:users,id',
-            'year'                => 'required|date_format:Y',
-            'validation_year'     => 'required|date_format:Y',
+            'year'                => 'required|date_format:Y|after_or_equal:1900',
+            'validation_year'     => 'required|date_format:Y|after_or_equal:1900',
 
         ]);
 
@@ -176,8 +176,8 @@ class CertificateController extends Controller
     {
 
         $request->validate([
-            'year' => 'required|date_format:Y',
-            'validation_year' => 'required|date_format:Y',
+            'year' => 'required|date_format:Y|after_or_equal:1900',
+            'validation_year' => 'required|date_format:Y|after_or_equal:1900',
         ]);
 
         $certificate->update([
@@ -354,7 +354,7 @@ class CertificateController extends Controller
 
     public function student_certificate_school_print($request_id)
     {
-        $document = Document::find($request_id)->first();
+        $document = Document::find($request_id);
         $user = User::where(['id' => $document->user_id])->first();
 //                dd($user);
 

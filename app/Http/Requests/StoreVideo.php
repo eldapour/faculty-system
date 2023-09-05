@@ -25,8 +25,12 @@ class StoreVideo extends FormRequest
     {
         return [
             'background_image' => 'required',
-            'title' => 'required',
-            'description' => 'required',
+            'title.ar' => 'required',
+            'title.en' => 'required',
+            'title.fr' => 'required',
+            'description.ar' => 'required',
+            'description.en' => 'required',
+            'description.fr' => 'required',
             'video_url' => 'required',
         ];
     }

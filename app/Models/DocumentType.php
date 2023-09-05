@@ -14,5 +14,12 @@ class DocumentType extends Model
     use HasFactory;
     public $translatable = ['document_name'];
 
-    protected $guarded = [];
+    protected $fillable = [
+        'document_name'
+    ];
+
+
+    protected $casts = [
+        "document_name" => "json"
+    ];
 }

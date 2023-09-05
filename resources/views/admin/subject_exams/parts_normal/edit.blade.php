@@ -24,7 +24,7 @@
 
                 <div class="col-md-6">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
-                    <select class="form-control" name="department_id" required>
+                    <select class="form-control" name="department_id">
                         <option style="text-align: center" value="" selected >@lang('admin.select')</option>
                         @foreach ($departments as $department)
                             <option style="text-align: center" value="{{ $department->id }}">
@@ -52,15 +52,24 @@
                     <label for="title" class="form-control-label">{{ trans('admin.exam_date') }}</label>
                     <input type="date" class="form-control" name="exam_date" value="{{$subjectExam->exam_date}}">
                 </div>
+                @php
+
+                    $days = ["الاثنين","الثلاثاء","الاربعاء","الخميس","الجمعة","السبت","الاحد"];
+                @endphp
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.exam_day') }}</label>
-                    <input type="text" class="form-control" name="exam_day" value="{{$subjectExam->exam_day}}">
+                    <select name="exam_day" class="form-control">
+                        @foreach($days as $day)
+                            <option value="{{$day}}" {{ ($day ==$subjectExam->exam_day) ? "selected": '' }} style="text-align: center">{{ $day }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>

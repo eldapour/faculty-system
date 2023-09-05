@@ -2,16 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\Certificate;
-
-use App\Models\Department;
-use App\Models\DepartmentBranch;
-use App\Models\DepartmentBranchStudent;
-use App\Models\Group;
 use App\Models\PointStatement;
-use App\Models\Subject;
-use App\Models\SubjectExamStudent;
-use App\Models\SubjectExamStudentResult;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Collection;
@@ -21,6 +12,7 @@ class PointStatementImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+//        dd($rows);
         PointStatement::select('*')->delete();
         $data = [];
         for ($i = 0; $i < count($rows); $i++) {
@@ -29,10 +21,10 @@ class PointStatementImport implements ToCollection, WithHeadingRow
 
             PointStatement::create([
                 'user_id' =>$user->id,
-                'element_code' =>$rows[$i]['element_code'],
+                'element_id' =>$rows[$i]['element_id'],
                 'degree_student' =>$rows[$i]['student_degree'],
                 'degree_element' =>$rows[$i]['element_degree'],
-                'period' =>$rows[$i]['period_rbyaayh_khryfyh'],
+                'course' =>$rows[$i]['course'],
                 'year' =>$rows[$i]['year'],
             ]);
         }

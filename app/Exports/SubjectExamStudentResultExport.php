@@ -21,9 +21,10 @@ class SubjectExamStudentResultExport implements FromCollection, WithHeadings,Sho
             'user code',
             'subject Id',
             'student degree',
+            'group Id',
             'exam degree',
             'date enter degree',
-            'period (استدراكيه , عاديه)',
+            'course (استدراكيه , عاديه)',
             'year',
         ];
     }
@@ -42,7 +43,8 @@ class SubjectExamStudentResultExport implements FromCollection, WithHeadings,Sho
                 '#' => $q->id,
                 'user code' => $q->user->identifier_id,
                 'subject Id' => $q->subject_id,
-                'student degree' => $q->student_degree,
+                'studengroupgree' => $q->student_degree,
+                'group id' => $q->group_id,
                 'exam degree' => $q->exam_degree,
                 'date enter degree' => $q->date_enter_degree,
                 'period' => $q->period,

@@ -15,8 +15,6 @@ class SubjectStudentController extends Controller{
 
 
     public function index(Request $request){
-
-
         if ($request->ajax()) {
             $period = Period::query()
                 ->where('status', '=', 'start')
@@ -36,7 +34,7 @@ class SubjectStudentController extends Controller{
                     return $subject_students->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_students) {
-                    return $subject_students->subject->group->group_name;
+                    return $subject_students->group->group_name;
                 })
 
                 ->addColumn('doctor_id', function ($subject_students) {
@@ -45,14 +43,13 @@ class SubjectStudentController extends Controller{
                         ->where('status', '=', 'start')
                         ->first();
 
-                    $doctor = SubjectUnitDoctor::query()
+                    $doctor = @SubjectUnitDoctor::query()
                     ->where('subject_id','=',$subject_students->subject_id)
                         ->where('period', '=', $period->period)
                         ->where('year','=', $period->year_start)
                         ->first()
                         ->doctor;
-
-                    return $doctor->first_name . " " . $doctor->last_name;
+                    return @$doctor->first_name . " " . @$doctor->last_name;
                 })
 
                 ->escapeColumns([])

@@ -33,17 +33,36 @@
         .header{
             display: inline-block;
             min-width: 145px;
+            padding-top: 0 !important;
         }
         .header1{
             display: inline-block;
             width: 200px;
             text-align: left;
         }
+        #print_container{
+            height: 100% !important;
+            padding-bottom: 400px !important;
+        }
 
         @media print {
             .app-header{
                 display: none;
             }
+
+
+        }
+        .text-start{
+            text-align: left;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .fw-bold{
+            font-weight: bold;
+        }
+        .margin{
+            margin-top: 100px !important;
         }
 
     </style>
@@ -52,72 +71,80 @@
             <div class="border1">
                 <div class="border2">
                     <div class="border3">
-                        <div class="p-5">
-                            <div class="image-logo1">
+                        <div class="p-5" id="print_container">
+                            <div class="image-logo1 mt-5">
                                 <img style="height: 100px" src="{{ asset('/uploads/university_setting/'.$university_settings->logo) }}">
                             </div>
 
 
-                            <h3 class="text-center mb-2">شهادة مدرسية </h3>
-                            <h3 class="text-center mb-2">ATTESTATIONSCOLAIRE</h3>
-                            <h6 class="mb-4">يشهد عميد 'اسم الكلية' أن السيد(ة):</h6>
-                            <h6 class="text-start">Le Doyen de la Faculte</h6>
+
+                            <h3 class="text-center mt-5 mb-3">شهادة مدرسية </h3>
+                            <h3 class="text-center mb-5">ATTESTATIONSCOLAIRE</h3>
+                            <br>
+                            <div class="d-flex justify-content-between">
+                                <h6 class="mb-5">  يشهد عميد   <strong>{{ $university_settings->getTranslation('title', app()->getLocale()) }}</strong>  أن السيد(ة): </h6>
+                            <h6 class="text-start mb-2">Le Doyen de la Faculte</h6>
+                            </div>
                             <h6 class="text-start mb-5">Atteste par la presente que M/Mme</h6>
-                            <div class="d-flex justify-content-between mt-4">
-                                <div class="mt-2">
-                                    <span class="fs-5 fw-bold header">الاسم العائلى: </span>
-                                    <span>{{$user->first_name}}</span>
+                            <div class="d-flex justify-content-between mt-5">
+                                <div>
+                                    <span class="fs-5 header">الاسم العائلى: </span>
+                                    <span class="fw-bold">{{$user->first_name}}</span>
                                 </div>
                                 <div>
-                                    <span>{{$user->first_name_latin}}</span>
-                                    <span class="fs-5 fw-bold header1">:  NOM </span>
+                                    <span class="fw-bold">{{$user->first_name_latin}}</span>
+                                    <span class="fs-5 header1">:  NOM </span>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mt-4">
-                                <div class="mt-2">
-                                    <span class="fs-5 fw-bold header"> الاسم الشخصى :</span>
-                                    <span>{{$user->last_name}} </span>
+                                <div>
+                                    <span class="fs-5 header"> الاسم الشخصى :</span>
+                                    <span class="fw-bold">{{$user->last_name}} </span>
                                 </div>
                                 <div>
-                                    <span>{{$user->last_name_latin}}</span>
-                                    <span class="fs-5 fw-bold header1">: Prenom  </span>
+                                    <span class="fw-bold">{{$user->last_name_latin}}</span>
+                                    <span class="fs-5 header1">: Prenom  </span>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mt-2">
-                                <span class="fs-5 fw-bold header">تاريخ الازدياد</span>
-                                <span>{{$user->birthday_date}}</span>
-                                <span class="fs-5 fw-bold header1"> Date de naissance</span>
+                                <span class="fs-5 header">تاريخ الازدياد</span>
+                                <span class="fw-bold">{{$user->birthday_date}}</span>
+                                <span class="fs-5 header1"> Date de naissance</span>
                             </div>
-                            <div class="mt-2">
-                                <span class="fs-5 fw-bold header">مكان الازدياد</span>
-                                <span>{{$user->birthday_place}}</span>
+                            <div class="d-flex justify-content-between mt-4">
+                            <div >
+                                <span class="fs-5 header">مكان الازدياد</span>
+                                <span class="fw-bold">{{$user->city_ar}}</span>
                             </div>
-                            <div class="text-start mt-2">
-                                <span>french</span>
-                                <span class="fs-5 fw-bold header1"> Lieu de naissance</span>
+                            <div>
+                                <span class="fw-bold">{{ $user->city_latin }}</span>
+                                <span class="fs-5 header1"> Lieu de naissance</span>
                             </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span class="fs-5 fw-bold">رقم التسجيل</span>
-                                <span>{{ $user->identifier_id }}</span>
-                                <span class="fs-5 fw-bold">N de inscription</span>
                             </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span class="fs-5 fw-bold">رقم مسار</span>
-                                <span>{{ $user->national_number }}</span>
-                                <span class="fs-5 fw-bold"> Code massar</span>
+                            <div class="d-flex justify-content-between mt-2 mb-4">
+                                <span class="fs-5">رقم التسجيل</span>
+                                <span class="fw-bold">{{ $user->identifier_id }}</span>
+                                <span class="fs-5">N de inscription</span>
                             </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span class="fs-5 fw-bold">ر.ب.و.ت/جواز السفر</span>
-                                <span>{{ $user->national_id }}</span>
-                                <span class="fs-5 fw-bold"> C.I.N.E/Passport</span>
+                            <div class="d-flex justify-content-between mt-2 mb-4">
+                                <span class="fs-5">رقم مسار</span>
+                                <span class="fw-bold">{{ $user->national_number }}</span>
+                                <span class="fs-5"> Code massar</span>
                             </div>
-                            <div class="mt-2">
-                                <span class="fs-5 fw-bold header">يتابع دراسته ب</span>
-                                <span>{{ $university_settings->getTranslation('title', 'ar') }}</span>
+                            <div class="d-flex justify-content-between mt-2 mb-4">
+                                <span class="fs-5">ر.ب.و.ت/جواز السفر</span>
+                                <span class="fw-bold">{{ $user->national_id }}</span>
+                                <span class="fs-5"> C.I.N.E/Passport</span>
                             </div>
-                            <div class="text-start mt-2">
-                                <span>{{ $university_settings->getTranslation('title', 'fr') }}</span>
-                                <span class="fs-5 fw-bold header1"> Poursuit ses etudes a</span>
+                            <div class="d-flex justify-content-between mt-4">
+                            <div >
+                                <span class="fs-5 header">يتابع دراسته ب</span>
+                                <span class="fw-bold">{{ $university_settings->getTranslation('title', 'ar') }}</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold">{{ $university_settings->getTranslation('title', 'fr') }}</span>
+                                <span class="fs-5 header1"> Poursuit ses etudes a</span>
+                            </div>
                             </div>
                             <?php
                             $data = getInformationUser();
@@ -126,23 +153,23 @@
 
                             <div class="d-flex justify-content-between mt-2">
                                 <div>
-                                    <span class="fs-5 fw-bold header"> مسلك</span>
-                                    <span>{{ @$user->user_department->department->getTranslation('department_name', 'ar') }}</span>
+                                    <span class="fs-5 header"> مسلك</span>
+                                    <span class="fw-bold">{{ @$user->user_department->department->department_name }}</span>
                                 </div>
                                 <div>
-                                    <span>{{@$user->user_department->department->getTranslation('department_name', 'fr')}}</span>
-                                    <span class="fs-5 fw-bold header1"> Filiere</span>
+                                    <span class="fw-bold">{{@$user->user_department->department->department_name }}</span>
+                                    <span class="fs-5 header1"> Filiere</span>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mt-2">
-                                <span class="fs-5 fw-bold">السنة الدراسية</span>
-                                <span>{{@$user->user_department->year}}</span>
-                                <span class="fs-5 fw-bold"> Annee scolaire</span>
+                                <span class="fs-5">السنة الدراسية</span>
+                                <span class="fw-bold">{{@$user->user_department->year}}</span>
+                                <span class="fs-5"> Annee scolaire</span>
                             </div>
-                            <div class="d-flex justify-content-center mt-5">
-                                <span class="fs-5 fw-bold ">    اكادير فى:   </span>
-                                <span>{{ '    '.date('Y-m-d').'      ' }}</span>
-                                <span class="fs-5 fw-bold me-3">  : Fait a Agadir le</span>
+                            <div class="d-flex justify-content-center mt-5 margin">
+                                <span class="fs-5 mt-5">    اكادير فى:   </span>
+                                <span class="mt-5 fw-bold">{{ '    '.date('Y-m-d').'      ' }}</span>
+                                <span class="fs-5 me-3 mt-5">  : Fait a Agadir le</span>
                             </div>
 
                         </div>

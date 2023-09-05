@@ -21,7 +21,7 @@
          */
       var table = $('#dataTable').DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             ajax: routeOfShow,
             columns: columns,
             order: [
@@ -77,7 +77,7 @@
             ]
         });
 
-        $('#type').on('click',function(){
+        $('#type').on('keyup',function(){
             table.draw();
         });
     }
@@ -112,7 +112,7 @@
                     if (data.status === 200) {
                         $("#dismiss_delete_modal")[0].click();
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success(data.message)
+                        toastr.success('{{ trans('admin.deleted_successfully') }}')
                     } else {
                         $("#dismiss_delete_modal")[0].click();
                         toastr.error(data.message)
@@ -153,7 +153,11 @@
                         toastr.success(' {{ trans('admin.added_successfully') }} ');
                     } else if (data.status == 405) {
                         toastr.error(data.mymessage);
-                    } else
+                    } else if(data.status == 411){
+                        toastr.error(data.mymessage);
+                    }else if(data.status == 413){
+                        toastr.error(data.mymessage);
+                    }else
                         toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
                     $('#addButton').html(`{{ trans('admin.add') }}`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
@@ -249,7 +253,7 @@
                 data: formData,
                 beforeSend: function() {
                     $('#addReply').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr(
+                        ' ></span> <span style="margin-left: 4px;">{{ trans('admin.wait') }} ..</span>').attr(
                         'disabled', true);
                 },
                 success: function(data) {
@@ -401,7 +405,7 @@
                         });
                     } else
                         toastr.error(' {{ trans('admin.something_went_wrong') }} ..');
-                    $('#updateButton').html(`تعديل`).attr('disabled', false);
+                    $('#updateButton').html(`{{ trans('admin.update') }}`).attr('disabled', false);
                 }, //end error method
 
                 cache: false,

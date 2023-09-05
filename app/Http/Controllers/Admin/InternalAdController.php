@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Middleware\CheckForbidden;
 use App\Models\Service;
 use App\Models\InternalAd;
+use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreInternalAd;
+use App\Http\Middleware\CheckForbidden;
+use App\Http\Requests\InternalAdUpdateRequest;
 
 class InternalAdController extends Controller
 {
+    use PhotoTrait;
     public function __construct()
     {
         $this->middleware(CheckForbidden::class)->except('indexDoctor','detailsDoctor');
@@ -47,6 +50,15 @@ class InternalAdController extends Controller
                 ->addColumn('status', function ($internal_ads) {
                     return '<input class="tgl tgl-ios like_active" data-id="' . $internal_ads->id . '" name="like_active" id="like-' . $internal_ads->id . '" type="checkbox" ' . ($internal_ads->status == "show" ? 'checked' : 'unchecked') . '/>
                     <label class="tgl-btn" dir="ltr" for="like-' . $internal_ads->id . '"></label>';
+                })
+                ->editColumn('url_ads', function ($internal_ads) {
+                    if ($internal_ads->url_ads != null) {
+                        return '<a href="' . asset($internal_ads->url_ads) . '" download><button class="btn btn-primary">'.trans('admin.download').'</button></a>';
+                    } else {
+                        return '<a href="' . asset("uploads/users/default/avatar2.jfif") . '" download>
+                                    <img alt="image" class="avatar avatar-md rounded-circle" src="' . asset("uploads/users/default/avatar2.jfif") . '">
+                                </a>';
+                    }
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -94,24 +106,22 @@ class InternalAdController extends Controller
 
 
     public function store(StoreInternalAd $request): JsonResponse
-    {
+{
+    $inputs = $request->all();
 
 
-        $internalAd = InternalAd::create([
-            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
-            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
-            "time_ads" => $request->time_ads,
-            "url_ads" => $request->url_ads,
-            "service_id" => $request->service_id
-        ]);
-
-
-        if ($internalAd->save()) {
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
-        }
+    if ($request->hasFile('url_ads')) {
+        $file = $request->file('url_ads');
+        $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'photo');
     }
+    // dd($inputs);
+    if (InternalAd::create($inputs)) {
+        return response()->json(['status' => 200]);
+    } else {
+        return response()->json(['status' => 405]);
+    }
+}
+
 
 
     public function edit(InternalAd $internalAd)
@@ -121,18 +131,11 @@ class InternalAdController extends Controller
     }
 
 
-    public function update(StoreInternalAd $request,InternalAd $internalAd)
+    public function update(InternalAdUpdateRequest $request,InternalAd $internalAd)
     {
+        $inputs = $request->all();
 
-        $internalAd->update([
-            "title" => ['ar' => $request->title_ar,'en' => $request->title_en,'fr' => $request->title_fr],
-            "description" => ['ar' => $request->description_ar,'en' => $request->description_en,'fr' => $request->description_fr],
-            "time_ads" => $request->time_ads,
-            "url_ads" => $request->url_ads,
-            "service_id" => $request->service_id
-        ]);
-
-        if ($internalAd->save()) {
+        if ($internalAd->update($inputs)) {
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);

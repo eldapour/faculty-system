@@ -24,7 +24,9 @@ class StoreService extends FormRequest
     public function rules()
     {
         return [
-            "service_name" => "required"
+            "service_name.ar" => "required",
+            "service_name.en" => "required",
+            "service_name.fr" => "required",
         ];
     }
 }

@@ -38,7 +38,7 @@
                         @foreach($students as $student)
                             <option {{ $departmentStudent->user_id == $student->id ? 'selected' : '' }}
                                     value="{{ $student->id}}">
-                                {{ $student->identifier_id }}
+                                {{ $student->first_name }}
                             </option>
                         @endforeach
                     </select>
@@ -55,11 +55,12 @@
                 </div>
                 <div class="col-md-6">
                     <label for="register_year" class="form-control-label">@lang('admin.register_year')</label>
-                    <select name="year" class="form-control" id="year" required>
+                    {{-- <select name="year" class="form-control" id="year" required>
                         @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
                             <option {{ $departmentStudent->year == $year ? 'selected' : '' }} value="{{ $year }}">{{ $year }}</option>
                         @endfor
-                    </select>
+                    </select> --}}
+                    <input type="number" id="yearInput" value="{{ $departmentStudent->year }}" name="year" min="1900" class="form-control" max="2999">
                 </div>
             </div>
         </div>

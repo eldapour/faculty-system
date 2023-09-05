@@ -24,7 +24,7 @@ class BranchStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'register_year' => 'required',
+            'register_year' => 'required|after_or_equal:1900',
             'branch_restart_register' => 'nullable',
             'user_id' => 'required',
             'department_branch_id' => 'required',

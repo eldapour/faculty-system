@@ -12,6 +12,7 @@ class SubjectExam extends Model
     use HasFactory;
 
     protected $fillable = [
+        'group_id',
         'subject_id',
         'exam_date',
         'time_start',
@@ -27,6 +28,11 @@ class SubjectExam extends Model
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
+    }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
     }
 
 

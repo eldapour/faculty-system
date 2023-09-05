@@ -31,7 +31,7 @@
                                 <th class="min-w-50px">{{ trans('admin.title') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.desc') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_ads') }}</th>
-                                <th class="min-w-50px">{{ trans('admin.url_ads') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.attachment_file') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.status') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.service') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
@@ -128,11 +128,11 @@
 
                     // Check if val is not equal to 0 before executing toastr.success()
                     if (status == "show") {
-                        toastr.success('Success', 'تم الاظهار بنجاح ');
+                        toastr.success('{{ trans('admin.success') }}', '{{ trans('admin.displayed_successfully') }}');
                     }
                     else
                     {
-                        toastr.warning('Success', 'تم الغاء التفعيل');
+                        toastr.warning('{{ trans('admin.success') }}', '{{ trans('admin.activation_has_been_deactivated') }}');
                     }
                 },
             });

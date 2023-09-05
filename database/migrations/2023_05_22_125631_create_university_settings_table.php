@@ -17,6 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('email');
             $table->longText('logo');
+            $table->longText('stamp_logo');
+            $table->string('digital_student_platform');
+            $table->string('colleges_digital_platform');
+            $table->string('colleges_digital_magazine');
             $table->json('title');
             $table->json('description');
             $table->json('address');
@@ -24,6 +28,8 @@ return new class extends Migration
             $table->boolean('maintenance')->default(false);
             $table->date('reregister_start')->nullable();
             $table->date('reregister_end')->nullable();
+            $table->date('reregister_the_track_start')->nullable();
+            $table->date('reregister_the_track_end')->nullable();
             $table->longText('facebook_link');
             $table->longText('whatsapp_link');
             $table->longText('youtube_link');

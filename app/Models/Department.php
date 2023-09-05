@@ -21,4 +21,9 @@ class Department extends Model
     protected $casts = [
       'department_name' => 'json',
     ];
+
+    public function element()
+    {
+        return $this->hasMany(Element::class);
+    }
 }

@@ -6,6 +6,7 @@ use App\Exports\SubjectExamStudentResultExport;
 use App\Imports\SubjectExamStudentResultImport;
 use App\Models\Period;
 use App\Models\Subject;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use App\Models\User;
 use App\Models\SubjectExam;
@@ -17,6 +18,7 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Models\SubjectExamStudentResult;
 use App\Http\Requests\SubjectExamStudentResultRequest;
+use App\Models\Group;
 
 class SubjectExamStudentResultController extends Controller
 {
@@ -34,11 +36,13 @@ class SubjectExamStudentResultController extends Controller
                 ->where('year','=',$period->year_start)
                 ->get();
 
+                // dd($subject_exam_student_results);
+
             return Datatables::of($subject_exam_student_results)
                 ->addColumn('action', function ($subject_exam_student_results) {
                     return '
-                            <button type="button" data-id="' . $subject_exam_student_results->id . '" '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button type="button" data-id="' . $subject_exam_student_results->id . '" '. (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button '. (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $subject_exam_student_results->id . '" data-title="' . $subject_exam_student_results->user->first_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
@@ -49,7 +53,7 @@ class SubjectExamStudentResultController extends Controller
                  })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    return $subject_exam_student_results->subject->group->group_name;
+                   return $subject_exam_student_results->group->group_name;
                 })
                  ->editColumn('subject_id', function ($subject_exam_student_results) {
                      return $subject_exam_student_results->subject->subject_name;
@@ -68,11 +72,12 @@ class SubjectExamStudentResultController extends Controller
 
     public function index2(request $request)
     {
+        $period = Period::query()
+            ->where('status','=','start')
+            ->first();
+
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
 
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period','=','استدراكيه')
@@ -94,8 +99,8 @@ class SubjectExamStudentResultController extends Controller
                 })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                    return $subject_exam_student_results->subject->group->group_name;
-                })
+                    return $subject_exam_student_results->group->group_name;
+                 })
                 ->editColumn('subject_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->subject_name;
                 })
@@ -119,7 +124,11 @@ class SubjectExamStudentResultController extends Controller
         ->where('user_type', 'student')
             ->get();
 
-        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects')
+            $groups = Group::query()
+            ->select('id', 'group_name')
+            ->get();
+
+        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects', 'groups')
         );
     } // end of create
 

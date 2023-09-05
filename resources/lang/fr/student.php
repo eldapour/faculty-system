@@ -23,5 +23,5 @@ return [
       'email' => 'courriel',
       'university_email' => "courriel de l'université",
     'choose' => "nationalité de l'étudiant",
-
+    'country_address_ar' => "Pays Adresse AR",
     ];

@@ -26,11 +26,9 @@ class StoreDeadline extends FormRequest
         return [
             'deadline_date_start' => 'required|date',
             'deadline_date_end' => 'required|date|after:deadline_date_start',
-            'year' => 'required',
+            'year' => 'required|after_or_equal:1900',
             'period' => 'required',
             'deadline_type' => 'required',
-
-
         ];
     }
 }

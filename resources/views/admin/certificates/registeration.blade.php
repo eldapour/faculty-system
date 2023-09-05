@@ -43,7 +43,7 @@
                     </table>
                     <div class="table-responsive">
                         <!--begin::Table-->
-                        <table class="table table-striped table-bordered text-nowrap w-100" id="">
+                        <table class="table table-striped table-bordered text-nowrap w-100"  id="">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
 {{--                                <th class="min-w-25px">{{trans('admin.diploma_id')}}</th>--}}

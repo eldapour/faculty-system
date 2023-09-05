@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Period;
 use App\Models\ProcessDegree;
 use App\Models\SubjectExamStudent;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use DateTime;
 use App\Models\Group;
@@ -36,15 +37,17 @@ class SubjectExamController extends Controller
                 ->get();
 
             return Datatables::of($subject_exams)
-                ->addColumn('processDegreeDetails', function ($subject_exams) {
-                    return '<span style="cursor:pointer" class="icon btn btn-info processDegreeDetails" data-bs-toggle="tooltip" title=" details " data-id="' . $subject_exams->id . '"> ' . trans('subject_exam.process_exam_details') . '  <i class="fa fa-eye"></i></span>';
-                })
+            ->addColumn('actions', function ($subject_exams) {
+                return '
+                        <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                   ';
+            })
 
                 ->editColumn('subject_id', function ($subject_exams) {
                     return $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-                    return $subject_exams->subject->group->group_name;
+                    return @$subject_exams->group->group_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -223,7 +226,7 @@ class SubjectExamController extends Controller
 
         return Subject::query()
             ->where('department_branch_id', '=', $request->department_branch_id)
-            ->where('group_id', '=', $request->group_id)
+//            ->where('group_id', '=', $request->group_id)
             ->pluck('subject_name', 'id');
 
     } // end of get subject

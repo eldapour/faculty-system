@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Deadline;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
-use Yajra\DataTables\DataTables;
-use App\Http\Requests\StoreDeadline;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDeadline;
+use App\Http\Requests\DeadLineUpdateRequest;
 
 class DeadlineController extends Controller
 {
@@ -76,7 +77,7 @@ class DeadlineController extends Controller
     }
 
 
-    public function update(Request $request, Deadline $deadline): JsonResponse
+    public function update(DeadLineUpdateRequest $request, Deadline $deadline): JsonResponse
     {
 
         $deadline->update([

@@ -13,6 +13,7 @@
         <div class="form-group mb-3">
             <label class="form-label">{{trans('admin.document_type')}}</label>
             <select name="document_type_id"  class="form-control select2" data-placeholder="Choose user document type">
+                <option value="" selected>{{ trans('admin.select') }}</option>
                 @foreach($types as $type)
                     <option value="{{$type->id}}">{{$type->getTranslation('document_name', app()->getLocale())}}</option>
                 @endforeach
@@ -50,6 +51,7 @@
         <div class="form-group mb-3">
             <label class="form-label">{{trans('admin.pull_type')}}</label>
             <select name="pull_type"  class="form-control select2" data-placeholder="Choose user pull type">
+                <option value="" selected>{{ trans('admin.select') }}</option>
                 <option value="temporary">{{trans('admin.temporary')}}</option>
                 <option value="final">{{trans('admin.final')}}</option>
             </select>

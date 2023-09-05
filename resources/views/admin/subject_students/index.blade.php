@@ -47,6 +47,7 @@
                                 <th class="min-w-25px">{{trans('subject_student.id')}}</th>
                                 <th class="min-w-25px">{{trans('student.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.unit_name')}}</th>
+                                <th class="min-w-25px">{{trans('admin.group')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.year')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student.subject_id')}}</th>
@@ -150,8 +151,9 @@
     <script>
         var columns = [
             {data: 'id', name: 'id'},
-            {data: 'identifier_id', name: 'identifier_id', orderable: true, searchable: true},
+            {data: 'identifier_id', name: 'identifier_id'},
             {data: 'unit_id', name: 'unit_id'},
+            {data: 'group_id', name: 'group_id'},
             {data: 'year', name: 'year'},
             {data: 'user', name: 'user'},
             {data: 'subject_id', name: 'subject_id'},

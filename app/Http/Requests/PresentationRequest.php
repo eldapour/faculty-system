@@ -32,7 +32,7 @@ class PresentationRequest extends FormRequest
             'description.fr' => 'required',
             'images' => 'required',
             'experience_year' => 'required',
-            'category_id ' => 'required',
+            'category_id' => 'required',
         ];
     }
 }

@@ -21,6 +21,7 @@ class SubjectStudentExport implements FromCollection, WithHeadings, ShouldAutoSi
             '#',
             'user code',
             'year',
+            'group_id',
             'subject code',
             'period',
         ];
@@ -41,6 +42,7 @@ class SubjectStudentExport implements FromCollection, WithHeadings, ShouldAutoSi
               'id' => (string) $value->id,
               'user_id' => (string) $value->user->identifier_id,
               'year' => (string) $value->year,
+              'group_id' => (string) $value->group_id,
               'subject_id' => (string) $value->subject->code,
               'period' => (string) $value->period,
             ];

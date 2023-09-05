@@ -10,6 +10,7 @@ use App\Models\Advertisement;
 use App\Models\Period;
 use App\Models\TrackReregister;
 use App\Models\UniversitySetting;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;

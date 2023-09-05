@@ -153,7 +153,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
+    | with something more reader friendl'document_name.ar' => 'required',y such as "E-Mail Address" instead
     | of "email". This simply helps us make our message more expressive.
     |
     */
@@ -162,6 +162,8 @@ return [
         'category_name.ar' =>'اسم باللغة العربية',
         'category_name.en' =>'اسم باللغة الانجليزية',
         'category_name.fr' =>'اسم باللغة الفرنسية',
+        'category_id' => 'معرف الفئة',
+        'experience_year' => 'سنين الخبرة',
         'name' =>'الاسم',
         'image' => 'الصورة',
         'background_image' => 'خلفية الصورة',
@@ -222,6 +224,42 @@ return [
         "role.fr" => 'الصفة بالفرنسي',
         "files" => "الملفات",
         "images" => "الصور",
+        'country_address_latin' => 'عنوان البلد اللاتينية',
+        'student_type_id' => 'معرف نوع الطالب',
+        'country_address_ar' => 'عنوان البلد بالعربية',
+        'address' => 'عنوان',
+        'city_latin' => 'مدينة باللاتينية',
+        'city_ar' => 'مدينة بالعربية',
+        'birthday_place' => 'مكان الميلاد',
+        'first_name_latin' => 'الاسم الاول باللاتينية',
+        'last_name_latin' => 'الاسم الاخير باللاتينية',
+        'student_type.ar' => 'نوع الطالب بالعربي',
+        'student_type.en' => 'نوع الطالب بالانجليزي',
+        'student_type.fr' => 'نوع الطالب بالفرنسي',
+        'notes' => 'ملاحظات',
+        'count' => 'القيمة',
+        'title_ar' => 'عنوان بالعربي',
+        'title_en' => 'عنوان بالانجليزي',
+        'title_fr' => 'عنوان بالفرنسي',
+        'address_ar' => 'مكان بالعربي',
+        'address_en' => 'مكان بالانجليزي',
+        'address_fr' => 'مكان بالفرنسي',
+        'description_ar' => 'الوصف بالعربي',
+        'description_en' => 'الوصف بالانجليزي',
+        'description_fr' => 'الوصف بالفرنسي',
+        'department_id' => 'القسم',
+        'unit_id' => 'الوحدة',
+        'description' => 'الوصف',
+        'pdf_upload' => 'ملف ورقي',
+        'service_name.ar' => 'مصلحة بالعربي',
+        'service_name.en' => 'مصلحة بالانجليزي',
+        'service_name.fr' => 'مصلحة بالفرنسي',
+        'service_id' => 'مصلحة',
+        'url_ads' => 'ملف مطلوب',
+        'time_ads' => 'وقت الاعلان',
+        "document_name.ar" => "نوع الوثيقة بالعربي",
+        "document_name.en" => "نوع الوثيقة بالانكليزي",
+        "document_name.fr" => "نوع الوثيقة بالفرنسي",
     ],
 
 ];

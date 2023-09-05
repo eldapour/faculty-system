@@ -13,31 +13,31 @@
                 </div>
             </div>
         </div>
-                <div class="form-group">
+{{--                <div class="form-group">--}}
 
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>@lang('admin.unit')</th>
-                                <th>@lang('admin.doctor')</th>
-                            </tr>
-                            </thead>
-                            @foreach($subjects as $index => $data)
-                                <tbody>
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>
+{{--                        <table class="table table-bordered">--}}
+{{--                            <thead>--}}
+{{--                            <tr>--}}
+{{--                                <th>#</th>--}}
+{{--                                <th>@lang('admin.unit')</th>--}}
+{{--                                <th>@lang('admin.doctor')</th>--}}
+{{--                            </tr>--}}
+{{--                            </thead>--}}
+{{--                            @foreach($subjects as $index => $data)--}}
+{{--                                <tbody>--}}
+{{--                                <tr>--}}
+{{--                                    <td>{{ $loop->iteration }}</td>--}}
+{{--                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>--}}
 
-                                    <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>
-                                </tr>
-                                </tbody>
-                            @endforeach
-                        </table>
-                </div>
+{{--                                    <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>--}}
+{{--                                </tr>--}}
+{{--                                </tbody>--}}
+{{--                            @endforeach--}}
+{{--                        </table>--}}
+{{--                </div>--}}
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary"
-                    id="reregisterBtn">{{ trans('admin.update') }}</button>
+                    id="reregisterBtn">{{ trans('admin.confirm') }}</button>
         </div>
     </form>
 </div>
@@ -57,11 +57,11 @@
                     'disabled', true);
             },
             success: function (data) {
-                if (data.status == 200) {
+                if (data.status === 200) {
                     toastr.success(' {{ trans('admin.confirm_the_track') }} ');
                     setTimeout(function() {
                         window.location.href = '{{ route('admin.home') }}';
-                    },2000);
+                    },500);
                 } else if (data.status == 405) {
                     toastr.error(data.mymessage);
                 } else

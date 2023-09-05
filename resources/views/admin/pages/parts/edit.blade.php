@@ -54,6 +54,7 @@
                     <label for="name_ar" class="form-control-label">{{  trans('admin.category') }}</label>
                     <select class="form-control" name="category_id">
                         @foreach($categories as $category)
+                        <option value="">{{ trans('admin.select') }}</option>
                             <option
                                 {{ $page->category_id == $category->id ? 'selected' : ''}}
                                 value="{{ $category->id }}">{{ $category->category_name }}

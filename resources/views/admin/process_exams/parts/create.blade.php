@@ -27,7 +27,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="reason" class="form-control-label">{{ trans('admin.reason') }}</label>
-                    <textarea name="reason" class="form-control" rows="10"></textarea>
+                    <select name="reason" id="reason" class="form-control select2" >
+                        <option class="form-control" value="manger">@lang('admin.select')</option>
+                        @foreach($reasons as $reason)
+                            <option class="form-control" value="{{$reason->id}}">{{$reason->name}}</option>
+
+                        @endforeach
+
+                    </select>
+{{--                    <textarea name="reason" class="form-control" rows="10"></textarea>--}}
                 </div>
             </div>
         </div>

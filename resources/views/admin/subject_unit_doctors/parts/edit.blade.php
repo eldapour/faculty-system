@@ -12,20 +12,23 @@
                 <div class="col-md-6">
                     <label for="group_id" class="form-control-label subject_id">{{ trans('admin.group') }}</label>
                     <select name="group_id" class="form-control" id="group_id">
+                        <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['groups'] as $group)
-                            <option value="{{ $group->id }}" style="text-align: center">{{ $group->group_name }}</option>
+                            <option value="{{ $group->id }}" style="text-align: center" {{ $subjectUnitDoctor->group_id == $group->id ? 'selected' : ''}}>{{ $group->group_name }}</option>
                         @endforeach
                     </select>
                 </div>
 
 
                 {{--المسلك--}}
+                {{-- @dd($subjectUnitDoctor->subject->department->department_code) --}}
                 <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                     <select name="department_id" style="text-align: center" id=""
                             class="form-control department_id">
+                            <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['departments'] as $department)
-                            <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                            <option value="{{ $department->id }}" {{ $subjectUnitDoctor->subject->department->id == $department->id ? 'selected' : ''}}>{{ $department->department_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -35,7 +38,7 @@
                 <div class="col-md-6">
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
-                        <option value="" selected disabled style="text-align: center">@lang('admin.select')</option>
+                        <option value="">{{ trans('admin.select') }}</option>
                     </select>
                 </div>
 
@@ -44,9 +47,9 @@
                 <div class="col-md-6">
                     <label for="unit_id" class="form-control-label">{{ trans('admin.unit_name') }}</label>
                     <select class="form-control" name="unit_id" id="unit_id">
+                        <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['units'] as $unit)
-                            <option value="{{ $unit->id }}" style="text-align: center">{{ $unit->unit_name }}</option>
-
+                            <option value="{{ $unit->id }}" style="text-align: center" {{ $subjectUnitDoctor->subject->unit->id == $unit->id ? 'selected' : ''}}>{{ $unit->unit_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -64,8 +67,9 @@
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
-                        <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
-                        <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
+                        <option value="">{{ trans('admin.select') }}</option>
+                        <option value="ربيعيه" style="text-align: center" {{ $subjectUnitDoctor->period == 'ربيعيه' ? 'selected' : '' }} >{{ trans('admin.autumnal') }}</option>
+                        <option value="خريفيه" style="text-align: center" {{ $subjectUnitDoctor->period == 'خريفيه' ? 'selected' : '' }}>{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
 
@@ -74,7 +78,7 @@
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.year')  }}</label>
 
-                    <input type="number" class="form-control" name="year" id="year">
+                    <input type="number" class="form-control" name="year" id="year" value="{{$subjectUnitDoctor->year}}">
 
                 </div>
 
@@ -82,8 +86,9 @@
                 <div class="col-md-6">
                     <label for="user_id" class="form-control-label">{{ trans('admin.doctor') }}</label>
                     <select name="user_id" class="form-control">
+                        <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center">{{ $user->first_name }}</option>
+                            <option   value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name ." ". $user->last_name }}</option>
                         @endforeach
                     </select>
                 </div>

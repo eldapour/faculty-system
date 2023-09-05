@@ -72,6 +72,7 @@
                 <div class="col-md-6">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
@@ -79,6 +80,7 @@
                 <div class="col-md-6">
                       <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
                         <option value="استدراكيه" style="text-align: center">{{ trans('admin.remedial') }}</option>
                     </select>
@@ -120,6 +122,7 @@
             success: function(data) {
                 if (data !== 404) {
                     $('select[name="department_branch_id"]').empty();
+                    $('select[name="department_branch_id"]').append('  <option value="" selected >@lang('admin.select')</option>')
                     $.each(data, function(key, value) {
                         $('select[name="department_branch_id"]').append('<option value="' +
                             key + '">' + value + '</option>');

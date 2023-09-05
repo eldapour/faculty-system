@@ -17,6 +17,7 @@
                 <div class="col-md-6 col-12">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="ربيعيه" style="text-align: center">{{ trans('admin.autumnal') }}</option>
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
@@ -26,11 +27,12 @@
 
                     <div class="form-group">
                         <label for="email" class="form-control-label">{{trans('deadline.year')}}</label>
-                        <select name="year" class="form-control" id="year">
+                        {{-- <select name="year" class="form-control" id="year">
                             @for($year = 2023; $year < \Carbon\Carbon::now()->year +50 ; $year++)
                                 <option value="{{ $year }}">{{ $year }}</option>
                             @endfor
-                        </select>
+                        </select> --}}
+                        <input type="number" name="year" class="form-control" id="year">
                     </div>
 
                 </div>
@@ -39,6 +41,7 @@
                 <div class="col-md-12 col-12">
                     <label for="period" class="form-control-label">{{trans('deadline.deadline_type')}}</label>
                     <select name="deadline_type" class="form-control">
+                        <option value="" selected disabled>@lang('admin.select')</option>
                         <option value="1" style="text-align: center">{{trans('deadline.process_exam')}}</option>
                         <option value="0" style="text-align: center">{{trans('deadline.process_degree')}}</option>
                     </select>

@@ -9,6 +9,8 @@ return [
 
     // General
     "home" => "الرئيسية",
+    "reregister_start" => "تاريخ بداية عملية التسجيل",
+    "reregister_end" => "تاريخ انتهاء عملية التسجيل",
     "actions" => "العمليات",
     "search" => "بحث",
     "sure_delete" => "هل انت متأكد من حذف",
@@ -113,6 +115,7 @@ return [
     "update" => "تحديث ",
     "close" => "اغلاق ",
     "delete_confirm" => "هل انت متاكد من حذف ",
+    "confirm" => "تأكيد",
 
 
 
@@ -134,10 +137,10 @@ return [
     // Internal Ad
     "ad" => "اعلان",
     "ads" => "اعلانات الموقع",
-    "internal_ads" => "اعلانات داخلية",
     "date" => "تاريخ",
     "time_ads" => "توقيت الاعلان",
     "url_ads" => "رابط الاعلان",
+    "image_ads" => "صورة الاعلان",
 
     // Department
     "departments" => "المسالك",
@@ -343,6 +346,7 @@ return [
 
     //Element
     'element' => 'العنصر البيداغوجي',
+    'element_code' => 'كود العنصر البيداغوجي',
     'elements' => 'العنصر البيداغوجي',
 
     // Process Degrees
@@ -407,7 +411,10 @@ return [
 
     // data modification
     "data_modify" => "طلب تعديل البيانات",
-
+    "back" => "رجوع",
+    "working" => "يتم التحميل",
+    "there_is_an_error" => "هنالك خطأ",
+    'delete_data' => 'حذف بيانات',
     'last_name' => 'الاسم العائلي',
     'first_name' => 'الاسم الشخصي',
     'last_name_latin' => 'الاسم العائلي بالاثينية',
@@ -538,7 +545,6 @@ return [
     "year_name_" => "السنه الدراسيه",
     "period_name_" => "الفتره",
 
-    "unit_name_" => "الفصل",
     "doctor_name_" => "الاستاذ",
     "day_name_" => "اليوم",
     "date_" => "التاريخ",
@@ -583,7 +589,19 @@ return [
     "reset_password" => "تغيير كلمه المرور",
 
     "counter" => "احصائيات الاداره في الموقع",
-    "internal_ads" => "الاعلانات الداخلية"
+    "internal_ads" => "الاعلانات الداخلية",
+    "reregister_the_track_start" => "بداية  اعادة تسجيل المسلك",
+    "reregister_the_track_end" => "نهاية  اعادة تسجيل المسلك",
+    "Those_concerned_with_evidence_and_diploma" => " المعنيون بالشواهد والدبلوم",
+    "displayed_successfully" => "تم الاظهار بنجاح",
+    "activation_has_been_deactivated" => "تم الغاء التفعيل",
+    "success" => "نجاح",
+    "official_professor" => "أستاذ رسمي",
+    "visiting_professor" => "أستاذ زائر",
+    "document_requests" => "طلبات الوثائق",
+    "requests_redress" => "طلبات الاستدراك",
+    "point_processing_requests" => "طلبات معالجه النقط",
+    "units_of_the_current_period" => "وحدات الفتره الحاليه",
 
 
 

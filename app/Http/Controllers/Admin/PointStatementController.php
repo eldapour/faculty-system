@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\PointStatementExport;
 use App\Http\Controllers\Controller;
 use App\Imports\PointStatementImport;
+use App\Models\Element;
 use App\Models\PointStatement;
 use App\Models\User;
 use Exception;
@@ -25,8 +26,8 @@ class PointStatementController extends Controller
             return Datatables::of($points)
                 ->addColumn('action', function ($points) {
                     return '
-                            <button type="button" data-id="' . $points->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' type="button" data-id="' . $points->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' . (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') . ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $points->id . '" data-title="">
                                     <i class="fas fa-trash"></i>
                             </button>
@@ -35,8 +36,15 @@ class PointStatementController extends Controller
                 ->editColumn('user_id',function ($points){
                     return $points->user->first_name . ' ' . $points->user->last_name;
                 })
+                ->editColumn('element_id',function ($points){
+                    return $points->element->name_ar;
+                })
                 ->editColumn('identifier_id',function ($points){
                     return $points->user->identifier_id;
+                })
+               ->addColumn('element_name',function ($points){
+                   $element = Element::where(['element_code'=>$points->element_code])->first();
+                    return @$element->name_ar;
                 })
                 ->escapeColumns([])
                 ->make(true);

@@ -17,6 +17,7 @@ return [
     'city_ar' => "the region of increase",
     'city_latin' => "Region of Increasing in Athens",
     'address' => "Address in Arabic",
+    'country_address_ar' => "Country Address AR",
     'country_address_en' => "country address",
     'country_address_latin' => "country address in Athens",
     'email' => 'e-mail',

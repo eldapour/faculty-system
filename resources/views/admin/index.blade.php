@@ -16,7 +16,7 @@
                         <div class="d-flex">
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ documentCountUser() }}</h2>
-                                <p class="text-white mb-0">عدد طلبات الوثائق</p></div>
+                                <p class="text-white mb-0">{{ trans('admin.document_requests') }}</p></div>
                             <div class="mr-auto">
                                 <i class="fe fe-users text-white fs-30 ml-2 mt-2"></i>
                             </div>
@@ -32,7 +32,7 @@
                         <div class="d-flex">
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ processExamCountUser() }}</h2>
-                                <p class="text-white mb-0">عدد طلبات الاستدراك</p></div>
+                                <p class="text-white mb-0">{{ trans('admin.requests_redress') }}</p></div>
                             <div class="mr-auto">
                                 <i class="fa fa-user-tie text-white fs-30 ml-2 mt-2"></i>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="d-flex">
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ processDegreeCountUser()  }}</h2>
-                                <p class="text-white mb-0">عدد طلبات معالجه النقط</p></div>
+                                <p class="text-white mb-0">{{ trans('admin.point_processing_requests') }}</p></div>
                             <div class="mr-auto">
                                 <i class="fa fa-user-secret text-white fs-30 ml-2 mt-2"></i>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="d-flex">
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ departmentStudentCount() }}</h2>
-                                <p class="text-white mb-0">عدد وحدات الفتره الحاليه</p></div>
+                                <p class="text-white mb-0">{{ trans('admin.units_of_the_current_period') }}</p></div>
                             <div class="mr-auto">
                                 <i class="fa fa-book text-white fs-30 ml-2 mt-2"></i>
                             </div>
@@ -96,7 +96,7 @@
 
                             <div class="text-white"><h2 class="mb-0 number-font">{{ internalAdsCount() }}</h2>
                                 <a href="{{ route('page', 15) }}"><p
-                                        class="text-white mb-0">{{ trans('admin.internal_ads') }}</p></a></div>
+                                        class="text-white mb-0">{{ trans('admin.annual_programming') }}</p></a></div>
                             <div class="mr-auto">
                                 <i class="fa fa-code text-white fs-30 ml-2 mt-2"></i>
                             </div>

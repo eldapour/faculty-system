@@ -36,6 +36,7 @@
                 <div class="col-md-6 mt-3">
                     <label for="category_id" class="form-control-label">{{ trans('admin.category') }}</label>
                     <select name="category_id" class="form-control" >
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         @foreach ($data['categories'] as $category)
                             <option value="{{ $category->id }}" style="text-align: center">
                                 {{ $category->getTranslation('category_name', app()->getLocale()) }}</option>
@@ -45,6 +46,7 @@
                 <div class="col-md-6 mt-3">
                     <label for="service_id" class="form-control-label">{{ trans('admin.service') }}</label>
                     <select name="service_id" class="form-control" >
+                        <option value="" selected>{{ trans('admin.select') }}</option>
                         @foreach ($data['services'] as $service)
                             <option value="{{ $service->id }}" style="text-align: center">
                                 {{ $service->getTranslation('service_name', app()->getLocale()) }}</option>

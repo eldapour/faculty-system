@@ -59,9 +59,11 @@
                             <?php
                             $data = getInformationUser();
 //                            dd($data);
+                            $user = \App\Models\User::where('id',auth()->id())->first();
                              ?>
                              @if(auth()->user()->user_type == 'student')
-                            <p class="student-info"> {{ @$data->department->department_name }} - {{ @$data->year }} - {{ @$data->period }}</p>
+                            <p class="student-info"> {{ @$data->department->department_name }} - {{ @$data->year }} - {{ @$data->period }} -
+                                {{ @$user->user_department_branch->branch->branch_name }}</p>
                             @endif
                             <!-- abdoss -->
                         </div>
@@ -79,7 +81,7 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="example-Modal3">{{ trans('admin.re_record_the_track') }} @lang('admin.period') ({{ $periods[0]->period_start_date }} - {{ $periods[0]->period_end_date }})</h5>
+                            <h5 class="modal-title" id="example-Modal3">{{ trans('admin.re_record_the_track') }} @lang('admin.period') ({{ $university_settings->reregister_start }} - {{ $university_settings->reregister_end }})</h5>
                         </div>
                         <div class="modal-body" id="RegisterForm-body">
 
@@ -95,7 +97,7 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="example-Modal3">{{ trans('admin.confirm_the_track') }} @lang('admin.period') ({{ $periods[0]->period_start_date }} - {{ $periods[0]->period_end_date }})</h5>
+                            <h5 class="modal-title" id="example-Modal3">{{ trans('admin.confirm_the_track') }} @lang('admin.period') ({{ $university_settings->reregister_start }} - {{ $university_settings->reregister_end }})</h5>
                         </div>
                         <div class="modal-body" id="RegisterTrackForm-body">
 

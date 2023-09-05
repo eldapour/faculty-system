@@ -7,6 +7,7 @@ use App\Http\Requests\ProcessExamRequest;
 use App\Models\Deadline;
 use App\Models\Period;
 use App\Models\ProcessExam;
+use App\Models\ReasonsRedress;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -69,6 +70,9 @@ class ProcessExamController extends Controller{
                 ->addColumn('identifier_id', function ($process_exams) {
                     return $process_exams->user->identifier_id;
                 })
+                ->addColumn('reason', function ($process_exams) {
+                    return $process_exams->reasonRedress->name;
+                })
 
                ->editColumn('user_id', function ($process_exams) {
                     return $process_exams->user->first_name . " " . $process_exams->user->last_name;
@@ -108,7 +112,9 @@ class ProcessExamController extends Controller{
 
     public function create_process_exam()
     {
-        return view('student.process_exam.parts.create');
+        $data['reasons'] = ReasonsRedress::get();
+
+        return view('student.process_exam.parts.create',$data);
     }
 
     public function store_process_exam(ProcessExamRequest $request): JsonResponse

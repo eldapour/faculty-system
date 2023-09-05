@@ -33,8 +33,8 @@ class ElementController extends Controller
                        ';
                 })
 
-                ->editColumn('department_id ', function ($elements) {
-                    return $elements->department->department_code;
+                ->addColumn('department_name', function ($elements) {
+                    return $elements->department->department_name;
 
                 })
                 ->escapeColumns([])

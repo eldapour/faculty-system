@@ -33,13 +33,20 @@ class UniversitySettingRequest extends FormRequest
             'description_ar' => 'required',
             'description_en' => 'required',
             'description_fr' => 'required',
+            'colleges_digital_platform' => 'required',
+            'colleges_digital_magazine' => 'required',
+            'digital_student_platform' => 'nullable',
             'address_ar' => 'required',
             'address_en' => 'required',
             'address_fr' => 'required',
             'facebook_link' => 'required',
             'whatsapp_link' => 'required',
             'youtube_link' => 'required',
+            'reregister_start' => 'required|before_or_equal:reregister_end',
+            'reregister_end' => 'required',
             'phone' => 'required',
+            'reregister_the_track_start' => 'required|before_or_equal:reregister_the_track_end',
+            'reregister_the_track_end' => 'required',
         ];
     }
 }

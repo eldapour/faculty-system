@@ -23,14 +23,20 @@ class SliderRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title.ar' => 'required',
             'title.en' => 'required',
             'title.fr' => 'required',
             'description.ar' => 'required',
             'description.en' => 'required',
             'description.fr' => 'required',
-            'image' => 'image|required',
         ];
+
+        // Check if a new image is being uploaded
+        if ($this->hasFile('image')) {
+            $rules['image'] = 'image|required';
+        }
+
+        return $rules;
     }
 }
