@@ -38,7 +38,7 @@ class SubjectExamStudentController extends Controller {
                     return  $subject_exams->subject->subject_name;
                 })
                 ->addColumn('group_id', function ($subject_exams) {
-                    return $subject_exams->group->group_name;
+                    return $subject_exams->group->group_name ?? '';
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {
