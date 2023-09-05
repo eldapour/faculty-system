@@ -49,7 +49,7 @@
                     <input class="" type="text" value="0" hidden name="confirm_request"/>
                     <label class="tgl-btn">@lang('admin.department_restart_register')</label>
                     <input class="tgl tgl-ios" id="cb2"
-                           {{ $departmentStudent->confirm_request == 1 ? 'selected' : '' }}
+                           {{ $departmentStudent->confirm_request == 1 ? 'checked' : '' }}
                            type="checkbox" value="1" name="confirm_request"/>
                     <label class="tgl-btn" dir="ltr" for="cb2"></label>
                 </div>

@@ -35,10 +35,12 @@ class SubjectExamStudentController extends Controller {
                     return  Auth::user()->identifier_id;
                 })
                 ->addColumn('code', function ($subject_exams) {
-                    return  $subject_exams->subject->code;
+                    return  $subject_exams->subject->subject_name;
                 })
+
                 ->editColumn('group_id', function ($subject_exams) {
                     return $subject_exams->group->group_name;
+
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {

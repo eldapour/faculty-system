@@ -39,10 +39,15 @@ class DepartmentStudentController extends Controller
                     return $departmentStudent->department->department_name;
                 })
                 ->editColumn('confirm_request', function ($departmentStudent) {
-                    return '<input class="tgl tgl-ios like_active" disabled
-                     id="like-' . $departmentStudent->id . '" type="checkbox" ' .
-                        ($departmentStudent->confirm_request == 1 ? 'checked' : 'unchecked') . '/>
-                  <label class="tgl-btn" dir="ltr" for="like-' . $departmentStudent->id . '"></label>';
+                    if ($departmentStudent->confirm_request == 1){
+                        return '<input class="tgl tgl-ios like_active" disabled
+                     id="like-' . $departmentStudent->id . '" type="checkbox" checked />
+                    <label class="tgl-btn" dir="ltr" for="like-' . $departmentStudent->id . '"></label>';
+                    } else {
+                        return '<input class="tgl tgl-ios like_active" disabled
+                     id="like-' . $departmentStudent->id . '" type="checkbox" />
+                    <label class="tgl-btn" dir="ltr" for="like-' . $departmentStudent->id . '"></label>';
+                    }
                 })
                 ->editColumn('user_id', function ($departmentStudent) {
                     return $departmentStudent->user->identifier_id;

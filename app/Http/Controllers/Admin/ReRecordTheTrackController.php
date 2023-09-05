@@ -30,7 +30,6 @@ class ReRecordTheTrackController extends Controller
             ->join('units', 'units.id', '=', 'subjects.unit_id')
             ->join('subject_unit_doctors', 'subject_unit_doctors.subject_id', '=', 'subject_students.subject_id')
             ->join('users', 'users.id', '=', 'subject_unit_doctors.user_id')
-//            ->join('groups', 'subjects.group_id', '=', 'groups.id')
             ->where('subject_students.user_id', '=', auth()->user()->id)
             ->where('subject_students.period', '=', $period->period)
             ->whereYear('subject_students.created_at', '=', $period->year_start)
