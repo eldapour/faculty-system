@@ -36,14 +36,14 @@ class PointStatementController extends Controller
                 ->editColumn('user_id',function ($points){
                     return $points->user->first_name . ' ' . $points->user->last_name;
                 })
-                ->editColumn('element_id',function ($points){
+                ->addColumn('element_name',function ($points){
                     return $points->element->name_ar;
+                })
+                ->addColumn('element_code',function ($points){
+                    return $points->element->element_code;
                 })
                 ->editColumn('identifier_id',function ($points){
                     return $points->user->identifier_id;
-                })
-                ->editColumn('element_id',function ($points){
-                    return $points->element->element_code;
                 })
 
                 ->editColumn('element_name',function ($points){
