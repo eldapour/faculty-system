@@ -35,7 +35,6 @@ class SubjectUnitDoctorController extends Controller
                        ';
                 })
                 ->editColumn('user_id', function ($subject_unit_doctors) {
-
                     return '<td>' . $subject_unit_doctors->doctor->first_name . ' ' . $subject_unit_doctors->doctor->last_name . '</td>';
                 })
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
