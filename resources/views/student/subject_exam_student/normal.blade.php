@@ -32,7 +32,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('subject_student_data.id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.identifier_id')}}</th>
-                                <th class="min-w-25px">{{trans('subject_student_data.subject_code')}}</th>
+                                <th class="min-w-25px">{{trans('admin.subject_name_')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.group_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_day')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_date')}}</th>

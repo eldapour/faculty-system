@@ -51,7 +51,7 @@ class SubjectExamStudentResultController extends Controller
                      return @$subject_exam_student_results->subject->unit->unit_code;
                  })
 
-                ->addColumn('doctor_id', function ($subject_exam_student_results) {
+                ->addColumn('doctor', function ($subject_exam_student_results) {
                     $period = Period::query()
                         ->where('status','=','start')
                         ->first();
@@ -101,39 +101,31 @@ class SubjectExamStudentResultController extends Controller
                 ->where('user_id','=',Auth::id())
                 ->where('year','=',$period->year_start)
                 ->get();
-
             return Datatables::of($subject_exam_student_results)
-
                 ->editColumn('user_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->user->first_name . " " . $subject_exam_student_results->user->last_name;
                 })
-
                 ->addColumn('identifier_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->user->identifier_id;
                 })
                 ->addColumn('subject_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->subject_name;
                 })
-
                 ->addColumn('group_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->group->group_name;
                  })
                 ->addColumn('unit_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->unit->unit_code;
                 })
-
                 ->addColumn('doctor_id', function ($subject_exam_student_results) {
                     $period = Period::query()
                         ->where('status','=','start')
                         ->first();
-
                     $doctor =  SubjectUnitDoctor::query()
                         ->where('subject_id','=',$subject_exam_student_results->subject_id)
                         ->where('year','=',$period->year_start)
                         ->first();
-
                     return @$doctor->doctor->first_name . " " . @$doctor->doctor->last_name;
-
                 })
                 ->addColumn('add_request', function ($subject_exam_student_results) use ($period)  {
                     $processing_request = Deadline::where('deadline_type','0')->where('deadline_date_start','<=', Carbon::now())->where('deadline_date_end','>=', Carbon::now())->count();
