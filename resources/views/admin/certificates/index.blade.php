@@ -41,6 +41,8 @@
 
                                 <th class="min-w-25px">{{trans('certificate.id')}}</th>
                                 <th class="min-w-50px"> {{ trans('certificate.identifier_id') }}</th>
+                                <th class="min-w-25px">{{trans('point_statement.user')}}</th>
+
                                 <th class="min-w-50px"> {{ trans('certificate.diploma_name') }}</th>
                                 <th class="min-w-50px"> {{ trans('certificate.diploma_year') }}</th>
                                 <th class="min-w-50px"> {{ trans('certificate.year') }}</th>
@@ -146,6 +148,7 @@
         var columns = [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'identifier_id', name: 'identifier_id'},
+            {data: 'user_id', name: 'user_id'},
             {data: 'diploma_name', name: 'diploma_name'},
             {data: 'validation_year', name: 'validation_year'},
             {data: 'year', name: 'year'},

@@ -35,6 +35,7 @@
 
                                     <th class="min-w-50px">{{ trans('process_exams.id') }}</th>
                                     <th class="min-w-50px">{{ trans('process_exams.identifier_id') }}</th>
+                                    <th class="min-w-25px">{{trans('point_statement.user')}}</th>
                                     <th class="min-w-50px">{{ trans('process_exams.attachment_file') }}</th>
                                     <th class="min-w-50px">{{ trans('process_exams.period') }}</th>
                                     <th class="min-w-50px">{{ trans('process_exams.university_year') }}</th>
@@ -143,6 +144,10 @@
             {
                 data: 'identifier_id',
                 name: 'identifier_id'
+            },
+            {
+                data: 'user_id',
+                name: 'user_id'
             },
             {
                 data: 'attachment_file',

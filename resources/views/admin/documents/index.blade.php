@@ -38,6 +38,8 @@
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th class="min-w-25px">{{ trans('document.id') }}</th>
                                     <th class="min-w-25px">{{ trans('document.identifier_id') }}</th>
+                                    <th class="min-w-25px">{{trans('point_statement.user')}}</th>
+
                                     <th class="min-w-25px">{{ trans('document.university_year') }}</th>
                                     <th class="min-w-25px">{{ trans('document.document_type_id') }}</th>
                                     <th class="min-w-25px">{{ trans('document.withdraw_by_proxy') }}</th>
@@ -150,6 +152,10 @@
             {
                 data: 'identifier_id',
                 name: 'identifier_id'
+            },
+            {
+                data: 'user_id',
+                name: 'user_id'
             },
             {
                 data: 'university_year',

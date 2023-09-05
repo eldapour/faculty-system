@@ -3,14 +3,10 @@
 namespace App\Exports;
 
 use App\Models\PointStatement;
-use App\Models\SubjectExamStudent;
-use App\Models\SubjectExamStudentResult;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
-
 
 class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSize
 
@@ -18,13 +14,11 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
     public function headings(): array
     {
         return [
-            '#',
-            'user code',
-            'element code',
-            'student degree',
-            'element degree',
+            'user_code',
+            'element_code',
+            'student_degree',
+            'element_degree',
             'course',
-
             'year',
         ];
     }
@@ -36,22 +30,26 @@ class PointStatementExport implements FromCollection, WithHeadings,ShouldAutoSiz
     public function collection(): Collection
 
     {
-        $query = PointStatement::select('*')->get();
+
+        $query = PointStatement::query()
+        ->select('*')->get();
         $data = [];
-        foreach ($query as $index => $q) {
+        foreach ($query as  $q) {
             $query_data = [
-                '#' => $index+1,
-                'user code' => $q->user->identifier_id,
-                'element code' => $q->element_id,
-                'student degree' => $q->degree_student,
-                'element degree' => $q->degree_element,
+                'user_code' => $q->user->identifier_id,
+                'element_code' => $q->element_id,
+                'student_degree' => $q->degree_student,
+                'element_degree' => $q->degree_element,
                 'course' => $q->course,
                 'year' => $q->year,
             ];
             $data[] = $query_data;
         }
 
+//        dd($data);
         return collect([$data]);
 
     }
+
+
 }

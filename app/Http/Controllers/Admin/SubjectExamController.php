@@ -32,7 +32,6 @@ class SubjectExamController extends Controller
                 ->first();
 
             $subject_exams = SubjectExam::query()
-                ->where('session', '=', $period->session)
                 ->where('year', '=', $period->year_start)
                 ->get();
 

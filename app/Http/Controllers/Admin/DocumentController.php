@@ -89,6 +89,9 @@ class DocumentController extends Controller
                    return $documents->document_type->getTranslation('document_name', app()->getLocale());
 
                 })
+                ->editColumn('user_id',function ($documents){
+                    return $documents->user->first_name . ' ' . $documents->user->last_name;
+                })
 
                 ->escapeColumns([])
                 ->make(true);
