@@ -6,8 +6,8 @@ $university_settings= UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Content de te revoir',
     'language' => 'Langue',
-    "reregister_start" => "date de commencer de réinscription",
-    "reregister_end" => "date de fin de réinscription",
+    "reregister_start" => "Réenregistrer le départ de la piste",
+    "reregister_end" => "Réenregistrer la fin de la piste",
     // General
     "home" => 'Maison',
     "actions" => "Actions",
@@ -586,8 +586,8 @@ return [
     "remaining_days" => "jours restants",
     "reset_password" => "Modifier le mot de passe",
     "counter" => "statistiques de gestion du site",
-    "reregister_the_track_start" => "Réenregistrer le départ de la piste",
-    "reregister_the_track_end" => "Réenregistrer la fin de la piste",
+    "reregister_the_branch_start" => "Réenregistrer la branche Démarrer",
+    "reregister_the_branch_end" => "Réenregistrer la branche Fin",
     "Those_concerned_with_evidence_and_diploma" => "Ceux qui sont concernés par les preuves et les diplômes",
     "time_ads" => "Annonces temporelles",
     "displayed_successfully" => "Affiché avec succès",
