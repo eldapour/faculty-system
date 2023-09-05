@@ -130,26 +130,12 @@
         $user = \App\Models\User::where('id',auth()->user()->id)->first();
 
     @endphp
-
-    @if($reregistration)
-    @if($reregistration->branch_restart_register == 0 && isset($user->user_department->confirm_request) && $user->user_department->confirm_request != 0)
-    $(document).ready(function () {
-        if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_end > \Carbon\Carbon::now() }}) {
-            $('#RegisterForm-body').html(loader)
-            $('#RegisterForm').modal('show')
-            setTimeout(function () {
-                $('#RegisterForm-body').load('{{ route('reregisterForm') }}')
-            }, 250)
-        }
-    })
-
-    @endif
-    @endif
     @if(auth()->user()->user_type == 'student')
 
+        // form track
         @if($user->user_department->confirm_request == 0 )
         $(document).ready(function () {
-            if ({{ auth()->user()->user_type == 'student' && $university_settings->reregister_the_track_end > \Carbon\Carbon::now() }}) {
+            if ({{ $university_settings->reregister_the_track_end > \Carbon\Carbon::now() }}) {
                 $('#RegisterTrackForm-body').html(loader)
                 $('#RegisterFormTrack').modal('show')
                 setTimeout(function () {
@@ -158,12 +144,40 @@
             }
         })
         @endif
+
+        // form branch
+        @if($reregistration)
+            @if($reregistration->branch_restart_register == 0 && isset($user->user_department->confirm_request) && $user->user_department->confirm_request != 0)
+            $(document).ready(function () {
+                if ({{ $university_settings->reregister_end > \Carbon\Carbon::now() }}) {
+                    $('#RegisterForm-body').html(loader)
+                    $('#RegisterForm').modal('show')
+                    setTimeout(function () {
+                        $('#RegisterForm-body').load('{{ route('reregisterForm') }}')
+                    }, 250)
+                }
+            })
+
+            @endif
+        @endif
     @endif
 
 
     $(document).ready(function () {
         // Get the modal
         var modal = $('#RegisterForm');
+
+        $(window).click(function (event) {
+            if (event.target == modal[0]) {
+                // Modal cannot be closed
+                return false;
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        // Get the modal
+        var modal = $('#RegisterFormTrack');
 
         $(window).click(function (event) {
             if (event.target == modal[0]) {
