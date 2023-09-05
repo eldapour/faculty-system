@@ -13,15 +13,16 @@ class PointStatementImport implements ToCollection, WithHeadingRow
     public function collection(Collection $rows): void
     {
 //        dd($rows);
-        PointStatement::select('*')->delete();
-        $data = [];
+        PointStatement::query()->select('*')->delete();
+
         for ($i = 0; $i < count($rows); $i++) {
-            $user = User::where('user_type', '=', 'student')
+            $user = User::query()
+            ->where('user_type', '=', 'student')
                 ->where('identifier_id', $rows[$i]['user_code'])->first('id');
 
             PointStatement::create([
                 'user_id' =>$user->id,
-                'element_id' =>$rows[$i]['element_id'],
+                'element_id' =>$rows[$i]['element_code'],
                 'degree_student' =>$rows[$i]['student_degree'],
                 'degree_element' =>$rows[$i]['element_degree'],
                 'course' =>$rows[$i]['course'],
@@ -29,4 +30,4 @@ class PointStatementImport implements ToCollection, WithHeadingRow
             ]);
         }
     }
-} // end class
+}

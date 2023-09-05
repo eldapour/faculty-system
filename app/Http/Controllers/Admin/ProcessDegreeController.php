@@ -341,8 +341,8 @@ class ProcessDegreeController extends Controller
                 ->make(true);
         } else {
             return view('admin.process_degrees.catch_up');
-        } // end if
-    } // end method
+        }
+    }
 
     public function export()
     {

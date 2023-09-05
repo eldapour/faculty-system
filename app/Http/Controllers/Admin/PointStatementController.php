@@ -45,6 +45,11 @@ class PointStatementController extends Controller
                 ->editColumn('identifier_id',function ($points){
                     return $points->user->identifier_id;
                 })
+
+                ->editColumn('element_name',function ($points){
+                    return lang() == 'ar' ? $points->element->name_ar : $points->element->name_latin;
+                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {

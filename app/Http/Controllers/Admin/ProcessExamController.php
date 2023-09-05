@@ -33,13 +33,12 @@ class ProcessExamController extends Controller
     {
         if ($request->ajax()) {
 
-            $period = \App\Models\Period::query()
+            $period = Period::query()
                 ->where('status','=','start')
                 ->first();
 
             $process_exams = ProcessExam::query()
                 ->where('year','=',$period->year_start)
-                ->where('period','=',$period->period)
                 ->latest()
                 ->get();
 
@@ -69,7 +68,9 @@ class ProcessExamController extends Controller
                                 <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
                             </select></td>';
                 })
-
+                ->editColumn('user_id',function ( $process_exams){
+                    return  $process_exams->user->first_name . ' ' .  $process_exams->user->last_name;
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -86,7 +87,6 @@ class ProcessExamController extends Controller
 
         $process_exam_students = ProcessExam::query()
                 ->where('user_id', '=', Auth::id())
-                ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year_start)
                 ->get();
 

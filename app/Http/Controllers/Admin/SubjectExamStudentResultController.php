@@ -36,7 +36,6 @@ class SubjectExamStudentResultController extends Controller
                 ->where('year','=',$period->year_start)
                 ->get();
 
-                // dd($subject_exam_student_results);
 
             return Datatables::of($subject_exam_student_results)
                 ->addColumn('action', function ($subject_exam_student_results) {

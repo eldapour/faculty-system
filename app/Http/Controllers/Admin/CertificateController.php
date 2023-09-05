@@ -119,6 +119,9 @@ class CertificateController extends Controller
                     return $certificates->user->identifier_id;
 
                 })
+                ->editColumn('user_id',function ($certificates){
+                    return $certificates->user->first_name . ' ' . $certificates->user->last_name;
+                })
                 ->escapeColumns([])
                 ->addIndexColumn()
                 ->make(true);
