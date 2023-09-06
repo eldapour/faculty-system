@@ -24,6 +24,7 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">#</th>
+                                <th class="min-w-25px">{{ trans('admin.identifier_id') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.student') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.session') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.date') }}</th>
@@ -33,8 +34,9 @@
                             @forelse($history as $h)
                             <tr>
                                 <td>{{ $h->id }}</td>
-                                <td>{{ $h->user->first_name }}</td>
-                                <td>{{ $h->session }}</td>
+                                <td>{{ $h->user->identifier_id }}</td>
+                                <td>{{ $h->user->first_name . " " . $h->user->last_name }}</td>
+                                <td>{{ $h->period }}</td>
                                 <td>{{ $h->created_at->format('d/m/Y') }}</td>
                             </tr>
                             @empty

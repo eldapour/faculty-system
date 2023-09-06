@@ -52,17 +52,14 @@ class ProcessDegreeController extends Controller
                 ->addColumn('subject', function ($process_degrees) {
                     return '<td>' . @$process_degrees->subject->subject_name . '</td>';
                 })
-                ->addColumn('doctor', function ($process_degrees) {
-                    return '<td>' . @$process_degrees->doctor->first_name . '</td>';
-                })
                 ->addColumn('identifier_id', function ($process_degrees) {
                     return $process_degrees->user->identifier_id;
                 })
                 ->addColumn('student_name', function ($process_degrees) {
                     return $process_degrees->user->first_name." ".$process_degrees->user->last_name;
                 })
-                ->addColumn('doctor_name', function ($process_degrees) {
-                    return @$process_degrees->doctor->first_name." ".@$process_degrees->doctor->last_name;
+                ->editColumn('doctor_id', function ($process_degrees) {
+                    return $process_degrees->doctor->first_name." ". $process_degrees->doctor->last_name;
                 })
                 ->addColumn('request_date', function ($process_degrees) {
                     return $process_degrees->created_at->format('Y-m-d');
@@ -272,8 +269,8 @@ class ProcessDegreeController extends Controller
                         <i class="fas fa-trash"></i>
                     </button>';
                 })
-                ->addColumn('user_id', function () {
-                    return '<td>' . auth()->user()->first_name . '</td>';
+                ->addColumn('user_id', function ($process_degrees) {
+                    return '<td>' .$process_degrees->user->first_name . " " .$process_degrees->user->last_name. '</td>';
                 })
                 ->addColumn('request_status', function ($process_degrees) {
                     if ($process_degrees->request_status === 'refused') {
