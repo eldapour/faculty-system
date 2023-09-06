@@ -421,42 +421,35 @@
 
             <li class="slide">
                 <a class="side-menu__item" href="{{url('dashboard')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-tachometer-alt side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.dashboard') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('profile')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-user side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.profile') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('subject-student-all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-paper-plan side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.subjects_students') }}</span>
                 </a>
             </li>
 
-            {{--                <li class="slide">--}}
-            {{--                    <a class="side-menu__item" href="#">--}}
-            {{--                        <i class="fe fe-file-text side-menu__icon"></i>--}}
-            {{--                        <span class="side-menu__label">{{ trans('student_sidebar.department_student') }}</span>--}}
-            {{--                    </a>--}}
-            {{--                </li>--}}
-
             <li class="slide">
                 <a class="side-menu__item" href="{{route('schedules.students.all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-clock side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.schedules') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('indexDoctor')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-hand side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.advertisements') }}</span>
                 </a>
             </li>

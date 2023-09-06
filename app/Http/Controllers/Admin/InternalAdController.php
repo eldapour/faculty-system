@@ -173,7 +173,7 @@ class InternalAdController extends Controller
 
     public function indexDoctor()
     {
-        $ads = InternalAd::get();
+        $ads = InternalAd::latest()->get();
         return view('admin.internal_ads.internal_ads_doctor.index',compact('ads'));
     }
 
