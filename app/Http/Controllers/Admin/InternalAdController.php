@@ -169,7 +169,7 @@ class InternalAdController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }// Function End
+    }// Function 
 
     public function indexDoctor()
     {
