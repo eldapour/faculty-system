@@ -22,7 +22,7 @@
                     <div style="direction: rtl">
                         <?php
                             $arr = ['primary'];
-                        ?>x 
+                        ?>
                         @foreach($ads as $index => $ad)
                             <div class="row mb-3">
                                 <div class="col-sm-3 col-12">
