@@ -112,7 +112,7 @@ class InternalAdController extends Controller
 
     if ($request->hasFile('url_ads')) {
         $file = $request->file('url_ads');
-        $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'photo');
+        $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'pdf');
     }
     // dd($inputs);
     if (InternalAd::create($inputs)) {
@@ -134,6 +134,11 @@ class InternalAdController extends Controller
     public function update(InternalAdUpdateRequest $request,InternalAd $internalAd)
     {
         $inputs = $request->all();
+
+        if ($request->hasFile('url_ads')) {
+            $file = $request->file('url_ads');
+            $inputs['url_ads'] = $this->saveImage($file, 'uploads/internal_ads', 'pdf');
+        }
 
         if ($internalAd->update($inputs)) {
             return response()->json(['status' => 200]);

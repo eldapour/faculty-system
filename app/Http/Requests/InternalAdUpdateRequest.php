@@ -31,12 +31,11 @@ class InternalAdUpdateRequest extends FormRequest
         "description.en" => 'required',
         "description.fr" => 'required',
         "time_ads" => 'required',
+        "url_ads" => 'nullable|file|mimetypes:application/pdf',
         "service_id" => 'required|exists:services,id',
     ];
 
-    if ($this->hasFile('url_ads')) {
-        $rules['url_ads'] .= '|mimes:png,jpg';
-    }
+
 
     return $rules;
 }

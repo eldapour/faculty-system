@@ -43,6 +43,7 @@ class ProcessDegreeController extends Controller
                         return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
                     } else {
                         return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
+                         <option selected disabled   value="">' . trans('admin.select') . '</option>
                             <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
                             <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
                             <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>
@@ -325,6 +326,7 @@ class ProcessDegreeController extends Controller
                         return '<td><a class="btn btn-success text-white">' . trans('admin.accept') . '</a></td>';
                     } else {
                         return '<select class="form-control" data-id="' . $process_degrees->id . '" onchange="updateRequestStatus(this, ' . $process_degrees->id . ')">
+                            <option disabled   value="">' . trans('admin.select') . '</option>
                             <option ' . ($process_degrees->request_status == 'accept' ? "selected" : "") . ' value="accept">' . trans('admin.accept') . '</option>
                             <option ' . ($process_degrees->request_status == 'refused' ? "selected" : "") . ' value="refused">' . trans('admin.refused') . '</option>
                             <option ' . ($process_degrees->request_status == 'under_processing' ? "selected" : "") . ' value="under_processing">' . trans('admin.under_processing') . '</option>

@@ -34,11 +34,10 @@
                                 <th class="min-w-25px">{{trans('admin.period_start_date')}}</th>
                                 <th class="min-w-25px">{{trans('admin.period_end_date')}}</th>
                                 <th class="min-w-25px">{{trans('admin.period_name')}}</th>
-                                <th class="min-w-25px">{{trans('admin.session_name')}}</th>
                                 <th class="min-w-25px">{{trans('admin.year_start')}}</th>
                                 <th class="min-w-25px">{{trans('admin.year_end')}}</th>
                                 <th class="min-w-25px">{{trans('admin.status_period')}}</th>
-                                <th class="min-w-25px">{{trans('admin.action')}}</th>
+{{--                                <th class="min-w-25px">{{trans('admin.action')}}</th>--}}
 
                             </tr>
 
@@ -74,11 +73,10 @@
             {data: 'period_start_date', name: 'period_start_date'},
             {data: 'period_end_date', name: 'period_end_date'},
             {data: 'period', name: 'period'},
-            {data: 'session', name: 'season'},
             {data: 'year_start', name: 'year_start'},
             {data: 'year_end', name: 'year_end'},
             {data: 'status', name: 'status'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
+            // {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
 
 
@@ -179,8 +177,6 @@
 
             });
         });
-
-
 
     </script>
 

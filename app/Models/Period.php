@@ -15,7 +15,6 @@ class Period extends Model{
         'period_start_date',
         'period_end_date',
         'period',
-        'session',
         'year_start',
         'year_end',
         'status'

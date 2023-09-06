@@ -140,7 +140,7 @@ return [
     "date" => "تاريخ",
     "time_ads" => "توقيت الاعلان",
     "url_ads" => "رابط الاعلان",
-    "image_ads" => "صورة الاعلان",
+    "image_ads" => "مرفق الاعلان",
 
     // Department
     "departments" => "المسالك",
@@ -590,8 +590,8 @@ return [
 
     "counter" => "احصائيات الاداره في الموقع",
     "internal_ads" => "الاعلانات الداخلية",
-    "reregister_the_branch_start" => "بداية اعادة تسجيل المسار",
-    "reregister_the_branch_end" => "بداية اعادة تسجيل المسار",
+    "reregister_the_branch_start" => "تاريخ بدايه اختيار المسار",
+    "reregister_the_branch_end" => "تاريخ نهايه اختيار المسار",
     "Those_concerned_with_evidence_and_diploma" => " المعنيون بالشواهد والدبلوم",
     "displayed_successfully" => "تم الاظهار بنجاح",
     "activation_has_been_deactivated" => "تم الغاء التفعيل",

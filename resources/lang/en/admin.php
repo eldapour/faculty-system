@@ -150,7 +150,7 @@ return [
     "ad" => "Ad",
     "ads" => "Website Ads",
     "internal_ads" => "Internal Ads",
-    "image_ads" => "Image Ads",
+    "image_ads" => "Image Ads File",
 
     "time_ads" => "Time Ads",
     "url_ads" => "Url Ads",
@@ -585,8 +585,8 @@ return [
 
 
     "counter" => "site management statistics",
-        "reregister_the_branch_start" => "Reregister The branch Start",
-        "reregister_the_branch_end" => "Reregister The branch End",
+    "reregister_the_branch_start" => "registrar selection start date",
+    "reregister_the_branch_end" => "end date of route selection",
     "Those_concerned_with_evidence_and_diploma" => "Those concerned with evidence and diploma",
     "displayed_successfully" => "Displayed successfully",
     "activation_has_been_deactivated" => "Activation has been deactivated",
