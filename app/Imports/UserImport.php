@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Imports;
-
 use App\Models\Certificate;
-
 use App\Models\CertificateType;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
