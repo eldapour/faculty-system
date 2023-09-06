@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Translatable\HasTranslations;
 
 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
 
 
     /**
@@ -80,18 +80,18 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function types()
+    public function types(): BelongsTo
     {
         return $this->belongsTo(StudentType::class,'student_type_id','id');
     }
 
-    public function user_department()
+    public function user_department(): HasOne
     {
         $period = Period::where('status', 'start')->first();
         return $this->hasOne(DepartmentStudent::class)->where('period', '=', $period->period)
             ->where('year', '=', $period->year_start);
     }
-    public function user_department_branch()
+    public function user_department_branch(): HasOne
     {
         $period = Period::where('status', 'start')->first();
         return $this->hasOne(DepartmentBranchStudent::class);

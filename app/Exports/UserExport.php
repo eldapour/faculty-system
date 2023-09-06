@@ -11,9 +11,9 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 
-class UserExport implements FromCollection, WithHeadings, ShouldAutoSize
+class UserExport implements FromCollection, WithHeadings, ShouldAutoSize{
 
-{
+
     public function headings(): array
     {
         return [
