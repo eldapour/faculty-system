@@ -41,7 +41,6 @@ class SubjectExamStudentController extends Controller
                 ->first();
 
             $subject_exam_students = SubjectExamStudent::query()
-                ->where('period', '=', $period->period)
                 ->where('year', '=', $period->year_start)
                 ->get();
 
@@ -58,8 +57,15 @@ class SubjectExamStudentController extends Controller
                 ->addColumn('identifier_id', function ($subject_exam_students) {
                     return $subject_exam_students->user->identifier_id;
                 })
+                ->addColumn('group', function ($subject_exam_students) {
+                    return @$subject_exam_students->group->group_name;
+                })
                 ->addColumn('code', function ($subject_exam_students) {
                     return $subject_exam_students->subject->code;
+                })
+
+                ->addColumn('subject', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->subject_name;
                 })
                 ->escapeColumns([])
                 ->make(true);
@@ -150,7 +156,7 @@ class SubjectExamStudentController extends Controller
     public function exportSubjectExamStudent(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectExamStudentExport(), 'SubjectExamStudent.xlsx');
-    } // end exportSubjectExamStudent
+    }
 
 
     public function importSubjectExamStudent(Request $request): JsonResponse
@@ -161,7 +167,7 @@ class SubjectExamStudentController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end importSubjectExamStudent
+    }
 
     public function printSubjectExamStudent()
     {
@@ -182,7 +188,6 @@ class SubjectExamStudentController extends Controller
 
             $subject_exam_students = SubjectExamStudent::query()
                 ->where('period', '=', $period->period)
-                ->where('session','=','عاديه')
                 ->where('year', '=', $period->year_start)
                 ->get();
 
@@ -210,6 +215,13 @@ class SubjectExamStudentController extends Controller
                 })
                 ->addColumn('group_id', function ($subject_exam_students) {
                     return $subject_exam_students->group->group_name;
+                })
+                ->addColumn('subject', function ($subject_exam_students) {
+                    return $subject_exam_students->subject->subject_name;
+                })
+
+                ->addColumn('user_id', function ($subject_exam_students) {
+                    return $subject_exam_students->user->first_name . " " . $subject_exam_students->user->last_name;
                 })
                 ->escapeColumns([])
                 ->make(true);

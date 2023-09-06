@@ -70,7 +70,7 @@
                 <div class="col-md-6">
                     <label for="subject_id" class="form-control-label">{{ trans('admin.subject_choice') }}</label>
                     <select id="subject_id" class="form-control select2" name="subject_id[]"  multiple>
-                        
+
                     </select>
                 </div>
 
@@ -111,11 +111,17 @@
             },
             success: function(data) {
                 if (data !== 404) {
+
                     $('select[name="department_branch_id"]').empty();
+                    $('select[name="department_branch_id"]').append(
+
+                        '<option style="text-align: center" value="">Please Choose</option>'
+                    );
                     $.each(data, function(key, value) {
                         $('select[name="department_branch_id"]').append(
-                            '<option style="text-align: center" value="' + key + '">' +
-                            value + '</option>');
+
+                            ' <option style="text-align: center" value="' + key + '">' + value + '</option>'
+                        );
                     });
                 } else if (data === 404) {
                     $('select[name="department_branch_id"]').empty();

@@ -101,7 +101,7 @@
                 <div class="col-md-4">
                     <label for="year" class="form-control-label">{{ trans('admin.year') }}</label>
 
-                    <input type="number" class="form-control" name="year" id="year">
+                    <input type="number" class="form-control" name="year" id="year" value="{{$subjectExamStudent->year}}">
 
                 </div>
             </div>

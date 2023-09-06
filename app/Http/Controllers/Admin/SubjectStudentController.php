@@ -53,6 +53,9 @@ class SubjectStudentController extends Controller
                 ->editColumn('subject_id', function ($subject_students) {
                     return $subject_students->subject->subject_name;
                 })
+                ->editColumn('group_id', function ($subject_students) {
+                    return $subject_students->group->group_name;
+                })
                 ->addColumn('department', function ($subject_students) {
                     return $subject_students->subject->department->getTranslation('department_name',app()->getLocale());
                 })
@@ -89,6 +92,7 @@ class SubjectStudentController extends Controller
 
         if ($user->subjects()->syncWithPivotValues($request->subject_id,
             [
+                'group_id' => $request->group_id,
                 'year' => $request->year,
                 'period' => $request->period
             ]

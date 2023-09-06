@@ -37,8 +37,10 @@ class SubjectExamStudentController extends Controller {
                 ->addColumn('code', function ($subject_exams) {
                     return  $subject_exams->subject->subject_name;
                 })
-                ->addColumn('group_id', function ($subject_exams) {
+
+                ->editColumn('group_id', function ($subject_exams) {
                     return $subject_exams->group->group_name;
+
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {
@@ -100,11 +102,8 @@ class SubjectExamStudentController extends Controller {
                 ->addColumn('code', function ($subject_exams) {
                     return  $subject_exams->subject->code;
                 })
-                ->addColumn('group', function ($subject_exams) {
-                    $group_name = @SubjectStudent::where(['user_id'=>$subject_exams->user_id,
-                        'subject_id'=>$subject_exams->subject_id
-                        ,'year'=>$subject_exams->year])->first()->group;
-                    return $group_name ? $group_name->group_name : '';
+                ->editColumn('group_id', function ($subject_exams) {
+                    return $subject_exams->group->group_name;
                 })
 
                 ->addColumn('exam_code', function ($subject_exams) {
@@ -128,7 +127,7 @@ class SubjectExamStudentController extends Controller {
                         ->where('status','=','start')
                         ->first();
 
-                    return SubjectExamStudent::query()
+                    return @SubjectExamStudent::query()
                         ->where('session','=','استدراكيه')
                         ->where('year','=',$period->year_start)
                         ->where('user_id','=',Auth::id())

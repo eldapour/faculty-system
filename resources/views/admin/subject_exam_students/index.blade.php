@@ -56,7 +56,9 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th class="min-w-25px">{{trans('subject_exam.id')}}</th>
                                 <th class="min-w-50px">{{trans('subject_exam.identifier_id')}}</th>
+                                <th class="min-w-25px">{{trans('point_statement.user')}}</th>
                                 <th class="min-w-25px">{{ trans('subject_exam.subject_code') }}</th>
+                                <th class="min-w-25px">{{ trans('subject_exam_student_result.subject') }}</th>
                                 <th class="min-w-25px">{{ trans('subject_exam.group') }}</th>
                                 <th class="min-w-50px">{{ trans('subject_exam.university_year') }}</th>
                                 <th class="min-w-50px">{{ trans('subject_exam.exam_code') }}</th>
@@ -167,8 +169,10 @@
                 var columns = [
                     {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
+                    {data: 'user_id', name: 'user_id'},
                     {data: 'code', name: 'code'},
-                    {data: 'group_id', name: 'group_id'},
+                    {data: 'subject', name: 'subject'},
+                    {data: 'group', name: 'group'},
                     {data: 'year', name: 'year'},
                     {data: 'exam_code', name: 'exam_code'},
                     {data: 'section', name: 'section'},

@@ -153,7 +153,7 @@
                         <table>
                             <thead>
                             <tr>
-                                <th class="min-w-50px">{{ trans('admin.unit_name_') }}</th>
+                                <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.doctor_name_') }}</th>
@@ -174,7 +174,7 @@
                                 <td>{{ $subject->exam_day }}</td>
                                 <td>{{ $subject->exam_date }}</td>
                                 <td>{{$subject->time_start . ' - ' . $subject->time_end}}</td>
-                                <td>{{ $section->section }}</td>
+                                <td>{{ $section->section ?? '' }}</td>
                                 <td>{{ $exam_code->exam_code }}</td>
                             </tr>
                             @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\PointStatementExport;
 use App\Http\Controllers\Controller;
 use App\Imports\PointStatementImport;
+use App\Models\Element;
 use App\Models\PointStatement;
 use App\Models\User;
 use Exception;
@@ -35,12 +36,20 @@ class PointStatementController extends Controller
                 ->editColumn('user_id',function ($points){
                     return $points->user->first_name . ' ' . $points->user->last_name;
                 })
-                ->editColumn('element_id',function ($points){
+                ->addColumn('element_name',function ($points){
                     return $points->element->name_ar;
+                })
+                ->addColumn('element_code',function ($points){
+                    return $points->element->element_code;
                 })
                 ->editColumn('identifier_id',function ($points){
                     return $points->user->identifier_id;
                 })
+
+                ->editColumn('element_name',function ($points){
+                    return lang() == 'ar' ? $points->element->name_ar : $points->element->name_latin;
+                })
+
                 ->escapeColumns([])
                 ->make(true);
         } else {

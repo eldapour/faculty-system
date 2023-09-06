@@ -8,7 +8,7 @@ use Spatie\Translatable\HasTranslations;
 
 class UniversitySetting extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasTranslations;
 
     public array $translatable = ['title','description','address'];
 

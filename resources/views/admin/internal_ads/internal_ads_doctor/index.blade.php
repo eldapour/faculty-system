@@ -21,29 +21,29 @@
                 <div class="owl-carousel owl-theme" style="direction: ltr">
                     <div style="direction: rtl">
                         <?php
-                            $arr = ['success','primary','success','info','danger','dark'];
-                        ?>
+                            $arr = ['primary'];
+                        ?>x 
                         @foreach($ads as $index => $ad)
                             <div class="row mb-3">
-                                <div class="col-sm-2 col-12">
-                                    <div
-                                        class="card bg-{{ Arr::random($arr) }} img-card box-{{ Arr::random($arr) }}-shadow text-center text-white h-100">
-                                        <div class="card-body text-center text-white">
-                                            <h1 style="color: #125875">
+                                <div class="col-sm-3 col-12">
+                                    <div class="card bg-{{ Arr::random($arr) }} img-card box-{{ Arr::random($arr) }}-shadow text-center text-white h-100">
+                                        <a class="card-body title-ad text-center text-white" href="{{ route('detailsDoctor',$ad->id) }}">
+                                            <h1 style="color: white">
                                                 {{ $ad->title }}
                                             </h1>
-
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-sm-10 col-12 d-flex align-items-center">
-                                    <div>
+                                <div class="col-sm-9 col-12 d-flex flex-column justify-content-center">
+                                    <a style="display: block" href="{{ route('detailsDoctor',$ad->id) }}">
                                         <a href="{{ route('detailsDoctor',$ad->id) }}">
                                             <h4>{{ $ad->created_at->format('d') }}</h4>
                                             <h4>{{ $ad->created_at->format('D,Y') }}</h4>
                                         </a>
+                                        <a href="{{ route('detailsDoctor',$ad->id) }}" style="color: #1d357e">
                                         <p>{{ $ad->service->service_name }}</p>
-                                    </div>
+                                        </a>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

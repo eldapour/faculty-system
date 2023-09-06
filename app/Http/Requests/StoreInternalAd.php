@@ -31,7 +31,7 @@ class StoreInternalAd extends FormRequest
             "description.en" => 'required',
             "description.fr" => 'required',
             "time_ads" => 'required',
-            "url_ads" => 'required|mimes:png,jpg',
+            "url_ads" => 'required|file|mimetypes:application/pdf',
             "service_id" => 'required|exists:services,id',
         ];
     }

@@ -19,9 +19,6 @@
                     </select>
                 </div>
 
-
-                {{--المسلك--}}
-                {{-- @dd($subjectUnitDoctor->subject->department->department_code) --}}
                 <div class="col-md-6">
                     <label for="subject_name" class="form-control-label">{{ trans('admin.department') }} </label>
                     <select name="department_id" style="text-align: center" id=""
@@ -39,6 +36,7 @@
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
                         <option value="">{{ trans('admin.select') }}</option>
+                        <option value="{{ $subjectUnitDoctor->subject->department_branch->id }}" selected>{{ $subjectUnitDoctor->subject->department_branch->branch_name }}</option>
                     </select>
                 </div>
 
@@ -48,9 +46,7 @@
                     <label for="unit_id" class="form-control-label">{{ trans('admin.unit_name') }}</label>
                     <select class="form-control" name="unit_id" id="unit_id">
                         <option value="">{{ trans('admin.select') }}</option>
-                        @foreach ($data['units'] as $unit)
-                            <option value="{{ $unit->id }}" style="text-align: center" {{ $subjectUnitDoctor->subject->unit->id == $unit->id ? 'selected' : ''}}>{{ $unit->unit_name }}</option>
-                        @endforeach
+                        <option value="{{ $subjectUnitDoctor->subject->unit->id }}" selected>{{ $subjectUnitDoctor->subject->unit->unit_name }}</option>
                     </select>
                 </div>
 
@@ -59,7 +55,7 @@
                 <div class="col-md-6">
                     <label for="subject_id" class="form-control-label subject_id">{{ trans('admin.subject') }}</label>
                     <select name="subject_id" class="form-control" id="subject_id">
-
+                        <option value="{{ $subjectUnitDoctor->subject->id }}" selected>{{ $subjectUnitDoctor->subject->subject_name }}</option>
                     </select>
                 </div>
 
@@ -88,7 +84,7 @@
                     <select name="user_id" class="form-control">
                         <option value="">{{ trans('admin.select') }}</option>
                         @foreach ($data['users'] as $user)
-                            <option value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name }}</option>
+                            <option   value="{{ $user->id }}" style="text-align: center" {{ $subjectUnitDoctor->user_id == $user->id ? 'selected' : '' }}>{{ $user->first_name ." ". $user->last_name }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -24,19 +24,9 @@
                     </select>
                 </div>
 
-                <div class="col-md-12">
-                    <label for="period" class="form-control-label">{{ trans('admin.session_name') }}</label>
-                    <select name="session" class="form-control">
-                        <option value="" selected disabled>@lang('admin.select')</option>
-                        <option value="عاديه" style="text-align: center">{{ trans('admin.normal') }}</option>
-                        <option value="استدراكيه" style="text-align: center">{{trans('admin.remedial')}}</option>
-                    </select>
-                </div>
-
 
                 <div class="col-md-12">
                     <label for="group_name" class="form-control-label">{{ trans('admin.year_start')}} </label>
-
                     <input type="number" class="form-control" name="year_start" id="year_start">
 
 

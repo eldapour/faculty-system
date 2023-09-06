@@ -42,7 +42,7 @@
                     {{--                    <button class="btn btn-info btn-icon text-white mt-3">--}}
                     <a style="text-decoration: none;"
                        class="btn btn-info btn-icon text-white mt-3"
-                       href="{{ $ad->url_ads }}">
+                       href="{{ asset($ad->url_ads) }}">
                         <span>
                             	<i class="fe fe-download"></i>
                             	@lang('admin.url_ads')

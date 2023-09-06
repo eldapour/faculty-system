@@ -1,5 +1,5 @@
 <div class="modal-body">
-    <form id="updateForm" class="updateForm" method="POST" action="{{ route('internal_ads.update', $internalAd->id) }}">
+    <form id="updateForm" class="updateForm" enctype="multipart/form-data" method="POST" action="{{ route('internal_ads.update', $internalAd->id) }}">
         @csrf
         @method('PUT')
         <input type="hidden" value="{{ $internalAd->id }}" name="id">
@@ -7,9 +7,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="name" class="form-control-label">{{ trans('admin.image_ads') }}</label>
-                    <input type="file" class="dropify" name="url_ads" data-default-file=""
-                        accept="image/png, image/gif, image/jpeg,image/jpg" />
-                    <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+                    <input type="file" class="dropify" name="url_ads" data-default-file=""/>
+                    <span class="form-text text-danger text-center">accept only pdf</span>
                 </div>
             </div>
             <div class="row">

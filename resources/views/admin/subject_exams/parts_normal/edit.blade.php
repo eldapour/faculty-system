@@ -52,9 +52,17 @@
                     <label for="title" class="form-control-label">{{ trans('admin.exam_date') }}</label>
                     <input type="date" class="form-control" name="exam_date" value="{{$subjectExam->exam_date}}">
                 </div>
+                @php
+
+                    $days = ["الاثنين","الثلاثاء","الاربعاء","الخميس","الجمعة","السبت","الاحد"];
+                @endphp
                 <div class="col-md-6">
                     <label for="title" class="form-control-label">{{ trans('admin.exam_day') }}</label>
-                    <input type="text" class="form-control" name="exam_day" value="{{$subjectExam->exam_day}}">
+                    <select name="exam_day" class="form-control">
+                        @foreach($days as $day)
+                            <option value="{{$day}}" {{ ($day ==$subjectExam->exam_day) ? "selected": '' }} style="text-align: center">{{ $day }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="row">

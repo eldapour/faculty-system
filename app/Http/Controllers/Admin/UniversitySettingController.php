@@ -27,6 +27,7 @@ class UniversitySettingController extends Controller
     {
 
         $inputs = $request->all();
+
         if ($logo = $request->file('logo')) {
 
             $destinationPath = 'uploads/university_setting';

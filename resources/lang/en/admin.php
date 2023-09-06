@@ -7,8 +7,8 @@ $university_settings = UniversitySetting::all()->first();
 return [
     'welcome_back' => 'Welcome Back',
     'language' => 'Language',
-    "reregister_start" => "re register start date",
-    "reregister_end" => "re register end date",
+    "reregister_start" => "Reregister The Track Start",
+    "reregister_end" => "Reregister The Track End",
     // General
     "home" => 'Home',
     "actions" => "Actions",
@@ -83,6 +83,7 @@ return [
     'Document requests' => "Document requests",
     'Document requests types' => "Document requests types",
     'Those concerned with evidence and diploma' => "The applicant is in the wrong position",
+    'The applicant is in the wrong position' => "The applicant is in the wrong position",
     'Diploma certificates' => "Diploma certificates",
     'Student documents' => "Student documents",
     "exam" => "Exam",
@@ -149,7 +150,7 @@ return [
     "ad" => "Ad",
     "ads" => "Website Ads",
     "internal_ads" => "Internal Ads",
-    "image_ads" => "Image Ads",
+    "image_ads" => "Image Ads File",
 
     "time_ads" => "Time Ads",
     "url_ads" => "Url Ads",
@@ -360,6 +361,7 @@ return [
 
     //Element
     'element' => 'element',
+    'element_code' => 'element code',
     'elements' => 'elements',
 
     // Process Degrees
@@ -583,8 +585,8 @@ return [
 
 
     "counter" => "site management statistics",
-    "reregister_the_track_start" => "Reregister The Track Start",
-    "reregister_the_track_end" => "Reregister The Track End",
+    "reregister_the_branch_start" => "registrar selection start date",
+    "reregister_the_branch_end" => "end date of route selection",
     "Those_concerned_with_evidence_and_diploma" => "Those concerned with evidence and diploma",
     "displayed_successfully" => "Displayed successfully",
     "activation_has_been_deactivated" => "Activation has been deactivated",

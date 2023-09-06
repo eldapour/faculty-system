@@ -1,14 +1,13 @@
 <div class="modal-body">
-    <form id="addForm" class="addForm" method="POST" action="{{ route('internal_ads.store') }}">
+    <form id="addForm" class="addForm" enctype="multipart/form-data" method="POST" action="{{ route('internal_ads.store') }}">
         @csrf
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12">
                     <label for="name" class="form-control-label">{{ trans('admin.image_ads') }}</label>
                     <input type="file" class="dropify" name="url_ads"
-                        data-default-file=""
-                        accept="image/png, image/gif, image/jpeg,image/jpg" />
-                    <span class="form-text text-danger text-center">accept only png, gif, jpeg, jpg</span>
+                        data-default-file=""/>
+                    <span class="form-text text-danger text-center">accept only pdf</span>
                 </div>
                 <div class="col-md-12">
                     <label for="title" class="form-control-label">{{ trans('admin.title') }}

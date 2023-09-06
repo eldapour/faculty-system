@@ -9,8 +9,8 @@ return [
 
     // General
     "home" => "الرئيسية",
-    "reregister_start" => "تاريخ بداية عملية التسجيل",
-    "reregister_end" => "تاريخ انتهاء عملية التسجيل",
+    "reregister_start" => "بداية اعادة تسجيل المسلك",
+    "reregister_end" => "نهاية اعادة تسجيل المسلك",
     "actions" => "العمليات",
     "search" => "بحث",
     "sure_delete" => "هل انت متأكد من حذف",
@@ -80,7 +80,8 @@ return [
     "phone" => "رقم الهاتف",
     "parts of the site" => "اجزاء الموقع",
     "Ads section" => "قسم الاعلانات",
-    'Those concerned with evidence and diploma' => "الطلبه في الوضعيه الغير سليمه",
+    'Those concerned with evidence and diploma' => "المعنيون بالشواهد والدبلوم",
+    'The applicant is in the wrong position' => "الطلبه في الوضعيه الغير سليمه",
     'Diploma certificates' => "شواهد الدبلومات",
     'Student documents' => "طلبات الوثائق",
     "exam" => "امتحان",
@@ -139,7 +140,7 @@ return [
     "date" => "تاريخ",
     "time_ads" => "توقيت الاعلان",
     "url_ads" => "رابط الاعلان",
-    "image_ads" => "صورة الاعلان",
+    "image_ads" => "مرفق الاعلان",
 
     // Department
     "departments" => "المسالك",
@@ -198,7 +199,7 @@ return [
     'group' => 'فوج',
     'groups' => 'الافواج',
 
-    'subject' => 'اضافه وحده',
+    'subject' => 'وحدة',
     'subjects' => 'وحدات',
     'unit' => 'فصل',
     'units' => 'فصول',
@@ -345,6 +346,7 @@ return [
 
     //Element
     'element' => 'العنصر البيداغوجي',
+    'element_code' => 'كود العنصر البيداغوجي',
     'elements' => 'العنصر البيداغوجي',
 
     // Process Degrees
@@ -588,8 +590,8 @@ return [
 
     "counter" => "احصائيات الاداره في الموقع",
     "internal_ads" => "الاعلانات الداخلية",
-    "reregister_the_track_start" => "بداية  اعادة تسجيل المسلك",
-    "reregister_the_track_end" => "نهاية  اعادة تسجيل المسلك",
+    "reregister_the_branch_start" => "تاريخ بدايه اختيار المسار",
+    "reregister_the_branch_end" => "تاريخ نهايه اختيار المسار",
     "Those_concerned_with_evidence_and_diploma" => " المعنيون بالشواهد والدبلوم",
     "displayed_successfully" => "تم الاظهار بنجاح",
     "activation_has_been_deactivated" => "تم الغاء التفعيل",
