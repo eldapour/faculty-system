@@ -63,6 +63,4 @@ class SubjectStudentController extends Controller{
             return view('student.subjects.all', compact('period'));
         }
     }
-
-
 }

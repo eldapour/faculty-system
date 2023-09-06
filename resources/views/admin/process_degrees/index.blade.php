@@ -209,7 +209,7 @@
             {data: 'year', name: 'year'},
             {data: 'section', name: 'section'},
             {data: 'exam_code', name: 'exam_code'},
-            {data: 'doctor_name', name: 'doctor_name'},
+            {data: 'doctor_id', name: 'doctor_id'},
             {data: 'student_degree_before_request', name: 'student_degree_before_request'},
             {data: 'student_degree_after_request', name: 'student_degree_after_request'},
             {data: 'request_type', name: 'request_type'},

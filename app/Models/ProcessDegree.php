@@ -37,7 +37,6 @@ class ProcessDegree extends Model
 
     public function doctor(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'doctor_id', 'id')
-            ->where('user_type', 'doctor');
+        return $this->belongsTo(User::class, 'doctor_id', 'id');
     }
 }
