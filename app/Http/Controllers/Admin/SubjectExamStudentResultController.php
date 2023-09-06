@@ -111,7 +111,7 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return view('admin.subject_exam_student_results.index2');
         }
-    } // end of index2
+    }
 
 
     public function create()
@@ -129,7 +129,7 @@ class SubjectExamStudentResultController extends Controller
 
         return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects', 'groups')
         );
-    } // end of create
+    }
 
 
     public function store(SubjectExamStudentResultRequest $request): JsonResponse
@@ -140,13 +140,13 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    } // end of store
+    }
 
 
     public function edit(SubjectExamStudentResult $subjectExamStudentResult)
     {
         return view('admin.subject_exam_student_results.parts.edit', compact('subjectExamStudentResult'));
-    } // end of edit
+    }
 
 
     public function update(Request $request,SubjectExamStudentResult $subjectExamStudentResult): JsonResponse
@@ -156,17 +156,17 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    } // end of update method
+    }
 
     public function destroy(Request $request)
     {
         $subjectExamStudentResults = SubjectExamStudentResult::where('id', $request->id)->firstOrFail();
         $subjectExamStudentResults->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
-    } // end destroy
+    }
 
 
-    public function exportSubjectExamStudentResult()
+    public function exportSubjectExamStudentResult(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectExamStudentResultExport(), 'SubjectExamStudentResult.xlsx');
     }
@@ -180,6 +180,6 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
-    } // end import
+    }
 
 }

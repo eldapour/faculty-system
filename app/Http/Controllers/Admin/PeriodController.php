@@ -22,13 +22,13 @@ class PeriodController extends Controller
                 ->get();
 
             return Datatables::of($periods)
-                ->addColumn('action', function ($periods) {
-                    return '
-                            <button type="button" id="status_btn_finished_' . $periods->id . '" data-id="' . $periods->id . '"  data-status="finished" class="btn btn-pill btn-danger-light status"><i class="fa fa-accessible-icon"></i> ' . trans("admin.period_finished") . '</button>
-
-
-                       ';
-                })
+//                ->addColumn('action', function ($periods) {
+//                    return '
+//                            <button type="button" id="status_btn_finished_' . $periods->id . '" data-id="' . $periods->id . '"  data-status="finished" class="btn btn-pill btn-danger-light status"><i class="fa fa-accessible-icon"></i> ' . trans("admin.period_finished") . '</button>
+//
+//
+//                       ';
+//                })
 
                 ->escapeColumns([])
                 ->make(true);
@@ -50,7 +50,6 @@ class PeriodController extends Controller
             'period_start_date' => 'nullable|date_format:Y-m-d|before_or_equal:period_end_date',
             'period_end_date' => 'nullable|date_format:Y-m-d',
             'period' => 'required|in:ربيعيه,خريفيه',
-            'session' => 'required|in:عاديه,استدراكيه',
             'year_start' => 'required|date_format:Y|after_or_equal:1900|before_or_equal:year_end',
             'year_end' => 'required|date_format:Y|after_or_equal:1900',
 
@@ -58,8 +57,14 @@ class PeriodController extends Controller
 
 
         $inputs = $request->all();
+
+        $lastPeriod = Period::query()
+            ->latest()
+            ->first();
+
         if (Period::create($inputs)) {
 
+            $lastPeriod->update(['status' => 'finished']);
             return response()->json(['status' => 200]);
         } else {
             return response()->json(['status' => 405]);
