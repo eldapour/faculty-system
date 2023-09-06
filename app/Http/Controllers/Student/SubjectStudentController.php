@@ -45,6 +45,7 @@ class SubjectStudentController extends Controller{
 
                     $doctor = @SubjectUnitDoctor::query()
                     ->where('subject_id','=',$subject_students->subject_id)
+                        ->where('group_id','=',$subject_students->group_id)
                         ->where('period', '=', $period->period)
                         ->where('year','=', $period->year_start)
                         ->first()
