@@ -15,19 +15,20 @@
         </div>
                 <div class="form-group">
 
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr class="badge-primary">
-                                <th class="text-white">#</th>
-                                <th class="text-white">@lang('admin.subject')</th>
-                                <th class="text-white">@lang('admin.doctor')</th>
-                            </tr>
-                            </thead>
-                            @foreach($subjects as $index => $data)
-                                <tbody>
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>
+
+{{--                        <table class="table table-bordered">--}}
+{{--                            <thead>--}}
+{{--                            <tr class="badge-primary">--}}
+{{--                                <th class="text-white">#</th>--}}
+{{--                                <th class="text-white">@lang('admin.subject')</th>--}}
+{{--                                <th class="text-white">@lang('admin.doctor')</th>--}}
+{{--                            </tr>--}}
+{{--                            </thead>--}}
+{{--                            @foreach($subjects as $index => $data)--}}
+{{--                                <tbody>--}}
+{{--                                <tr>--}}
+{{--                                    <td>{{ $loop->iteration }}</td>--}}
+{{--                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>--}}
 
                                     <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>
                                 </tr>

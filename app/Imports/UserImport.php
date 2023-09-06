@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Imports;
-
 use App\Models\Certificate;
-
 use App\Models\CertificateType;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -14,6 +12,7 @@ class UserImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+
         for ($i = 0; $i < count($rows); $i++) {
 
             User::updateOrCreate([
@@ -39,9 +38,8 @@ class UserImport implements ToCollection, WithHeadingRow
                 'university_register_year' => $rows[$i]['university_register_year'],
                 'email' => $rows[$i]['email'],
                 'user_type' => 'student',
-                'student_type_id' =>  2,
                 'user_status' => $rows[$i]['user_status'],
-                'user_type_id' => $rows[$i]['student_type_id']
+                'student_type_id' => $rows[$i]['student_type']
             ]);
         }
     }

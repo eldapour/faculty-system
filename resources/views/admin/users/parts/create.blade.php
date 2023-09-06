@@ -88,7 +88,7 @@
 
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{trans('student.identifier_id')}}</label>
-                    <input type="number" class="form-control" name="identifier_id" id="identifier_id">
+                    <input type="text" class="form-control" name="identifier_id" id="identifier_id">
                 </div>
 
             </div>
