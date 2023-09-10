@@ -13,7 +13,8 @@
                 </div>
             </div>
         </div>
-{{--                <div class="form-group">--}}
+                <div class="form-group">
+
 
 {{--                        <table class="table table-bordered">--}}
 {{--                            <thead>--}}
@@ -29,12 +30,12 @@
 {{--                                    <td>{{ $loop->iteration }}</td>--}}
 {{--                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>--}}
 
-{{--                                    <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>--}}
-{{--                                </tr>--}}
-{{--                                </tbody>--}}
-{{--                            @endforeach--}}
-{{--                        </table>--}}
-{{--                </div>--}}
+                                    <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>
+                                </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+                </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary"
                     id="reregisterBtn">{{ trans('admin.confirm') }}</button>

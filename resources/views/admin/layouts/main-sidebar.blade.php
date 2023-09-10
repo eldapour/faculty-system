@@ -421,56 +421,49 @@
 
             <li class="slide">
                 <a class="side-menu__item" href="{{url('dashboard')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-tachometer-alt side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.dashboard') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('profile')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-user side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.profile') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('subject-student-all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-newspaper side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.subjects_students') }}</span>
                 </a>
             </li>
 
-            {{--                <li class="slide">--}}
-            {{--                    <a class="side-menu__item" href="#">--}}
-            {{--                        <i class="fe fe-file-text side-menu__icon"></i>--}}
-            {{--                        <span class="side-menu__label">{{ trans('student_sidebar.department_student') }}</span>--}}
-            {{--                    </a>--}}
-            {{--                </li>--}}
-
             <li class="slide">
                 <a class="side-menu__item" href="{{route('schedules.students.all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fas fa-clock side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.schedules') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('indexDoctor')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-blog side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.advertisements') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('certificates.registeration')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-graduation-cap side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.registration_certificate') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('documents-student-all')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-copy side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.documents') }}</span>
                 </a>
             </li>
@@ -480,7 +473,7 @@
             {{-- استدعاء الامتحانات--}}
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-phone side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.subject_exam_students') }}</span><i
                         class="angle fa fa-angle-right"></i>
                 </a>
@@ -496,7 +489,7 @@
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('get-all-process-exams')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fe fe-arrow-up-circle side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.process_exam') }}</span>
                 </a>
             </li>
@@ -521,14 +514,14 @@
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('get-all-process-degrees')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fa fa-scroll side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.process_degree') }}</span>
                 </a>
             </li>
 
             <li class="slide">
                 <a class="side-menu__item" href="{{route('point-statement-student')}}">
-                    <i class="fe fe-file-text side-menu__icon"></i>
+                    <i class="fe fe-airplay side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('student_sidebar.point_statement') }}</span>
                 </a>
             </li>

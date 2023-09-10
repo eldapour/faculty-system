@@ -169,11 +169,11 @@ class InternalAdController extends Controller
         } else {
             return response()->json(['status' => 405]);
         }
-    }// Function End
+    }// Function 
 
     public function indexDoctor()
     {
-        $ads = InternalAd::get();
+        $ads = InternalAd::latest()->get();
         return view('admin.internal_ads.internal_ads_doctor.index',compact('ads'));
     }
 
