@@ -30,7 +30,6 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
             $subject = Subject::query()
             ->where('code','=', $rows[$i]['subject_code'])->first('id');
 
-
             SubjectExamStudentResult::create([
                 'user_id' =>$user->id,
                 'subject_id' => $subject->id,
@@ -38,7 +37,6 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
                 'group_id' =>$rows[$i]['group_id'],
                 'exam_degree' =>$rows[$i]['exam_degree'],
                 'date_enter_degree' =>$rows[$i]['date_enter_degree'],
-
                 'course' =>$rows[$i]['course_astdrakyh_aaadyh'],
                 'year' =>$rows[$i]['year'],
             ]);
