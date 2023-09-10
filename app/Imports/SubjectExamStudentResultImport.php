@@ -31,12 +31,14 @@ class SubjectExamStudentResultImport implements ToCollection, WithHeadingRow
             ->where('code','=', $rows[$i]['subject_code'])->first('id');
 
 
+
             SubjectExamStudentResult::updateOrCreate([
                 'user_id' =>$user->id,
                 'subject_id' => $subject->id,
                 'period' =>$rows[$i]['course_astdrakyh_aaadyh'],
                 'year' =>$rows[$i]['year'],
             ],[
+
                 'user_id' =>$user->id,
                 'subject_id' => $subject->id,
                 'student_degree' =>$rows[$i]['student_degree'],
