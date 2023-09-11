@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Period;
-use App\Models\ProcessDegree;
-use App\Models\SubjectExamStudent;
-use App\Models\SubjectStudent;
-use App\Models\SubjectUnitDoctor;
 use DateTime;
 use App\Models\Group;
+use App\Models\Period;
 use App\Models\Subject;
 use App\Models\Department;
 use App\Models\SubjectExam;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use App\Models\SubjectUnitDoctor;
+use Illuminate\Http\JsonResponse;
+use App\Models\SubjectExamStudent;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SubjectExamRequest;
-use App\Models\DepartmentBranch;
 
 class SubjectExamController extends Controller
 {
@@ -234,6 +233,12 @@ class SubjectExamController extends Controller
     } // end of get subject
 
 
+        $subject_exams = SubjectExamStudent::query()
+                ->where('session','=','عاديه')
+                ->where('user_id','=',Auth::id())
+                ->where('year','=',$period->year_start)
+                ->get();
+        $subject_exam_day = DB::table("subject_exams")->where('subject_id', )->get();
 
     public function student_exam_print()
     {
