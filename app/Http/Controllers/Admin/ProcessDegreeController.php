@@ -170,12 +170,10 @@ class ProcessDegreeController extends Controller
         return view('admin.process_degrees.parts.create', compact('data'));
     }
 
-<<<<<<< HEAD
+
 
     public function store(ProcessDegreeRequest $request): JsonResponse
-=======
-    public function store(ProcessDegreeRequest $request)
->>>>>>> 028f6f266f2845407ffa56809c279f5bc9d9012a
+
     {
         $inputs = $request->all();
         $inputs['user_id'] = auth()->user()->id;
