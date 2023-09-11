@@ -25,17 +25,17 @@
 {{--                            </tr>--}}
 {{--                            </thead>--}}
 {{--                            @foreach($subjects as $index => $data)--}}
-{{--                                <tbody>--}}
+{{--                                <tboardy>--}}
 {{--                                <tr>--}}
 {{--                                    <td>{{ $loop->iteration }}</td>--}}
 {{--                                    <td>{{ $data->getTranslation('subject_name', app()->getLocale()) }}</td>--}}
-
+{{--
                                     <td>{{ @$data->doctor->doctor->first_name .' '. @$data->doctor->doctor->last_name }}</td>
                                 </tr>
                                 </tbody>
                             @endforeach
                         </table>
-                </div>
+                </div> --}}
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary"
                     id="reregisterBtn">{{ trans('admin.confirm') }}</button>

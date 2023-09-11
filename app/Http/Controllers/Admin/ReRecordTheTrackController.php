@@ -44,7 +44,7 @@ class ReRecordTheTrackController extends Controller
         $branchs = DepartmentBranch::query()
             ->where('department_id', '=', $department->department_id)
             ->get();
-        return view('admin.re_record_the_track.parts.reregisters_submit', compact('subjectStudent', 'department', 'branchs'));
+        return view('admin.re_record_the_track.parts.reregister_submit', compact('subjectStudent', 'department', 'branchs'));
     } // Reregister form End
 
     public function reregisterFormTrack()

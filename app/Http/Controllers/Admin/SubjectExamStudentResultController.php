@@ -132,7 +132,12 @@ class SubjectExamStudentResultController extends Controller
 
     public function create()
     {
-        $subjects = Subject::query()->get();
+        $subjects = Subject::query()
+            ->select('id', 'subject_name')
+            ->whereHas('doctor', function ($query) {
+                $query->where('user_id', auth()->user()->id);
+            })
+            ->get();
 
         $users = User::query()
             ->where('user_type', 'student')
@@ -189,5 +194,12 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return response()->json(['status' => 500]);
         }
+    }
+
+    public function getUserBySelectSubject(Request $request)
+    {
+        $subject_id = request()->selectedValue;
+        $userRelatedSubject = Subject::query()->where('id', $subject_id)->get();
+        return response()->json(['userRelatedSubject', $userRelatedSubject]);
     }
 }

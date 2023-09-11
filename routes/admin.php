@@ -335,6 +335,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::post('reregisterTrack', [ReRecordTheTrackController::class, 'reregisterTrack'])->name('reregisterTrack');
     Route::get('processDegreeDetails/{id}', [SubjectExamController::class, 'processDegreeDetails'])->name('processDegreeDetails');
     Route::post('changeRequestStatus', [SubjectExamController::class, 'changeRequestStatus'])->name('changeRequestStatus');
+
+    #### get user by doctor and subject
+    Route::get('user_related_doctor', [SubjectExamStudentResultController::class, 'getUserBySelectSubject'])->name('getUserBySelectSubject');
 });
 
 
