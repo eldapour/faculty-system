@@ -164,6 +164,7 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             @foreach($subject_exam_students as $subject_exam_student)
                             <tr>
                                 <td>{{ $subject_exam_student->subject_exam->subject->unit->unit_name }}</td>
@@ -174,6 +175,9 @@
                                 <td>{{$subject_exam_student->subject_exam->time_start . ' - ' . $subject_exam_student->subject_exam->time_end}}</td>
                                 <td>{{ $subject_exam_student->section }}</td>
                                 <td>{{ $subject_exam_student->subject_exam->exam_code }}</td>
+
+                                {{-- @dd($subject_exams) --}}
+
                             </tr>
                             @endforeach
 
