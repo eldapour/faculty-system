@@ -22,41 +22,52 @@ use App\Models\Group;
 
 class SubjectExamStudentResultController extends Controller
 {
-
     public function index(request $request)
     {
         if ($request->ajax()) {
-
             $period = Period::query()
-                ->where('status','=','start')
+                ->where('status', '=', 'start')
                 ->first();
 
-            $subject_exam_student_results = SubjectExamStudentResult::query()
-                ->where('period','=','عاديه')
-                ->where('year','=',$period->year_start)
-                ->get();
+            $doctorSubjects = SubjectUnitDoctor::where('user_id', auth()->user()->id)
+                ->pluck('subject_id')
+                ->toArray();
 
+            $subject_exam_student_results = SubjectExamStudentResult::query()
+                ->whereIn('subject_id', $doctorSubjects)
+                ->where('year', '=', $period->year_start)
+                ->get();
 
             return Datatables::of($subject_exam_student_results)
                 ->addColumn('action', function ($subject_exam_student_results) {
                     return '
-                            <button type="button" data-id="' . $subject_exam_student_results->id . '" '. (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button '. (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exam_student_results->id . '" data-title="' . $subject_exam_student_results->user->first_name . '">
+                            <button type="button" data-id="' .
+                        $subject_exam_student_results->id .
+                        '" ' .
+                        (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .
+                        ' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' .
+                        (auth()->user()->user_type == 'employee' || auth()->user()->user_type == 'doctor' ? '' : 'hidden') .
+                        ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                    data-id="' .
+                        $subject_exam_student_results->id .
+                        '" data-title="' .
+                        $subject_exam_student_results->user->first_name .
+                        '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
-                 ->editColumn('user_id', function ($subject_exam_student_results) {
-                     return $subject_exam_student_results->user->first_name . " ". $subject_exam_student_results->user->last_name;
-                 })
+                ->editColumn('user_id', function ($subject_exam_student_results) {
+                    return $subject_exam_student_results->user->first_name . ' ' . $subject_exam_student_results->user->last_name;
+                })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
-                   return $subject_exam_student_results->group->group_name;
+                    return $subject_exam_student_results->group->group_name;
                 })
-                 ->editColumn('subject_id', function ($subject_exam_student_results) {
-                     return $subject_exam_student_results->subject->subject_name;
-                 })
+                ->editColumn('subject_id', function ($subject_exam_student_results) {
+                    return $subject_exam_student_results->subject->subject_name;
+                })
                 ->addColumn('identifier_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->user->identifier_id;
                 })
@@ -67,39 +78,45 @@ class SubjectExamStudentResultController extends Controller
         }
     } // end of index
 
-
-
     public function index2(request $request)
     {
         $period = Period::query()
-            ->where('status','=','start')
+            ->where('status', '=', 'start')
             ->first();
 
         if ($request->ajax()) {
-
-
             $subject_exam_student_results = SubjectExamStudentResult::query()
-                ->where('period','=','استدراكيه')
-                ->where('year','=',$period->year_start)
+                ->where('period', '=', 'استدراكيه')
+                ->where('year', '=', $period->year_start)
                 ->get();
 
             return Datatables::of($subject_exam_student_results)
                 ->addColumn('action', function ($subject_exam_student_results) {
                     return '
-                            <button type="button" data-id="' . $subject_exam_student_results->id . '" '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-                            <button '. (auth()->user()->user_type == 'student' ? 'hidden' : '') .' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                    data-id="' . $subject_exam_student_results->id . '" data-title="' . $subject_exam_student_results->user->first_name . '">
+                            <button type="button" data-id="' .
+                        $subject_exam_student_results->id .
+                        '" ' .
+                        (auth()->user()->user_type == 'student' ? 'hidden' : '') .
+                        ' class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                            <button ' .
+                        (auth()->user()->user_type == 'student' ? 'hidden' : '') .
+                        ' class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
+                                    data-id="' .
+                        $subject_exam_student_results->id .
+                        '" data-title="' .
+                        $subject_exam_student_results->user->first_name .
+                        '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
                 })
                 ->editColumn('user_id', function ($subject_exam_student_results) {
-                    return $subject_exam_student_results->user->first_name . " ". $subject_exam_student_results->user->last_name;
+                    return $subject_exam_student_results->user->first_name . ' ' . $subject_exam_student_results->user->last_name;
                 })
 
                 ->addColumn('group_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->group->group_name;
-                 })
+                })
                 ->editColumn('subject_id', function ($subject_exam_student_results) {
                     return $subject_exam_student_results->subject->subject_name;
                 })
@@ -113,24 +130,20 @@ class SubjectExamStudentResultController extends Controller
         }
     }
 
-
     public function create()
     {
-        $subjects = Subject::query()
-          ->get();
+        $subjects = Subject::query()->get();
 
         $users = User::query()
-        ->where('user_type', 'student')
+            ->where('user_type', 'student')
             ->get();
 
-            $groups = Group::query()
+        $groups = Group::query()
             ->select('id', 'group_name')
             ->get();
 
-        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects', 'groups')
-        );
+        return view('admin.subject_exam_student_results.parts.create', compact('users', 'subjects', 'groups'));
     }
-
 
     public function store(SubjectExamStudentResultRequest $request): JsonResponse
     {
@@ -142,14 +155,12 @@ class SubjectExamStudentResultController extends Controller
         }
     }
 
-
     public function edit(SubjectExamStudentResult $subjectExamStudentResult)
     {
         return view('admin.subject_exam_student_results.parts.edit', compact('subjectExamStudentResult'));
     }
 
-
-    public function update(Request $request,SubjectExamStudentResult $subjectExamStudentResult): JsonResponse
+    public function update(Request $request, SubjectExamStudentResult $subjectExamStudentResult): JsonResponse
     {
         if ($subjectExamStudentResult->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -165,12 +176,10 @@ class SubjectExamStudentResultController extends Controller
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }
 
-
     public function exportSubjectExamStudentResult(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectExamStudentResultExport(), 'SubjectExamStudentResult.xlsx');
     }
-
 
     public function importSubjectExamStudentResult(Request $request): JsonResponse
     {
@@ -181,5 +190,4 @@ class SubjectExamStudentResultController extends Controller
             return response()->json(['status' => 500]);
         }
     }
-
 }

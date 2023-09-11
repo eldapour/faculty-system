@@ -165,13 +165,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                                {{-- @dd($subject_exams) --}}
                             @foreach($subject_exams as $subject)
                             <tr>
+                                {{-- @dd($subject->subject) --}}
                                 <td>{{ $subject->subject->unit->unit_name ?? '' }}</td>
                                 <td>{{ $subject->subject->subject_name }}</td>
                                 <td>{{ @$subject->group->group_name }}</td>
                                 <td>{{ $doctor->doctor->first_name }}</td>
-                                <td>{{ $subject->exam_day }}</td>
+                                <td>{{ $subject->subject->exam_day }}</td>
                                 <td>{{ $subject->exam_date }}</td>
                                 <td>{{$subject->time_start . ' - ' . $subject->time_end}}</td>
                                 <td>{{ $section->section ?? '' }}</td>
