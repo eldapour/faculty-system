@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SubjectExamStudent extends Model
 {
@@ -32,5 +33,14 @@ class SubjectExamStudent extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class,'subject_id','id');
+    }
+
+
+
+
+    //latest updates
+    public function subject_exam(): BelongsTo
+    {
+        return $this->belongsTo(SubjectExam::class,'subject_exam_id','id');
     }
 }

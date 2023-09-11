@@ -20,6 +20,8 @@ return [
     "remedial" => "نتائج الدوره الاستدراكيه",
 
     "add_request_button" => "زر الطلب",
+    "add_before_request_button" => "تم تقديم الطلب",
+    "cancel_request_button" => "توقيت الطلب انتهي",
 
 
 

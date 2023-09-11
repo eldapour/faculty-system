@@ -18,16 +18,13 @@ class ProcessExamController extends Controller{
 
     public function get_all_process_exams(request $request)
     {
-        $period = Period::query()
-            ->where('status','=','start')
-            ->first();
 
 
         if ($request->ajax()) {
 
             $process_exams = ProcessExam::query()
-                ->where('year','=',$period->year_start)
-                ->where('period','=',$period->period)
+                ->where('year','=',period()->year_start)
+                ->where('period','=',period()->period)
                 ->where('user_id','=',Auth::id())
                 ->latest()
                 ->get();
@@ -36,13 +33,10 @@ class ProcessExamController extends Controller{
 
 
                 ->addColumn('action', function ($process_exams) {
-                    $period = Period::query()
-                        ->where('status','=','start')
-                        ->first();
 
                     $deadline = Deadline::query()
-                        ->where('year','=',$period->year_start)
-                        ->where('period','=',$period->period)
+                        ->where('year','=',period()->year_start)
+                        ->where('period','=',period()->period)
                         ->where('deadline_type','=',0)
                         ->first();
                     if($deadline->deadline_end_date < Carbon::now()->format('Y-m-d')){
@@ -101,8 +95,8 @@ class ProcessExamController extends Controller{
         } else {
 
             $processExamCount = ProcessExam::query()
-                ->where('year','=',$period->year_start)
-                ->where('period','=',$period->period)
+                ->where('year','=',period()->year_start)
+                ->where('period','=',period()->period)
                 ->where('user_id','=',Auth::id())
                 ->count();
 

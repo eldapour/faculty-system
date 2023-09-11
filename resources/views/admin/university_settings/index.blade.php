@@ -25,8 +25,7 @@
                 </div>
                 <div class="card-body">
                     <div class="modal-body">
-                        <form id="updateForm" class="updateForm" method="POST"
-                              action="{{ route('university_settings.update', $university_settings->id) }}">
+                        <form id="updateForm" class="updateForm" method="POST" action="{{ route('university_settings.update', $university_settings->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <input type="hidden" value="{{ $university_settings->id }}" name="id">

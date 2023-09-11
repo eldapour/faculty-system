@@ -12,6 +12,7 @@ use App\Models\ProcessExam;
 use App\Models\Subject;
 use App\Models\SubjectExamStudent;
 use App\Models\SubjectExamStudentResult;
+use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -24,15 +25,12 @@ class ProcessDegreeController extends Controller
 
     public function get_all_process_degrees(request $request)
     {
-        $period = Period::query()
-            ->where('status', '=', 'start')
-            ->first();
+
 
         if ($request->ajax()) {
 
             $process_degrees = ProcessDegree::query()
-                ->where('year', '=', $period->year_start)
-                ->where('period', '=', $period->session)
+                ->where('year', '=', period()->year_start)
                 ->where('user_id', '=', Auth::id())
                 ->latest()
                 ->get();
@@ -41,13 +39,11 @@ class ProcessDegreeController extends Controller
             return Datatables::of($process_degrees)
                 ->addColumn('action', function ($process_degrees) {
 
-                    $period = Period::query()
-                        ->where('status', '=', 'start')
-                        ->first();
+
 
                     $deadline = Deadline::query()
-                        ->where('year', '=', $period->year_start)
-                        ->where('period', '=', $period->period)
+                        ->where('year', '=', period()->year_start)
+                        ->where('period', '=', period()->period)
                         ->where('deadline_type', '=', 1)
                         ->first();
 
@@ -115,33 +111,39 @@ class ProcessDegreeController extends Controller
     public function normalCreate($id)
     {
 
-        $period = Period::query()
-            ->where('status', '=', 'start')
+        $subject_student = SubjectStudent::query()
+            ->where('subject_id','=',$id)
+            ->where('year', '=',period()->year_start)
+            ->where('period', '=',period()->period)
+            ->where('user_id','=',Auth::id())
             ->first();
+
 
         $subject = Subject::query()
             ->where('id','=',$id)
             ->first();
 
         $doctor_id = SubjectUnitDoctor::query()
-            ->where('subject_id','=',$subject->id)
-            ->where('year', '=',$period->year_start)
-            ->first()->id;
+            ->where('subject_id','=',$id)
+            ->where('group_id','=',$subject_student->group_id)
+            ->where('year', '=',period()->year_start)
+            ->first()->user_id;
 
 
         $subjectExamStudent = SubjectExamStudent::query()
-            ->where('year','=',$period->year_start)
+            ->where('year','=',period()->year_start)
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
+
         $subjectExamStudentResult = SubjectExamStudentResult::query()
-            ->where('year','=',$period->year_start)
+            ->where('year','=',period()->year_start)
             ->where('period','عاديه')
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
 
-        return view('student.process_degree.normal.create',compact('subjectExamStudentResult','period','subject','doctor_id','subjectExamStudent'));
+        return view('student.process_degree.normal.create',compact('subjectExamStudentResult','subject','doctor_id','subjectExamStudent'));
     }
 
 
@@ -162,33 +164,38 @@ class ProcessDegreeController extends Controller
     public function remedialCreate($id)
     {
 
-        $period = Period::query()
-            ->where('status', '=', 'start')
-            ->first();
+        $subject_student = SubjectStudent::query()
+            ->where('subject_id','=',$id)
+            ->where('year', '=',period()->year_start)
+            ->where('period', '=',period()->period)
+            ->where('user_id','=',Auth::id())
+        ->first();
 
         $subject = Subject::query()
             ->where('id','=',$id)
             ->first();
 
-        $doctor_id = @SubjectUnitDoctor::query()
-            ->where('subject_id','=',$subject->id)
-            ->where('year', '=',$period->year_start)
-            ->first()->id;
+        $doctor_id = SubjectUnitDoctor::query()
+            ->where('subject_id','=',$id)
+            ->where('group_id','=',$subject_student->group_id)
+            ->where('year', '=',period()->year_start)
+            ->first()->user_id;
 
 
         $subjectExamStudent = SubjectExamStudent::query()
-            ->where('year','=',$period->year_start)
+            ->where('year','=',period()->year_start)
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
+
         $subjectExamStudentResult = SubjectExamStudentResult::query()
-            ->where('year','=',$period->year_start)
+            ->where('year','=',period()->year_start)
             ->where('period','استدراكيه')
             ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
 
-        return view('student.process_degree.remedial.create',compact('subjectExamStudentResult','period','subject','doctor_id','subjectExamStudent'));
+        return view('student.process_degree.remedial.create',compact('subjectExamStudentResult','subject','doctor_id','subjectExamStudent'));
 
     }
 

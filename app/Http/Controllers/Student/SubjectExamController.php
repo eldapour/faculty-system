@@ -26,13 +26,9 @@ class SubjectExamController extends Controller
     {
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
-
             $subject_exams = SubjectExam::query()
-                ->where('period','=',$period->period)
-                ->where('year','=',$period->year_start)
+                ->where('period','=',period()->period)
+                ->where('year','=',period()->year_start)
                 ->get();
 
             return Datatables::of($subject_exams)
@@ -51,13 +47,9 @@ class SubjectExamController extends Controller
                 })
                 ->addColumn('doctor_id', function ($subject_exams) {
 
-                    $period = Period::query()
-                        ->where('status','=','start')
-                        ->first();
-
                    return SubjectUnitDoctor::query()
-                        ->where('period','=',$period->period)
-                        ->where('year','=',$period->year_start)
+                        ->where('period','=',period()->period)
+                        ->where('year','=',period()->year_start)
                         ->where('subject_id','=',$subject_exams->subject_id)
                        ->first()
                        ->doctor
@@ -66,14 +58,11 @@ class SubjectExamController extends Controller
                 })
                 ->addColumn('exam_code', function ($subject_exams) {
 
-                    $period = Period::query()
-                        ->where('status','=','start')
-                        ->first();
 
                     return SubjectExamStudent::query()
-                        ->where('period','=',$period->period)
+                        ->where('period','=',period()->period)
                         ->where('user_id','=',Auth::id())
-                        ->where('year','=',$period->year_start)
+                        ->where('year','=',period()->year_start)
                         ->where('subject_id','=',$subject_exams->subject_id)
                         ->first()
                         ->exam_code;
@@ -81,13 +70,10 @@ class SubjectExamController extends Controller
                 })
                 ->addColumn('section', function ($subject_exams) {
 
-                    $period = Period::query()
-                        ->where('status','=','start')
-                        ->first();
 
                     return SubjectExamStudent::query()
-                        ->where('period','=',$period->period)
-                        ->where('year','=',$period->year_start)
+                        ->where('period','=',period()->period)
+                        ->where('year','=',period()->year_start)
                         ->where('user_id','=',Auth::id())
                         ->where('subject_id','=',$subject_exams->subject_id)
                         ->first()

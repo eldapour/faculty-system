@@ -41,7 +41,8 @@
             <div class="card">
                 <div class="card-body">
                     <form id="updateDegreeForm">
-                        <input type="hidden" value="{{ $old_degree->id }}" id="id" name="id" required>
+                        <input type="hidden" value="{{ $old_degree->id }}" id="id" name="id">
+                        <input type="hidden" value="{{ $process_degrees->id }}" id="process_degree_id" name="process_degree_id">
                         <table id="customers">
                             <thead>
                                 <tr>
@@ -80,23 +81,26 @@
         $(document).ready(function() {
             $('#updateDegreeForm').submit(function(event) {
                 event.preventDefault();
-                var id = $("#id").val();
-                var studentDegree = $("#student_degree").val();
+                let id = $("#id").val();
+                let studentDegree = $("#student_degree").val();
+                let process_degree_id = $("#process_degree_id").val();
 
                 $.ajax({
                     url: '{{ route('updateDegree') }}',
                     method: 'POST',
                     data: {
                         id: id,
+                        process_degree_id: process_degree_id,
                         studentDegree: studentDegree,
                         "_token": "{{ csrf_token() }}",
                     },
                     success: function(response) {
                         if (response.code === 200) {
                             toastr.success('{{ trans('admin.updated_degree_successfully') }}');
-                            setTimeout(function() {
-                                window.history.back();
-                            }, 2000); // 3000 milliseconds = 3 seconds
+                            window.setTimeout(function () {
+                                window.location.href = '{{ route('process_degrees.index') }}';
+                            }, 1000);
+
                         } else {
                             toastr.error('{{ trans('admin.the_entered_mark') }}');
                         }

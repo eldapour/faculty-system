@@ -25,6 +25,7 @@ class SubjectExamRequest extends FormRequest
     {
         return [
 
+            'exam_code' => 'required|unique:subject_exams,exam_code',
             'exam_date' => 'required|date',
             'exam_day' => 'required',
             'year' => 'required',

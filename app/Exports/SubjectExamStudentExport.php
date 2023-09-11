@@ -21,10 +21,8 @@ class SubjectExamStudentExport implements FromCollection, WithHeadings,ShouldAut
         return [
             '#',
             'User Code',
-            'subject Code',
             'exam code',
             'section',
-            'group code',
             'period (ربيعيه, خريفيه)',
             'session (عاديه, استدراكيه)',
             'year',
@@ -37,16 +35,14 @@ class SubjectExamStudentExport implements FromCollection, WithHeadings,ShouldAut
     public function collection(): Collection
 
     {
-        $query = SubjectExamStudent::select('*')->get();
+        $query = SubjectExamStudent::query()->select('*')->get();
         $data = [];
         foreach ($query as $q) {
             $query_data = [
                 'id' => $q->id,
                 'User Code' => (string) $q->user->identifier_id,
-                'subject Code' => (string) $q->subject->code,
-                'exam code' => (string) $q->exam_code,
+                'Exam Code' => (string) $q->subject_exam->exam_code,
                 'section' => (string) $q->section,
-                'group code' => (string) $q->group_id,
                 'period' => (string) $q->period,
                 'session' => (string) $q->session,
                 'year' => (string) $q->year,

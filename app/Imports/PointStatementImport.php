@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\Element;
 use App\Models\PointStatement;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -20,9 +21,12 @@ class PointStatementImport implements ToCollection, WithHeadingRow
             ->where('user_type', '=', 'student')
                 ->where('identifier_id', $rows[$i]['user_code'])->first('id');
 
+            $element = Element::query()
+                ->where('element_code', $rows[$i]['element_code'])->first('id');
+
             PointStatement::create([
                 'user_id' =>$user->id,
-                'element_id' =>$rows[$i]['element_code'],
+                'element_id' => $element->id,
                 'degree_student' =>$rows[$i]['student_degree'],
                 'degree_element' =>$rows[$i]['element_degree'],
                 'course' =>$rows[$i]['course'],

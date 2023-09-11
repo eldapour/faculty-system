@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Period;
 use App\Models\Subject;
 use App\Models\ProcessExam;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\ProcessDegree;
@@ -169,7 +170,10 @@ class ProcessDegreeController extends Controller
         return view('admin.process_degrees.parts.create', compact('data'));
     }
 
-    public function store(ProcessDegreeRequest $request)
+
+
+    public function store(ProcessDegreeRequest $request): JsonResponse
+
     {
         $inputs = $request->all();
         $inputs['user_id'] = auth()->user()->id;
@@ -194,16 +198,14 @@ class ProcessDegreeController extends Controller
 
     public function editUpdateDegree($id)
     {
-        $degree_old = [];
         $process_degrees = ProcessDegree::find($id);
-        foreach ($process_degrees as $degree) {
-            $old_degree = SubjectExamStudentResult::where('user_id', $process_degrees->user_id)
+            $old_degree = SubjectExamStudentResult::query()
+            ->where('user_id', $process_degrees->user_id)
                 ->where('year', $process_degrees->year)
                 ->where('period', $process_degrees->period)
                 ->where('subject_id', $process_degrees->subject_id)
                 ->first();
-        }
-        return view('admin.process_degrees.parts.update_degree', compact('old_degree'));
+        return view('admin.process_degrees.parts.update_degree', compact('old_degree','process_degrees'));
     }
 
     public function update(Request $request, ProcessDegree $processDegree): JsonResponse
@@ -261,12 +263,16 @@ class ProcessDegreeController extends Controller
         if ($inputs->exam_degree < $request->studentDegree) {
             return response()->json(['code' => 505]);
         } else {
-            SubjectExamStudentResult::find($request->id)->update([
-                'student_degree' => $request->studentDegree,
-            ]);
+            SubjectExamStudentResult::find($request->id)->update(['student_degree' => $request->studentDegree,]);
+                  ProcessDegree::query()
+                ->where('id','=',$request->process_degree_id)
+                ->first()->update([
+                    'student_degree_after_request' => $request->studentDegree,
+                    'processing_date' => Carbon::now()->format('Y-m-d')
+                ]);
             return response()->json(['code' => 200]);
         }
-    } // end update degree
+    }
 
     public function history()
     {
