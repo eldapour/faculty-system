@@ -176,6 +176,11 @@
                                 <td>{{ $subject_exam_student->section }}</td>
                                 <td>{{ $subject_exam_student->subject_exam->exam_code }}</td>
 
+<<<<<<< HEAD
+                                {{-- @dd($subject_exams) --}}
+
+=======
+>>>>>>> 8597de5df0337652fca7dbebd858819aaf0b74d1
                             </tr>
                             @endforeach
 

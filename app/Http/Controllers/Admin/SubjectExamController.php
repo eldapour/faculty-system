@@ -229,7 +229,9 @@ class SubjectExamController extends Controller
 //            ->where('group_id', '=', $request->group_id)
             ->pluck('subject_name', 'id');
 
-    }
+
+
+    } // end of get subject
 
 
 
@@ -242,6 +244,7 @@ class SubjectExamController extends Controller
             ->where('year', '=', period()->year_start)
             ->where('user_id', '=', Auth::id())
             ->get();
+
 
         return view('admin.subject_exams.print', compact('subject_exam_students'));
 
