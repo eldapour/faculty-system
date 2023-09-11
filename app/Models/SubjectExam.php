@@ -12,6 +12,7 @@ class SubjectExam extends Model
     use HasFactory;
 
     protected $fillable = [
+        'exam_code',
         'group_id',
         'subject_id',
         'exam_date',

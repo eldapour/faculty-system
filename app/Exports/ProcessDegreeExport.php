@@ -22,11 +22,12 @@ class ProcessDegreeExport implements FromCollection, WithHeadings, ShouldAutoSiz
             'user code',
             'period',
             'year',
+            'section',
             'request date',
             'request status',
             'request type',
             'processing date',
-            'subject id',
+            'subject code',
             'doctor id',
             'exam code',
             'student degree before request',
@@ -50,19 +51,19 @@ class ProcessDegreeExport implements FromCollection, WithHeadings, ShouldAutoSiz
               'user_id' => $process->user->identifier_id,
               'period' => $process->period,
               'year' => $process->year,
-              'request_date' => $process->request_date,
+              'section' => $process->section,
+              'request_date' => $process->created_at,
               'request_status' => $process->request_status,
               'request_type' => $process->request_type,
               'processing_date' => $process->processing_date,
-              'subject_id' =>  $process->subject_id,
+              'subject_code' =>  $process->subject->code,
               'doctor_id' =>  $process->doctor_id,
               'exam_code' =>  $process->exam_code,
               'student_degree_before_request' =>  $process->student_degree_before_request,
               'student_degree_after_request' =>  $process->student_degree_after_request,
-//              'reason' =>  $process->reason,
             ];
             $data[] = $process_data;
         }
         return collect([$data]);
-    } // end collection
+    }
 }

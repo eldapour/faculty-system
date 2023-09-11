@@ -19,6 +19,9 @@ return [
      "normal" => "résultats du tour normal",
      "remedial" => "Résultats du cours de rattrapage",
     "add_request_button" => "bouton de demande",
+    "add_before_request_button" => "La demande a été soumise",
+
+    "cancel_request_button" => "La demande a expiré",
 
 
 ];

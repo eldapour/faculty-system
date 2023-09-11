@@ -203,7 +203,7 @@ class SubjectExamController extends Controller
         return view('admin.subject_exams.parts_remedial.edit', compact('subjectExam', 'groups', 'departments', 'subjects', 'branches'));
     }
 
-    public function update(Request $request, SubjectExam $subjectExam)
+    public function update(SubjectExamRequest $request, SubjectExam $subjectExam): JsonResponse
     {
         if ($subjectExam->update($request->all())) {
             return response()->json(['status' => 200]);
@@ -229,54 +229,22 @@ class SubjectExamController extends Controller
 //            ->where('group_id', '=', $request->group_id)
             ->pluck('subject_name', 'id');
 
-    } // end of get subject
+    }
+
+
 
     public function student_exam_print()
     {
-        $period = Period::query()
-            ->where('status', '=', 'start')
-            ->first();
 
-        $subject_exams = SubjectExamStudent::query()
-                ->where('session','=','عاديه')
-                ->where('user_id','=',Auth::id())
-                ->where('year','=',$period->year_start)
-                ->get();
 
-        $subject_ids = SubjectExam::query()
-            ->where('period', '=', $period->period)
-            ->where('year', '=', $period->year_start)
-            ->pluck('subject_id')
-            ->toArray();
-
-        $doctor = SubjectUnitDoctor::query()
-            ->where('period', '=', $period->period)
-            ->where('year', '=', $period->year_start)
-            ->whereIn('subject_id', $subject_ids)
-            ->first();
-
-        $exam_code = SubjectExamStudent::query()
-            ->where('period', '=', $period->period)
+        $subject_exam_students = SubjectExamStudent::query()
+            ->where('period', '=', period()->period)
+            ->where('year', '=', period()->year_start)
             ->where('user_id', '=', Auth::id())
-            ->where('year', '=', $period->year_start)
-            ->whereIn('subject_id', $subject_ids)
-            ->first();
+            ->get();
 
-        $section = SubjectExamStudent::query()
-            ->where('period', '=', $period->period)
-            ->where('year', '=', $period->year_start)
-            ->where('user_id', '=', Auth::id())
-            ->whereIn('subject_id', $subject_ids)
-            ->first();
+        return view('admin.subject_exams.print', compact('subject_exam_students'));
 
-        return view('admin.subject_exams.print', compact([
-            'period',
-            'subject_exams',
-            'doctor',
-            'exam_code',
-            'section',
-            'period'
-        ]));
     }
 
 

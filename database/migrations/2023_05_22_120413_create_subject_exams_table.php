@@ -21,6 +21,7 @@ return new class extends Migration
         Schema::create('subject_exams', function (Blueprint $table) {
 
             $table->bigIncrements('id');
+            $table->string('exam_code');
             $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
             $table->date('exam_date');
             $table->time('time_start');

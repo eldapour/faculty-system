@@ -19,18 +19,17 @@ return new class extends Migration
     {
         Schema::create('subject_exam_students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->comment('اسم الطالب');
-            $table->unsignedBigInteger('subject_id')->comment('اسم الماده');
-            $table->unsignedBigInteger('group_id')->comment('اسم الفوج');
-            $table->string('exam_code');
+            $table->unsignedBigInteger('user_id')->comment('الطالب');
+            $table->unsignedBigInteger('subject_exam_id')->comment('الامتحان');
             $table->string('section');
-            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره');
-            $table->enum('session',['عاديه','استدراكيه'])->default('عاديه')->comment('الدوره');
+            $table->enum('period',['ربيعيه','خريفيه'])->default('ربيعيه')->comment('الفتره اللي هيسجل فيها الطالب الماده دي');
+            $table->enum('session',['عاديه','استدراكيه'])->comment('الدوره اللي الطالب امتحن فيها الماده دي');
+
             $table->string('year');
-            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('group_id')->references('id')->on('groups')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('subject_exam_id')->references('id')->on('subject_exams')->cascadeOnUpdate()->cascadeOnDelete();
+
         });
     }
 

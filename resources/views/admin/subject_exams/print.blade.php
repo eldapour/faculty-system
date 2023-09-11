@@ -100,8 +100,8 @@
                         <div class="row">
                             <div class="left_section_1 col-6">
                                 <h5 class="mb-2 print">استدعاء الامتحانات</h5>
-                                <p>{{ $period->year_start }}: {{ $period->year_end }}</p>
-                                <h6 class="mb-4 print">{{ $period->period }} - {{ $period->session }}</h6>
+                                <p>{{ period()->year_start }}: {{ period()->year_end }}</p>
+                                <h6 class="mb-4 print">{{ period()->period }} - {{ period()->session }}</h6>
                             </div>
                             <!--end left_section_1 -->
                             <div class="image-logo1 right_section_1 col-6">
@@ -156,7 +156,6 @@
                                 <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.doctor_name_') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.day_name_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.date_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_') }}</th>
@@ -165,19 +164,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                                {{-- @dd($subject_exams) --}}
-                            @foreach($subject_exams as $subject)
+
+                            @foreach($subject_exam_students as $subject_exam_student)
                             <tr>
-                                {{-- @dd($subject->subject) --}}
-                                <td>{{ $subject->subject->unit->unit_name ?? '' }}</td>
-                                <td>{{ $subject->subject->subject_name }}</td>
-                                <td>{{ @$subject->group->group_name }}</td>
-                                <td>{{ $doctor->doctor->first_name }}</td>
-                                <td>{{ $subject->subject->exam_day }}</td>
-                                <td>{{ $subject->exam_date }}</td>
-                                <td>{{$subject->time_start . ' - ' . $subject->time_end}}</td>
-                                <td>{{ $section->section ?? '' }}</td>
-                                <td>{{ $exam_code->exam_code }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->subject->unit->unit_name }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->subject->subject_name }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->group->group_name }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->exam_day }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->exam_date }}</td>
+                                <td>{{$subject_exam_student->subject_exam->time_start . ' - ' . $subject_exam_student->subject_exam->time_end}}</td>
+                                <td>{{ $subject_exam_student->section }}</td>
+                                <td>{{ $subject_exam_student->subject_exam->exam_code }}</td>
+
                             </tr>
                             @endforeach
 
