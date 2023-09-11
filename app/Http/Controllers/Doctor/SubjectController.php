@@ -8,31 +8,30 @@ use App\Models\SubjectUnitDoctor;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class SubjectController extends Controller{
-
+class SubjectController extends Controller
+{
     public function index(request $request)
     {
         if ($request->ajax()) {
-
             $period = Period::query()
-                ->where('status','=','start')
+                ->where('status', '=', 'start')
                 ->first();
 
             $subject_unit_doctors = SubjectUnitDoctor::query()
-                ->where('period','=',$period->period)
-                ->where('year','=',$period->year_start)
+                ->where('period', '=', $period->period)
+                ->where('year', '=', $period->year_start)
                 ->get();
 
             return Datatables::of($subject_unit_doctors)
 
                 ->editColumn('subject_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->subject_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->subject->subject_name . '</td>';
                 })
                 ->addColumn('group_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->group->group_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->subject->group->group_name . '</td>';
                 })
                 ->addColumn('unit_id', function ($subject_unit_doctors) {
-                    return'<td>'. $subject_unit_doctors->subject->unit->unit_name .'</td>';
+                    return '<td>' . $subject_unit_doctors->subject->unit->unit_name . '</td>';
                 })
                 ->editColumn('year', function ($subject_unit_doctors) {
                     $date = new DateTime($subject_unit_doctors->year);
@@ -44,5 +43,4 @@ class SubjectController extends Controller{
             return view('admin.subject_unit_doctors.doctors.index');
         }
     }
-
 }
