@@ -16,13 +16,11 @@ class SubjectStudentController extends Controller{
 
     public function index(Request $request){
         if ($request->ajax()) {
-            $period = Period::query()
-                ->where('status', '=', 'start')
-                ->first();
+
             $subject_students = SubjectStudent::query()
-                ->where('period', '=', $period->period)
+                ->where('period', '=', period()->period)
                 ->where('user_id','=',Auth::id())
-                ->where('year','=', $period->year_start)
+                ->where('year','=', period()->year_start)
                 ->get();
 
             return Datatables::of($subject_students)
@@ -39,15 +37,12 @@ class SubjectStudentController extends Controller{
 
                 ->addColumn('doctor_id', function ($subject_students) {
 
-                    $period = Period::query()
-                        ->where('status', '=', 'start')
-                        ->first();
 
                     $doctor = @SubjectUnitDoctor::query()
                     ->where('subject_id','=',$subject_students->subject_id)
                         ->where('group_id','=',$subject_students->group_id)
-                        ->where('period', '=', $period->period)
-                        ->where('year','=', $period->year_start)
+                        ->where('period', '=', period()->period)
+                        ->where('year','=', period()->year_start)
                         ->first()
                         ->doctor;
                     return @$doctor->first_name . " " . @$doctor->last_name;

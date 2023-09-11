@@ -195,6 +195,16 @@ if (!function_exists('api')) {
     }
 }
 
+
+if (!function_exists('period')) {
+    function period()
+    {
+        return Period::query()
+            ->where('status','=','start')
+            ->first();
+    }
+}
+
 if (!function_exists('helperJson')) {
     function helperJson($data = null, $message = '', $code = 200, $status = 200): JsonResponse
     {
@@ -364,6 +374,7 @@ if (!function_exists('departmentStudentCount')) {
         {
 
             return  ProcessDegree::query()
+                ->where('processing_date', '=', null)
                 ->whereDate('created_at', '=', \Carbon\Carbon::now()->format('Y-m-d'))
                 ->count();
         }

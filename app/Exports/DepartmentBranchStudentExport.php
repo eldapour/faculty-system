@@ -51,7 +51,7 @@ class DepartmentBranchStudentExport implements FromCollection, WithHeadings, Wit
                 'id' => $q->id,
                 'register_year' => (string) $q->register_year,
                 'branch_restart_register' =>(string) $q->branch_restart_register,
-                'user' => (integer) $q->student->identifier_id,
+                'user' =>  $q->student->identifier_id,
                 'department_branch_id' => (string) $q->department_branch_id,
             ];
             $data[] = $query_data;

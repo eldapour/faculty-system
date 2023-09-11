@@ -19,6 +19,9 @@ return [
     "normal" => "normal round results",
     "remedial" => "Remedial Course Results",
     "add_request_button" => "Button Request",
+    "add_before_request_button" => "The request has been submitted",
+
+    "cancel_request_button" => "Request timed out",
 
 
 ];
