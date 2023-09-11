@@ -41,5 +41,4 @@ class SubjectExamStudentResult extends Model
         return $this->belongsTo(User::class, 'user_id', 'id')->where('user_type', 'student');
     }
 
-
 }
