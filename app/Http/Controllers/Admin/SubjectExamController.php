@@ -248,7 +248,7 @@ class SubjectExamController extends Controller
 
         return view('admin.subject_exams.print', compact('subject_exam_students'));
 
-    }
+    }//end fun
 
 
 
