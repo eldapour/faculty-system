@@ -101,7 +101,7 @@
                             <div class="left_section_1 col-6">
                                 <h5 class="mb-2 print">استدعاء الامتحانات</h5>
                                 <p>{{ period()->year_start }}: {{ period()->year_end }}</p>
-                                <h6 class="mb-4 print">{{ period()->period }} - {{ period()->session }}</h6>
+                                <h6 class="mb-4 print">{{ period()->period  }}</h6>
                             </div>
                             <!--end left_section_1 -->
                             <div class="image-logo1 right_section_1 col-6">
