@@ -116,7 +116,6 @@ class SubjectExamStudentResultController extends Controller
         if ($request->ajax()) {
 
 
-
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period','=','استدراكيه')
                 ->where('user_id','=',Auth::id())

@@ -60,7 +60,6 @@ class SubjectExamStudentController extends Controller {
                     return $subject_exam_students->subject_exam->time_end;
                 })
 
-
                 ->escapeColumns([])
                 ->make(true);
         } else {

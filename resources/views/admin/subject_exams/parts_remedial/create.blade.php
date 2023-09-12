@@ -4,14 +4,23 @@
         @csrf
         <div class="form-group">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                     <label for="group_id" class="form-control-label">@lang('admin.year')</label>
                     <input type="number" class="form-control" name="year" id="year">
 
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12 mt-3">
+                    <label for="group_id" class="form-control-label">@lang('admin.exam_code')</label>
+
+                    <input type="text" class="form-control" name="exam_code" id="exam_code">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-3">
                     <label for="group_id" class="form-control-label">@lang('admin.group_name')</label>
                     <select class="form-control" name="group_id" id="group_id">
                         <option style="text-align: center" value="" selected disabled>@lang('admin.select')</option>
@@ -22,7 +31,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="department_id" class="form-control-label">@lang('admin.department')</label>
                     <select class="form-control" name="department_id" required>
                         <option style="text-align: center" value="" selected >@lang('admin.select')</option>
@@ -34,13 +43,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="department_branch_id" class="form-control-label">@lang('admin.branch')</label>
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="subject_id" class="form-control-label">@lang('admin.subject')</label>
                     <select class="form-control" name="subject_id" id="subject_id">
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -48,17 +57,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="title" class="form-control-label">{{ trans('admin.exam_date') }}</label>
                     <input type="date" class="form-control" name="exam_date">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="title" class="form-control-label">{{ trans('admin.exam_day') }}</label>
                     <input type="text" class="form-control" name="exam_day">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                     <label for="period" class="form-control-label">{{ trans('admin.period') }}</label>
                     <select name="period" class="form-control">
                         <option value="" selected disabled>@lang('admin.select')</option>
@@ -66,7 +75,7 @@
                         <option value="خريفيه" style="text-align: center">{{ trans('admin.fall') }}</option>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <input type="hidden" name="session" value="استدراكيه">
                     {{--  <label for="period" class="form-control-label">{{ trans('admin.session') }}</label>
                     <select name="session" class="form-control">
@@ -76,11 +85,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="time_start" class="form-control-label">{{ trans('admin.time_start') }}</label>
                     <input type="time" class="form-control" name="time_start">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="period" class="form-control-label">{{ trans('admin.time_end') }}</label>
                     <input type="time" class="form-control" name="time_end">
                 </div>

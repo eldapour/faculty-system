@@ -205,12 +205,16 @@
                 success: function(data) {
                     if (data.code == 200) {
                         if (data.status == 'new') {
+                            $('#dataTable').DataTable().ajax.reload();
                             toastr.success('{{ trans('admin.request_status_is_new') }}');
                         } else if (data.status == 'accept') {
+                            $('#dataTable').DataTable().ajax.reload();
                             toastr.success('{{ trans('admin.request_status_is_accepted') }}');
                         } else if (data.status == 'refused') {
+                            $('#dataTable').DataTable().ajax.reload();
                             toastr.success('{{ trans('admin.request_status_is_refused') }}');
                         } else if (data.status == 'under_processing') {
+                            $('#dataTable').DataTable().ajax.reload();
                             toastr.success('{{ trans('admin.request_status_is_under_processing') }}');
                         }
                     }
