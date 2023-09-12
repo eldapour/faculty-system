@@ -286,7 +286,4 @@ class SubjectExamController extends Controller
             return response()->json(['status' => 405]);
         }
     }
-
-
-
 }
