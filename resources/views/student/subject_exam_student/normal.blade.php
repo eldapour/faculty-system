@@ -30,7 +30,7 @@
 
 
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('subject_student_data.id')}}</th>
+                                {{-- <th class="min-w-25px">{{trans('subject_student_data.id')}}</th> --}}
                                 <th class="min-w-25px">{{trans('subject_student_data.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('admin.subject_name_')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.group_id')}}</th>
@@ -59,7 +59,7 @@
             <script>
 
                 var columns = [
-                    {data: 'id', name: 'id'},
+                    // {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
                     {data: 'code', name: 'code'},
                     {data: 'group_id', name: 'group_id'},

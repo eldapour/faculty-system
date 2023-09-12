@@ -32,7 +32,7 @@
                             <thead>
 
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('process_exam.id')}}</th>
+                                {{-- <th class="min-w-25px">{{trans('process_exam.id')}}</th> --}}
                                 <th class="min-w-25px">{{trans('process_exam.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('process_exam.student')}}</th>
                                 <th class="min-w-25px">{{trans('process_exam.year')}}</th>
@@ -104,7 +104,7 @@
 
 
                 var columns = [
-                    {data: 'id', name: 'id'},
+                    // {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
                     {data: 'user_id', name: 'user_id'},
                     {data: 'year', name: 'year'},

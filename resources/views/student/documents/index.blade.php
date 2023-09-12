@@ -27,7 +27,7 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('admin.document_id')}}</th>
+                                {{-- <th class="min-w-25px">{{trans('admin.document_id')}}</th> --}}
                                 <th class="min-w-25px">{{trans('admin.student_name')}}</th>
                                 <th class="min-w-25px">{{trans('admin.identifier_id_student')}} </th>
                                 <th class="min-w-25px">{{trans('admin.document_type')}} </th>
@@ -99,7 +99,7 @@
         `;
 
         var columns = [
-            {data: 'id', name: 'id'},
+            // {data: 'id', name: 'id'},
             {data: 'user_id', name: 'user_id'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'document_type_id', name: 'document_type_id'},
