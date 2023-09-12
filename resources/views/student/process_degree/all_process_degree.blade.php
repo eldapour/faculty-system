@@ -18,7 +18,7 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
-                                <th class="min-w-25px">{{trans('process_exam.id')}}</th>
+                                {{-- <th class="min-w-25px">{{trans('process_exam.id')}}</th> --}}
                                 <th class="min-w-25px">{{trans('process_degree.identifier_id')}}</th>
                                 <th class="min-w-25px">{{trans('admin.student_name')}}</th>
                                 <th class="min-w-25px">{{trans('process_degree.subject_id')}}</th>
@@ -76,7 +76,7 @@
             <script>
 
                 var columns = [
-                    {data: 'id', name: 'id'},
+                    // {data: 'id', name: 'id'},
                     {data: 'identifier_id', name: 'identifier_id'},
                     {data: 'student_name', name: 'student_name'},
                     {data: 'subject_id', name: 'subject_id'},
