@@ -36,9 +36,6 @@ class SubjectExamStudent extends Model
     }
 
 
-
-
-    //latest updates
     public function subject_exam(): BelongsTo
     {
         return $this->belongsTo(SubjectExam::class,'subject_exam_id','id');
