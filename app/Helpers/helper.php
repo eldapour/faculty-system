@@ -260,9 +260,6 @@ if (!function_exists('processExamCountUser')) {
     function processExamCountUser(): int
     {
 
-        $period = \App\Models\Period::query()
-            ->where('status', '=', 'start')
-            ->first();
 
 
         $processExamCount = ProcessExam::query()
@@ -364,6 +361,7 @@ if (!function_exists('departmentStudentCount')) {
         {
 
             return  ProcessExam::query()
+                ->where('processing_request_date','=',null)
                 ->whereDate('created_at', '=', \Carbon\Carbon::now()->format('Y-m-d'))
                 ->count();
         }

@@ -15,6 +15,7 @@ use App\Models\SubjectExamStudentResult;
 use App\Models\SubjectStudent;
 use App\Models\SubjectUnitDoctor;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -131,8 +132,10 @@ class ProcessDegreeController extends Controller
 
 
         $subjectExamStudent = SubjectExamStudent::query()
+            ->whereHas('subject_exam', fn(Builder $builder)=>
+            $builder->where('subject_id','=',$id)
+            )
             ->where('year','=',period()->year_start)
-            ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
 
@@ -183,8 +186,10 @@ class ProcessDegreeController extends Controller
 
 
         $subjectExamStudent = SubjectExamStudent::query()
+            ->whereHas('subject_exam', fn(Builder $builder)=>
+            $builder->where('subject_id','=',$id)
+            )
             ->where('year','=',period()->year_start)
-            ->where('subject_id','=',$subject->id)
             ->where('user_id','=',Auth::id())
             ->first();
 

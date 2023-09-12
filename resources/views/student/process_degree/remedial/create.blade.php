@@ -16,7 +16,7 @@
 
                 <input type="hidden" name="section" id="section" value="{{$subjectExamStudent->section}}">
 
-                <input type="hidden" name="exam_code" id="exam_code" value="{{$subjectExamStudent->exam_code}}">
+                <input type="hidden" name="exam_code" id="exam_code" value="{{$subjectExamStudent->subject_exam->exam_code}}">
 
 
                 <div class="col-md-12 col-12">
