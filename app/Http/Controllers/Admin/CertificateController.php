@@ -386,14 +386,12 @@ class CertificateController extends Controller
             ->where('period', '=', $period->period)
             ->where('user_id', '=', Auth::id())
             ->where('year', '=', $period->year_start)
-            ->whereIn('subject_id', $subject_ids)
             ->first();
 
         $section = SubjectExamStudent::query()
             ->where('period', '=', $period->period)
             ->where('year', '=', $period->year_start)
             ->where('user_id', '=', Auth::id())
-            ->whereIn('subject_id', $subject_ids)
             ->first();
 
         return view('admin.certificates.school_certificate', compact([

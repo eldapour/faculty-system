@@ -239,7 +239,7 @@ class DocumentController extends Controller
     }
 
 
-    public function destroy(Request $request)
+    public function delete(Request $request)
     {
         $document = Document::query()
         ->where('id', $request->id)
