@@ -10,7 +10,7 @@ use Yajra\DataTables\DataTables;
 
 class SubjectExamStudentController extends Controller {
 
-    //new
+
     public function normal(Request $request){
 
         if ($request->ajax()) {

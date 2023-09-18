@@ -240,13 +240,31 @@ class SubjectExamController extends Controller
 
 
         $subject_exam_students = SubjectExamStudent::query()
-            ->where('period', '=', period()->period)
+            ->where('period', '=',period()->period)
+            ->where('session', '=','عاديه')
             ->where('year', '=', period()->year_start)
             ->where('user_id', '=', Auth::id())
             ->get();
 
 
         return view('admin.subject_exams.print', compact('subject_exam_students'));
+
+    }
+
+
+    public function student_exam_print_2()
+    {
+
+
+        $subject_exam_students = SubjectExamStudent::query()
+            ->where('period', '=',period()->period)
+            ->where('session', '=','استدراكيه')
+            ->where('year', '=', period()->year_start)
+            ->where('user_id', '=', Auth::id())
+            ->get();
+
+
+        return view('admin.subject_exams.print_2', compact('subject_exam_students'));
 
     }//end fun
 

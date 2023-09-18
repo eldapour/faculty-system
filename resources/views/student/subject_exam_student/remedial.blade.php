@@ -76,7 +76,7 @@
                 showData('{{route('subject-exam-student-remedial')}}', columns);
 
                 $(document).on('click', '#printBtn',function(){
-                    window.location.href='{{ route('subject_exams.print') }}';
+                    window.location.href='{{ route('subject_exams.printRemedial') }}';
                 })
 
             </script>

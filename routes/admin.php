@@ -205,6 +205,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     #### Subject Exam ####
     Route::resource('subject_exams', SubjectExamController::class);
     Route::get('/students-exam-print/', [SubjectExamController::class, 'student_exam_print'])->name('subject_exams.print');
+    Route::get('/students-exam-print-2/', [SubjectExamController::class, 'student_exam_print_2'])->name('subject_exams.printRemedial');
     Route::get('remedial_session', [SubjectExamController::class, 'remedialSession'])->name('remedialSession')->middleware('forbidden');
     Route::get('normal_session', [SubjectExamController::class, 'normalSession'])->name('normalSession')->middleware('forbidden');
     Route::get('create_remedial', [SubjectExamController::class, 'createRemedial'])->name('createRemedial')->middleware('forbidden');
