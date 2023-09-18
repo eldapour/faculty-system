@@ -177,7 +177,7 @@ class SubjectExamStudentController extends Controller
 
             )
             ->pluck('first_name', 'id');
-    } // end of all students
+    }
 
 
     public function exportSubjectExamStudent(): \Symfony\Component\HttpFoundation\BinaryFileResponse
