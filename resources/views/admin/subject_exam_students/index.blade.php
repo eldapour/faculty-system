@@ -56,6 +56,7 @@
                                 <th class="min-w-25px">{{trans('subject_student_data.identifier_id')}}</th>
                                 <th class="min-w-25px">{{ trans('subject_exam_student_result.student') }}</th>
                                 <th class="min-w-25px">{{trans('admin.subject_name_')}}</th>
+                                <th class="min-w-25px">{{trans('admin.session')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.group_id')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_day')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_date')}}</th>
@@ -172,6 +173,7 @@
                     {data: 'identifier_id', name: 'identifier_id'},
                     {data: 'user', name: 'user'},
                     {data: 'code', name: 'code'},
+                    {data: 'session', name: 'session'},
                     {data: 'group_id', name: 'group_id'},
                     {data: 'exam_day', name: 'exam_day'},
                     {data: 'exam_date', name: 'exam_date'},
