@@ -23,7 +23,7 @@ class SubjectUnitDoctorController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $subject_unit_doctors = SubjectUnitDoctor::where('user_id', '=', auth()->user()->id)->get();
+            $subject_unit_doctors = SubjectUnitDoctor::get();
             return Datatables::of($subject_unit_doctors)
                 ->addColumn('action', function ($subject_unit_doctors) {
                     return '
