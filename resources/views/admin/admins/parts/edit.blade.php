@@ -63,12 +63,13 @@
 
 
         <div class="form-group">
+
             <label class="form-label">{{trans('admin.user_type')}}</label>
             <select name="user_type" id="type" class="form-control select2" data-placeholder="Choose user type">
                 <option value="">{{ trans('admin.select') }}</option>
-                <option class="form-control" value="manger">@lang('login.manger')</option>
-                <option class="form-control" value="employee">@lang('login.employee')</option>
-                <option class="form-control" value="factor">@lang('login.factor')</option>
+                <option class="form-control" value="manger" {{$admin->user_type == 'manger' ? 'selected' : ''}}>@lang('login.manger')</option>
+                <option class="form-control" value="employee" {{$admin->user_type == 'employee' ? 'selected' : ''}}>@lang('login.employee')</option>
+                <option class="form-control" value="factor" {{$admin->user_type == 'factor' ? 'selected' : ''}}>@lang('login.factor')</option>
             </select>
         </div>
 
