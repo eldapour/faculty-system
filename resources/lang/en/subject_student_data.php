@@ -15,4 +15,7 @@ return [
     "year" => "academic year",
     "exam_code" => "exam number",
     "section" => "hall",
+
+    "exam_code_name" => "Exam code",
+    "exam_number_name" => "Exam number",
 ];

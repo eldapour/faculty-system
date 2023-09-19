@@ -156,12 +156,13 @@
                                 <th class="min-w-50px">{{ trans('admin.unit_name') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.subject_name_') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.group_name_') }}</th>
-                                <th class="min-w-25px">{{ trans('admin.session') }}</th>
                                 <th class="min-w-25px">{{ trans('admin.day_name_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.date_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.time_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.section_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.exam_code_') }}</th>
+                                <th class="min-w-25px">{{trans('subject_student_data.exam_number_name')}}</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -171,12 +172,12 @@
                                     <td>{{ $subject_exam_student->subject_exam->subject->unit->unit_name }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->subject->subject_name }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->group->group_name }}</td>
-                                    <td>{{ $subject_exam_student->session }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->exam_day }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->exam_date }}</td>
                                     <td>{{$subject_exam_student->subject_exam->time_start . ' - ' . $subject_exam_student->subject_exam->time_end}}</td>
                                     <td>{{ $subject_exam_student->section }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->exam_code }}</td>
+                                    <td>{{ $subject_exam_student->exam_number }}</td>
 
                                 </tr>
                             @endforeach

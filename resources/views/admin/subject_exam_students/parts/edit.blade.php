@@ -26,7 +26,7 @@
                         <option value="" >{{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
                         @foreach($departments as $department)
                             <option
-                                {{ $subjectExamStudent->subject->department_id == $department->id ? 'selected' : '' }}
+                                {{ $subjectExamStudent->subject_exam->subject->department_id == $department->id ? 'selected' : '' }}
                                 value="{{ $department->id }}">
                                 {{ $department->getTranslation('department_name',lang()) }}
                             </option>
@@ -44,8 +44,8 @@
                     <select class="form-control" name="department_branch_id" id="department_branch_id">
                         <option value="" disabled>
                             {{ trans('admin.select') . ' ' . trans('admin.department') }}</option>
-                        <option value="{{ $subjectExamStudent->subject->department_branch_id }}"
-                        selected>{{ $subjectExamStudent->subject->department_branch->getTranslation('branch_name',app()->getLocale()) }}</option>
+                        <option value="{{ $subjectExamStudent->subject_exam->subject->department_branch_id }}"
+                        selected>{{ $subjectExamStudent->subject_exam->subject->department_branch->getTranslation('branch_name',app()->getLocale()) }}</option>
                     </select>
                 </div>
 
@@ -76,7 +76,12 @@
                 </div>
                 <div class="col-md-6">
                     <label for="exam_code" class="form-control-label">{{ trans('admin.exam_code') }}</label>
-                    <input type="text" value="{{ $subjectExamStudent->exam_code }}" class="form-control" name="exam_code" required>
+                    <input type="text" value="{{ $subjectExamStudent->subject_exam->exam_code }}" class="form-control" name="exam_code" required>
+                </div>
+
+                <div class="col-md-12 col-12">
+                    <label for="exam_code" class="form-control-label">{{ trans('subject_student_data.exam_number_name') }}</label>
+                    <input type="text" value="{{ $subjectExamStudent->exam_number }}" class="form-control" name="exam_number" required>
                 </div>
             </div>
             <div class="row">

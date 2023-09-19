@@ -25,17 +25,10 @@ class SubjectExamStudentResultController extends Controller
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $period = Period::query()
-                ->where('status', '=', 'start')
-                ->first();
-
-            $doctorSubjects = SubjectUnitDoctor::where('user_id', auth()->user()->id)
-                ->pluck('subject_id')
-                ->toArray();
 
             $subject_exam_student_results = SubjectExamStudentResult::query()
-                ->whereIn('subject_id', $doctorSubjects)
-                ->where('year', '=', $period->year_start)
+                ->where('period', '=','عاديه')
+                ->where('year', '=', period()->year_start)
                 ->get();
 
             return Datatables::of($subject_exam_student_results)
@@ -80,13 +73,11 @@ class SubjectExamStudentResultController extends Controller
 
     public function index2(request $request)
     {
-        $period = Period::query()
-            ->where('status', '=', 'start')
-            ->first();
+
 
         if ($request->ajax()) {
             $subject_exam_student_results = SubjectExamStudentResult::query()
-                ->where('period', '=', 'استدراكيه')
+                ->where('period', '=','استدراكيه')
                 ->where('year', '=', period()->year_start)
                 ->get();
 

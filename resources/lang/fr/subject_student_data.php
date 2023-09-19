@@ -15,5 +15,6 @@ return [
     "year" => "année académique",
     "exam_code" => "numéro d'examen",
     "section" => "salle",
-
+    "exam_code_name" => "code d'examen",
+    "exam_number_name" => "numéro d'examen",
 ];

@@ -80,7 +80,7 @@ class SubjectExamStudentResultController extends Controller
                     $html = '';
                     if($processing_request > 0){
 
-                        if( $process_degree > 0){
+                        if($process_degree > 0){
 
                             $html .= '
                             <button type="button" class="btn btn-pill btn-danger"> ' . trans('student_result.add_before_request_button') . '  </button>
@@ -92,6 +92,12 @@ class SubjectExamStudentResultController extends Controller
                             <button type="button" data-id="' . $subject_exam_student_results->subject_id . '" class="btn btn-pill btn-info-light add-request"> ' . trans('student_result.add_request_button') . '  </button>
                        ';
                         }
+
+                    } else if($process_degree > 0){
+
+                        $html .= '
+                            <button type="button" class="btn btn-pill btn-danger"> ' . trans('student_result.add_before_request_button') . '  </button>
+                       ';
 
                     }else{
                         $html .= '
