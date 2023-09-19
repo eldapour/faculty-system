@@ -13,7 +13,7 @@
                     <select class="form-control" name="group_id" id="group_id">
                         <option value="" disabled>{{ trans('admin.select') . ' ' . trans('admin.group') }}</option>
                         @foreach($groups as $group)
-                            <option {{ $subjectExamStudent->subject->group_id == $group->id ? 'selected' : '' }}
+                            <option {{ $subjectExamStudent->subject_exam->group_id == $group->id ? 'selected' : '' }}
                                     value="{{ $group->id }}">
                                 {{ $group->getTranslation('group_name',lang()) }}
                             </option>
