@@ -34,12 +34,14 @@ class ProcessExamController extends Controller{
 
                 ->addColumn('action', function ($process_exams) {
 
-                    $deadline = Deadline::query()
-                        ->where('year','=',period()->year_start)
-                        ->where('period','=',period()->period)
-                        ->where('deadline_type','=',0)
-                        ->first();
-                    if($deadline->deadline_end_date < Carbon::now()->format('Y-m-d')){
+//                    $deadline = Deadline::query()
+//                        ->where('year','=',period()->year_start)
+//                        ->where('period','=',period()->period)
+//                        ->where('deadline_type','=',0)
+//                        ->first();
+
+
+                    if($process_exams->request_status == 'new'){
 
                         return '
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
@@ -47,13 +49,9 @@ class ProcessExamController extends Controller{
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
-                    }else{
+                    } else{
 
-                        return '
-                            <button disabled class="btn btn-pill btn-danger-light" data-toggle="modal">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                       ';
+                        return 'Not Delete Access';
                     }
 
                 })

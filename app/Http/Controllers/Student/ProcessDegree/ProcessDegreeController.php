@@ -41,14 +41,7 @@ class ProcessDegreeController extends Controller
                 ->addColumn('action', function ($process_degrees) {
 
 
-
-                    $deadline = Deadline::query()
-                        ->where('year', '=', period()->year_start)
-                        ->where('period', '=', period()->period)
-                        ->where('deadline_type', '=', 1)
-                        ->first();
-
-                    if ($deadline->deadline_end_date < Carbon::now()->format('Y-m-d')) {
+                    if ($process_degrees->request_status == 'new') {
 
                         return '
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
@@ -58,12 +51,7 @@ class ProcessDegreeController extends Controller
                        ';
                     } else {
 
-                        return '
-                            <button disabled class="btn btn-pill btn-danger-light"
-                            data-id="' . $process_degrees->id . '" data-title="' . $process_degrees->subject_name . '" data-target="#delete_modal">
-                                    <i class="fas fa-trash"></i>
-                            </button>
-                       ';
+                      return 'Delete Not Access';
                     }
 
                 })

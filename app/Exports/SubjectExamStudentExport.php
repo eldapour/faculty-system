@@ -22,6 +22,7 @@ class SubjectExamStudentExport implements FromCollection, WithHeadings,ShouldAut
             '#',
             'User Code',
             'exam code',
+            'exam number',
             'section',
             'period (ربيعيه, خريفيه)',
             'session (عاديه, استدراكيه)',
@@ -42,6 +43,7 @@ class SubjectExamStudentExport implements FromCollection, WithHeadings,ShouldAut
                 'id' => $q->id,
                 'User Code' => (string) $q->user->identifier_id,
                 'Exam Code' => (string) $q->subject_exam->exam_code,
+                'Exam Number' => (string) $q->exam_number,
                 'section' => (string) $q->section,
                 'period' => (string) $q->period,
                 'session' => (string) $q->session,
@@ -49,6 +51,7 @@ class SubjectExamStudentExport implements FromCollection, WithHeadings,ShouldAut
             ];
             $data[] = $query_data;
         }
+
         return collect([$data]);
 
     }

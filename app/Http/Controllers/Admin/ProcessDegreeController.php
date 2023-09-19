@@ -29,13 +29,21 @@ class ProcessDegreeController extends Controller
         if ($request->ajax()) {
             return Datatables::of($process_degrees)
                 ->addColumn('action', function ($process_degrees) {
-                    return '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal" data-id="' .
-                        $process_degrees->id .
-                        '" data-title="' .
-                        $process_degrees->user .
-                        '">
+
+                    if($process_degrees->request_status == 'new') {
+
+                        return '<button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal" data-id="' .
+                            $process_degrees->id .
+                            '" data-title="' .
+                            $process_degrees->user .
+                            '">
                         <i class="fas fa-trash"></i>
                     </button>';
+
+                    }else{
+
+                        return 'Delete Not Access';
+                    }
                 })
                 ->addColumn('user_id', function () {
                     return '<td>' . auth()->user()->first_name . '</td>';

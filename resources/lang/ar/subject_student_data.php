@@ -15,6 +15,8 @@ return [
     "year" => "السنه الجامعيه",
     "exam_code" => "رقم الامتحان",
     "section" => "القاعه",
+    "exam_code_name" => "رمز الامتحان",
+    "exam_number_name" => "رقم الامتحان",
 
 
 

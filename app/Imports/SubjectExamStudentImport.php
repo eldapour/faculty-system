@@ -20,9 +20,9 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
 {
     public function collection(Collection $rows): void
     {
+
         SubjectExamStudent::query()->select('*')->delete();
         for ($i = 0; $i < count($rows); $i++) {
-
 
             $user = User::where('user_type', '=', 'student')
                 ->where('identifier_id','=', $rows[$i]['user_code'])->first('id');
@@ -32,6 +32,7 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
             SubjectExamStudent::create([
                 'user_id' => $user->id,
                 'subject_exam_id' => $subject_exam->id,
+                'exam_number' => $rows[$i]['exam_number'],
                 'section' => $rows[$i]['section'],
                 'period' => $rows[$i]['period_rbyaayh_khryfyh'],
                 'session' => $rows[$i]['session_aaadyh_astdrakyh'],
