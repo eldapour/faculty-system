@@ -20,14 +20,11 @@ class PointStatementController extends Controller{
 
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
+
 
             $pointStatements = PointStatement::query()
-                ->where('user_id', '=', auth()->user()->id)
-                ->where('course','=',$period->session)
-                ->where('year','=',$period->year_start)
+                ->where('user_id', '=', auth()->id())
+                ->where('year','=',period()->year_start)
                 ->get();
 
             return Datatables::of($pointStatements)

@@ -105,7 +105,7 @@ class SubjectExamStudentController extends Controller
     public function edit(SubjectExamStudent $subjectExamStudent)
     {
         $groups = Group::query()
-            ->select('id', 'group_name')
+            ->select('id','group_name')
             ->get();
 
         $units = Unit::query()

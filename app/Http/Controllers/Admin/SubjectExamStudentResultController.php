@@ -76,7 +76,7 @@ class SubjectExamStudentResultController extends Controller
         } else {
             return view('admin.subject_exam_student_results.index');
         }
-    } // end of index
+    }
 
     public function index2(request $request)
     {
@@ -87,7 +87,7 @@ class SubjectExamStudentResultController extends Controller
         if ($request->ajax()) {
             $subject_exam_student_results = SubjectExamStudentResult::query()
                 ->where('period', '=', 'استدراكيه')
-                ->where('year', '=', $period->year_start)
+                ->where('year', '=', period()->year_start)
                 ->get();
 
             return Datatables::of($subject_exam_student_results)
