@@ -87,13 +87,11 @@ class User extends Authenticatable
 
     public function user_department(): HasOne
     {
-        $period = Period::where('status', 'start')->first();
-        return $this->hasOne(DepartmentStudent::class)->where('period', '=', $period->period)
-            ->where('year', '=', $period->year_start);
+        return $this->hasOne(DepartmentStudent::class)->where('period', '=', period()->period)
+            ->where('year', '=', period()->year_start);
     }
     public function user_department_branch(): HasOne
     {
-        $period = Period::where('status', 'start')->first();
         return $this->hasOne(DepartmentBranchStudent::class);
     }
 
