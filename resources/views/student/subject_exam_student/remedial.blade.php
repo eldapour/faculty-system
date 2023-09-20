@@ -41,7 +41,6 @@
                                 <th class="min-w-25px">{{trans('subject_student_data.time_end')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.period')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.year')}}</th>
-                                <th class="min-w-25px">{{trans('subject_student_data.exam_code_name')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_number_name')}}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.section')}}</th>
 
@@ -71,7 +70,6 @@
                     {data: 'time_end', name: 'time_end'},
                     {data: 'period', name: 'period'},
                     {data: 'year', name: 'year'},
-                    {data: 'exam_code', name: 'exam_code'},
                     {data: 'exam_number', name: 'exam_number'},
                     {data: 'section', name: 'section'},
                 ]

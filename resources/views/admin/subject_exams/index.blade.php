@@ -40,7 +40,6 @@
                                 <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_code_name')}}</th>
-
                                 <th class="min-w-50px">{{trans('admin.actions')}}</th>
                             </tr>
                             </thead>
