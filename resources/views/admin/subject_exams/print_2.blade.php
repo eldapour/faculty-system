@@ -162,12 +162,27 @@
                                 <th class="min-w-50px">{{ trans('admin.section_') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.exam_code_') }}</th>
                                 <th class="min-w-25px">{{trans('subject_student_data.exam_number_name')}}</th>
+                                <th class="min-w-25px">{{ trans('admin.doctor') }}</th>
+
 
                             </tr>
                             </thead>
                             <tbody>
 
                             @foreach($subject_exam_students as $subject_exam_student)
+
+                                @php
+                                    $doctor = App\Models\SubjectUnitDoctor::query()
+                                    ->with(['doctor'])
+                                    ->whereHas('doctor', function ($q) use($subject_exam_student){
+                                        $q->where('subject_id','=',$subject_exam_student->subject_exam->subject->id);
+
+                                    })
+                                    ->whereIn('subject_id',$array)
+                                    ->where('period', '=',period()->period)
+                                    ->where('year', '=', period()->year_start)->first()->doctor
+                                @endphp
+
                                 <tr>
                                     <td>{{ $subject_exam_student->subject_exam->subject->unit->unit_name }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->subject->subject_name }}</td>
@@ -178,6 +193,8 @@
                                     <td>{{ $subject_exam_student->section }}</td>
                                     <td>{{ $subject_exam_student->subject_exam->exam_code }}</td>
                                     <td>{{ $subject_exam_student->exam_number }}</td>
+                                    <td>{{ $doctor->first_name . " " .$doctor->last_name}}</td>
+
 
                                 </tr>
                             @endforeach
