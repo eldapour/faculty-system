@@ -33,23 +33,27 @@ class ProcessExamController extends Controller
     {
         if ($request->ajax()) {
 
-            $period = Period::query()
-                ->where('status','=','start')
-                ->first();
-
             $process_exams = ProcessExam::query()
-                ->where('year','=',$period->year_start)
+                ->where('year','=',period()->year_start)
                 ->latest()
                 ->get();
 
             return Datatables::of($process_exams)
                 ->addColumn('action', function ($process_exams) {
-                    return '
+
+                    if($process_exams->request_status == 'new') {
+
+                        return '
                             <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                     data-id="' . $process_exams->id . '" data-title="' . $process_exams->user->first_name . '">
                                     <i class="fas fa-trash"></i>
                             </button>
                        ';
+                    }else{
+
+                        return 'Delete Not Access';
+
+                    }
                 })
 
                 ->editColumn('attachment_file', function ($process_degrees) {
