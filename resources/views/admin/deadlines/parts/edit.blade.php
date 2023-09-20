@@ -43,8 +43,8 @@
                 <label for="period" class="form-control-label">{{trans('deadline.deadline_type')}}</label>
                 <select name="deadline_type" class="form-control">
                     <option value="">@lang('admin.select')</option>
-                    <option value="1" style="text-align: center" {{ $deadline->period == "1" ? 'selected' : '' }}>{{trans('deadline.process_exam')}}</option>
-                    <option value="0" style="text-align: center" {{ $deadline->period == "0" ? 'selected' : '' }}>{{trans('deadline.process_degree')}}</option>
+                    <option value="1" style="text-align: center" {{ $deadline->deadline_type == "1" ? 'selected' : '' }}>{{trans('deadline.process_exam')}}</option>
+                    <option value="0" style="text-align: center" {{ $deadline->deadline_type == "0" ? 'selected' : '' }}>{{trans('deadline.process_degree')}}</option>
                 </select>
             </div>
 
