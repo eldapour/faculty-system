@@ -246,8 +246,23 @@ class SubjectExamController extends Controller
             ->where('user_id', '=', Auth::id())
             ->get();
 
+        $array = [];
+        $subjects = SubjectExamStudent::query()
+            ->where('period', '=',period()->period)
+            ->where('session', '=','عاديه')
+            ->where('year', '=', period()->year_start)
+            ->where('user_id', '=', Auth::id())
+            ->with(['subject_exam.subject'])
+            ->get();
 
-        return view('admin.subject_exams.print', compact('subject_exam_students'));
+        foreach ($subjects as $subject){
+
+            $array[] = $subject->subject_exam->subject->id;
+        }
+
+
+
+        return view('admin.subject_exams.print', compact('subject_exam_students','array'));
 
     }
 
@@ -263,8 +278,21 @@ class SubjectExamController extends Controller
             ->where('user_id', '=', Auth::id())
             ->get();
 
+        $array = [];
+        $subjects = SubjectExamStudent::query()
+            ->where('period', '=',period()->period)
+            ->where('session', '=','استدراكيه')
+            ->where('year', '=', period()->year_start)
+            ->where('user_id', '=', Auth::id())
+            ->with(['subject_exam.subject'])
+            ->get();
 
-        return view('admin.subject_exams.print_2', compact('subject_exam_students'));
+        foreach ($subjects as $subject){
+
+            $array[] = $subject->subject_exam->subject->id;
+        }
+
+        return view('admin.subject_exams.print_2', compact('subject_exam_students','array'));
 
     }//end fun
 
