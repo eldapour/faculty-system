@@ -39,7 +39,8 @@
                                 <th class="min-w-50px">{{ trans('admin.time_end') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.subject') }}</th>
                                 <th class="min-w-50px">{{ trans('admin.group') }}</th>
-                               <th class="min-w-50px">{{trans('admin.actions')}}</th>
+                                <th class="min-w-25px">{{trans('subject_student_data.exam_code_name')}}</th>
+                                <th class="min-w-50px">{{trans('admin.actions')}}</th>
                             </tr>
                             </thead>
                         </table>
@@ -127,6 +128,7 @@
             {data: 'time_end', name: 'time_send'},
             {data: 'subject_id', name: 'subject_id'},
             {data: 'group_id', name: 'group_id'},
+            {data: 'exam_code', name: 'exam_code'},
             {data: 'actions', name: 'actions', orderable: false, searchable: false},
 
         ]
