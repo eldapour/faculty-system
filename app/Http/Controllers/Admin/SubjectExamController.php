@@ -57,83 +57,6 @@ class SubjectExamController extends Controller
     }
 
 
-//    public function remedialSession(Request $request)
-//    {
-//        if ($request->ajax()) {
-//
-//            $period = Period::query()
-//                ->where('status', '=', 'start')
-//                ->first();
-//
-//            $subject_exams = SubjectExam::query()
-//                ->where('period', '=', $period->period)
-//                ->where('year', '=', $period->year_start)
-//                ->where('session', 'استدراكيه')
-//                ->get();
-//
-//            return Datatables::of($subject_exams)
-//                ->addColumn('action', function ($subject_exams) {
-//                    return '
-//                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-//                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-//                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
-//                                    <i class="fas fa-trash"></i>
-//                            </button>
-//                            <a class="btn btn-primary" href="' . route('process_exams.index') . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
-//                       ';
-//                })
-//                ->editColumn('subject_id', function ($subject_exams) {
-//                    return $subject_exams->subject->subject_name;
-//                })
-//                ->addColumn('group_id', function ($subject_exams) {
-//                    return  $subject_exams->subject->group->group_name;
-//                })
-//                ->escapeColumns([])
-//                ->make(true);
-//        } else {
-//            return view('admin.subject_exams.remedial_session');
-//        }
-//    }
-//
-//    public function normalSession(request $request)
-//    {
-//        if ($request->ajax()) {
-//
-//            $period = Period::query()
-//                ->where('status', '=', 'start')
-//                ->first();
-//
-//            $subject_exams = SubjectExam::query()
-//                ->where('period', '=', $period->period)
-//                ->where('year', '=', $period->year_start)
-//                ->where('session', 'عاديه')
-//                ->get();
-//
-//            return Datatables::of($subject_exams)
-//                ->addColumn('action', function ($subject_exams) {
-//                    return '
-//                            <button type="button" data-id="' . $subject_exams->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
-//                            <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-//                                    data-id="' . $subject_exams->id . '" data-title="' . $subject_exams->subject->subject_name . '">
-//                                    <i class="fas fa-trash"></i>
-//                            </button>
-//                            <a class="btn btn-primary" href="' . route('processExamStudent', $subject_exams->id) . '">' . trans('admin.remedial') . '<i class="fa fa-pen"></i></a>
-//                       ';
-//                })
-//                ->editColumn('subject_id', function ($subject_exams) {
-//                    return '<td>' . $subject_exams->subject->subject_name . '</td>';
-//                })
-//                ->addColumn('group_id', function ($subject_exams) {
-//                    return '<td>' . $subject_exams->subject->group->group_name . '</td>';
-//                })
-//                ->escapeColumns([])
-//                ->make(true);
-//        } else {
-//            return view('admin.subject_exams.normal_session');
-//        }
-//    }
-
-
     public function create()
     {
         $groups = Group::query()
@@ -226,12 +149,9 @@ class SubjectExamController extends Controller
 
         return Subject::query()
             ->where('department_branch_id', '=', $request->department_branch_id)
-//            ->where('group_id', '=', $request->group_id)
             ->pluck('subject_name', 'id');
 
-
-
-    } // end of get subject
+    }
 
 
 
@@ -259,7 +179,6 @@ class SubjectExamController extends Controller
 
             $array[] = $subject->subject_exam->subject->id;
         }
-
 
 
         return view('admin.subject_exams.print', compact('subject_exam_students','array'));

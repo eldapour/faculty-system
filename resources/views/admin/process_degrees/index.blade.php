@@ -37,14 +37,7 @@
                         <table class="table table-striped table-bordered text-nowrap w-100" id="dataTable">
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
-{{--                                    <th class="min-w-25px">#</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.user') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.doctor') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.subject') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.period') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.year') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.section') }}</th>--}}
-{{--                                    <th class="min-w-50px">{{ trans('admin.exam_code') }}</th>--}}
+
                                     <th class="min-w-25px">{{trans('process_exam.id')}}</th>
                                     <th class="min-w-25px">{{trans('process_degree.identifier_id')}}</th>
                                     <th class="min-w-25px">{{trans('admin.student_name')}}</th>
@@ -170,38 +163,7 @@
 @section('ajaxCalls')
     <script>
         var columns = [
-            {
-                data: 'id',
-                name: 'id'
-            },
-            // {
-            //     data: 'user_id',
-            //     name: 'user_id'
-            // },
-            // {
-            //     data: 'doctor',
-            //     name: 'doctor'
-            // },
-            // {
-            //     data: 'subject',
-            //     name: 'subject'
-            // },
-            // {
-            //     data: 'period',
-            //     name: 'period'
-            // },
-            // {
-            //     data: 'year',
-            //     name: 'year'
-            // },
-            // {
-            //     data: 'section',
-            //     name: 'section'
-            // },
-            // {
-            //     data: 'exam_code',
-            //     name: 'exam_code'
-            // },
+            {data: 'id', name: 'id'},
             {data: 'identifier_id', name: 'identifier_id'},
             {data: 'student_name', name: 'student_name'},
             {data: 'subject_id', name: 'subject_id'},
@@ -214,16 +176,8 @@
             {data: 'student_degree_after_request', name: 'student_degree_after_request'},
             {data: 'request_type', name: 'request_type'},
             {data: 'request_date', name: 'request_date'},
-            {
-                data: 'request_status',
-                name: 'request_status'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
+            {data: 'request_status', name: 'request_status'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{ route('process_degrees.index') }}', columns);
         // Delete Using Ajax

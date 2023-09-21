@@ -113,7 +113,7 @@ class SubjectStudentController extends Controller
     }
 
 
-    public function update(Request $request, SubjectStudent $subjectStudent)
+    public function update(Request $request, SubjectStudent $subjectStudent): \Illuminate\Http\JsonResponse
     {
 
         if ($subjectStudent->update($request->all())) {
@@ -164,12 +164,12 @@ class SubjectStudentController extends Controller
         }
     } // end function
 
-    public function exportSubjectStudent()
+    public function exportSubjectStudent(): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
         return Excel::download(new SubjectStudentExport(), 'subject student.xlsx');
     }
 
-    public function importSubjectStudent(Request $request)
+    public function importSubjectStudent(Request $request): \Illuminate\Http\JsonResponse
     {
         $import = Excel::import(new SubjectStudentImport(),$request->exelFile);
         if ($import) {

@@ -23,9 +23,9 @@
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
-                    <li><a href="{{ route('dashboard.subject') }}"
+                    <li><a href="{{ route('doctor_subjects_index') }}"
                            class="slide-item">{{ trans('admin.subject_unit_doctors') }}</a></li>
-                    <li><a href="{{ route('subject_exam_student_result.index') }}"
+                    <li><a href="{{ route('doctor_subject_exam_student_result') }}"
                            class="slide-item">{{ trans('admin.result') }}</a></li>
 
                 </ul>
@@ -38,12 +38,12 @@
                         class="angle fa fa-angle-right"></i>
                 </a>
                 <ul class="slide-menu">
-                    <li><a href="{{ route('process_degrees.normal') }}"
+                    <li><a href="{{ route('doctor_process_degrees_normal') }}"
                            class="slide-item">{{ trans('admin.normal') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('process_degrees.catchUp') }}"
+                        <a href="{{ route('doctor_process_degrees_remedial') }}"
                            class="slide-item">{{ trans('admin.catch_up') }}
                         </a>
                     </li>
@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{route('schedules.index')}}">
+                <a class="side-menu__item" href="{{route('doctor_schedules_index')}}">
                     <i class="fe fe-clock side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.Usage schedules') }}</span>
                 </a>
@@ -545,7 +545,7 @@
                 </a>
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{route('subject_exam_students.index')}}">
+                <a class="side-menu__item" href="{{route('manger_subject_exam_students_index')}}">
                     <i class="fe fe-arrow-up-circle side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.subject_exam_students') }}</span>
                 </a>
@@ -556,20 +556,18 @@
                     <span class="side-menu__label">{{ trans('admin.subject_exam_student_results') }}</span><i
                         class="angle fa fa-angle-right"></i>
                 </a>
+
                 <ul class="slide-menu">
-                    <li>
-                        <a href="{{ route('subject_exam_student_result.index') }}"
-                           class="slide-item">{{ trans('admin.normal') }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('results.remedial') }}"
-                           class="slide-item">{{ trans('admin.catch_up') }}</a>
+                    <li><a href="{{route('manger_subject_exam_student_result_normal')}}"
+                           class="slide-item">{{ trans('student_sidebar.subject_exam_student_result_normal') }}</a></li>
+                    <li><a href="{{route('manger_subject_exam_student_result_remedial')}}"
+                           class="slide-item">{{ trans('student_sidebar.subject_exam_student_result_remedial') }}</a>
                     </li>
 
                 </ul>
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{route('points.index')}}">
+                <a class="side-menu__item" href="{{route('manger_point_statement_index')}}">
                     <i class="fe fe-airplay side-menu__icon"></i>
                     <span class="side-menu__label">{{ trans('admin.point statement') }}</span>
                 </a>

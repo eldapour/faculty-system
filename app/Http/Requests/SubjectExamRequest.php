@@ -23,17 +23,39 @@ class SubjectExamRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
 
-            'exam_code' => 'required|unique:subject_exams,exam_code',
-            'exam_date' => 'required|date',
-            'exam_day' => 'required',
-            'year' => 'required',
-            'period' => 'required',
-            'session' => 'required',
-            'time_start' => 'required',
-            'time_end' => 'required',
-            'subject_id' => 'required'
-        ];
+
+        if (request()->isMethod('post')) {
+
+            $rules = [
+                'exam_code' => 'required|unique:subject_exams,exam_code',
+                'exam_date' => 'required|date',
+                'exam_day' => 'required',
+                'year' => 'required',
+                'period' => 'required',
+                'session' => 'required',
+                'time_start' => 'required',
+                'time_end' => 'required',
+                'subject_id' => 'required'
+
+            ];
+
+        }elseif (request()->isMethod('PUT')) {
+
+            $rules = [
+                'exam_code' => 'required|unique:subject_exams,exam_code,' . request()->id,
+                'exam_date' => 'required|date',
+                'exam_day' => 'required',
+                'year' => 'required',
+                'period' => 'required',
+                'session' => 'required',
+                'time_start' => 'required',
+                'time_end' => 'required',
+                'subject_id' => 'required'
+
+            ];
+        }
+
+        return $rules;
     }
 }

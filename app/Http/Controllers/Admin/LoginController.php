@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Session;
 
 class LoginController extends Controller
 {
@@ -74,10 +74,8 @@ class LoginController extends Controller
         return view('admin.auth.active-student');
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
+
+
     public function activeStudents(Request $request): JsonResponse
     {
 //        dd($request->all());
@@ -114,7 +112,7 @@ class LoginController extends Controller
         } else {
             return response()->json(600);
         }
-    } // end active Student
+    }
 
     public function activeStd($token)
     {
@@ -160,10 +158,7 @@ class LoginController extends Controller
         }
     }
 
-    /**
-     * @param $token
-     * @return Application|Factory|View
-     */
+
     public function doResetPass($token)
     {
         $expiredDate = Carbon::now()->addHour();
