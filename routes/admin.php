@@ -280,6 +280,46 @@ Route::group(['prefix' => LaravelLocalization::setLocale() . '/dashboard', 'midd
     Route::resource('subject_exam_student_result', SubjectExamStudentResultController::class);
 
 
+
+    /*
+     *
+     * Start manger dashboard --------------------------------------------------------------------------------------------
+     */
+    Route::get('manger_subject_exam_student_result_normal', [\App\Http\Controllers\Manger\SubjectExamStudentResultController::class,'normal'])->name('manger_subject_exam_student_result_normal');
+    Route::get('manger_subject_exam_student_result_remedial', [\App\Http\Controllers\Manger\SubjectExamStudentResultController::class,'remedial'])->name('manger_subject_exam_student_result_remedial');
+    Route::get('manger_subject_exam_students_index', [\App\Http\Controllers\Manger\SubjectExamStudentController::class,'index'])->name('manger_subject_exam_students_index');
+    Route::get('manger_point_statement_index', [\App\Http\Controllers\Manger\PointStatementController::class,'index'])->name('manger_point_statement_index');
+
+    /*
+     *
+     * End Manger dashboard
+     */
+
+
+
+    /*
+    * Start doctor dashboard --------------------------------------------------------------------------------------------
+    */
+    Route::get('doctor_subjects_index', [\App\Http\Controllers\Doctor\SubjectDoctorController::class,'index'])
+        ->name('doctor_subjects_index');
+
+    Route::get('doctor_subject_exam_student_result', [\App\Http\Controllers\Doctor\SubjectExamStudentResultController::class,'index'])
+        ->name('doctor_subject_exam_student_result');
+
+    Route::get('doctor_process_degrees_normal', [\App\Http\Controllers\Doctor\ProcessDegreeController::class,'normal'])
+        ->name('doctor_process_degrees_normal');
+
+
+    Route::get('doctor_process_degrees_remedial', [\App\Http\Controllers\Doctor\ProcessDegreeController::class,'remedial'])
+        ->name('doctor_process_degrees_remedial');
+
+    Route::get('doctor_schedules_index', [\App\Http\Controllers\Doctor\ScheduleController::class,'index'])
+        ->name('doctor_schedules_index');
+
+    /*
+     * End doctor dashboard
+     */
+
     #### certificates ####
     Route::resource('certificates', CertificateController::class);
     Route::get('certificate/manager', [CertificateController::class, 'managerIndex'])->name('managerIndex');

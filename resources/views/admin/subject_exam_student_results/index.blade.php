@@ -55,6 +55,8 @@
                                 <th class="min-w-25px">{{ trans('subject_exam_student_result.date_enter_degree') }}</th>
                                 <th class="min-w-25px">{{ trans('subject_exam_student_result.year') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trans('admin.actions') }}</th>
+
+
                             </tr>
                             </thead>
                         </table>

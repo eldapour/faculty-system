@@ -21,13 +21,17 @@ class SubjectExamStudentImport implements ToCollection, WithHeadingRow
     public function collection(Collection $rows): void
     {
 
+//        dd($rows);
         SubjectExamStudent::query()->select('*')->delete();
         for ($i = 0; $i < count($rows); $i++) {
 
             $user = User::where('user_type', '=', 'student')
-                ->where('identifier_id','=', $rows[$i]['user_code'])->first('id');
+                ->where('identifier_id','=', $rows[$i]['user_code'])
+                ->first('id');
 
-            $subject_exam = SubjectExam::query()->where('exam_code','=', $rows[$i]['exam_code'])->first('id');
+            $subject_exam = SubjectExam::query()
+                ->where('exam_code','=', $rows[$i]['exam_code'])
+                ->first('id');
 
             SubjectExamStudent::create([
                 'user_id' => $user->id,
